@@ -3,6 +3,25 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_system.IsExist(_file, inCache: true)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileSystem.Remove(String, fromCache : Bool) -&gt; ():FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_client.fileExists(atPath: path.absoluteString)">
+            </PersistentString>
+            <PersistentString
+               value = "path.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
          <PersistentStrings>
             <PersistentString
@@ -10,6 +29,14 @@
             </PersistentString>
             <PersistentString
                value = "LogMessage(Date(), type, tag, message)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileSystem.IsExist(String, inCache : Bool) -&gt; Bool:FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_client.fileExists(atPath: path.absoluteString)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

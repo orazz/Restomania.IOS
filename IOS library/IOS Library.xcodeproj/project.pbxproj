@@ -12,6 +12,8 @@
 		1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE5F1F13BEA1000B92E1 /* Log.swift */; };
 		1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE601F13BEA1000B92E1 /* LogMessage.swift */; };
 		1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE641F13BEB7000B92E1 /* Log.swift */; };
+		1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606B1F13D3A500C14886 /* FileSystem.swift */; };
+		1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606D1F13E98A00C14886 /* FileSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,9 @@
 		1F41CE5F1F13BEA1000B92E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Tools/Log/Log.swift; sourceTree = "<group>"; };
 		1F41CE601F13BEA1000B92E1 /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogMessage.swift; path = Tools/Log/LogMessage.swift; sourceTree = "<group>"; };
 		1F41CE641F13BEB7000B92E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Tools/Log.swift; sourceTree = "<group>"; };
+		1FA2606B1F13D3A500C14886 /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSystem.swift; path = Tools/FileSystem/FileSystem.swift; sourceTree = "<group>"; };
+		1FA2606D1F13E98A00C14886 /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSystem.swift; path = Tools/FileSystem.swift; sourceTree = "<group>"; };
+		1FA260721F13FEC900C14886 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 				1F41CE451F13BE5B000B92E1 /* IOS Library */,
 				1F41CE501F13BE5B000B92E1 /* IOS LibraryTests */,
 				1F41CE441F13BE5B000B92E1 /* Products */,
+				1FA260711F13FEC900C14886 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +100,7 @@
 		1F41CE5D1F13BE8E000B92E1 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1FA2606A1F13D36900C14886 /* FileSystem */,
 				1F41CE5E1F13BE97000B92E1 /* Log */,
 			);
 			name = Tools;
@@ -112,8 +119,25 @@
 			isa = PBXGroup;
 			children = (
 				1F41CE641F13BEB7000B92E1 /* Log.swift */,
+				1FA2606D1F13E98A00C14886 /* FileSystem.swift */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		1FA2606A1F13D36900C14886 /* FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				1FA2606B1F13D3A500C14886 /* FileSystem.swift */,
+			);
+			name = FileSystem;
+			sourceTree = "<group>";
+		};
+		1FA260711F13FEC900C14886 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FA260721F13FEC900C14886 /* XCTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */,
+				1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */,
 				1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */,
 				1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +466,7 @@
 				1F41CE591F13BE5B000B92E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F41CE5A1F13BE5B000B92E1 /* Build configuration list for PBXNativeTarget "IOSLibraryTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +475,7 @@
 				1F41CE5C1F13BE5B000B92E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

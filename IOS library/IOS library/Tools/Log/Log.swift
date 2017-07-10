@@ -12,10 +12,14 @@ import Foundation
 public class Log
 {
     public static var Messages:[LogMessage] = [LogMessage]()
+    public static var IsDebug:Bool = true
     
     public static func Debug(_ tag: String, _ message: String)
     {
-        Show(.Debug, tag, message)
+        if (IsDebug)
+        {
+            Show(.Debug, tag, message)
+        }
     }
     public static func Info(_ tag: String, _ message: String)
     {

@@ -10,20 +10,24 @@
 import XCTest
 @testable import IOSLibrary
 
-public class LogTests: XCTestCase {
-    
-    public override func setUp() {
+public class LogTests: XCTestCase
+{
+    public override func setUp()
+    {
         super.setUp()
+        
+        Log.Messages.removeAll()
+        Log.IsDebug = true
     }
     
-    public override func tearDown() {
+    public override func tearDown()
+    {
         super.tearDown()
     }
     
     
-    public func testLog() {
-        Log.Messages.removeAll()
-        
+    public func testLog()
+    {
         let tag = "TAG"
         let message = "MESSAGE"
         
@@ -41,6 +45,21 @@ public class LogTests: XCTestCase {
         
         XCTAssertEqual(4, Log.Messages.count)
     }
+    public func testDebugLog()
+    {
+        let tag = "TAG"
+        let message = "MESSAGE"
+        
+        Log.IsDebug = true
+        Log.Debug(tag, message)
+        XCTAssertEqual(1, Log.Messages.count)
+        Log.Messages.removeAll()
+        
+        Log.IsDebug = false
+        Log.Debug(tag, message)
+        XCTAssertEqual(0, Log.Messages.count)
+    }
+    
     private func CheckMessage(_ expected:LogMessage, _ type:LogMessageType, _ tag: String, _ message:String) -> Void
     {
         XCTAssertEqual(expected.Type, type)
