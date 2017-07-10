@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FC5A69B1F138A8600ABE1A6"
-               BuildableName = "RestomaniaAppKuzina.app"
-               BlueprintName = "RestomaniaAppKuzina"
-               ReferencedContainer = "container:Restomania.App.Kuzina.xcodeproj">
+               BlueprintIdentifier = "1FC5A6321F138A2200ABE1A6"
+               BuildableName = "IOSLibrary.framework"
+               BlueprintName = "IOSLibrary"
+               ReferencedContainer = "container:IOS Library.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FC5A6AF1F138A8600ABE1A6"
-               BuildableName = "RestomaniaAppKuzina-Tests.xctest"
-               BlueprintName = "RestomaniaAppKuzina-Tests"
-               ReferencedContainer = "container:Restomania.App.Kuzina.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FC5A6BA1F138A8600ABE1A6"
-               BuildableName = "RestomaniaAppKuzina-UITests.xctest"
-               BlueprintName = "RestomaniaAppKuzina-UITests"
-               ReferencedContainer = "container:Restomania.App.Kuzina.xcodeproj">
+               BlueprintIdentifier = "1FC5A76F1F13B6B200ABE1A6"
+               BuildableName = "IOSLibraryTests.xctest"
+               BlueprintName = "IOSLibraryTests"
+               ReferencedContainer = "container:IOS Library.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FC5A69B1F138A8600ABE1A6"
-            BuildableName = "RestomaniaAppKuzina.app"
-            BlueprintName = "RestomaniaAppKuzina"
-            ReferencedContainer = "container:Restomania.App.Kuzina.xcodeproj">
+            BlueprintIdentifier = "1FC5A6321F138A2200ABE1A6"
+            BuildableName = "IOSLibrary.framework"
+            BlueprintName = "IOSLibrary"
+            ReferencedContainer = "container:IOS Library.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -71,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FC5A69B1F138A8600ABE1A6"
-            BuildableName = "RestomaniaAppKuzina.app"
-            BlueprintName = "RestomaniaAppKuzina"
-            ReferencedContainer = "container:Restomania.App.Kuzina.xcodeproj">
+            BlueprintIdentifier = "1FC5A6321F138A2200ABE1A6"
+            BuildableName = "IOSLibrary.framework"
+            BlueprintName = "IOSLibrary"
+            ReferencedContainer = "container:IOS Library.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FC5A69B1F138A8600ABE1A6"
-            BuildableName = "RestomaniaAppKuzina.app"
-            BlueprintName = "RestomaniaAppKuzina"
-            ReferencedContainer = "container:Restomania.App.Kuzina.xcodeproj">
+            BlueprintIdentifier = "1FC5A6321F138A2200ABE1A6"
+            BuildableName = "IOSLibrary.framework"
+            BlueprintName = "IOSLibrary"
+            ReferencedContainer = "container:IOS Library.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

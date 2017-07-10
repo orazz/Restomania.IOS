@@ -4,25 +4,30 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Restomania.App.Kuzina.xcscheme</key>
+		<key>IOS library.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
+		</dict>
+		<key>IOSLibraryTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1FC5A69B1F138A8600ABE1A6</key>
+		<key>1FC5A6321F138A2200ABE1A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1FC5A6AF1F138A8600ABE1A6</key>
+		<key>1FC5A63B1F138A2200ABE1A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1FC5A6BA1F138A8600ABE1A6</key>
+		<key>1FC5A76F1F13B6B200ABE1A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

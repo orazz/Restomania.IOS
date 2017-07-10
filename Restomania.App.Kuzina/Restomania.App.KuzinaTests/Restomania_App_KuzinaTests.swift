@@ -7,7 +7,8 @@
 //
 
 import XCTest
-@testable import Restomania_App_Kuzina
+import IOSLibrary
+@testable import RestomaniaAppKuzina
 
 class Restomania_App_KuzinaTests: XCTestCase {
     
@@ -24,6 +25,7 @@ class Restomania_App_KuzinaTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        TestClass.Hello()
     }
     
     func testPerformanceExample() {

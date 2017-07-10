@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
+		1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */; };
 		1FC5A7141F138B5100ABE1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A7131F138B5100ABE1A6 /* AppDelegate.swift */; };
 		1FC5A7161F138B5100ABE1A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A7151F138B5100ABE1A6 /* ViewController.swift */; };
 		1FC5A7191F138B5100ABE1A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A7171F138B5100ABE1A6 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
+		1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1FC5A7101F138B5100ABE1A6 /* FindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A7131F138B5100ABE1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FC5A7151F138B5100ABE1A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +138,8 @@
 		1FC5A7441F138CA100ABE1A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */,
+				1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */,
 				1FC5A7451F138CA100ABE1A6 /* IOS library.framework */,
 			);
 			name = Frameworks;
@@ -526,6 +534,7 @@
 				1FC5A73A1F138B5100ABE1A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FC5A73B1F138B5100ABE1A6 /* Build configuration list for PBXNativeTarget "FindMeTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +543,7 @@
 				1FC5A73D1F138B5100ABE1A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FC5A73E1F138B5100ABE1A6 /* Build configuration list for PBXNativeTarget "FindMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +552,7 @@
 				1FC5A7401F138B5100ABE1A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

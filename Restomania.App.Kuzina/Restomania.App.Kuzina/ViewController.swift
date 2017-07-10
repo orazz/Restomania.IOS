@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MDSIOSLibrary
+import IOSLibrary
 
 class ViewController: UIViewController {
 
