@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */; };
+		1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */; };
+		1FC5A6A51F138A8600ABE1A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */; };
+		1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */; };
+		1FC5A6AA1F138A8600ABE1A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A81F138A8600ABE1A6 /* LaunchScreen.storyboard */; };
+		1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */; };
+		1FC5A6C01F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */; };
+		1FC5A7431F138C9400ABE1A6 /* IOS library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC5A7421F138C9400ABE1A6 /* IOS library.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FC5A6B11F138A8600ABE1A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FC5A6941F138A8600ABE1A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FC5A69B1F138A8600ABE1A6;
+			remoteInfo = Restomania.App.Kuzina;
+		};
+		1FC5A6BC1F138A8600ABE1A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FC5A6941F138A8600ABE1A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FC5A69B1F138A8600ABE1A6;
+			remoteInfo = Restomania.App.Kuzina;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1FC5A69C1F138A8600ABE1A6 /* Restomania.App.Kuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restomania.App.Kuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1FC5A6A41F138A8600ABE1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1FC5A6A91F138A8600ABE1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1FC5A6AB1F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FC5A6B01F138A8600ABE1A6 /* Restomania.App.KuzinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Restomania.App.KuzinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restomania_App_KuzinaTests.swift; sourceTree = "<group>"; };
+		1FC5A6B61F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FC5A6BB1F138A8600ABE1A6 /* Restomania.App.KuzinaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Restomania.App.KuzinaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restomania_App_KuzinaUITests.swift; sourceTree = "<group>"; };
+		1FC5A6C11F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FC5A7421F138C9400ABE1A6 /* IOS library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS library.framework"; path = "../IOS library/build/Debug-iphoneos/IOS library.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FC5A6991F138A8600ABE1A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FC5A7431F138C9400ABE1A6 /* IOS library.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FC5A6AD1F138A8600ABE1A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FC5A6B81F138A8600ABE1A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1FC5A6931F138A8600ABE1A6 = {
+			isa = PBXGroup;
+			children = (
+				1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */,
+				1FC5A6B31F138A8600ABE1A6 /* Restomania.App.KuzinaTests */,
+				1FC5A6BE1F138A8600ABE1A6 /* Restomania.App.KuzinaUITests */,
+				1FC5A69D1F138A8600ABE1A6 /* Products */,
+				1FC5A7411F138C9400ABE1A6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1FC5A69D1F138A8600ABE1A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FC5A69C1F138A8600ABE1A6 /* Restomania.App.Kuzina.app */,
+				1FC5A6B01F138A8600ABE1A6 /* Restomania.App.KuzinaTests.xctest */,
+				1FC5A6BB1F138A8600ABE1A6 /* Restomania.App.KuzinaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */ = {
+			isa = PBXGroup;
+			children = (
+				1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */,
+				1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */,
+				1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */,
+				1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */,
+				1FC5A6A81F138A8600ABE1A6 /* LaunchScreen.storyboard */,
+				1FC5A6AB1F138A8600ABE1A6 /* Info.plist */,
+			);
+			path = Restomania.App.Kuzina;
+			sourceTree = "<group>";
+		};
+		1FC5A6B31F138A8600ABE1A6 /* Restomania.App.KuzinaTests */ = {
+			isa = PBXGroup;
+			children = (
+				1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */,
+				1FC5A6B61F138A8600ABE1A6 /* Info.plist */,
+			);
+			path = Restomania.App.KuzinaTests;
+			sourceTree = "<group>";
+		};
+		1FC5A6BE1F138A8600ABE1A6 /* Restomania.App.KuzinaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */,
+				1FC5A6C11F138A8600ABE1A6 /* Info.plist */,
+			);
+			path = Restomania.App.KuzinaUITests;
+			sourceTree = "<group>";
+		};
+		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FC5A7421F138C9400ABE1A6 /* IOS library.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FC5A69B1F138A8600ABE1A6 /* Restomania.App.Kuzina */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FC5A6C41F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "Restomania.App.Kuzina" */;
+			buildPhases = (
+				1FC5A6981F138A8600ABE1A6 /* Sources */,
+				1FC5A6991F138A8600ABE1A6 /* Frameworks */,
+				1FC5A69A1F138A8600ABE1A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Restomania.App.Kuzina;
+			productName = Restomania.App.Kuzina;
+			productReference = 1FC5A69C1F138A8600ABE1A6 /* Restomania.App.Kuzina.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1FC5A6AF1F138A8600ABE1A6 /* Restomania.App.KuzinaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FC5A6C71F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "Restomania.App.KuzinaTests" */;
+			buildPhases = (
+				1FC5A6AC1F138A8600ABE1A6 /* Sources */,
+				1FC5A6AD1F138A8600ABE1A6 /* Frameworks */,
+				1FC5A6AE1F138A8600ABE1A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FC5A6B21F138A8600ABE1A6 /* PBXTargetDependency */,
+			);
+			name = Restomania.App.KuzinaTests;
+			productName = Restomania.App.KuzinaTests;
+			productReference = 1FC5A6B01F138A8600ABE1A6 /* Restomania.App.KuzinaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1FC5A6BA1F138A8600ABE1A6 /* Restomania.App.KuzinaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FC5A6CA1F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "Restomania.App.KuzinaUITests" */;
+			buildPhases = (
+				1FC5A6B71F138A8600ABE1A6 /* Sources */,
+				1FC5A6B81F138A8600ABE1A6 /* Frameworks */,
+				1FC5A6B91F138A8600ABE1A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FC5A6BD1F138A8600ABE1A6 /* PBXTargetDependency */,
+			);
+			name = Restomania.App.KuzinaUITests;
+			productName = Restomania.App.KuzinaUITests;
+			productReference = 1FC5A6BB1F138A8600ABE1A6 /* Restomania.App.KuzinaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1FC5A6941F138A8600ABE1A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Medved-Studio";
+				TargetAttributes = {
+					1FC5A69B1F138A8600ABE1A6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 686FXGC24W;
+						ProvisioningStyle = Automatic;
+					};
+					1FC5A6AF1F138A8600ABE1A6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 686FXGC24W;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1FC5A69B1F138A8600ABE1A6;
+					};
+					1FC5A6BA1F138A8600ABE1A6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 686FXGC24W;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1FC5A69B1F138A8600ABE1A6;
+					};
+				};
+			};
+			buildConfigurationList = 1FC5A6971F138A8600ABE1A6 /* Build configuration list for PBXProject "Restomania.App.Kuzina" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1FC5A6931F138A8600ABE1A6;
+			productRefGroup = 1FC5A69D1F138A8600ABE1A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1FC5A69B1F138A8600ABE1A6 /* Restomania.App.Kuzina */,
+				1FC5A6AF1F138A8600ABE1A6 /* Restomania.App.KuzinaTests */,
+				1FC5A6BA1F138A8600ABE1A6 /* Restomania.App.KuzinaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FC5A69A1F138A8600ABE1A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FC5A6AA1F138A8600ABE1A6 /* LaunchScreen.storyboard in Resources */,
+				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
+				1FC5A6A51F138A8600ABE1A6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FC5A6AE1F138A8600ABE1A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FC5A6B91F138A8600ABE1A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FC5A6981F138A8600ABE1A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */,
+				1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FC5A6AC1F138A8600ABE1A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FC5A6B71F138A8600ABE1A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FC5A6C01F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FC5A6B21F138A8600ABE1A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FC5A69B1F138A8600ABE1A6 /* Restomania.App.Kuzina */;
+			targetProxy = 1FC5A6B11F138A8600ABE1A6 /* PBXContainerItemProxy */;
+		};
+		1FC5A6BD1F138A8600ABE1A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FC5A69B1F138A8600ABE1A6 /* Restomania.App.Kuzina */;
+			targetProxy = 1FC5A6BC1F138A8600ABE1A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FC5A6A41F138A8600ABE1A6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1FC5A6A81F138A8600ABE1A6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FC5A6A91F138A8600ABE1A6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1FC5A6C21F138A8600ABE1A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1FC5A6C31F138A8600ABE1A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1FC5A6C51F138A8600ABE1A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 686FXGC24W;
+				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-Kuzina";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1FC5A6C61F138A8600ABE1A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 686FXGC24W;
+				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-Kuzina";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		1FC5A6C81F138A8600ABE1A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 686FXGC24W;
+				INFOPLIST_FILE = Restomania.App.KuzinaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-KuzinaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Restomania.App.Kuzina.app/Restomania.App.Kuzina";
+			};
+			name = Debug;
+		};
+		1FC5A6C91F138A8600ABE1A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 686FXGC24W;
+				INFOPLIST_FILE = Restomania.App.KuzinaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-KuzinaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Restomania.App.Kuzina.app/Restomania.App.Kuzina";
+			};
+			name = Release;
+		};
+		1FC5A6CB1F138A8600ABE1A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 686FXGC24W;
+				INFOPLIST_FILE = Restomania.App.KuzinaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-KuzinaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Restomania.App.Kuzina;
+			};
+			name = Debug;
+		};
+		1FC5A6CC1F138A8600ABE1A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 686FXGC24W;
+				INFOPLIST_FILE = Restomania.App.KuzinaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-KuzinaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Restomania.App.Kuzina;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FC5A6971F138A8600ABE1A6 /* Build configuration list for PBXProject "Restomania.App.Kuzina" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FC5A6C21F138A8600ABE1A6 /* Debug */,
+				1FC5A6C31F138A8600ABE1A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FC5A6C41F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "Restomania.App.Kuzina" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FC5A6C51F138A8600ABE1A6 /* Debug */,
+				1FC5A6C61F138A8600ABE1A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1FC5A6C71F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "Restomania.App.KuzinaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FC5A6C81F138A8600ABE1A6 /* Debug */,
+				1FC5A6C91F138A8600ABE1A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1FC5A6CA1F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "Restomania.App.KuzinaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FC5A6CB1F138A8600ABE1A6 /* Debug */,
+				1FC5A6CC1F138A8600ABE1A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1FC5A6941F138A8600ABE1A6 /* Project object */;
+}
