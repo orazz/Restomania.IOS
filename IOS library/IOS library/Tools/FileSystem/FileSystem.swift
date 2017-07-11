@@ -14,6 +14,38 @@ public class FileSystem
     private let _client = FileManager.default
     
     
+    public func LoadBundleFile(_ filename:String) -> String?
+    {
+        if let path = Bundle.main.path(forResource: filename, ofType: nil)
+        {
+            do
+            {
+                return try String(contentsOf: URL(string: path)!)
+            }
+            catch
+            {
+                return nil
+            }
+        }
+        
+        Log.Warning(_tag, "Can't load file \(filename).")
+        
+        return nil
+    }
+    public func LoadBundlePlist(_ filename:String) -> NSDictionary?
+    {
+        if let path = Bundle.main.path(forResource: filename, ofType: "plist")
+        {
+            return NSDictionary(contentsOfFile: path)
+        }
+        
+        Log.Warning(_tag, "Can't load plist file \(filename).")
+        
+        return nil
+    }
+    
+    
+    
     public func IsExist(_ filename:String, inCache:Bool ) -> Bool
     {
         let root = GetRoot(inCache: inCache)

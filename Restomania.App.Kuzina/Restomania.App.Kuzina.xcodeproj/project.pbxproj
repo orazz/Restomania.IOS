@@ -10,6 +10,7 @@
 		1F41CE671F13BF22000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE661F13BF22000B92E1 /* IOS Library.framework */; };
 		1F41CE691F13BF42000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE681F13BF42000B92E1 /* IOS Library.framework */; };
 		1F41CE6B1F13BF4B000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */; };
+		1FA260811F14A04F00C14886 /* BaseDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA260801F14A04F00C14886 /* BaseDataType.swift */; };
 		1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */; };
 		1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */; };
 		1FC5A6A51F138A8600ABE1A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */; };
@@ -40,6 +41,8 @@
 		1F41CE661F13BF22000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE681F13BF42000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
+		1FA260801F14A04F00C14886 /* BaseDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDataType.swift; path = Domains/BaseDataType.swift; sourceTree = "<group>"; };
+		1FA260821F14A0F700C14886 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = ../_frameworks/Gloss.framework; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FA2607E1F14A02400C14886 /* Domains */ = {
+			isa = PBXGroup;
+			children = (
+				1FA260801F14A04F00C14886 /* BaseDataType.swift */,
+			);
+			name = Domains;
+			sourceTree = "<group>";
+		};
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +120,7 @@
 		1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */ = {
 			isa = PBXGroup;
 			children = (
+				1FA2607E1F14A02400C14886 /* Domains */,
 				1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */,
 				1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */,
 				1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */,
@@ -140,6 +152,7 @@
 		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FA260821F14A0F700C14886 /* Gloss.framework */,
 				1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */,
 				1F41CE681F13BF42000B92E1 /* IOS Library.framework */,
 				1F41CE661F13BF22000B92E1 /* IOS Library.framework */,
@@ -286,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA260811F14A04F00C14886 /* BaseDataType.swift in Sources */,
 				1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */,
 				1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */,
 			);

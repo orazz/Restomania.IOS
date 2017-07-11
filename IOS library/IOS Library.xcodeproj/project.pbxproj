@@ -14,6 +14,13 @@
 		1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE641F13BEB7000B92E1 /* Log.swift */; };
 		1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606B1F13D3A500C14886 /* FileSystem.swift */; };
 		1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606D1F13E98A00C14886 /* FileSystem.swift */; };
+		1FA2607A1F140B4700C14886 /* Root.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FA260791F140B4700C14886 /* Root.plist */; };
+		1FFEA2811F14A824002DD78F /* Guid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEA2801F14A824002DD78F /* Guid.swift */; };
+		1FFEA2831F14A887002DD78F /* Guid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEA2821F14A887002DD78F /* Guid.swift */; };
+		1FFEA2891F14AD5C002DD78F /* IEventsEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEA2881F14AD5C002DD78F /* IEventsEmitter.swift */; };
+		1FFEA28B1F14AD71002DD78F /* EventsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEA28A1F14AD71002DD78F /* EventsAdapter.swift */; };
+		1FFEA28D1F14AE95002DD78F /* ILoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEA28C1F14AE95002DD78F /* ILoggable.swift */; };
+		1FFEA28F1F14C0D8002DD78F /* EventsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEA28E1F14C0D8002DD78F /* EventsAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +45,14 @@
 		1FA2606B1F13D3A500C14886 /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSystem.swift; path = Tools/FileSystem/FileSystem.swift; sourceTree = "<group>"; };
 		1FA2606D1F13E98A00C14886 /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSystem.swift; path = Tools/FileSystem.swift; sourceTree = "<group>"; };
 		1FA260721F13FEC900C14886 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1FA260791F140B4700C14886 /* Root.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Root.plist; sourceTree = "<group>"; };
+		1FA2607C1F149CC600C14886 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = ../_frameworks/Gloss.framework; sourceTree = "<group>"; };
+		1FFEA2801F14A824002DD78F /* Guid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Guid.swift; path = Tools/Guid.swift; sourceTree = "<group>"; };
+		1FFEA2821F14A887002DD78F /* Guid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Guid.swift; path = Tools/Guid.swift; sourceTree = "<group>"; };
+		1FFEA2881F14AD5C002DD78F /* IEventsEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IEventsEmitter.swift; path = Events/IEventsEmitter.swift; sourceTree = "<group>"; };
+		1FFEA28A1F14AD71002DD78F /* EventsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsAdapter.swift; path = Events/EventsAdapter.swift; sourceTree = "<group>"; };
+		1FFEA28C1F14AE95002DD78F /* ILoggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ILoggable.swift; path = Tools/Log/ILoggable.swift; sourceTree = "<group>"; };
+		1FFEA28E1F14C0D8002DD78F /* EventsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +96,9 @@
 		1F41CE451F13BE5B000B92E1 /* IOS Library */ = {
 			isa = PBXGroup;
 			children = (
+				1FFEA2861F14AC74002DD78F /* Events */,
+				1FFEA2841F14AB9C002DD78F /* Requests */,
+				1FFEA2851F14ABAA002DD78F /* Responses */,
 				1F41CE5D1F13BE8E000B92E1 /* Tools */,
 				1F41CE461F13BE5B000B92E1 /* IOS Library.h */,
 				1F41CE471F13BE5B000B92E1 /* Info.plist */,
@@ -92,7 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				1F41CE631F13BEAC000B92E1 /* Tools */,
+				1FFEA28E1F14C0D8002DD78F /* EventsAdapter.swift */,
 				1F41CE531F13BE5B000B92E1 /* Info.plist */,
+				1FA260791F140B4700C14886 /* Root.plist */,
 			);
 			path = "IOS LibraryTests";
 			sourceTree = "<group>";
@@ -102,6 +122,7 @@
 			children = (
 				1FA2606A1F13D36900C14886 /* FileSystem */,
 				1F41CE5E1F13BE97000B92E1 /* Log */,
+				1FFEA2801F14A824002DD78F /* Guid.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -111,6 +132,7 @@
 			children = (
 				1F41CE5F1F13BEA1000B92E1 /* Log.swift */,
 				1F41CE601F13BEA1000B92E1 /* LogMessage.swift */,
+				1FFEA28C1F14AE95002DD78F /* ILoggable.swift */,
 			);
 			name = Log;
 			sourceTree = "<group>";
@@ -120,6 +142,7 @@
 			children = (
 				1F41CE641F13BEB7000B92E1 /* Log.swift */,
 				1FA2606D1F13E98A00C14886 /* FileSystem.swift */,
+				1FFEA2821F14A887002DD78F /* Guid.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -135,9 +158,33 @@
 		1FA260711F13FEC900C14886 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FA2607C1F149CC600C14886 /* Gloss.framework */,
 				1FA260721F13FEC900C14886 /* XCTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1FFEA2841F14AB9C002DD78F /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
+		1FFEA2851F14ABAA002DD78F /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Responses;
+			sourceTree = "<group>";
+		};
+		1FFEA2861F14AC74002DD78F /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				1FFEA2881F14AD5C002DD78F /* IEventsEmitter.swift */,
+				1FFEA28A1F14AD71002DD78F /* EventsAdapter.swift */,
+			);
+			name = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA2607A1F140B4700C14886 /* Root.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,9 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FFEA28D1F14AE95002DD78F /* ILoggable.swift in Sources */,
 				1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */,
 				1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */,
+				1FFEA28B1F14AD71002DD78F /* EventsAdapter.swift in Sources */,
+				1FFEA2811F14A824002DD78F /* Guid.swift in Sources */,
 				1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */,
+				1FFEA2891F14AD5C002DD78F /* IEventsEmitter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +315,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FFEA28F1F14C0D8002DD78F /* EventsAdapter.swift in Sources */,
 				1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */,
+				1FFEA2831F14A887002DD78F /* Guid.swift in Sources */,
 				1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

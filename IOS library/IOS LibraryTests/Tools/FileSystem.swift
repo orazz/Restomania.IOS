@@ -41,6 +41,16 @@ public class FileSystemTests: XCTestCase
         _system.Remove(_directory, fromCache: false)
     }
     
+//    public func testLoadBundlePlistFile()
+//    {
+//        //Process
+//        let properties = _system.LoadBundlePlist("Root")
+//        
+//        //Check
+//        XCTAssertNotNil(properties)
+//        XCTAssertEqual("1", String(describing: properties!["Test"]))
+//    }
+    
     
     public func testIsExist()
     {
@@ -130,7 +140,7 @@ public class FileSystemTests: XCTestCase
         //Process
         _system.Remove(path, fromCache: false)
         _system.Remove(path, fromCache: false)
-
+        
         //Check
         XCTAssertFalse(_system.IsExist(path, inCache: false))
     }
