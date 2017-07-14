@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "DateTests.testConvertDateToUniversalFormat() -&gt; ():Date.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "formatter.string(from: date!)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
          <PersistentStrings>
             <PersistentString
