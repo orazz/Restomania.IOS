@@ -16,4 +16,8 @@ public class ApiResponse : Decodable
     {
         self.StatusCode = ("StatusCode" <~~ json)!
     }
+    public init(statusCode: HttpStatusCode)
+    {
+        self.StatusCode = statusCode
+    }
 }

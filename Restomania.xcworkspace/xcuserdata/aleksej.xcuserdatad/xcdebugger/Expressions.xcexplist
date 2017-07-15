@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "logMessage.description">
+            </PersistentString>
+            <PersistentString
+               value = "LogMessage(Date(), type, tag, message)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "DateTests.testConvertDateToUniversalFormat() -&gt; ():Date.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,12 +22,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
+         contextName = "FileSystem.IsExist(String, inCache : Bool) -&gt; Bool:FileSystem.swift">
          <PersistentStrings>
             <PersistentString
-               value = "_system.IsExist(_file, inCache: true)">
+               value = "_client.fileExists(atPath: path.absoluteString)">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ApiDataResponse.init(json : [String : Any]) -&gt; ApiDataResponse&lt;A&gt;:ApiDataResponse.swift">
       </ContextState>
       <ContextState
          contextName = "FileSystem.Remove(String, fromCache : Bool) -&gt; ():FileSystem.swift">
@@ -30,6 +44,31 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ApiClient.(SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;).(closure #1).(closure #1):ApiClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ApiErrorResponse(json: json)">
+            </PersistentString>
+            <PersistentString
+               value = "TData(json: json)">
+            </PersistentString>
+            <PersistentString
+               value = "response">
+            </PersistentString>
+            <PersistentString
+               value = "json[&quot;Data&quot;] as JSON">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ApiClient.SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;:ApiClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request.allHTTPHeaderFields">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FileSystem.LoadBundlePlist(String) -&gt; NSDictionary?:FileSystem.swift">
          <PersistentStrings>
             <PersistentString
@@ -38,21 +77,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
+         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
          <PersistentStrings>
             <PersistentString
-               value = "logMessage.description">
-            </PersistentString>
-            <PersistentString
-               value = "LogMessage(Date(), type, tag, message)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "FileSystem.IsExist(String, inCache : Bool) -&gt; Bool:FileSystem.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "_client.fileExists(atPath: path.absoluteString)">
+               value = "_system.IsExist(_file, inCache: true)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

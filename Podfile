@@ -15,3 +15,10 @@ target 'IOSLibrary' do
   pod 'Gloss', '~> 1.2'
   pod 'AsyncTask', '~> 0.1.3'
 end
+
+target 'IOSLibraryTests' do
+    use_frameworks!
+    project './IOS Library/IOS Library'
+    pod 'Gloss', '~> 1.2'
+    pod 'AsyncTask', '~> 0.1.3'
+end

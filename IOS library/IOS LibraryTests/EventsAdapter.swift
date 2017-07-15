@@ -14,7 +14,7 @@ public class EventsAdapterTests : XCTestCase
     typealias Action = () -> Void
     public func testEvents() -> Void
     {
-        let waiter = expectation(description: "TestEEventsAdapter")
+        let waiter = expectation(description: "TestEventsAdapter")
         
         var counter = 0;
         let action = {
