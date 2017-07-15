@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C871F19EC66003EAEE6 /* ApiResponse.swift */; };
+		1F138C8A1F19EC79003EAEE6 /* ApiDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C891F19EC79003EAEE6 /* ApiDataResponse.swift */; };
+		1F138C8C1F19EC93003EAEE6 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8B1F19EC93003EAEE6 /* ApiClient.swift */; };
+		1F138C8E1F19ED11003EAEE6 /* HttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */; };
+		1F138C901F19EDC6003EAEE6 /* ApiErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */; };
 		1F41CE4D1F13BE5B000B92E1 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */; };
 		1F41CE541F13BE5B000B92E1 /* IOS Library.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F41CE461F13BE5B000B92E1 /* IOS Library.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE5F1F13BEA1000B92E1 /* Log.swift */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F138C871F19EC66003EAEE6 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiResponse.swift; path = Responses/ApiResponse.swift; sourceTree = "<group>"; };
+		1F138C891F19EC79003EAEE6 /* ApiDataResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiDataResponse.swift; path = Responses/ApiDataResponse.swift; sourceTree = "<group>"; };
+		1F138C8B1F19EC93003EAEE6 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiClient.swift; path = Requests/ApiClient.swift; sourceTree = "<group>"; };
+		1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpStatusCode.swift; path = Responses/HttpStatusCode.swift; sourceTree = "<group>"; };
+		1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiErrorResponse.swift; path = Responses/ApiErrorResponse.swift; sourceTree = "<group>"; };
 		1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F41CE461F13BE5B000B92E1 /* IOS Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOS Library.h"; sourceTree = "<group>"; };
 		1F41CE471F13BE5B000B92E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -174,6 +184,7 @@
 		1FFEA2841F14AB9C002DD78F /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				1F138C8B1F19EC93003EAEE6 /* ApiClient.swift */,
 			);
 			name = Requests;
 			sourceTree = "<group>";
@@ -181,6 +192,10 @@
 		1FFEA2851F14ABAA002DD78F /* Responses */ = {
 			isa = PBXGroup;
 			children = (
+				1F138C871F19EC66003EAEE6 /* ApiResponse.swift */,
+				1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */,
+				1F138C891F19EC79003EAEE6 /* ApiDataResponse.swift */,
+				1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */,
 			);
 			name = Responses;
 			sourceTree = "<group>";
@@ -351,13 +366,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F138C8E1F19ED11003EAEE6 /* HttpStatusCode.swift in Sources */,
 				1FFEA28D1F14AE95002DD78F /* ILoggable.swift in Sources */,
 				1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */,
 				1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */,
 				1FFEA28B1F14AD71002DD78F /* EventsAdapter.swift in Sources */,
+				1F138C8A1F19EC79003EAEE6 /* ApiDataResponse.swift in Sources */,
 				1FFEA2811F14A824002DD78F /* Guid.swift in Sources */,
+				1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */,
+				1F138C901F19EDC6003EAEE6 /* ApiErrorResponse.swift in Sources */,
 				1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */,
 				1FFEA2891F14AD5C002DD78F /* IEventsEmitter.swift in Sources */,
+				1F138C8C1F19EC93003EAEE6 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */; };
 		1F41CE671F13BF22000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE661F13BF22000B92E1 /* IOS Library.framework */; };
 		1F41CE691F13BF42000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE681F13BF42000B92E1 /* IOS Library.framework */; };
 		1F41CE6B1F13BF4B000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */; };
@@ -58,6 +59,9 @@
 		1FC5A6C11F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FC5A7421F138C9400ABE1A6 /* IOS library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS library.framework"; path = "../IOS library/build/Debug-iphoneos/IOS library.framework"; sourceTree = "<group>"; };
 		1FC5A74A1F139DEC00ABE1A6 /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-fxxzqiscfbcurlbubkhnpcaaxwyg/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
+		32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.release.xcconfig"; sourceTree = "<group>"; };
+		569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestomaniaAppKuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F41CE691F13BF42000B92E1 /* IOS Library.framework in Frameworks */,
+				1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +109,7 @@
 				1FC5A6BE1F138A8600ABE1A6 /* Restomania.App.KuzinaUITests */,
 				1FC5A69D1F138A8600ABE1A6 /* Products */,
 				1FC5A7411F138C9400ABE1A6 /* Frameworks */,
+				669C3AFDA7F4F79423497066 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,8 +164,18 @@
 				1F41CE661F13BF22000B92E1 /* IOS Library.framework */,
 				1FC5A74A1F139DEC00ABE1A6 /* IOSLibrary.framework */,
 				1FC5A7421F138C9400ABE1A6 /* IOS library.framework */,
+				569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		669C3AFDA7F4F79423497066 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */,
+				32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,9 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FC5A6C41F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "RestomaniaAppKuzina" */;
 			buildPhases = (
+				2B6D488FC3D8A5255D366BF2 /* [CP] Check Pods Manifest.lock */,
 				1FC5A6981F138A8600ABE1A6 /* Sources */,
 				1FC5A6991F138A8600ABE1A6 /* Frameworks */,
 				1FC5A69A1F138A8600ABE1A6 /* Resources */,
+				7F2163BC24BC15F7503AE3C8 /* [CP] Embed Pods Frameworks */,
+				A3A8C19DFFEA0485696358E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -293,6 +312,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B6D488FC3D8A5255D366BF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7F2163BC24BC15F7503AE3C8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3A8C19DFFEA0485696358E6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1FC5A6981F138A8600ABE1A6 /* Sources */ = {
@@ -451,10 +518,13 @@
 		};
 		1FC5A6C51F138A8600ABE1A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-Kuzina";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -464,10 +534,13 @@
 		};
 		1FC5A6C61F138A8600ABE1A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-Kuzina";
 				PRODUCT_NAME = "$(TARGET_NAME)";
