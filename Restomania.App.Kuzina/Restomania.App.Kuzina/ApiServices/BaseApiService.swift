@@ -9,20 +9,17 @@
 import Foundation
 import IOSLibrary
 
-public class BaseApiService : ILoggable
-{
+public class BaseApiService: ILoggable {
     private let _url = "http://restomania.eu"
     private let _tag: String
     internal let _client: ApiClient
-    
-    public init(area: String, tag: String)
-    {
+
+    public init(area: String, tag: String) {
         self._tag = tag
         self._client = ApiClient(url: "\(_url)/\(area)", tag: _tag)
     }
-    
-    public var Tag: String
-    {
+
+    public var Tag: String {
         return _tag
     }
 }

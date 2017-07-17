@@ -6,7 +6,6 @@
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
-public protocol ILoggable
-{
+public protocol ILoggable {
     var Tag: String { get }
 }

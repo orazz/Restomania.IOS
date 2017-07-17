@@ -9,15 +9,13 @@
 import XCTest
 @testable import IOSLibrary
 
-public class StringTests
-{
-    public func testString()
-    {
+public class StringTests {
+    public func testString() {
         XCTAssertEqual("", String.Empty)
-        
+
         XCTAssertTrue(String.IsNullOrEmpty(""))
         XCTAssertTrue(String.IsNullOrEmpty(nil))
-        
+
         XCTAssertFalse(String.IsNullOrEmpty("Test"))
     }
 }

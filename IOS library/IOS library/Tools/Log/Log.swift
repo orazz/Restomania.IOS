@@ -8,38 +8,29 @@
 
 import Foundation
 
+public class Log {
+    public static var Messages: [LogMessage] = [LogMessage]()
+    public static var IsDebug: Bool = true
 
-public class Log
-{
-    public static var Messages:[LogMessage] = [LogMessage]()
-    public static var IsDebug:Bool = true
-    
-    public static func Debug(_ tag: String, _ message: String)
-    {
-        if (IsDebug)
-        {
+    public static func Debug(_ tag: String, _ message: String) {
+        if (IsDebug) {
             Show(.Debug, tag, message)
         }
     }
-    public static func Info(_ tag: String, _ message: String)
-    {
+    public static func Info(_ tag: String, _ message: String) {
         Show(.Info, tag, message)
     }
-    public static func Warning(_ tag: String, _ message: String)
-    {
+    public static func Warning(_ tag: String, _ message: String) {
         Show(.Warning, tag, message)
     }
-    public static func Error(_ tag: String, _ message: String)
-    {
+    public static func Error(_ tag: String, _ message: String) {
         Show(.Error, tag, message)
     }
-    
-    private static func Show(_ type: LogMessageType, _ tag: String, _ message: String) -> Void
-    {
+
+    private static func Show(_ type: LogMessageType, _ tag: String, _ message: String) {
         let logMessage = LogMessage(Date(), type, tag, message)
-        
+
         Messages.append(logMessage)
         print("log: \(logMessage)")
     }
 }
-

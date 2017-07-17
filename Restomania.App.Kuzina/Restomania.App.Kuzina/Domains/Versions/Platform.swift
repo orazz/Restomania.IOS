@@ -8,8 +8,7 @@
 
 import Foundation
 
-public enum Platform : Int
-{
+public enum Platform: Int {
     case IOS = 1
     case Android = 2
     case WP = 3

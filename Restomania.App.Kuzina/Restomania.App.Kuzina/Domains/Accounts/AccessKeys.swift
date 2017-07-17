@@ -9,24 +9,20 @@
 import Foundation
 import Gloss
 
-public class AccessKeys : Glossy
-{
+public class AccessKeys: Glossy {
     public let ID: Int64
     public let AccessToken: String
-    
-    public init()
-    {
+
+    public init() {
         self.ID = 0
         self.AccessToken = String.Empty
     }
-    public required init(json: JSON)
-    {
+    public required init(json: JSON) {
         self.ID = ("ID" <~~ json)!
         self.AccessToken = ("AccessToken" <~~ json)!
     }
-    
-    public func toJSON() -> JSON?
-    {
+
+    public func toJSON() -> JSON? {
         return jsonify([
             "ID" ~~> self.ID,
             "AccessToken" ~~> self.AccessToken

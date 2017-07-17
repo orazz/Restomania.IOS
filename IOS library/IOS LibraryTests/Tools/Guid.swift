@@ -9,27 +9,21 @@
 import XCTest
 @testable import IOSLibrary
 
-public class GuidTests: XCTestCase
-{
-    public func testGuid()
-    {
+public class GuidTests: XCTestCase {
+    public func testGuid() {
         var keys = [String]()
         let size = 100
-        
-        for _ in 0...size
-        {
+
+        for _ in 0...size {
             keys.append(Guid.New)
         }
-        
-        for i in 0...size
-        {
-            for j in 0...size
-            {
-                if (i == j)
-                {
+
+        for i in 0...size {
+            for j in 0...size {
+                if (i == j) {
                     continue
                 }
-                
+
                 XCTAssertNotEqual(keys[i], keys[j])
             }
         }

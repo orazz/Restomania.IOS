@@ -8,8 +8,7 @@
 
 import Foundation
 
-public enum HttpStatusCode : Int
-{
+public enum HttpStatusCode: Int {
     case ConnectionError = 0
     case OK = 200
     case BadRequest = 400

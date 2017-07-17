@@ -8,16 +8,13 @@
 
 import Gloss
 
-public class ApiResponse : Decodable
-{
+public class ApiResponse: Decodable {
     public let StatusCode: HttpStatusCode
-    
-    public required init(json: JSON)
-    {
+
+    public required init(json: JSON) {
         self.StatusCode = ("StatusCode" <~~ json)!
     }
-    public init(statusCode: HttpStatusCode)
-    {
+    public init(statusCode: HttpStatusCode) {
         self.StatusCode = statusCode
     }
 }

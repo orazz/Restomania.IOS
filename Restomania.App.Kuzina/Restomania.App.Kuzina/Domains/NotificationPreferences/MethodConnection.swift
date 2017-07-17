@@ -8,8 +8,7 @@
 
 import Foundation
 
-public enum MethodConnection : Int
-{
+public enum MethodConnection: Int {
     case Email = 1
     case Telegram = 2
     case Vkontakte = 3

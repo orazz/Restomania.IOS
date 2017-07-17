@@ -9,20 +9,17 @@
 import Foundation
 import Gloss
 
-public class RemoteBugReport : BaseBugReport
-{
+public class RemoteBugReport: BaseBugReport {
     public var Log: String
-    
-    public override init()
-    {
+
+    public override init() {
         self.Log = String.Empty
-        
+
         super.init()
     }
-    public required init(json: JSON)
-    {
+    public required init(json: JSON) {
         self.Log = ("Log" <~~ json)!
-        
+
         super.init(json: json)
     }
 }

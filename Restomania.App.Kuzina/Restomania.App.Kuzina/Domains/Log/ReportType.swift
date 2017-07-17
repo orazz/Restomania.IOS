@@ -8,8 +8,7 @@
 
 import Foundation
 
-public enum ReportType : Int
-{
+public enum ReportType: Int {
     case App = 1
     case Server = 2
 }

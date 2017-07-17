@@ -8,38 +8,33 @@
 
 import Foundation
 
-public enum LogMessageType
-{
+public enum LogMessageType {
     case Debug
     case Info
     case Warning
     case Error
 }
-public class LogMessage : CustomStringConvertible
-{
-    public let Time:Date
+public class LogMessage: CustomStringConvertible {
+    public let Time: Date
     public let `Type`:LogMessageType
-    public let Tag:String
-    public let Message:String
-    
-    private static let _formatter:DateFormatter = InitFormatter()
-    private class func InitFormatter() -> DateFormatter
-    {
+    public let Tag: String
+    public let Message: String
+
+    private static let _formatter: DateFormatter = InitFormatter()
+    private class func InitFormatter() -> DateFormatter {
         let result = DateFormatter()
         result.dateFormat = "dd/MM HH:mm:ss:SSS"
-        
+
         return result
     }
-    
-    public var description : String
-    {
+
+    public var description: String {
         let time = LogMessage._formatter.string(from: Time)
-        
+
         return "[\(time)] [\(Type)] <\(Tag)> \(Message)"
     }
-    
-    public init(_ time:Date, _ type:LogMessageType, _ tag:String, _ message:String)
-    {
+
+    public init(_ time: Date, _ type: LogMessageType, _ tag: String, _ message: String) {
         Time = time
         Type = type
         Tag = tag

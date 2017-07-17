@@ -8,14 +8,11 @@
 
 import Foundation
 
-extension String
-{
-    public static var Empty:String
-    {
+extension String {
+    public static var Empty: String {
         return ""
     }
-    public static func IsNullOrEmpty(_ value:String?) -> Bool
-    {
+    public static func IsNullOrEmpty(_ value: String?) -> Bool {
         return value != "" && value != nil
     }
 }

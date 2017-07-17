@@ -8,8 +8,7 @@
 
 import Foundation
 
-public enum CurrencyType : Int
-{
+public enum CurrencyType: Int {
     case All = -1
     case USD = 840
     case RUB = 643

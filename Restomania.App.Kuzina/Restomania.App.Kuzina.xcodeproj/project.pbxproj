@@ -329,6 +329,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FC5A6C41F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "RestomaniaAppKuzina" */;
 			buildPhases = (
+				1F33A50C1F1D1BEF00BF469B /* Swiftlint */,
 				2B6D488FC3D8A5255D366BF2 /* [CP] Check Pods Manifest.lock */,
 				1FC5A6981F138A8600ABE1A6 /* Sources */,
 				1FC5A6991F138A8600ABE1A6 /* Frameworks */,
@@ -349,6 +350,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FC5A6C71F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "RestomaniaAppKuzina-Tests" */;
 			buildPhases = (
+				1F33A50F1F1D1D8900BF469B /* Swiftlint */,
 				1FC5A6AC1F138A8600ABE1A6 /* Sources */,
 				1FC5A6AD1F138A8600ABE1A6 /* Frameworks */,
 				1FC5A6AE1F138A8600ABE1A6 /* Resources */,
@@ -367,6 +369,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FC5A6CA1F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "RestomaniaAppKuzina-UITests" */;
 			buildPhases = (
+				1F33A5101F1D1DA200BF469B /* Swiftlint */,
 				1FC5A6B71F138A8600ABE1A6 /* Sources */,
 				1FC5A6B81F138A8600ABE1A6 /* Frameworks */,
 				1FC5A6B91F138A8600ABE1A6 /* Resources */,
@@ -458,6 +461,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1F33A50C1F1D1BEF00BF469B /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    echo \"Complete format swift code\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		1F33A50F1F1D1D8900BF469B /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    echo \"Complete format swift code\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		1F33A5101F1D1DA200BF469B /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    echo \"Complete format swift code\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		2B6D488FC3D8A5255D366BF2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -688,10 +733,7 @@
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-v",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-Kuzina";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -708,10 +750,7 @@
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-v",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-Kuzina";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

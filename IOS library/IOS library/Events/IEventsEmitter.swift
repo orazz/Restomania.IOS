@@ -6,10 +6,9 @@
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
-public protocol IEventsEmitter
-{
+public protocol IEventsEmitter {
     associatedtype THandler
-    
-    func Subscribe(guid: String, handler: THandler, tag: String) -> Void
-    func Unsubscribe(guid: String) -> Void
+
+    func Subscribe(guid: String, handler: THandler, tag: String)
+    func Unsubscribe(guid: String)
 }

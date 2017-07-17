@@ -9,15 +9,12 @@
 import IOSLibrary
 import AsyncTask
 
-public class SettingsSystemApiService : BaseApiService
-{
-    public init()
-    {
+public class SettingsSystemApiService: BaseApiService {
+    public init() {
         super.init(area: "System/Settings", tag: "SettingsSystemApiService")
     }
-    
-    public func All() -> Task<RequestResult<AppSettings>>
-    {
+
+    public func All() -> Task<RequestResult<AppSettings>> {
         return _client.Get(action: "All", type: AppSettings.self)
     }
 }

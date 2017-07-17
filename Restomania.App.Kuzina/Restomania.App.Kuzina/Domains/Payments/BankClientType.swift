@@ -8,8 +8,7 @@
 
 import Foundation
 
-public enum BankClientType : Int
-{
+public enum BankClientType: Int {
     case FirstData = 1
     case PayPal = 2
     case TestClient = 3

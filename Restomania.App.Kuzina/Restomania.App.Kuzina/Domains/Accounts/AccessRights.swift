@@ -8,8 +8,7 @@
 
 import Foundation
 
-public enum AccessRights : Int
-{
+public enum AccessRights: Int {
     case User = 1
     case Place = 2
     case Admin = 3

@@ -8,10 +8,8 @@
 
 import Foundation
 
-public class Guid
-{
-    public static var New : String
-    {
+public class Guid {
+    public static var New: String {
         return UUID().uuidString
     }
 }

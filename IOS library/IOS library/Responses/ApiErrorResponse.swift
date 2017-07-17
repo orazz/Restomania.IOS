@@ -8,16 +8,14 @@
 
 import Gloss
 
-public class ApiErrorResponse : ApiResponse
-{
+public class ApiErrorResponse: ApiResponse {
     public let Exception: String
     public let Reason: String
-    
-    public required init(json: JSON)
-    {
+
+    public required init(json: JSON) {
         self.Exception = ("Exception" <~~ json)!
         self.Reason = ("Reason" <~~ json)!
-        
+
         super.init(json: json)
     }
 }
