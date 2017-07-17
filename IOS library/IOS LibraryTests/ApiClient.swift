@@ -22,19 +22,25 @@ public class ApiClientTests : XCTestCase
         _client = ApiClient(url: "http://restomania.eu/mvcapi", tag: "TestClient")
     }
     
-    public func testSendRequest()
+    public func testSendRequestForBool()
+    {
+        let task = _client.GetBool(action: "System/Status/IsAlive")
+        let result = task.await()
+        
+        let status = result.1!
+        XCTAssertTrue(status)
+    }
+    public func testSendRequestForDecodable()
     {
         let task = _client.Get(action: "System/Settings/All", type: Settings.self)
         let result = task.await()
         
         let settings = result.1!
-        XCTAssertNotEqual("", settings.HostName)
-        XCTAssertNotEqual("", settings.ApiHostName)
-        XCTAssertNotEqual("", settings.StatusPath)
-        XCTAssertNotEqual("", settings.ReportsPath)
+        XCTAssertEqual("http://restomania.eu/", settings.HostName)
+        XCTAssertEqual("http://restomania.eu/mvcapi/", settings.ApiHostName)
+        XCTAssertEqual("System/Status/IsAlive", settings.StatusPath)
+        XCTAssertEqual("System/Reports/Add", settings.ReportsPath)
         XCTAssertFalse(settings.Debug)
-        
-        print(settings)
     }
 }
 class Settings : Decodable

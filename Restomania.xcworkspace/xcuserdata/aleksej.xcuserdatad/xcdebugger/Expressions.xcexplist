@@ -50,13 +50,13 @@
                value = "ApiErrorResponse(json: json)">
             </PersistentString>
             <PersistentString
+               value = "json[&quot;Data&quot;] as Bool">
+            </PersistentString>
+            <PersistentString
                value = "TData(json: json)">
             </PersistentString>
             <PersistentString
                value = "response">
-            </PersistentString>
-            <PersistentString
-               value = "json[&quot;Data&quot;] as JSON">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

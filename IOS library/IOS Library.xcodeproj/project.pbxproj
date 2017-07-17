@@ -13,6 +13,7 @@
 		1F138C8E1F19ED11003EAEE6 /* HttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */; };
 		1F138C901F19EDC6003EAEE6 /* ApiErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */; };
 		1F138C921F19F911003EAEE6 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C911F19F911003EAEE6 /* HttpMethod.swift */; };
+		1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DC3C41F1CFAD70058E699 /* String.swift */; };
 		1F41CE4D1F13BE5B000B92E1 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */; };
 		1F41CE541F13BE5B000B92E1 /* IOS Library.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F41CE461F13BE5B000B92E1 /* IOS Library.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE5F1F13BEA1000B92E1 /* Log.swift */; };
@@ -21,6 +22,7 @@
 		1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606B1F13D3A500C14886 /* FileSystem.swift */; };
 		1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606D1F13E98A00C14886 /* FileSystem.swift */; };
 		1FF4FE561F1A24E000CC78B3 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */; };
+		1FF4FE6B1F1BF77800CC78B3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE6A1F1BF77800CC78B3 /* String.swift */; };
 		1FFEA2811F14A824002DD78F /* Guid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEA2801F14A824002DD78F /* Guid.swift */; };
 		1FFEA2831F14A887002DD78F /* Guid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEA2821F14A887002DD78F /* Guid.swift */; };
 		1FFEA2891F14AD5C002DD78F /* IEventsEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEA2881F14AD5C002DD78F /* IEventsEmitter.swift */; };
@@ -49,6 +51,7 @@
 		1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpStatusCode.swift; path = Responses/HttpStatusCode.swift; sourceTree = "<group>"; };
 		1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiErrorResponse.swift; path = Responses/ApiErrorResponse.swift; sourceTree = "<group>"; };
 		1F138C911F19F911003EAEE6 /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpMethod.swift; path = Requests/HttpMethod.swift; sourceTree = "<group>"; };
+		1F2DC3C41F1CFAD70058E699 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
 		1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F41CE461F13BE5B000B92E1 /* IOS Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOS Library.h"; sourceTree = "<group>"; };
 		1F41CE471F13BE5B000B92E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		1FA260721F13FEC900C14886 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1FA2607C1F149CC600C14886 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = ../_frameworks/Gloss.framework; sourceTree = "<group>"; };
 		1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		1FF4FE6A1F1BF77800CC78B3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
 		1FFEA2801F14A824002DD78F /* Guid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Guid.swift; path = Tools/Guid.swift; sourceTree = "<group>"; };
 		1FFEA2821F14A887002DD78F /* Guid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Guid.swift; path = Tools/Guid.swift; sourceTree = "<group>"; };
 		1FFEA2881F14AD5C002DD78F /* IEventsEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IEventsEmitter.swift; path = Events/IEventsEmitter.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				1FA2606A1F13D36900C14886 /* FileSystem */,
 				1F41CE5E1F13BE97000B92E1 /* Log */,
 				1FFEA2801F14A824002DD78F /* Guid.swift */,
+				1F2DC3C41F1CFAD70058E699 /* String.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				1F41CE641F13BEB7000B92E1 /* Log.swift */,
 				1FA2606D1F13E98A00C14886 /* FileSystem.swift */,
 				1FFEA2821F14A887002DD78F /* Guid.swift */,
+				1FF4FE6A1F1BF77800CC78B3 /* String.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				1FFEA28D1F14AE95002DD78F /* ILoggable.swift in Sources */,
 				1F138C921F19F911003EAEE6 /* HttpMethod.swift in Sources */,
 				1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */,
+				1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */,
 				1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */,
 				1FFEA28B1F14AD71002DD78F /* EventsAdapter.swift in Sources */,
 				1F138C8A1F19EC79003EAEE6 /* ApiDataResponse.swift in Sources */,
@@ -452,6 +459,7 @@
 				1FFEA2911F14C7AB002DD78F /* Date.swift in Sources */,
 				1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */,
 				1FFEA2831F14A887002DD78F /* Guid.swift in Sources */,
+				1FF4FE6B1F1BF77800CC78B3 /* String.swift in Sources */,
 				1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */,
 				1FF4FE561F1A24E000CC78B3 /* ApiClient.swift in Sources */,
 			);

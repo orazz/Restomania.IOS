@@ -7,11 +7,10 @@
 //
 
 import Gloss
-import Foundation
 
 public class BaseDataType : Glossy
 {
-    public var ID:Int64 = 0
+    public var ID:Int64
     public var CreateAt:Date
     public var UpdateAt:Date
     
@@ -21,12 +20,19 @@ public class BaseDataType : Glossy
         self.CreateAt = Date()
         self.UpdateAt = Date()
     }
-    public required convenience init(json: JSON)
+    public required init(json: JSON)
     {
-        self.init()
+        self.ID = ("ID" <~~ json)!
+        self.CreateAt = ("CreateAt" <~~ json)!
+        self.UpdateAt = ("UpdateAt" <~~ json)!
     }
+    
     public func toJSON() -> JSON?
     {
-        return nil
+        return jsonify([
+            "ID" ~~> self.ID,
+            "CreateAt" ~~> self.CreateAt,
+            "UpdateAt" ~~> self.UpdateAt,
+            ])
     }
 }

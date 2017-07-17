@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */; };
 		1F41CE671F13BF22000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE661F13BF22000B92E1 /* IOS Library.framework */; };
-		1F41CE691F13BF42000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE681F13BF42000B92E1 /* IOS Library.framework */; };
 		1F41CE6B1F13BF4B000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */; };
-		1FA260811F14A04F00C14886 /* BaseDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA260801F14A04F00C14886 /* BaseDataType.swift */; };
 		1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */; };
 		1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */; };
 		1FC5A6A51F138A8600ABE1A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */; };
@@ -19,6 +17,26 @@
 		1FC5A6AA1F138A8600ABE1A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A81F138A8600ABE1A6 /* LaunchScreen.storyboard */; };
 		1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */; };
 		1FC5A6C01F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */; };
+		1FD7E6971F1D0E140023C033 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */; };
+		1FD7E6981F1D0E140023C033 /* StatusSystemApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE5D1F1BE74C00CC78B3 /* StatusSystemApiService.swift */; };
+		1FD7E6991F1D0E140023C033 /* VersionsSystemApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE6C1F1BF9E900CC78B3 /* VersionsSystemApiService.swift */; };
+		1FD7E69A1F1D0E140023C033 /* SettingsSystemApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE6E1F1BFB5A00CC78B3 /* SettingsSystemApiService.swift */; };
+		1FD7E69B1F1D0E140023C033 /* ReportsSystemApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE761F1CC31700CC78B3 /* ReportsSystemApiService.swift */; };
+		1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE801F1CE8C800CC78B3 /* AccessKeys.swift */; };
+		1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE821F1CEA0A00CC78B3 /* AccessRights.swift */; };
+		1FD7E69E1F1D0E140023C033 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE841F1CEA7100CC78B3 /* Account.swift */; };
+		1FD7E69F1F1D0E140023C033 /* MethodConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE8A1F1CF1D200CC78B3 /* MethodConnection.swift */; };
+		1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE8C1F1CF21E00CC78B3 /* BaseNotificationPreference.swift */; };
+		1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE791F1CC50700CC78B3 /* ReportType.swift */; };
+		1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE7B1F1CC55F00CC78B3 /* BaseBugReport.swift */; };
+		1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE7D1F1CCA8700CC78B3 /* RemoteBugReport.swift */; };
+		1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE741F1BFD3000CC78B3 /* BankClientType.swift */; };
+		1FD7E6A51F1D0E140023C033 /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE861F1CEAD800CC78B3 /* CurrencyType.swift */; };
+		1FD7E6A61F1D0E140023C033 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE641F1BF43C00CC78B3 /* Platform.swift */; };
+		1FD7E6A71F1D0E140023C033 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE661F1BF4B600CC78B3 /* Version.swift */; };
+		1FD7E6A81F1D0E140023C033 /* BaseDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA260801F14A04F00C14886 /* BaseDataType.swift */; };
+		1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE701F1BFC0F00CC78B3 /* AppSettings.swift */; };
+		1FD7E6AB1F1D0E6B0023C033 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +77,25 @@
 		1FC5A6C11F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FC5A7421F138C9400ABE1A6 /* IOS library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS library.framework"; path = "../IOS library/build/Debug-iphoneos/IOS library.framework"; sourceTree = "<group>"; };
 		1FC5A74A1F139DEC00ABE1A6 /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-fxxzqiscfbcurlbubkhnpcaaxwyg/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
+		1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiService.swift; path = ApiServices/BaseApiService.swift; sourceTree = "<group>"; };
+		1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-ddestcygydqsikdncgqzzaesfjnm/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
+		1FF4FE5D1F1BE74C00CC78B3 /* StatusSystemApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusSystemApiService.swift; path = ApiServices/System/StatusSystemApiService.swift; sourceTree = "<group>"; };
+		1FF4FE641F1BF43C00CC78B3 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Domains/Versions/Platform.swift; sourceTree = "<group>"; };
+		1FF4FE661F1BF4B600CC78B3 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Domains/Versions/Version.swift; sourceTree = "<group>"; };
+		1FF4FE6C1F1BF9E900CC78B3 /* VersionsSystemApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VersionsSystemApiService.swift; path = ApiServices/System/VersionsSystemApiService.swift; sourceTree = "<group>"; };
+		1FF4FE6E1F1BFB5A00CC78B3 /* SettingsSystemApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsSystemApiService.swift; path = ApiServices/System/SettingsSystemApiService.swift; sourceTree = "<group>"; };
+		1FF4FE701F1BFC0F00CC78B3 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSettings.swift; path = Domains/AppSettings.swift; sourceTree = "<group>"; };
+		1FF4FE741F1BFD3000CC78B3 /* BankClientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BankClientType.swift; path = Domains/Payments/BankClientType.swift; sourceTree = "<group>"; };
+		1FF4FE761F1CC31700CC78B3 /* ReportsSystemApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportsSystemApiService.swift; path = ApiServices/System/ReportsSystemApiService.swift; sourceTree = "<group>"; };
+		1FF4FE791F1CC50700CC78B3 /* ReportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportType.swift; path = Domains/Log/ReportType.swift; sourceTree = "<group>"; };
+		1FF4FE7B1F1CC55F00CC78B3 /* BaseBugReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseBugReport.swift; path = Domains/Log/BaseBugReport.swift; sourceTree = "<group>"; };
+		1FF4FE7D1F1CCA8700CC78B3 /* RemoteBugReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteBugReport.swift; path = Domains/Log/RemoteBugReport.swift; sourceTree = "<group>"; };
+		1FF4FE801F1CE8C800CC78B3 /* AccessKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessKeys.swift; path = Domains/Accounts/AccessKeys.swift; sourceTree = "<group>"; };
+		1FF4FE821F1CEA0A00CC78B3 /* AccessRights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessRights.swift; path = Domains/Accounts/AccessRights.swift; sourceTree = "<group>"; };
+		1FF4FE841F1CEA7100CC78B3 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Domains/Accounts/Account.swift; sourceTree = "<group>"; };
+		1FF4FE861F1CEAD800CC78B3 /* CurrencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyType.swift; path = Domains/Payments/CurrencyType.swift; sourceTree = "<group>"; };
+		1FF4FE8A1F1CF1D200CC78B3 /* MethodConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MethodConnection.swift; path = Domains/NotificationPreferences/MethodConnection.swift; sourceTree = "<group>"; };
+		1FF4FE8C1F1CF21E00CC78B3 /* BaseNotificationPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseNotificationPreference.swift; path = Domains/NotificationPreferences/BaseNotificationPreference.swift; sourceTree = "<group>"; };
 		32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.release.xcconfig"; sourceTree = "<group>"; };
 		569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestomaniaAppKuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F41CE691F13BF42000B92E1 /* IOS Library.framework in Frameworks */,
+				1FD7E6AB1F1D0E6B0023C033 /* IOSLibrary.framework in Frameworks */,
 				1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +133,13 @@
 		1FA2607E1F14A02400C14886 /* Domains */ = {
 			isa = PBXGroup;
 			children = (
+				1FF4FE7F1F1CE8B600CC78B3 /* Accounts */,
+				1FF4FE891F1CF18100CC78B3 /* NotificationPreferences */,
+				1FF4FE781F1CC4E500CC78B3 /* Log */,
+				1FF4FE721F1BFCDF00CC78B3 /* Payments */,
+				1FF4FE631F1BF41400CC78B3 /* Versions */,
 				1FA260801F14A04F00C14886 /* BaseDataType.swift */,
+				1FF4FE701F1BFC0F00CC78B3 /* AppSettings.swift */,
 			);
 			name = Domains;
 			sourceTree = "<group>";
@@ -126,6 +169,9 @@
 		1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */ = {
 			isa = PBXGroup;
 			children = (
+				1FF4FE591F1BE48600CC78B3 /* Controllers */,
+				1FF4FE581F1BE48100CC78B3 /* Services */,
+				1FF4FE571F1BE47300CC78B3 /* ApiServices */,
 				1FA2607E1F14A02400C14886 /* Domains */,
 				1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */,
 				1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */,
@@ -158,6 +204,7 @@
 		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */,
 				1FA260821F14A0F700C14886 /* Gloss.framework */,
 				1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */,
 				1F41CE681F13BF42000B92E1 /* IOS Library.framework */,
@@ -167,6 +214,103 @@
 				569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1FF4FE571F1BE47300CC78B3 /* ApiServices */ = {
+			isa = PBXGroup;
+			children = (
+				1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */,
+				1FF4FE5C1F1BE68F00CC78B3 /* User */,
+				1FF4FE5B1F1BE68800CC78B3 /* System */,
+				1FF4FE5A1F1BE68200CC78B3 /* Open */,
+			);
+			name = ApiServices;
+			sourceTree = "<group>";
+		};
+		1FF4FE581F1BE48100CC78B3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		1FF4FE591F1BE48600CC78B3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1FF4FE5A1F1BE68200CC78B3 /* Open */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Open;
+			sourceTree = "<group>";
+		};
+		1FF4FE5B1F1BE68800CC78B3 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4FE5D1F1BE74C00CC78B3 /* StatusSystemApiService.swift */,
+				1FF4FE6C1F1BF9E900CC78B3 /* VersionsSystemApiService.swift */,
+				1FF4FE6E1F1BFB5A00CC78B3 /* SettingsSystemApiService.swift */,
+				1FF4FE761F1CC31700CC78B3 /* ReportsSystemApiService.swift */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		1FF4FE5C1F1BE68F00CC78B3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		1FF4FE631F1BF41400CC78B3 /* Versions */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4FE641F1BF43C00CC78B3 /* Platform.swift */,
+				1FF4FE661F1BF4B600CC78B3 /* Version.swift */,
+			);
+			name = Versions;
+			sourceTree = "<group>";
+		};
+		1FF4FE721F1BFCDF00CC78B3 /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4FE741F1BFD3000CC78B3 /* BankClientType.swift */,
+				1FF4FE861F1CEAD800CC78B3 /* CurrencyType.swift */,
+			);
+			name = Payments;
+			sourceTree = "<group>";
+		};
+		1FF4FE781F1CC4E500CC78B3 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4FE791F1CC50700CC78B3 /* ReportType.swift */,
+				1FF4FE7B1F1CC55F00CC78B3 /* BaseBugReport.swift */,
+				1FF4FE7D1F1CCA8700CC78B3 /* RemoteBugReport.swift */,
+			);
+			name = Log;
+			sourceTree = "<group>";
+		};
+		1FF4FE7F1F1CE8B600CC78B3 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4FE801F1CE8C800CC78B3 /* AccessKeys.swift */,
+				1FF4FE821F1CEA0A00CC78B3 /* AccessRights.swift */,
+				1FF4FE841F1CEA7100CC78B3 /* Account.swift */,
+			);
+			name = Accounts;
+			sourceTree = "<group>";
+		};
+		1FF4FE891F1CF18100CC78B3 /* NotificationPreferences */ = {
+			isa = PBXGroup;
+			children = (
+				1FF4FE8A1F1CF1D200CC78B3 /* MethodConnection.swift */,
+				1FF4FE8C1F1CF21E00CC78B3 /* BaseNotificationPreference.swift */,
+			);
+			name = NotificationPreferences;
 			sourceTree = "<group>";
 		};
 		669C3AFDA7F4F79423497066 /* Pods */ = {
@@ -366,7 +510,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FA260811F14A04F00C14886 /* BaseDataType.swift in Sources */,
+				1FD7E6971F1D0E140023C033 /* BaseApiService.swift in Sources */,
+				1FD7E6981F1D0E140023C033 /* StatusSystemApiService.swift in Sources */,
+				1FD7E6991F1D0E140023C033 /* VersionsSystemApiService.swift in Sources */,
+				1FD7E69A1F1D0E140023C033 /* SettingsSystemApiService.swift in Sources */,
+				1FD7E69B1F1D0E140023C033 /* ReportsSystemApiService.swift in Sources */,
+				1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */,
+				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
+				1FD7E69E1F1D0E140023C033 /* Account.swift in Sources */,
+				1FD7E69F1F1D0E140023C033 /* MethodConnection.swift in Sources */,
+				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
+				1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */,
+				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
+				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
+				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
+				1FD7E6A51F1D0E140023C033 /* CurrencyType.swift in Sources */,
+				1FD7E6A61F1D0E140023C033 /* Platform.swift in Sources */,
+				1FD7E6A71F1D0E140023C033 /* Version.swift in Sources */,
+				1FD7E6A81F1D0E140023C033 /* BaseDataType.swift in Sources */,
+				1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */,
 				1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */,
 				1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */,
 			);
@@ -526,6 +688,10 @@
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-v",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-Kuzina";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -542,6 +708,10 @@
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-v",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-Kuzina";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

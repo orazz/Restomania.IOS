@@ -23,22 +23,52 @@ public class ApiClient
         self._tag = tag
     }
     
+    //Bool
+    public func GetBool(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Bool>>
+    {
+        return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitBool())
+    }
+    public func PostBool(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Bool>>
+    {
+        return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitBool())
+    }
+    public func PutBool(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Bool>>
+    {
+        return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitBool())
+    }
+    public func DeleteBool(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Bool>>
+    {
+        return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitBool())
+    }
+    private func InitBool() -> (_:Any?) -> Bool
+    {
+        return { json in json as! Bool }
+    }
+    
+    
+    
+    //Decodable
     public func Get<T: Decodable>(action: String, type: T.Type,  parameters: Parameters? = nil) -> Task<RequestResult<T>>
     {
-        return SendTo(action, method: .Get, parameters: Wrap(parameters))
+        return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitT())
     }
-    public func Post<T: Decodable>(action: String, parameters: Parameters? = nil) -> Task<RequestResult<T>>
+    public func Post<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<T>>
     {
-        return SendTo(action, method: .Post, parameters: Wrap(parameters))
+        return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitT())
     }
-    public func Put<T: Decodable>(action: String, parameters: Parameters? = nil) -> Task<RequestResult<T>>
+    public func Put<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<T>>
     {
-        return SendTo(action, method: .Put, parameters: Wrap(parameters))
+        return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitT())
     }
-    public func Delete<T: Decodable>(action: String, parameters: Parameters? = nil) -> Task<RequestResult<T>>
+    public func Delete<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<T>>
     {
-        return SendTo(action, method: .Delete, parameters: Wrap(parameters))
+        return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitT())
     }
+    private func InitT<T: Decodable>() -> (_:Any?) -> T
+    {
+        return { json in T(json: json as! JSON)! }
+    }
+    
     private func Wrap(_ parameters: Parameters?) -> Parameters
     {
         if let parameters = parameters
@@ -51,7 +81,7 @@ public class ApiClient
         }
     }
     
-    private func SendTo<TData : Decodable>(_ path: String, method: HttpMethod, parameters: Parameters) -> Task<RequestResult<TData>>
+    private func SendTo<TData>(_ path: String, method: HttpMethod, parameters: Parameters, parser:@escaping (_:Any?) -> TData) -> Task<RequestResult<TData>>
     {
         let url = Build(url: _url, path: path, method: method)
         
@@ -95,7 +125,8 @@ public class ApiClient
                     let response = ApiResponse(json: json)
                     if (response.StatusCode == .OK)
                     {
-                        handler((response, TData(json: json["Data"] as! JSON)))
+                        
+                        handler((response, parser(json["Data"])))
                     }
                     else
                     {

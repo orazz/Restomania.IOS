@@ -9,268 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS LibraryTests/Tools/FileSystem.swift"
-            timestampString = "521406923.495284"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "testCreateDirectory()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS LibraryTests/Tools/FileSystem.swift"
-            timestampString = "521406923.495284"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "testCreateDirectory()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IOSLibraryTests.FileSystemTests.testCreateDirectory () -&gt; ()"
-                  moduleName = "IOSLibraryTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Resomania/IOS%20Library/IOS%20LibraryTests/Tools/FileSystem.swift"
-                  timestampString = "521403195.294655"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "571">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IOSLibraryTests.FileSystemTests.(testCreateDirectory () -&gt; ()).(implicit closure #3)"
-                  moduleName = "IOSLibraryTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Resomania/IOS%20Library/IOS%20LibraryTests/Tools/FileSystem.swift"
-                  timestampString = "521403195.296897"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS LibraryTests/Tools/FileSystem.swift"
-            timestampString = "521406902.098129"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "FileSystemTests"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS LibraryTests/Tools/FileSystem.swift"
-            timestampString = "521406902.728132"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "FileSystemTests"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS Library/Events/EventsAdapter.swift"
-            timestampString = "521454566.457742"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "Subscriber"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS Library/Events/EventsAdapter.swift"
-            timestampString = "521454566.457742"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "Call(action:logger:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS Library/Events/EventsAdapter.swift"
-            timestampString = "521454566.457742"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "Subscribe(guid:handler:tag:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS LibraryTests/Date.swift"
-            timestampString = "521456148.96432"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "testConvertDateToUniversalFormat()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IOSLibraryTests.DateTests.testConvertDateToUniversalFormat () -&gt; ()"
-                  moduleName = "IOSLibraryTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Resomania/IOS%20Library/IOS%20LibraryTests/Date.swift"
-                  timestampString = "521456172.469004"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "1505">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IOSLibraryTests.DateTests.(testConvertDateToUniversalFormat () -&gt; ()).(implicit closure #1)"
-                  moduleName = "IOSLibraryTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Resomania/IOS%20Library/IOS%20LibraryTests/Date.swift"
-                  timestampString = "521456172.471921"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IOSLibraryTests.DateTests.(testConvertDateToUniversalFormat () -&gt; ()).(implicit closure #2)"
-                  moduleName = "IOSLibraryTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Resomania/IOS%20Library/IOS%20LibraryTests/Date.swift"
-                  timestampString = "521456172.474321"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "30">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
-            timestampString = "521819700.826889"
+            timestampString = "521923657.813643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "Build(parameters:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
-            timestampString = "521814983.183718"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "Get(action:type:parameters:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS LibraryTests/ApiClient.swift"
-            timestampString = "521820779.15786"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "testSendRequest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
-            timestampString = "521814422.380807"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "Get(action:type:parameters:)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "SendTo(_:method:parameters:parser:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -280,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS LibraryTests/ApiClient.swift"
-            timestampString = "521820779.15786"
+            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
+            timestampString = "521924773.601822"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "testSendRequest()"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "SendTo(_:method:parameters:parser:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -296,125 +41,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS LibraryTests/ApiClient.swift"
-            timestampString = "521820779.15786"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Domains/BaseDataType.swift"
+            timestampString = "521991220.361886"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "toJSON()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Domains/Log/BaseBugReport.swift"
+            timestampString = "521992021.257351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "testSendRequest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
-            timestampString = "521819700.826889"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "SendTo(_:method:parameters:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IOSLibrary.ApiClient.((SendTo in _4044AE93CAFBD2E8E7629BA92B51CB53) &lt;A where A: Gloss.Decodable&gt; (Swift.String, method : IOSLibrary.HttpMethod, parameters : Swift.Dictionary&lt;Swift.String, Gloss.Encodable&gt;) -&gt; AsyncTask.Task&lt;(IOSLibrary.ApiResponse, Swift.Optional&lt;A&gt;)&gt;).(closure #1)"
-                  moduleName = "IOSLibrary"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Resomania/IOS%20Library/IOS%20Library/Requests/ApiClient.swift"
-                  timestampString = "521819709.698148"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "46">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IOSLibrary.ApiClient.((SendTo in _4044AE93CAFBD2E8E7629BA92B51CB53) &lt;A where A: Gloss.Decodable&gt; (Swift.String, method : IOSLibrary.HttpMethod, parameters : Swift.Dictionary&lt;Swift.String, Gloss.Encodable&gt;) -&gt; AsyncTask.Task&lt;(IOSLibrary.ApiResponse, Swift.Optional&lt;A&gt;)&gt;).(closure #1).(closure #1)"
-                  moduleName = "IOSLibrary"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Resomania/IOS%20Library/IOS%20Library/Requests/ApiClient.swift"
-                  timestampString = "521819709.701148"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "203">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
-            timestampString = "521819700.826889"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "SendTo(_:method:parameters:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
-            timestampString = "521819700.826889"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "SendTo(_:method:parameters:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
-            timestampString = "521820541.947966"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "SendTo(_:method:parameters:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOS Library/IOS LibraryTests/ApiClient.swift"
-            timestampString = "521820775.935425"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "testSendRequest()"
+            landmarkName = "init(json:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
