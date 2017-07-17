@@ -10,6 +10,7 @@ import Foundation
 import Gloss
 
 public class BaseNotificationPreference: BaseDataType {
+
     public var ConnectionMethod: MethodConnection
     public var Login: String
 
