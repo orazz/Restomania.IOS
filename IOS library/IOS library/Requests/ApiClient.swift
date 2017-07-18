@@ -20,6 +20,51 @@ public class ApiClient {
         self._url = url
         self._tag = tag
     }
+    //Range decodable
+    public func GetRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<[T]>> {
+        return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitRange(type:type))
+    }
+    public func PostRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<[T]>> {
+        return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitRange(type:type))
+    }
+    public func PutRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<[T]>> {
+        return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitRange(type:type))
+    }
+    public func DeleteRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<[T]>> {
+        return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitRange(type:type))
+    }
+    private func InitRange<T: Decodable>(type: T.Type) -> (_:Any?) -> [T] {
+        return { json in
+
+            let range = json as! [JSON]
+
+            var result = [T]()
+            for element in range {
+                if let data = T(json: element) {
+                    result.append(data)
+                }
+            }
+
+            return result
+        }
+    }
+
+    //Long
+    public func GetLong(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Int64>> {
+        return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitLong())
+    }
+    public func PostLong(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Int64>> {
+        return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitLong())
+    }
+    public func PutLong(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Int64>> {
+        return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitLong())
+    }
+    public func DeleteLong(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Int64>> {
+        return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitLong())
+    }
+    private func InitLong() -> (_:Any?) -> Int64 {
+        return { json in json as! Int64 }
+    }
 
     //Bool
     public func GetBool(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Bool>> {

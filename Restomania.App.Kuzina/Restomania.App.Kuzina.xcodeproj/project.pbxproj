@@ -42,6 +42,10 @@
 		1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0091F1DF7090090045E /* FixedDiscount.swift */; };
 		1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00B1F1DF7500090045E /* RegularCustomerDiscount.swift */; };
 		1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00D1F1DFABF0090045E /* Loyalty.swift */; };
+		1FB8F0101F1E03470090045E /* AccountsOpenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00F1F1E03470090045E /* AccountsOpenApiService.swift */; };
+		1FB8F0121F1E0B520090045E /* PlacesOpenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0111F1E0B520090045E /* PlacesOpenApiService.swift */; };
+		1FB8F0141F1E12AE0090045E /* ReviewsOpenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0131F1E12AE0090045E /* ReviewsOpenApiService.swift */; };
+		1FB8F0171F1E14B30090045E /* GetArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0161F1E14B30090045E /* GetArgs.swift */; };
 		1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */; };
 		1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */; };
 		1FC5A6A51F138A8600ABE1A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */; };
@@ -126,6 +130,10 @@
 		1FB8F0091F1DF7090090045E /* FixedDiscount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedDiscount.swift; path = Domains/Places/Loyalties/FixedDiscount.swift; sourceTree = "<group>"; };
 		1FB8F00B1F1DF7500090045E /* RegularCustomerDiscount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegularCustomerDiscount.swift; path = Domains/Places/Loyalties/RegularCustomerDiscount.swift; sourceTree = "<group>"; };
 		1FB8F00D1F1DFABF0090045E /* Loyalty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Loyalty.swift; path = Domains/Places/Loyalties/Loyalty.swift; sourceTree = "<group>"; };
+		1FB8F00F1F1E03470090045E /* AccountsOpenApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountsOpenApiService.swift; path = ApiServices/Open/AccountsOpenApiService.swift; sourceTree = "<group>"; };
+		1FB8F0111F1E0B520090045E /* PlacesOpenApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesOpenApiService.swift; path = ApiServices/Open/PlacesOpenApiService.swift; sourceTree = "<group>"; };
+		1FB8F0131F1E12AE0090045E /* ReviewsOpenApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewsOpenApiService.swift; path = ApiServices/Open/ReviewsOpenApiService.swift; sourceTree = "<group>"; };
+		1FB8F0161F1E14B30090045E /* GetArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetArgs.swift; path = ApiServices/Models/GetArgs.swift; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +319,14 @@
 			name = Loyalties;
 			sourceTree = "<group>";
 		};
+		1FB8F0151F1E14710090045E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FB8F0161F1E14B30090045E /* GetArgs.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */,
+				1FB8F0151F1E14710090045E /* Models */,
 				1FF4FE5C1F1BE68F00CC78B3 /* User */,
 				1FF4FE5B1F1BE68800CC78B3 /* System */,
 				1FF4FE5A1F1BE68200CC78B3 /* Open */,
@@ -411,6 +428,9 @@
 		1FF4FE5A1F1BE68200CC78B3 /* Open */ = {
 			isa = PBXGroup;
 			children = (
+				1FB8F00F1F1E03470090045E /* AccountsOpenApiService.swift */,
+				1FB8F0111F1E0B520090045E /* PlacesOpenApiService.swift */,
+				1FB8F0131F1E12AE0090045E /* ReviewsOpenApiService.swift */,
 			);
 			name = Open;
 			sourceTree = "<group>";
@@ -733,11 +753,13 @@
 				1FB8F0081F1DF68E0090045E /* Step.swift in Sources */,
 				1FD7E69B1F1D0E140023C033 /* ReportsSystemApiService.swift in Sources */,
 				1FB8EFE81F1D4BF90090045E /* DishCategory.swift in Sources */,
+				1FB8F0101F1E03470090045E /* AccountsOpenApiService.swift in Sources */,
 				1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */,
 				1FB8EFF01F1D4F7C0090045E /* PlaceType.swift in Sources */,
 				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
 				1FB8EFEC1F1D4EEC0090045E /* KitchenType.swift in Sources */,
 				1FB8EFF21F1D4FC20090045E /* Properties.swift in Sources */,
+				1FB8F0141F1E12AE0090045E /* ReviewsOpenApiService.swift in Sources */,
 				1FB8F0061F1DF64E0090045E /* Bonuses.swift in Sources */,
 				1FB8EFDC1F1D48290090045E /* Day.swift in Sources */,
 				1FB8EFE41F1D4A970090045E /* Contacts.swift in Sources */,
@@ -776,6 +798,8 @@
 				1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */,
 				1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */,
 				1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */,
+				1FB8F0121F1E0B520090045E /* PlacesOpenApiService.swift in Sources */,
+				1FB8F0171F1E14B30090045E /* GetArgs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
