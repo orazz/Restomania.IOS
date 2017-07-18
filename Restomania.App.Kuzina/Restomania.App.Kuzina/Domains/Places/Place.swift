@@ -23,7 +23,7 @@ public class Place: Account {
     public var Location: PlaceLocation
     public var Contacts: PlaceContacts
     public var Menu: PlaceMenu
-//    public Loyalty: Loyalty;
+    public var Loyalty: PlaceLoyalty
 
     public override init() {
         self.Status = .Processing
@@ -39,6 +39,7 @@ public class Place: Account {
         self.Location = PlaceLocation()
         self.Contacts = PlaceContacts()
         self.Menu = PlaceMenu()
+        self.Loyalty = PlaceLoyalty()
 
         super.init()
     }
@@ -56,6 +57,7 @@ public class Place: Account {
         self.Location = ("Location" <~~ json)!
         self.Contacts = ("Contacts" <~~ json)!
         self.Menu = ("Menu" <~~ json)!
+        self.Loyalty = ("Loyalty" <~~ json)!
 
         super.init(json: json)
     }

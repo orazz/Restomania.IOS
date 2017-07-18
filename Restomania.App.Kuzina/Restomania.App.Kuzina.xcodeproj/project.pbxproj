@@ -32,6 +32,16 @@
 		1FB8EFF21F1D4FC20090045E /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFF11F1D4FC20090045E /* Properties.swift */; };
 		1FB8EFF41F1D50960090045E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFF31F1D50960090045E /* Location.swift */; };
 		1FB8EFF61F1D516F0090045E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFF51F1D516F0090045E /* Place.swift */; };
+		1FB8EFF91F1DE8F10090045E /* LoyaltyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFF81F1DE8F10090045E /* LoyaltyType.swift */; };
+		1FB8EFFB1F1DE9330090045E /* BaseLoyaltySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFFA1F1DE9330090045E /* BaseLoyaltySystem.swift */; };
+		1FB8F0001F1DF2930090045E /* LoyaltyAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFFF1F1DF2930090045E /* LoyaltyAccount.swift */; };
+		1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0011F1DF3BC0090045E /* CountedLoyaltySystem.swift */; };
+		1FB8F0041F1DF47B0090045E /* CountedLoyaltyDiscounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0031F1DF47B0090045E /* CountedLoyaltyDiscounts.swift */; };
+		1FB8F0061F1DF64E0090045E /* Bonuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0051F1DF64E0090045E /* Bonuses.swift */; };
+		1FB8F0081F1DF68E0090045E /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0071F1DF68E0090045E /* Step.swift */; };
+		1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0091F1DF7090090045E /* FixedDiscount.swift */; };
+		1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00B1F1DF7500090045E /* RegularCustomerDiscount.swift */; };
+		1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00D1F1DFABF0090045E /* Loyalty.swift */; };
 		1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */; };
 		1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */; };
 		1FC5A6A51F138A8600ABE1A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */; };
@@ -106,6 +116,16 @@
 		1FB8EFF11F1D4FC20090045E /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Properties.swift; path = Domains/Places/Properties.swift; sourceTree = "<group>"; };
 		1FB8EFF31F1D50960090045E /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Domains/Places/Location.swift; sourceTree = "<group>"; };
 		1FB8EFF51F1D516F0090045E /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Domains/Places/Place.swift; sourceTree = "<group>"; };
+		1FB8EFF81F1DE8F10090045E /* LoyaltyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoyaltyType.swift; path = Domains/Places/Loyalties/LoyaltyType.swift; sourceTree = "<group>"; };
+		1FB8EFFA1F1DE9330090045E /* BaseLoyaltySystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseLoyaltySystem.swift; path = Domains/Places/Loyalties/BaseLoyaltySystem.swift; sourceTree = "<group>"; };
+		1FB8EFFF1F1DF2930090045E /* LoyaltyAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoyaltyAccount.swift; path = Domains/Loyalties/LoyaltyAccount.swift; sourceTree = "<group>"; };
+		1FB8F0011F1DF3BC0090045E /* CountedLoyaltySystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountedLoyaltySystem.swift; path = Domains/Loyalties/CountedLoyaltySystem.swift; sourceTree = "<group>"; };
+		1FB8F0031F1DF47B0090045E /* CountedLoyaltyDiscounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountedLoyaltyDiscounts.swift; path = Domains/Loyalties/CountedLoyaltyDiscounts.swift; sourceTree = "<group>"; };
+		1FB8F0051F1DF64E0090045E /* Bonuses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bonuses.swift; path = Domains/Places/Loyalties/Bonuses.swift; sourceTree = "<group>"; };
+		1FB8F0071F1DF68E0090045E /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Step.swift; path = Domains/Places/Loyalties/Step.swift; sourceTree = "<group>"; };
+		1FB8F0091F1DF7090090045E /* FixedDiscount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedDiscount.swift; path = Domains/Places/Loyalties/FixedDiscount.swift; sourceTree = "<group>"; };
+		1FB8F00B1F1DF7500090045E /* RegularCustomerDiscount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegularCustomerDiscount.swift; path = Domains/Places/Loyalties/RegularCustomerDiscount.swift; sourceTree = "<group>"; };
+		1FB8F00D1F1DFABF0090045E /* Loyalty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Loyalty.swift; path = Domains/Places/Loyalties/Loyalty.swift; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -177,16 +197,17 @@
 		1FA2607E1F14A02400C14886 /* Domains */ = {
 			isa = PBXGroup;
 			children = (
+				1FA260801F14A04F00C14886 /* BaseDataType.swift */,
 				1FF4FE7F1F1CE8B600CC78B3 /* Accounts */,
 				1FF4FE891F1CF18100CC78B3 /* NotificationPreferences */,
 				1FB8EFC61F1D3CF50090045E /* Users */,
 				1FB8EFC81F1D3FF50090045E /* Places */,
 				1FB8EFC71F1D3FEC0090045E /* Orders */,
+				1FB8EFFE1F1DF2180090045E /* Loyalties */,
 				1FB8EFC91F1D40170090045E /* Reviews */,
 				1FF4FE781F1CC4E500CC78B3 /* Log */,
 				1FF4FE721F1BFCDF00CC78B3 /* Payments */,
 				1FF4FE631F1BF41400CC78B3 /* Versions */,
-				1FA260801F14A04F00C14886 /* BaseDataType.swift */,
 				1FF4FE701F1BFC0F00CC78B3 /* AppSettings.swift */,
 			);
 			name = Domains;
@@ -216,9 +237,9 @@
 				1FB8EFD71F1D47C40090045E /* Menues */,
 				1FB8EFD61F1D47AA0090045E /* Contacts */,
 				1FB8EFF71F1D520A0090045E /* Loyalties */,
-				1FB8EFEB1F1D4EEC0090045E /* KitchenType.swift */,
 				1FB8EFED1F1D4F480090045E /* RegistrationStatus.swift */,
 				1FB8EFEF1F1D4F7C0090045E /* PlaceType.swift */,
+				1FB8EFEB1F1D4EEC0090045E /* KitchenType.swift */,
 				1FB8EFF11F1D4FC20090045E /* Properties.swift */,
 				1FB8EFF31F1D50960090045E /* Location.swift */,
 				1FB8EFF51F1D516F0090045E /* Place.swift */,
@@ -269,6 +290,23 @@
 		1FB8EFF71F1D520A0090045E /* Loyalties */ = {
 			isa = PBXGroup;
 			children = (
+				1FB8EFF81F1DE8F10090045E /* LoyaltyType.swift */,
+				1FB8F0071F1DF68E0090045E /* Step.swift */,
+				1FB8EFFA1F1DE9330090045E /* BaseLoyaltySystem.swift */,
+				1FB8F0051F1DF64E0090045E /* Bonuses.swift */,
+				1FB8F0091F1DF7090090045E /* FixedDiscount.swift */,
+				1FB8F00B1F1DF7500090045E /* RegularCustomerDiscount.swift */,
+				1FB8F00D1F1DFABF0090045E /* Loyalty.swift */,
+			);
+			name = Loyalties;
+			sourceTree = "<group>";
+		};
+		1FB8EFFE1F1DF2180090045E /* Loyalties */ = {
+			isa = PBXGroup;
+			children = (
+				1FB8EFFF1F1DF2930090045E /* LoyaltyAccount.swift */,
+				1FB8F0011F1DF3BC0090045E /* CountedLoyaltySystem.swift */,
+				1FB8F0031F1DF47B0090045E /* CountedLoyaltyDiscounts.swift */,
 			);
 			name = Loyalties;
 			sourceTree = "<group>";
@@ -691,6 +729,8 @@
 				1FB8EFDA1F1D47F80090045E /* DayOfWeek.swift in Sources */,
 				1FD7E69A1F1D0E140023C033 /* SettingsSystemApiService.swift in Sources */,
 				1FB8EFDE1F1D48CD0090045E /* Schedule.swift in Sources */,
+				1FB8F0001F1DF2930090045E /* LoyaltyAccount.swift in Sources */,
+				1FB8F0081F1DF68E0090045E /* Step.swift in Sources */,
 				1FD7E69B1F1D0E140023C033 /* ReportsSystemApiService.swift in Sources */,
 				1FB8EFE81F1D4BF90090045E /* DishCategory.swift in Sources */,
 				1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */,
@@ -698,31 +738,39 @@
 				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
 				1FB8EFEC1F1D4EEC0090045E /* KitchenType.swift in Sources */,
 				1FB8EFF21F1D4FC20090045E /* Properties.swift in Sources */,
+				1FB8F0061F1DF64E0090045E /* Bonuses.swift in Sources */,
 				1FB8EFDC1F1D48290090045E /* Day.swift in Sources */,
 				1FB8EFE41F1D4A970090045E /* Contacts.swift in Sources */,
 				1FD7E69E1F1D0E140023C033 /* Account.swift in Sources */,
 				1FB8EFC51F1D3C300090045E /* UserNotificationPreference.swift in Sources */,
 				1FB8EFF61F1D516F0090045E /* Place.swift in Sources */,
 				1FB8EFD51F1D430D0090045E /* Review.swift in Sources */,
+				1FB8EFFB1F1DE9330090045E /* BaseLoyaltySystem.swift in Sources */,
 				1FD7E69F1F1D0E140023C033 /* MethodConnection.swift in Sources */,
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,
+				1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */,
 				1FB8EFCB1F1D41050090045E /* UserParts.swift in Sources */,
 				1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */,
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
+				1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */,
 				1FD7E6A51F1D0E140023C033 /* CurrencyType.swift in Sources */,
 				1FD7E6A61F1D0E140023C033 /* Platform.swift in Sources */,
+				1FB8F0041F1DF47B0090045E /* CountedLoyaltyDiscounts.swift in Sources */,
 				1FB8EFCF1F1D41590090045E /* UserSex.swift in Sources */,
 				1FB8EFEA1F1D4C0C0090045E /* Menu.swift in Sources */,
+				1FB8EFF91F1DE8F10090045E /* LoyaltyType.swift in Sources */,
 				1FB8EFD11F1D429D0090045E /* Rate.swift in Sources */,
+				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
 				1FD7E6A71F1D0E140023C033 /* Version.swift in Sources */,
 				1FB8EFE01F1D49AF0090045E /* LinkType.swift in Sources */,
 				1FB8EFF41F1D50960090045E /* Location.swift in Sources */,
 				1FB8EFD31F1D42DF0090045E /* ReviewStatus.swift in Sources */,
 				1FD7E6A81F1D0E140023C033 /* BaseDataType.swift in Sources */,
+				1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */,
 				1FB8EFCD1F1D41420090045E /* User.swift in Sources */,
 				1FB8EFEE1F1D4F480090045E /* RegistrationStatus.swift in Sources */,
 				1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */,

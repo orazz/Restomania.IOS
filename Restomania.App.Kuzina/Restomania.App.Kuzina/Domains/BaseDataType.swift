@@ -19,7 +19,7 @@ public class BaseDataType: Glossy {
         self.UpdateAt = Date()
     }
     public required init(json: JSON) {
-        self.ID = ("ID" <~~ json)!
+        self.ID = ("ID" <~~ json) ?? 0
         self.CreateAt = "CreateAt" <~~ json
         self.UpdateAt = "UpdateAt" <~~ json
     }
