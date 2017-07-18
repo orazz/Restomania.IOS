@@ -10,10 +10,10 @@ import Foundation
 import AsyncTask
 import IOSLibrary
 
-public class UpdateAccountUserApiService: BaseAuthApiService {
+public class UserUpdateAccountApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .User, area: "User/UpdateAccount", tag: "UpdateAccountUserApiService")
+        super.init(storage: storage, rights: .User, area: "User/UpdateAccount", tag: "UserUpdateAccountApiService")
     }
 
 }

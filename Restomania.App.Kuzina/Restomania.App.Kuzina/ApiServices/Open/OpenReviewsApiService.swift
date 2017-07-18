@@ -10,9 +10,10 @@ import Foundation
 import IOSLibrary
 import AsyncTask
 
-public class ReviewsOpenApiService: BaseApiService {
+public class OpenReviewsApiService: BaseApiService {
+    
     public init() {
-        super.init(area: "Open/Reviews", tag: "ReviewsOpenApiService")
+        super.init(area: "Open/Reviews", tag: "OpenReviewsApiService")
     }
 
     public func ByPlace(placeID: Int64, args: GetArgs? = nil) -> Task<RequestResult<[Review]>> {

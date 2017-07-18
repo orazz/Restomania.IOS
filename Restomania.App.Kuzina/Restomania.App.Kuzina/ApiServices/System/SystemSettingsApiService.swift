@@ -9,9 +9,10 @@
 import IOSLibrary
 import AsyncTask
 
-public class SettingsSystemApiService: BaseApiService {
+public class SystemSettingsApiService: BaseApiService {
+    
     public init() {
-        super.init(area: "System/Settings", tag: "SettingsSystemApiService")
+        super.init(area: "System/Settings", tag: "SystemSettingsApiService")
     }
 
     public func All() -> Task<RequestResult<AppSettings>> {

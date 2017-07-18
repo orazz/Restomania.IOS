@@ -10,10 +10,10 @@ import Foundation
 import IOSLibrary
 import AsyncTask
 
-public class AccountOpenApiService: BaseAuthApiService {
+public class UserAccountApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .User, area: "User/Account", tag: "AccountsOpenApiService")
+        super.init(storage: storage, rights: .User, area: "User/Account", tag: "UserAccountApiService")
     }
 
     public func Info() -> Task<RequestResult<User>> {

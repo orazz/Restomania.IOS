@@ -9,9 +9,10 @@
 import IOSLibrary
 import AsyncTask
 
-public class VersionsSystemApiService: BaseApiService {
+public class SystemVersionsApiService: BaseApiService {
+    
     public init() {
-        super.init(area: "System/Versions", tag: "VersionsSystemApiService")
+        super.init(area: "System/Versions", tag: "SystemVersionsApiService")
     }
 
     public func Last() -> Task<RequestResult<Version>> {

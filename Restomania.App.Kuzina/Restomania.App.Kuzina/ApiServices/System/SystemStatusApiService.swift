@@ -9,9 +9,10 @@
 import IOSLibrary
 import AsyncTask
 
-public class StatusSystemApiService: BaseApiService {
+public class SystemStatusApiService: BaseApiService {
+    
     public init() {
-        super.init(area: "System/Status", tag: "StatusSystemApiService")
+        super.init(area: "System/Status", tag: "SystemStatusApiService")
     }
 
     public func IsAlive() -> Task<RequestResult<Bool>> {

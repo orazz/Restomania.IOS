@@ -10,10 +10,10 @@ import Foundation
 import AsyncTask
 import IOSLibrary
 
-public class UpdateNotificationsUserApiService: BaseAuthApiService {
+public class UserUpdateNotificationsApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .User, area: "User/UpdateNotifications", tag: "UpdateNotificationsUserApiService")
+        super.init(storage: storage, rights: .User, area: "User/UpdateNotifications", tag: "UserUpdateNotificationsApiService")
     }
 
 }

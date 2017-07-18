@@ -10,9 +10,10 @@ import Foundation
 import AsyncTask
 import IOSLibrary
 
-public class AccountsOpenApiService: BaseApiService {
+public class OpenAccountsApiService: BaseApiService {
+    
     public init() {
-        super.init(area: "Open/Accounts", tag: "AccountsOpenApiService")
+        super.init(area: "Open/Accounts", tag: "OpenAccountsApiService")
     }
 
     public func IsAuth(keys: AccessKeys, rights: AccessRights) -> Task<RequestResult<Bool>> {
