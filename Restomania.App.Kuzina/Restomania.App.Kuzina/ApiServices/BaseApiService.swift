@@ -8,6 +8,7 @@
 
 import Foundation
 import IOSLibrary
+import Gloss
 
 public class BaseApiService: ILoggable {
     private let _url = "http://restomania.eu"
@@ -21,5 +22,22 @@ public class BaseApiService: ILoggable {
 
     public var Tag: String {
         return _tag
+    }
+
+    internal func CollectParameters(_ values: Parameters? = nil) -> Parameters {
+        var result = Parameters()
+
+        if let values = values {
+            for (key, value) in values {
+
+                if let object = value as? Encodable {
+                    result[key] = object.toJSON()
+                } else {
+                    result[key] = value
+                }
+            }
+        }
+
+        return result
     }
 }

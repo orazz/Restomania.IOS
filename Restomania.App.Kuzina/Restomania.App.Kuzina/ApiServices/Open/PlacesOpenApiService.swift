@@ -15,26 +15,26 @@ public class PlacesOpenApiService: BaseApiService {
         super.init(area: "Open/Places", tag: "PlacesOpenApiService")
     }
 
-    public func All(args:GetArgs? = nil) -> Task<RequestResult<[Place]>> {
-        let parameters: [String:Any?] = [
+    public func All(args: GetArgs? = nil) -> Task<RequestResult<[Place]>> {
+        let parameters = CollectParameters( [
             "time": args?.time
-        ]
+        ])
 
-        return _client.GetRange(action: "All", type: Place.self, parameters: parameters as? Parameters)
+        return _client.GetRange(action: "All", type: Place.self, parameters: parameters)
     }
     public func Find(placeID: Int64) -> Task<RequestResult<Place>> {
-        let parameters: [String:Any] = [
+        let parameters = CollectParameters([
             "placeID": placeID
-        ]
+        ])
 
-        return _client.Get(action: "Find", type: Place.self, parameters: parameters as? Parameters)
+        return _client.Get(action: "Find", type: Place.self, parameters: parameters)
     }
     public func FindRange(range: [Int64]) -> Task<RequestResult<[Place]>> {
-        let parameters: [String:Any] = [
+        let parameters = CollectParameters([
             "placeIDs": range
-        ]
+        ])
 
-        return _client.GetRange(action: "Range", type: Place.self, parameters: parameters as? Parameters)
+        return _client.GetRange(action: "Range", type: Place.self, parameters: parameters)
     }
 
 }

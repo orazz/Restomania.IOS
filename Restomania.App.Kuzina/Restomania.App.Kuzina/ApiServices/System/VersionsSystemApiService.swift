@@ -15,17 +15,17 @@ public class VersionsSystemApiService: BaseApiService {
     }
 
     public func Last() -> Task<RequestResult<Version>> {
-        let parameters = [
-            "platform": Platform.IOS
-        ]
+        let parameters = CollectParameters([
+                "platform": Platform.IOS
+            ])
 
-        return _client.Get(action: "Last", type: Version.self, parameters: parameters as? Parameters)
+        return _client.Get(action: "Last", type: Version.self, parameters: parameters)
     }
     public func LastCritical() -> Task<RequestResult<Version>> {
-        let parameters = [
-            "platform": Platform.IOS
-        ]
+        let parameters = CollectParameters([
+                "platform": Platform.IOS
+            ])
 
-        return _client.Get(action: "LastCritical", type: Version.self, parameters: parameters as? Parameters)
+        return _client.Get(action: "LastCritical", type: Version.self, parameters: parameters)
     }
 }

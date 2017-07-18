@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 import AsyncTask
 
-public typealias Parameters = [String: Encodable]
+public typealias Parameters = [String: Any?]
 public typealias RequestResult<T> = (ApiResponse, T?)
 public class ApiClient {
     private let _url: String
@@ -165,15 +165,9 @@ public class ApiClient {
         return URL(string: builded)!
     }
     private func Build(parameters: Parameters) -> Data {
-        var data = [String: JSON]()
-
-        for (key, value) in parameters {
-            data[key] = value.toJSON()
-        }
-
         var parametersContent = ""
         do {
-            let parameters = try JSONSerialization.data(withJSONObject: data, options: [])
+            let parameters = try JSONSerialization.data(withJSONObject: parameters, options: [])
             parametersContent = String(data: parameters, encoding: .utf8)!
         } catch {
             Log.Error(_tag, "Problem with serialize parameters for request.")

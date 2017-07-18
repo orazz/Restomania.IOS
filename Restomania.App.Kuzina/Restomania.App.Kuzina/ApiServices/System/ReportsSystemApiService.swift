@@ -15,9 +15,9 @@ public class ReportsSystemApiService: BaseApiService {
     }
 
     public func Add(report: RemoteBugReport) -> Task<RequestResult<RemoteBugReport>> {
-        let parameters = [
-            "data": report
-        ]
+        let parameters = CollectParameters([
+                "data": report
+            ])
 
         return _client.Post(action: "Add", type: RemoteBugReport.self, parameters: parameters)
     }

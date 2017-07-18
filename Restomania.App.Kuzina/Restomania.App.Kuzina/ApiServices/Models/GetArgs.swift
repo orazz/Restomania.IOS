@@ -10,6 +10,7 @@ import Foundation
 import Gloss
 
 public class GetArgs: Encodable {
+
     public var take: Int
     public var skip: Int
     public var time: Date?

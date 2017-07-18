@@ -46,6 +46,11 @@
 		1FB8F0121F1E0B520090045E /* PlacesOpenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0111F1E0B520090045E /* PlacesOpenApiService.swift */; };
 		1FB8F0141F1E12AE0090045E /* ReviewsOpenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0131F1E12AE0090045E /* ReviewsOpenApiService.swift */; };
 		1FB8F0171F1E14B30090045E /* GetArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0161F1E14B30090045E /* GetArgs.swift */; };
+		1FB8F0191F1E18C70090045E /* AccountUserApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0181F1E18C70090045E /* AccountUserApiService.swift */; };
+		1FB8F01B1F1E190F0090045E /* IKeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F01A1F1E190F0090045E /* IKeysStorage.swift */; };
+		1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */; };
+		1FB8F01F1F1E34E80090045E /* UpdateAccountUserApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F01E1F1E34E80090045E /* UpdateAccountUserApiService.swift */; };
+		1FB8F0211F1E35A40090045E /* UpdateNotificationsUserApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0201F1E35A40090045E /* UpdateNotificationsUserApiService.swift */; };
 		1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */; };
 		1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */; };
 		1FC5A6A51F138A8600ABE1A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */; };
@@ -134,6 +139,11 @@
 		1FB8F0111F1E0B520090045E /* PlacesOpenApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesOpenApiService.swift; path = ApiServices/Open/PlacesOpenApiService.swift; sourceTree = "<group>"; };
 		1FB8F0131F1E12AE0090045E /* ReviewsOpenApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewsOpenApiService.swift; path = ApiServices/Open/ReviewsOpenApiService.swift; sourceTree = "<group>"; };
 		1FB8F0161F1E14B30090045E /* GetArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetArgs.swift; path = ApiServices/Models/GetArgs.swift; sourceTree = "<group>"; };
+		1FB8F0181F1E18C70090045E /* AccountUserApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountUserApiService.swift; path = ApiServices/User/AccountUserApiService.swift; sourceTree = "<group>"; };
+		1FB8F01A1F1E190F0090045E /* IKeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IKeysStorage.swift; path = ApiServices/Models/IKeysStorage.swift; sourceTree = "<group>"; };
+		1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAuthApiService.swift; path = ApiServices/BaseAuthApiService.swift; sourceTree = "<group>"; };
+		1FB8F01E1F1E34E80090045E /* UpdateAccountUserApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateAccountUserApiService.swift; path = ApiServices/User/UpdateAccountUserApiService.swift; sourceTree = "<group>"; };
+		1FB8F0201F1E35A40090045E /* UpdateNotificationsUserApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateNotificationsUserApiService.swift; path = ApiServices/User/UpdateNotificationsUserApiService.swift; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				1FB8F0161F1E14B30090045E /* GetArgs.swift */,
+				1FB8F01A1F1E190F0090045E /* IKeysStorage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -403,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */,
+				1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */,
 				1FB8F0151F1E14710090045E /* Models */,
 				1FF4FE5C1F1BE68F00CC78B3 /* User */,
 				1FF4FE5B1F1BE68800CC78B3 /* System */,
@@ -449,6 +461,9 @@
 		1FF4FE5C1F1BE68F00CC78B3 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				1FB8F0181F1E18C70090045E /* AccountUserApiService.swift */,
+				1FB8F01E1F1E34E80090045E /* UpdateAccountUserApiService.swift */,
+				1FB8F0201F1E35A40090045E /* UpdateNotificationsUserApiService.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -755,6 +770,7 @@
 				1FB8EFE81F1D4BF90090045E /* DishCategory.swift in Sources */,
 				1FB8F0101F1E03470090045E /* AccountsOpenApiService.swift in Sources */,
 				1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */,
+				1FB8F01F1F1E34E80090045E /* UpdateAccountUserApiService.swift in Sources */,
 				1FB8EFF01F1D4F7C0090045E /* PlaceType.swift in Sources */,
 				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
 				1FB8EFEC1F1D4EEC0090045E /* KitchenType.swift in Sources */,
@@ -774,9 +790,11 @@
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,
 				1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */,
 				1FB8EFCB1F1D41050090045E /* UserParts.swift in Sources */,
+				1FB8F0191F1E18C70090045E /* AccountUserApiService.swift in Sources */,
 				1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */,
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
+				1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
 				1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */,
 				1FD7E6A51F1D0E140023C033 /* CurrencyType.swift in Sources */,
@@ -786,6 +804,7 @@
 				1FB8EFEA1F1D4C0C0090045E /* Menu.swift in Sources */,
 				1FB8EFF91F1DE8F10090045E /* LoyaltyType.swift in Sources */,
 				1FB8EFD11F1D429D0090045E /* Rate.swift in Sources */,
+				1FB8F01B1F1E190F0090045E /* IKeysStorage.swift in Sources */,
 				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
 				1FD7E6A71F1D0E140023C033 /* Version.swift in Sources */,
 				1FB8EFE01F1D49AF0090045E /* LinkType.swift in Sources */,
@@ -796,6 +815,7 @@
 				1FB8EFCD1F1D41420090045E /* User.swift in Sources */,
 				1FB8EFEE1F1D4F480090045E /* RegistrationStatus.swift in Sources */,
 				1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */,
+				1FB8F0211F1E35A40090045E /* UpdateNotificationsUserApiService.swift in Sources */,
 				1FC5A6A21F138A8600ABE1A6 /* ViewController.swift in Sources */,
 				1FC5A6A01F138A8600ABE1A6 /* AppDelegate.swift in Sources */,
 				1FB8F0121F1E0B520090045E /* PlacesOpenApiService.swift in Sources */,
