@@ -11,12 +11,12 @@ import IOSLibrary
 import AsyncTask
 
 public class OpenReviewsApiService: BaseApiService {
-    
+
     public init() {
         super.init(area: "Open/Reviews", tag: "OpenReviewsApiService")
     }
 
-    public func ByPlace(placeID: Int64, args: GetArgs? = nil) -> Task<RequestResult<[Review]>> {
+    public func ByPlace(placeID: Int64, args: GetArgs? = nil) -> RequestResult<[Review]> {
         let parameters = CollectParameters([
             "placeID": placeID,
             "time": args?.time
@@ -24,7 +24,7 @@ public class OpenReviewsApiService: BaseApiService {
 
         return _client.GetRange(action: "ByPlace", type: Review.self, parameters: parameters )
     }
-    public func ByUser(userID: Int64, args: GetArgs? = nil) -> Task<RequestResult<[Review]>> {
+    public func ByUser(userID: Int64, args: GetArgs? = nil) -> RequestResult<[Review]> {
         let parameters = CollectParameters([
             "userID": userID,
             "time": args?.time

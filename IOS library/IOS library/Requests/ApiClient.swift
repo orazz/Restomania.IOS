@@ -11,7 +11,7 @@ import Gloss
 import AsyncTask
 
 public typealias Parameters = [String: Any?]
-public typealias RequestResult<T> = (ApiResponse, T?)
+public typealias RequestResult<T> = Task<(ApiResponse, T?)>
 public class ApiClient {
     private let _url: String
     private let _tag: String
@@ -21,16 +21,16 @@ public class ApiClient {
         self._tag = tag
     }
     //Range decodable
-    public func GetRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<[T]>> {
+    public func GetRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
         return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitRange(type:type))
     }
-    public func PostRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<[T]>> {
+    public func PostRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
         return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitRange(type:type))
     }
-    public func PutRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<[T]>> {
+    public func PutRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
         return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitRange(type:type))
     }
-    public func DeleteRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<[T]>> {
+    public func DeleteRange<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
         return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitRange(type:type))
     }
     private func InitRange<T: Decodable>(type: T.Type) -> (_:Any?) -> [T] {
@@ -50,16 +50,16 @@ public class ApiClient {
     }
 
     //Long
-    public func GetLong(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Int64>> {
+    public func GetLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
         return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitLong())
     }
-    public func PostLong(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Int64>> {
+    public func PostLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
         return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitLong())
     }
-    public func PutLong(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Int64>> {
+    public func PutLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
         return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitLong())
     }
-    public func DeleteLong(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Int64>> {
+    public func DeleteLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
         return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitLong())
     }
     private func InitLong() -> (_:Any?) -> Int64 {
@@ -67,16 +67,16 @@ public class ApiClient {
     }
 
     //Bool
-    public func GetBool(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Bool>> {
+    public func GetBool(action: String, parameters: Parameters? = nil) -> RequestResult<Bool> {
         return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitBool())
     }
-    public func PostBool(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Bool>> {
+    public func PostBool(action: String, parameters: Parameters? = nil) -> RequestResult<Bool> {
         return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitBool())
     }
-    public func PutBool(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Bool>> {
+    public func PutBool(action: String, parameters: Parameters? = nil) -> RequestResult<Bool> {
         return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitBool())
     }
-    public func DeleteBool(action: String, parameters: Parameters? = nil) -> Task<RequestResult<Bool>> {
+    public func DeleteBool(action: String, parameters: Parameters? = nil) -> RequestResult<Bool> {
         return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitBool())
     }
     private func InitBool() -> (_:Any?) -> Bool {
@@ -84,16 +84,16 @@ public class ApiClient {
     }
 
     //Decodable
-    public func Get<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<T>> {
+    public func Get<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
         return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitT())
     }
-    public func Post<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<T>> {
+    public func Post<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
         return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitT())
     }
-    public func Put<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<T>> {
+    public func Put<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
         return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitT())
     }
-    public func Delete<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> Task<RequestResult<T>> {
+    public func Delete<T: Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
         return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitT())
     }
     private func InitT<T: Decodable>() -> (_:Any?) -> T {
@@ -108,7 +108,7 @@ public class ApiClient {
         }
     }
 
-    private func SendTo<TData>(_ path: String, method: HttpMethod, parameters: Parameters, parser:@escaping (_:Any?) -> TData) -> Task<RequestResult<TData>> {
+    private func SendTo<TData>(_ path: String, method: HttpMethod, parameters: Parameters, parser:@escaping (_:Any?) -> TData) -> RequestResult<TData> {
         let url = Build(url: _url, path: path, method: method)
 
         var request = URLRequest(url: url)

@@ -10,19 +10,19 @@ import IOSLibrary
 import AsyncTask
 
 public class SystemVersionsApiService: BaseApiService {
-    
+
     public init() {
         super.init(area: "System/Versions", tag: "SystemVersionsApiService")
     }
 
-    public func Last() -> Task<RequestResult<Version>> {
+    public func Last() -> RequestResult<Version> {
         let parameters = CollectParameters([
                 "platform": Platform.IOS
             ])
 
         return _client.Get(action: "Last", type: Version.self, parameters: parameters)
     }
-    public func LastCritical() -> Task<RequestResult<Version>> {
+    public func LastCritical() -> RequestResult<Version> {
         let parameters = CollectParameters([
                 "platform": Platform.IOS
             ])

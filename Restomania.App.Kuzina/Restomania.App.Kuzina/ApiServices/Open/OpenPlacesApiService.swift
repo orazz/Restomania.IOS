@@ -11,26 +11,26 @@ import IOSLibrary
 import AsyncTask
 
 public class OpenPlacesApiService: BaseApiService {
-    
+
     public init() {
         super.init(area: "Open/Places", tag: "OpenPlacesApiService")
     }
 
-    public func All(args: GetArgs? = nil) -> Task<RequestResult<[Place]>> {
+    public func All(args: GetArgs? = nil) -> RequestResult<[Place]> {
         let parameters = CollectParameters( [
             "time": args?.time
         ])
 
         return _client.GetRange(action: "All", type: Place.self, parameters: parameters)
     }
-    public func Find(placeID: Int64) -> Task<RequestResult<Place>> {
+    public func Find(placeID: Int64) -> RequestResult<Place> {
         let parameters = CollectParameters([
             "placeID": placeID
         ])
 
         return _client.Get(action: "Find", type: Place.self, parameters: parameters)
     }
-    public func FindRange(range: [Int64]) -> Task<RequestResult<[Place]>> {
+    public func FindRange(range: [Int64]) -> RequestResult<[Place]> {
         let parameters = CollectParameters([
             "placeIDs": range
         ])

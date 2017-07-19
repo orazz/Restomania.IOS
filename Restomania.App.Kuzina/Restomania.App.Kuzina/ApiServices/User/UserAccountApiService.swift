@@ -16,7 +16,7 @@ public class UserAccountApiService: BaseAuthApiService {
         super.init(storage: storage, rights: .User, area: "User/Account", tag: "UserAccountApiService")
     }
 
-    public func Info() -> Task<RequestResult<User>> {
+    public func Info() -> RequestResult<User> {
         return _client.Get(action: "Info", type: User.self, parameters: CollectParameters())
     }
 }

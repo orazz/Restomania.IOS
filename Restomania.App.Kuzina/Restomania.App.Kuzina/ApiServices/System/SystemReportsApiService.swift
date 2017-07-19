@@ -10,12 +10,12 @@ import IOSLibrary
 import AsyncTask
 
 public class SystemReportsApiService: BaseApiService {
-    
+
     public init() {
         super.init(area: "System/Reports", tag: "SystemReportsApiService")
     }
 
-    public func Add(report: RemoteBugReport) -> Task<RequestResult<RemoteBugReport>> {
+    public func Add(report: RemoteBugReport) -> RequestResult<RemoteBugReport> {
         let parameters = CollectParameters([
                 "data": report
             ])

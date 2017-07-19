@@ -16,7 +16,7 @@ public class OpenDevicesApiService: BaseApiService {
         super.init(area: "Open/Devices", tag: "OpenDevicesApiService")
     }
 
-    public func Register(keys: AccessKeys, token: String, platform: NotificationPlatformType, locale: String) -> Task<RequestResult<Device>> {
+    public func Register(keys: AccessKeys, token: String, platform: NotificationPlatformType, locale: String) -> RequestResult<Device> {
         let parameters = CollectParameters([
             "keys": keys,
             "token": token,
