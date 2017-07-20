@@ -426,7 +426,7 @@
                   moduleName = "IOSLibrary"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/IOS%20Library/IOS%20Library/Requests/ApiClient.swift"
-                  timestampString = "522246989.428445"
+                  timestampString = "522249442.051258"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "130"
@@ -441,7 +441,7 @@
                   moduleName = "IOSLibrary"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/IOS%20Library/IOS%20Library/Requests/ApiClient.swift"
-                  timestampString = "522246989.431032"
+                  timestampString = "522249442.053712"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "130"
@@ -544,6 +544,22 @@
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Tools/PropertiesStorage/PropertiesStorage.swift"
+            timestampString = "522249348.592155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "get(_:key:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

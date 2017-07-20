@@ -8,8 +8,10 @@
 
 import Foundation
 import IOSLibrary
+import Gloss
 
 public class PropertiesStorage {
+    private static let _tag = "PropertiesStorage"
     private static let _storage = UserDefaults.standard
 
     public class func hasValue(_ key: PropertiesKey) -> Bool {
@@ -58,6 +60,22 @@ public class PropertiesStorage {
         let name = build(key)
 
         _storage.set(value, forKey: name)
+    }
+    public class func set(_ key: PropertiesKey, value: Encodable) {
+        let json = value.toJSON()
+
+        if (nil == json) {
+            return
+        }
+
+        do {
+            let data = try JSONSerialization.data(withJSONObject: json!, options: [])
+
+            set(key, value: String(data:data, encoding: .utf8)!)
+        } catch {
+            Log.Warning(_tag, "Problem with save JSON for \(build(key)).")
+        }
+
     }
 
     //Getting
@@ -110,6 +128,23 @@ public class PropertiesStorage {
         let value = _storage.value(forKey: name) as? Bool
 
         return OptionalValue(value)
+    }
+    public class func get<T: Decodable>(_ type: T.Type, key: PropertiesKey) -> OptionalValue<T> {
+
+        let jsonString = getString(key)
+
+        if (!jsonString.hasValue) {
+            return OptionalValue(nil)
+        }
+
+        do {
+            let data = jsonString.value.data(using: .utf8)
+            let json = try JSONSerialization.jsonObject(with: data!, options: []) as! JSON
+
+            return OptionalValue(T(json: json))
+        } catch {
+            return OptionalValue(nil)
+        }
     }
 
     private class func build(_ key: PropertiesKey) -> String {

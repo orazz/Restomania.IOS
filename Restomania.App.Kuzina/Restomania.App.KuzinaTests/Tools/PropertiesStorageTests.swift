@@ -8,6 +8,7 @@
 
 import XCTest
 import IOSLibrary
+import Gloss
 @testable import RestomaniaAppKuzina
 
 public class PropertiesStorageTests: XCTestCase {
@@ -91,5 +92,36 @@ public class PropertiesStorageTests: XCTestCase {
 
         XCTAssertTrue(newValue.hasValue)
         XCTAssertEqual(value, newValue.value)
+    }
+    public func testJSON() {
+        let value = Model(name: "max", age:4)
+
+        PropertiesStorage.set(.Test, value: value) 
+        let newValue = PropertiesStorage.get(Model.self, key: .Test)
+
+        XCTAssertTrue(newValue.hasValue)
+        XCTAssertEqual(value.Name, newValue.value.Name)
+        XCTAssertEqual(value.Age, newValue.value.Age)
+    }
+
+    class Model: Glossy {
+        public var Name: String
+        public var Age: Int
+
+        public init(name: String, age: Int) {
+            self.Name = name
+            self.Age = age
+        }
+        public required init(json: JSON) {
+            self.Name = ("Name" <~~ json)!
+            self.Age = ("Age" <~~ json)!
+        }
+
+        public func toJSON() -> JSON? {
+            return jsonify([
+                "Name" ~~> Name,
+                "Age" ~~> Age
+                ])
+        }
     }
 }
