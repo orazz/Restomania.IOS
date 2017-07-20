@@ -14,6 +14,8 @@
 		1F138C901F19EDC6003EAEE6 /* ApiErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */; };
 		1F138C921F19F911003EAEE6 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C911F19F911003EAEE6 /* HttpMethod.swift */; };
 		1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DC3C41F1CFAD70058E699 /* String.swift */; };
+		1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8711F20768E00232B9A /* OptionalValue.swift */; };
+		1F36C8741F20787900232B9A /* Long.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8731F20787900232B9A /* Long.swift */; };
 		1F41CE4D1F13BE5B000B92E1 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */; };
 		1F41CE541F13BE5B000B92E1 /* IOS Library.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F41CE461F13BE5B000B92E1 /* IOS Library.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE5F1F13BEA1000B92E1 /* Log.swift */; };
@@ -52,6 +54,8 @@
 		1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiErrorResponse.swift; path = Responses/ApiErrorResponse.swift; sourceTree = "<group>"; };
 		1F138C911F19F911003EAEE6 /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpMethod.swift; path = Requests/HttpMethod.swift; sourceTree = "<group>"; };
 		1F2DC3C41F1CFAD70058E699 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
+		1F36C8711F20768E00232B9A /* OptionalValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionalValue.swift; path = Tools/OptionalValue.swift; sourceTree = "<group>"; };
+		1F36C8731F20787900232B9A /* Long.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Long.swift; path = Tools/Long.swift; sourceTree = "<group>"; };
 		1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F41CE461F13BE5B000B92E1 /* IOS Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOS Library.h"; sourceTree = "<group>"; };
 		1F41CE471F13BE5B000B92E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				1F41CE5E1F13BE97000B92E1 /* Log */,
 				1FFEA2801F14A824002DD78F /* Guid.swift */,
 				1F2DC3C41F1CFAD70058E699 /* String.swift */,
+				1F36C8711F20768E00232B9A /* OptionalValue.swift */,
+				1F36C8731F20787900232B9A /* Long.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -469,12 +475,14 @@
 				1F138C921F19F911003EAEE6 /* HttpMethod.swift in Sources */,
 				1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */,
 				1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */,
+				1F36C8741F20787900232B9A /* Long.swift in Sources */,
 				1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */,
 				1FFEA28B1F14AD71002DD78F /* EventsAdapter.swift in Sources */,
 				1F138C8A1F19EC79003EAEE6 /* ApiDataResponse.swift in Sources */,
 				1FFEA2811F14A824002DD78F /* Guid.swift in Sources */,
 				1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */,
 				1F138C901F19EDC6003EAEE6 /* ApiErrorResponse.swift in Sources */,
+				1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */,
 				1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */,
 				1FFEA2891F14AD5C002DD78F /* IEventsEmitter.swift in Sources */,
 				1F138C8C1F19EC93003EAEE6 /* ApiClient.swift in Sources */,

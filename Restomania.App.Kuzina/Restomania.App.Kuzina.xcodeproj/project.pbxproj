@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */; };
-		1F41CE671F13BF22000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE661F13BF22000B92E1 /* IOS Library.framework */; };
+		1F36C8791F207AE700232B9A /* PropertiesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8771F207AE700232B9A /* PropertiesStorage.swift */; };
+		1F36C87A1F207AE700232B9A /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8781F207AE700232B9A /* PropertiesKey.swift */; };
+		1F36C8811F207C9800232B9A /* PropertiesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C87B1F207B3F00232B9A /* PropertiesStorageTests.swift */; };
+		1F36C8831F20823800232B9A /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36C8821F20823800232B9A /* IOSLibrary.framework */; };
+		1F36C8841F20823E00232B9A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36C87F1F207C8300232B9A /* XCTest.framework */; };
 		1F41CE6B1F13BF4B000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */; };
 		1FB8EFC51F1D3C300090045E /* UserNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFC41F1D3C300090045E /* UserNotificationPreference.swift */; };
 		1FB8EFCB1F1D41050090045E /* UserParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFCA1F1D41050090045E /* UserParts.swift */; };
@@ -123,6 +127,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F36C8771F207AE700232B9A /* PropertiesStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorage.swift; path = Services/PropertiesStorage/PropertiesStorage.swift; sourceTree = "<group>"; };
+		1F36C8781F207AE700232B9A /* PropertiesKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesKey.swift; path = Services/PropertiesStorage/PropertiesKey.swift; sourceTree = "<group>"; };
+		1F36C87B1F207B3F00232B9A /* PropertiesStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorageTests.swift; path = Services/PropertiesStorageTests.swift; sourceTree = "<group>"; };
+		1F36C87F1F207C8300232B9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1F36C8821F20823800232B9A /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1F41CE661F13BF22000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE681F13BF42000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
@@ -247,7 +256,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F41CE671F13BF22000B92E1 /* IOS Library.framework in Frameworks */,
+				1F36C8841F20823E00232B9A /* XCTest.framework in Frameworks */,
+				1F36C8831F20823800232B9A /* IOSLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +272,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F36C8751F207A1200232B9A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1F36C87B1F207B3F00232B9A /* PropertiesStorageTests.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		1F898C511F20715100F82CAC /* PropertiesStorage */ = {
+			isa = PBXGroup;
+			children = (
+				1F36C8781F207AE700232B9A /* PropertiesKey.swift */,
+				1F36C8771F207AE700232B9A /* PropertiesStorage.swift */,
+			);
+			name = PropertiesStorage;
+			sourceTree = "<group>";
+		};
 		1FA2607E1F14A02400C14886 /* Domains */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,16 +512,13 @@
 		1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */ = {
 			isa = PBXGroup;
 			children = (
+				1FC5A6AB1F138A8600ABE1A6 /* Info.plist */,
+				1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */,
 				1FF4FE591F1BE48600CC78B3 /* Controllers */,
 				1FF4FE581F1BE48100CC78B3 /* Services */,
 				1FF4FE571F1BE47300CC78B3 /* ApiServices */,
 				1FA2607E1F14A02400C14886 /* Domains */,
-				1FC5A69F1F138A8600ABE1A6 /* AppDelegate.swift */,
-				1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */,
-				1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */,
 				1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */,
-				1FC5A6A81F138A8600ABE1A6 /* LaunchScreen.storyboard */,
-				1FC5A6AB1F138A8600ABE1A6 /* Info.plist */,
 			);
 			path = Restomania.App.Kuzina;
 			sourceTree = "<group>";
@@ -502,6 +526,7 @@
 		1FC5A6B31F138A8600ABE1A6 /* Restomania.App.KuzinaTests */ = {
 			isa = PBXGroup;
 			children = (
+				1F36C8751F207A1200232B9A /* Services */,
 				1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */,
 				1FC5A6B61F138A8600ABE1A6 /* Info.plist */,
 			);
@@ -520,6 +545,8 @@
 		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F36C8821F20823800232B9A /* IOSLibrary.framework */,
+				1F36C87F1F207C8300232B9A /* XCTest.framework */,
 				1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */,
 				1FA260821F14A0F700C14886 /* Gloss.framework */,
 				1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */,
@@ -548,6 +575,7 @@
 		1FF4FE581F1BE48100CC78B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1F898C511F20715100F82CAC /* PropertiesStorage */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -555,6 +583,9 @@
 		1FF4FE591F1BE48600CC78B3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1FC5A6A81F138A8600ABE1A6 /* LaunchScreen.storyboard */,
+				1FC5A6A31F138A8600ABE1A6 /* Main.storyboard */,
+				1FC5A6A11F138A8600ABE1A6 /* ViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -893,6 +924,7 @@
 				1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */,
 				1FB8EFF01F1D4F7C0090045E /* PlaceType.swift in Sources */,
 				1FB8F0331F1E621D0090045E /* TransactionStatus.swift in Sources */,
+				1F36C87A1F207AE700232B9A /* PropertiesKey.swift in Sources */,
 				1FB8F0641F1ECE990090045E /* DishOrderType.swift in Sources */,
 				1FB8F0551F1EC5200090045E /* UserBookingsApiService.swift in Sources */,
 				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
@@ -924,6 +956,7 @@
 				1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */,
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
+				1F36C8791F207AE700232B9A /* PropertiesStorage.swift in Sources */,
 				1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
 				1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */,
@@ -967,6 +1000,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F36C8811F207C9800232B9A /* PropertiesStorageTests.swift in Sources */,
 				1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1149,6 +1183,7 @@
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = Restomania.App.KuzinaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-v";
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-KuzinaTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -1164,6 +1199,7 @@
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = Restomania.App.KuzinaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-v";
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.Restomania-App-KuzinaTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
