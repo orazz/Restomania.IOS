@@ -55,6 +55,11 @@
                BlueprintName = "RestomaniaAppKuzina-Tests"
                ReferencedContainer = "container:Restomania.App.Kuzina.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "OpenPlaceSummariesApiServiceTests/testRange()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
@@ -64,6 +69,16 @@
                BuildableName = "RestomaniaAppKuzina-UITests.xctest"
                BlueprintName = "RestomaniaAppKuzina-UITests"
                ReferencedContainer = "container:Restomania.App.Kuzina.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1F41CE4B1F13BE5B000B92E1"
+               BuildableName = "IOSLibraryTests.xctest"
+               BlueprintName = "IOSLibraryTests"
+               ReferencedContainer = "container:../IOS Library/IOS Library.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

@@ -24,9 +24,9 @@ public class Account: BaseDataType {
         super.init()
     }
     public required init(json: JSON) {
-        self.Email = ("Email" <~~ json)!
+        self.Email = ("Email" <~~ json) ?? String.Empty
         self.Name = ("Name" <~~ json)!
-        self.Rights = ("Rights" <~~ json)!
+        self.Rights = ("Rights" <~~ json) ?? .User
         self.CurrencyType = ("CurrencyType" <~~ json)!
 
         super.init(json: json)

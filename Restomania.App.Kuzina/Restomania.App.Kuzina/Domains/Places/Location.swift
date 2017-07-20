@@ -34,4 +34,15 @@ public class PlaceLocation: BaseDataType {
 
         super.init(json: json)
     }
+
+    public override func toJSON() -> JSON? {
+        return jsonify([
+            "Latitude" ~~> self.Latitude,
+            "Longitude" ~~> self.Longitude,
+            "City" ~~> self.City,
+            "Street" ~~> self.Street,
+            "House" ~~> self.House,
+            super.toJSON()
+            ])!
+    }
 }

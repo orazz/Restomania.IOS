@@ -10,7 +10,11 @@ import Foundation
 
 public class FileSystem {
     private let _tag = "FileSystem"
-    private let _client = FileManager.default
+    private let _client: FileManager
+
+    public init() {
+        _client = FileManager.default
+    }
 
     public func LoadBundleFile(_ filename: String) -> String? {
         if let path = Bundle.main.path(forResource: filename, ofType: nil) {
@@ -25,14 +29,14 @@ public class FileSystem {
 
         return nil
     }
-    public func LoadBundlePlist(_ filename: String) -> NSDictionary? {
+    public func LoadBundlePlist(_ filename: String) -> OptionalValue<NSDictionary> {
         if let path = Bundle.main.path(forResource: filename, ofType: "plist") {
-            return NSDictionary(contentsOfFile: path)
+            return OptionalValue(NSDictionary(contentsOfFile: path))
         }
 
         Log.Warning(_tag, "Can't load plist file \(filename).")
 
-        return nil
+        return OptionalValue(nil)
     }
 
     public func IsExist(_ filename: String, inCache: Bool ) -> Bool {

@@ -11,7 +11,7 @@ import Gloss
 import AsyncTask
 
 public typealias Parameters = [String: Any?]
-public typealias RequestResult<T> = Task<(ApiResponse, T?)>
+public typealias RequestResult<T> = Task<ApiResponse<T>>
 public class ApiClient {
     private let _url: String
     private let _tag: String
@@ -116,14 +116,14 @@ public class ApiClient {
         request.httpBody = Build(parameters: parameters)
         request.allHTTPHeaderFields?["Content-type"] = "application/x-www-form-urlencoded"
 
-        return Task { (handler: @escaping (_:(ApiResponse, TData?)) -> Void) in
+        return Task { (handler: @escaping (_:ApiResponse<TData>) -> Void) in
 
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     Log.Error(self._tag, "Fundamental problem with request.")
                     Log.Error(self._tag, "Error: \(error)")
 
-                    handler((ApiResponse(statusCode: .ConnectionError), nil))
+                    handler(ApiResponse(statusCode: .ConnectionError))
                     return
                 }
 
@@ -133,7 +133,7 @@ public class ApiClient {
                     Log.Warning(self._tag, "Response status code is \(httpStatus.statusCode)")
                     Log.Error(self._tag, "Response status code is not success.")
 
-                    handler((ApiResponse(statusCode: .InternalServerError), nil))
+                    handler(ApiResponse(statusCode: .InternalServerError))
                     return
                 }
 
@@ -142,18 +142,19 @@ public class ApiClient {
                     let data =  try JSONSerialization.jsonObject(with: data!, options: [])
                     let json = data as! JSON
 
-                    let response = ApiResponse(json: json)
-                    if (response.StatusCode == .OK) {
+                    let response = ApiResponse<TData>(json: json)
+                    if (response.statusCode == .OK) {
 
-                        handler((response, parser(json["Data"])))
+                        response.data = parser(json["Data"])
+                        handler(response)
                     } else {
-                        handler((ApiErrorResponse(json: json), nil))
+                        handler(response)
                     }
 
                 } catch {
                     Log.Error(self._tag, "Problem with parse response result.")
 
-                    handler((ApiResponse(statusCode: .InternalServerError), nil))
+                    handler(ApiResponse(statusCode: .InternalServerError))
                 }
             }
             task.resume()

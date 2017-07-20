@@ -2,23 +2,26 @@ workspace 'Restomania'
 
 platform :ios, '9.1'
 
-target 'RestomaniaAppKuzina' do
+def shared_pods
     use_frameworks!
-    project './Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj'
     pod 'Gloss', '~> 1.2'
     pod 'AsyncTask', '~> 0.1.3'
+end
+
+target 'RestomaniaAppKuzina' do
+    project './Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj'
+    shared_pods
+end
+target 'RestomaniaAppKuzina-Tests' do
+    project './Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj'
+    shared_pods
 end
 
 target 'IOSLibrary' do
-  use_frameworks!
   project './IOS Library/IOS Library.xcodeproj'
-  pod 'Gloss', '~> 1.2'
-  pod 'AsyncTask', '~> 0.1.3'
+  shared_pods
 end
-
 target 'IOSLibraryTests' do
-    use_frameworks!
     project './IOS Library/IOS Library.xcodeproj'
-    pod 'Gloss', '~> 1.2'
-    pod 'AsyncTask', '~> 0.1.3'
+    shared_pods
 end

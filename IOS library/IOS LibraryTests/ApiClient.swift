@@ -24,14 +24,14 @@ public class ApiClientTests: XCTestCase {
         let task = _client.GetBool(action: "System/Status/IsAlive")
         let result = task.await()
 
-        let status = result.1!
+        let status = result.data!
         XCTAssertTrue(status)
     }
     public func testSendRequestForDecodable() {
         let task = _client.Get(action: "System/Settings/All", type: Settings.self)
         let result = task.await()
 
-        let settings = result.1!
+        let settings = result.data!
         XCTAssertEqual("http://restomania.eu/", settings.HostName)
         XCTAssertEqual("http://restomania.eu/mvcapi/", settings.ApiHostName)
         XCTAssertEqual("System/Status/IsAlive", settings.StatusPath)

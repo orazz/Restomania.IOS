@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C871F19EC66003EAEE6 /* ApiResponse.swift */; };
-		1F138C8A1F19EC79003EAEE6 /* ApiDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C891F19EC79003EAEE6 /* ApiDataResponse.swift */; };
 		1F138C8C1F19EC93003EAEE6 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8B1F19EC93003EAEE6 /* ApiClient.swift */; };
 		1F138C8E1F19ED11003EAEE6 /* HttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */; };
-		1F138C901F19EDC6003EAEE6 /* ApiErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */; };
 		1F138C921F19F911003EAEE6 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C911F19F911003EAEE6 /* HttpMethod.swift */; };
 		1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DC3C41F1CFAD70058E699 /* String.swift */; };
 		1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8711F20768E00232B9A /* OptionalValue.swift */; };
@@ -48,10 +46,8 @@
 
 /* Begin PBXFileReference section */
 		1F138C871F19EC66003EAEE6 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiResponse.swift; path = Responses/ApiResponse.swift; sourceTree = "<group>"; };
-		1F138C891F19EC79003EAEE6 /* ApiDataResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiDataResponse.swift; path = Responses/ApiDataResponse.swift; sourceTree = "<group>"; };
 		1F138C8B1F19EC93003EAEE6 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiClient.swift; path = Requests/ApiClient.swift; sourceTree = "<group>"; };
 		1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpStatusCode.swift; path = Responses/HttpStatusCode.swift; sourceTree = "<group>"; };
-		1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiErrorResponse.swift; path = Responses/ApiErrorResponse.swift; sourceTree = "<group>"; };
 		1F138C911F19F911003EAEE6 /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpMethod.swift; path = Requests/HttpMethod.swift; sourceTree = "<group>"; };
 		1F2DC3C41F1CFAD70058E699 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
 		1F36C8711F20768E00232B9A /* OptionalValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionalValue.swift; path = Tools/OptionalValue.swift; sourceTree = "<group>"; };
@@ -217,8 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				1F138C871F19EC66003EAEE6 /* ApiResponse.swift */,
-				1F138C8F1F19EDC6003EAEE6 /* ApiErrorResponse.swift */,
-				1F138C891F19EC79003EAEE6 /* ApiDataResponse.swift */,
 				1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */,
 			);
 			name = Responses;
@@ -262,8 +256,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F41CE571F13BE5B000B92E1 /* Build configuration list for PBXNativeTarget "IOSLibrary" */;
 			buildPhases = (
-				1F33A50E1F1D1D5800BF469B /* Swiftlint */,
 				78308921A6EF40810B64B812 /* [CP] Check Pods Manifest.lock */,
+				1F33A50E1F1D1D5800BF469B /* Swiftlint */,
 				1F41CE3E1F13BE5B000B92E1 /* Sources */,
 				1F41CE3F1F13BE5B000B92E1 /* Frameworks */,
 				1F41CE401F13BE5B000B92E1 /* Headers */,
@@ -283,8 +277,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F41CE5A1F13BE5B000B92E1 /* Build configuration list for PBXNativeTarget "IOSLibraryTests" */;
 			buildPhases = (
-				1F33A5111F1D1DBB00BF469B /* Swiftlint */,
 				5E2FBC2D28EE1FBD8838C965 /* [CP] Check Pods Manifest.lock */,
+				1F33A5111F1D1DBB00BF469B /* Swiftlint */,
 				1F41CE481F13BE5B000B92E1 /* Sources */,
 				1F41CE491F13BE5B000B92E1 /* Frameworks */,
 				1F41CE4A1F13BE5B000B92E1 /* Resources */,
@@ -478,10 +472,8 @@
 				1F36C8741F20787900232B9A /* Long.swift in Sources */,
 				1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */,
 				1FFEA28B1F14AD71002DD78F /* EventsAdapter.swift in Sources */,
-				1F138C8A1F19EC79003EAEE6 /* ApiDataResponse.swift in Sources */,
 				1FFEA2811F14A824002DD78F /* Guid.swift in Sources */,
 				1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */,
-				1F138C901F19EDC6003EAEE6 /* ApiErrorResponse.swift in Sources */,
 				1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */,
 				1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */,
 				1FFEA2891F14AD5C002DD78F /* IEventsEmitter.swift in Sources */,

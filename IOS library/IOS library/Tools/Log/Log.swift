@@ -31,6 +31,6 @@ public class Log {
         let logMessage = LogMessage(Date(), type, tag, message)
 
         Messages.append(logMessage)
-        print("log: \(logMessage)")
+        print("\(logMessage)")
     }
 }

@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ApiClient.SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;:ApiClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request.allHTTPHeaderFields">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
          <PersistentStrings>
             <PersistentString
@@ -10,6 +18,17 @@
             </PersistentString>
             <PersistentString
                value = "LogMessage(Date(), type, tag, message)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ApiDataResponse.init(json : [String : Any]) -&gt; ApiDataResponse&lt;A&gt;:ApiDataResponse.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ConfigsStorageTests.testGetConfig() -&gt; ():ConfigsStorageTests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "name.value as String">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,6 +41,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "FileSystem.LoadBundlePlist(String) -&gt; NSDictionary?:FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bundle.bundlePath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FileSystem.IsExist(String, inCache : Bool) -&gt; Bool:FileSystem.swift">
          <PersistentStrings>
             <PersistentString
@@ -30,7 +57,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ApiDataResponse.init(json : [String : Any]) -&gt; ApiDataResponse&lt;A&gt;:ApiDataResponse.swift">
+         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_system.IsExist(_file, inCache: true)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "FileSystem.Remove(String, fromCache : Bool) -&gt; ():FileSystem.swift">
@@ -61,28 +93,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ApiClient.SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;:ApiClient.swift">
+         contextName = "ConfigsStorage.Get(forKey : String) -&gt; OptionalValue&lt;Any&gt;:ConfigsStorage.swift">
          <PersistentStrings>
             <PersistentString
-               value = "request.allHTTPHeaderFields">
+               value = "_configs.value.allKeys">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FileSystem.LoadBundlePlist(String) -&gt; NSDictionary?:FileSystem.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "bundle.bundlePath">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "_system.IsExist(_file, inCache: true)">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "ConfigsStorage.init(plistName : String) -&gt; ConfigsStorage:ConfigsStorage.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
