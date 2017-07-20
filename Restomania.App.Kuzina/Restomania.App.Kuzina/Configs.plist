@@ -2,9 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AppType</key>
+	<string>Network</string>
+	<key>Places</key>
+	<string>[43,37,33]</string>
 	<key>ServerUrl</key>
 	<string>http://restomania.eu</string>
-	<key>Name</key>
-	<string>App</string>
 </dict>
 </plist>

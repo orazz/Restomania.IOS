@@ -38,6 +38,28 @@ public class ApiClientTests: XCTestCase {
         XCTAssertEqual("System/Reports/Add", settings.ReportsPath)
         XCTAssertFalse(settings.Debug)
     }
+    public func testSendAndGetDate() {
+        var components = DateComponents()
+        components.year = 2012
+        components.month = 7
+        components.day = 11
+        components.timeZone = TimeZone(identifier: "UTC")
+        components.hour = 8
+        components.minute = 34
+        components.second = 12
+
+        let calendar = Calendar.current
+        let date = calendar.date(from: components)!
+
+        var parameters = Parameters()
+        parameters["date"] = date.prepareForJson()
+
+        let task = _client.GetString(action: "Admin/Test/TestDate", parameters: parameters)
+        let result = task.await()
+
+        XCTAssertEqual(date.prepareForJson(), result.data!)
+        XCTAssertTrue(date == Date.parseJson(value: result.data!))
+    }
 }
 class Settings: Decodable {
     public let HostName: String

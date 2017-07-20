@@ -48,6 +48,22 @@ public class ApiClient {
             return result
         }
     }
+    //String
+    public func GetString(action: String, parameters: Parameters? = nil) -> RequestResult<String> {
+        return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitString())
+    }
+    public func PostString(action: String, parameters: Parameters? = nil) -> RequestResult<String> {
+        return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitString())
+    }
+    public func PutString(action: String, parameters: Parameters? = nil) -> RequestResult<String> {
+        return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitString())
+    }
+    public func DeleteString(action: String, parameters: Parameters? = nil) -> RequestResult<String> {
+        return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitString())
+    }
+    private func InitString() -> (_:Any?) -> String {
+        return { json in json as! String }
+    }
 
     //Long
     public func GetLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
@@ -137,18 +153,17 @@ public class ApiClient {
                     return
                 }
 
-                Log.Debug(self._tag, "Success response from \(url)")
+                Log.Debug(self._tag, "Response from \(url)")
                 do {
                     let data =  try JSONSerialization.jsonObject(with: data!, options: [])
                     let json = data as! JSON
 
-                    let response = ApiResponse<TData>(json: json)
-                    if (response.statusCode == .OK) {
-
-                        response.data = parser(json["Data"])
-                        handler(response)
+                    let apiResponse = ApiResponse<TData>(json: json)
+                    if (apiResponse.statusCode == .OK) {
+                        apiResponse.data = parser(json["Data"])
+                        handler(apiResponse)
                     } else {
-                        handler(response)
+                        handler(apiResponse)
                     }
 
                 } catch {
@@ -166,9 +181,25 @@ public class ApiClient {
         return URL(string: builded)!
     }
     private func Build(parameters: Parameters) -> Data {
+
+        var builded = JSON()
+        for (key, value) in parameters {
+
+            if (nil == value) {
+                continue
+            }
+
+            builded[key] = value
+//            if let date = value as? Date {
+//                builded[key] = date.prepareForJson()
+//            } else {
+//                builded[key] = value
+//            }
+        }
+
         var parametersContent = ""
         do {
-            let parameters = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            let parameters = try JSONSerialization.data(withJSONObject: builded, options: [])
             parametersContent = String(data: parameters, encoding: .utf8)!
         } catch {
             Log.Error(_tag, "Problem with serialize parameters for request.")

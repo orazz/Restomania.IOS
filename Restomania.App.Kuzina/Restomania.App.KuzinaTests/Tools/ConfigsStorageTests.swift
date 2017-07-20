@@ -17,13 +17,13 @@ public class ConfigsStorageTests: XCTestCase {
     override public func setUp() {
         super.setUp()
 
-        _configs = ConfigsStorage(plistName: "Configs")
+        _configs = ConfigsStorage(plistName: "Info")
     }
 
     public func testGetConfig() {
-        let name = _configs.Get(forKey: "Name")
+        let name = _configs.Get(forKey: "CFBundlePackageType")
 
         XCTAssertTrue(name.hasValue)
-        XCTAssertEqual("App", name.value as! String)
+        XCTAssertEqual("APPL", name.value as! String)
     }
 }

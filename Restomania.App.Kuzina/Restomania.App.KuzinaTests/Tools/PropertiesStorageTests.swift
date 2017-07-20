@@ -96,7 +96,7 @@ public class PropertiesStorageTests: XCTestCase {
     public func testJSON() {
         let value = Model(name: "max", age:4)
 
-        PropertiesStorage.set(.Test, value: value) 
+        PropertiesStorage.set(.Test, value: value)
         let newValue = PropertiesStorage.get(Model.self, key: .Test)
 
         XCTAssertTrue(newValue.hasValue)
