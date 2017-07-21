@@ -119,6 +119,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "DateFilter.checkMoreOneDigit([String], forDate : Date) -&gt; Bool:DateFilter.swift">
+      </ContextState>
+      <ContextState
          contextName = "OpenPlaceSummariesApiServiceTests.(testRange() -&gt; ()).(implicit closure #2):OpenPlaceSummariesApiService.swift">
       </ContextState>
       <ContextState
@@ -165,12 +168,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "SearchField.search(phrase : String, in : A) -&gt; Bool:SearchField.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_getter(instance)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ConfigsStorage.Get(forKey : String) -&gt; OptionalValue&lt;Any&gt;:ConfigsStorage.swift">
          <PersistentStrings>
             <PersistentString
                value = "_configs.value.allKeys">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchAdapter.search(phrase : String, in : A) -&gt; Bool:SearchAdapter.swift">
       </ContextState>
       <ContextState
          contextName = "ApiClient.SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;:ApiClient.swift">

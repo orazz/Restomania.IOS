@@ -16,10 +16,10 @@ public class FiltersFactory {
                 return StringFilter()
 
             case .Number:
-                return DefaultFilter()
+                return NumberFilter()
 
             case .Date, .Time, .DateTime:
-                return DefaultFilter()
+                return DateTimeFilter(type: type)
 
             default:
                 return DefaultFilter()

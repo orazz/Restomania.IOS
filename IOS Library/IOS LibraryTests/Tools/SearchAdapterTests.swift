@@ -11,12 +11,58 @@ import XCTest
 
 public class SearchAdapterTests: XCTestCase {
 
-    private var _adapter: SearchAdapter!
+    public func testSearchAdapter() {
 
-    public override func setUp() {
-        super.setUp()
+        //Initialization
+        let adapter = SearchAdapter<Model>()
+        adapter.add({ $0.name })
+        adapter.add({ $0.surname})
+        adapter.add({ $0.age })
+        adapter.add({ $0.birthdate }, type: .DateTime)
 
-        _adapter = SearchAdapter()
+        let model = Model()
+        model.name = "Name Alex"
+        model.surname = "Surname Best"
+        model.age = 14
+        model.birthdate = Date.parseJson(value: "2017-07-21T18:26:00Z")
+
+        //Check
+        Check(false, phrase: "test", model: model, adapter: adapter)
+        Check(false, phrase: "alexx", model: model, adapter: adapter)
+        Check(false, phrase: "15", model: model, adapter: adapter)
+
+        //String
+        Check(true, phrase: "name", model: model, adapter: adapter)
+        Check(true, phrase: "alex", model: model, adapter: adapter)
+        Check(true, phrase: "name alex", model: model, adapter: adapter)
+        Check(true, phrase: "surname", model: model, adapter: adapter)
+        Check(true, phrase: "best", model: model, adapter: adapter)
+        Check(true, phrase: "surname best", model: model, adapter: adapter)
+        //Number
+        Check(true, phrase: "14", model: model, adapter: adapter)
+        //Date
+        Check(true, phrase: "07 21", model: model, adapter: adapter)
+        Check(true, phrase: "18 26", model: model, adapter: adapter)
+        Check(true, phrase: "07", model: model, adapter: adapter)
+        Check(true, phrase: "21", model: model, adapter: adapter)
+        Check(true, phrase: "18", model: model, adapter: adapter)
+        Check(true, phrase: "26", model: model, adapter: adapter)
+    }
+    public class Model {
+        public var name: String
+        public var surname: String
+        public var age: Int
+        public var birthdate: Date
+
+        public init() {
+            name = String.Empty
+            surname = String.Empty
+            age = 0
+            birthdate = Date()
+        }
+    }
+    private func Check(_ expected: Bool, phrase: String, model: Model, adapter: SearchAdapter<Model>) {
+        XCTAssertEqual(expected, adapter.search(phrase: phrase, in: model))
     }
 
     public func testStringFilter() {
@@ -54,7 +100,7 @@ public class SearchAdapterTests: XCTestCase {
     }
     public func testTimeFilter() {
 
-        let filter = DateFilter(type: .Time).search
+        let filter = DateTimeFilter(type: .Time).search
 
         Check(false, phrase: "test", date: "2017-07-21T18:26:00Z", filter: filter)
         Check(false, phrase: "14", date: "2017-07-21T18:26:14Z", filter: filter)
@@ -70,7 +116,7 @@ public class SearchAdapterTests: XCTestCase {
     }
     public func testDateFilter() {
 
-        let filter = DateFilter(type: .Date).search
+        let filter = DateTimeFilter(type: .Date).search
 
         Check(false, phrase: "test", date: "2017-07-21T18:26:00Z", filter: filter)
         Check(false, phrase: "14", date: "2017-07-21T18:26:14Z", filter: filter)
@@ -85,7 +131,7 @@ public class SearchAdapterTests: XCTestCase {
     }
     public func testDateTimeFilter() {
 
-        let filter = DateFilter(type: .DateTime).search
+        let filter = DateTimeFilter(type: .DateTime).search
 
         Check(false, phrase: "test", date: "2017-07-21T18:26:00Z", filter: filter)
         Check(false, phrase: "14", date: "2017-07-21T18:26:14Z", filter: filter)

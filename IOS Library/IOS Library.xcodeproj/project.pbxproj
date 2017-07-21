@@ -22,12 +22,12 @@
 		1FA20BB51F226D1400215C4A /* FiltersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BB21F226D1400215C4A /* FiltersFactory.swift */; };
 		1FA20BB61F226D1400215C4A /* IFIlter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BB31F226D1400215C4A /* IFIlter.swift */; };
 		1FA20BB71F226D1400215C4A /* StringFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BB41F226D1400215C4A /* StringFilter.swift */; };
-		1FA20BB91F226D1F00215C4A /* BaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BB81F226D1F00215C4A /* BaseField.swift */; };
 		1FA20BBC1F226D2A00215C4A /* SearchAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BBA1F226D2A00215C4A /* SearchAdapter.swift */; };
 		1FA20BBD1F226D2A00215C4A /* ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BBB1F226D2A00215C4A /* ValueType.swift */; };
 		1FA20BC01F226DAD00215C4A /* SearchAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BBE1F226D6A00215C4A /* SearchAdapterTests.swift */; };
 		1FA20BC21F2276DD00215C4A /* NumberFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BC11F2276DD00215C4A /* NumberFilter.swift */; };
-		1FA20BC41F22791200215C4A /* DateFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BC31F22791200215C4A /* DateFilter.swift */; };
+		1FA20BC41F22791200215C4A /* DateTimeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BC31F22791200215C4A /* DateTimeFilter.swift */; };
+		1FA20BC61F2294A400215C4A /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BC51F2294A400215C4A /* SearchField.swift */; };
 		1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606B1F13D3A500C14886 /* FileSystem.swift */; };
 		1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606D1F13E98A00C14886 /* FileSystem.swift */; };
 		1FF4FE561F1A24E000CC78B3 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */; };
@@ -72,12 +72,12 @@
 		1FA20BB21F226D1400215C4A /* FiltersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersFactory.swift; path = Tools/SearchAdapter/Filters/FiltersFactory.swift; sourceTree = "<group>"; };
 		1FA20BB31F226D1400215C4A /* IFIlter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFIlter.swift; path = Tools/SearchAdapter/Filters/IFIlter.swift; sourceTree = "<group>"; };
 		1FA20BB41F226D1400215C4A /* StringFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringFilter.swift; path = Tools/SearchAdapter/Filters/StringFilter.swift; sourceTree = "<group>"; };
-		1FA20BB81F226D1F00215C4A /* BaseField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseField.swift; path = Tools/SearchAdapter/Fields/BaseField.swift; sourceTree = "<group>"; };
 		1FA20BBA1F226D2A00215C4A /* SearchAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchAdapter.swift; path = Tools/SearchAdapter/SearchAdapter.swift; sourceTree = "<group>"; };
 		1FA20BBB1F226D2A00215C4A /* ValueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValueType.swift; path = Tools/SearchAdapter/ValueType.swift; sourceTree = "<group>"; };
 		1FA20BBE1F226D6A00215C4A /* SearchAdapterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchAdapterTests.swift; path = Tools/SearchAdapterTests.swift; sourceTree = "<group>"; };
 		1FA20BC11F2276DD00215C4A /* NumberFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberFilter.swift; path = Tools/SearchAdapter/Filters/NumberFilter.swift; sourceTree = "<group>"; };
-		1FA20BC31F22791200215C4A /* DateFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFilter.swift; path = Tools/SearchAdapter/Filters/DateFilter.swift; sourceTree = "<group>"; };
+		1FA20BC31F22791200215C4A /* DateTimeFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeFilter.swift; path = Tools/SearchAdapter/Filters/DateTimeFilter.swift; sourceTree = "<group>"; };
+		1FA20BC51F2294A400215C4A /* SearchField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchField.swift; path = Tools/SearchAdapter/SearchField.swift; sourceTree = "<group>"; };
 		1FA2606B1F13D3A500C14886 /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSystem.swift; path = Tools/FileSystem/FileSystem.swift; sourceTree = "<group>"; };
 		1FA2606D1F13E98A00C14886 /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSystem.swift; path = Tools/FileSystem.swift; sourceTree = "<group>"; };
 		1FA260721F13FEC900C14886 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -204,20 +204,12 @@
 		1FA20BAF1F226CCF00215C4A /* SearchAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				1FA20BBA1F226D2A00215C4A /* SearchAdapter.swift */,
-				1FA20BBB1F226D2A00215C4A /* ValueType.swift */,
 				1FA20BB11F226D0600215C4A /* Filters */,
-				1FA20BB01F226CE000215C4A /* Fields */,
+				1FA20BBB1F226D2A00215C4A /* ValueType.swift */,
+				1FA20BC51F2294A400215C4A /* SearchField.swift */,
+				1FA20BBA1F226D2A00215C4A /* SearchAdapter.swift */,
 			);
 			name = SearchAdapter;
-			sourceTree = "<group>";
-		};
-		1FA20BB01F226CE000215C4A /* Fields */ = {
-			isa = PBXGroup;
-			children = (
-				1FA20BB81F226D1F00215C4A /* BaseField.swift */,
-			);
-			name = Fields;
 			sourceTree = "<group>";
 		};
 		1FA20BB11F226D0600215C4A /* Filters */ = {
@@ -226,8 +218,8 @@
 				1FA20BB31F226D1400215C4A /* IFIlter.swift */,
 				1FA20BB41F226D1400215C4A /* StringFilter.swift */,
 				1FA20BC11F2276DD00215C4A /* NumberFilter.swift */,
+				1FA20BC31F22791200215C4A /* DateTimeFilter.swift */,
 				1FA20BB21F226D1400215C4A /* FiltersFactory.swift */,
-				1FA20BC31F22791200215C4A /* DateFilter.swift */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -519,13 +511,13 @@
 				1FA20BBC1F226D2A00215C4A /* SearchAdapter.swift in Sources */,
 				1FA20BC21F2276DD00215C4A /* NumberFilter.swift in Sources */,
 				1F138C8E1F19ED11003EAEE6 /* HttpStatusCode.swift in Sources */,
-				1FA20BB91F226D1F00215C4A /* BaseField.swift in Sources */,
 				1FFA57C31F211EE800E83463 /* Date.swift in Sources */,
 				1FA20BB61F226D1400215C4A /* IFIlter.swift in Sources */,
 				1FFEA28D1F14AE95002DD78F /* ILoggable.swift in Sources */,
-				1FA20BC41F22791200215C4A /* DateFilter.swift in Sources */,
+				1FA20BC41F22791200215C4A /* DateTimeFilter.swift in Sources */,
 				1F138C921F19F911003EAEE6 /* HttpMethod.swift in Sources */,
 				1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */,
+				1FA20BC61F2294A400215C4A /* SearchField.swift in Sources */,
 				1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */,
 				1F36C8741F20787900232B9A /* Long.swift in Sources */,
 				1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */,

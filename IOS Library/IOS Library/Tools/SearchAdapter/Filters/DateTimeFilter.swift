@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class DateFilter: IFilter {
+public class DateTimeFilter: IFilter {
     private let _type: ValueType
 
     init(type: ValueType) {
