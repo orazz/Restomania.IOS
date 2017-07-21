@@ -122,6 +122,8 @@
 		1FFA57E91F224DC900E83463 /* AppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57E51F224DC900E83463 /* AppType.swift */; };
 		1FFA57EA1F224DC900E83463 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57E61F224DC900E83463 /* ConfigKeys.swift */; };
 		1FFA57EB1F224DC900E83463 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57E71F224DC900E83463 /* ThemeSettings.swift */; };
+		1FFA57EF1F225FA000E83463 /* _markup in Resources */ = {isa = PBXBuildFile; fileRef = 1FFA57EE1F225FA000E83463 /* _markup */; };
+		1FFA57F61F2264B800E83463 /* SearchAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57F51F2264B800E83463 /* SearchAdapterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +270,8 @@
 		1FFA57E51F224DC900E83463 /* AppType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppType.swift; path = App/Settings/AppType.swift; sourceTree = "<group>"; };
 		1FFA57E61F224DC900E83463 /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigKeys.swift; path = App/Settings/ConfigKeys.swift; sourceTree = "<group>"; };
 		1FFA57E71F224DC900E83463 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeSettings.swift; path = App/Settings/ThemeSettings.swift; sourceTree = "<group>"; };
+		1FFA57EE1F225FA000E83463 /* _markup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _markup; path = Restomania.App.Kuzina/_markup; sourceTree = "<group>"; };
+		1FFA57F51F2264B800E83463 /* SearchAdapterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchAdapterTests.swift; path = Tools/SearchAdapterTests.swift; sourceTree = "<group>"; };
 		32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.release.xcconfig"; sourceTree = "<group>"; };
 		569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestomaniaAppKuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.debug.xcconfig"; sourceTree = "<group>"; };
@@ -360,6 +364,7 @@
 			children = (
 				1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */,
 				1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */,
+				1FFA57F51F2264B800E83463 /* SearchAdapterTests.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -566,6 +571,7 @@
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
+				1FFA57EE1F225FA000E83463 /* _markup */,
 				1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */,
 				1FC5A6B31F138A8600ABE1A6 /* Restomania.App.KuzinaTests */,
 				1FC5A6BE1F138A8600ABE1A6 /* Restomania.App.KuzinaUITests */,
@@ -928,6 +934,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FFA57EF1F225FA000E83463 /* _markup in Resources */,
 				1FFA57CD1F21F11B00E83463 /* Main.storyboard in Resources */,
 				1FFA57D81F22424D00E83463 /* logo-dark.png in Resources */,
 				1FFA57CF1F21F12600E83463 /* LaunchScreen.storyboard in Resources */,
@@ -1199,6 +1206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */,
+				1FFA57F61F2264B800E83463 /* SearchAdapterTests.swift in Sources */,
 				1FFA57C11F20CFD100E83463 /* OpenPlaceSummariesApiService.swift in Sources */,
 				1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */,
 				1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */,

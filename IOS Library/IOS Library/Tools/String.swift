@@ -13,6 +13,6 @@ extension String {
         return ""
     }
     public static func IsNullOrEmpty(_ value: String?) -> Bool {
-        return value != "" && value != nil
+        return value == "" || value == nil
     }
 }

@@ -10,6 +10,7 @@ import XCTest
 @testable import IOSLibrary
 
 public class StringTests {
+
     public func testString() {
         XCTAssertEqual("", String.Empty)
 
