@@ -52,4 +52,61 @@ public class SearchAdapterTests: XCTestCase {
         XCTAssertEqual(false, filter("ASD", String.Empty))
         XCTAssertEqual(false, filter("123", 12))
     }
+    public func testTimeFilter() {
+
+        let filter = DateFilter(type: .Time).search
+
+        Check(false, phrase: "test", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(false, phrase: "14", date: "2017-07-21T18:26:14Z", filter: filter)
+        Check(false, phrase: "1", date: "2017-07-21T18:26:14Z", filter: filter)
+        Check(false, phrase: "7", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(false, phrase: "21", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(false, phrase: "7 21", date: "2017-07-21T18:26:00Z", filter: filter)
+
+        Check(true, phrase: "test 26 asd", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "18 asd", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "18 26", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "26 18", date: "2017-07-21T18:26:00Z", filter: filter)
+    }
+    public func testDateFilter() {
+
+        let filter = DateFilter(type: .Date).search
+
+        Check(false, phrase: "test", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(false, phrase: "14", date: "2017-07-21T18:26:14Z", filter: filter)
+        Check(false, phrase: "26", date: "2017-07-21T18:26:14Z", filter: filter)
+        Check(false, phrase: "18", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(false, phrase: "18 26", date: "2017-07-21T18:26:00Z", filter: filter)
+
+        Check(true, phrase: "test 21 asd", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "7 asd", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "21 7", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "7 21", date: "2017-07-21T18:26:00Z", filter: filter)
+    }
+    public func testDateTimeFilter() {
+
+        let filter = DateFilter(type: .DateTime).search
+
+        Check(false, phrase: "test", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(false, phrase: "14", date: "2017-07-21T18:26:14Z", filter: filter)
+        Check(false, phrase: "26 14", date: "2017-07-21T18:26:14Z", filter: filter)
+        Check(false, phrase: "21 18", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(false, phrase: "21 26", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(false, phrase: "21 18", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(false, phrase: "7 18", date: "2017-07-21T18:26:00Z", filter: filter)
+
+        Check(true, phrase: "test 21 asd", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "7 asd", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "18", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "26", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "26 18", date: "2017-07-21T18:26:00Z", filter: filter)
+        Check(true, phrase: "21 7", date: "2017-07-21T18:26:00Z", filter: filter)
+    }
+
+    private func Check(_ expect: Bool, phrase: String, date: String, filter: (String, Any) -> Bool ) {
+
+        let date = Date.parseJson(value: date)
+
+        XCTAssertEqual(expect, filter(phrase, date))
+    }
 }
