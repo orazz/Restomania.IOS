@@ -11,4 +11,8 @@ import Foundation
 public enum PropertiesKey: Int {
 
     case Test = 1
+
+    //App versioning
+    case AppVersion = 2
+    case AppBuild = 3
 }

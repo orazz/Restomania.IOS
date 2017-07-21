@@ -4,7 +4,7 @@
 <dict>
 	<key>AppType</key>
 	<string>Network</string>
-	<key>Places</key>
+	<key>PlacesIDs</key>
 	<string>[43,37,33]</string>
 	<key>ServerUrl</key>
 	<string>http://restomania.eu</string>
