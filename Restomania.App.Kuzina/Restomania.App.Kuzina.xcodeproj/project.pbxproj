@@ -126,6 +126,8 @@
 		1FD9A0C51F23BC320026BDF8 /* CacheImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0C41F23BC320026BDF8 /* CacheImagesService.swift */; };
 		1FD9A0C71F23BE9D0026BDF8 /* CacheRangeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0C61F23BE9D0026BDF8 /* CacheRangeAdapter.swift */; };
 		1FD9A0C91F23C7480026BDF8 /* ICached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0C81F23C7480026BDF8 /* ICached.swift */; };
+		1FD9A0CC1F23FD650026BDF8 /* WrappedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0CB1F23FD650026BDF8 /* WrappedImage.swift */; };
+		1FD9A0CE1F2406230026BDF8 /* default-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9A0CD1F2406230026BDF8 /* default-image.jpg */; };
 		1FFA57BD1F20CF6300E83463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57BC1F20CF6300E83463 /* ViewController.swift */; };
 		1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */; };
 		1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */; };
@@ -271,6 +273,8 @@
 		1FD9A0C41F23BC320026BDF8 /* CacheImagesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheImagesService.swift; path = Services/Cache/CacheImagesService.swift; sourceTree = "<group>"; };
 		1FD9A0C61F23BE9D0026BDF8 /* CacheRangeAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheRangeAdapter.swift; path = Services/Cache/CacheRangeAdapter.swift; sourceTree = "<group>"; };
 		1FD9A0C81F23C7480026BDF8 /* ICached.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICached.swift; path = Domains/ICached.swift; sourceTree = "<group>"; };
+		1FD9A0CB1F23FD650026BDF8 /* WrappedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WrappedImage.swift; path = Elements/WrappedImage/WrappedImage.swift; sourceTree = "<group>"; };
+		1FD9A0CD1F2406230026BDF8 /* default-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "default-image.jpg"; path = "Images/default-image.jpg"; sourceTree = "<group>"; };
 		1FF4FE5D1F1BE74C00CC78B3 /* SystemStatusApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemStatusApiService.swift; path = ApiServices/System/SystemStatusApiService.swift; sourceTree = "<group>"; };
 		1FF4FE641F1BF43C00CC78B3 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Domains/Versions/Platform.swift; sourceTree = "<group>"; };
 		1FF4FE661F1BF4B600CC78B3 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Domains/Versions/Version.swift; sourceTree = "<group>"; };
@@ -733,6 +737,14 @@
 			name = Place;
 			sourceTree = "<group>";
 		};
+		1FD9A0CA1F23F8300026BDF8 /* WrappedImage */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9A0CB1F23FD650026BDF8 /* WrappedImage.swift */,
+			);
+			name = WrappedImage;
+			sourceTree = "<group>";
+		};
 		1FF4FE571F1BE47300CC78B3 /* ApiServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -853,6 +865,7 @@
 		1FFA57C91F21EE0200E83463 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0CA1F23F8300026BDF8 /* WrappedImage */,
 				1FD9A0BA1F23607C0026BDF8 /* Cards */,
 			);
 			name = Elements;
@@ -868,6 +881,7 @@
 		1FFA57D61F2241FA00E83463 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0CD1F2406230026BDF8 /* default-image.jpg */,
 				1FD9A0C21F23870B0026BDF8 /* image-gradient.png */,
 				1FFA57D71F22424D00E83463 /* logo-dark.png */,
 			);
@@ -1005,6 +1019,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FFA57CD1F21F11B00E83463 /* Main.storyboard in Resources */,
+				1FD9A0CE1F2406230026BDF8 /* default-image.jpg in Resources */,
 				1FFA57D81F22424D00E83463 /* logo-dark.png in Resources */,
 				1FFA57CF1F21F12600E83463 /* LaunchScreen.storyboard in Resources */,
 				1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */,
@@ -1219,6 +1234,7 @@
 				1FD7E69F1F1D0E140023C033 /* MethodConnection.swift in Sources */,
 				1FB8F06E1F1EE04D0090045E /* AddingBooking.swift in Sources */,
 				1FB8F0281F1E5D510090045E /* OpenDevicesApiService.swift in Sources */,
+				1FD9A0CC1F23FD650026BDF8 /* WrappedImage.swift in Sources */,
 				1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */,
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,

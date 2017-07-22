@@ -15,10 +15,10 @@ public class PlaceCard: UITableViewCell {
     public static let identifier = "PlaceCard-\(Guid.New)"
     public static let height = CGFloat(150)
 
-    @IBOutlet weak var PlaceImage: UIImageView!
-    @IBOutlet weak var Name: UILabel!
-    @IBOutlet weak var WorkingHours: UILabel!
-    @IBOutlet weak var Location: UILabel!
+    @IBOutlet weak var placeImage: WrappedImage!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var workingHours: UILabel!
+    @IBOutlet weak var location: UILabel!
 
     public var placeSummary: PlaceSummary!
 
@@ -29,22 +29,10 @@ public class PlaceCard: UITableViewCell {
     }
     private func refresh() {
 
-        Name.text = placeSummary.Name
-        WorkingHours.text = take(placeSummary.Schedule)
-        Location.text = format(placeSummary.Location)
-
-        let images = ServicesManager.current.images
-        let task = images.download(url: placeSummary.Image)
-        task.async(.background, completion: { data in
-
-            if !data.0 {
-                return
-            }
-
-            DispatchQueue.main.async {
-                self.PlaceImage.image = UIImage(data: data.1!)
-            }
-        })
+        placeImage.setup(url: placeSummary.Image)
+        name.text = placeSummary.Name
+        workingHours.text = take(placeSummary.Schedule)
+        location.text = format(placeSummary.Location)
     }
     private func format(_ location: PlaceLocation) -> String {
 

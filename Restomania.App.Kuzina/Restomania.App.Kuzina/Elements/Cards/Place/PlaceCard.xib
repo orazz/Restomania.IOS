@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-L8-I4V">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-L8-I4V" customClass="WrappedImage" customModule="RestomaniaAppKuzina" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="-4" width="320" height="159"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="7UU-da-Gi1">
@@ -73,8 +73,12 @@
             <connections>
                 <outlet property="Location" destination="Byx-fu-55P" id="zdG-RZ-hP4"/>
                 <outlet property="Name" destination="CoO-bv-WhR" id="0uK-Iy-v4m"/>
-                <outlet property="PlaceImage" destination="KjS-L8-I4V" id="wm7-wm-uhl"/>
+                <outlet property="PlaceImage" destination="KjS-L8-I4V" id="qEN-fJ-qGc"/>
                 <outlet property="WorkingHours" destination="y1N-CH-mcO" id="fQ9-3t-auz"/>
+                <outlet property="location" destination="Byx-fu-55P" id="RAm-V8-22s"/>
+                <outlet property="name" destination="CoO-bv-WhR" id="rDQ-T6-Wg2"/>
+                <outlet property="placeImage" destination="KjS-L8-I4V" id="qWH-SX-HeO"/>
+                <outlet property="workingHours" destination="y1N-CH-mcO" id="EGb-93-Etb"/>
             </connections>
             <point key="canvasLocation" x="-121" y="110"/>
         </tableViewCell>

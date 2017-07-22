@@ -11,6 +11,16 @@ import AsyncTask
 import Gloss
 import IOSLibrary
 
+public struct DownloadResult {
+
+    public let success: Bool
+    public let data: Data?
+
+    public init(data: Data? = nil) {
+        self.success = nil != data
+        self.data = data
+    }
+}
 public class CacheImagesService {
 
     public let tag = "CacheImagesService"
@@ -31,9 +41,9 @@ public class CacheImagesService {
         checkDirectories()
     }
 
-    public func download(url: String) -> Task<(Bool, Data?)> {
+    public func download(url: String) -> Task<DownloadResult> {
 
-        return Task { (handler:@escaping (_:(Bool, Data?)) -> Void) in
+        return Task { (handler:@escaping (_:DownloadResult) -> Void) in
 
             //Take from cache
             for image in self._adapter.localData {
@@ -46,8 +56,9 @@ public class CacheImagesService {
                         break
                     }
 
-                    handler((true, content!))
+                    handler(DownloadResult(data: content!))
                     Log.Debug(self.tag, "Take image from cache: \(url)")
+
                     return
                 }
             }
@@ -57,7 +68,7 @@ public class CacheImagesService {
             let request = session.dataTask(with: URL(string: url)!, completionHandler: {(data, _, error) in
 
                 guard let data = data, error == nil else {
-                    handler((false, nil))
+                    handler(DownloadResult(data:nil))
                     Log.Warning(self.tag, "Problem with download image from url: \(url).")
 
                     return
@@ -72,8 +83,7 @@ public class CacheImagesService {
                 self._fileClient.saveTo(container.filename, data: data, toCache: true)
                 self._adapter.add(container)
 
-                handler((true, data))
-
+                handler(DownloadResult(data: data))
                 Log.Debug(self.tag, "Download aand cache image for url: \(url)")
             })
             request.resume()

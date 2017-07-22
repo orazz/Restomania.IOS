@@ -3,7 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
+         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "logMessage.description">
+            </PersistentString>
+            <PersistentString
+               value = "LogMessage(Date(), type, tag, message)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WrappedImage.animatedSetupImage(UIImage?) -&gt; ():WrappedImage.swift">
       </ContextState>
       <ContextState
          contextName = "FileSystem.IsExist(String, inCache : Bool) -&gt; Bool:FileSystem.swift">
@@ -33,14 +44,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "_system.IsExist(_file, inCache: true)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "CacheImagesService.(download(url : String) -&gt; Task&lt;(Bool, Data?)&gt;).(closure #1):CacheImagesService.swift">
       </ContextState>
       <ContextState
@@ -57,6 +60,14 @@
             </PersistentString>
             <PersistentString
                value = "response">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_system.IsExist(_file, inCache: true)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -103,6 +114,14 @@
          contextName = "StringFilter.filter(value : Any, phrase : String) -&gt; Bool:StringFilter.swift">
       </ContextState>
       <ContextState
+         contextName = "ThemeSettings.init() -&gt; ThemeSettings:ThemeSettings.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Bundle.main.bundlePath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "DateTests.testConvertDateToUniversalFormat() -&gt; ():Date.swift">
          <PersistentStrings>
             <PersistentString
@@ -127,7 +146,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "KeysStorage.remove(for : AccessRights) -&gt; ():KeysStorage.swift">
+         contextName = "FileSystem.saveTo(String, data : Data, toCache : Bool) -&gt; ():FileSystem.swift">
       </ContextState>
       <ContextState
          contextName = "ApiClient.(SendTo&lt;A&gt; (String, method : HttpMethod, parameters : [String : Any?], parser : (Any?) -&gt; A) -&gt; Task&lt;ApiResponse&lt;A&gt;&gt;).(closure #1).(closure #1):ApiClient.swift">
@@ -141,7 +160,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FileSystem.saveTo(String, data : Data, toCache : Bool) -&gt; ():FileSystem.swift">
+         contextName = "KeysStorage.remove(for : AccessRights) -&gt; ():KeysStorage.swift">
       </ContextState>
       <ContextState
          contextName = "static Date.fromUTC(value : String) -&gt; Date:Date.swift">
@@ -151,6 +170,14 @@
             </PersistentString>
             <PersistentString
                value = "Date.UTCFomatter.date(from: value) ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WrappedImage.init(coder : NSCoder) -&gt; WrappedImage:WrappedImage.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.image">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -197,13 +224,13 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
-            </PersistentString>
-            <PersistentString
                value = "formatter.date(from: value)">
             </PersistentString>
             <PersistentString
                value = "notUTC!.toUTC()">
+            </PersistentString>
+            <PersistentString
+               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -241,15 +268,7 @@
          contextName = "DateFilter.checkMoreOneDigit([String], forDate : Date) -&gt; Bool:DateFilter.swift">
       </ContextState>
       <ContextState
-         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "logMessage.description">
-            </PersistentString>
-            <PersistentString
-               value = "LogMessage(Date(), type, tag, message)">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
