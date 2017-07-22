@@ -30,8 +30,9 @@ public class LogMessage: CustomStringConvertible {
 
     public var description: String {
         let time = LogMessage._formatter.string(from: Time)
+        let type = "\(Type)".characters.first!
 
-        return "[\(time)] [\(Type)] <\(Tag)> \(Message)"
+        return "[\(time)] [\(type)] <\(Tag)> \(Message)"
     }
 
     public init(_ time: Date, _ type: LogMessageType, _ tag: String, _ message: String) {

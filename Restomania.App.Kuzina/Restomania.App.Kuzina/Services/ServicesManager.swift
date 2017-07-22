@@ -14,7 +14,7 @@ public class ServicesManager: ILoggable {
     public static var current: ServicesManager!
     public class func initialize() {
         current = ServicesManager()
-        Log.Info(current.tag, "Initialize manager.")
+        Log.Info(current.tag, "Complete load manager.")
     }
 
     public var tag: String {

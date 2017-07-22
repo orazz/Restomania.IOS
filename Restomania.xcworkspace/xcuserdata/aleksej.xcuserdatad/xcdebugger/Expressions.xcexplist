@@ -28,26 +28,6 @@
          contextName = "ConfigsStorage.init(plistName : String) -&gt; ConfigsStorage:ConfigsStorage.swift">
       </ContextState>
       <ContextState
-         contextName = "DateTests.testUTCDate() -&gt; ():Date.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "notUTC!.toUTC()">
-            </PersistentString>
-            <PersistentString
-               value = "formatter.string(from: notUTC)">
-            </PersistentString>
-            <PersistentString
-               value = "">
-            </PersistentString>
-            <PersistentString
-               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
-            </PersistentString>
-            <PersistentString
-               value = "formatter.date(from: value)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "DateFilter.search(phrase : String, field : Any) -&gt; Bool:DateFilter.swift">
          <PersistentStrings>
             <PersistentString
@@ -63,6 +43,34 @@
             </PersistentString>
             <PersistentString
                value = "calendar.component(.hour, from: date)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DateTests.testUTCDate() -&gt; ():Date.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.string(from: notUTC)">
+            </PersistentString>
+            <PersistentString
+               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.date(from: value)">
+            </PersistentString>
+            <PersistentString
+               value = "notUTC!.toUTC()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlaceCard.initialize(summary : PlaceSummary) -&gt; ():PlaceCard.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.superview!.superview!.superview!.bounds.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -117,6 +125,9 @@
                value = "path.path">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "KeysStorage.remove(for : AccessRights) -&gt; ():KeysStorage.swift">
       </ContextState>
       <ContextState
          contextName = "DateFilter.checkMoreOneDigit([String], forDate : Date) -&gt; Bool:DateFilter.swift">

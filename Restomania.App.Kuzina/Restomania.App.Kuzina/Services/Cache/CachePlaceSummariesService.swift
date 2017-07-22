@@ -16,18 +16,23 @@ public class CachePlaceSummariesService: ILoggable {
     public var tag: String {
         return "CachePlaceSummariesService"
     }
-    private let _client: OpenPlaceSummariesApiService
+    private var _data: [PlaceSummary]
     private let _filename: String = "places_summaries.json"
     private let _fileClient: FileSystem
-
-    private var _data: [PlaceSummary]
+    private let _client: OpenPlaceSummariesApiService
 
     public init() {
-        _client = OpenPlaceSummariesApiService()
-        _fileClient = FileSystem()
-
         _data = [PlaceSummary]()
+        _fileClient = FileSystem()
+        _client = OpenPlaceSummariesApiService()
+
         load()
+
+        Log.Info(tag, "Complete load service.")
+
+        if (AppSummary.current.type == .Network) {
+            update()
+        }
     }
 
     public var hasData: Bool {
@@ -63,16 +68,44 @@ public class CachePlaceSummariesService: ILoggable {
             handler(result.data!)
         }
     }
-    public func update() -> Task<[PlaceSummary]> {
+    public func update() {
 
-        return Task { (handler: @escaping([PlaceSummary]) -> Void) in
+        let task = Task {
 
-            let task = self.range(self._data.map({ $0.ID }))
-            _ = task.await(.background)
+            let ids = self._data.map({ $0.ID })
+            if (0 == ids.count) {
+                return
+            }
 
-            handler(self._data)
+            let task = self._client.Range(placeIDs: ids)
+            let result = task.await(.background)
+
+            if (result.statusCode != .OK) {
+                return
+            }
+
+            //Remove not founded
+            let range = result.data!
+            if (ids.count != range.count) {
+                let newIds = range.map({ $0.ID })
+                let notFound = ids.where({ !newIds.contains($0) })
+
+                for id in notFound {
+                    for (index, element) in self._data.enumerated() {
+
+                        if (element.ID == id) {
+                            self._data.remove(at: index)
+                            break
+                        }
+                    }
+                }
+            }
+
+            //Update data
+            self.unite(with: range)
             Log.Info(self.tag, "Update cached data.")
         }
+        task.async(.background)
     }
     private func unite(with range: [PlaceSummary]) {
 

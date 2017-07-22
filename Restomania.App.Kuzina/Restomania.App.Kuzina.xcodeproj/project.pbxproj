@@ -117,6 +117,12 @@
 		1FD9A0A21F23264F0026BDF8 /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A11F23264F0026BDF8 /* KeysStorage.swift */; };
 		1FD9A0A41F232FEC0026BDF8 /* KeysStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */; };
 		1FD9A0B11F2356860026BDF8 /* ICopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0B01F2356860026BDF8 /* ICopying.swift */; };
+		1FD9A0B31F235C830026BDF8 /* IIdentified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0B21F235C830026BDF8 /* IIdentified.swift */; };
+		1FD9A0B71F235F650026BDF8 /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0B61F235F650026BDF8 /* TabsController.swift */; };
+		1FD9A0B91F235FD40026BDF8 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0B81F235FD40026BDF8 /* SearchController.swift */; };
+		1FD9A0BD1F2360C10026BDF8 /* PlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0BC1F2360C10026BDF8 /* PlaceCard.swift */; };
+		1FD9A0BF1F2360F20026BDF8 /* PlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9A0BE1F2360F20026BDF8 /* PlaceCard.xib */; };
+		1FD9A0C31F23870B0026BDF8 /* image-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9A0C21F23870B0026BDF8 /* image-gradient.png */; };
 		1FFA57BD1F20CF6300E83463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57BC1F20CF6300E83463 /* ViewController.swift */; };
 		1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */; };
 		1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */; };
@@ -124,10 +130,8 @@
 		1FFA57C61F21EDBA00E83463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57C51F21EDBA00E83463 /* AppDelegate.swift */; };
 		1FFA57CD1F21F11B00E83463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FFA57CC1F21F11B00E83463 /* Main.storyboard */; };
 		1FFA57CF1F21F12600E83463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FFA57CE1F21F12600E83463 /* LaunchScreen.storyboard */; };
-		1FFA57D11F22329500E83463 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57D01F22329500E83463 /* TabBarController.swift */; };
 		1FFA57D31F2240DB00E83463 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57D21F2240DB00E83463 /* NavigationController.swift */; };
 		1FFA57D81F22424D00E83463 /* logo-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FFA57D71F22424D00E83463 /* logo-dark.png */; };
-		1FFA57EF1F225FA000E83463 /* _markup in Resources */ = {isa = PBXBuildFile; fileRef = 1FFA57EE1F225FA000E83463 /* _markup */; };
 		1FFA57F61F2264B800E83463 /* SearchAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57F51F2264B800E83463 /* SearchAdapterTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -255,6 +259,12 @@
 		1FD9A0A11F23264F0026BDF8 /* KeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorage.swift; path = Services/KeysStorage.swift; sourceTree = "<group>"; };
 		1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorageTests.swift; path = Services/KeysStorageTests.swift; sourceTree = "<group>"; };
 		1FD9A0B01F2356860026BDF8 /* ICopying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICopying.swift; path = Domains/ICopying.swift; sourceTree = "<group>"; };
+		1FD9A0B21F235C830026BDF8 /* IIdentified.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IIdentified.swift; path = Domains/IIdentified.swift; sourceTree = "<group>"; };
+		1FD9A0B61F235F650026BDF8 /* TabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabsController.swift; path = Controllers/Tabs/TabsController.swift; sourceTree = "<group>"; };
+		1FD9A0B81F235FD40026BDF8 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = Controllers/Tabs/SearchController.swift; sourceTree = "<group>"; };
+		1FD9A0BC1F2360C10026BDF8 /* PlaceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceCard.swift; path = Elements/Cards/Place/PlaceCard.swift; sourceTree = "<group>"; };
+		1FD9A0BE1F2360F20026BDF8 /* PlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceCard.xib; path = Elements/Cards/Place/PlaceCard.xib; sourceTree = "<group>"; };
+		1FD9A0C21F23870B0026BDF8 /* image-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "image-gradient.png"; path = "Images/image-gradient.png"; sourceTree = "<group>"; };
 		1FF4FE5D1F1BE74C00CC78B3 /* SystemStatusApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemStatusApiService.swift; path = ApiServices/System/SystemStatusApiService.swift; sourceTree = "<group>"; };
 		1FF4FE641F1BF43C00CC78B3 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Domains/Versions/Platform.swift; sourceTree = "<group>"; };
 		1FF4FE661F1BF4B600CC78B3 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Domains/Versions/Version.swift; sourceTree = "<group>"; };
@@ -277,7 +287,6 @@
 		1FFA57C51F21EDBA00E83463 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
 		1FFA57CC1F21F11B00E83463 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Controllers/Main.storyboard; sourceTree = "<group>"; };
 		1FFA57CE1F21F12600E83463 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Controllers/Start/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1FFA57D01F22329500E83463 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		1FFA57D21F2240DB00E83463 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Controllers/NavigationController.swift; sourceTree = "<group>"; };
 		1FFA57D71F22424D00E83463 /* logo-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-dark.png"; path = "Images/logo-dark.png"; sourceTree = "<group>"; };
 		1FFA57EE1F225FA000E83463 /* _markup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _markup; path = Restomania.App.Kuzina/_markup; sourceTree = "<group>"; };
@@ -386,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD9A0B01F2356860026BDF8 /* ICopying.swift */,
+				1FD9A0B21F235C830026BDF8 /* IIdentified.swift */,
 				1FA260801F14A04F00C14886 /* BaseDataType.swift */,
 				1FF4FE7F1F1CE8B600CC78B3 /* Accounts */,
 				1FF4FE891F1CF18100CC78B3 /* NotificationPreferences */,
@@ -688,6 +698,32 @@
 			name = Cache;
 			sourceTree = "<group>";
 		};
+		1FD9A0B51F235EE80026BDF8 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9A0B61F235F650026BDF8 /* TabsController.swift */,
+				1FD9A0B81F235FD40026BDF8 /* SearchController.swift */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		1FD9A0BA1F23607C0026BDF8 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9A0BB1F2360890026BDF8 /* Place */,
+			);
+			name = Cards;
+			sourceTree = "<group>";
+		};
+		1FD9A0BB1F2360890026BDF8 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9A0BC1F2360C10026BDF8 /* PlaceCard.swift */,
+				1FD9A0BE1F2360F20026BDF8 /* PlaceCard.xib */,
+			);
+			name = Place;
+			sourceTree = "<group>";
+		};
 		1FF4FE571F1BE47300CC78B3 /* ApiServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,10 +751,10 @@
 			isa = PBXGroup;
 			children = (
 				1FFA57D21F2240DB00E83463 /* NavigationController.swift */,
-				1FFA57D01F22329500E83463 /* TabBarController.swift */,
+				1FFA57CE1F21F12600E83463 /* LaunchScreen.storyboard */,
 				1FFA57CC1F21F11B00E83463 /* Main.storyboard */,
 				1FFA57CB1F21F0B000E83463 /* Auth */,
-				1FFA57CA1F21F0A700E83463 /* Start */,
+				1FD9A0B51F235EE80026BDF8 /* Tabs */,
 				1FFA57BC1F20CF6300E83463 /* ViewController.swift */,
 			);
 			name = Controllers;
@@ -808,16 +844,9 @@
 		1FFA57C91F21EE0200E83463 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0BA1F23607C0026BDF8 /* Cards */,
 			);
 			name = Elements;
-			sourceTree = "<group>";
-		};
-		1FFA57CA1F21F0A700E83463 /* Start */ = {
-			isa = PBXGroup;
-			children = (
-				1FFA57CE1F21F12600E83463 /* LaunchScreen.storyboard */,
-			);
-			name = Start;
 			sourceTree = "<group>";
 		};
 		1FFA57CB1F21F0B000E83463 /* Auth */ = {
@@ -830,6 +859,7 @@
 		1FFA57D61F2241FA00E83463 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0C21F23870B0026BDF8 /* image-gradient.png */,
 				1FFA57D71F22424D00E83463 /* logo-dark.png */,
 			);
 			name = Images;
@@ -965,11 +995,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FFA57EF1F225FA000E83463 /* _markup in Resources */,
 				1FFA57CD1F21F11B00E83463 /* Main.storyboard in Resources */,
 				1FFA57D81F22424D00E83463 /* logo-dark.png in Resources */,
 				1FFA57CF1F21F12600E83463 /* LaunchScreen.storyboard in Resources */,
 				1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */,
+				1FD9A0BF1F2360F20026BDF8 /* PlaceCard.xib in Resources */,
+				1FD9A0C31F23870B0026BDF8 /* image-gradient.png in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1145,6 +1176,7 @@
 				1FD7E69A1F1D0E140023C033 /* SystemSettingsApiService.swift in Sources */,
 				1FB8EFDE1F1D48CD0090045E /* Schedule.swift in Sources */,
 				1FB8F03C1F1EADB90090045E /* PaymentCard.swift in Sources */,
+				1FD9A0BD1F2360C10026BDF8 /* PlaceCard.swift in Sources */,
 				1FB8F0001F1DF2930090045E /* LoyaltyAccount.swift in Sources */,
 				1FB8F0081F1DF68E0090045E /* Step.swift in Sources */,
 				1FD7E69B1F1D0E140023C033 /* SystemReportsApiService.swift in Sources */,
@@ -1161,6 +1193,7 @@
 				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
 				1FB8EFEC1F1D4EEC0090045E /* KitchenType.swift in Sources */,
 				1FB8F0501F1EC28C0090045E /* UserUpdateAccountApiService.swift in Sources */,
+				1FD9A0B91F235FD40026BDF8 /* SearchController.swift in Sources */,
 				1F36C88E1F20C4DA00232B9A /* ShortSchedule.swift in Sources */,
 				1FB8F0241F1E5C2D0090045E /* NotificationPlatformType.swift in Sources */,
 				1FB8EFF21F1D4FC20090045E /* Properties.swift in Sources */,
@@ -1182,7 +1215,6 @@
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
 				1FB8F0601F1ECD140090045E /* BookingStatus.swift in Sources */,
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,
-				1FFA57D11F22329500E83463 /* TabBarController.swift in Sources */,
 				1FB8F0401F1EADFB0090045E /* PaymentCardType.swift in Sources */,
 				1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */,
 				1FB8EFCB1F1D41050090045E /* UserParts.swift in Sources */,
@@ -1192,6 +1224,7 @@
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
 				1F36C8981F20CE5E00232B9A /* ConfigsStorage.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
+				1FD9A0B71F235F650026BDF8 /* TabsController.swift in Sources */,
 				1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
 				1FD9A0981F2321B60026BDF8 /* AppSummary.swift in Sources */,
@@ -1204,6 +1237,7 @@
 				1FB8F0041F1DF47B0090045E /* CountedLoyaltyDiscounts.swift in Sources */,
 				1FB8EFCF1F1D41590090045E /* UserSex.swift in Sources */,
 				1F36C8901F20C5E000232B9A /* PlaceSummary.swift in Sources */,
+				1FD9A0B31F235C830026BDF8 /* IIdentified.swift in Sources */,
 				1FB8EFEA1F1D4C0C0090045E /* Menu.swift in Sources */,
 				1FB8EFF91F1DE8F10090045E /* LoyaltyType.swift in Sources */,
 				1FB8F0531F1EC45D0090045E /* UserOrdersApiService.swift in Sources */,

@@ -8,10 +8,10 @@
 
 import UIKit
 
-public class TabBarController: UITabBarController {
+public class TabsController: UITabBarController {
+
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(String.init(describing: self.navigationController))
     }
 }

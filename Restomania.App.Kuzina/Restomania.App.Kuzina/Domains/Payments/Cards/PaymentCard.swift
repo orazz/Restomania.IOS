@@ -19,6 +19,7 @@ public class PaymentCard: BaseDataType {
     public var Currency: CurrencyType
 
     public override init() {
+
         self.UserID = 0
         self.Last4Number = String.Empty
         self.Status = .Proccessing
@@ -28,10 +29,8 @@ public class PaymentCard: BaseDataType {
 
         super.init()
     }
-    public required init(source: BaseDataType) {
-        fatalError("init(source:) has not been implemented")
-    }
     public required init(json: JSON) {
+
         self.UserID = ("UserID" <~~ json)!
         self.Last4Number = ("Last4Number" <~~ json)!
         self.Status = ("Status" <~~ json)!

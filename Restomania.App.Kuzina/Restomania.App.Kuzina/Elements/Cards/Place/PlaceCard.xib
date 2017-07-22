@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="woy-79-BqB" customClass="PlaceCard" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="woy-79-BqB" id="3b8-Re-Geg">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-L8-I4V">
+                        <rect key="frame" x="0.0" y="-4" width="320" height="159"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="7UU-da-Gi1">
+                        <rect key="frame" x="0.0" y="50" width="320" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="clb-Go-Qp2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoO-bv-WhR">
+                        <rect key="frame" x="13" y="87" width="294" height="24"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byx-fu-55P">
+                        <rect key="frame" x="13" y="132" width="194" height="14.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                        <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:00 - 22:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1N-CH-mcO">
+                        <rect key="frame" x="212" y="131.5" width="105" height="13.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="105" id="9Rh-uh-bU2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                        <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KjS-L8-I4V" firstAttribute="leading" secondItem="3b8-Re-Geg" secondAttribute="leading" id="9PW-Rx-2VX"/>
+                    <constraint firstItem="y1N-CH-mcO" firstAttribute="leading" secondItem="Byx-fu-55P" secondAttribute="trailing" constant="5" id="Agp-S4-4sa"/>
+                    <constraint firstAttribute="bottom" secondItem="7UU-da-Gi1" secondAttribute="bottom" id="Bbj-31-Tvz"/>
+                    <constraint firstItem="7UU-da-Gi1" firstAttribute="leading" secondItem="3b8-Re-Geg" secondAttribute="leading" id="BsA-09-MaW"/>
+                    <constraint firstAttribute="trailing" secondItem="KjS-L8-I4V" secondAttribute="trailing" id="DAZ-Wy-unG"/>
+                    <constraint firstAttribute="trailing" secondItem="7UU-da-Gi1" secondAttribute="trailing" id="ESf-Cw-M1x"/>
+                    <constraint firstItem="Byx-fu-55P" firstAttribute="leading" secondItem="3b8-Re-Geg" secondAttribute="leadingMargin" constant="5" id="JOf-3d-xJb"/>
+                    <constraint firstItem="CoO-bv-WhR" firstAttribute="leading" secondItem="3b8-Re-Geg" secondAttribute="leadingMargin" constant="5" id="TIX-qh-a2d"/>
+                    <constraint firstItem="KjS-L8-I4V" firstAttribute="top" secondItem="3b8-Re-Geg" secondAttribute="topMargin" constant="-12" id="anR-vm-iUo"/>
+                    <constraint firstItem="y1N-CH-mcO" firstAttribute="top" secondItem="CoO-bv-WhR" secondAttribute="bottom" constant="20" id="avU-l4-NMd"/>
+                    <constraint firstItem="y1N-CH-mcO" firstAttribute="trailing" secondItem="3b8-Re-Geg" secondAttribute="trailingMargin" constant="5" id="dTk-ES-ONN"/>
+                    <constraint firstItem="Byx-fu-55P" firstAttribute="bottom" secondItem="3b8-Re-Geg" secondAttribute="bottomMargin" constant="5" id="ip1-C0-RFF"/>
+                    <constraint firstItem="KjS-L8-I4V" firstAttribute="centerY" secondItem="3b8-Re-Geg" secondAttribute="centerY" id="kKg-60-BV5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="CoO-bv-WhR" secondAttribute="trailing" constant="5" id="oie-t6-YGH"/>
+                    <constraint firstItem="KjS-L8-I4V" firstAttribute="trailing" secondItem="7UU-da-Gi1" secondAttribute="trailing" id="uSQ-jn-I5y"/>
+                    <constraint firstAttribute="bottom" secondItem="y1N-CH-mcO" secondAttribute="bottom" constant="5" id="xT4-gk-6zP"/>
+                    <constraint firstItem="KjS-L8-I4V" firstAttribute="leading" secondItem="7UU-da-Gi1" secondAttribute="leading" id="xzw-5L-LYm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="Location" destination="Byx-fu-55P" id="zdG-RZ-hP4"/>
+                <outlet property="Name" destination="CoO-bv-WhR" id="0uK-Iy-v4m"/>
+                <outlet property="PlaceImage" destination="KjS-L8-I4V" id="wm7-wm-uhl"/>
+                <outlet property="WorkingHours" destination="y1N-CH-mcO" id="fQ9-3t-auz"/>
+            </connections>
+            <point key="canvasLocation" x="-121" y="110"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="image-gradient.png" width="921" height="479"/>
+    </resources>
+</document>

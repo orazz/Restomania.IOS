@@ -11,18 +11,15 @@ import IOSLibrary
 import Gloss
 
 public class BaseApiService: ILoggable {
-    private let _url: String
-    private let _tag: String
-    public var tag: String {
-        return _tag
-    }
+    public var tag: String
     internal let _client: ApiClient
+    private let _url: String
 
     public init(area: String, tag: String) {
         self._url = AppSummary.current.serverUrl
 
-        self._tag = tag
-        self._client = ApiClient(url: "\(_url)/mvcapi/\(area)", tag: _tag)
+        self.tag = tag
+        self._client = ApiClient(url: "\(_url)/mvcapi/\(area)", tag: tag)
     }
 
     internal func CollectParameters(_ values: Parameters? = nil) -> Parameters {

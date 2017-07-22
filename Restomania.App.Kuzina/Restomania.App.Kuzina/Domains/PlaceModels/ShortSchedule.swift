@@ -62,4 +62,10 @@ public class ShortSchedule: Glossy, ICopying {
             "Saturday" ~~> Saturday
             ])
     }
+
+    public func dayValue(_ weekDay: Int) -> String {
+        let days = [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+
+        return days[abs(weekDay) % 7]
+    }
 }
