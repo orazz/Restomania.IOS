@@ -18,7 +18,7 @@ public class ConfigsStorage {
         _filename = filename
 
         let manager = FileSystem()
-        _configs = manager.LoadBundlePlist(filename)
+        _configs = manager.loadBundlePlist(filename)
     }
 
     public var IsLoaded: Bool {

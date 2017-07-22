@@ -16,7 +16,7 @@ public class FileSystem {
         _client = FileManager.default
     }
 
-    public func LoadBundleFile(_ filename: String) -> String? {
+    public func loadBundleFile(_ filename: String) -> String? {
         if let path = Bundle.main.path(forResource: filename, ofType: nil) {
             do {
                 return try String(contentsOf: URL(string: path)!)
@@ -29,7 +29,7 @@ public class FileSystem {
 
         return nil
     }
-    public func LoadBundlePlist(_ filename: String) -> OptionalValue<NSDictionary> {
+    public func loadBundlePlist(_ filename: String) -> OptionalValue<NSDictionary> {
         if let path = Bundle.main.path(forResource: filename, ofType: "plist") {
             return OptionalValue(NSDictionary(contentsOfFile: path))
         }
@@ -39,8 +39,8 @@ public class FileSystem {
         return OptionalValue(nil)
     }
 
-    public func IsExist(_ filename: String, inCache: Bool ) -> Bool {
-        let root = GetRoot(inCache: inCache)
+    public func isExist(_ filename: String, inCache: Bool ) -> Bool {
+        let root = getRoot(inCache: inCache)
 
         let dirs = _client.urls(for: root, in: .userDomainMask)
         if let dir = dirs.first {
@@ -58,8 +58,8 @@ public class FileSystem {
 
         return false
     }
-    public func CreateDirectory(_ dirname: String, inCache: Bool ) {
-        let root = GetRoot(inCache: inCache)
+    public func createDirectory(_ dirname: String, inCache: Bool ) {
+        let root = getRoot(inCache: inCache)
 
         let dirs = _client.urls(for: root, in: .userDomainMask)
         if let dir = dirs.first {
@@ -75,8 +75,8 @@ public class FileSystem {
             Log.Warning(_tag, "Not found directory (\(root)).")
         }
     }
-    public func Load(_ filename: String, fromCache: Bool ) -> String? {
-        let root = GetRoot(inCache: fromCache)
+    public func load(_ filename: String, fromCache: Bool ) -> String? {
+        let root = getRoot(inCache: fromCache)
 
         let dirs = _client.urls(for: root, in: .userDomainMask)
         if let dir = dirs.first {
@@ -99,20 +99,23 @@ public class FileSystem {
 
         return nil
     }
-    public func SaveTo(_ filename: String, data: String, toCache: Bool ) {
-        let root = GetRoot(inCache: toCache)
+    public func saveTo(_ filename: String, data: Data, toCache: Bool ) {
+        return saveTo(filename, data: String(data: data, encoding: .utf8)!, toCache: toCache)
+    }
+    public func saveTo(_ filename: String, data: String, toCache: Bool ) {
+        let root = getRoot(inCache: toCache)
 
         let dirs = _client.urls(for: root, in: .userDomainMask)
         if let dir = dirs.first {
             let url = dir.appendingPathComponent(filename)
 
-            if (IsExist(filename, inCache: toCache) && !_client.isWritableFile(atPath: url.path)) {
+            if (isExist(filename, inCache: toCache) && !_client.isWritableFile(atPath: url.path)) {
                 Log.Warning(_tag, "File is not writable (\(url)).")
                 return
             }
 
             do {
-                try data.write(to: url, atomically: false, encoding: String.Encoding.utf8)
+                try data.write(to: url, atomically: false, encoding: .utf8)
             } catch {
                 Log.Error(_tag, "Problem with write data to \(url).")
                 Log.Error(_tag, String(describing: error))
@@ -121,8 +124,8 @@ public class FileSystem {
             Log.Warning(_tag, "Not found directory (\(root)).")
         }
     }
-    public func Remove(_ filename: String, fromCache: Bool ) {
-        let root = GetRoot(inCache: fromCache)
+    public func remove(_ filename: String, fromCache: Bool ) {
+        let root = getRoot(inCache: fromCache)
 
         let dirs = _client.urls(for: root, in: .userDomainMask)
         if let dir = dirs.first {
@@ -140,7 +143,7 @@ public class FileSystem {
             Log.Warning(_tag, "Not found directory (\(root)).")
         }
     }
-    private func GetRoot(inCache: Bool) -> FileManager.SearchPathDirectory {
+    private func getRoot(inCache: Bool) -> FileManager.SearchPathDirectory {
         var result = FileManager.SearchPathDirectory.documentDirectory
         if (inCache) {
             result = FileManager.SearchPathDirectory.cachesDirectory

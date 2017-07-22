@@ -7,5 +7,5 @@
 //
 
 public protocol ILoggable {
-    var Tag: String { get }
+    var tag: String { get }
 }

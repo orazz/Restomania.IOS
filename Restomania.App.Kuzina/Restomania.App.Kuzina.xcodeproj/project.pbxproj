@@ -108,6 +108,14 @@
 		1FD7E6A81F1D0E140023C033 /* BaseDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA260801F14A04F00C14886 /* BaseDataType.swift */; };
 		1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE701F1BFC0F00CC78B3 /* AppSettings.swift */; };
 		1FD7E6AB1F1D0E6B0023C033 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */; };
+		1FD9A0981F2321B60026BDF8 /* AppSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0941F2321B60026BDF8 /* AppSummary.swift */; };
+		1FD9A0991F2321B60026BDF8 /* AppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0951F2321B60026BDF8 /* AppType.swift */; };
+		1FD9A09A1F2321B60026BDF8 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0961F2321B60026BDF8 /* ConfigKeys.swift */; };
+		1FD9A09B1F2321B60026BDF8 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0971F2321B60026BDF8 /* ThemeSettings.swift */; };
+		1FD9A09E1F2323FF0026BDF8 /* CachePlaceSummariesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A09D1F2323FF0026BDF8 /* CachePlaceSummariesService.swift */; };
+		1FD9A0A01F23261B0026BDF8 /* ServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A09F1F23261B0026BDF8 /* ServicesManager.swift */; };
+		1FD9A0A21F23264F0026BDF8 /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A11F23264F0026BDF8 /* KeysStorage.swift */; };
+		1FD9A0A41F232FEC0026BDF8 /* KeysStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */; };
 		1FFA57BD1F20CF6300E83463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57BC1F20CF6300E83463 /* ViewController.swift */; };
 		1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */; };
 		1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */; };
@@ -118,10 +126,6 @@
 		1FFA57D11F22329500E83463 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57D01F22329500E83463 /* TabBarController.swift */; };
 		1FFA57D31F2240DB00E83463 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57D21F2240DB00E83463 /* NavigationController.swift */; };
 		1FFA57D81F22424D00E83463 /* logo-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FFA57D71F22424D00E83463 /* logo-dark.png */; };
-		1FFA57E81F224DC900E83463 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57E41F224DC900E83463 /* AppConfigs.swift */; };
-		1FFA57E91F224DC900E83463 /* AppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57E51F224DC900E83463 /* AppType.swift */; };
-		1FFA57EA1F224DC900E83463 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57E61F224DC900E83463 /* ConfigKeys.swift */; };
-		1FFA57EB1F224DC900E83463 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57E71F224DC900E83463 /* ThemeSettings.swift */; };
 		1FFA57EF1F225FA000E83463 /* _markup in Resources */ = {isa = PBXBuildFile; fileRef = 1FFA57EE1F225FA000E83463 /* _markup */; };
 		1FFA57F61F2264B800E83463 /* SearchAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57F51F2264B800E83463 /* SearchAdapterTests.swift */; };
 /* End PBXBuildFile section */
@@ -241,6 +245,14 @@
 		1FC5A74A1F139DEC00ABE1A6 /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-fxxzqiscfbcurlbubkhnpcaaxwyg/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiService.swift; path = ApiServices/BaseApiService.swift; sourceTree = "<group>"; };
 		1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-ddestcygydqsikdncgqzzaesfjnm/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
+		1FD9A0941F2321B60026BDF8 /* AppSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSummary.swift; path = Tools/AppSummary/AppSummary.swift; sourceTree = "<group>"; };
+		1FD9A0951F2321B60026BDF8 /* AppType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppType.swift; path = Tools/AppSummary/AppType.swift; sourceTree = "<group>"; };
+		1FD9A0961F2321B60026BDF8 /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigKeys.swift; path = Tools/AppSummary/ConfigKeys.swift; sourceTree = "<group>"; };
+		1FD9A0971F2321B60026BDF8 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeSettings.swift; path = Tools/AppSummary/ThemeSettings.swift; sourceTree = "<group>"; };
+		1FD9A09D1F2323FF0026BDF8 /* CachePlaceSummariesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CachePlaceSummariesService.swift; path = Services/Cache/CachePlaceSummariesService.swift; sourceTree = "<group>"; };
+		1FD9A09F1F23261B0026BDF8 /* ServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServicesManager.swift; path = Services/ServicesManager.swift; sourceTree = "<group>"; };
+		1FD9A0A11F23264F0026BDF8 /* KeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorage.swift; path = Services/KeysStorage.swift; sourceTree = "<group>"; };
+		1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorageTests.swift; path = Services/KeysStorageTests.swift; sourceTree = "<group>"; };
 		1FF4FE5D1F1BE74C00CC78B3 /* SystemStatusApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemStatusApiService.swift; path = ApiServices/System/SystemStatusApiService.swift; sourceTree = "<group>"; };
 		1FF4FE641F1BF43C00CC78B3 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Domains/Versions/Platform.swift; sourceTree = "<group>"; };
 		1FF4FE661F1BF4B600CC78B3 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Domains/Versions/Version.swift; sourceTree = "<group>"; };
@@ -266,10 +278,6 @@
 		1FFA57D01F22329500E83463 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		1FFA57D21F2240DB00E83463 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Controllers/NavigationController.swift; sourceTree = "<group>"; };
 		1FFA57D71F22424D00E83463 /* logo-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-dark.png"; path = "Images/logo-dark.png"; sourceTree = "<group>"; };
-		1FFA57E41F224DC900E83463 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConfigs.swift; path = App/Settings/AppConfigs.swift; sourceTree = "<group>"; };
-		1FFA57E51F224DC900E83463 /* AppType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppType.swift; path = App/Settings/AppType.swift; sourceTree = "<group>"; };
-		1FFA57E61F224DC900E83463 /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigKeys.swift; path = App/Settings/ConfigKeys.swift; sourceTree = "<group>"; };
-		1FFA57E71F224DC900E83463 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeSettings.swift; path = App/Settings/ThemeSettings.swift; sourceTree = "<group>"; };
 		1FFA57EE1F225FA000E83463 /* _markup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _markup; path = Restomania.App.Kuzina/_markup; sourceTree = "<group>"; };
 		1FFA57F51F2264B800E83463 /* SearchAdapterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchAdapterTests.swift; path = Tools/SearchAdapterTests.swift; sourceTree = "<group>"; };
 		32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.release.xcconfig"; sourceTree = "<group>"; };
@@ -337,6 +345,7 @@
 		1F36C8951F20CE0A00232B9A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0931F2321A30026BDF8 /* AppSummary */,
 				1F36C8961F20CE1300232B9A /* PropertiesStorage */,
 				1F36C8971F20CE5E00232B9A /* ConfigsStorage.swift */,
 			);
@@ -355,6 +364,7 @@
 		1F36C89D1F20CE7200232B9A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -648,6 +658,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1FD9A0931F2321A30026BDF8 /* AppSummary */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9A0951F2321B60026BDF8 /* AppType.swift */,
+				1FD9A0961F2321B60026BDF8 /* ConfigKeys.swift */,
+				1FD9A0971F2321B60026BDF8 /* ThemeSettings.swift */,
+				1FD9A0941F2321B60026BDF8 /* AppSummary.swift */,
+			);
+			name = AppSummary;
+			sourceTree = "<group>";
+		};
+		1FD9A09C1F2323C30026BDF8 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				1FD9A09D1F2323FF0026BDF8 /* CachePlaceSummariesService.swift */,
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
 		1FF4FE571F1BE47300CC78B3 /* ApiServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +693,9 @@
 		1FF4FE581F1BE48100CC78B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A09C1F2323C30026BDF8 /* Cache */,
+				1FD9A09F1F23261B0026BDF8 /* ServicesManager.swift */,
+				1FD9A0A11F23264F0026BDF8 /* KeysStorage.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -757,7 +789,6 @@
 		1FFA57C41F21ED8A00E83463 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				1FFA57DB1F22455600E83463 /* Settings */,
 				1FFA57C51F21EDBA00E83463 /* AppDelegate.swift */,
 			);
 			name = App;
@@ -791,17 +822,6 @@
 				1FFA57D71F22424D00E83463 /* logo-dark.png */,
 			);
 			name = Images;
-			sourceTree = "<group>";
-		};
-		1FFA57DB1F22455600E83463 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				1FFA57E51F224DC900E83463 /* AppType.swift */,
-				1FFA57E61F224DC900E83463 /* ConfigKeys.swift */,
-				1FFA57E71F224DC900E83463 /* ThemeSettings.swift */,
-				1FFA57E41F224DC900E83463 /* AppConfigs.swift */,
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 		669C3AFDA7F4F79423497066 /* Pods */ = {
@@ -1102,12 +1122,13 @@
 				1FD7E6971F1D0E140023C033 /* BaseApiService.swift in Sources */,
 				1F36C89C1F20CE6900232B9A /* PropertiesStorage.swift in Sources */,
 				1FB8F02C1F1E610B0090045E /* AddingCard.swift in Sources */,
-				1FFA57EB1F224DC900E83463 /* ThemeSettings.swift in Sources */,
+				1FD9A09B1F2321B60026BDF8 /* ThemeSettings.swift in Sources */,
 				1FB8F04D1F1EC28C0090045E /* UserCardsApiService.swift in Sources */,
 				1FB8F04F1F1EC28C0090045E /* UserReviewsApiService.swift in Sources */,
 				1FD7E6981F1D0E140023C033 /* SystemStatusApiService.swift in Sources */,
 				1FD7E6991F1D0E140023C033 /* SystemVersionsApiService.swift in Sources */,
 				1FB8F0311F1E61E70090045E /* TransactionType.swift in Sources */,
+				1FD9A0A21F23264F0026BDF8 /* KeysStorage.swift in Sources */,
 				1FB8F0351F1E628F0090045E /* TransactionSummary.swift in Sources */,
 				1FB8EFDA1F1D47F80090045E /* DayOfWeek.swift in Sources */,
 				1FD7E69A1F1D0E140023C033 /* SystemSettingsApiService.swift in Sources */,
@@ -1116,14 +1137,14 @@
 				1FB8F0001F1DF2930090045E /* LoyaltyAccount.swift in Sources */,
 				1FB8F0081F1DF68E0090045E /* Step.swift in Sources */,
 				1FD7E69B1F1D0E140023C033 /* SystemReportsApiService.swift in Sources */,
-				1FFA57E91F224DC900E83463 /* AppType.swift in Sources */,
+				1FD9A0991F2321B60026BDF8 /* AppType.swift in Sources */,
 				1F36C8931F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift in Sources */,
 				1FB8EFE81F1D4BF90090045E /* DishCategory.swift in Sources */,
 				1FB8F0101F1E03470090045E /* OpenAccountsApiService.swift in Sources */,
 				1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */,
 				1FB8EFF01F1D4F7C0090045E /* PlaceType.swift in Sources */,
 				1FB8F0331F1E621D0090045E /* TransactionStatus.swift in Sources */,
-				1FFA57EA1F224DC900E83463 /* ConfigKeys.swift in Sources */,
+				1FD9A09A1F2321B60026BDF8 /* ConfigKeys.swift in Sources */,
 				1FB8F0641F1ECE990090045E /* DishOrderType.swift in Sources */,
 				1FB8F0551F1EC5200090045E /* UserBookingsApiService.swift in Sources */,
 				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
@@ -1153,14 +1174,15 @@
 				1FB8F0401F1EADFB0090045E /* PaymentCardType.swift in Sources */,
 				1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */,
 				1FB8EFCB1F1D41050090045E /* UserParts.swift in Sources */,
+				1FD9A09E1F2323FF0026BDF8 /* CachePlaceSummariesService.swift in Sources */,
 				1FB8F0661F1ECEC00090045E /* OrderedDish.swift in Sources */,
 				1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */,
-				1FFA57E81F224DC900E83463 /* AppConfigs.swift in Sources */,
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
 				1F36C8981F20CE5E00232B9A /* ConfigsStorage.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
 				1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
+				1FD9A0981F2321B60026BDF8 /* AppSummary.swift in Sources */,
 				1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */,
 				1FB8F05E1F1ECD020090045E /* Booking.swift in Sources */,
 				1FD7E6A51F1D0E140023C033 /* CurrencyType.swift in Sources */,
@@ -1191,6 +1213,7 @@
 				1FB8F04E1F1EC28C0090045E /* UserLoyaltyApiService.swift in Sources */,
 				1FFA57C61F21EDBA00E83463 /* AppDelegate.swift in Sources */,
 				1FB8F0261F1E5C5E0090045E /* Device.swift in Sources */,
+				1FD9A0A01F23261B0026BDF8 /* ServicesManager.swift in Sources */,
 				1FB8EFCD1F1D41420090045E /* User.swift in Sources */,
 				1FB8EFEE1F1D4F480090045E /* RegistrationStatus.swift in Sources */,
 				1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */,
@@ -1210,6 +1233,7 @@
 				1FFA57C11F20CFD100E83463 /* OpenPlaceSummariesApiService.swift in Sources */,
 				1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */,
 				1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */,
+				1FD9A0A41F232FEC0026BDF8 /* KeysStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

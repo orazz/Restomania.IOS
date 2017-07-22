@@ -10,8 +10,8 @@ import Foundation
 import Gloss
 
 public class AccessKeys: Glossy {
-    public let ID: Int64
-    public let AccessToken: String
+    public var ID: Int64
+    public var AccessToken: String
 
     public init() {
         self.ID = 0

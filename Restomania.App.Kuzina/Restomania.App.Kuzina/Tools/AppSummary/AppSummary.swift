@@ -9,10 +9,17 @@
 import Foundation
 import IOSLibrary
 
-public class AppConfigs {
+public class AppSummary: ILoggable {
 
-    public static let current = AppConfigs()
+    public static var current: AppSummary!
+    public static func initialize() {
+        current = AppSummary()
+        Log.Info(current.tag, "Lanuch app with type \(AppSummary.current.type).")
+    }
 
+    public var tag: String {
+        return "AppSummary"
+    }
     public let type: AppType
     public let serverUrl: String
     public let theme: ThemeSettings

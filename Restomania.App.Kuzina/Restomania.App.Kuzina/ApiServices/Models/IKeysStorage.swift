@@ -10,5 +10,5 @@ import Foundation
 
 public protocol IKeysStorage {
 
-    func GetKeysFor(rights: AccessRights) -> AccessKeys?
+    func keysFor(rights: AccessRights) -> AccessKeys?
 }

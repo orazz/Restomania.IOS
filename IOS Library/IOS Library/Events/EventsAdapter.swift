@@ -12,7 +12,7 @@ public typealias Action<THandler> = (THandler) throws -> Void
 public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
     public typealias THandler = Handler
 
-    public var Tag: String {
+    public var tag: String {
         return "EventsAdapter<\(_eventName)>"
     }
 
@@ -45,7 +45,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
         _subscribers[guid] = subscriber
 
         let message = "On \(_eventName) subscribe \(subscriber.Info)."
-        Log.Debug(Tag, message)
+        Log.Debug(tag, message)
 
         if (self._automatic && self._triggered) {
             Notify(subscriber, action:  _defaultAction!)
@@ -56,12 +56,12 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
 
         if (nil != subscriber) {
             _subscribers.removeValue(forKey: guid)
-            Log.Debug(Tag, "From \(_eventName) unsubscribe \(subscriber!.Info).")
+            Log.Debug(tag, "From \(_eventName) unsubscribe \(subscriber!.Info).")
         }
     }
     private func ForceUnsubscribe(guid: String) {
         Unsubscribe(guid: guid)
-        Log.Warning(Tag, "Force remove subscriber with GUID: \(guid).")
+        Log.Warning(tag, "Force remove subscriber with GUID: \(guid).")
     }
 
     public func Trigger(action: Action<Handler>?) {
@@ -70,12 +70,12 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
             if (nil != _defaultAction) {
                 mainAction = _defaultAction
             } else {
-                Log.Warning(Tag, "Can't trigger event without action.s")
+                Log.Warning(tag, "Can't trigger event without action.s")
                 return
             }
         }
 
-        Log.Debug(Tag, "Trigger \"\(_eventName)\" event.")
+        Log.Debug(tag, "Trigger \"\(_eventName)\" event.")
         for (_, subscriber) in _subscribers {
             Notify(subscriber, action: mainAction!)
         }
@@ -119,7 +119,7 @@ private class Subscriber<THandler> {
             return true
         } catch {
             Fails += 1
-            Log.Error(logger.Tag, "Problem with \(self.Info)")
+            Log.Error(logger.tag, "Problem with \(self.Info)")
 
             return false
         }
