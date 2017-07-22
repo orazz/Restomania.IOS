@@ -45,12 +45,39 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
     public func findInLocal(_ id: Long) -> TElement? {
         return _data.find({ $0.ID == id })
     }
+    public func add(_ element: TElement) {
+
+        _queue.sync {
+
+            _data.append(element)
+        }
+        save()
+    }
+    public func remove(_ element: TElement) {
+        remove(element.ID)
+    }
     public func remove(_ id: Long) {
 
         _queue.sync {
 
             for (index, element) in _data.enumerated() {
                 if (element.ID == id) {
+
+                    _data.remove(at: index)
+                }
+            }
+        }
+        save()
+    }
+    public func remove(_ range: [TElement]) {
+        remove(range.map({ $0.ID }))
+    }
+    public func remove(_ ids: [Long]) {
+        _queue.sync {
+
+            for (index, element) in _data.enumerated() {
+                if (ids.contains(element.ID)) {
+
                     _data.remove(at: index)
                 }
             }
@@ -87,7 +114,8 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
 
             do {
                 let data = try JSONSerialization.data(withJSONObject: _data.map({ $0.toJSON() }), options: [])
-                _fileClient.saveTo(_filename, data: data, toCache: false)
+                let content = String(data: data, encoding: .utf8)!
+                _fileClient.saveTo(_filename, data: content, toCache: false)
 
                 Log.Debug(_tag, "Save data to storage.")
             } catch {
@@ -102,9 +130,7 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
                 return [TElement]()
             }
 
-            let fileContent = _fileClient.load(_filename, fromCache: false)!
-            let data = fileContent.data(using: .utf8)
-
+            let data = _fileClient.loadData(_filename, fromCache: false)
             let range = try JSONSerialization.jsonObject(with: data!, options: []) as! [JSON]
 
             return range.map({ TElement.init(json: $0)! })

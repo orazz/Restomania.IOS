@@ -2,4 +2,278 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+            timestampString = "522442884.083632"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "download(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Elements/Cards/Place/PlaceCard.swift"
+            timestampString = "522445635.010999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "refresh()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+            timestampString = "522445689.700484"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "download(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.CacheImagesService.(upload (url : Swift.String) -&gt; AsyncTask.Task&lt;(Swift.Bool, Swift.Optional&lt;Foundation.Data&gt;)&gt;).(closure #1).(closure #1)"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+                  timestampString = "522445811.838168"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.CacheImagesService.(upload (url : Swift.String) -&gt; AsyncTask.Task&lt;(Swift.Bool, Swift.Optional&lt;Foundation.Data&gt;)&gt;).(closure #1).(closure #1)"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+                  timestampString = "522445811.842747"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "213">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+            timestampString = "522447745.173001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "checkDirectories()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+            timestampString = "522447815.222528"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "download(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+            timestampString = "522447911.038675"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "download(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.CacheImagesService.(download (url : Swift.String) -&gt; AsyncTask.Task&lt;(Swift.Bool, Swift.Optional&lt;Foundation.Data&gt;)&gt;).(closure #1).(closure #1)"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+                  timestampString = "522449078.389687"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.CacheImagesService.(download (url : Swift.String) -&gt; AsyncTask.Task&lt;(Swift.Bool, Swift.Optional&lt;Foundation.Data&gt;)&gt;).(closure #1).(closure #1)"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+                  timestampString = "522449078.39284"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "213">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS Library/IOS Library/Tools/FileSystem/FileSystem.swift"
+            timestampString = "522447959.653901"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "saveTo(_:data:toCache:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+            timestampString = "522447997.970356"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "download(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+            timestampString = "522449159.48401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "download(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS Library/IOS Library/Tools/FileSystem/FileSystem.swift"
+            timestampString = "522450181.056875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "saveTo(_:data:toCache:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS Library/IOS Library/Tools/FileSystem/FileSystem.swift"
+            timestampString = "522450157.9411"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "saveTo(_:data:toCache:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+            timestampString = "522450457.216405"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "removeOldImages()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheImagesService.swift"
+            timestampString = "522450464.14267"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "removeOldImages()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

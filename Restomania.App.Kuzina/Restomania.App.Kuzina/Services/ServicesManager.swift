@@ -23,11 +23,12 @@ public class ServicesManager: ILoggable {
 
     public let keysStorage: IKeysStorage
     public let placeSummariesService: CachePlaceSummariesService
+    public let images: CacheImagesService
 
     public init() {
 
         keysStorage = KeysStorage()
         placeSummariesService = CachePlaceSummariesService()
+        images = CacheImagesService()
     }
-
 }

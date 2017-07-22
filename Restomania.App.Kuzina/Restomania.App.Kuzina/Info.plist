@@ -24,9 +24,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>cdn.zerocdn.com</key>
+			<key>zerocdn.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
 				<true/>
 				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 				<true/>

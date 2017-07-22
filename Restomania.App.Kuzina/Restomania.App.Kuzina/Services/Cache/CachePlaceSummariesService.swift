@@ -63,7 +63,7 @@ public class CachePlaceSummariesService {
             self._adapter.unite(with: data)
             handler(data)
 
-            Log.Debug(self.tag, "Comlete request range.")
+            Log.Debug(self.tag, "Complete request range.")
         }
     }
     public func update() {
@@ -91,15 +91,7 @@ public class CachePlaceSummariesService {
                 let newIds = range.map({ $0.ID })
                 let notFound = ids.where({ !newIds.contains($0) })
 
-                for id in notFound {
-                    for element in self.localData {
-
-                        if (element.ID == id) {
-                            self._adapter.remove(element.ID)
-                            break
-                        }
-                    }
-                }
+                self._adapter.remove(notFound)
             }
 
             //Update data

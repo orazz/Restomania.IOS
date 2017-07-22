@@ -32,6 +32,19 @@ public class PlaceCard: UITableViewCell {
         Name.text = placeSummary.Name
         WorkingHours.text = take(placeSummary.Schedule)
         Location.text = format(placeSummary.Location)
+
+        let images = ServicesManager.current.images
+        let task = images.download(url: placeSummary.Image)
+        task.async(.background, completion: { data in
+
+            if !data.0 {
+                return
+            }
+
+            DispatchQueue.main.async {
+                self.PlaceImage.image = UIImage(data: data.1!)
+            }
+        })
     }
     private func format(_ location: PlaceLocation) -> String {
 

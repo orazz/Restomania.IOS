@@ -3,7 +3,131 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "ApiDataResponse.init(json : [String : Any]) -&gt; ApiDataResponse&lt;A&gt;:ApiDataResponse.swift">
+         contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
+      </ContextState>
+      <ContextState
+         contextName = "FileSystem.IsExist(String, inCache : Bool) -&gt; Bool:FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_client.fileExists(atPath: path.absoluteString)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DateFilter.search(phrase : String, field : Any) -&gt; Bool:DateFilter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "matches(for: &quot;\d+&quot;, in: phrase)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileSystem.Remove(String, fromCache : Bool) -&gt; ():FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_client.fileExists(atPath: path.absoluteString)">
+            </PersistentString>
+            <PersistentString
+               value = "path.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_system.IsExist(_file, inCache: true)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CacheImagesService.(download(url : String) -&gt; Task&lt;(Bool, Data?)&gt;).(closure #1):CacheImagesService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ApiClient.(SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;).(closure #1).(closure #1):ApiClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ApiErrorResponse(json: json)">
+            </PersistentString>
+            <PersistentString
+               value = "json[&quot;Data&quot;] as Bool">
+            </PersistentString>
+            <PersistentString
+               value = "TData(json: json)">
+            </PersistentString>
+            <PersistentString
+               value = "response">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchController.viewDidLoad() -&gt; ():SearchController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CacheImagesService.(download(url : String) -&gt; Task&lt;(Bool, Data?)&gt;).(closure #1).(closure #1):CacheImagesService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DateFilter.Check(value : Int, date : Date, values : [Calendar.Component]...) -&gt; Bool:DateFilter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(date)">
+            </PersistentString>
+            <PersistentString
+               value = "calendar.component(.hour, from: date)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OpenPlaceSummariesApiServiceTests.(testRange() -&gt; ()).(implicit closure #2):OpenPlaceSummariesApiService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ConfigsStorageTests.testGetConfig() -&gt; ():ConfigsStorageTests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "name.value as String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ApiClientTests.testSendAndGetDate() -&gt; ():ApiClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "date.prepareForJson()">
+            </PersistentString>
+            <PersistentString
+               value = "Date()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StringFilter.filter(value : Any, phrase : String) -&gt; Bool:StringFilter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DateTests.testConvertDateToUniversalFormat() -&gt; ():Date.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "formatter.string(from: date!)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ApiClient.SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;:ApiClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request.allHTTPHeaderFields">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlaceCard.initialize(summary : PlaceSummary) -&gt; ():PlaceCard.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.superview!.superview!.superview!.bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "KeysStorage.remove(for : AccessRights) -&gt; ():KeysStorage.swift">
       </ContextState>
       <ContextState
          contextName = "ApiClient.(SendTo&lt;A&gt; (String, method : HttpMethod, parameters : [String : Any?], parser : (Any?) -&gt; A) -&gt; Task&lt;ApiResponse&lt;A&gt;&gt;).(closure #1).(closure #1):ApiClient.swift">
@@ -17,10 +141,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FileSystem.IsExist(String, inCache : Bool) -&gt; Bool:FileSystem.swift">
+         contextName = "FileSystem.saveTo(String, data : Data, toCache : Bool) -&gt; ():FileSystem.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static Date.fromUTC(value : String) -&gt; Date:Date.swift">
          <PersistentStrings>
             <PersistentString
-               value = "_client.fileExists(atPath: path.absoluteString)">
+               value = "Date.UTCFomatter.dateFormat = &quot;yyyy-MM-dd&apos;T&apos;HH:mm:ssZZZ&quot;">
+            </PersistentString>
+            <PersistentString
+               value = "Date.UTCFomatter.date(from: value) ">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -28,21 +158,32 @@
          contextName = "ConfigsStorage.init(plistName : String) -&gt; ConfigsStorage:ConfigsStorage.swift">
       </ContextState>
       <ContextState
-         contextName = "DateFilter.search(phrase : String, field : Any) -&gt; Bool:DateFilter.swift">
+         contextName = "CacheRangeAdapter.(save() -&gt; ()).(closure #1):CacheRangeAdapter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "matches(for: &quot;\d+&quot;, in: phrase)">
+               value = "String(data: data, encoding: .utf8)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DateFilter.Check(value : Int, date : Date, values : [Calendar.Component]...) -&gt; Bool:DateFilter.swift">
+         contextName = "ApiDataResponse.init(json : [String : Any]) -&gt; ApiDataResponse&lt;A&gt;:ApiDataResponse.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ConfigsStorage.Get(forKey : String) -&gt; OptionalValue&lt;Any&gt;:ConfigsStorage.swift">
          <PersistentStrings>
             <PersistentString
-               value = "print(date)">
+               value = "_configs.value.allKeys">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchAdapter.search(phrase : String, in : A) -&gt; Bool:SearchAdapter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "FileSystem.LoadBundlePlist(String) -&gt; NSDictionary?:FileSystem.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "calendar.component(.hour, from: date)">
+               value = "bundle.bundlePath">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -67,106 +208,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PlaceCard.initialize(summary : PlaceSummary) -&gt; ():PlaceCard.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.superview!.superview!.superview!.bounds.width">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "logMessage.description">
-            </PersistentString>
-            <PersistentString
-               value = "LogMessage(Date(), type, tag, message)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "DateTests.testConvertDateToUniversalFormat() -&gt; ():Date.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "formatter.string(from: date!)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "static Date.fromUTC(value : String) -&gt; Date:Date.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "Date.UTCFomatter.dateFormat = &quot;yyyy-MM-dd&apos;T&apos;HH:mm:ssZZZ&quot;">
-            </PersistentString>
-            <PersistentString
-               value = "Date.UTCFomatter.date(from: value) ">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ApiClientTests.testSendAndGetDate() -&gt; ():ApiClient.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "date.prepareForJson()">
-            </PersistentString>
-            <PersistentString
-               value = "Date()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "FileSystem.Remove(String, fromCache : Bool) -&gt; ():FileSystem.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "_client.fileExists(atPath: path.absoluteString)">
-            </PersistentString>
-            <PersistentString
-               value = "path.path">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "KeysStorage.remove(for : AccessRights) -&gt; ():KeysStorage.swift">
-      </ContextState>
-      <ContextState
-         contextName = "DateFilter.checkMoreOneDigit([String], forDate : Date) -&gt; Bool:DateFilter.swift">
-      </ContextState>
-      <ContextState
-         contextName = "OpenPlaceSummariesApiServiceTests.(testRange() -&gt; ()).(implicit closure #2):OpenPlaceSummariesApiService.swift">
-      </ContextState>
-      <ContextState
-         contextName = "TabBarController.viewDidLoad() -&gt; ():TabBarController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self as? UINavigationController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "OpenPlaceSummariesApiServiceTests.testRange() -&gt; ():OpenPlaceSummariesApiService.swift">
       </ContextState>
       <ContextState
-         contextName = "FileSystem.LoadBundlePlist(String) -&gt; NSDictionary?:FileSystem.swift">
+         contextName = "SearchField.search(phrase : String, in : A) -&gt; Bool:SearchField.swift">
          <PersistentStrings>
             <PersistentString
-               value = "bundle.bundlePath">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ConfigsStorageTests.testGetConfig() -&gt; ():ConfigsStorageTests.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "name.value as String">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "_system.IsExist(_file, inCache: true)">
+               value = "_getter(instance)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -179,49 +227,27 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SearchField.search(phrase : String, in : A) -&gt; Bool:SearchField.swift">
+         contextName = "CacheImagesService.checkDirectories() -&gt; ():CacheImagesService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TabBarController.viewDidLoad() -&gt; ():TabBarController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "_getter(instance)">
+               value = "self as? UINavigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ConfigsStorage.Get(forKey : String) -&gt; OptionalValue&lt;Any&gt;:ConfigsStorage.swift">
+         contextName = "DateFilter.checkMoreOneDigit([String], forDate : Date) -&gt; Bool:DateFilter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
          <PersistentStrings>
             <PersistentString
-               value = "_configs.value.allKeys">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "SearchAdapter.search(phrase : String, in : A) -&gt; Bool:SearchAdapter.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ApiClient.SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;:ApiClient.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "request.allHTTPHeaderFields">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "StringFilter.filter(value : Any, phrase : String) -&gt; Bool:StringFilter.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ApiClient.(SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;).(closure #1).(closure #1):ApiClient.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "ApiErrorResponse(json: json)">
+               value = "logMessage.description">
             </PersistentString>
             <PersistentString
-               value = "json[&quot;Data&quot;] as Bool">
-            </PersistentString>
-            <PersistentString
-               value = "TData(json: json)">
-            </PersistentString>
-            <PersistentString
-               value = "response">
+               value = "LogMessage(Date(), type, tag, message)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
