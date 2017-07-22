@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 import IOSLibrary
 
-public class PlaceSummary: Glossy, IIdentified, ICopying {
+public class PlaceSummary: ICached {
 
     public var ID: Long
     public var Name: String

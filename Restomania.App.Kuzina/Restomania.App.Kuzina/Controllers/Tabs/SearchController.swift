@@ -39,7 +39,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
         _tableAdapter.Update(_data)
 
         let task = _service.range(ids)
-        task.async(.background, completion: { data in
+        task.async(.utility, completion: { data in
 
             DispatchQueue.main.sync {
                 self._data = data

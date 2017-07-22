@@ -11,22 +11,17 @@ import AsyncTask
 import Gloss
 import IOSLibrary
 
-public class CachePlaceSummariesService: ILoggable {
+public class CachePlaceSummariesService {
 
-    public var tag: String {
-        return "CachePlaceSummariesService"
-    }
-    private var _data: [PlaceSummary]
-    private let _filename: String = "places_summaries.json"
-    private let _fileClient: FileSystem
+    public let tag = "CachePlaceSummariesService"
+
     private let _client: OpenPlaceSummariesApiService
+    private let _adapter: CacheRangeAdapter<PlaceSummary>
 
     public init() {
-        _data = [PlaceSummary]()
-        _fileClient = FileSystem()
-        _client = OpenPlaceSummariesApiService()
 
-        load()
+        _client = OpenPlaceSummariesApiService()
+        _adapter = CacheRangeAdapter<PlaceSummary>(tag: tag, filename: "places-summaries.json")
 
         Log.Info(tag, "Complete load service.")
 
@@ -35,19 +30,18 @@ public class CachePlaceSummariesService: ILoggable {
         }
     }
 
+    //Local
     public var hasData: Bool {
-        return 0 != _data.count
+        return _adapter.hasData
     }
     public var localData: [PlaceSummary] {
-        return _data.map({ PlaceSummary(source: $0) })
+        return _adapter.localData
     }
-
-    //Local
     public func rangeLocal(_ ids: [Long]) -> [PlaceSummary] {
-        return _data.where({ ids.contains($0.ID) })
+        return _adapter.rangeLocal(ids)
     }
     public func findInLocal(_ id: Long) -> PlaceSummary? {
-        return _data.find({ $0.ID == id })
+        return _adapter.findInLocal(id)
     }
 
     //Remote
@@ -55,32 +49,39 @@ public class CachePlaceSummariesService: ILoggable {
 
         return Task { (handler: @escaping([PlaceSummary]) -> Void) in
 
+            Log.Debug(self.tag, "Start request range.")
+
             let task = self._client.Range(placeIDs: ids)
-            let result = task.await(AsyncQueue.background)
+            let result = task.await()
 
             if (result.statusCode != .OK) {
-
                 handler([PlaceSummary]())
                 Log.Warning(self.tag, "Problem with get data.")
             }
 
-            self.unite(with: result.data!)
-            handler(result.data!)
+            let data = result.data!
+            self._adapter.unite(with: data)
+            handler(data)
+
+            Log.Debug(self.tag, "Comlete request range.")
         }
     }
     public func update() {
 
+        let ids = self.localData.map({ $0.ID })
+        if (0 == ids.count) {
+            return
+        }
+
         let task = Task {
 
-            let ids = self._data.map({ $0.ID })
-            if (0 == ids.count) {
-                return
-            }
+            Log.Debug(self.tag, "Start refresh data.")
 
             let task = self._client.Range(placeIDs: ids)
-            let result = task.await(.background)
+            let result = task.await()
 
             if (result.statusCode != .OK) {
+                Log.Warning(self.tag, "Problem with update data.")
                 return
             }
 
@@ -91,10 +92,10 @@ public class CachePlaceSummariesService: ILoggable {
                 let notFound = ids.where({ !newIds.contains($0) })
 
                 for id in notFound {
-                    for (index, element) in self._data.enumerated() {
+                    for element in self.localData {
 
                         if (element.ID == id) {
-                            self._data.remove(at: index)
+                            self._adapter.remove(element.ID)
                             break
                         }
                     }
@@ -102,58 +103,9 @@ public class CachePlaceSummariesService: ILoggable {
             }
 
             //Update data
-            self.unite(with: range)
+            self._adapter.unite(with: range)
             Log.Info(self.tag, "Update cached data.")
         }
         task.async(.background)
-    }
-    private func unite(with range: [PlaceSummary]) {
-
-        for newSummary in range {
-
-            var found = false
-            for (index, oldSummary) in _data.enumerated() {
-
-                if (newSummary.ID == oldSummary.ID) {
-
-                    _data[index] = newSummary
-                    found = true
-                    break
-                }
-            }
-
-            if (!found) {
-                _data.append(newSummary)
-            }
-        }
-
-        save()
-    }
-    private func save() {
-
-        do {
-            let data = try JSONSerialization.data(withJSONObject: _data.map({ $0.toJSON() }), options: [])
-            _fileClient.saveTo(_filename, data: data, toCache: false)
-
-            Log.Debug(tag, "Save data to storage.")
-        } catch {
-            Log.Warning(tag, "Problem with save data.")
-        }
-    }
-    private func load() {
-
-        do {
-            if (!_fileClient.isExist(_filename, inCache: false)) {
-                return
-            }
-
-            let fileContent = _fileClient.load(_filename, fromCache: false)!
-            let data = fileContent.data(using: .utf8)
-
-            let range = try JSONSerialization.jsonObject(with: data!, options: []) as! [JSON]
-            _data = range.map({ PlaceSummary(json: $0) })
-        } catch {
-            Log.Warning(tag, "Problem with load data.")
-        }
     }
 }

@@ -123,6 +123,9 @@
 		1FD9A0BD1F2360C10026BDF8 /* PlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0BC1F2360C10026BDF8 /* PlaceCard.swift */; };
 		1FD9A0BF1F2360F20026BDF8 /* PlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9A0BE1F2360F20026BDF8 /* PlaceCard.xib */; };
 		1FD9A0C31F23870B0026BDF8 /* image-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9A0C21F23870B0026BDF8 /* image-gradient.png */; };
+		1FD9A0C51F23BC320026BDF8 /* CacheImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0C41F23BC320026BDF8 /* CacheImagesService.swift */; };
+		1FD9A0C71F23BE9D0026BDF8 /* CacheRangeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0C61F23BE9D0026BDF8 /* CacheRangeAdapter.swift */; };
+		1FD9A0C91F23C7480026BDF8 /* ICached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0C81F23C7480026BDF8 /* ICached.swift */; };
 		1FFA57BD1F20CF6300E83463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57BC1F20CF6300E83463 /* ViewController.swift */; };
 		1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */; };
 		1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */; };
@@ -265,6 +268,9 @@
 		1FD9A0BC1F2360C10026BDF8 /* PlaceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceCard.swift; path = Elements/Cards/Place/PlaceCard.swift; sourceTree = "<group>"; };
 		1FD9A0BE1F2360F20026BDF8 /* PlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceCard.xib; path = Elements/Cards/Place/PlaceCard.xib; sourceTree = "<group>"; };
 		1FD9A0C21F23870B0026BDF8 /* image-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "image-gradient.png"; path = "Images/image-gradient.png"; sourceTree = "<group>"; };
+		1FD9A0C41F23BC320026BDF8 /* CacheImagesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheImagesService.swift; path = Services/Cache/CacheImagesService.swift; sourceTree = "<group>"; };
+		1FD9A0C61F23BE9D0026BDF8 /* CacheRangeAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheRangeAdapter.swift; path = Services/Cache/CacheRangeAdapter.swift; sourceTree = "<group>"; };
+		1FD9A0C81F23C7480026BDF8 /* ICached.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICached.swift; path = Domains/ICached.swift; sourceTree = "<group>"; };
 		1FF4FE5D1F1BE74C00CC78B3 /* SystemStatusApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemStatusApiService.swift; path = ApiServices/System/SystemStatusApiService.swift; sourceTree = "<group>"; };
 		1FF4FE641F1BF43C00CC78B3 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Domains/Versions/Platform.swift; sourceTree = "<group>"; };
 		1FF4FE661F1BF4B600CC78B3 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Domains/Versions/Version.swift; sourceTree = "<group>"; };
@@ -394,6 +400,7 @@
 		1FA2607E1F14A02400C14886 /* Domains */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0C81F23C7480026BDF8 /* ICached.swift */,
 				1FD9A0B01F2356860026BDF8 /* ICopying.swift */,
 				1FD9A0B21F235C830026BDF8 /* IIdentified.swift */,
 				1FA260801F14A04F00C14886 /* BaseDataType.swift */,
@@ -686,7 +693,9 @@
 		1FD9A09C1F2323C30026BDF8 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0C61F23BE9D0026BDF8 /* CacheRangeAdapter.swift */,
 				1FD9A09D1F2323FF0026BDF8 /* CachePlaceSummariesService.swift */,
+				1FD9A0C41F23BC320026BDF8 /* CacheImagesService.swift */,
 			);
 			name = Cache;
 			sourceTree = "<group>";
@@ -1217,6 +1226,7 @@
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,
 				1FB8F0401F1EADFB0090045E /* PaymentCardType.swift in Sources */,
 				1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */,
+				1FD9A0C71F23BE9D0026BDF8 /* CacheRangeAdapter.swift in Sources */,
 				1FB8EFCB1F1D41050090045E /* UserParts.swift in Sources */,
 				1FD9A09E1F2323FF0026BDF8 /* CachePlaceSummariesService.swift in Sources */,
 				1FB8F0661F1ECEC00090045E /* OrderedDish.swift in Sources */,
@@ -1258,9 +1268,11 @@
 				1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */,
 				1FB8F04E1F1EC28C0090045E /* UserLoyaltyApiService.swift in Sources */,
 				1FFA57C61F21EDBA00E83463 /* AppDelegate.swift in Sources */,
+				1FD9A0C51F23BC320026BDF8 /* CacheImagesService.swift in Sources */,
 				1FB8F0261F1E5C5E0090045E /* Device.swift in Sources */,
 				1FD9A0A01F23261B0026BDF8 /* ServicesManager.swift in Sources */,
 				1FB8EFCD1F1D41420090045E /* User.swift in Sources */,
+				1FD9A0C91F23C7480026BDF8 /* ICached.swift in Sources */,
 				1FB8EFEE1F1D4F480090045E /* RegistrationStatus.swift in Sources */,
 				1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */,
 				1FB8F0121F1E0B520090045E /* OpenPlacesApiService.swift in Sources */,
