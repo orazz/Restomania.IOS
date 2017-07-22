@@ -116,6 +116,7 @@
 		1FD9A0A01F23261B0026BDF8 /* ServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A09F1F23261B0026BDF8 /* ServicesManager.swift */; };
 		1FD9A0A21F23264F0026BDF8 /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A11F23264F0026BDF8 /* KeysStorage.swift */; };
 		1FD9A0A41F232FEC0026BDF8 /* KeysStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */; };
+		1FD9A0B11F2356860026BDF8 /* ICopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0B01F2356860026BDF8 /* ICopying.swift */; };
 		1FFA57BD1F20CF6300E83463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57BC1F20CF6300E83463 /* ViewController.swift */; };
 		1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */; };
 		1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */; };
@@ -253,6 +254,7 @@
 		1FD9A09F1F23261B0026BDF8 /* ServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServicesManager.swift; path = Services/ServicesManager.swift; sourceTree = "<group>"; };
 		1FD9A0A11F23264F0026BDF8 /* KeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorage.swift; path = Services/KeysStorage.swift; sourceTree = "<group>"; };
 		1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorageTests.swift; path = Services/KeysStorageTests.swift; sourceTree = "<group>"; };
+		1FD9A0B01F2356860026BDF8 /* ICopying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICopying.swift; path = Domains/ICopying.swift; sourceTree = "<group>"; };
 		1FF4FE5D1F1BE74C00CC78B3 /* SystemStatusApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemStatusApiService.swift; path = ApiServices/System/SystemStatusApiService.swift; sourceTree = "<group>"; };
 		1FF4FE641F1BF43C00CC78B3 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Domains/Versions/Platform.swift; sourceTree = "<group>"; };
 		1FF4FE661F1BF4B600CC78B3 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Domains/Versions/Version.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		1F36C89D1F20CE7200232B9A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0A91F2351780026BDF8 /* Cache */,
 				1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */,
 			);
 			name = Services;
@@ -382,6 +385,7 @@
 		1FA2607E1F14A02400C14886 /* Domains */ = {
 			isa = PBXGroup;
 			children = (
+				1FD9A0B01F2356860026BDF8 /* ICopying.swift */,
 				1FA260801F14A04F00C14886 /* BaseDataType.swift */,
 				1FF4FE7F1F1CE8B600CC78B3 /* Accounts */,
 				1FF4FE891F1CF18100CC78B3 /* NotificationPreferences */,
@@ -673,6 +677,13 @@
 			isa = PBXGroup;
 			children = (
 				1FD9A09D1F2323FF0026BDF8 /* CachePlaceSummariesService.swift */,
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
+		1FD9A0A91F2351780026BDF8 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Cache;
 			sourceTree = "<group>";
@@ -1159,6 +1170,7 @@
 				1FB8EFE41F1D4A970090045E /* Contacts.swift in Sources */,
 				1FD7E69E1F1D0E140023C033 /* Account.swift in Sources */,
 				1FB8EFC51F1D3C300090045E /* UserNotificationPreference.swift in Sources */,
+				1FD9A0B11F2356860026BDF8 /* ICopying.swift in Sources */,
 				1FB8EFF61F1D516F0090045E /* Place.swift in Sources */,
 				1FB8EFD51F1D430D0090045E /* Review.swift in Sources */,
 				1FB8EFFB1F1DE9330090045E /* BaseLoyaltySystem.swift in Sources */,

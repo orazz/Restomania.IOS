@@ -20,10 +20,14 @@ public class ServicesManager: ILoggable {
     public var tag: String {
         return "ServicesManager"
     }
+
     public let keysStorage: IKeysStorage
+    public let placeSummariesService: CachePlaceSummariesService
 
     public init() {
+
         keysStorage = KeysStorage()
+        placeSummariesService = CachePlaceSummariesService()
     }
 
 }

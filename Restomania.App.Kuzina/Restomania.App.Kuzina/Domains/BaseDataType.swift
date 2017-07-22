@@ -9,19 +9,28 @@
 import Gloss
 
 public class BaseDataType: Glossy {
+
     public var ID: Int64
     public var CreateAt: Date?
     public var UpdateAt: Date?
 
     public init() {
+
         self.ID = 0
         self.CreateAt = Date()
         self.UpdateAt = Date()
     }
     public required init(json: JSON) {
+
         self.ID = ("ID" <~~ json) ?? 0
         self.CreateAt = "CreateAt" <~~ json
         self.UpdateAt = "UpdateAt" <~~ json
+    }
+    public init(source: BaseDataType) {
+
+        self.ID = source.ID
+        self.CreateAt = source.CreateAt
+        self.UpdateAt = source.UpdateAt
     }
 
     public func toJSON() -> JSON? {

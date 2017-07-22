@@ -28,6 +28,9 @@ public class PaymentCard: BaseDataType {
 
         super.init()
     }
+    public required init(source: BaseDataType) {
+        fatalError("init(source:) has not been implemented")
+    }
     public required init(json: JSON) {
         self.UserID = ("UserID" <~~ json)!
         self.Last4Number = ("Last4Number" <~~ json)!
@@ -38,4 +41,5 @@ public class PaymentCard: BaseDataType {
 
         super.init(json: json)
     }
+
 }

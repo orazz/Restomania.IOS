@@ -9,7 +9,8 @@
 import Foundation
 import Gloss
 
-public class PlaceLocation: BaseDataType {
+public class PlaceLocation: BaseDataType, ICopying {
+
     public var Latitude: Double
     public var Longitude: Double
     public var City: String
@@ -17,6 +18,7 @@ public class PlaceLocation: BaseDataType {
     public var House: String
 
     public override init() {
+
         self.Latitude = 0
         self.Longitude = 0
         self.City = String.Empty
@@ -26,6 +28,7 @@ public class PlaceLocation: BaseDataType {
         super.init()
     }
     public required init(json: JSON) {
+
         self.Latitude = ("Latitude" <~~ json)!
         self.Longitude = ("Longitude" <~~ json)!
         self.City = ("City" <~~ json)!
@@ -33,6 +36,16 @@ public class PlaceLocation: BaseDataType {
         self.House = ("House" <~~ json)!
 
         super.init(json: json)
+    }
+    public required init(source: PlaceLocation) {
+
+        self.Latitude = source.Latitude
+        self.Longitude = source.Longitude
+        self.City = source.City
+        self.Street = source.Street
+        self.House = source.House
+
+        super.init(source: source)
     }
 
     public override func toJSON() -> JSON? {

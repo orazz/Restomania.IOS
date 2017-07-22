@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class ShortSchedule: Glossy {
+public class ShortSchedule: Glossy, ICopying {
 
     public var Sunday: String
     public var Monday: String
@@ -20,6 +20,7 @@ public class ShortSchedule: Glossy {
     public var Saturday: String
 
     public init() {
+
         self.Sunday = String.Empty
         self.Monday = String.Empty
         self.Tuesday = String.Empty
@@ -29,6 +30,7 @@ public class ShortSchedule: Glossy {
         self.Saturday = String.Empty
     }
     public required init(json: JSON) {
+
         self.Sunday = ("Sunday" <~~ json)!
         self.Monday = ("Monday" <~~ json)!
         self.Tuesday = ("Tuesday" <~~ json)!
@@ -37,8 +39,19 @@ public class ShortSchedule: Glossy {
         self.Friday = ("Friday" <~~ json)!
         self.Saturday = ("Saturday" <~~ json)!
     }
+    public required init(source: ShortSchedule) {
+
+        self.Sunday = source.Sunday
+        self.Monday = source.Monday
+        self.Tuesday = source.Tuesday
+        self.Wednesday = source.Wednesday
+        self.Thursday = source.Thursday
+        self.Friday = source.Friday
+        self.Saturday = source.Saturday
+    }
 
     public func toJSON() -> JSON? {
+
         return jsonify([
             "Sunday" ~~> Sunday,
             "Monday" ~~> Monday,

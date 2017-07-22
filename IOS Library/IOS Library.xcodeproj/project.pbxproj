@@ -30,6 +30,8 @@
 		1FA20BC61F2294A400215C4A /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BC51F2294A400215C4A /* SearchField.swift */; };
 		1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606B1F13D3A500C14886 /* FileSystem.swift */; };
 		1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606D1F13E98A00C14886 /* FileSystem.swift */; };
+		1FD9A0A61F233B5E0026BDF8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A51F233B5E0026BDF8 /* Array.swift */; };
+		1FD9A0A81F233C220026BDF8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A71F233C220026BDF8 /* Array.swift */; };
 		1FF4FE561F1A24E000CC78B3 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */; };
 		1FF4FE6B1F1BF77800CC78B3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE6A1F1BF77800CC78B3 /* String.swift */; };
 		1FFA57C31F211EE800E83463 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57C21F211EE800E83463 /* Date.swift */; };
@@ -82,6 +84,8 @@
 		1FA2606D1F13E98A00C14886 /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSystem.swift; path = Tools/FileSystem.swift; sourceTree = "<group>"; };
 		1FA260721F13FEC900C14886 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1FA2607C1F149CC600C14886 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = ../_frameworks/Gloss.framework; sourceTree = "<group>"; };
+		1FD9A0A51F233B5E0026BDF8 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Tools/Array.swift; sourceTree = "<group>"; };
+		1FD9A0A71F233C220026BDF8 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Tools/Array.swift; sourceTree = "<group>"; };
 		1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		1FF4FE6A1F1BF77800CC78B3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
 		1FFA57C21F211EE800E83463 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Tools/Date.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 				1F36C8711F20768E00232B9A /* OptionalValue.swift */,
 				1F36C8731F20787900232B9A /* Long.swift */,
 				1FFA57C21F211EE800E83463 /* Date.swift */,
+				1FD9A0A51F233B5E0026BDF8 /* Array.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				1FFEA2821F14A887002DD78F /* Guid.swift */,
 				1FF4FE6A1F1BF77800CC78B3 /* String.swift */,
 				1FA20BBE1F226D6A00215C4A /* SearchAdapterTests.swift */,
+				1FD9A0A71F233C220026BDF8 /* Array.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */,
 				1FA20BB71F226D1400215C4A /* StringFilter.swift in Sources */,
 				1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */,
+				1FD9A0A61F233B5E0026BDF8 /* Array.swift in Sources */,
 				1FFEA2891F14AD5C002DD78F /* IEventsEmitter.swift in Sources */,
 				1F138C8C1F19EC93003EAEE6 /* ApiClient.swift in Sources */,
 			);
@@ -542,6 +549,7 @@
 				1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */,
 				1FFEA2831F14A887002DD78F /* Guid.swift in Sources */,
 				1FF4FE6B1F1BF77800CC78B3 /* String.swift in Sources */,
+				1FD9A0A81F233C220026BDF8 /* Array.swift in Sources */,
 				1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */,
 				1FF4FE561F1A24E000CC78B3 /* ApiClient.swift in Sources */,
 			);

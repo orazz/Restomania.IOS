@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 import IOSLibrary
 
-public class PlaceSummary: Glossy {
+public class PlaceSummary: Glossy, ICopying {
 
     public var ID: Long
     public var Name: String
@@ -33,7 +33,21 @@ public class PlaceSummary: Glossy {
         self.Location = PlaceLocation()
         self.Schedule = ShortSchedule()
     }
+    public required init(source: PlaceSummary) {
+
+        self.ID = source.ID
+        self.Name = source.Name
+        self.Description = source.Description
+        self.Type = source.Type
+        self.Kitchen = source.Kitchen
+        self.Rating = source.Rating
+        self.Image = source.Image
+
+        self.Location = PlaceLocation(source: source.Location)
+        self.Schedule = ShortSchedule(source: source.Schedule)
+    }
     public required init(json: JSON) {
+        
         self.ID = ("ID" <~~ json)!
         self.Name = ("Name" <~~ json)!
         self.Description = ("Description" <~~ json)!
@@ -41,6 +55,7 @@ public class PlaceSummary: Glossy {
         self.Kitchen = ("Kitchen" <~~ json)!
         self.Rating = ("Rating" <~~ json)!
         self.Image = ("Image" <~~ json)!
+        
         self.Location = ("Location" <~~ json) ?? PlaceLocation()
         self.Schedule = ("Schedule" <~~ json) ?? ShortSchedule()
     }
@@ -54,6 +69,7 @@ public class PlaceSummary: Glossy {
             "Kitchen" ~~> self.Kitchen,
             "Rating" ~~> self.Rating,
             "Image" ~~> self.Image,
+            
             "Location" ~~> self.Location,
             "Schedule" ~~> self.Schedule
             ])
