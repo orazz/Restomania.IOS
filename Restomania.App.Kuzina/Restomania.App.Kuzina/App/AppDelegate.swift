@@ -8,15 +8,19 @@
 
 import UIKit
 import AsyncTask
+import IOSLibrary
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private let tag = "AppDelegate"
     private var _pushManager: PushNotificationsManager!
     private let _minimalUpdateInterval: TimeInterval = 30 * 60
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        Log.Info(tag, "Launch app with options.")
 
         AppSummary.initialize()
         ServicesManager.initialize()

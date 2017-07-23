@@ -64,7 +64,6 @@ public class CachePlaceSummariesService {
             }
 
             Log.Debug(self.tag, "Start request range.")
-            sleep(10)
 
             let task = self._client.Range(placeIDs: filtered.notFound)
             let result = task.await()

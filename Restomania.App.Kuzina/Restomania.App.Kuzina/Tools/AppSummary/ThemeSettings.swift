@@ -14,7 +14,7 @@ public class ThemeSettings {
     public var secondColor: UIColor
 
     public var defaultImage: UIImage
-    
+
     public let fontAwesomeFont = "FontAwesome"
     public let susanBookFont = "Susan Book"
     public let susanBoldFont = "Susan Bold"

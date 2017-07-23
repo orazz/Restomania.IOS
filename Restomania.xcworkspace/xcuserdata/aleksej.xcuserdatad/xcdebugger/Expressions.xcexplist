@@ -3,24 +3,35 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "logMessage.description">
-            </PersistentString>
-            <PersistentString
-               value = "LogMessage(Date(), type, tag, message)">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "WrappedImage.animatedSetupImage(UIImage?) -&gt; ():WrappedImage.swift">
       </ContextState>
       <ContextState
-         contextName = "WrappedImage.animatedSetupImage(UIImage?) -&gt; ():WrappedImage.swift">
+         contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
       </ContextState>
       <ContextState
          contextName = "FileSystem.IsExist(String, inCache : Bool) -&gt; Bool:FileSystem.swift">
          <PersistentStrings>
             <PersistentString
                value = "_client.fileExists(atPath: path.absoluteString)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ManagerController.init(coder : NSCoder) -&gt; ManagerController?:ManagerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "AppSummary.current.theme">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ManagerController.viewDidLoad() -&gt; ():ManagerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIFont.familyNames">
+            </PersistentString>
+            <PersistentString
+               value = "UIFont.fontNames(forFamilyName: _theme.fontAwesomeFont)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -47,6 +58,14 @@
          contextName = "CacheImagesService.(download(url : String) -&gt; Task&lt;(Bool, Data?)&gt;).(closure #1):CacheImagesService.swift">
       </ContextState>
       <ContextState
+         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_system.IsExist(_file, inCache: true)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ApiClient.(SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;).(closure #1).(closure #1):ApiClient.swift">
          <PersistentStrings>
             <PersistentString
@@ -60,14 +79,6 @@
             </PersistentString>
             <PersistentString
                value = "response">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "_system.IsExist(_file, inCache: true)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -224,13 +235,13 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "formatter.date(from: value)">
-            </PersistentString>
-            <PersistentString
                value = "notUTC!.toUTC()">
             </PersistentString>
             <PersistentString
                value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.date(from: value)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -268,7 +279,15 @@
          contextName = "DateFilter.checkMoreOneDigit([String], forDate : Date) -&gt; Bool:DateFilter.swift">
       </ContextState>
       <ContextState
-         contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
+         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "logMessage.description">
+            </PersistentString>
+            <PersistentString
+               value = "LogMessage(Date(), type, tag, message)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

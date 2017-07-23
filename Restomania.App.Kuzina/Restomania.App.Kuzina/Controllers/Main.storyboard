@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kws-xe-E2y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kws-xe-E2y">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -63,7 +63,7 @@
         <!--Manager-->
         <scene sceneID="sjp-Uy-0Pp">
             <objects>
-                <viewController id="6zb-zD-LkU" sceneMemberID="viewController">
+                <viewController id="6zb-zD-LkU" customClass="ManagerController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oTb-8T-Fv3"/>
                         <viewControllerLayoutGuide type="bottom" id="2ZQ-3c-QG2"/>
@@ -73,9 +73,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8k-Y2-hvy">
-                                <rect key="frame" x="212" y="286" width="10" height="21"/>
+                                <rect key="frame" x="105" y="196" width="117" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -83,10 +83,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Manager" id="569-TW-49m"/>
+                    <connections>
+                        <outlet property="Label" destination="p8k-Y2-hvy" id="e3r-qe-yTT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KH-dR-zY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="1026"/>
+            <point key="canvasLocation" x="1317.5999999999999" y="1025.9370314842579"/>
         </scene>
         <!--Tabs Controller-->
         <scene sceneID="ENK-du-PfL">
@@ -112,7 +115,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="kws-xe-E2y" customClass="NavigationController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f2X-cd-Z9j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f2X-cd-Z9j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
