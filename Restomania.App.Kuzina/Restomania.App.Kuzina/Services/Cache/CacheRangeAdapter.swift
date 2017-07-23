@@ -36,6 +36,9 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
     public var hasData: Bool {
         return 0 != _data.count
     }
+    public var isEmpty: Bool {
+        return !hasData
+    }
     public var localData: [TElement] {
         return _data.map({ TElement.init(source: $0) })
     }
@@ -45,11 +48,23 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
     public func findInLocal(_ id: Long) -> TElement? {
         return _data.find({ $0.ID == id })
     }
-    public func add(_ element: TElement) {
+    public func addOrUpdate(_ element: TElement) {
 
         _queue.sync {
 
-            _data.append(element)
+            var updated = false
+            for (index, cached) in _data.enumerated() {
+                if (cached.ID == element.ID) {
+
+                    _data[index] = element
+                    updated = true
+                    break
+                }
+            }
+
+            if (updated) {
+                _data.append(element)
+            }
         }
         save()
     }

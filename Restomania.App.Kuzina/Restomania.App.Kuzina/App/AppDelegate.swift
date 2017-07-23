@@ -12,13 +12,31 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var _pushManager: PushNotificationsManager!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         AppSummary.initialize()
         ServicesManager.initialize()
 
+//       _pushManager = PushNotificationsManager()
+//       _pushManager.requestPushNotifications()
+
         return true
+    }
+
+    //Push notifications
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+
+        //_pushManager.completeRequestToPushNotifications(token: deviceToken)
+    }
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+
+        //_pushManager.completeRequestToPushNotifications(token: nil, error: error)
+    }
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+
+        //_pushManager.processMessage(push: userInfo)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

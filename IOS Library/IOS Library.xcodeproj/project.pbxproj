@@ -362,7 +362,7 @@
 					};
 					1F41CE4B1F13BE5B000B92E1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 686FXGC24W;
+						DevelopmentTeam = NDC5Q6J3J6;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -671,6 +671,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 62EA825A4F79B5655648264C /* Pods-IOSLibrary.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -687,6 +688,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -694,6 +696,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77223BA1CAD59F3C29B7EA56 /* Pods-IOSLibrary.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -709,6 +712,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -717,7 +721,7 @@
 			baseConfigurationReference = 5A963B7F2FE47B77B4C4FFF7 /* Pods-IOSLibraryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 686FXGC24W;
+				DEVELOPMENT_TEAM = NDC5Q6J3J6;
 				INFOPLIST_FILE = "IOS LibraryTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.IOS-LibraryTests";
@@ -731,7 +735,7 @@
 			baseConfigurationReference = A40C88D2C1B4EE3106366A14 /* Pods-IOSLibraryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 686FXGC24W;
+				DEVELOPMENT_TEAM = NDC5Q6J3J6;
 				INFOPLIST_FILE = "IOS LibraryTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.IOS-LibraryTests";

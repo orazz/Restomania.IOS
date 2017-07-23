@@ -15,4 +15,9 @@ public enum PropertiesKey: Int {
     //App versioning
     case AppVersion = 2
     case AppBuild = 3
+
+    //Cache service
+    case PlacesSummariesUpdateTime = 4
+
+    case PushDeviceToken = 20
 }

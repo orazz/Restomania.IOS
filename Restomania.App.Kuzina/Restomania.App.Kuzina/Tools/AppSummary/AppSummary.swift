@@ -21,6 +21,7 @@ public class AppSummary: ILoggable {
         return "AppSummary"
     }
     public let type: AppType
+    public let clientType: ClientAppType
     public let serverUrl: String
     public let theme: ThemeSettings
 
@@ -36,10 +37,11 @@ public class AppSummary: ILoggable {
         let configs = ConfigsStorage(plistName: "Configs")
 
         //Type
-        self.type = AppType(rawValue: configs.Get(.AppType).value as! String) ?? .Aggregator
-
+        self.type = AppType(rawValue: configs.Get(.AppType)) ?? .Aggregator
+        //Client type
+        self.clientType = ClientAppType(rawValue: configs.Get(.ClientAppType)) ?? .User
         //ServerUrl
-        self.serverUrl = configs.Get(.ServerUrl).value as! String
+        self.serverUrl = configs.Get(.ServerUrl)
 
         //Theme
         self.theme = ThemeSettings()
@@ -103,7 +105,7 @@ public class AppSummary: ILoggable {
     }
     private func setupID(from configs: ConfigsStorage) {
         if (type == .Single) {
-            let value = configs.Get(.PlaceID).value as! String
+            let value = configs.Get(.PlaceID)
 
             self.placeID = Long(value)!
             self.placeIDs = nil
@@ -112,7 +114,7 @@ public class AppSummary: ILoggable {
             self.placeID = nil
 
             do {
-                let ids = configs.Get(.PlacesIDs).value as! String
+                let ids = configs.Get(.PlacesIDs)
                 let data = ids.data(using: .utf8)!
                 let range = try JSONSerialization.jsonObject(with: data, options: []) as! [Long]
 
@@ -125,7 +127,8 @@ public class AppSummary: ILoggable {
     }
 }
 extension ConfigsStorage {
-    public func Get(_ key: ConfigKeys) -> OptionalValue<Any> {
-        return self.Get(forKey: key.rawValue)
+
+    public func Get(_ key: ConfigKeys) -> String {
+        return self.Get(forKey: key.rawValue).value as! String
     }
 }

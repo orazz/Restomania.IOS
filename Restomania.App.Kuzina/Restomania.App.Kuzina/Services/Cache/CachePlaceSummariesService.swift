@@ -26,13 +26,16 @@ public class CachePlaceSummariesService {
         Log.Info(tag, "Complete load service.")
 
         if (AppSummary.current.type == .Network) {
-            update()
+            refresh()
         }
     }
 
     //Local
     public var hasData: Bool {
         return _adapter.hasData
+    }
+    public var isEmpty: Bool {
+        return _adapter.isEmpty
     }
     public var localData: [PlaceSummary] {
         return _adapter.localData
@@ -66,10 +69,9 @@ public class CachePlaceSummariesService {
             Log.Debug(self.tag, "Complete request range.")
         }
     }
-    public func update() {
+    public func refresh() {
 
-        let ids = self.localData.map({ $0.ID })
-        if (0 == ids.count) {
+        if (isEmpty) {
             return
         }
 
@@ -77,6 +79,7 @@ public class CachePlaceSummariesService {
 
             Log.Debug(self.tag, "Start refresh data.")
 
+            let ids = self.localData.map({ $0.ID })
             let task = self._client.Range(placeIDs: ids)
             let result = task.await()
 

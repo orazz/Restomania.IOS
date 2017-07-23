@@ -4,6 +4,8 @@
 <dict>
 	<key>AppType</key>
 	<string>Network</string>
+	<key>ClientAppType</key>
+	<string>User</string>
 	<key>PlacesIDs</key>
 	<string>[43,37,33]</string>
 	<key>ServerUrl</key>

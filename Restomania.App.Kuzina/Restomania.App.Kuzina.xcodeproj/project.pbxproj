@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */; };
-		1DBF288BC14C763B1FB9B875 /* Pods_RestomaniaAppKuzina_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2BB6A7C5833C1337AA2FD2 /* Pods_RestomaniaAppKuzina_Tests.framework */; };
 		1F36C8831F20823800232B9A /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36C8821F20823800232B9A /* IOSLibrary.framework */; };
 		1F36C8841F20823E00232B9A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36C87F1F207C8300232B9A /* XCTest.framework */; };
 		1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F36C88A1F20C1F900232B9A /* Configs.plist */; };
@@ -18,7 +17,8 @@
 		1F36C8981F20CE5E00232B9A /* ConfigsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8971F20CE5E00232B9A /* ConfigsStorage.swift */; };
 		1F36C89B1F20CE6900232B9A /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8991F20CE6900232B9A /* PropertiesKey.swift */; };
 		1F36C89C1F20CE6900232B9A /* PropertiesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89A1F20CE6900232B9A /* PropertiesStorage.swift */; };
-		1F41CE6B1F13BF4B000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */; };
+		1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */; };
+		1F9B84321F24AE78004148F7 /* ClientAppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B84311F24AE78004148F7 /* ClientAppType.swift */; };
 		1FB8EFC51F1D3C300090045E /* UserNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFC41F1D3C300090045E /* UserNotificationPreference.swift */; };
 		1FB8EFCB1F1D41050090045E /* UserParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFCA1F1D41050090045E /* UserParts.swift */; };
 		1FB8EFCD1F1D41420090045E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFCC1F1D41420090045E /* User.swift */; };
@@ -85,6 +85,8 @@
 		1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0691F1ECF980090045E /* DishOrder.swift */; };
 		1FB8F06C1F1EDCDB0090045E /* AddingOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F06B1F1EDCDB0090045E /* AddingOrder.swift */; };
 		1FB8F06E1F1EE04D0090045E /* AddingBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F06D1F1EE04D0090045E /* AddingBooking.swift */; };
+		1FBE83EC1F2521780002F0B5 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; };
+		1FBE83ED1F2521780002F0B5 /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */; };
 		1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */; };
 		1FC5A6C01F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */; };
@@ -107,7 +109,6 @@
 		1FD7E6A71F1D0E140023C033 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE661F1BF4B600CC78B3 /* Version.swift */; };
 		1FD7E6A81F1D0E140023C033 /* BaseDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA260801F14A04F00C14886 /* BaseDataType.swift */; };
 		1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE701F1BFC0F00CC78B3 /* AppSettings.swift */; };
-		1FD7E6AB1F1D0E6B0023C033 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */; };
 		1FD9A0981F2321B60026BDF8 /* AppSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0941F2321B60026BDF8 /* AppSummary.swift */; };
 		1FD9A0991F2321B60026BDF8 /* AppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0951F2321B60026BDF8 /* AppType.swift */; };
 		1FD9A09A1F2321B60026BDF8 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0961F2321B60026BDF8 /* ConfigKeys.swift */; };
@@ -157,9 +158,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1FBE83EE1F2521780002F0B5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1FBE83ED1F2521780002F0B5 /* IOSLibrary.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0A71E4697424BB89A1AA9DFA /* Pods-RestomaniaAppKuzina-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina-Tests/Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		0D2BB6A7C5833C1337AA2FD2 /* Pods_RestomaniaAppKuzina_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestomaniaAppKuzina_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F36C87F1F207C8300232B9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F36C8821F20823800232B9A /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1F36C88A1F20C1F900232B9A /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
@@ -171,11 +185,9 @@
 		1F36C89A1F20CE6900232B9A /* PropertiesStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorage.swift; path = Tools/PropertiesStorage/PropertiesStorage.swift; sourceTree = "<group>"; };
 		1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorageTests.swift; path = Tools/ConfigsStorageTests.swift; sourceTree = "<group>"; };
 		1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorageTests.swift; path = Tools/PropertiesStorageTests.swift; sourceTree = "<group>"; };
-		1F41CE661F13BF22000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
-		1F41CE681F13BF42000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
-		1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
+		1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationsManager.swift; path = App/PushNotificationsManager.swift; sourceTree = "<group>"; };
+		1F9B84311F24AE78004148F7 /* ClientAppType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientAppType.swift; path = Tools/AppSummary/ClientAppType.swift; sourceTree = "<group>"; };
 		1FA260801F14A04F00C14886 /* BaseDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDataType.swift; path = Domains/BaseDataType.swift; sourceTree = "<group>"; };
-		1FA260821F14A0F700C14886 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = ../_frameworks/Gloss.framework; sourceTree = "<group>"; };
 		1FB8EFC41F1D3C300090045E /* UserNotificationPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserNotificationPreference.swift; path = Domains/NotificationPreferences/UserNotificationPreference.swift; sourceTree = "<group>"; };
 		1FB8EFCA1F1D41050090045E /* UserParts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserParts.swift; path = Domains/Users/UserParts.swift; sourceTree = "<group>"; };
 		1FB8EFCC1F1D41420090045E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Domains/Users/User.swift; sourceTree = "<group>"; };
@@ -242,6 +254,8 @@
 		1FB8F0691F1ECF980090045E /* DishOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrder.swift; path = Domains/Orders/DishOrders/DishOrder.swift; sourceTree = "<group>"; };
 		1FB8F06B1F1EDCDB0090045E /* AddingOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingOrder.swift; path = ApiServices/Models/AddingOrder.swift; sourceTree = "<group>"; };
 		1FB8F06D1F1EE04D0090045E /* AddingBooking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingBooking.swift; path = ApiServices/Models/AddingBooking.swift; sourceTree = "<group>"; };
+		1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FBE83EF1F25225B0002F0B5 /* RestomaniaAppKuzina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestomaniaAppKuzina.entitlements; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FC5A6AB1F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -251,8 +265,6 @@
 		1FC5A6BB1F138A8600ABE1A6 /* RestomaniaAppKuzina-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RestomaniaAppKuzina-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restomania_App_KuzinaUITests.swift; sourceTree = "<group>"; };
 		1FC5A6C11F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FC5A7421F138C9400ABE1A6 /* IOS library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS library.framework"; path = "../IOS library/build/Debug-iphoneos/IOS library.framework"; sourceTree = "<group>"; };
-		1FC5A74A1F139DEC00ABE1A6 /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-fxxzqiscfbcurlbubkhnpcaaxwyg/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiService.swift; path = ApiServices/BaseApiService.swift; sourceTree = "<group>"; };
 		1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-ddestcygydqsikdncgqzzaesfjnm/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1FD9A0941F2321B60026BDF8 /* AppSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSummary.swift; path = Tools/AppSummary/AppSummary.swift; sourceTree = "<group>"; };
@@ -312,7 +324,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FD7E6AB1F1D0E6B0023C033 /* IOSLibrary.framework in Frameworks */,
+				1FBE83EC1F2521780002F0B5 /* IOSLibrary.framework in Frameworks */,
 				1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,7 +335,6 @@
 			files = (
 				1F36C8841F20823E00232B9A /* XCTest.framework in Frameworks */,
 				1F36C8831F20823800232B9A /* IOSLibrary.framework in Frameworks */,
-				1DBF288BC14C763B1FB9B875 /* Pods_RestomaniaAppKuzina_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +342,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F41CE6B1F13BF4B000B92E1 /* IOS Library.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +616,7 @@
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
+				1FBE83EF1F25225B0002F0B5 /* RestomaniaAppKuzina.entitlements */,
 				1FFA57EE1F225FA000E83463 /* _markup */,
 				1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */,
 				1FC5A6B31F138A8600ABE1A6 /* Restomania.App.KuzinaTests */,
@@ -668,17 +679,11 @@
 		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */,
 				1F36C8821F20823800232B9A /* IOSLibrary.framework */,
 				1F36C87F1F207C8300232B9A /* XCTest.framework */,
 				1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */,
-				1FA260821F14A0F700C14886 /* Gloss.framework */,
-				1F41CE6A1F13BF4B000B92E1 /* IOS Library.framework */,
-				1F41CE681F13BF42000B92E1 /* IOS Library.framework */,
-				1F41CE661F13BF22000B92E1 /* IOS Library.framework */,
-				1FC5A74A1F139DEC00ABE1A6 /* IOSLibrary.framework */,
-				1FC5A7421F138C9400ABE1A6 /* IOS library.framework */,
 				569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */,
-				0D2BB6A7C5833C1337AA2FD2 /* Pods_RestomaniaAppKuzina_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -687,6 +692,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD9A0951F2321B60026BDF8 /* AppType.swift */,
+				1F9B84311F24AE78004148F7 /* ClientAppType.swift */,
 				1FD9A0961F2321B60026BDF8 /* ConfigKeys.swift */,
 				1FD9A0971F2321B60026BDF8 /* ThemeSettings.swift */,
 				1FD9A0941F2321B60026BDF8 /* AppSummary.swift */,
@@ -858,6 +864,7 @@
 			isa = PBXGroup;
 			children = (
 				1FFA57C51F21EDBA00E83463 /* AppDelegate.swift */,
+				1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -913,6 +920,7 @@
 				1FC5A69A1F138A8600ABE1A6 /* Resources */,
 				7F2163BC24BC15F7503AE3C8 /* [CP] Embed Pods Frameworks */,
 				A3A8C19DFFEA0485696358E6 /* [CP] Copy Pods Resources */,
+				1FBE83EE1F2521780002F0B5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -978,6 +986,14 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 686FXGC24W;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					1FC5A6AF1F138A8600ABE1A6 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -1231,6 +1247,7 @@
 				1FB8EFF61F1D516F0090045E /* Place.swift in Sources */,
 				1FB8EFD51F1D430D0090045E /* Review.swift in Sources */,
 				1FB8EFFB1F1DE9330090045E /* BaseLoyaltySystem.swift in Sources */,
+				1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */,
 				1FD7E69F1F1D0E140023C033 /* MethodConnection.swift in Sources */,
 				1FB8F06E1F1EE04D0090045E /* AddingBooking.swift in Sources */,
 				1FB8F0281F1E5D510090045E /* OpenDevicesApiService.swift in Sources */,
@@ -1268,6 +1285,7 @@
 				1FB8EFF91F1DE8F10090045E /* LoyaltyType.swift in Sources */,
 				1FB8F0531F1EC45D0090045E /* UserOrdersApiService.swift in Sources */,
 				1FB8EFD11F1D429D0090045E /* Rate.swift in Sources */,
+				1F9B84321F24AE78004148F7 /* ClientAppType.swift in Sources */,
 				1FB8F01B1F1E190F0090045E /* IKeysStorage.swift in Sources */,
 				1FFA57D31F2240DB00E83463 /* NavigationController.swift in Sources */,
 				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
@@ -1434,6 +1452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_ENTITLEMENTS = RestomaniaAppKuzina.entitlements;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -1452,6 +1471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_ENTITLEMENTS = RestomaniaAppKuzina.entitlements;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;

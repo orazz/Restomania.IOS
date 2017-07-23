@@ -81,7 +81,7 @@ public class CacheImagesService {
                 self._lastID += 1
 
                 self._fileClient.saveTo(container.filename, data: data, toCache: true)
-                self._adapter.add(container)
+                self._adapter.addOrUpdate(container)
 
                 handler(DownloadResult(data: data))
                 Log.Debug(self.tag, "Download aand cache image for url: \(url)")
