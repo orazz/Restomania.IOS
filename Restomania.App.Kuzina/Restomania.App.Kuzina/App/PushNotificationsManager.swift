@@ -44,16 +44,23 @@ public class PushNotificationsManager {
         }
     }
     public func processMessage(push: [AnyHashable: Any]) {
-        
-        let aps = push.index(forKey: "aps")
-        let pair = push[aps!]
-        
-        let alertContainer = pair.value
-        let container = alertContainer as! [String:Any]
-        let data = container["data"] as! [String: Any]
-        
-        let event = NotificationEvents(rawValue: data["Event"] as! Int)
-        let modelID = data["ID"] as! Long
+
+        let task = Task {
+
+//            let aps = push.index(forKey: "aps")
+//            let pair = push[aps!]
+//
+//            let alertContainer = pair.value
+//            let container = alertContainer as! [String:Any]
+//            let data = container["data"] as! [String: Any]
+//
+//            let event = NotificationEvents(rawValue: data["Event"] as! Int)
+//            let modelID = data["ID"] as! Long
+        }
+        task.async(.background, completion: {
+
+            Log.Debug(self.tag, "Complete process push-notification.")
+        })
     }
 
     public func requestPushNotifications() {
@@ -118,26 +125,26 @@ public class PushNotificationsManager {
         })
     }
 }
-private enum NotificationEvents : Int {
-    
+private enum NotificationEvents: Int {
+
     case TestExample = 1
-    
+
     //Admin
     case AdminFailedWebJob = 11
     case AdminReportedBug = 12
-    
+
     //Booking
     case BookingsAddedForPlace = 21
     case BookingsAddedForUser = 22
     case BookingsChangedStatusForPlace = 23
     case BookingsChangedStatusForUser = 24
-    
+
     //DishOrder
     case DishOrdersAddedForPlace = 31
     case DishOrdersAddedForUser = 32
     case DishOrdersChangedStatusForPlace = 33
     case DishOrdersChangedStatusForUser = 34
-    
+
     //Place
     case PlaceAddedForPlace = 41
     case PlaceAddedForAdmin = 42
@@ -146,7 +153,7 @@ private enum NotificationEvents : Int {
     case PlaceResetedPassword = 45
     case PlaceListedTodayOrders = 46
     case PlaceListedTodayBookings = 47
-    
+
     //Review
     case ReviewAddedForUser = 51
     case ReviewAddedForPlace = 52
@@ -156,7 +163,7 @@ private enum NotificationEvents : Int {
     case ReviewChangedForAdmin = 56
     case ReviewChangedStatusForUser = 57
     case ReviewChangedStatusForAdmin = 58
-    
+
     //User
     case UserAddedForUser = 61
     case UserAddedForAdmin = 62

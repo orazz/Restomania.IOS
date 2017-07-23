@@ -15,7 +15,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var table: UITableView!
 
-    private var _tableAdapter: TableDelegate!
+    private var _tableAdapter: TableAdapter!
     private var _searchAdapter: SearchAdapter<PlaceSummary>!
     private var _service: CachePlaceSummariesService!
     private var _data: [PlaceSummary]!
@@ -23,21 +23,40 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _tableAdapter = TableDelegate(source: self)
-        searchBar.delegate = self
-
-        _searchAdapter = SearchAdapter<PlaceSummary>()
-        _searchAdapter.add({ $0.Name })
-        _searchAdapter.add({ $0.Description })
-        _searchAdapter.add({ $0.Location.City })
-        _searchAdapter.add({ $0.Location.Street })
-        _searchAdapter.add({ $0.Location.House })
+        _tableAdapter = TableAdapter(source: self)
+        _searchAdapter = setupSearchAdapter()
         _service = ServicesManager.current.placeSummariesService
 
+        searchBar.delegate = self
+
+        loadData()
+    }
+    private func setupSearchAdapter() -> SearchAdapter<PlaceSummary> {
+        let adapter = SearchAdapter<PlaceSummary>()
+
+        adapter.add({ $0.Name })
+        adapter.add({ $0.Description })
+        adapter.add({ $0.Location.City })
+        adapter.add({ $0.Location.Street })
+        adapter.add({ $0.Location.House })
+
+        return adapter
+    }
+    private func loadData() {
+
         let ids = AppSummary.current.placeIDs!
-        _data = _service.rangeLocal(ids)
+
+        //Take local data
+        let checked = _service.checkCache(ids)
+        _data = _service.rangeLocal(checked.cached)
         _tableAdapter.Update(_data)
 
+        if (checked.notFound.isEmpty) {
+
+            return
+        }
+
+        //Request remote
         let task = _service.range(ids)
         task.async(.utility, completion: { data in
 
@@ -56,7 +75,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
         _tableAdapter.Update(filtered)
     }
 
-    class TableDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
+    private class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
 
         private let _table: UITableView
         private let _source: SearchController

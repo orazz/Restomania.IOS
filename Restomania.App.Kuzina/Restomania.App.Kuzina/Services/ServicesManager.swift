@@ -31,4 +31,8 @@ public class ServicesManager: ILoggable {
         placeSummariesService = CachePlaceSummariesService()
         images = CacheImagesService()
     }
+
+    public func refreshData() {
+
+    }
 }
