@@ -13,7 +13,6 @@ import AsyncTask
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private var _servicesManager: ServicesManager!
     private var _pushManager: PushNotificationsManager!
     private let _minimalUpdateInterval: TimeInterval = 30 * 60
 
@@ -22,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppSummary.initialize()
         ServicesManager.initialize()
 
-        _servicesManager = ServicesManager.current
+        _pushManager = PushNotificationsManager.current
 
 //       _pushManager = PushNotificationsManager()
 //       _pushManager.requestPushNotifications()
@@ -51,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
         completionHandler(.newData)
-        _servicesManager.refreshData()
     }
 
     //App state

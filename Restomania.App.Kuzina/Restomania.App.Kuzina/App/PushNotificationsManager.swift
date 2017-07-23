@@ -14,12 +14,14 @@ import UserNotifications
 
 public class PushNotificationsManager {
 
+    public static let current = PushNotificationsManager()
+
     private let tag = "PushNotificationsManager"
     private let _apiClient: OpenDevicesApiService
     private let _keysStorage: IKeysStorage
     private let _currentAppAccessRights: AccessRights
 
-    public init() {
+    private init() {
 
         _apiClient = OpenDevicesApiService()
         _keysStorage = ServicesManager.current.keysStorage

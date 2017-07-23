@@ -48,7 +48,11 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string></string>
+		<string>fontawesome-webfont.ttf</string>
+		<string>susan-book-regulat.otf</string>
+		<string>susan-book-italic.otf</string>
+		<string>susan-bold-regular</string>
+		<string>susan-bold-italic</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

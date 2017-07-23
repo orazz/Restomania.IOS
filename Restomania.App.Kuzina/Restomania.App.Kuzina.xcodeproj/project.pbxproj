@@ -88,6 +88,7 @@
 		1FBE83EC1F2521780002F0B5 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; };
 		1FBE83ED1F2521780002F0B5 /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1FBE83F01F2554BB0002F0B5 /* _fonts */; };
+		1FBE83F31F2556B40002F0B5 /* RefreshDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE83F21F2556B40002F0B5 /* RefreshDataManager.swift */; };
 		1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */; };
 		1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */; };
 		1FC5A6C01F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */; };
@@ -258,6 +259,7 @@
 		1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBE83EF1F25225B0002F0B5 /* RestomaniaAppKuzina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestomaniaAppKuzina.entitlements; sourceTree = "<group>"; };
 		1FBE83F01F2554BB0002F0B5 /* _fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _fonts; path = Restomania.App.Kuzina/_fonts; sourceTree = "<group>"; };
+		1FBE83F21F2556B40002F0B5 /* RefreshDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshDataManager.swift; path = App/RefreshDataManager.swift; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FC5A6AB1F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -648,11 +650,11 @@
 				1FFA57D61F2241FA00E83463 /* Images */,
 				1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */,
 				1FFA57C41F21ED8A00E83463 /* App */,
-				1FFA57C91F21EE0200E83463 /* Elements */,
+				1F36C8951F20CE0A00232B9A /* Tools */,
 				1FF4FE591F1BE48600CC78B3 /* Controllers */,
+				1FFA57C91F21EE0200E83463 /* Elements */,
 				1FF4FE581F1BE48100CC78B3 /* Services */,
 				1FF4FE571F1BE47300CC78B3 /* ApiServices */,
-				1F36C8951F20CE0A00232B9A /* Tools */,
 				1FA2607E1F14A02400C14886 /* Domains */,
 			);
 			path = Restomania.App.Kuzina;
@@ -868,6 +870,7 @@
 			children = (
 				1FFA57C51F21EDBA00E83463 /* AppDelegate.swift */,
 				1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */,
+				1FBE83F21F2556B40002F0B5 /* RefreshDataManager.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -1210,6 +1213,7 @@
 				1FB8F02C1F1E610B0090045E /* AddingCard.swift in Sources */,
 				1FD9A09B1F2321B60026BDF8 /* ThemeSettings.swift in Sources */,
 				1FB8F04D1F1EC28C0090045E /* UserCardsApiService.swift in Sources */,
+				1FBE83F31F2556B40002F0B5 /* RefreshDataManager.swift in Sources */,
 				1FB8F04F1F1EC28C0090045E /* UserReviewsApiService.swift in Sources */,
 				1FD7E6981F1D0E140023C033 /* SystemStatusApiService.swift in Sources */,
 				1FD7E6991F1D0E140023C033 /* SystemVersionsApiService.swift in Sources */,
