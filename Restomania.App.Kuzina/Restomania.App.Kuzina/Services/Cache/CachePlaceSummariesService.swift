@@ -25,9 +25,9 @@ public class CachePlaceSummariesService {
 
         Log.Info(tag, "Complete load service.")
 
-        if (AppSummary.current.type == .Network) {
-            refresh()
-        }
+//        if (AppSummary.current.type == .Network) {
+//            refresh()
+//        }
     }
 
     //Local
@@ -75,7 +75,7 @@ public class CachePlaceSummariesService {
             }
 
             let data = result.data!
-            self._adapter.unite(with: data)
+            self._adapter.addOrUpdate(with: data)
             handler(self._adapter.rangeLocal(ids))
 
             Log.Debug(self.tag, "Complete request range.")
@@ -110,7 +110,7 @@ public class CachePlaceSummariesService {
             }
 
             //Update data
-            self._adapter.unite(with: range)
+            self._adapter.addOrUpdate(with: range)
             Log.Info(self.tag, "Update cached data.")
         }
         task.async(.background)

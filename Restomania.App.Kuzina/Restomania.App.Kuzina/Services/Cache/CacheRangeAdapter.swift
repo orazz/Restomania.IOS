@@ -54,14 +54,16 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
     public var isEmpty: Bool {
         return !hasData
     }
+
+    // Search data
     public var localData: [TElement] {
-        return _data.map({ TElement.init(source: $0.data) })
-    }
-    public func rangeLocal(_ ids: [Long]) -> [TElement] {
-        return localData.where({ ids.contains($0.ID) })
+        return _data.map({ $0.data })
     }
     public func findInLocal(_ id: Long) -> TElement? {
         return _data.find({ $0.ID == id })?.data
+    }
+    public func rangeLocal(_ ids: [Long]) -> [TElement] {
+        return localData.where({ ids.contains($0.ID) })
     }
     public func checkCache(_ range: [Long]) -> (cached: [Long], notFound: [Long]) {
 
@@ -88,6 +90,7 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
         return (cached: cached, notFound: notFound)
     }
 
+    // Adding
     public func addOrUpdate(_ element: TElement) {
 
         _queue.sync {
@@ -95,20 +98,46 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
             let container = CacheContainer<TElement>(data: element, livetime: _livetime)
             var updated = false
             for (index, cached) in _data.enumerated() {
-                if (cached.ID == element.ID) {
 
+                if (cached.ID == element.ID) {
                     _data[index] = container
                     updated = true
                     break
                 }
             }
 
-            if (updated) {
+            if (!updated) {
                 _data.append(container)
             }
         }
         save()
     }
+    public func addOrUpdate(with range: [TElement]) {
+
+        _queue.sync {
+
+            for update in range {
+
+                let container = CacheContainer<TElement>(data: update, livetime: _livetime)
+                var updated = false
+                for (index, cached) in self._data.enumerated() {
+
+                    if (update.ID == cached.ID) {
+                        self._data[index] = container
+                        updated = true
+                        break
+                    }
+                }
+
+                if (!updated) {
+                    _data.append(container)
+                }
+            }
+        }
+        save()
+    }
+
+    //Removing
     public func remove(_ element: TElement) {
         remove(element.ID)
     }
@@ -142,32 +171,9 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
         }
         save()
     }
-    public func unite(with range: [TElement]) {
 
-        _queue.sync {
-
-            for update in range {
-
-                let container = CacheContainer<TElement>(data: update, livetime: _livetime)
-                var found = false
-                for (index, old) in _data.enumerated() {
-
-                    if (update.ID == old.ID) {
-                        self._data[index] = container
-                        found = true
-                        break
-                    }
-                }
-
-                if (!found) {
-                    self._data.append(container)
-                }
-            }
-        }
-        save()
-    }
-
-    public func save() {
+    //Save & Load
+    private func save() {
 
         _queue.sync {
 
@@ -215,37 +221,36 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
         }
         remove(ids)
     }
+}
+private class CacheContainer<T: ICached> : ICached {
 
-    private class CacheContainer<T: ICached> : ICached {
+    public var ID: Long {
+        return data.ID
+    }
+    public var data: T
+    public var relevanceDate: Date
 
-        public var ID: Long {
-            return data.ID
-        }
-        public var data: T
-        public var relevanceDate: Date
+    public init(data: T, livetime: TimeInterval) {
 
-        public init(data: T, livetime: TimeInterval) {
+        self.data = data
+        self.relevanceDate = Date().addingTimeInterval(livetime)
+    }
+    public required init(source: CacheContainer<T>) {
 
-            self.data = data
-            self.relevanceDate = Date().addingTimeInterval(livetime)
-        }
-        public required init(source: CacheContainer<T>) {
+        self.data = source.data
+        self.relevanceDate = source.relevanceDate
+    }
+    public required init(json: JSON) {
 
-            self.data = source.data
-            self.relevanceDate = source.relevanceDate
-        }
-        public required init(json: JSON) {
+        self.data = ("data" <~~ json)!
+        self.relevanceDate = Date.parseJson(value: ("relevanceDate" <~~ json)! as String)
+    }
 
-            self.data = ("data" <~~ json)!
-            self.relevanceDate = Date.parseJson(value: ("relevanceDate" <~~ json)! as String)
-        }
+    public func toJSON() -> JSON? {
 
-        public func toJSON() -> JSON? {
-
-            return jsonify([
-                "data" ~~> self.data,
-                "relevanceDate" ~~> self.relevanceDate.prepareForJson()
-                ])
-        }
+        return jsonify([
+            "data" ~~> self.data,
+            "relevanceDate" ~~> self.relevanceDate.prepareForJson()
+            ])
     }
 }
