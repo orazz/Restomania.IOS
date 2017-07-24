@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Manager/ManagerController.swift"
-            timestampString = "522543686.47022"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Elements/Price/PriceLabel.swift"
+            timestampString = "522574910.706076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "refreshText()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

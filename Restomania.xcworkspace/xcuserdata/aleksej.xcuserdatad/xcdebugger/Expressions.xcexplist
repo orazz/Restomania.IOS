@@ -31,7 +31,7 @@
                value = "UIFont.familyNames">
             </PersistentString>
             <PersistentString
-               value = "UIFont.fontNames(forFamilyName: _theme.fontAwesomeFont)">
+               value = "UIFont(name: &quot;Susan Bold&quot;, size: 10)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -123,6 +123,14 @@
       </ContextState>
       <ContextState
          contextName = "StringFilter.filter(value : Any, phrase : String) -&gt; Bool:StringFilter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PriceLabel.refreshText() -&gt; ():PriceLabel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "text.characters.count">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ThemeSettings.init() -&gt; ThemeSettings:ThemeSettings.swift">

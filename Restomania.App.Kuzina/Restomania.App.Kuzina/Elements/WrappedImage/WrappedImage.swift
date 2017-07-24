@@ -19,12 +19,20 @@ public class WrappedImage: UIImageView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.image = _theme.defaultImage
+        initialize()
     }
     public required init(coder: NSCoder) {
         super.init(coder: coder)!
 
+        initialize()
+    }
+    private func initialize() {
+
         self.image = _theme.defaultImage
+
+        self.contentMode = .scaleAspectFill
+        self.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0)
+
     }
 
     public func setup(url: String) {
@@ -33,6 +41,8 @@ public class WrappedImage: UIImageView {
         if (_url == url) {
             return
         }
+
+        _url = url
 
         let task = _images.download(url: url)
         task.async(.background, completion: { result in
@@ -49,7 +59,33 @@ public class WrappedImage: UIImageView {
         })
     }
     private func prepare(url: String) -> String {
-        return url
+
+        if (!url.contains("cdn.zerocdn.com")) {
+            return url
+        }
+
+        let suffix = buildSuffix(size: self.bounds.width)
+        let lastDotRange = url.range(of: ".", options: .backwards, range: nil, locale: nil)
+
+        return url.replacingCharacters(in: lastDotRange!, with: "_\(suffix).")
+    }
+    private func buildSuffix(size: CGFloat) -> String {
+
+        if (size <= ImageSize.ExtraExtraSmall.rawValue) {
+            return "xss"
+        } else if (size <= ImageSize.ExtraSmall.rawValue) {
+            return "xs"
+        } else if (size <= ImageSize.Small.rawValue) {
+            return "s"
+        } else if (size <= ImageSize.Middle.rawValue) {
+            return "m"
+        } else if (size <= ImageSize.Large.rawValue) {
+            return "l"
+        } else if (size <= ImageSize.ExtraLarge.rawValue) {
+            return "xl"
+        } else {
+            return ""
+        }
     }
     private func animatedSetupImage(_ image: UIImage? = nil) {
 

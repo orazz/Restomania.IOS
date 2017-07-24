@@ -72,7 +72,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8k-Y2-hvy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8k-Y2-hvy" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
                                 <rect key="frame" x="105" y="196" width="117" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -84,7 +84,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Manager" id="569-TW-49m"/>
                     <connections>
-                        <outlet property="Label" destination="p8k-Y2-hvy" id="e3r-qe-yTT"/>
+                        <outlet property="price" destination="p8k-Y2-hvy" id="cKg-0l-fDF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KH-dR-zY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
