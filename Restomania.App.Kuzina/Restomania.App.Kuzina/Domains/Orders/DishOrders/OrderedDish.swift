@@ -32,4 +32,33 @@ public class OrderedDish: BaseDataType {
 
         super.init(json: json)
     }
+    public init(_ dish: Dish, count: Int) {
+
+        self.DishID = dish.ID
+        self.Name = dish.Name
+        self.Price = dish.Price
+        self.Count = count
+
+        super.init()
+    }
+    public init(source: OrderedDish) {
+
+        self.DishID = source.DishID
+        self.Name = source.Name
+        self.Price = source.Price
+        self.Count = source.Count
+
+        super.init(source: source)
+    }
+
+    public override func toJSON() -> JSON? {
+
+        return jsonify([
+            "DishID" ~~> self.DishID,
+            "Name" ~~> self.Name,
+            "Price" ~~> self.Price,
+            "Count" ~~> self.Count,
+            super.toJSON()!
+            ])
+    }
 }

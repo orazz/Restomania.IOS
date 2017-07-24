@@ -671,7 +671,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 62EA825A4F79B5655648264C /* Pods-IOSLibrary.debug.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -696,7 +696,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77223BA1CAD59F3C29B7EA56 /* Pods-IOSLibrary.release.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;

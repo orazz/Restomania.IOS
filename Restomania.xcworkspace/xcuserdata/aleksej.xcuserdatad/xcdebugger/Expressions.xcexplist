@@ -36,6 +36,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CartServiceTests.testCart() -&gt; ():CartServiceTests.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CartService.(load() -&gt; ()).(closure #1):CartService.swift">
+      </ContextState>
+      <ContextState
          contextName = "DateFilter.search(phrase : String, field : Any) -&gt; Bool:DateFilter.swift">
          <PersistentStrings>
             <PersistentString
@@ -157,6 +163,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CartService.cart(placeID : Int64) -&gt; Cart:CartService.swift">
+      </ContextState>
+      <ContextState
          contextName = "PlaceCard.initialize(summary : PlaceSummary) -&gt; ():PlaceCard.swift">
          <PersistentStrings>
             <PersistentString
@@ -189,6 +198,17 @@
             </PersistentString>
             <PersistentString
                value = "Date.UTCFomatter.date(from: value) ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Cart.refresh(dishes : [Dish]) -&gt; ():Cart.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Cart.add(dish : Dish, count : Int) -&gt; ():Cart.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.dishes">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -269,6 +289,14 @@
          <PersistentStrings>
             <PersistentString
                value = "Encoder.encode(dateForKey: key, dateFormatter: dateFormatter)(date)!.valueForKeyPath(keyPath: key) as String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Reservation.dateTime.getter:Reservation.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "calendar.component(.hour, from: time)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

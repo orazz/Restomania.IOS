@@ -94,6 +94,12 @@
 		1FBE83FD1F25CA7F0002F0B5 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE83FC1F25CA7F0002F0B5 /* ImageSize.swift */; };
 		1FBE84001F25D06E0002F0B5 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE83FF1F25D06E0002F0B5 /* PriceLabel.swift */; };
 		1FBE84021F25D10E0002F0B5 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84011F25D10E0002F0B5 /* Price.swift */; };
+		1FBE84061F26167E0002F0B5 /* PlaceCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84051F26167E0002F0B5 /* PlaceCartContainer.swift */; };
+		1FBE84081F2617FE0002F0B5 /* CommonCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84071F2617FE0002F0B5 /* CommonCartContainer.swift */; };
+		1FBE840A1F2629850002F0B5 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84091F2629850002F0B5 /* CartService.swift */; };
+		1FBE840C1F2640990002F0B5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE840B1F2640990002F0B5 /* Reservation.swift */; };
+		1FBE840E1F2646BD0002F0B5 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE840D1F2646BD0002F0B5 /* Cart.swift */; };
+		1FBE84111F266E7C0002F0B5 /* CartServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE840F1F266E6E0002F0B5 /* CartServiceTests.swift */; };
 		1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */; };
 		1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */; };
 		1FC5A6C01F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */; };
@@ -269,6 +275,12 @@
 		1FBE83FC1F25CA7F0002F0B5 /* ImageSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSize.swift; path = Elements/WrappedImage/ImageSize.swift; sourceTree = "<group>"; };
 		1FBE83FF1F25D06E0002F0B5 /* PriceLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceLabel.swift; path = Elements/Price/PriceLabel.swift; sourceTree = "<group>"; };
 		1FBE84011F25D10E0002F0B5 /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Elements/Price/Price.swift; sourceTree = "<group>"; };
+		1FBE84051F26167E0002F0B5 /* PlaceCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceCartContainer.swift; path = Services/Cart/Models/PlaceCartContainer.swift; sourceTree = "<group>"; };
+		1FBE84071F2617FE0002F0B5 /* CommonCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonCartContainer.swift; path = Services/Cart/Models/CommonCartContainer.swift; sourceTree = "<group>"; };
+		1FBE84091F2629850002F0B5 /* CartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartService.swift; path = Services/Cart/CartService.swift; sourceTree = "<group>"; };
+		1FBE840B1F2640990002F0B5 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reservation.swift; path = Services/Cart/Models/Reservation.swift; sourceTree = "<group>"; };
+		1FBE840D1F2646BD0002F0B5 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cart.swift; path = Services/Cart/Models/Cart.swift; sourceTree = "<group>"; };
+		1FBE840F1F266E6E0002F0B5 /* CartServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartServiceTests.swift; path = Services/CartServiceTests.swift; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FC5A6AB1F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -409,6 +421,7 @@
 			children = (
 				1FD9A0A91F2351780026BDF8 /* Cache */,
 				1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */,
+				1FBE840F1F266E6E0002F0B5 /* CartServiceTests.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -651,6 +664,26 @@
 			name = Price;
 			sourceTree = "<group>";
 		};
+		1FBE84031F2615C40002F0B5 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				1FBE84041F2615E40002F0B5 /* Models */,
+				1FBE84091F2629850002F0B5 /* CartService.swift */,
+			);
+			name = Cart;
+			sourceTree = "<group>";
+		};
+		1FBE84041F2615E40002F0B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FBE84071F2617FE0002F0B5 /* CommonCartContainer.swift */,
+				1FBE84051F26167E0002F0B5 /* PlaceCartContainer.swift */,
+				1FBE840B1F2640990002F0B5 /* Reservation.swift */,
+				1FBE840D1F2646BD0002F0B5 /* Cart.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
@@ -798,6 +831,7 @@
 		1FF4FE581F1BE48100CC78B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1FBE84031F2615C40002F0B5 /* Cart */,
 				1FD9A09C1F2323C30026BDF8 /* Cache */,
 				1FD9A09F1F23261B0026BDF8 /* ServicesManager.swift */,
 				1FD9A0A11F23264F0026BDF8 /* KeysStorage.swift */,
@@ -1253,6 +1287,7 @@
 				1FBE84001F25D06E0002F0B5 /* PriceLabel.swift in Sources */,
 				1FD7E69A1F1D0E140023C033 /* SystemSettingsApiService.swift in Sources */,
 				1FB8EFDE1F1D48CD0090045E /* Schedule.swift in Sources */,
+				1FBE840E1F2646BD0002F0B5 /* Cart.swift in Sources */,
 				1FB8F03C1F1EADB90090045E /* PaymentCard.swift in Sources */,
 				1FD9A0BD1F2360C10026BDF8 /* PlaceCard.swift in Sources */,
 				1FB8F0001F1DF2930090045E /* LoyaltyAccount.swift in Sources */,
@@ -1290,6 +1325,7 @@
 				1FD7E69F1F1D0E140023C033 /* MethodConnection.swift in Sources */,
 				1FB8F06E1F1EE04D0090045E /* AddingBooking.swift in Sources */,
 				1FB8F0281F1E5D510090045E /* OpenDevicesApiService.swift in Sources */,
+				1FBE84081F2617FE0002F0B5 /* CommonCartContainer.swift in Sources */,
 				1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */,
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
@@ -1298,7 +1334,9 @@
 				1FB8F0401F1EADFB0090045E /* PaymentCardType.swift in Sources */,
 				1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */,
 				1FD9A0C71F23BE9D0026BDF8 /* CacheRangeAdapter.swift in Sources */,
+				1FBE840A1F2629850002F0B5 /* CartService.swift in Sources */,
 				1FB8EFCB1F1D41050090045E /* UserParts.swift in Sources */,
+				1FBE84061F26167E0002F0B5 /* PlaceCartContainer.swift in Sources */,
 				1FD9A09E1F2323FF0026BDF8 /* CachePlaceSummariesService.swift in Sources */,
 				1FB8F0661F1ECEC00090045E /* OrderedDish.swift in Sources */,
 				1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */,
@@ -1349,6 +1387,7 @@
 				1FD9A0C91F23C7480026BDF8 /* ICached.swift in Sources */,
 				1FB8EFEE1F1D4F480090045E /* RegistrationStatus.swift in Sources */,
 				1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */,
+				1FBE840C1F2640990002F0B5 /* Reservation.swift in Sources */,
 				1FB8F0121F1E0B520090045E /* OpenPlacesApiService.swift in Sources */,
 				1FB8F03F1F1EADFB0090045E /* PaymentCardStatus.swift in Sources */,
 				1FB8F0171F1E14B30090045E /* GetArgs.swift in Sources */,
@@ -1364,6 +1403,7 @@
 				1FFA57F61F2264B800E83463 /* SearchAdapterTests.swift in Sources */,
 				1FFA57C11F20CFD100E83463 /* OpenPlaceSummariesApiService.swift in Sources */,
 				1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */,
+				1FBE84111F266E7C0002F0B5 /* CartServiceTests.swift in Sources */,
 				1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */,
 				1FD9A0A41F232FEC0026BDF8 /* KeysStorageTests.swift in Sources */,
 			);
