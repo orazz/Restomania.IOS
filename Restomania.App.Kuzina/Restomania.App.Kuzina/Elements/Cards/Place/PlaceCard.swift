@@ -17,22 +17,36 @@ public class PlaceCard: UITableViewCell {
 
     @IBOutlet weak var placeImage: WrappedImage!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var workingHours: UILabel!
     @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var workingHours: UILabel!
 
-    public var placeSummary: PlaceSummary!
+    private var _summary: PlaceSummary!
+    private let _theme: ThemeSettings = AppSummary.current.theme
 
     public func initialize(summary: PlaceSummary) {
 
-        placeSummary = summary
+        _summary = summary
+
+        setupStyles()
         refresh()
+    }
+    private func setupStyles() {
+
+        name.font = UIFont(name: _theme.susanBoldFont, size: _theme.titleFontSize)
+        name.textColor = _theme.whiteColor
+
+        workingHours.font = UIFont(name: _theme.susanBookFont, size: _theme.subheadFontSize)
+        workingHours.textColor = _theme.whiteColor
+
+        location.font = UIFont(name: _theme.susanBookFont, size: _theme.subheadFontSize)
+        location.textColor = _theme.whiteColor
     }
     private func refresh() {
 
-        placeImage.setup(url: placeSummary.Image)
-        name.text = placeSummary.Name
-        workingHours.text = take(placeSummary.Schedule)
-        location.text = format(placeSummary.Location)
+        placeImage.setup(url: _summary.Image)
+        name.text = _summary.Name
+        workingHours.text = take(_summary.Schedule)
+        location.text = format(_summary.Location)
     }
     private func format(_ location: PlaceLocation) -> String {
 

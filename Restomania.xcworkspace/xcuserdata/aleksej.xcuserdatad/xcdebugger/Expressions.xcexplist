@@ -6,7 +6,15 @@
          contextName = "WrappedImage.animatedSetupImage(UIImage?) -&gt; ():WrappedImage.swift">
       </ContextState>
       <ContextState
-         contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
+         contextName = "ManagerController.viewDidLoad() -&gt; ():ManagerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIFont.familyNames">
+            </PersistentString>
+            <PersistentString
+               value = "UIFont(name: &quot;Susan Bold&quot;, size: 10)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "FileSystem.IsExist(String, inCache : Bool) -&gt; Bool:FileSystem.swift">
@@ -25,21 +33,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ManagerController.viewDidLoad() -&gt; ():ManagerController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UIFont.familyNames">
-            </PersistentString>
-            <PersistentString
-               value = "UIFont(name: &quot;Susan Bold&quot;, size: 10)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "CartServiceTests.testCart() -&gt; ():CartServiceTests.swift">
       </ContextState>
       <ContextState
          contextName = "CartService.(load() -&gt; ()).(closure #1):CartService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
       </ContextState>
       <ContextState
          contextName = "DateFilter.search(phrase : String, field : Any) -&gt; Bool:DateFilter.swift">
@@ -90,6 +90,14 @@
       </ContextState>
       <ContextState
          contextName = "SearchController.viewDidLoad() -&gt; ():SearchController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(Bundle.main.bundlePath)">
+            </PersistentString>
+            <PersistentString
+               value = "UIImage(contentsOfFile: &quot;tabs_search.png&quot;)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "CacheImagesService.(download(url : String) -&gt; Task&lt;(Bool, Data?)&gt;).(closure #1).(closure #1):CacheImagesService.swift">
@@ -109,10 +117,10 @@
          contextName = "OpenPlaceSummariesApiServiceTests.(testRange() -&gt; ()).(implicit closure #2):OpenPlaceSummariesApiService.swift">
       </ContextState>
       <ContextState
-         contextName = "ConfigsStorageTests.testGetConfig() -&gt; ():ConfigsStorageTests.swift">
+         contextName = "PriceLabel.refreshText() -&gt; ():PriceLabel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "name.value as String">
+               value = "text.characters.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -128,15 +136,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "StringFilter.filter(value : Any, phrase : String) -&gt; Bool:StringFilter.swift">
-      </ContextState>
-      <ContextState
-         contextName = "PriceLabel.refreshText() -&gt; ():PriceLabel.swift">
+         contextName = "ConfigsStorageTests.testGetConfig() -&gt; ():ConfigsStorageTests.swift">
          <PersistentStrings>
             <PersistentString
-               value = "text.characters.count">
+               value = "name.value as String">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StringFilter.filter(value : Any, phrase : String) -&gt; Bool:StringFilter.swift">
       </ContextState>
       <ContextState
          contextName = "ThemeSettings.init() -&gt; ThemeSettings:ThemeSettings.swift">
@@ -263,13 +271,21 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
+               value = "formatter.date(from: value)">
+            </PersistentString>
+            <PersistentString
                value = "notUTC!.toUTC()">
             </PersistentString>
             <PersistentString
                value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlaceCard.setupStyles() -&gt; ():PlaceCard.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "formatter.date(from: value)">
+               value = "UIFont(name: _theme.susanBoldFont, size: _theme.titleFontSize)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

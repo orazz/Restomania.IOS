@@ -59,11 +59,25 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
     public var localData: [TElement] {
         return _data.map({ $0.data })
     }
-    public func findInLocal(_ id: Long) -> TElement? {
+    public func find(_ id: Long) -> TElement? {
         return _data.find({ $0.ID == id })?.data
     }
-    public func rangeLocal(_ ids: [Long]) -> [TElement] {
+    public func find(_ predicate:@escaping ((TElement) -> Bool)) -> TElement? {
+
+        if let result = _data.find({ predicate($0.data) }) {
+
+            return                TElement(source: result.data)
+        } else {
+
+            return nil
+        }
+
+    }
+    public func range(_ ids: [Long]) -> [TElement] {
         return localData.where({ ids.contains($0.ID) })
+    }
+    public func range(_ predicate: @escaping ((TElement) -> Bool)) -> [TElement] {
+        return localData.where(predicate)
     }
     public func checkCache(_ range: [Long]) -> (cached: [Long], notFound: [Long]) {
 

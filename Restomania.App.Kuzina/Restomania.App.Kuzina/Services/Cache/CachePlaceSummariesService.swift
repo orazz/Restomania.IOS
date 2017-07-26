@@ -24,10 +24,6 @@ public class CachePlaceSummariesService {
         _adapter = CacheRangeAdapter<PlaceSummary>(tag: tag, filename: "places-summaries.json", livetime: 24 * 60 * 60)
 
         Log.Info(tag, "Complete load service.")
-
-//        if (AppSummary.current.type == .Network) {
-//            refresh()
-//        }
     }
 
     //Local
@@ -41,10 +37,10 @@ public class CachePlaceSummariesService {
         return _adapter.localData
     }
     public func rangeLocal(_ ids: [Long]) -> [PlaceSummary] {
-        return _adapter.rangeLocal(ids)
+        return _adapter.range(ids)
     }
     public func findInLocal(_ id: Long) -> PlaceSummary? {
-        return _adapter.findInLocal(id)
+        return _adapter.find(id)
     }
     public func checkCache(_ range: [Long]) -> (cached: [Long], notFound: [Long]) {
         return _adapter.checkCache(range)
@@ -58,7 +54,7 @@ public class CachePlaceSummariesService {
             let filtered = self._adapter.checkCache(ids)
             if (filtered.notFound.isEmpty) {
 
-                handler(self._adapter.rangeLocal(ids))
+                handler(self._adapter.range(ids))
                 Log.Debug(self.tag, "Take data from cache.")
                 return
             }
@@ -71,11 +67,12 @@ public class CachePlaceSummariesService {
             if (result.statusCode != .OK) {
                 handler([PlaceSummary]())
                 Log.Warning(self.tag, "Problem with get data.")
+                return
             }
 
             let data = result.data!
             self._adapter.addOrUpdate(with: data)
-            handler(self._adapter.rangeLocal(ids))
+            handler(self._adapter.range(ids))
 
             Log.Debug(self.tag, "Complete request range.")
         }

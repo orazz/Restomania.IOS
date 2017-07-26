@@ -21,16 +21,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XK-oV-Vhz">
-                                <rect key="frame" x="204" y="341" width="8" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="usP-9a-Hrq">
+                            <searchBar contentMode="redraw" placeholder="Искать" translatesAutoresizingMaskIntoConstraints="NO" id="usP-9a-Hrq">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K53-jc-DwB">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
@@ -49,7 +46,7 @@
                             <constraint firstItem="usP-9a-Hrq" firstAttribute="leading" secondItem="zS3-rJ-5eO" secondAttribute="leading" id="rjf-dB-8GW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="5Pr-dM-r8C"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabs_search" selectedImage="tabs_search_selected" id="5Pr-dM-r8C"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="usP-9a-Hrq" id="dRw-Xw-UAf"/>
@@ -60,7 +57,7 @@
             </objects>
             <point key="canvasLocation" x="-276" y="1025.9370314842579"/>
         </scene>
-        <!--Manager-->
+        <!--Manager Controller-->
         <scene sceneID="sjp-Uy-0Pp">
             <objects>
                 <viewController id="6zb-zD-LkU" customClass="ManagerController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,7 +79,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Manager" id="569-TW-49m"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabs_manager" selectedImage="tabs_manager_selected" id="569-TW-49m"/>
                     <connections>
                         <outlet property="price" destination="p8k-Y2-hvy" id="cKg-0l-fDF"/>
                     </connections>
@@ -96,12 +93,13 @@
             <objects>
                 <tabBarController id="Zd2-NH-uD3" customClass="TabsController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="mEb-c3-5Fo"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="sh7-EZ-KrA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="fill" id="sh7-EZ-KrA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabbar" destination="sh7-EZ-KrA" id="T4E-gx-wwm"/>
                         <segue destination="xB3-ji-Ctu" kind="relationship" relationship="viewControllers" id="BkW-wp-h2m"/>
                         <segue destination="6zb-zD-LkU" kind="relationship" relationship="viewControllers" id="NJo-UJ-u8v"/>
                     </connections>
@@ -115,7 +113,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="kws-xe-E2y" customClass="NavigationController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f2X-cd-Z9j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f2X-cd-Z9j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -128,4 +126,11 @@
             <point key="canvasLocation" x="478" y="-563"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabs_manager" width="25" height="25"/>
+        <image name="tabs_manager_selected" width="25" height="25"/>
+        <image name="tabs_search" width="25" height="25"/>
+        <image name="tabs_search_selected" width="25" height="25"/>
+    </resources>
+    <color key="tintColor" red="0.11818788199999999" green="0.098173700269999997" blue="0.093623720110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

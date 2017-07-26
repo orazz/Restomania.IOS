@@ -17,6 +17,9 @@
 		1F36C8981F20CE5E00232B9A /* ConfigsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8971F20CE5E00232B9A /* ConfigsStorage.swift */; };
 		1F36C89B1F20CE6900232B9A /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8991F20CE6900232B9A /* PropertiesKey.swift */; };
 		1F36C89C1F20CE6900232B9A /* PropertiesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89A1F20CE6900232B9A /* PropertiesStorage.swift */; };
+		1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF681F285866000614C9 /* MenuSummary.swift */; };
+		1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */; };
+		1F68AF6D1F285ABB000614C9 /* OpenMenuSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6C1F285ABB000614C9 /* OpenMenuSummariesApiService.swift */; };
 		1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */; };
 		1F9B84321F24AE78004148F7 /* ClientAppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B84311F24AE78004148F7 /* ClientAppType.swift */; };
 		1FB8EFC51F1D3C300090045E /* UserNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFC41F1D3C300090045E /* UserNotificationPreference.swift */; };
@@ -197,6 +200,9 @@
 		1F36C89A1F20CE6900232B9A /* PropertiesStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorage.swift; path = Tools/PropertiesStorage/PropertiesStorage.swift; sourceTree = "<group>"; };
 		1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorageTests.swift; path = Tools/ConfigsStorageTests.swift; sourceTree = "<group>"; };
 		1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorageTests.swift; path = Tools/PropertiesStorageTests.swift; sourceTree = "<group>"; };
+		1F68AF681F285866000614C9 /* MenuSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummary.swift; path = Domains/PlaceModels/MenuSummary.swift; sourceTree = "<group>"; };
+		1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheMenuSummariesService.swift; path = Services/Cache/CacheMenuSummariesService.swift; sourceTree = "<group>"; };
+		1F68AF6C1F285ABB000614C9 /* OpenMenuSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenMenuSummariesApiService.swift; path = ApiServices/Open/OpenMenuSummariesApiService.swift; sourceTree = "<group>"; };
 		1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationsManager.swift; path = App/PushNotificationsManager.swift; sourceTree = "<group>"; };
 		1F9B84311F24AE78004148F7 /* ClientAppType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientAppType.swift; path = Tools/AppSummary/ClientAppType.swift; sourceTree = "<group>"; };
 		1FA260801F14A04F00C14886 /* BaseDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDataType.swift; path = Domains/BaseDataType.swift; sourceTree = "<group>"; };
@@ -376,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				1F36C88D1F20C4DA00232B9A /* ShortSchedule.swift */,
+				1F68AF681F285866000614C9 /* MenuSummary.swift */,
 				1F36C88F1F20C5E000232B9A /* PlaceSummary.swift */,
 			);
 			name = PlaceModels;
@@ -434,6 +441,13 @@
 				1FFA57F51F2264B800E83463 /* SearchAdapterTests.swift */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		1F68AF6F1F28887A000614C9 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 		1FA2607E1F14A02400C14886 /* Domains */ = {
@@ -777,6 +791,7 @@
 			children = (
 				1FD9A0C61F23BE9D0026BDF8 /* CacheRangeAdapter.swift */,
 				1FD9A09D1F2323FF0026BDF8 /* CachePlaceSummariesService.swift */,
+				1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */,
 				1FD9A0C41F23BC320026BDF8 /* CacheImagesService.swift */,
 			);
 			name = Cache;
@@ -861,6 +876,7 @@
 				1FB8F0131F1E12AE0090045E /* OpenReviewsApiService.swift */,
 				1FB8F0271F1E5D510090045E /* OpenDevicesApiService.swift */,
 				1F36C8921F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift */,
+				1F68AF6C1F285ABB000614C9 /* OpenMenuSummariesApiService.swift */,
 			);
 			name = Open;
 			sourceTree = "<group>";
@@ -956,6 +972,7 @@
 		1FFA57D61F2241FA00E83463 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1F68AF6F1F28887A000614C9 /* icons */,
 				1FD9A0CD1F2406230026BDF8 /* default-image.jpg */,
 				1FD9A0C21F23870B0026BDF8 /* image-gradient.png */,
 				1FFA57D71F22424D00E83463 /* logo-dark.png */,
@@ -1326,6 +1343,7 @@
 				1FB8F06E1F1EE04D0090045E /* AddingBooking.swift in Sources */,
 				1FB8F0281F1E5D510090045E /* OpenDevicesApiService.swift in Sources */,
 				1FBE84081F2617FE0002F0B5 /* CommonCartContainer.swift in Sources */,
+				1F68AF6D1F285ABB000614C9 /* OpenMenuSummariesApiService.swift in Sources */,
 				1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */,
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
@@ -1344,6 +1362,7 @@
 				1F36C8981F20CE5E00232B9A /* ConfigsStorage.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
 				1FD9A0B71F235F650026BDF8 /* TabsController.swift in Sources */,
+				1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */,
 				1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
 				1FD9A0981F2321B60026BDF8 /* AppSummary.swift in Sources */,
@@ -1354,6 +1373,7 @@
 				1F36C89B1F20CE6900232B9A /* PropertiesKey.swift in Sources */,
 				1FD7E6A61F1D0E140023C033 /* Platform.swift in Sources */,
 				1FB8F0041F1DF47B0090045E /* CountedLoyaltyDiscounts.swift in Sources */,
+				1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */,
 				1FB8EFCF1F1D41590090045E /* UserSex.swift in Sources */,
 				1F36C8901F20C5E000232B9A /* PlaceSummary.swift in Sources */,
 				1FD9A0B31F235C830026BDF8 /* IIdentified.swift in Sources */,
@@ -1437,6 +1457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1474,7 +1495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1487,6 +1508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1518,7 +1540,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

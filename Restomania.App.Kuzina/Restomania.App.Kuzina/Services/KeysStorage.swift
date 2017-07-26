@@ -22,7 +22,7 @@ public class KeysStorage: IKeysCRUDStorage, ILoggable {
     }
 
     private var _data: [KeysContainer]
-    private let _filename: String = "keys_storage.json"
+    private let _filename: String = "keys-storage.json"
     private let _client: FileSystem
 
     public init() {

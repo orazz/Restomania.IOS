@@ -23,6 +23,11 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+//        let control = UIRefreshControl()
+//        control.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        control.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+//        table.addSubview(control)
+
         _tableAdapter = TableAdapter(source: self)
         _searchAdapter = setupSearchAdapter()
         _service = ServicesManager.current.placeSummariesService
@@ -31,6 +36,10 @@ public class SearchController: UIViewController, UISearchBarDelegate {
 
         loadData()
     }
+//    public func refresh(sender: AnyObject) {
+//        Log.Debug("fuck", "work")
+//    }
+
     private func setupSearchAdapter() -> SearchAdapter<PlaceSummary> {
         let adapter = SearchAdapter<PlaceSummary>()
 
