@@ -11,19 +11,85 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </view>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="AIe-p6-9iQ" customClass="MenuDishCard" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="483" height="96"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" rowHeight="110" id="AIe-p6-9iQ" customClass="MenuDishCard" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="331" height="110"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AIe-p6-9iQ" id="rur-PI-Ugz">
-                <rect key="frame" x="0.0" y="0.0" width="483" height="95.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="331" height="109.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbw-mG-wDH" customClass="WrappedImage" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                        <rect key="frame" x="10" y="10" width="90" height="89.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="QNw-cn-iZo"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-plus" translatesAutoresizingMaskIntoConstraints="NO" id="xSW-uf-wah">
+                        <rect key="frame" x="296" y="41.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="QtE-h3-oXp"/>
+                            <constraint firstAttribute="height" constant="25" id="TOn-Cu-wQT"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gay-xo-6hW">
+                        <rect key="frame" x="115" y="10" width="176" height="89.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ5-lo-ZwD">
+                                <rect key="frame" x="0.0" y="0.0" width="176" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Description Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPX-hY-CGc">
+                                <rect key="frame" x="0.0" y="21" width="176" height="29"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7s0-Bb-jBF" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="69" width="176" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RPX-hY-CGc" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="2ih-d0-r3o"/>
+                            <constraint firstItem="SQ5-lo-ZwD" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="Mb2-Jv-SY6"/>
+                            <constraint firstAttribute="bottom" secondItem="7s0-Bb-jBF" secondAttribute="bottom" id="P7e-d0-fMc"/>
+                            <constraint firstItem="SQ5-lo-ZwD" firstAttribute="top" secondItem="gay-xo-6hW" secondAttribute="top" id="Qyc-Lg-tiC"/>
+                            <constraint firstAttribute="trailing" secondItem="7s0-Bb-jBF" secondAttribute="trailing" id="T6E-qr-XPx"/>
+                            <constraint firstAttribute="trailing" secondItem="SQ5-lo-ZwD" secondAttribute="trailing" id="ViK-dl-pS1"/>
+                            <constraint firstAttribute="trailing" secondItem="RPX-hY-CGc" secondAttribute="trailing" id="a8b-eK-Ege"/>
+                            <constraint firstItem="7s0-Bb-jBF" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="cIr-aC-PcS"/>
+                            <constraint firstItem="RPX-hY-CGc" firstAttribute="top" secondItem="SQ5-lo-ZwD" secondAttribute="bottom" id="rCO-6d-ZBB"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gay-xo-6hW" secondAttribute="bottom" constant="10" id="0al-b2-rjV"/>
+                    <constraint firstItem="xSW-uf-wah" firstAttribute="centerY" secondItem="rur-PI-Ugz" secondAttribute="centerY" id="CGl-4c-QKl"/>
+                    <constraint firstItem="xSW-uf-wah" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="trailing" constant="5" id="GhW-UM-vjU"/>
+                    <constraint firstItem="gay-xo-6hW" firstAttribute="top" secondItem="rur-PI-Ugz" secondAttribute="top" constant="10" id="Wxw-GF-PZU"/>
+                    <constraint firstItem="gay-xo-6hW" firstAttribute="leading" secondItem="bbw-mG-wDH" secondAttribute="trailing" constant="15" id="ZpR-m2-VJA"/>
+                    <constraint firstItem="bbw-mG-wDH" firstAttribute="top" secondItem="rur-PI-Ugz" secondAttribute="top" constant="10" id="csX-aY-qjr"/>
+                    <constraint firstAttribute="trailing" secondItem="xSW-uf-wah" secondAttribute="trailing" constant="10" id="ofV-Bq-dJp"/>
+                    <constraint firstAttribute="bottom" secondItem="bbw-mG-wDH" secondAttribute="bottom" constant="10" id="qMl-7K-aMR"/>
+                    <constraint firstItem="bbw-mG-wDH" firstAttribute="leading" secondItem="rur-PI-Ugz" secondAttribute="leading" constant="10" id="uoL-te-8bG"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-24.5" y="-168"/>
+            <connections>
+                <outlet property="addButton" destination="xSW-uf-wah" id="Wkg-BH-RR5"/>
+                <outlet property="dishDescription" destination="RPX-hY-CGc" id="mFK-iw-MZY"/>
+                <outlet property="dishImage" destination="bbw-mG-wDH" id="W0g-fd-doF"/>
+                <outlet property="dishName" destination="SQ5-lo-ZwD" id="xKo-ZR-0UH"/>
+                <outlet property="dishPrice" destination="7s0-Bb-jBF" id="MbK-24-1Rd"/>
+            </connections>
+            <point key="canvasLocation" x="-100.5" y="-161"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon-plus" width="50" height="50"/>
+    </resources>
 </document>

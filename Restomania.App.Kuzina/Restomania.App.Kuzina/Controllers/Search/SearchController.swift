@@ -17,6 +17,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var table: UITableView!
 
+    private var _loader: InterfaceLoader!
     private var _tableAdapter: TableAdapter!
     private var _searchAdapter: SearchAdapter<PlaceSummary>!
     private var _service: CachePlaceSummariesService!
@@ -30,6 +31,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
 //        control.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
 //        table.addSubview(control)
 
+        _loader = InterfaceLoader(for: self.view)
         _tableAdapter = TableAdapter(source: self)
         _searchAdapter = setupSearchAdapter()
         _service = ServicesManager.current.placeSummariesService
@@ -69,6 +71,10 @@ public class SearchController: UIViewController, UISearchBarDelegate {
 
             return
         }
+        if (checked.cached.isEmpty) {
+
+            _loader.show()
+        }
 
         //Request remote
         let task = _service.range(ids)
@@ -77,6 +83,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
             DispatchQueue.main.sync {
                 self._data = data
                 self._tableAdapter.Update(data)
+                self._loader.hide()
             }
         })
     }

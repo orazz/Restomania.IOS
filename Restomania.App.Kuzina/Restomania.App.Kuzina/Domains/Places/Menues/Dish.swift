@@ -11,6 +11,7 @@ import Gloss
 
 public class Dish: BaseDataType {
     public var CategoryID: Int64?
+    public var OrderNumber: Int
     public var Name: String
     public var ImageLink: String
     public var Description: String
@@ -20,6 +21,7 @@ public class Dish: BaseDataType {
 
     public override init() {
         self.CategoryID = 0
+        self.OrderNumber = 0
         self.Name = String.Empty
         self.ImageLink = String.Empty
         self.Description = String.Empty
@@ -31,6 +33,7 @@ public class Dish: BaseDataType {
     }
     public required init(json: JSON) {
         self.CategoryID = "CategoryID" <~~ json
+        self.OrderNumber = ("OrderNumber" <~~ json)!
         self.Name = ("Name" <~~ json)!
         self.ImageLink = ("ImageLink" <~~ json)!
         self.Description = ("Description" <~~ json)!
@@ -44,6 +47,7 @@ public class Dish: BaseDataType {
 
         return jsonify([
             "CategoryID" ~~> self.CategoryID,
+            "OrderNumber" ~~> self.OrderNumber,
             "Name" ~~> self.Name,
             "ImageLink" ~~> self.ImageLink,
             "Description" ~~> self.Description,

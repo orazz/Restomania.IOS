@@ -9,14 +9,46 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Search/SearchController.swift"
-            timestampString = "522774558.8391"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Place/MenuElements/MenuDishCard.swift"
+            timestampString = "522879640.842954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "tapAction()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.MenuDishCard.(tapAction in _A1EEB270E3C00C3C18E7CD8B162830CC) () -&gt; ()"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Place/MenuElements/MenuDishCard.swift"
+                  timestampString = "522879841.756029"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.MenuDishCard.(tapAction in _A1EEB270E3C00C3C18E7CD8B162830CC) () -&gt; ()"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Place/MenuElements/MenuDishCard.swift"
+                  timestampString = "522879841.75837"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "53">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,141 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Search/PlaceMenuController.swift"
-            timestampString = "522874199.627733"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Place/MenuElements/MenuDishCard.swift"
+            timestampString = "522882598.455277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "requestMenu()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheMenuSummariesService.swift"
-            timestampString = "522859624.656395"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "find(placeID:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Services/Cache/CacheMenuSummariesService.swift"
-            timestampString = "522859625.905199"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "find(placeID:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Elements/InterfaceLoader.swift"
-            timestampString = "522859976.693973"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "hide()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Search/PlaceMenuController.swift"
-            timestampString = "522874199.627733"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
-            landmarkName = "update(range:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Search/PlaceMenuController.swift"
-            timestampString = "522874199.627733"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "requestMenu()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Search/PlaceMenuController.swift"
-            timestampString = "522874199.627733"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "goBack()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Search/PlaceMenuController.swift"
-            timestampString = "522874019.39903"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "setupUIElements()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Search/PlaceMenuController.swift"
-            timestampString = "522874021.293183"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "setupUIElements()"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "setupStyles()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

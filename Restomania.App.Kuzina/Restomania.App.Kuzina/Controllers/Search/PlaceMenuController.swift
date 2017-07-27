@@ -34,6 +34,7 @@ public class PlaceMenuController: UIViewController {
 
     private let _theme = AppSummary.current.theme
     private var _categoriesAdapter: CategoriesCollection!
+    private var _dishesAdapter: DishesAdapter!
 
     //Load data
     private var _summary: PlaceSummary?
@@ -59,6 +60,7 @@ public class PlaceMenuController: UIViewController {
         _loader.show()
 
         _categoriesAdapter = CategoriesCollection(source: self)
+        _dishesAdapter = DishesAdapter(source: self)
 
         _cart = ServicesManager.current.cartsService.cart(placeID: placeID)
         requestSummary()
@@ -69,6 +71,9 @@ public class PlaceMenuController: UIViewController {
         super.viewDidAppear(animated)
 
     }
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     private func setupUIElements() {
 
         //View
@@ -77,7 +82,7 @@ public class PlaceMenuController: UIViewController {
 
         //Title view
         // - round borders
-        titleView.layer.cornerRadius = 4
+        titleView.layer.cornerRadius = 5
         titleView.layer.borderWidth = 1
         titleView.layer.borderColor = _theme.whiteColor.cgColor
         titleView.backgroundColor = _theme.whiteColor
@@ -142,12 +147,8 @@ public class PlaceMenuController: UIViewController {
     private func applySummary() {
 
         if let summary = _summary {
-            //            if let navbar = navigationController?.navigationBar {
-            //
-            ////                navbar.topItem?.title = summary.Name
-            ////                navbar.topItem?.prompt = "fuck"
-            //            }
 
+            //Header
             placeImage.setup(url: summary.Image)
             placeName.text = summary.Name
 
@@ -157,6 +158,9 @@ public class PlaceMenuController: UIViewController {
             }
 
             placeWorkingHours.text = day
+
+            //Navbar
+            navigationController?.set(title: summary.Name, subtitle: day)
         }
 
         tryHideLoader()
@@ -197,12 +201,16 @@ public class PlaceMenuController: UIViewController {
         if let menu = _menu {
 
             _categoriesAdapter.update(range: menu.categories)
+            _dishesAdapter.update(range: menu.dishes, currency: menu.currency)
         }
 
         tryHideLoader()
     }
     private func selectCategory(_ id: Long) {
         Log.Debug(_tag, "Select category #\(id)")
+    }
+    private func add(dish id: Long) {
+        Log.Debug(_tag, "Add dish #\(id)")
     }
 
     private func tryHideLoader() {
@@ -277,6 +285,60 @@ public class PlaceMenuController: UIViewController {
             _collection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
 
             _source.selectCategory(id)
+        }
+    }
+    private class DishesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
+
+        private let _source: PlaceMenuController
+        private let _table: UITableView
+        private var _data: [Dish]
+        private let _celNib = UINib(nibName: MenuDishCard.nibName, bundle: nil)
+        private var _cells: [Int:MenuDishCard]
+        private var _currency: CurrencyType
+
+        public init(source: PlaceMenuController) {
+
+            _source = source
+            _table = source.dishesTable
+            _data = [Dish]()
+            _cells = [Int: MenuDishCard]()
+            _currency = .All
+
+            super.init()
+
+            _table.delegate = self
+            _table.dataSource = self
+        }
+
+        public func update(range: [Dish], currency: CurrencyType) {
+
+            _data = range.sorted(by: { $0.OrderNumber > $1.OrderNumber  })
+            _currency = currency
+            _table.reloadData()
+        }
+
+        //Delegates
+        func numberOfSections(in tableView: UITableView) -> Int {
+            return 1
+        }
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return _data.count
+        }
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return MenuDishCard.height
+        }
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+            if let cell = _cells[indexPath.row] {
+
+                return cell
+            }
+
+            let cell = _celNib.instantiate(withOwner: nil, options: nil).first as! MenuDishCard
+            _cells[indexPath.row] = cell
+            cell.setup(dish: _data[indexPath.row], currency: _currency, handler: { self._source.add(dish: $0) })
+
+            return cell
         }
     }
 }

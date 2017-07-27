@@ -95,7 +95,7 @@ public class PriceLabel: UILabel {
                 return "\u{f155}"
 
             default:
-                return ""
+                return "\(currency)".uppercased()
         }
     }
 }
