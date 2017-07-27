@@ -21,6 +21,7 @@ public class PlaceMenuController: UIViewController {
     //UI Elements
     private var _loader: InterfaceLoader!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var backButton: UIImageView!
     @IBOutlet weak var placeImage: WrappedImage!
     @IBOutlet weak var dimmer: UIView!
     @IBOutlet weak var titleView: UIView!
@@ -28,11 +29,11 @@ public class PlaceMenuController: UIViewController {
     @IBOutlet weak var placeWorkingHours: UILabel!
 
     @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var categoriesView: UIScrollView!
+    @IBOutlet weak var categoriesStack: UICollectionView!
     @IBOutlet weak var dishesTable: UITableView!
 
-    //Styles
     private let _theme = AppSummary.current.theme
+    private var _categoriesAdapter: CategoriesCollection!
 
     //Load data
     private var _summary: PlaceSummary?
@@ -46,6 +47,8 @@ public class PlaceMenuController: UIViewController {
 
         setupUIElements()
         tryHideLoader()
+
+        Log.Info(_tag, "Load place's menu of #\(placeID).")
     }
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -54,6 +57,8 @@ public class PlaceMenuController: UIViewController {
 
         _loader = InterfaceLoader(for: self.view)
         _loader.show()
+
+        _categoriesAdapter = CategoriesCollection(source: self)
 
         _cart = ServicesManager.current.cartsService.cart(placeID: placeID)
         requestSummary()
@@ -83,6 +88,11 @@ public class PlaceMenuController: UIViewController {
         titleView.layer.shadowRadius = 5
         titleView.layer.shouldRasterize = true
 
+        //Back button
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.goBack))
+        backButton.addGestureRecognizer(tap)
+        backButton.isUserInteractionEnabled = true
+
         //Name
         placeName.font = UIFont(name: _theme.susanBoldFont, size: _theme.titleFontSize)
         placeName.textColor = _theme.blackColor
@@ -91,6 +101,11 @@ public class PlaceMenuController: UIViewController {
         placeWorkingHours.font = UIFont(name: _theme.susanBookFont, size: _theme.captionFontSize)
         placeWorkingHours.textColor = _theme.blackColor
 
+        //Menu
+
+    }
+    @objc private func goBack() {
+        navigationController?.popViewController(animated: true)
     }
 
     //Load summary
@@ -127,11 +142,11 @@ public class PlaceMenuController: UIViewController {
     private func applySummary() {
 
         if let summary = _summary {
-//            if let navbar = navigationController?.navigationBar {
-//
-////                navbar.topItem?.title = summary.Name
-////                navbar.topItem?.prompt = "fuck"
-//            }
+            //            if let navbar = navigationController?.navigationBar {
+            //
+            ////                navbar.topItem?.title = summary.Name
+            ////                navbar.topItem?.prompt = "fuck"
+            //            }
 
             placeImage.setup(url: summary.Image)
             placeName.text = summary.Name
@@ -179,10 +194,17 @@ public class PlaceMenuController: UIViewController {
     }
     private func applyMenu() {
 
-        let view = UIView(
-        
+        if let menu = _menu {
+
+            _categoriesAdapter.update(range: menu.categories)
+        }
+
         tryHideLoader()
     }
+    private func selectCategory(_ id: Long) {
+        Log.Debug(_tag, "Select category #\(id)")
+    }
+
     private func tryHideLoader() {
 
         if (nil != _summary && nil != _menu) {
@@ -198,6 +220,63 @@ public class PlaceMenuController: UIViewController {
             self.present(alert, animated: true, completion: nil)
 
             self.navigationController?.popViewController(animated: true)
+        }
+    }
+
+    private class CategoriesCollection: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+        private let _source: PlaceMenuController
+        private let _collection: UICollectionView
+        private var _data: [DishCategory]
+
+        public init(source: PlaceMenuController) {
+            _source = source
+            _collection = source.categoriesStack
+            _data = [DishCategory]()
+
+            super.init()
+
+            let nib = UINib(nibName: DishCategoryCard.nibName, bundle: nil)
+            _collection.register(nib, forCellWithReuseIdentifier: DishCategoryCard.identifier)
+            _collection.dataSource = self
+            _collection.delegate = self
+        }
+
+        public func update(range: [DishCategory]) {
+
+            _data = range.sorted(by: { $0.OrderNumber > $1.OrderNumber })
+            _collection.reloadData()
+        }
+
+        func numberOfSections(in collectionView: UICollectionView) -> Int {
+            return 1
+        }
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return _data.count
+        }
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+            let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: DishCategoryCard.identifier, for: indexPath) as! DishCategoryCard
+            cell.setup(category: _data[indexPath.row], handler: { id, card in self.selectCategory(id, sender: card, index: indexPath) })
+
+            return cell
+        }
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+            return DishCategoryCard.sizeOfCell(category: _data[indexPath.row])
+        }
+        private func selectCategory(_ id: Long, sender: DishCategoryCard, index: IndexPath) {
+
+            for cell in _collection.visibleCells {
+                if let cell = cell as? DishCategoryCard {
+
+                    cell.unSelect()
+                }
+            }
+            sender.select()
+            _collection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+
+            _source.selectCategory(id)
         }
     }
 }

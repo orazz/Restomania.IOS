@@ -25,6 +25,11 @@
 		1F68AF8A1F28D903000614C9 /* PlaceMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF891F28D903000614C9 /* PlaceMenuController.swift */; };
 		1F68AF8C1F28D96B000614C9 /* PlaceMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68AF8B1F28D96B000614C9 /* PlaceMenuController.xib */; };
 		1F68AF8E1F29EB77000614C9 /* InterfaceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF8D1F29EB77000614C9 /* InterfaceLoader.swift */; };
+		1F68AF911F2A3B98000614C9 /* DishCategoryCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68AF901F2A3B98000614C9 /* DishCategoryCard.xib */; };
+		1F68AF931F2A3BC2000614C9 /* DishCategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF921F2A3BC2000614C9 /* DishCategoryCard.swift */; };
+		1F68AF951F2A3BF4000614C9 /* MenuDishCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF941F2A3BF4000614C9 /* MenuDishCard.swift */; };
+		1F68AF971F2A3C24000614C9 /* MenuDishCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68AF961F2A3C24000614C9 /* MenuDishCard.xib */; };
+		1F68AF991F2A3DED000614C9 /* image-dark-filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F68AF981F2A3DED000614C9 /* image-dark-filter.png */; };
 		1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */; };
 		1F9B84321F24AE78004148F7 /* ClientAppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B84311F24AE78004148F7 /* ClientAppType.swift */; };
 		1FB8EFC51F1D3C300090045E /* UserNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFC41F1D3C300090045E /* UserNotificationPreference.swift */; };
@@ -209,6 +214,11 @@
 		1F68AF891F28D903000614C9 /* PlaceMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuController.swift; path = Controllers/Search/PlaceMenuController.swift; sourceTree = "<group>"; };
 		1F68AF8B1F28D96B000614C9 /* PlaceMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuController.xib; path = Controllers/Search/PlaceMenuController.xib; sourceTree = "<group>"; };
 		1F68AF8D1F29EB77000614C9 /* InterfaceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceLoader.swift; path = Elements/InterfaceLoader.swift; sourceTree = "<group>"; };
+		1F68AF901F2A3B98000614C9 /* DishCategoryCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DishCategoryCard.xib; path = Controllers/Place/MenuElements/DishCategoryCard.xib; sourceTree = "<group>"; };
+		1F68AF921F2A3BC2000614C9 /* DishCategoryCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishCategoryCard.swift; path = Controllers/Place/MenuElements/DishCategoryCard.swift; sourceTree = "<group>"; };
+		1F68AF941F2A3BF4000614C9 /* MenuDishCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuDishCard.swift; path = Controllers/Place/MenuElements/MenuDishCard.swift; sourceTree = "<group>"; };
+		1F68AF961F2A3C24000614C9 /* MenuDishCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuDishCard.xib; path = Controllers/Place/MenuElements/MenuDishCard.xib; sourceTree = "<group>"; };
+		1F68AF981F2A3DED000614C9 /* image-dark-filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "image-dark-filter.png"; path = "Images/image-dark-filter.png"; sourceTree = "<group>"; };
 		1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationsManager.swift; path = App/PushNotificationsManager.swift; sourceTree = "<group>"; };
 		1F9B84311F24AE78004148F7 /* ClientAppType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientAppType.swift; path = Tools/AppSummary/ClientAppType.swift; sourceTree = "<group>"; };
 		1FA260801F14A04F00C14886 /* BaseDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDataType.swift; path = Domains/BaseDataType.swift; sourceTree = "<group>"; };
@@ -455,6 +465,7 @@
 		1F68AF7E1F28CD97000614C9 /* Place */ = {
 			isa = PBXGroup;
 			children = (
+				1F68AF8F1F2A3B3B000614C9 /* MenuElements */,
 				1F68AF891F28D903000614C9 /* PlaceMenuController.swift */,
 				1F68AF8B1F28D96B000614C9 /* PlaceMenuController.xib */,
 			);
@@ -503,6 +514,17 @@
 				1F68AF851F28CF01000614C9 /* SearchController.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		1F68AF8F1F2A3B3B000614C9 /* MenuElements */ = {
+			isa = PBXGroup;
+			children = (
+				1F68AF921F2A3BC2000614C9 /* DishCategoryCard.swift */,
+				1F68AF901F2A3B98000614C9 /* DishCategoryCard.xib */,
+				1F68AF941F2A3BF4000614C9 /* MenuDishCard.swift */,
+				1F68AF961F2A3C24000614C9 /* MenuDishCard.xib */,
+			);
+			name = MenuElements;
 			sourceTree = "<group>";
 		};
 		1FA2607E1F14A02400C14886 /* Domains */ = {
@@ -1015,6 +1037,7 @@
 		1FFA57D61F2241FA00E83463 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1F68AF981F2A3DED000614C9 /* image-dark-filter.png */,
 				1F68AF6F1F28887A000614C9 /* icons */,
 				1FD9A0CD1F2406230026BDF8 /* default-image.jpg */,
 				1FD9A0C21F23870B0026BDF8 /* image-gradient.png */,
@@ -1168,8 +1191,11 @@
 				1FFA57D81F22424D00E83463 /* logo-dark.png in Resources */,
 				1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */,
 				1FD9A0BF1F2360F20026BDF8 /* PlaceCard.xib in Resources */,
+				1F68AF911F2A3B98000614C9 /* DishCategoryCard.xib in Resources */,
 				1FD9A0C31F23870B0026BDF8 /* image-gradient.png in Resources */,
 				1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */,
+				1F68AF991F2A3DED000614C9 /* image-dark-filter.png in Resources */,
+				1F68AF971F2A3C24000614C9 /* MenuDishCard.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1334,6 +1360,7 @@
 				1F36C89C1F20CE6900232B9A /* PropertiesStorage.swift in Sources */,
 				1FB8F02C1F1E610B0090045E /* AddingCard.swift in Sources */,
 				1FD9A09B1F2321B60026BDF8 /* ThemeSettings.swift in Sources */,
+				1F68AF951F2A3BF4000614C9 /* MenuDishCard.swift in Sources */,
 				1FB8F04D1F1EC28C0090045E /* UserCardsApiService.swift in Sources */,
 				1FBE83F31F2556B40002F0B5 /* RefreshDataManager.swift in Sources */,
 				1FB8F04F1F1EC28C0090045E /* UserReviewsApiService.swift in Sources */,
@@ -1441,6 +1468,7 @@
 				1FD7E6A81F1D0E140023C033 /* BaseDataType.swift in Sources */,
 				1FB8F05C1F1ECBFD0090045E /* BaseOrder.swift in Sources */,
 				1FB8F04C1F1EC28C0090045E /* UserAccountApiService.swift in Sources */,
+				1F68AF931F2A3BC2000614C9 /* DishCategoryCard.swift in Sources */,
 				1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */,
 				1FB8F04E1F1EC28C0090045E /* UserLoyaltyApiService.swift in Sources */,
 				1FFA57C61F21EDBA00E83463 /* AppDelegate.swift in Sources */,

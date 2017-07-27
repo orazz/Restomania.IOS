@@ -251,6 +251,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "DishCategoryCard.setupStyles() -&gt; ():DishCategoryCard.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "name.bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CacheRangeAdapter.(save() -&gt; ()).(closure #1):CacheRangeAdapter.swift">
          <PersistentStrings>
             <PersistentString
@@ -312,10 +320,21 @@
          contextName = "OpenPlaceSummariesApiServiceTests.testRange() -&gt; ():OpenPlaceSummariesApiService.swift">
       </ContextState>
       <ContextState
+         contextName = "PlaceMenuController.CategoriesCollection.collectionView(UICollectionView, cellForItemAt : IndexPath) -&gt; UICollectionViewCell:PlaceMenuController.swift">
+      </ContextState>
+      <ContextState
          contextName = "SearchField.search(phrase : String, in : A) -&gt; Bool:SearchField.swift">
          <PersistentStrings>
             <PersistentString
                value = "_getter(instance)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlaceMenuController.applyMenu() -&gt; ():PlaceMenuController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "menu.categories.map({ $0.Name })">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
