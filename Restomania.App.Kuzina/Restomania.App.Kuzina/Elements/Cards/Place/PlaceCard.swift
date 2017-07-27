@@ -11,7 +11,7 @@ import IOSLibrary
 
 public class PlaceCard: UITableViewCell {
 
-    public static var xibName = "PlaceCard"
+    public static var nibName = "PlaceCard"
     public static let identifier = "PlaceCard-\(Guid.New)"
     public static let height = CGFloat(150)
 
@@ -20,17 +20,24 @@ public class PlaceCard: UITableViewCell {
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var workingHours: UILabel!
 
-    private var _summary: PlaceSummary!
     private let _theme: ThemeSettings = AppSummary.current.theme
+    private var _summary: PlaceSummary!
+    private var _isSetupedStyles: Bool = false
+    private var _touchAction: ((Long) -> Void)!
 
-    public func initialize(summary: PlaceSummary) {
+    public func initialize(summary: PlaceSummary, touchAction:@escaping (Long) -> Void) {
 
         _summary = summary
+        _touchAction = touchAction
 
         setupStyles()
         refresh()
     }
     private func setupStyles() {
+
+        if (_isSetupedStyles) {
+            return
+        }
 
         name.font = UIFont(name: _theme.susanBoldFont, size: _theme.titleFontSize)
         name.textColor = _theme.whiteColor
@@ -40,7 +47,17 @@ public class PlaceCard: UITableViewCell {
 
         location.font = UIFont(name: _theme.susanBookFont, size: _theme.subheadFontSize)
         location.textColor = _theme.whiteColor
+
+        let handler = UITapGestureRecognizer(target: self, action: #selector(self.tapHandler))
+        self.addGestureRecognizer(handler)
+
+        _isSetupedStyles = true
     }
+    public func tapHandler() {
+
+        _touchAction(_summary.ID)
+    }
+
     private func refresh() {
 
         placeImage.setup(url: _summary.Image)
@@ -57,12 +74,7 @@ public class PlaceCard: UITableViewCell {
     }
     private func take(_ workingHours: ShortSchedule) -> String {
 
-        let date = Date()
-        let calendar = Calendar.current
-        let day = calendar.component(.weekday, from: date)
-
-        let value = workingHours.dayValue(day)
-
+        let value = workingHours.takeToday()
         if (String.IsNullOrEmpty(value)) {
             return NSLocalizedString("holiday", comment: "Schedule")
         }

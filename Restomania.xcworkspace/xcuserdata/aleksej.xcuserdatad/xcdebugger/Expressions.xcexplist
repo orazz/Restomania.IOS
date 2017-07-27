@@ -39,7 +39,15 @@
          contextName = "CartService.(load() -&gt; ()).(closure #1):CartService.swift">
       </ContextState>
       <ContextState
-         contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
+         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "logMessage.description">
+            </PersistentString>
+            <PersistentString
+               value = "LogMessage(Date(), type, tag, message)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "DateFilter.search(phrase : String, field : Any) -&gt; Bool:DateFilter.swift">
@@ -64,14 +72,6 @@
          contextName = "CacheImagesService.(download(url : String) -&gt; Task&lt;(Bool, Data?)&gt;).(closure #1):CacheImagesService.swift">
       </ContextState>
       <ContextState
-         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "_system.IsExist(_file, inCache: true)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "ApiClient.(SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;).(closure #1).(closure #1):ApiClient.swift">
          <PersistentStrings>
             <PersistentString
@@ -85,6 +85,14 @@
             </PersistentString>
             <PersistentString
                value = "response">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_system.IsExist(_file, inCache: true)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -232,6 +240,17 @@
          contextName = "ConfigsStorage.init(plistName : String) -&gt; ConfigsStorage:ConfigsStorage.swift">
       </ContextState>
       <ContextState
+         contextName = "PlaceMenuController.tryHideLoader() -&gt; ():PlaceMenuController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_summary">
+            </PersistentString>
+            <PersistentString
+               value = "_menu">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CacheRangeAdapter.(save() -&gt; ()).(closure #1):CacheRangeAdapter.swift">
          <PersistentStrings>
             <PersistentString
@@ -271,13 +290,13 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "formatter.date(from: value)">
-            </PersistentString>
-            <PersistentString
                value = "notUTC!.toUTC()">
             </PersistentString>
             <PersistentString
                value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.date(from: value)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -331,15 +350,7 @@
          contextName = "DateFilter.checkMoreOneDigit([String], forDate : Date) -&gt; Bool:DateFilter.swift">
       </ContextState>
       <ContextState
-         contextName = "static Log.Show(LogMessageType, String, String) -&gt; ():Log.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "logMessage.description">
-            </PersistentString>
-            <PersistentString
-               value = "LogMessage(Date(), type, tag, message)">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

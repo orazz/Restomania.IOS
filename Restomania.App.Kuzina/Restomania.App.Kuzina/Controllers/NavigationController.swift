@@ -14,4 +14,18 @@ public class NavigationController: UINavigationController {
         super.viewDidLoad()
 
     }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationBar.backgroundColor = AppSummary.current.theme.blackColor
+    }
+}
+internal extension UIViewController {
+
+    internal func hideNavigationBar(animated: Bool = true) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    internal func showNavigationBar(animated: Bool = true) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 }

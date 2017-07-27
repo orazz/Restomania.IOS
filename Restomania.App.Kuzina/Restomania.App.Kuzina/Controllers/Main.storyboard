@@ -46,8 +46,11 @@
                             <constraint firstItem="usP-9a-Hrq" firstAttribute="leading" secondItem="zS3-rJ-5eO" secondAttribute="leading" id="rjf-dB-8GW"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="" image="tabs_search" selectedImage="tabs_search_selected" id="5Pr-dM-r8C"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="searchBar" destination="usP-9a-Hrq" id="dRw-Xw-UAf"/>
                         <outlet property="table" destination="K53-jc-DwB" id="rlf-sn-A2r"/>
@@ -80,6 +83,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabs_manager" selectedImage="tabs_manager_selected" id="569-TW-49m"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="price" destination="p8k-Y2-hvy" id="cKg-0l-fDF"/>
                     </connections>
@@ -93,6 +97,7 @@
             <objects>
                 <tabBarController id="Zd2-NH-uD3" customClass="TabsController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="mEb-c3-5Fo"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="fill" id="sh7-EZ-KrA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -111,9 +116,10 @@
         <!--Navigation Controller-->
         <scene sceneID="5XN-0B-hed">
             <objects>
-                <navigationController navigationBarHidden="YES" id="kws-xe-E2y" customClass="NavigationController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f2X-cd-Z9j">
+                <navigationController id="kws-xe-E2y" customClass="NavigationController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" backIndicatorImage="tabs_search" id="f2X-cd-Z9j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

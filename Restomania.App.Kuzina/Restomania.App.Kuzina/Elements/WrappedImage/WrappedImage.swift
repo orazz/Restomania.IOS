@@ -44,6 +44,11 @@ public class WrappedImage: UIImageView {
 
         _url = url
 
+        if (String.IsNullOrEmpty(url)) {
+            self.animatedSetupImage(_theme.defaultImage)
+            return
+        }
+
         let task = _images.download(url: url)
         task.async(.background, completion: { result in
 

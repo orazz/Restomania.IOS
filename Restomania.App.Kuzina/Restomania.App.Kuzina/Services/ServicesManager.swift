@@ -25,6 +25,7 @@ public class ServicesManager: ILoggable {
     public let placeSummariesService: CachePlaceSummariesService
     public let menuSummariesService: CacheMenuSummariesService
     public let images: CacheImagesService
+    public let cartsService: CartService
 
     public init() {
 
@@ -32,6 +33,7 @@ public class ServicesManager: ILoggable {
         placeSummariesService = CachePlaceSummariesService()
         menuSummariesService = CacheMenuSummariesService()
         images = CacheImagesService()
+        cartsService = CartService()
     }
 
     public func refreshData() {

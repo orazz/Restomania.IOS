@@ -12,6 +12,8 @@ import IOSLibrary
 
 public class SearchController: UIViewController, UISearchBarDelegate {
 
+    public let tag = "SearchController"
+
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var table: UITableView!
 
@@ -35,10 +37,13 @@ public class SearchController: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
 
         loadData()
+
     }
-//    public func refresh(sender: AnyObject) {
-//        Log.Debug("fuck", "work")
-//    }
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        hideNavigationBar()
+    }
 
     private func setupSearchAdapter() -> SearchAdapter<PlaceSummary> {
         let adapter = SearchAdapter<PlaceSummary>()
@@ -75,6 +80,13 @@ public class SearchController: UIViewController, UISearchBarDelegate {
             }
         })
     }
+    internal func goTo(placeID: Long) {
+
+        let controller = PlaceMenuController.init(nibName: PlaceMenuController.nibName, bundle: Bundle.main)
+        controller.placeID = placeID
+
+        self.navigationController!.pushViewController(controller, animated: true)
+    }
 
     //SearchBar delegate
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -97,7 +109,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
 
             super.init()
 
-            let nib = UINib.init(nibName: PlaceCard.xibName, bundle: nil)
+            let nib = UINib.init(nibName: PlaceCard.nibName, bundle: nil)
             _table.register(nib, forCellReuseIdentifier: PlaceCard.identifier)
             _table.delegate = self
             _table.dataSource = self
@@ -121,8 +133,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
             let cell = tableView.dequeueReusableCell(withIdentifier: PlaceCard.identifier, for: indexPath) as! PlaceCard
-
-            cell.initialize(summary: _data[indexPath.row])
+            cell.initialize(summary: _data[indexPath.row], touchAction: { self._source.goTo(placeID: $0) })
 
             return cell
         }

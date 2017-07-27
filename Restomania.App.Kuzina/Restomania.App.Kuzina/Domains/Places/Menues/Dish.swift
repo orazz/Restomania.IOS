@@ -40,4 +40,17 @@ public class Dish: BaseDataType {
 
         super.init(json: json)
     }
+    public override func toJSON() -> JSON? {
+
+        return jsonify([
+            "CategoryID" ~~> self.CategoryID,
+            "Name" ~~> self.Name,
+            "ImageLink" ~~> self.ImageLink,
+            "Description" ~~> self.Description,
+            "Price" ~~> self.Price,
+            "CookingTime" ~~> self.CookingTime,
+            "Weight" ~~> self.Weight,
+            super.toJSON()
+            ])
+    }
 }

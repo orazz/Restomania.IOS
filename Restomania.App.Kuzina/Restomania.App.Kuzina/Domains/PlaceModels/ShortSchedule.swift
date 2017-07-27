@@ -68,4 +68,18 @@ public class ShortSchedule: Glossy, ICopying {
 
         return days[abs(weekDay) % 7]
     }
+    public func takeToday() -> String {
+
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.weekday, from: date)
+
+        let value = dayValue(day)
+
+        if (String.IsNullOrEmpty(value)) {
+            return value
+        }
+
+        return value.replacingOccurrences(of: "-", with: " - ")
+    }
 }
