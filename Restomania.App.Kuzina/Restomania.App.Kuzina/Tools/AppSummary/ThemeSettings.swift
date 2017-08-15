@@ -12,6 +12,8 @@ public class ThemeSettings {
 
     public let blackColor = UIColor(colorLiteralRed: 34/255, green: 31/255, blue: 30/255, alpha: 1)
     public let whiteColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
+    public let greyColor = UIColor(colorLiteralRed: 234/255, green: 234/255, blue: 234/255, alpha: 1)
+    public let borderColor = UIColor(colorLiteralRed: 165/255, green: 165/255, blue: 165/255, alpha: 1)
     public let backgroundColor = UIColor(colorLiteralRed: 234/255, green: 234/255, blue: 234/255, alpha: 1)
 
     public var defaultImage = UIImage(contentsOfFile: "\(Bundle.main.bundlePath)/default-image.jpg")!
