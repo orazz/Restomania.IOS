@@ -9,6 +9,7 @@
 import Gloss
 
 public class ApiResponse<TData>: Decodable {
+
     public let statusCode: HttpStatusCode
     public let exception: String?
     public let reason: String?
@@ -25,5 +26,10 @@ public class ApiResponse<TData>: Decodable {
         self.exception = nil
         self.reason = nil
         self.data = nil
+    }
+
+    public var isSuccess: Bool {
+
+        return statusCode == .OK
     }
 }

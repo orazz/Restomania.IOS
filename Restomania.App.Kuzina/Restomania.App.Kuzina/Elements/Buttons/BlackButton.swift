@@ -9,6 +9,6 @@
 public class BlackButton: BaseButton {
 
     override func stylize() {
-        super.stylize(textColor: theme.whiteColor, backgroundColor: theme.blackColor)
+        super.stylize(textColor: theme.whiteColor, backgroundColor: theme.blackColor, borderColor: theme.borderColor)
     }
 }

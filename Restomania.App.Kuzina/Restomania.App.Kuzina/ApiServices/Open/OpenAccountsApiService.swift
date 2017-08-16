@@ -19,7 +19,7 @@ public class OpenAccountsApiService: BaseApiService {
     public func IsAuth(keys: AccessKeys, rights: AccessRights) -> RequestResult<Bool> {
         let parameters = CollectParameters([
             "keys": keys,
-            "rights": rights
+            "rights": rights.rawValue
         ])
 
         return _client.GetBool(action: "IsAuth", parameters: parameters)
@@ -28,7 +28,7 @@ public class OpenAccountsApiService: BaseApiService {
         let parameters = CollectParameters([
             "email": email,
             "pass": password,
-            "rights": rights
+            "rights": rights.rawValue
         ])
 
         return _client.Get(action: "Login", type: AccessKeys.self, parameters: parameters)
@@ -37,7 +37,7 @@ public class OpenAccountsApiService: BaseApiService {
         let parameters = CollectParameters([
             "email": email,
             "pass": password,
-            "rights": rights
+            "rights": rights.rawValue
         ])
 
         return _client.Post(action: "SignUp", type: AccessKeys.self, parameters: parameters)
@@ -46,7 +46,7 @@ public class OpenAccountsApiService: BaseApiService {
     public func ChangePass(keys: AccessKeys, rights: AccessRights, pass: String, oldPass: String) -> RequestResult<Bool> {
         let parameters = CollectParameters([
             "keys": keys,
-            "rights": rights,
+            "rights": rights.rawValue,
             "pass": pass,
             "oldPass": oldPass
         ])
@@ -56,7 +56,7 @@ public class OpenAccountsApiService: BaseApiService {
     public func RecoverPassword(email: String, rights: AccessRights) -> RequestResult<Bool> {
         let parameters = CollectParameters([
             "email": email,
-            "rights": rights
+            "rights": rights.rawValue
         ])
 
         return _client.PutBool(action: "RecoverPassword", parameters: parameters)

@@ -20,7 +20,16 @@
 		1F261C8D1F42C40C004BFFCB /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C891F42C40C004BFFCB /* TabsController.swift */; };
 		1F261C901F42CCC7004BFFCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F261C8F1F42CCC7004BFFCB /* LaunchScreen.storyboard */; };
 		1F261C921F42CCE3004BFFCB /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F261C911F42CCE3004BFFCB /* Start.storyboard */; };
-		1F261C941F42CF43004BFFCB /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C931F42CF43004BFFCB /* StartController.swift */; };
+		1F261C941F42CF43004BFFCB /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C931F42CF43004BFFCB /* GreetingController.swift */; };
+		1F261C961F42F4F0004BFFCB /* AuthServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C951F42F4F0004BFFCB /* AuthServiceController.swift */; };
+		1F261C9A1F42F570004BFFCB /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C991F42F570004BFFCB /* SignupController.swift */; };
+		1F261C9C1F42F59E004BFFCB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C9B1F42F59E004BFFCB /* LoginController.swift */; };
+		1F261C9E1F42F5CA004BFFCB /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C9D1F42F5CA004BFFCB /* ForgetPasswordController.swift */; };
+		1F261CA01F42F6C1004BFFCB /* BaseAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C9F1F42F6C1004BFFCB /* BaseAuthController.swift */; };
+		1F261CA21F42FEC2004BFFCB /* AuthContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261CA11F42FEC2004BFFCB /* AuthContainer.swift */; };
+		1F261CA41F430456004BFFCB /* LoginPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F261CA31F430456004BFFCB /* LoginPage.xib */; };
+		1F261CA61F430485004BFFCB /* SignupPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F261CA51F430485004BFFCB /* SignupPage.xib */; };
+		1F261CA81F4304C6004BFFCB /* ForgetPasswordPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F261CA71F4304C6004BFFCB /* ForgetPasswordPage.xib */; };
 		1F36C8831F20823800232B9A /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36C8821F20823800232B9A /* IOSLibrary.framework */; };
 		1F36C8841F20823E00232B9A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36C87F1F207C8300232B9A /* XCTest.framework */; };
 		1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F36C88A1F20C1F900232B9A /* Configs.plist */; };
@@ -214,7 +223,16 @@
 		1F261C891F42C40C004BFFCB /* TabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabsController.swift; path = Controllers/Tabs/TabsController.swift; sourceTree = "<group>"; };
 		1F261C8F1F42CCC7004BFFCB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Controllers/Start/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F261C911F42CCE3004BFFCB /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Start.storyboard; path = Controllers/Start/Start.storyboard; sourceTree = "<group>"; };
-		1F261C931F42CF43004BFFCB /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartController.swift; path = Controllers/Start/StartController.swift; sourceTree = "<group>"; };
+		1F261C931F42CF43004BFFCB /* GreetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GreetingController.swift; path = Controllers/Start/GreetingController.swift; sourceTree = "<group>"; };
+		1F261C951F42F4F0004BFFCB /* AuthServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthServiceController.swift; path = Controllers/Auth/AuthServiceController.swift; sourceTree = "<group>"; };
+		1F261C991F42F570004BFFCB /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = Controllers/Auth/SignupController.swift; sourceTree = "<group>"; };
+		1F261C9B1F42F59E004BFFCB /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = Controllers/Auth/LoginController.swift; sourceTree = "<group>"; };
+		1F261C9D1F42F5CA004BFFCB /* ForgetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgetPasswordController.swift; path = Controllers/Auth/ForgetPasswordController.swift; sourceTree = "<group>"; };
+		1F261C9F1F42F6C1004BFFCB /* BaseAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAuthController.swift; path = Controllers/Auth/BaseAuthController.swift; sourceTree = "<group>"; };
+		1F261CA11F42FEC2004BFFCB /* AuthContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthContainer.swift; path = Controllers/Auth/AuthContainer.swift; sourceTree = "<group>"; };
+		1F261CA31F430456004BFFCB /* LoginPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPage.xib; path = Controllers/Auth/LoginPage.xib; sourceTree = "<group>"; };
+		1F261CA51F430485004BFFCB /* SignupPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignupPage.xib; path = Controllers/Auth/SignupPage.xib; sourceTree = "<group>"; };
+		1F261CA71F4304C6004BFFCB /* ForgetPasswordPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordPage.xib; path = Controllers/Auth/ForgetPasswordPage.xib; sourceTree = "<group>"; };
 		1F36C87F1F207C8300232B9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F36C8821F20823800232B9A /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1F36C88A1F20C1F900232B9A /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
@@ -431,7 +449,7 @@
 			children = (
 				1F261C8F1F42CCC7004BFFCB /* LaunchScreen.storyboard */,
 				1F261C911F42CCE3004BFFCB /* Start.storyboard */,
-				1F261C931F42CF43004BFFCB /* StartController.swift */,
+				1F261C931F42CF43004BFFCB /* GreetingController.swift */,
 			);
 			name = Start;
 			sourceTree = "<group>";
@@ -1052,6 +1070,15 @@
 		1FFA57CB1F21F0B000E83463 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				1F261C951F42F4F0004BFFCB /* AuthServiceController.swift */,
+				1F261CA11F42FEC2004BFFCB /* AuthContainer.swift */,
+				1F261C9F1F42F6C1004BFFCB /* BaseAuthController.swift */,
+				1F261CA31F430456004BFFCB /* LoginPage.xib */,
+				1F261C9B1F42F59E004BFFCB /* LoginController.swift */,
+				1F261CA51F430485004BFFCB /* SignupPage.xib */,
+				1F261C991F42F570004BFFCB /* SignupController.swift */,
+				1F261CA71F4304C6004BFFCB /* ForgetPasswordPage.xib */,
+				1F261C9D1F42F5CA004BFFCB /* ForgetPasswordController.swift */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -1219,7 +1246,10 @@
 				1F261C901F42CCC7004BFFCB /* LaunchScreen.storyboard in Resources */,
 				1F261C921F42CCE3004BFFCB /* Start.storyboard in Resources */,
 				1F68AF971F2A3C24000614C9 /* MenuDishCard.xib in Resources */,
+				1F261CA81F4304C6004BFFCB /* ForgetPasswordPage.xib in Resources */,
+				1F261CA41F430456004BFFCB /* LoginPage.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
+				1F261CA61F430485004BFFCB /* SignupPage.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1398,7 +1428,7 @@
 				1FD7E69A1F1D0E140023C033 /* SystemSettingsApiService.swift in Sources */,
 				1FB8EFDE1F1D48CD0090045E /* Schedule.swift in Sources */,
 				1FBE840E1F2646BD0002F0B5 /* Cart.swift in Sources */,
-				1F261C941F42CF43004BFFCB /* StartController.swift in Sources */,
+				1F261C941F42CF43004BFFCB /* GreetingController.swift in Sources */,
 				1FB8F03C1F1EADB90090045E /* PaymentCard.swift in Sources */,
 				1FD9A0BD1F2360C10026BDF8 /* PlaceCard.swift in Sources */,
 				1FB8F0001F1DF2930090045E /* LoyaltyAccount.swift in Sources */,
@@ -1424,6 +1454,7 @@
 				1F36C88E1F20C4DA00232B9A /* ShortSchedule.swift in Sources */,
 				1FB8F0241F1E5C2D0090045E /* NotificationPlatformType.swift in Sources */,
 				1FB8EFF21F1D4FC20090045E /* Properties.swift in Sources */,
+				1F261C9C1F42F59E004BFFCB /* LoginController.swift in Sources */,
 				1FB8F0141F1E12AE0090045E /* OpenReviewsApiService.swift in Sources */,
 				1FB8F0061F1DF64E0090045E /* Bonuses.swift in Sources */,
 				1FB8EFDC1F1D48290090045E /* Day.swift in Sources */,
@@ -1437,6 +1468,7 @@
 				1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */,
 				1FD7E69F1F1D0E140023C033 /* MethodConnection.swift in Sources */,
 				1FB8F06E1F1EE04D0090045E /* AddingBooking.swift in Sources */,
+				1F261C9A1F42F570004BFFCB /* SignupController.swift in Sources */,
 				1FB8F0281F1E5D510090045E /* OpenDevicesApiService.swift in Sources */,
 				1F261C7A1F42BC88004BFFCB /* BaseButton.swift in Sources */,
 				1FBE84081F2617FE0002F0B5 /* CommonCartContainer.swift in Sources */,
@@ -1444,6 +1476,7 @@
 				1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */,
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
+				1F261C961F42F4F0004BFFCB /* AuthServiceController.swift in Sources */,
 				1FB8F0601F1ECD140090045E /* BookingStatus.swift in Sources */,
 				1F261C801F42BD1D004BFFCB /* GreyButton.swift in Sources */,
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,
@@ -1455,6 +1488,7 @@
 				1FBE84061F26167E0002F0B5 /* PlaceCartContainer.swift in Sources */,
 				1FD9A09E1F2323FF0026BDF8 /* CachePlaceSummariesService.swift in Sources */,
 				1FB8F0661F1ECEC00090045E /* OrderedDish.swift in Sources */,
+				1F261C9E1F42F5CA004BFFCB /* ForgetPasswordController.swift in Sources */,
 				1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */,
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
 				1F36C8981F20CE5E00232B9A /* ConfigsStorage.swift in Sources */,
@@ -1469,6 +1503,7 @@
 				1FB8F0621F1ECE5F0090045E /* DishOrderStatus.swift in Sources */,
 				1F36C89B1F20CE6900232B9A /* PropertiesKey.swift in Sources */,
 				1FD7E6A61F1D0E140023C033 /* Platform.swift in Sources */,
+				1F261CA21F42FEC2004BFFCB /* AuthContainer.swift in Sources */,
 				1FB8F0041F1DF47B0090045E /* CountedLoyaltyDiscounts.swift in Sources */,
 				1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */,
 				1FB8EFCF1F1D41590090045E /* UserSex.swift in Sources */,
@@ -1497,6 +1532,7 @@
 				1FB8F04C1F1EC28C0090045E /* UserAccountApiService.swift in Sources */,
 				1F68AF931F2A3BC2000614C9 /* DishCategoryCard.swift in Sources */,
 				1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */,
+				1F261CA01F42F6C1004BFFCB /* BaseAuthController.swift in Sources */,
 				1FB8F04E1F1EC28C0090045E /* UserLoyaltyApiService.swift in Sources */,
 				1FFA57C61F21EDBA00E83463 /* AppDelegate.swift in Sources */,
 				1FD9A0C51F23BC320026BDF8 /* CacheImagesService.swift in Sources */,

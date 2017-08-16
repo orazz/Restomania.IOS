@@ -1,0 +1,79 @@
+//
+//  StartController.swift
+//  Restomania.App.Kuzina
+//
+//  Created by Алексей on 15.08.17.
+//  Copyright © 2017 Medved-Studio. All rights reserved.
+//
+
+import UIKit
+import IOSLibrary
+
+public class GreetingController: UIViewController {
+
+    private let _tag = "StartController"
+    private var _theme: ThemeSettings!
+
+    @IBOutlet weak var DemoButton: UIButton!
+
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+
+        Log.Info(_tag, "Open controller.")
+    }
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let storage = ServicesManager.current.keysStorage
+        if let _ = storage.keysFor(rights: .User) {
+
+            goToSearch()
+        }
+
+        setupMarkup()
+    }
+    private func setupMarkup() {
+
+        _theme = AppSummary.current.theme
+
+        navigationController?.hideNavigationBar()
+
+        //Demo button
+        DemoButton.tintColor = _theme.blackColor
+        DemoButton.titleLabel?.font = UIFont(name: _theme.susanBookFont, size: _theme.captionFontSize)
+    }
+
+    // MARK: Auth navigation
+    @IBAction func goToSignUp(_ sender: Any) {
+
+        goToAuth(page: .Signup)
+    }
+    @IBAction func goToLogin(_ sender: Any) {
+
+        goToAuth(page: .Signup)
+    }
+    private func goToAuth(page: AuthPage) {
+        let auth = AuthServiceController(open: .Signup, with: self.navigationController!, rights: .User)
+        auth.show(complete: { success in
+
+                if (success) {
+
+                    self.goToSearch()
+                }
+            })
+    }
+
+    @IBAction func goWithoutAuth(_ sender: Any) {
+        goToSearch()
+    }
+    private func goToSearch() {
+
+        let board = UIStoryboard(name: "Tabs", bundle: nil)
+        let controller = board.instantiateInitialViewController()!
+
+        navigationController?.present(controller, animated: false, completion: {
+
+            Log.Debug(self._tag, "Navigate to tabs storyboard.")
+        })
+    }
+}

@@ -89,7 +89,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     }
     internal func goTo(placeID: Long) {
 
-        let controller = PlaceMenuController.init(nibName: PlaceMenuController.nibName, bundle: Bundle.main)
+        let controller = PlaceMenuController(nibName: PlaceMenuController.nibName, bundle: Bundle.main)
         controller.placeID = placeID
 
         self.navigationController!.pushViewController(controller, animated: true)

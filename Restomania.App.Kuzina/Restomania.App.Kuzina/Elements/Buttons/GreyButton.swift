@@ -9,6 +9,6 @@
 public class GreyButton: BaseButton {
 
     override func stylize() {
-        super.stylize(textColor: theme.blackColor, backgroundColor: theme.greyColor)
+        super.stylize(textColor: theme.blackColor, backgroundColor: theme.greyColor, borderColor: nil)
     }
 }

@@ -67,5 +67,405 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Elements/Buttons/BaseButton.swift"
+            timestampString = "524478989.012487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "stylize(textColor:backgroundColor:borderColor:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/AuthServiceController.swift"
+            timestampString = "524491182.681543"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "init(open:with:rights:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/SignupController.swift"
+            timestampString = "524495423.662086"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "SignupController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
+            timestampString = "524556808.344217"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "updatePassword()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.BaseAuthController.(updatePassword in _1E8E8790D506CED920D6C6A3EDBBD777) () -&gt; ()"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
+                  timestampString = "524556808.716848"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "30">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.BaseAuthController.((updatePassword in _1E8E8790D506CED920D6C6A3EDBBD777) () -&gt; ()).(implicit closure #1)"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
+                  timestampString = "524556808.719971"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
+            timestampString = "524556810.108569"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "updateLogin()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.BaseAuthController.(updateLogin in _1E8E8790D506CED920D6C6A3EDBBD777) () -&gt; ()"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
+                  timestampString = "524556810.328785"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "30">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.BaseAuthController.((updateLogin in _1E8E8790D506CED920D6C6A3EDBBD777) () -&gt; ()).(implicit closure #1)"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
+                  timestampString = "524556810.332718"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/SignupController.swift"
+            timestampString = "524557136.882576"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "loginAction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/SignupController.swift"
+            timestampString = "524557196.240399"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "loginAction()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.SignupController.(loginAction () -&gt; ()).(closure #1)"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/SignupController.swift"
+                  timestampString = "524557909.647981"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestomaniaAppKuzina.SignupController.(loginAction () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "RestomaniaAppKuzina"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/SignupController.swift"
+                  timestampString = "524557909.653495"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "75">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
+            timestampString = "524557242.460131"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "SendTo(_:method:parameters:parser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
+            timestampString = "524557274.620261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "SendTo(_:method:parameters:parser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
+            timestampString = "524557287.293918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "Get(action:type:parameters:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/ApiServices/Open/OpenAccountsApiService.swift"
+            timestampString = "524557293.339523"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "Login(email:password:rights:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/ApiServices/Open/OpenAccountsApiService.swift"
+            timestampString = "524557383.796413"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "Login(email:password:rights:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
+            timestampString = "524557435.461391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "SendTo(_:method:parameters:parser:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IOSLibrary.ApiClient.(SendTo in _4044AE93CAFBD2E8E7629BA92B51CB53) &lt;A&gt; (Swift.String, method : IOSLibrary.HttpMethod, parameters : Swift.Dictionary&lt;Swift.String, Swift.Optional&lt;Any&gt;&gt;, parser : (Swift.Optional&lt;Any&gt;) -&gt; A) -&gt; AsyncTask.Task&lt;IOSLibrary.ApiResponse&lt;A&gt;&gt;"
+                  moduleName = "IOSLibrary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/IOS%20Library/IOS%20Library/Requests/ApiClient.swift"
+                  timestampString = "524557910.022648"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "994">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IOSLibrary.ApiClient.((SendTo in _4044AE93CAFBD2E8E7629BA92B51CB53) &lt;A&gt; (Swift.String, method : IOSLibrary.HttpMethod, parameters : Swift.Dictionary&lt;Swift.String, Swift.Optional&lt;Any&gt;&gt;, parser : (Swift.Optional&lt;Any&gt;) -&gt; A) -&gt; AsyncTask.Task&lt;IOSLibrary.ApiResponse&lt;A&gt;&gt;).(closure #1)"
+                  moduleName = "IOSLibrary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/IOS%20Library/IOS%20Library/Requests/ApiClient.swift"
+                  timestampString = "524557910.025112"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
+            timestampString = "524557482.094165"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "SendTo(_:method:parameters:parser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS Library/IOS Library/Requests/ApiClient.swift"
+            timestampString = "524557487.806401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "Build(parameters:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/SignupController.swift"
+            timestampString = "524557937.712607"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "loginAction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
+            timestampString = "524560905.90489"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "showAlert(about:title:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

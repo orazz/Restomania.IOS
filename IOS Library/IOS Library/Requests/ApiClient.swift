@@ -190,11 +190,6 @@ public class ApiClient {
             }
 
             builded[key] = value
-//            if let date = value as? Date {
-//                builded[key] = date.prepareForJson()
-//            } else {
-//                builded[key] = value
-//            }
         }
 
         var parametersContent = ""

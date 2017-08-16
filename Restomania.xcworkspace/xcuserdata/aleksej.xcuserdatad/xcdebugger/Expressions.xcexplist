@@ -20,6 +20,14 @@
          contextName = "ApiDataResponse.init(json : [String : Any]) -&gt; ApiDataResponse&lt;A&gt;:ApiDataResponse.swift">
       </ContextState>
       <ContextState
+         contextName = "SignupController.viewDidLoad() -&gt; ():SignupController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "OpenPlaceSummariesApiServiceTests.(testRange() -&gt; ()).(implicit closure #2):OpenPlaceSummariesApiService.swift">
       </ContextState>
       <ContextState
@@ -33,6 +41,9 @@
       </ContextState>
       <ContextState
          contextName = "CacheImagesService.(download(url : String) -&gt; Task&lt;(Bool, Data?)&gt;).(closure #1).(closure #1):CacheImagesService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SignupController.loginAction() -&gt; ():SignupController.swift">
       </ContextState>
       <ContextState
          contextName = "DateTests.testConvertDateToUniversalFormat() -&gt; ():Date.swift">
@@ -175,6 +186,14 @@
          contextName = "SearchAdapter.search(phrase : String, in : A) -&gt; Bool:SearchAdapter.swift">
       </ContextState>
       <ContextState
+         contextName = "BaseButton.stylize(textColor : UIColor, backgroundColor : UIColor, borderColor : UIColor?) -&gt; ():BaseButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "CGRect(x: sizes.origin.x, y: sizes.origin.y, width: sizes.width, height: max(sizes.height, 50))">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static Date.fromUTC(value : String) -&gt; Date:Date.swift">
          <PersistentStrings>
             <PersistentString
@@ -190,6 +209,14 @@
          <PersistentStrings>
             <PersistentString
                value = "String(data: data, encoding: .utf8)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseAuthController.updateLogin() -&gt; ():BaseAuthController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "LoginTextField.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -225,15 +252,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FileSystem.saveTo(String, data : Data, toCache : Bool) -&gt; ():FileSystem.swift">
-      </ContextState>
-      <ContextState
          contextName = "DishCategoryCard.setupStyles() -&gt; ():DishCategoryCard.swift">
          <PersistentStrings>
             <PersistentString
                value = "name.bounds.width">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileSystem.saveTo(String, data : Data, toCache : Bool) -&gt; ():FileSystem.swift">
       </ContextState>
       <ContextState
          contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
@@ -315,6 +342,9 @@
             <PersistentString
                value = "Encoder.encode(dateForKey: key, dateFormatter: dateFormatter)(date)!.valueForKeyPath(keyPath: key) as String">
             </PersistentString>
+            <PersistentString
+               value = "value.description">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -354,6 +384,9 @@
                value = "UIFont(name: _theme.susanBoldFont, size: _theme.titleFontSize)">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseAuthController.setup(AuthContainer) -&gt; ():BaseAuthController.swift">
       </ContextState>
       <ContextState
          contextName = "FileSystem.LoadBundlePlist(String) -&gt; NSDictionary?:FileSystem.swift">
