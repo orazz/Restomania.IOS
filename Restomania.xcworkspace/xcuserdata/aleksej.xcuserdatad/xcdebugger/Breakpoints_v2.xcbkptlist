@@ -73,22 +73,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Elements/Buttons/BaseButton.swift"
-            timestampString = "524478989.012487"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "stylize(textColor:backgroundColor:borderColor:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/AuthServiceController.swift"
             timestampString = "524491182.681543"
             startingColumnNumber = "9223372036854775807"
@@ -121,108 +105,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
-            timestampString = "524556808.344217"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "updatePassword()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RestomaniaAppKuzina.BaseAuthController.(updatePassword in _1E8E8790D506CED920D6C6A3EDBBD777) () -&gt; ()"
-                  moduleName = "RestomaniaAppKuzina"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
-                  timestampString = "524556808.716848"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "30">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RestomaniaAppKuzina.BaseAuthController.((updatePassword in _1E8E8790D506CED920D6C6A3EDBBD777) () -&gt; ()).(implicit closure #1)"
-                  moduleName = "RestomaniaAppKuzina"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
-                  timestampString = "524556808.719971"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
-            timestampString = "524556810.108569"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "updateLogin()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RestomaniaAppKuzina.BaseAuthController.(updateLogin in _1E8E8790D506CED920D6C6A3EDBBD777) () -&gt; ()"
-                  moduleName = "RestomaniaAppKuzina"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
-                  timestampString = "524556810.328785"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "30">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RestomaniaAppKuzina.BaseAuthController.((updateLogin in _1E8E8790D506CED920D6C6A3EDBBD777) () -&gt; ()).(implicit closure #1)"
-                  moduleName = "RestomaniaAppKuzina"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/BaseAuthController.swift"
-                  timestampString = "524556810.332718"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/SignupController.swift"
-            timestampString = "524557136.882576"
+            timestampString = "524598481.980152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "loginAction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/SignupController.swift"
-            timestampString = "524557196.240399"
+            timestampString = "524598481.980152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "loginAction()"
             landmarkType = "7">
             <Locations>
@@ -442,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Restomania.App.Kuzina/Restomania.App.Kuzina/Controllers/Auth/SignupController.swift"
-            timestampString = "524557937.712607"
+            timestampString = "524598481.980152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "loginAction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -463,7 +351,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
             endingLineNumber = "119"
-            landmarkName = "showAlert(about:title:)"
+            landmarkName = "isValidPassword()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

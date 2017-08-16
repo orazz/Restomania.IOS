@@ -31,9 +31,7 @@ public  class BaseButton: UIButton {
     internal func stylize(textColor: UIColor, backgroundColor: UIColor, borderColor: UIColor? = nil) {
 
         //Sizes
-        let sizes = self.frame.size
-//        self.frame.size = CGSize(width: sizes.width, height: max(sizes.height, 50))
-        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
+//        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
 
         //Styles
         self.titleLabel?.font = UIFont(name: theme.susanBookFont, size: theme.titleFontSize)!

@@ -46,14 +46,14 @@ public class GreetingController: UIViewController {
     // MARK: Auth navigation
     @IBAction func goToSignUp(_ sender: Any) {
 
-        goToAuth(page: .Signup)
+        goToAuth(page: .signup)
     }
     @IBAction func goToLogin(_ sender: Any) {
 
-        goToAuth(page: .Signup)
+        goToAuth(page: .signup)
     }
     private func goToAuth(page: AuthPage) {
-        let auth = AuthServiceController(open: .Signup, with: self.navigationController!, rights: .User)
+        let auth = AuthService(open: .signup, with: self.navigationController!, rights: .User)
         auth.show(complete: { success in
 
                 if (success) {

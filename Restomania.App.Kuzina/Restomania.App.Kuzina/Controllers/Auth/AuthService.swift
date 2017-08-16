@@ -10,11 +10,11 @@ import UIKit
 import IOSLibrary
 
 public enum AuthPage {
-    case Login
-    case Signup
-    case ForgetPassword
+    case login
+    case signup
+    case forgetPassword
 }
-public class AuthServiceController {
+public class AuthService {
 
     private let _tag = "AuthServiceController"
 
@@ -23,6 +23,7 @@ public class AuthServiceController {
     private var _forgetPassword: ForgetPasswordController!
     private var _controllers: [BaseAuthController] = []
     private var _navigator: UINavigationController
+    private var _root: UIViewController
 
     private var _rights: AccessRights!
     private var _currentPage: AuthPage!
@@ -38,14 +39,16 @@ public class AuthServiceController {
 
         _controllers = [_login, _signup, _forgetPassword]
         _navigator = navigator
-        for controller in _controllers {
-            controller.root = self
-        }
+        _root = navigator.topViewController!
 
         _rights = rights
         _currentPage = firstPage
 
         _storage = ServicesManager.current.keysStorage
+
+        for controller in _controllers {
+            controller.root = self
+        }
     }
     public func show(complete: ((Bool) -> Void)? ) {
 
@@ -53,7 +56,7 @@ public class AuthServiceController {
 
         let controller = take(for: _currentPage)
         _navigator.pushViewController(controller, animated: true)
-        controller.setup(AuthContainer(login: String.Empty, password: String.Empty, rights: _rights))
+        controller.authContainer = AuthContainer(login: String.Empty, password: String.Empty, rights: _rights)
 
         Log.Info(_tag, "Open auth pages.")
     }
@@ -66,23 +69,29 @@ public class AuthServiceController {
 
         let nextPage = take(for: page)
         let prevPage = take(for: _currentPage)
-        nextPage.setup(prevPage.authContainer)
+        nextPage.authContainer = prevPage.authContainer
 
-        _navigator.popViewController(animated: false)
-        _navigator.pushViewController(nextPage, animated: true)
+        if (_navigator.viewControllers.contains(nextPage)) {
+
+            _navigator.popToViewController(nextPage, animated: true)
+        } else {
+
+            _navigator.pushViewController(nextPage, animated: true)
+        }
 
         _currentPage = page
     }
     private func take(for page: AuthPage) -> BaseAuthController {
 
         switch page {
-        case .Login:
-            return _login
+        case .login:
+            return _signup
+//            return _login
 
-        case .Signup:
+        case .signup:
             return _signup
 
-        case .ForgetPassword:
+        case .forgetPassword:
             return _forgetPassword
         }
     }
@@ -99,13 +108,7 @@ public class AuthServiceController {
             done(result)
         }
 
-        _navigator.popViewController(animated: true)
+        _navigator.popToViewController(_root, animated: true)
         Log.Info(_tag, "Close auth pages.")
     }
-
-//    override public func willMove(toParentViewController parent: UIViewController?) {
-//        super.willMove(toParentViewController: parent)
-//
-//        print("fuck")
-//    }
 }

@@ -31,7 +31,11 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <items>
                         <navigationItem title="РЕГИСТРАЦИЯ" id="ckr-9P-iYt">
-                            <barButtonItem key="leftBarButtonItem" tag="-1" style="done" systemItem="cancel" id="w3z-qS-lB6"/>
+                            <barButtonItem key="leftBarButtonItem" tag="-1" style="done" systemItem="cancel" id="w3z-qS-lB6">
+                                <connections>
+                                    <action selector="cancelAuth" destination="-1" id="Lc2-pg-DSG"/>
+                                </connections>
+                            </barButtonItem>
                             <connections>
                                 <outlet property="backBarButtonItem" destination="w3z-qS-lB6" id="xFy-EJ-eZO"/>
                             </connections>

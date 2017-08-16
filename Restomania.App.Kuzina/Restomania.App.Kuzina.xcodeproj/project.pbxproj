@@ -21,7 +21,7 @@
 		1F261C901F42CCC7004BFFCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F261C8F1F42CCC7004BFFCB /* LaunchScreen.storyboard */; };
 		1F261C921F42CCE3004BFFCB /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F261C911F42CCE3004BFFCB /* Start.storyboard */; };
 		1F261C941F42CF43004BFFCB /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C931F42CF43004BFFCB /* GreetingController.swift */; };
-		1F261C961F42F4F0004BFFCB /* AuthServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C951F42F4F0004BFFCB /* AuthServiceController.swift */; };
+		1F261C961F42F4F0004BFFCB /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C951F42F4F0004BFFCB /* AuthService.swift */; };
 		1F261C9A1F42F570004BFFCB /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C991F42F570004BFFCB /* SignupController.swift */; };
 		1F261C9C1F42F59E004BFFCB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C9B1F42F59E004BFFCB /* LoginController.swift */; };
 		1F261C9E1F42F5CA004BFFCB /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C9D1F42F5CA004BFFCB /* ForgetPasswordController.swift */; };
@@ -224,7 +224,7 @@
 		1F261C8F1F42CCC7004BFFCB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Controllers/Start/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F261C911F42CCE3004BFFCB /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Start.storyboard; path = Controllers/Start/Start.storyboard; sourceTree = "<group>"; };
 		1F261C931F42CF43004BFFCB /* GreetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GreetingController.swift; path = Controllers/Start/GreetingController.swift; sourceTree = "<group>"; };
-		1F261C951F42F4F0004BFFCB /* AuthServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthServiceController.swift; path = Controllers/Auth/AuthServiceController.swift; sourceTree = "<group>"; };
+		1F261C951F42F4F0004BFFCB /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Controllers/Auth/AuthService.swift; sourceTree = "<group>"; };
 		1F261C991F42F570004BFFCB /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = Controllers/Auth/SignupController.swift; sourceTree = "<group>"; };
 		1F261C9B1F42F59E004BFFCB /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = Controllers/Auth/LoginController.swift; sourceTree = "<group>"; };
 		1F261C9D1F42F5CA004BFFCB /* ForgetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgetPasswordController.swift; path = Controllers/Auth/ForgetPasswordController.swift; sourceTree = "<group>"; };
@@ -1070,7 +1070,7 @@
 		1FFA57CB1F21F0B000E83463 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				1F261C951F42F4F0004BFFCB /* AuthServiceController.swift */,
+				1F261C951F42F4F0004BFFCB /* AuthService.swift */,
 				1F261CA11F42FEC2004BFFCB /* AuthContainer.swift */,
 				1F261C9F1F42F6C1004BFFCB /* BaseAuthController.swift */,
 				1F261CA31F430456004BFFCB /* LoginPage.xib */,
@@ -1476,7 +1476,7 @@
 				1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */,
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
-				1F261C961F42F4F0004BFFCB /* AuthServiceController.swift in Sources */,
+				1F261C961F42F4F0004BFFCB /* AuthService.swift in Sources */,
 				1FB8F0601F1ECD140090045E /* BookingStatus.swift in Sources */,
 				1F261C801F42BD1D004BFFCB /* GreyButton.swift in Sources */,
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,

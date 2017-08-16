@@ -11,29 +11,38 @@ import IOSLibrary
 
 public class BaseAuthController: UIViewController {
 
-    internal var root: AuthServiceController?
+    internal var root: AuthService!
     internal var client: OpenAccountsApiService!
     internal var storage: IKeysCRUDStorage!
+    internal var loader: InterfaceLoader!
+
     private var login = String.Empty
     private var password = String.Empty
     private var rights = AccessRights.User
 
     @IBOutlet weak var Navbar: UINavigationBar!
 
-    @IBOutlet weak var LoginTextField: UITextField!
-    @IBOutlet weak var LoginLabel: UILabel!
-    @IBOutlet weak var PasswordTextField: UITextField!
-    @IBOutlet weak var PasswordLabel: UILabel!
+    @IBOutlet weak var LoginTextField: UITextField?
+    @IBOutlet weak var LoginLabel: UILabel?
+    @IBOutlet weak var PasswordTextField: UITextField?
+    @IBOutlet weak var PasswordLabel: UILabel?
+
+    @IBAction public func cancelAuth() {
+
+        root.close()
+    }
 
     public var authContainer: AuthContainer {
 
-        return AuthContainer(login: login, password: password, rights: rights)
-    }
-    public func setup(_ container: AuthContainer) {
+        get {
+            return AuthContainer(login: login, password: password, rights: rights)
+        }
+        set(update) {
 
-        login = container.login
-        password = container.password
-        rights = container.rights
+            login = update.login
+            password = update.password
+            rights = update.rights
+        }
     }
 
     public override func viewDidLoad() {
@@ -41,25 +50,24 @@ public class BaseAuthController: UIViewController {
 
         client = OpenAccountsApiService()
         storage = ServicesManager.current.keysStorage as! IKeysCRUDStorage
+        loader = InterfaceLoader(for: self.view)
 
-        LoginTextField.addTarget(self, action: #selector(updateLogin), for: .editingChanged)
-        PasswordTextField.addTarget(self, action: #selector(updatePassword), for: .editingChanged)
+        LoginTextField?.addTarget(self, action: #selector(updateLogin), for: .editingChanged)
+        PasswordTextField?.addTarget(self, action: #selector(updatePassword), for: .editingChanged)
 
         stylize()
+    }
+    @objc private func updateLogin() {
+        login = LoginTextField?.text ?? String.Empty
+    }
+    @objc private func updatePassword() {
+        password = PasswordTextField?.text ?? String.Empty
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        LoginTextField.text = login
-        PasswordTextField.text = password
-    }
-    @objc private func updateLogin() {
-
-        login = LoginTextField.text ?? String.Empty
-    }
-    @objc private func updatePassword() {
-
-        password = PasswordTextField.text ?? String.Empty
+        LoginTextField?.text = login
+        PasswordTextField?.text = password
     }
     private func stylize() {
 
@@ -91,7 +99,7 @@ public class BaseAuthController: UIViewController {
 
     internal func isValidLogin() -> Bool {
 
-        let login = LoginTextField.text ?? String.Empty
+        let login = LoginTextField?.text ?? String.Empty
         if (String.IsNullOrEmpty(login)) {
 
             showAlert(about: NSLocalizedString("You should fill correct email.", comment: "Auth"),
@@ -103,7 +111,7 @@ public class BaseAuthController: UIViewController {
     }
     internal func isValidPassword() -> Bool {
 
-        let password = PasswordTextField.text ?? String.Empty
+        let password = PasswordTextField?.text ?? String.Empty
         if (String.IsNullOrEmpty(password)) {
 
             showAlert(about: NSLocalizedString("You should fill correct password.", comment: "Auth"),
@@ -121,7 +129,7 @@ public class BaseAuthController: UIViewController {
     }
     internal func unfocusControls() {
 
-        LoginTextField.resignFirstResponder()
-        PasswordTextField.resignFirstResponder()
+        LoginTextField?.resignFirstResponder()
+        PasswordTextField?.resignFirstResponder()
     }
 }

@@ -17,16 +17,12 @@ public class SignupController: BaseAuthController {
     @IBOutlet weak var Login: WhiteButton!
     @IBOutlet weak var ForgetPassword: UIButton!
 
-    private var _interfaceLoader: InterfaceLoader!
-
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         let theme = AppSummary.current.theme
         ForgetPassword.tintColor = theme.blackColor
         ForgetPassword.titleLabel?.font = UIFont(name: theme.susanBookFont, size: theme.subheadFontSize)!
-
-        _interfaceLoader = InterfaceLoader(for: self.view)
     }
 
     //Sign up
@@ -36,7 +32,7 @@ public class SignupController: BaseAuthController {
             return
         }
 
-        _interfaceLoader.show()
+        loader.show()
 
         let container = authContainer
         let task = client.SignUp(email: container.login, password: container.password, rights: container.rights)
@@ -44,7 +40,7 @@ public class SignupController: BaseAuthController {
 
             DispatchQueue.main.async {
 
-                self._interfaceLoader.hide()
+                self.loader.hide()
 
                 //Success result
                 if (response.isSuccess) {
@@ -80,7 +76,7 @@ public class SignupController: BaseAuthController {
             return
         }
 
-        _interfaceLoader.show()
+        loader.show()
 
         let container = authContainer
         let task = client.Login(email: container.login, password: container.password, rights: container.rights)
@@ -88,7 +84,7 @@ public class SignupController: BaseAuthController {
 
             DispatchQueue.main.async {
 
-                self._interfaceLoader.hide()
+                self.loader.hide()
 
                 //Success result
                 if (response.isSuccess) {
@@ -117,6 +113,6 @@ public class SignupController: BaseAuthController {
 
     @IBAction public func forgetPasswordAction() {
 
-        root?.moveTo(.ForgetPassword)
+        root?.moveTo(.forgetPassword)
     }
 }
