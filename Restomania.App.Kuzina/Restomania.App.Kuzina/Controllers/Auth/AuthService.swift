@@ -99,13 +99,7 @@ public class AuthService {
 
         if let done = _complete {
 
-            var result = false
-
-            if (nil != _storage.keysFor(rights: _rights)) {
-                result = true
-            }
-
-            done(result)
+            done(nil != _storage.keysFor(rights: _rights))
         }
 
         _navigator.popToViewController(_root, animated: true)
