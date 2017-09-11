@@ -26,6 +26,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>azurewebsites.net</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 			<key>restomania.eu</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>

@@ -26,7 +26,7 @@ public class UserCardsApiService: BaseAuthApiService {
 
     public func Add(currency: CurrencyType) -> RequestResult<AddingCard> {
         let parameters = CollectParameters([
-                "currency": currency,
+                "currency": currency.rawValue,
                 "mobile": true
             ])
 

@@ -10,14 +10,31 @@ import Foundation
 import UIKit
 
 public class OrdersController: UIViewController {
-    
+
     public static let nibName = "OrdersView"
-    
+
     public init() {
-        
+
         super.init(nibName: OrdersController.nibName, bundle: Bundle.main)
     }
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: Life circle
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        showNavigationBar()
+        navigationItem.title = "Заказы"
+    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        hideNavigationBar()
     }
 }

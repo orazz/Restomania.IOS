@@ -1,0 +1,152 @@
+//
+//  PaymentCardsController.swift
+//  Restomania.App.Kuzina
+//
+//  Created by Алексей on 11.09.17.
+//  Copyright © 2017 Medved-Studio. All rights reserved.
+//
+
+import Foundation
+import UIKit
+import IOSLibrary
+
+public protocol IPaymentCardsDelegate {
+
+    func removeCard(id: Long)
+}
+public class PaymentCardsController: UIViewController,
+                                      IPaymentCardsDelegate,
+                                      UITableViewDelegate,
+                                      UITableViewDataSource {
+
+    public static let nibName = "PaymentCardsView"
+
+    //Elements
+    @IBOutlet weak var TableView: UITableView!
+
+    //Tools
+    private var _loader: InterfaceLoader!
+
+    private let _addCardService: AddPaymentCardService
+    private let _apiService: UserCardsApiService
+    private var _cards = [PaymentCard]()
+
+    public init() {
+
+        _addCardService = AddPaymentCardService()
+
+        let keys = ServicesManager.current.keysStorage
+        _apiService = UserCardsApiService(storage: keys)
+
+        super.init(nibName: PaymentCardsController.nibName, bundle: Bundle.main)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: Life circle
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
+        TableView.register(PaymentCardCell.self, forCellReuseIdentifier: PaymentCardCell.identifier)
+
+        _loader = InterfaceLoader(for: view)
+    }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        showNavigationBar()
+        navigationItem.title = "Карты оплаты"
+
+        loadCards()
+    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        hideNavigationBar()
+    }
+
+    private func loadCards() {
+
+        _loader.show()
+
+        let request = _apiService.All()
+        request.async(.background, completion: { response in
+
+            DispatchQueue.main.async {
+
+                if (!response.isSuccess) {
+
+                    Log.Warning(self.getTag(), "problem with getting payment cards.")
+                } else {
+
+                    self._cards = response.data!
+                    self.TableView.reloadData()
+                }
+
+                self._loader.hide()
+            }
+
+        })
+
+    }
+
+    // MARK: IPaymentCardsDelegate
+    public func removeCard(id: Long) {
+
+        Log.Debug(getTag(), "Try remove #\(id) payment card.")
+
+        let card = _cards.find({ id == $0.ID })
+        let index = _cards.index(where: { id == $0.ID })
+        if (nil == card) {
+            return
+        }
+
+        //Update interface 
+        _cards.remove(at: index!)
+
+        let request = _apiService.Remove(cardID: id)
+        request.async(.background, completion: { response in
+
+            if (!response.isSuccess) {
+
+                self._cards.insert(card!, at: index!)
+
+                let alert = UIAlertController()
+                alert.message = "Проблемы с удалением карты, попробуйте позднее."
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+                self.show(alert, sender: self)
+            }
+        })
+    }
+    @IBAction public func addCard() {
+
+        Log.Debug(getTag(), "Try add new payment card.")
+        let currency = CurrencyType.RUB
+
+        _addCardService.addCard(for: currency, on: self, complete: { success, _ in
+
+            Log.Debug(self.getTag(), "Adding new card is \(success)")
+        })
+    }
+
+    // MARK: UITableViewDelegate
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let card = _cards[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: PaymentCardCell.identifier, for: indexPath) as! PaymentCardCell
+        cell.setup(card: card, delegate: self)
+
+        return cell
+    }
+    // MARK: UITableViewDataSource
+    public func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 1
+    }
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return _cards.count
+    }
+}

@@ -10,19 +10,19 @@ import UIKit
 import IOSLibrary
 
 public class ManagerController: UIViewController {
-    
+
     private let _tag = "ManagerController"
-    
+
     //Elements
     @IBOutlet weak var LogoutButton: UIButton!
 
-    
     private var _theme: ThemeSettings!
     private var _authService: AuthService!
     private var _keysStorage: IKeysStorage!
-    
+
     //Properties
-    private var _isAuth:Bool {
+    private var _isAuth: Bool {
+
         return nil != _keysStorage.keysFor(rights: .User)
     }
 
@@ -51,14 +51,14 @@ public class ManagerController: UIViewController {
 
         view.backgroundColor = theme.backgroundColor
     }
-    
+
     @IBAction public func Logout() {
-        
+
         _keysStorage.logout(for: .User)
         LogoutButton.isHidden = true
     }
-    
-    //MARK: Navigate to sub managers screens
+
+    // MARK: Navigate to sub managers screens
     @IBAction public func goToEditProfile() {
         presentSubmanager(controller: EditProfileController())
     }
@@ -78,20 +78,16 @@ public class ManagerController: UIViewController {
         presentSubmanager(controller: TermsController(), needAuth: false)
     }
     private func presentSubmanager(controller: UIViewController, needAuth: Bool = true) {
-     
-        if (!needAuth || _isAuth){
-            
-            navigationController?.present(controller, animated: true, completion: {
-                
-                Log.Info(self._tag, "Present \(self.getTag()) controller.")
-            })
-        }
-        else {
-            
+
+        if (!needAuth || _isAuth) {
+
+            navigationController?.pushViewController(controller, animated: true)
+        } else {
+
             _authService.show(complete: { success in
-            
+
                 if (success) {
-                    
+
                     self.presentSubmanager(controller: controller, needAuth: needAuth)
                 }
             })

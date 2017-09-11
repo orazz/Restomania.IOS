@@ -102,8 +102,8 @@ public class KeysStorage: IKeysCRUDStorage, ILoggable {
 
         return nil
     }
-    public func logout(for rights:AccessRights) {
-        
+    public func logout(for rights: AccessRights) {
+
         remove(for: rights)
     }
 }

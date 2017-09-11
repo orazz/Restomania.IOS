@@ -10,10 +10,21 @@ import Foundation
 import UIKit
 
 public class TermsController: UIViewController {
-    
+
+    // MARK: Life circle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
+    }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        showNavigationBar()
+        navigationItem.title = "Условия работы"
+    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        hideNavigationBar()
     }
 }

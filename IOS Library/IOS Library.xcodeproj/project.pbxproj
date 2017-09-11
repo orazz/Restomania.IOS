@@ -21,6 +21,7 @@
 		1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE641F13BEB7000B92E1 /* Log.swift */; };
 		1F77EF9C1F66C85700C93DB0 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EF9B1F66C85700C93DB0 /* Object.swift */; };
 		1F77EF9E1F66C8C100C93DB0 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EF9D1F66C8C100C93DB0 /* Object.swift */; };
+		1F77EFBB1F66D8EB00C93DB0 /* PartialUpdateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EFBA1F66D8EB00C93DB0 /* PartialUpdateContainer.swift */; };
 		1FA20BB51F226D1400215C4A /* FiltersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BB21F226D1400215C4A /* FiltersFactory.swift */; };
 		1FA20BB61F226D1400215C4A /* IFIlter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BB31F226D1400215C4A /* IFIlter.swift */; };
 		1FA20BB71F226D1400215C4A /* StringFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BB41F226D1400215C4A /* StringFilter.swift */; };
@@ -75,6 +76,7 @@
 		1F41CE641F13BEB7000B92E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Tools/Log.swift; sourceTree = "<group>"; };
 		1F77EF9B1F66C85700C93DB0 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = Tools/Object.swift; sourceTree = "<group>"; };
 		1F77EF9D1F66C8C100C93DB0 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = Tools/Object.swift; sourceTree = "<group>"; };
+		1F77EFBA1F66D8EB00C93DB0 /* PartialUpdateContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialUpdateContainer.swift; sourceTree = "<group>"; };
 		1FA20BB21F226D1400215C4A /* FiltersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersFactory.swift; path = Tools/SearchAdapter/Filters/FiltersFactory.swift; sourceTree = "<group>"; };
 		1FA20BB31F226D1400215C4A /* IFIlter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFIlter.swift; path = Tools/SearchAdapter/Filters/IFIlter.swift; sourceTree = "<group>"; };
 		1FA20BB41F226D1400215C4A /* StringFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringFilter.swift; path = Tools/SearchAdapter/Filters/StringFilter.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				1F41CE5D1F13BE8E000B92E1 /* Tools */,
 				1F41CE461F13BE5B000B92E1 /* IOS Library.h */,
 				1F41CE471F13BE5B000B92E1 /* Info.plist */,
+				1F77EFBA1F66D8EB00C93DB0 /* PartialUpdateContainer.swift */,
 			);
 			path = "IOS Library";
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F77EFBB1F66D8EB00C93DB0 /* PartialUpdateContainer.swift in Sources */,
 				1FA20BB51F226D1400215C4A /* FiltersFactory.swift in Sources */,
 				1FA20BBC1F226D2A00215C4A /* SearchAdapter.swift in Sources */,
 				1FA20BC21F2276DD00215C4A /* NumberFilter.swift in Sources */,

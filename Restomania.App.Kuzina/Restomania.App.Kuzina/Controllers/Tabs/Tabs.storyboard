@@ -113,8 +113,7 @@
                                 </constraints>
                                 <state key="normal" title="Платежные карты"/>
                                 <connections>
-                                    <action selector="goToEditPaymentCards" destination="6zb-zD-LkU" eventType="touchUpInside" id="R5X-X7-duh"/>
-                                    <action selector="goToPaymentCards" destination="6zb-zD-LkU" eventType="touchUpInside" id="yC3-xa-WSV"/>
+                                    <action selector="goToPaymentCards" destination="6zb-zD-LkU" eventType="touchUpInside" id="4e8-rr-Ms4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXn-eB-bc6" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
