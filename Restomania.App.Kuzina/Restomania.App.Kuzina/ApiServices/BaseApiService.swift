@@ -19,7 +19,7 @@ public class BaseApiService: ILoggable {
         self._url = AppSummary.current.serverUrl
 
         self.tag = tag
-        self._client = ApiClient(url: "\(_url)/mvcapi/\(area)", tag: tag)
+        self._client = ApiClient(url: "\(_url)/api/\(area)", tag: tag)
     }
 
     internal func CollectParameters(_ values: Parameters? = nil) -> Parameters {

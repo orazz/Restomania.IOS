@@ -12,6 +12,15 @@ import Gloss
 
 public class MenuSummary: ICached {
 
+    public struct Keys {
+
+        public static let ID = BaseDataType.Keys.ID
+        public static let PlaceID = "PlaceID"
+        public static let Currency = "Currency"
+        public static let Categories = "Categories"
+        public static let Dishes = "Dishes"
+    }
+
     public let ID: Long
     public let placeID: Long
     public let currency: CurrencyType
@@ -36,20 +45,20 @@ public class MenuSummary: ICached {
     }
     public required init(json: JSON) {
 
-        self.ID = ("ID" <~~ json)!
-        self.placeID = ("PlaceID" <~~ json)!
-        self.currency = ("Currency" <~~ json)!
-        self.categories = ("Categories" <~~ json)!
-        self.dishes = ("Dishes" <~~ json)!
+        self.ID = (Keys.ID <~~ json)!
+        self.placeID = (Keys.PlaceID <~~ json)!
+        self.currency = (Keys.PlaceID <~~ json)!
+        self.categories = (Keys.Categories <~~ json)!
+        self.dishes = (Keys.Dishes <~~ json)!
     }
     public func toJSON() -> JSON? {
 
         return jsonify([
-                "ID" ~~> self.ID,
-                "PlaceID" ~~> self.placeID,
-                "Currency" ~~> self.currency,
-                "Categories" ~~> self.categories,
-                "Dishes" ~~> self.dishes
+                Keys.ID ~~> self.ID,
+                Keys.PlaceID ~~> self.placeID,
+                Keys.Currency ~~> self.currency,
+                Keys.Categories ~~> self.categories,
+                Keys.Dishes ~~> self.dishes
             ])
     }
 

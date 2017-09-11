@@ -10,6 +10,13 @@ import Gloss
 
 public class BaseDataType: Glossy {
 
+    public struct Keys {
+
+        public static let ID = "ID"
+        public static let CreateAt = "CreateAt"
+        public static let UpdateAt = "UpdateAt"
+    }
+
     public var ID: Int64
     public var CreateAt: Date
     public var UpdateAt: Date
@@ -22,15 +29,15 @@ public class BaseDataType: Glossy {
     }
     public required init(json: JSON) {
 
-        self.ID = ("ID" <~~ json) ?? 0
+        self.ID = (Keys.ID <~~ json) ?? 0
 
-        if let createAt: String = "CreateAt" <~~ json {
+        if let createAt: String = Keys.CreateAt <~~ json {
             self.CreateAt = Date.parseJson(value: createAt)
         } else {
             self.CreateAt = Date()
         }
 
-        if let updateAt: String = "UpdateAt" <~~ json {
+        if let updateAt: String = Keys.UpdateAt <~~ json {
             self.UpdateAt = Date.parseJson(value: updateAt)
         } else {
             self.UpdateAt = Date()
@@ -45,9 +52,9 @@ public class BaseDataType: Glossy {
 
     public func toJSON() -> JSON? {
         return jsonify([
-            "ID" ~~> self.ID,
-            "CreateAt" ~~> self.CreateAt.prepareForJson(),
-            "UpdateAt" ~~> self.UpdateAt.prepareForJson()
+            Keys.ID ~~> self.ID,
+            Keys.CreateAt ~~> self.CreateAt.prepareForJson(),
+            Keys.UpdateAt ~~> self.UpdateAt.prepareForJson()
             ])
     }
 }

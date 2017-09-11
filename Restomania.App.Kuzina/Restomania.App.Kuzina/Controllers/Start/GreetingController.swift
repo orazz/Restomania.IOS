@@ -50,6 +50,7 @@ public class GreetingController: UIViewController {
     }
     @IBAction func goToLogin(_ sender: Any) {
 
+//        goToAuth(page: .login)
         goToAuth(page: .signup)
     }
     private func goToAuth(page: AuthPage) {

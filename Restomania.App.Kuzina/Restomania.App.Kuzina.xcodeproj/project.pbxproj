@@ -48,6 +48,16 @@
 		1F68AF951F2A3BF4000614C9 /* MenuDishCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF941F2A3BF4000614C9 /* MenuDishCard.swift */; };
 		1F68AF971F2A3C24000614C9 /* MenuDishCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68AF961F2A3C24000614C9 /* MenuDishCard.xib */; };
 		1F68AF991F2A3DED000614C9 /* image-dark-filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F68AF981F2A3DED000614C9 /* image-dark-filter.png */; };
+		1F77EF971F66703C00C93DB0 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EF961F66703C00C93DB0 /* EditProfileController.swift */; };
+		1F77EF991F66705700C93DB0 /* EditProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F77EF981F66705700C93DB0 /* EditProfileView.xib */; };
+		1F77EFA01F66CBBC00C93DB0 /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EF9F1F66CBBC00C93DB0 /* TermsController.swift */; };
+		1F77EFA21F66CDAB00C93DB0 /* OrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EFA11F66CDAB00C93DB0 /* OrdersController.swift */; };
+		1F77EFA41F66CEF600C93DB0 /* PaymentCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EFA31F66CEF600C93DB0 /* PaymentCardsController.swift */; };
+		1F77EFA61F66CF5A00C93DB0 /* PaymentCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F77EFA51F66CF5A00C93DB0 /* PaymentCardsView.xib */; };
+		1F77EFA81F66D01700C93DB0 /* EditNotificationPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EFA71F66D01700C93DB0 /* EditNotificationPreferencesController.swift */; };
+		1F77EFAA1F66D08E00C93DB0 /* EditNotificationPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F77EFA91F66D08E00C93DB0 /* EditNotificationPreferencesView.xib */; };
+		1F77EFAC1F66D0FD00C93DB0 /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EFAB1F66D0FD00C93DB0 /* ChangePasswordController.swift */; };
+		1F77EFAE1F66D16700C93DB0 /* ChangePasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F77EFAD1F66D16700C93DB0 /* ChangePasswordView.xib */; };
 		1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */; };
 		1F9B84321F24AE78004148F7 /* ClientAppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B84311F24AE78004148F7 /* ClientAppType.swift */; };
 		1FB8EFC51F1D3C300090045E /* UserNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFC41F1D3C300090045E /* UserNotificationPreference.swift */; };
@@ -253,6 +263,16 @@
 		1F68AF941F2A3BF4000614C9 /* MenuDishCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuDishCard.swift; path = Controllers/Place/MenuElements/MenuDishCard.swift; sourceTree = "<group>"; };
 		1F68AF961F2A3C24000614C9 /* MenuDishCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuDishCard.xib; path = Controllers/Place/MenuElements/MenuDishCard.xib; sourceTree = "<group>"; };
 		1F68AF981F2A3DED000614C9 /* image-dark-filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "image-dark-filter.png"; path = "Images/image-dark-filter.png"; sourceTree = "<group>"; };
+		1F77EF961F66703C00C93DB0 /* EditProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileController.swift; path = Controllers/Manager/EditProfileController.swift; sourceTree = "<group>"; };
+		1F77EF981F66705700C93DB0 /* EditProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditProfileView.xib; path = Controllers/Manager/EditProfileView.xib; sourceTree = "<group>"; };
+		1F77EF9F1F66CBBC00C93DB0 /* TermsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsController.swift; path = Controllers/Manager/TermsController.swift; sourceTree = "<group>"; };
+		1F77EFA11F66CDAB00C93DB0 /* OrdersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersController.swift; path = Controllers/Manager/Orders/OrdersController.swift; sourceTree = "<group>"; };
+		1F77EFA31F66CEF600C93DB0 /* PaymentCardsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentCardsController.swift; path = Controllers/Manager/PaymentCardsController.swift; sourceTree = "<group>"; };
+		1F77EFA51F66CF5A00C93DB0 /* PaymentCardsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PaymentCardsView.xib; path = Controllers/Manager/PaymentCardsView.xib; sourceTree = "<group>"; };
+		1F77EFA71F66D01700C93DB0 /* EditNotificationPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditNotificationPreferencesController.swift; path = Controllers/Manager/EditNotificationPreferencesController.swift; sourceTree = "<group>"; };
+		1F77EFA91F66D08E00C93DB0 /* EditNotificationPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditNotificationPreferencesView.xib; path = Controllers/Manager/EditNotificationPreferencesView.xib; sourceTree = "<group>"; };
+		1F77EFAB1F66D0FD00C93DB0 /* ChangePasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordController.swift; path = Controllers/Manager/ChangePasswordController.swift; sourceTree = "<group>"; };
+		1F77EFAD1F66D16700C93DB0 /* ChangePasswordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChangePasswordView.xib; path = Controllers/Manager/ChangePasswordView.xib; sourceTree = "<group>"; };
 		1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationsManager.swift; path = App/PushNotificationsManager.swift; sourceTree = "<group>"; };
 		1F9B84311F24AE78004148F7 /* ClientAppType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientAppType.swift; path = Tools/AppSummary/ClientAppType.swift; sourceTree = "<group>"; };
 		1FA260801F14A04F00C14886 /* BaseDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDataType.swift; path = Domains/BaseDataType.swift; sourceTree = "<group>"; };
@@ -532,9 +552,17 @@
 		1F68AF7F1F28CD9E000614C9 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				1F68AF821F28CDB8000614C9 /* Reviews */,
+				1F77EF961F66703C00C93DB0 /* EditProfileController.swift */,
+				1F77EF981F66705700C93DB0 /* EditProfileView.xib */,
+				1F77EFA71F66D01700C93DB0 /* EditNotificationPreferencesController.swift */,
+				1F77EFA91F66D08E00C93DB0 /* EditNotificationPreferencesView.xib */,
+				1F77EFAB1F66D0FD00C93DB0 /* ChangePasswordController.swift */,
+				1F77EFAD1F66D16700C93DB0 /* ChangePasswordView.xib */,
+				1F77EFA31F66CEF600C93DB0 /* PaymentCardsController.swift */,
+				1F77EFA51F66CF5A00C93DB0 /* PaymentCardsView.xib */,
+				1F77EF9A1F66800A00C93DB0 /* SettingsCells */,
 				1F68AF801F28CDA8000614C9 /* Orders */,
-				1F68AF811F28CDB0000614C9 /* Bookings */,
+				1F77EF9F1F66CBBC00C93DB0 /* TermsController.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -542,22 +570,9 @@
 		1F68AF801F28CDA8000614C9 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				1F77EFA11F66CDAB00C93DB0 /* OrdersController.swift */,
 			);
 			name = Orders;
-			sourceTree = "<group>";
-		};
-		1F68AF811F28CDB0000614C9 /* Bookings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Bookings;
-			sourceTree = "<group>";
-		};
-		1F68AF821F28CDB8000614C9 /* Reviews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Reviews;
 			sourceTree = "<group>";
 		};
 		1F68AF8F1F2A3B3B000614C9 /* MenuElements */ = {
@@ -569,6 +584,13 @@
 				1F68AF961F2A3C24000614C9 /* MenuDishCard.xib */,
 			);
 			name = MenuElements;
+			sourceTree = "<group>";
+		};
+		1F77EF9A1F66800A00C93DB0 /* SettingsCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SettingsCells;
 			sourceTree = "<group>";
 		};
 		1FA2607E1F14A02400C14886 /* Domains */ = {
@@ -1235,9 +1257,11 @@
 			files = (
 				1F261C8C1F42C40C004BFFCB /* Tabs.storyboard in Resources */,
 				1FD9A0CE1F2406230026BDF8 /* default-image.jpg in Resources */,
+				1F77EFAA1F66D08E00C93DB0 /* EditNotificationPreferencesView.xib in Resources */,
 				1FFA57D81F22424D00E83463 /* logo-dark.png in Resources */,
 				1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */,
 				1FD9A0BF1F2360F20026BDF8 /* PlaceCard.xib in Resources */,
+				1F77EFA61F66CF5A00C93DB0 /* PaymentCardsView.xib in Resources */,
 				1F68AF911F2A3B98000614C9 /* DishCategoryCard.xib in Resources */,
 				1FD9A0C31F23870B0026BDF8 /* image-gradient.png in Resources */,
 				1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */,
@@ -1248,6 +1272,8 @@
 				1F68AF971F2A3C24000614C9 /* MenuDishCard.xib in Resources */,
 				1F261CA81F4304C6004BFFCB /* ForgetPasswordPage.xib in Resources */,
 				1F261CA41F430456004BFFCB /* LoginPage.xib in Resources */,
+				1F77EFAE1F66D16700C93DB0 /* ChangePasswordView.xib in Resources */,
+				1F77EF991F66705700C93DB0 /* EditProfileView.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
 				1F261CA61F430485004BFFCB /* SignupPage.xib in Resources */,
 			);
@@ -1419,6 +1445,7 @@
 				1FB8F04F1F1EC28C0090045E /* UserReviewsApiService.swift in Sources */,
 				1FD7E6981F1D0E140023C033 /* SystemStatusApiService.swift in Sources */,
 				1FD7E6991F1D0E140023C033 /* SystemVersionsApiService.swift in Sources */,
+				1F77EFAC1F66D0FD00C93DB0 /* ChangePasswordController.swift in Sources */,
 				1FBE83FB1F25CA700002F0B5 /* WrappedImage.swift in Sources */,
 				1FB8F0311F1E61E70090045E /* TransactionType.swift in Sources */,
 				1FD9A0A21F23264F0026BDF8 /* KeysStorage.swift in Sources */,
@@ -1433,6 +1460,8 @@
 				1FD9A0BD1F2360C10026BDF8 /* PlaceCard.swift in Sources */,
 				1FB8F0001F1DF2930090045E /* LoyaltyAccount.swift in Sources */,
 				1FB8F0081F1DF68E0090045E /* Step.swift in Sources */,
+				1F77EFA21F66CDAB00C93DB0 /* OrdersController.swift in Sources */,
+				1F77EFA81F66D01700C93DB0 /* EditNotificationPreferencesController.swift in Sources */,
 				1FD7E69B1F1D0E140023C033 /* SystemReportsApiService.swift in Sources */,
 				1F261C841F42C3E8004BFFCB /* PlaceMenuController.swift in Sources */,
 				1FD9A0991F2321B60026BDF8 /* AppType.swift in Sources */,
@@ -1456,6 +1485,7 @@
 				1FB8EFF21F1D4FC20090045E /* Properties.swift in Sources */,
 				1F261C9C1F42F59E004BFFCB /* LoginController.swift in Sources */,
 				1FB8F0141F1E12AE0090045E /* OpenReviewsApiService.swift in Sources */,
+				1F77EFA01F66CBBC00C93DB0 /* TermsController.swift in Sources */,
 				1FB8F0061F1DF64E0090045E /* Bonuses.swift in Sources */,
 				1FB8EFDC1F1D48290090045E /* Day.swift in Sources */,
 				1FB8EFE41F1D4A970090045E /* Contacts.swift in Sources */,
@@ -1501,6 +1531,7 @@
 				1FB8F05E1F1ECD020090045E /* Booking.swift in Sources */,
 				1FD7E6A51F1D0E140023C033 /* CurrencyType.swift in Sources */,
 				1FB8F0621F1ECE5F0090045E /* DishOrderStatus.swift in Sources */,
+				1F77EFA41F66CEF600C93DB0 /* PaymentCardsController.swift in Sources */,
 				1F36C89B1F20CE6900232B9A /* PropertiesKey.swift in Sources */,
 				1FD7E6A61F1D0E140023C033 /* Platform.swift in Sources */,
 				1F261CA21F42FEC2004BFFCB /* AuthContainer.swift in Sources */,
@@ -1530,6 +1561,7 @@
 				1FD7E6A81F1D0E140023C033 /* BaseDataType.swift in Sources */,
 				1FB8F05C1F1ECBFD0090045E /* BaseOrder.swift in Sources */,
 				1FB8F04C1F1EC28C0090045E /* UserAccountApiService.swift in Sources */,
+				1F77EF971F66703C00C93DB0 /* EditProfileController.swift in Sources */,
 				1F68AF931F2A3BC2000614C9 /* DishCategoryCard.swift in Sources */,
 				1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */,
 				1F261CA01F42F6C1004BFFCB /* BaseAuthController.swift in Sources */,

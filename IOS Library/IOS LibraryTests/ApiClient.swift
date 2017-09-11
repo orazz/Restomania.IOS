@@ -17,7 +17,7 @@ public class ApiClientTests: XCTestCase {
     public override func setUp() {
         super.setUp()
 
-        _client = ApiClient(url: "http://restomania.eu/mvcapi", tag: "TestClient")
+        _client = ApiClient(url: "http://restomania.eu/api", tag: "TestClient")
     }
 
     public func testSendRequestForBool() {
@@ -33,7 +33,7 @@ public class ApiClientTests: XCTestCase {
 
         let settings = result.data!
         XCTAssertEqual("http://restomania.eu/", settings.HostName)
-        XCTAssertEqual("http://restomania.eu/mvcapi/", settings.ApiHostName)
+        XCTAssertEqual("http://restomania.eu/api/", settings.ApiHostName)
         XCTAssertEqual("System/Status/IsAlive", settings.StatusPath)
         XCTAssertEqual("System/Reports/Add", settings.ReportsPath)
         XCTAssertFalse(settings.Debug)

@@ -11,4 +11,5 @@ import Foundation
 public protocol IKeysStorage {
 
     func keysFor(rights: AccessRights) -> AccessKeys?
+    func logout(for: AccessRights)
 }

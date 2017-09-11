@@ -12,6 +12,19 @@ import IOSLibrary
 
 public class PlaceSummary: ICached {
 
+    public struct Keys {
+
+        public static let ID = BaseDataType.Keys.ID
+        public static let Name = "Name"
+        public static let Description = "Description"
+        public static let `Type` = "Type"
+        public static let Kitchen = "Kitchen"
+        public static let Rating = "Rating"
+        public static let Image = "Image"
+        public static let Location = "Location"
+        public static let Schedule = "Schedule"
+    }
+
     public var ID: Long
     public var Name: String
     public var Description: String
@@ -48,30 +61,30 @@ public class PlaceSummary: ICached {
     }
     public required init(json: JSON) {
 
-        self.ID = ("ID" <~~ json)!
-        self.Name = ("Name" <~~ json)!
-        self.Description = ("Description" <~~ json)!
-        self.Type = ("Type" <~~ json)!
-        self.Kitchen = ("Kitchen" <~~ json)!
-        self.Rating = ("Rating" <~~ json)!
-        self.Image = ("Image" <~~ json)!
+        self.ID = (Keys.ID <~~ json)!
+        self.Name = (Keys.Name <~~ json)!
+        self.Description = (Keys.Description <~~ json)!
+        self.Type = (PlaceSummary.Keys.Type <~~ json)!
+        self.Kitchen = (Keys.Kitchen <~~ json)!
+        self.Rating = (Keys.Rating <~~ json)!
+        self.Image = (Keys.Image <~~ json)!
 
-        self.Location = ("Location" <~~ json) ?? PlaceLocation()
-        self.Schedule = ("Schedule" <~~ json) ?? ShortSchedule()
+        self.Location = (Keys.Location <~~ json) ?? PlaceLocation()
+        self.Schedule = (Keys.Schedule <~~ json) ?? ShortSchedule()
     }
 
     public func toJSON() -> JSON? {
         return jsonify([
-            "ID" ~~> self.ID,
-            "Name" ~~> self.Name,
-            "Description" ~~> self.Description,
-            "Type" ~~> self.Type,
-            "Kitchen" ~~> self.Kitchen,
-            "Rating" ~~> self.Rating,
-            "Image" ~~> self.Image,
+            Keys.ID ~~> self.ID,
+            Keys.Name ~~> self.Name,
+            Keys.Description ~~> self.Description,
+            PlaceSummary.Keys.Type ~~> self.Type,
+            Keys.Kitchen ~~> self.Kitchen,
+            Keys.Rating ~~> self.Rating,
+            Keys.Image ~~> self.Image,
 
-            "Location" ~~> self.Location,
-            "Schedule" ~~> self.Schedule
+            Keys.Location ~~> self.Location,
+            Keys.Schedule ~~> self.Schedule
             ])
     }
 }

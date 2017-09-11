@@ -72,20 +72,107 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8k-Y2-hvy" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                                <rect key="frame" x="105" y="196" width="117" height="147"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7x-qw-HAV" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37" y="32" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="tTR-wX-iQU"/>
+                                    <constraint firstAttribute="height" constant="50" id="vLS-oM-Ipv"/>
+                                </constraints>
+                                <state key="normal" title="Профиль"/>
+                                <connections>
+                                    <action selector="goToEditProfile" destination="6zb-zD-LkU" eventType="touchUpInside" id="PM8-nx-kTk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-rF-Khr" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37" y="94" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1Mj-hJ-BiN"/>
+                                    <constraint firstAttribute="height" constant="50" id="VJj-z2-wOu"/>
+                                </constraints>
+                                <state key="normal" title="Уведомления"/>
+                                <connections>
+                                    <action selector="goToEditNotificationPreferences" destination="6zb-zD-LkU" eventType="touchUpInside" id="KPh-vm-NiF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-ka-1eM" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37" y="156" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="E4d-q3-5Xg"/>
+                                    <constraint firstAttribute="height" constant="50" id="TwG-3N-I3S"/>
+                                </constraints>
+                                <state key="normal" title="Изменить пароль"/>
+                                <connections>
+                                    <action selector="goToChangePassword" destination="6zb-zD-LkU" eventType="touchUpInside" id="gkV-ef-Udn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHs-Ww-9na" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37" y="218" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="NaV-UL-BX9"/>
+                                    <constraint firstAttribute="height" constant="50" id="jfU-pC-t7f"/>
+                                </constraints>
+                                <state key="normal" title="Платежные карты"/>
+                                <connections>
+                                    <action selector="goToEditPaymentCards" destination="6zb-zD-LkU" eventType="touchUpInside" id="R5X-X7-duh"/>
+                                    <action selector="goToPaymentCards" destination="6zb-zD-LkU" eventType="touchUpInside" id="yC3-xa-WSV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXn-eB-bc6" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37" y="298" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EtH-ey-qAE"/>
+                                    <constraint firstAttribute="width" constant="300" id="pJi-ut-WmU"/>
+                                </constraints>
+                                <state key="normal" title="Заказы"/>
+                                <connections>
+                                    <action selector="goToOrders" destination="6zb-zD-LkU" eventType="touchUpInside" id="7nP-zW-e7K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0w-Dd-wXa" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="378" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="WNY-TB-a7D"/>
+                                    <constraint firstAttribute="height" constant="50" id="hD8-x8-Neg"/>
+                                </constraints>
+                                <state key="normal" title="Условия работы"/>
+                                <connections>
+                                    <action selector="goToTerms" destination="6zb-zD-LkU" eventType="touchUpInside" id="kge-nt-MAm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIJ-RG-sxZ" customClass="BlackButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="440" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UX5-xC-4AI"/>
+                                    <constraint firstAttribute="width" constant="300" id="YX2-gI-UAm"/>
+                                </constraints>
+                                <state key="normal" title="Выйти"/>
+                                <connections>
+                                    <action selector="Logout" destination="6zb-zD-LkU" eventType="touchUpInside" id="Eru-m4-sH1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BHs-Ww-9na" firstAttribute="top" secondItem="j1p-ka-1eM" secondAttribute="bottom" constant="12" id="1Wy-Ea-MS9"/>
+                            <constraint firstItem="LIJ-RG-sxZ" firstAttribute="top" secondItem="v0w-Dd-wXa" secondAttribute="bottom" constant="12" id="7yD-VU-KdZ"/>
+                            <constraint firstItem="v0w-Dd-wXa" firstAttribute="top" secondItem="HXn-eB-bc6" secondAttribute="bottom" constant="30" id="Fq4-1Z-Nwi"/>
+                            <constraint firstItem="BHs-Ww-9na" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="N2C-aY-kY5"/>
+                            <constraint firstItem="LIJ-RG-sxZ" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="UbG-xs-Cfd"/>
+                            <constraint firstItem="k7x-qw-HAV" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="VQ2-8q-spI"/>
+                            <constraint firstItem="v0w-Dd-wXa" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="VR5-1B-F8q"/>
+                            <constraint firstItem="k7x-qw-HAV" firstAttribute="top" secondItem="oTb-8T-Fv3" secondAttribute="bottom" constant="12" id="b6a-YD-8By"/>
+                            <constraint firstItem="MXb-rF-Khr" firstAttribute="top" secondItem="k7x-qw-HAV" secondAttribute="bottom" constant="12" id="bxb-LI-e9G"/>
+                            <constraint firstItem="j1p-ka-1eM" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="fro-ec-zmh"/>
+                            <constraint firstItem="HXn-eB-bc6" firstAttribute="top" secondItem="BHs-Ww-9na" secondAttribute="bottom" constant="30" id="hPO-Ju-tDq"/>
+                            <constraint firstItem="MXb-rF-Khr" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="k6l-Hn-PZQ"/>
+                            <constraint firstItem="j1p-ka-1eM" firstAttribute="top" secondItem="MXb-rF-Khr" secondAttribute="bottom" constant="12" id="odr-lD-aw6"/>
+                            <constraint firstItem="HXn-eB-bc6" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="yUT-ca-Ptp"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabs_manager" selectedImage="tabs_manager_selected" id="569-TW-49m"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="price" destination="p8k-Y2-hvy" id="cKg-0l-fDF"/>
+                        <outlet property="LogoutButton" destination="LIJ-RG-sxZ" id="4Xy-kZ-oYX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KH-dR-zY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
