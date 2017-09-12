@@ -54,14 +54,21 @@ public class AddPaymentCardService: NSObject, UIWebViewDelegate {
         controller.present(_controller, animated: true, completion: nil)
         _isBusy = true
         _loader.show()
-        _complete = complete
+        _complete = {success, cardId in
+
+            self._loader.hide()
+            self._webView.stopLoading()
+            self._controller.dismiss(animated: true, completion: nil)
+
+            complete(success, cardId)
+        }
 
         let request = _cardsService.Add(currency: currency)
         request.async(.background, completion: { response in
 
             if (!response.isSuccess) {
 
-                complete(false, 0)
+                self._complete?(false, 0)
                 return
             }
 
@@ -71,7 +78,6 @@ public class AddPaymentCardService: NSObject, UIWebViewDelegate {
 
             DispatchQueue.main.async {
 
-                self._loader.hide()
                 self._webView.loadRequest(URLRequest(url: URL(string: link)!))
             }
         })
@@ -80,16 +86,16 @@ public class AddPaymentCardService: NSObject, UIWebViewDelegate {
     // MARK: UIWebViewDelegate
     public func webViewDidFinishLoad(_ webView: UIWebView) {
 
+        _loader.hide()
         if let url = webView.request?.url?.absoluteString {
 
-            if (url.contains("restomania") && url.contains("Payment")) {
+            if (url.contains("restomania") &&
+                url.contains("Payment") &&
+                (url.contains("Success") || url.contains("Fail"))) {
 
-//                _isBusy = false
-//                let result = url.contains("Success")
-//                _complete?(result, _cardId!)
-//
-//                webView.stopLoading()
-//                _controller.dismiss(animated: true, completion: nil)
+                _isBusy = false
+                let result = url.contains("Success")
+                _complete?(result, _cardId!)
 
                 return
             }

@@ -12,14 +12,17 @@ import IOSLibrary
 public class PaymentCardCell: UITableViewCell {
 
     public static let identifier = "PaymentCardCell-\(Guid.New)"
+    public static let nibName = "PaymentCardCellView"
 
-    @IBOutlet public weak var NumberLabel: UILabel!
-    @IBOutlet public weak var TypeLabel: UILabel!
-    @IBOutlet public weak var CloseIcon: UIImageView!
+    @IBOutlet weak var NumberLabel: UILabel!
+    @IBOutlet weak var TypeLabel: UILabel!
+    @IBOutlet weak var CloseIcon: UIImageView!
 
     private var _card: PaymentCard!
     private var _delegate: IPaymentCardsDelegate!
+    private var _isSetupMarkup: Bool = false
 
+    // MARK: Public interfaces
     public func setup(card: PaymentCard, delegate: IPaymentCardsDelegate) {
 
         _card = card
@@ -28,15 +31,33 @@ public class PaymentCardCell: UITableViewCell {
         NumberLabel.text = "**** \(_card.Last4Number)"
         TypeLabel.text = "\(card.Type)"
 
-        let tap = UIGestureRecognizer(target: self, action: #selector(tapRemove))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapRemove))
         CloseIcon.addGestureRecognizer(tap)
         CloseIcon.isUserInteractionEnabled = true
+
+        setupStyles()
+    }
+    public func Remove() {
+        tapRemove()
     }
     @objc private func tapRemove() {
 
         _delegate.removeCard(id: _card.ID)
     }
+
     private func setupStyles() {
 
+        if (_isSetupMarkup) {
+
+            return
+        }
+
+        let theme = AppSummary.current.theme
+
+        let font = UIFont(name: theme.susanBookFont, size: theme.headlineFontsize)
+        NumberLabel.font = font
+        TypeLabel.font = font
+
+        _isSetupMarkup = true
     }
 }

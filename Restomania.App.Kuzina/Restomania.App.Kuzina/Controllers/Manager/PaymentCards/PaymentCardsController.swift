@@ -48,7 +48,8 @@ public class PaymentCardsController: UIViewController,
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        TableView.register(PaymentCardCell.self, forCellReuseIdentifier: PaymentCardCell.identifier)
+        let nib = UINib(nibName: PaymentCardCell.nibName, bundle: nil)
+        TableView.register(nib, forCellReuseIdentifier: PaymentCardCell.identifier)
 
         _loader = InterfaceLoader(for: view)
     }
@@ -104,6 +105,7 @@ public class PaymentCardsController: UIViewController,
 
         //Update interface 
         _cards.remove(at: index!)
+        TableView.reloadData()
 
         let request = _apiService.Remove(cardID: id)
         request.async(.background, completion: { response in
@@ -111,6 +113,7 @@ public class PaymentCardsController: UIViewController,
             if (!response.isSuccess) {
 
                 self._cards.insert(card!, at: index!)
+                self.TableView.reloadData()
 
                 let alert = UIAlertController()
                 alert.message = "Проблемы с удалением карты, попробуйте позднее."
@@ -128,6 +131,14 @@ public class PaymentCardsController: UIViewController,
         _addCardService.addCard(for: currency, on: self, complete: { success, _ in
 
             Log.Debug(self.getTag(), "Adding new card is \(success)")
+
+            if (success) {
+                
+                DispatchQueue.main.async {
+
+                    self.loadCards()
+                }
+            }
         })
     }
 
@@ -139,6 +150,13 @@ public class PaymentCardsController: UIViewController,
         cell.setup(card: card, delegate: self)
 
         return cell
+    }
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let cell = tableView.cellForRow(at: indexPath) as? PaymentCardCell
+        cell?.Remove()
     }
     // MARK: UITableViewDataSource
     public func numberOfSections(in tableView: UITableView) -> Int {
