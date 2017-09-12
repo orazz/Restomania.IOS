@@ -17,7 +17,7 @@ public class InterfaceLoader {
     public init(for parent: UIView) {
 
         _parent = parent
-        _overlay = UIView(frame: parent.frame)
+        _overlay = UIView(frame: CGRect(x: 0, y: 0, width: parent.bounds.width, height: parent.bounds.height))
         _overlay.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.55)
 
         _indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)

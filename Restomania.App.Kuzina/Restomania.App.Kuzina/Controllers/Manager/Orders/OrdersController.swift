@@ -55,7 +55,7 @@ public class OrdersController: UIViewController, OrdersControllerProtocol, UITab
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        hideNavigationBar()
+//        hideNavigationBar()
     }
 
     // MARK: Process methods

@@ -36,6 +36,8 @@ public class ManagerController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        hideNavigationBar()
+
         setupIntefrace()
         setupStyles()
     }

@@ -30,6 +30,14 @@ public class AppSummary: ILoggable {
     public var isNewVersion: Bool
     public var isCriticalUpdate: Bool
 
+    //Date & Time formats
+    public struct DataTimeFormat {
+
+        public static let dateWithTime = "HH:mm dd/MM/yyyy"
+        public static let shortTime = "HH:MM"
+        public static let shortDate = "dd/MM"
+    }
+
     public var placeID: Long?
     public var placeIDs: [Long]?
 

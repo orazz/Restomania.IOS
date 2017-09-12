@@ -34,7 +34,7 @@ public class OrderCell: UITableViewCell {
 
         let result = DateFormatter()
 
-        result.dateFormat = "HH:mm\ndd/MM"
+        result.dateFormat = "\(AppSummary.DataTimeFormat.shortTime)\n\(AppSummary.DataTimeFormat.shortDate)"
         result.timeZone = TimeZone(identifier: "UTC")
 
         return result

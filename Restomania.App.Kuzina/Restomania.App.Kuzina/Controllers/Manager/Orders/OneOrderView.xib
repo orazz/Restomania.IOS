@@ -11,6 +11,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OneOrderController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <connections>
+                <outlet property="CompleteDateLabel" destination="p5V-is-qZ5" id="T1G-Bs-ArP"/>
+                <outlet property="CreateAtLabel" destination="ZIs-ga-KC2" id="vmh-er-gGv"/>
+                <outlet property="KeywordTitleLabel" destination="fqv-OI-nKv" id="J9R-ux-Fy3"/>
+                <outlet property="KeywordValueLabel" destination="P45-yd-xD5" id="omR-tv-uNS"/>
+                <outlet property="PlaceNameTitleLabel" destination="ixy-xU-KnY" id="Rwp-fn-SNr"/>
+                <outlet property="PlaceNameValueLabel" destination="4qi-sa-Apo" id="tDn-Z0-txr"/>
+                <outlet property="StatusTitleLabel" destination="HVj-nI-Vvc" id="9Vf-9u-wui"/>
+                <outlet property="StatusValueLabel" destination="ono-Xw-6JU" id="T0R-OG-ZMB"/>
+                <outlet property="TableView" destination="eiz-YQ-kAj" id="Ioc-MT-8Y3"/>
+                <outlet property="TotalTitleLabel" destination="GaS-aJ-frI" id="cQd-8Q-tbB"/>
+                <outlet property="TotalValueLabel" destination="0Rg-Mu-77q" id="1Vv-ND-K8h"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uGM-GW-nMe"/>
             </connections>
         </placeholder>
@@ -18,7 +29,135 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W79-OJ-MUN">
+                    <rect key="frame" x="0.0" y="20" width="375" height="135"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="на 08:00 25/07/2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5V-is-qZ5">
+                            <rect key="frame" x="8" y="5" width="359" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="кодовое слово: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqv-OI-nKv">
+                            <rect key="frame" x="8" y="41" width="127" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шоколад" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P45-yd-xD5">
+                            <rect key="frame" x="143" y="41" width="78" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="в" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixy-xU-KnY">
+                            <rect key="frame" x="8" y="72" width="9" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="статус" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVj-nI-Vvc">
+                            <rect key="frame" x="8" y="103" width="53" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В обработке" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ono-Xw-6JU">
+                            <rect key="frame" x="69" y="103" width="106" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Кузина Красный проспект 77б" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="4qi-sa-Apo">
+                            <rect key="frame" x="25" y="72" width="261" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="P45-yd-xD5" firstAttribute="top" secondItem="p5V-is-qZ5" secondAttribute="bottom" constant="15" id="1Pf-nu-PHv"/>
+                        <constraint firstItem="4qi-sa-Apo" firstAttribute="top" secondItem="P45-yd-xD5" secondAttribute="bottom" constant="10" id="27l-bP-1tm"/>
+                        <constraint firstItem="fqv-OI-nKv" firstAttribute="leading" secondItem="W79-OJ-MUN" secondAttribute="leading" constant="8" id="2pt-rr-QJT"/>
+                        <constraint firstItem="ixy-xU-KnY" firstAttribute="top" secondItem="fqv-OI-nKv" secondAttribute="bottom" constant="10" id="67o-GM-BFQ"/>
+                        <constraint firstItem="p5V-is-qZ5" firstAttribute="top" secondItem="W79-OJ-MUN" secondAttribute="top" constant="5" id="FbG-Yg-Cke"/>
+                        <constraint firstItem="fqv-OI-nKv" firstAttribute="top" secondItem="p5V-is-qZ5" secondAttribute="bottom" constant="15" id="IeB-Du-Ijk"/>
+                        <constraint firstItem="4qi-sa-Apo" firstAttribute="leading" secondItem="ixy-xU-KnY" secondAttribute="trailing" constant="8" id="Itl-io-CHj"/>
+                        <constraint firstAttribute="height" constant="135" id="T3f-H4-fNN"/>
+                        <constraint firstItem="ono-Xw-6JU" firstAttribute="top" secondItem="4qi-sa-Apo" secondAttribute="bottom" constant="10" id="WTe-LL-ux3"/>
+                        <constraint firstItem="P45-yd-xD5" firstAttribute="leading" secondItem="fqv-OI-nKv" secondAttribute="trailing" constant="8" id="YQn-9W-soT"/>
+                        <constraint firstItem="HVj-nI-Vvc" firstAttribute="top" secondItem="4qi-sa-Apo" secondAttribute="bottom" constant="10" id="aJV-03-BP3"/>
+                        <constraint firstItem="p5V-is-qZ5" firstAttribute="leading" secondItem="W79-OJ-MUN" secondAttribute="leading" constant="8" id="dr7-tt-luK"/>
+                        <constraint firstItem="ixy-xU-KnY" firstAttribute="leading" secondItem="W79-OJ-MUN" secondAttribute="leading" constant="8" id="t9h-UO-Jqv"/>
+                        <constraint firstAttribute="trailing" secondItem="p5V-is-qZ5" secondAttribute="trailing" constant="8" id="vMU-Iu-pDj"/>
+                        <constraint firstItem="ono-Xw-6JU" firstAttribute="leading" secondItem="HVj-nI-Vvc" secondAttribute="trailing" constant="8" id="xSS-bG-wwK"/>
+                        <constraint firstItem="HVj-nI-Vvc" firstAttribute="leading" secondItem="W79-OJ-MUN" secondAttribute="leading" constant="8" id="zHm-HM-2lf"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eiz-YQ-kAj">
+                    <rect key="frame" x="0.0" y="170" width="375" height="400"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="400" id="Qus-5M-fRG"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="dhn-29-fPO"/>
+                        <outlet property="delegate" destination="-1" id="jf0-Mb-ZAt"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ld-AG-033">
+                    <rect key="frame" x="0.0" y="585" width="375" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaS-aJ-frI">
+                            <rect key="frame" x="8" y="5" width="48" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="220 P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rg-Mu-77q" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                            <rect key="frame" x="322" y="4" width="45" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="GaS-aJ-frI" firstAttribute="centerY" secondItem="3Ld-AG-033" secondAttribute="centerY" id="58z-2l-Gqu"/>
+                        <constraint firstAttribute="height" constant="30" id="7S9-R4-0j6"/>
+                        <constraint firstItem="0Rg-Mu-77q" firstAttribute="centerY" secondItem="3Ld-AG-033" secondAttribute="centerY" id="8lO-nT-b49"/>
+                        <constraint firstAttribute="trailing" secondItem="0Rg-Mu-77q" secondAttribute="trailing" constant="8" id="9FI-0g-Ifs"/>
+                        <constraint firstItem="GaS-aJ-frI" firstAttribute="leading" secondItem="3Ld-AG-033" secondAttribute="leading" constant="8" id="slC-Y1-w6B"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="добавлено 12:00 20/07/2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIs-ga-KC2">
+                    <rect key="frame" x="8" y="630" width="359" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.82473429568527923" green="0.82473429568527923" blue="0.82473429568527923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3Ld-AG-033" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2J2-nT-BUK"/>
+                <constraint firstItem="eiz-YQ-kAj" firstAttribute="top" secondItem="W79-OJ-MUN" secondAttribute="bottom" constant="15" id="4sS-MY-8iJ"/>
+                <constraint firstItem="W79-OJ-MUN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="GNE-j5-4KS"/>
+                <constraint firstAttribute="trailing" secondItem="W79-OJ-MUN" secondAttribute="trailing" id="I2X-0t-fHq"/>
+                <constraint firstAttribute="trailing" secondItem="eiz-YQ-kAj" secondAttribute="trailing" id="LU6-yg-0ZD"/>
+                <constraint firstItem="W79-OJ-MUN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iaM-H9-DxD"/>
+                <constraint firstItem="ZIs-ga-KC2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="idm-J2-X7m"/>
+                <constraint firstAttribute="trailing" secondItem="ZIs-ga-KC2" secondAttribute="trailing" constant="8" id="jtR-cy-vUJ"/>
+                <constraint firstAttribute="trailing" secondItem="3Ld-AG-033" secondAttribute="trailing" id="nYY-xg-y93"/>
+                <constraint firstItem="eiz-YQ-kAj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vHg-31-Kvt"/>
+                <constraint firstItem="ZIs-ga-KC2" firstAttribute="top" secondItem="3Ld-AG-033" secondAttribute="bottom" constant="15" id="xw0-Ds-FHf"/>
+                <constraint firstItem="3Ld-AG-033" firstAttribute="top" secondItem="eiz-YQ-kAj" secondAttribute="bottom" constant="15" id="zFF-L0-nRD"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="132.5" y="51.5"/>
         </view>
     </objects>
 </document>

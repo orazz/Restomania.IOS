@@ -188,6 +188,8 @@
 		1FF703A11F6737E50028A9B8 /* AddPaymentCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A01F6737E50028A9B8 /* AddPaymentCardService.swift */; };
 		1FF703A51F6747A90028A9B8 /* BlackBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A41F6747A90028A9B8 /* BlackBottomButton.swift */; };
 		1FF703A71F6845C50028A9B8 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A61F6845C50028A9B8 /* Price.swift */; };
+		1FF703AC1F6860670028A9B8 /* OrderedDishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703AB1F6860670028A9B8 /* OrderedDishCell.swift */; };
+		1FF703AE1F6862F50028A9B8 /* OrderedDishCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF703AD1F6862F50028A9B8 /* OrderedDishCellView.xib */; };
 		1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */; };
 		1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */; };
 		1FFA57C11F20CFD100E83463 /* OpenPlaceSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57C01F20CFD100E83463 /* OpenPlaceSummariesApiService.swift */; };
@@ -419,6 +421,8 @@
 		1FF703A01F6737E50028A9B8 /* AddPaymentCardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPaymentCardService.swift; path = Services/AddPaymentCardService.swift; sourceTree = "<group>"; };
 		1FF703A41F6747A90028A9B8 /* BlackBottomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlackBottomButton.swift; path = Elements/Buttons/BlackBottomButton.swift; sourceTree = "<group>"; };
 		1FF703A61F6845C50028A9B8 /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Domains/Places/Menues/Price.swift; sourceTree = "<group>"; };
+		1FF703AB1F6860670028A9B8 /* OrderedDishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderedDishCell.swift; path = Controllers/Manager/Orders/OrderedDishCell.swift; sourceTree = "<group>"; };
+		1FF703AD1F6862F50028A9B8 /* OrderedDishCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderedDishCellView.xib; path = Controllers/Manager/Orders/OrderedDishCellView.xib; sourceTree = "<group>"; };
 		1FFA57C01F20CFD100E83463 /* OpenPlaceSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenPlaceSummariesApiService.swift; path = ApiServices/Open/OpenPlaceSummariesApiService.swift; sourceTree = "<group>"; };
 		1FFA57C51F21EDBA00E83463 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
 		1FFA57D21F2240DB00E83463 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Controllers/NavigationController.swift; sourceTree = "<group>"; };
@@ -594,6 +598,8 @@
 				1F77EFB31F66D3A300C93DB0 /* OrderCellView.xib */,
 				1F77EFB51F66D40800C93DB0 /* OneOrderController.swift */,
 				1F77EFB71F66D44800C93DB0 /* OneOrderView.xib */,
+				1FF703AB1F6860670028A9B8 /* OrderedDishCell.swift */,
+				1FF703AD1F6862F50028A9B8 /* OrderedDishCellView.xib */,
 			);
 			name = Orders;
 			sourceTree = "<group>";
@@ -1304,6 +1310,7 @@
 				1F77EFAE1F66D16700C93DB0 /* ChangePasswordView.xib in Resources */,
 				1F77EF991F66705700C93DB0 /* EditProfileView.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
+				1FF703AE1F6862F50028A9B8 /* OrderedDishCellView.xib in Resources */,
 				1F77EFC41F6719B400C93DB0 /* PaymentCardCellView.xib in Resources */,
 				1F261CA61F430485004BFFCB /* SignupPage.xib in Resources */,
 				1F77EFB01F66D35A00C93DB0 /* OrdersView.xib in Resources */,
@@ -1558,6 +1565,7 @@
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
 				1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */,
 				1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */,
+				1FF703AC1F6860670028A9B8 /* OrderedDishCell.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
 				1FD9A0981F2321B60026BDF8 /* AppSummary.swift in Sources */,
 				1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */,
