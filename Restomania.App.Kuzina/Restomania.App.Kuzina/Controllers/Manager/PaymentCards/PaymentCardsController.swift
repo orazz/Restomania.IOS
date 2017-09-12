@@ -133,7 +133,7 @@ public class PaymentCardsController: UIViewController,
             Log.Debug(self.getTag(), "Adding new card is \(success)")
 
             if (success) {
-                
+
                 DispatchQueue.main.async {
 
                     self.loadCards()
@@ -158,6 +158,11 @@ public class PaymentCardsController: UIViewController,
         let cell = tableView.cellForRow(at: indexPath) as? PaymentCardCell
         cell?.Remove()
     }
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        return PaymentCardCell.height
+    }
+
     // MARK: UITableViewDataSource
     public func numberOfSections(in tableView: UITableView) -> Int {
 

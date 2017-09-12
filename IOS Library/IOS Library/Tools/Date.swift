@@ -20,9 +20,28 @@ extension Date {
     }
 
     public static func parseJson(value: String) -> Date {
-        return Date.ISOFormatter.date(from: value)!
+
+        var date = value
+
+        let components = date.components(separatedBy: ".")
+        if (components.count != 1) {
+
+            date = ""
+            for i in 0...(components.count-2) {
+
+                date += components[i]
+            }
+        }
+
+        if (!date.hasSuffix("Z")) {
+
+            date += "Z"
+        }
+
+       return Date.ISOFormatter.date(from: date)!
     }
     public func prepareForJson() -> String {
+
         return Date.ISOFormatter.string(from: self)
     }
 }

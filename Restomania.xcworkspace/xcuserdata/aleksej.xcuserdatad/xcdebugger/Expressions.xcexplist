@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static Date.parseJson(value : String) -&gt; Date:Date.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "date.components(separatedBy: &quot;.&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Cart.refresh(dishes : [Dish]) -&gt; ():Cart.swift">
       </ContextState>
       <ContextState
@@ -71,13 +79,13 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "notUTC!.toUTC()">
-            </PersistentString>
-            <PersistentString
                value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
             </PersistentString>
             <PersistentString
                value = "formatter.date(from: value)">
+            </PersistentString>
+            <PersistentString
+               value = "notUTC!.toUTC()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -86,6 +94,9 @@
       </ContextState>
       <ContextState
          contextName = "OpenPlaceSummariesApiServiceTests.testRange() -&gt; ():OpenPlaceSummariesApiService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PaymentCardCell.setup(card : PaymentCard, delegate : IPaymentCardsDelegate) -&gt; ():PaymentCardCell.swift">
       </ContextState>
       <ContextState
          contextName = "ApiClient.SendTo&lt;A where ...&gt; (String, method : HttpMethod, parameters : [String : Encodable]) -&gt; Task&lt;(ApiResponse, A?)&gt;:ApiClient.swift">
@@ -112,13 +123,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "static Decoder.(decode&lt;A where ...&gt; (decodableArrayForKey : String, keyPathDelimiter : String) -&gt; ([String : Any]) -&gt; [A]?).(closure #1):Decoder.swift">
+      </ContextState>
+      <ContextState
          contextName = "ApiClient.(SendTo&lt;A&gt; (String, method : HttpMethod, parameters : [String : Any?], parser : (Any?) -&gt; A) -&gt; Task&lt;ApiResponse&lt;A&gt;&gt;).(closure #1).(closure #1):ApiClient.swift">
          <PersistentStrings>
             <PersistentString
-               value = "apiResponse.exception">
-            </PersistentString>
-            <PersistentString
-               value = "Date.fromUTC(value: json[&quot;Data&quot;] as String) ">
+               value = "print( data)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -143,6 +154,9 @@
                value = "name.value as String">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPaymentCardService.(addCard(for : CurrencyType, on : UIViewController, complete : (Bool, Int64) -&gt; ()) -&gt; ()).(closure #2):AddPaymentCardService.swift">
       </ContextState>
       <ContextState
          contextName = "PlaceCard.initialize(summary : PlaceSummary) -&gt; ():PlaceCard.swift">
@@ -217,6 +231,17 @@
          <PersistentStrings>
             <PersistentString
                value = "LoginTextField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OrderedDish.init(json : [String : Any]) -&gt; OrderedDish:OrderedDish.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "json[&quot;Price&quot;] as Int">
+            </PersistentString>
+            <PersistentString
+               value = "json[&quot;Price&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

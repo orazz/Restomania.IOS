@@ -11,24 +11,39 @@ import Gloss
 
 public class OrderedDish: BaseDataType {
 
+    public struct Keys {
+
+        public static let dishId = "DishID"
+        public static let name = "Name"
+        public static let price = "Price"
+        public static let count = "Count"
+        public static let cost = "Cost"
+    }
+
     public var DishID: Int64
     public var Name: String
-    public var Price: Double
+    public var Price: PriceType
     public var Count: Int
 
+    public var Cost: Double {
+
+        return Price.double * Double(Count)
+    }
+
     public override init() {
+
         self.DishID = 0
         self.Name = String.Empty
-        self.Price = 0
+        self.Price = PriceType()
         self.Count = 0
 
         super.init()
     }
     public required init(json: JSON) {
-        self.DishID = ("DishID" <~~ json)!
-        self.Name = ("Name" <~~ json)!
-        self.Price = ("Price" <~~ json)!
-        self.Count = ("Count" <~~ json)!
+        self.DishID = (Keys.dishId <~~ json)!
+        self.Name = (Keys.name <~~ json)!
+        self.Price = (Keys.price <~~ json)!
+        self.Count = (Keys.count <~~ json)!
 
         super.init(json: json)
     }
@@ -36,7 +51,7 @@ public class OrderedDish: BaseDataType {
 
         self.DishID = dish.ID
         self.Name = dish.Name
-        self.Price = dish.Price
+        self.Price = PriceType(double: dish.Price)
         self.Count = count
 
         super.init()
@@ -54,10 +69,10 @@ public class OrderedDish: BaseDataType {
     public override func toJSON() -> JSON? {
 
         return jsonify([
-            "DishID" ~~> self.DishID,
-            "Name" ~~> self.Name,
-            "Price" ~~> self.Price,
-            "Count" ~~> self.Count,
+            Keys.dishId ~~> self.DishID,
+            Keys.name ~~> self.Name,
+            Keys.price ~~> self.Price,
+            Keys.count ~~> self.Count,
             super.toJSON()!
             ])
     }

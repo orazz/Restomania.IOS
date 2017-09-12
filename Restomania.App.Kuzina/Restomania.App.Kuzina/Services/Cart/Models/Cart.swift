@@ -60,7 +60,8 @@ public class Cart: Reservation {
         var result = Double(0)
 
         for dish in dishes {
-            result += dish.Price * Double(dish.Count)
+
+            result += dish.Cost
         }
 
         return result
@@ -121,7 +122,7 @@ public class Cart: Reservation {
         for dish in menuDishes {
             if let ordered = find(dish) {
 
-                ordered.Price = dish.Price
+                ordered.Price = PriceType(double: dish.Price)
                 ordered.Name = dish.Name
             }
         }

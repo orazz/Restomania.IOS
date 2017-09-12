@@ -140,7 +140,6 @@
 		1FBE83FB1F25CA700002F0B5 /* WrappedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE83FA1F25CA700002F0B5 /* WrappedImage.swift */; };
 		1FBE83FD1F25CA7F0002F0B5 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE83FC1F25CA7F0002F0B5 /* ImageSize.swift */; };
 		1FBE84001F25D06E0002F0B5 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE83FF1F25D06E0002F0B5 /* PriceLabel.swift */; };
-		1FBE84021F25D10E0002F0B5 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84011F25D10E0002F0B5 /* Price.swift */; };
 		1FBE84061F26167E0002F0B5 /* PlaceCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84051F26167E0002F0B5 /* PlaceCartContainer.swift */; };
 		1FBE84081F2617FE0002F0B5 /* CommonCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84071F2617FE0002F0B5 /* CommonCartContainer.swift */; };
 		1FBE840A1F2629850002F0B5 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84091F2629850002F0B5 /* CartService.swift */; };
@@ -188,6 +187,7 @@
 		1FD9A0CE1F2406230026BDF8 /* default-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9A0CD1F2406230026BDF8 /* default-image.jpg */; };
 		1FF703A11F6737E50028A9B8 /* AddPaymentCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A01F6737E50028A9B8 /* AddPaymentCardService.swift */; };
 		1FF703A51F6747A90028A9B8 /* BlackBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A41F6747A90028A9B8 /* BlackBottomButton.swift */; };
+		1FF703A71F6845C50028A9B8 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A61F6845C50028A9B8 /* Price.swift */; };
 		1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */; };
 		1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */; };
 		1FFA57C11F20CFD100E83463 /* OpenPlaceSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57C01F20CFD100E83463 /* OpenPlaceSummariesApiService.swift */; };
@@ -365,7 +365,6 @@
 		1FBE83FA1F25CA700002F0B5 /* WrappedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WrappedImage.swift; path = Elements/WrappedImage/WrappedImage.swift; sourceTree = "<group>"; };
 		1FBE83FC1F25CA7F0002F0B5 /* ImageSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSize.swift; path = Elements/WrappedImage/ImageSize.swift; sourceTree = "<group>"; };
 		1FBE83FF1F25D06E0002F0B5 /* PriceLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceLabel.swift; path = Elements/Price/PriceLabel.swift; sourceTree = "<group>"; };
-		1FBE84011F25D10E0002F0B5 /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Elements/Price/Price.swift; sourceTree = "<group>"; };
 		1FBE84051F26167E0002F0B5 /* PlaceCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceCartContainer.swift; path = Services/Cart/Models/PlaceCartContainer.swift; sourceTree = "<group>"; };
 		1FBE84071F2617FE0002F0B5 /* CommonCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonCartContainer.swift; path = Services/Cart/Models/CommonCartContainer.swift; sourceTree = "<group>"; };
 		1FBE84091F2629850002F0B5 /* CartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartService.swift; path = Services/Cart/CartService.swift; sourceTree = "<group>"; };
@@ -419,6 +418,7 @@
 		1FF4FE8C1F1CF21E00CC78B3 /* BaseNotificationPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseNotificationPreference.swift; path = Domains/NotificationPreferences/BaseNotificationPreference.swift; sourceTree = "<group>"; };
 		1FF703A01F6737E50028A9B8 /* AddPaymentCardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPaymentCardService.swift; path = Services/AddPaymentCardService.swift; sourceTree = "<group>"; };
 		1FF703A41F6747A90028A9B8 /* BlackBottomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlackBottomButton.swift; path = Elements/Buttons/BlackBottomButton.swift; sourceTree = "<group>"; };
+		1FF703A61F6845C50028A9B8 /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Domains/Places/Menues/Price.swift; sourceTree = "<group>"; };
 		1FFA57C01F20CFD100E83463 /* OpenPlaceSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenPlaceSummariesApiService.swift; path = ApiServices/Open/OpenPlaceSummariesApiService.swift; sourceTree = "<group>"; };
 		1FFA57C51F21EDBA00E83463 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
 		1FFA57D21F2240DB00E83463 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Controllers/NavigationController.swift; sourceTree = "<group>"; };
@@ -715,6 +715,7 @@
 				1FB8EFE71F1D4BF90090045E /* DishCategory.swift */,
 				1FB8EFE51F1D4BDF0090045E /* Dish.swift */,
 				1FB8EFE91F1D4C0C0090045E /* Menu.swift */,
+				1FF703A61F6845C50028A9B8 /* Price.swift */,
 			);
 			name = Menues;
 			sourceTree = "<group>";
@@ -836,15 +837,6 @@
 				1FBE83FC1F25CA7F0002F0B5 /* ImageSize.swift */,
 			);
 			name = WrappedImage;
-			sourceTree = "<group>";
-		};
-		1FBE83FE1F25D0550002F0B5 /* Price */ = {
-			isa = PBXGroup;
-			children = (
-				1FBE83FF1F25D06E0002F0B5 /* PriceLabel.swift */,
-				1FBE84011F25D10E0002F0B5 /* Price.swift */,
-			);
-			name = Price;
 			sourceTree = "<group>";
 		};
 		1FBE84031F2615C40002F0B5 /* Cart */ = {
@@ -1116,9 +1108,9 @@
 			isa = PBXGroup;
 			children = (
 				1F261C781F42BC4B004BFFCB /* Buttons */,
-				1FBE83FE1F25D0550002F0B5 /* Price */,
 				1FBE83F91F25C9D00002F0B5 /* WrappedImage */,
 				1FD9A0BA1F23607C0026BDF8 /* Cards */,
+				1FBE83FF1F25D06E0002F0B5 /* PriceLabel.swift */,
 				1F68AF8D1F29EB77000614C9 /* InterfaceLoader.swift */,
 			);
 			name = Elements;
@@ -1586,7 +1578,6 @@
 				1FB8EFF91F1DE8F10090045E /* LoyaltyType.swift in Sources */,
 				1FF703A11F6737E50028A9B8 /* AddPaymentCardService.swift in Sources */,
 				1FB8F0531F1EC45D0090045E /* UserOrdersApiService.swift in Sources */,
-				1FBE84021F25D10E0002F0B5 /* Price.swift in Sources */,
 				1FB8EFD11F1D429D0090045E /* Rate.swift in Sources */,
 				1F9B84321F24AE78004148F7 /* ClientAppType.swift in Sources */,
 				1FB8F01B1F1E190F0090045E /* IKeysStorage.swift in Sources */,
@@ -1622,6 +1613,7 @@
 				1FB8F0121F1E0B520090045E /* OpenPlacesApiService.swift in Sources */,
 				1FB8F03F1F1EADFB0090045E /* PaymentCardStatus.swift in Sources */,
 				1F261C8D1F42C40C004BFFCB /* TabsController.swift in Sources */,
+				1FF703A71F6845C50028A9B8 /* Price.swift in Sources */,
 				1FB8F0171F1E14B30090045E /* GetArgs.swift in Sources */,
 				1FB8F06C1F1EDCDB0090045E /* AddingOrder.swift in Sources */,
 			);

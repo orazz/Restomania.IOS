@@ -10,6 +10,18 @@ import UIKit
 
 public class PriceLabel: UILabel {
 
+    public class Price {
+
+        public let amount: Double
+        public let currency: CurrencyType
+
+        public init(amount: Double, currency: CurrencyType) {
+
+            self.amount = amount
+            self.currency = currency
+        }
+    }
+
     public var price: Price? {
         return _price
     }

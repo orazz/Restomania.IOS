@@ -11,11 +11,23 @@ import Gloss
 
 public class DishOrder: BaseOrder {
 
+    public struct Keys {
+
+        public static let dishes = "Dishes"
+        public static let subtotal = "SubTotal"
+        public static let discount = "Discount"
+        public static let totalPrice = "TotalPrice"
+        public static let status = "Status"
+        public static let type = "Type"
+        public static let takeaway = "TakeAway"
+        public static let isPaid = "IsPaid"
+    }
+
     public var Dishes: [OrderedDish]
     public var SubTotal: Double
     public var Discount: Double
     public var TotalPrice: Double
-    public var Booking: Booking?
+//    public var Booking: Booking?
     public var Status: DishOrderStatus
     public var `Type`: DishOrderType
     public var TakeAway: Bool
@@ -26,7 +38,7 @@ public class DishOrder: BaseOrder {
         self.SubTotal = 0
         self.Discount = 0
         self.TotalPrice = 0
-        self.Booking = nil
+//        self.Booking = nil
         self.Status = .Processing
         self.Type = .Remote
         self.TakeAway = false
@@ -35,15 +47,15 @@ public class DishOrder: BaseOrder {
         super.init()
     }
     public required init(json: JSON) {
-        self.Dishes = ("Dishes" <~~ json)!
-        self.SubTotal = ("SubTotal" <~~ json)!
-        self.Discount = ("Discount" <~~ json)!
-        self.TotalPrice = ("TotalPrice" <~~ json)!
-        self.Booking = ("Booking" <~~ json)!
-        self.Status = ("Status" <~~ json)!
-        self.Type = ("Type" <~~ json)!
-        self.TakeAway = ("TakeAway" <~~ json)!
-        self.IsPaid = ("IsPaid" <~~ json)!
+        self.Dishes = (Keys.dishes <~~ json)!
+        self.SubTotal = (Keys.subtotal <~~ json)!
+        self.Discount = (Keys.discount <~~ json)!
+        self.TotalPrice = (Keys.totalPrice <~~ json)!
+//        self.Booking = ("Booking" <~~ json)!
+        self.Status = (Keys.status <~~ json)!
+        self.Type = (Keys.type <~~ json)!
+        self.TakeAway = (Keys.takeaway <~~ json)!
+        self.IsPaid = (Keys.isPaid <~~ json)!
 
         super.init(json: json)
     }

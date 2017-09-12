@@ -16,13 +16,16 @@ public class UserOrdersApiService: BaseAuthApiService {
     }
 
     public func All(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {
+
         let parameters = CollectParameters([
                 "time": args?.time
             ])
 
         return _client.GetRange(action: "All", type: DishOrder.self, parameters: parameters)
     }
+
     public func Find(orderID: Int64) -> RequestResult<DishOrder> {
+
         let parameters = CollectParameters([
                 "elementID": orderID
             ])

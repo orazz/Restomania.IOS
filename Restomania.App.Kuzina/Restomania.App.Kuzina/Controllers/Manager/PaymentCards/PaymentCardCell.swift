@@ -13,6 +13,7 @@ public class PaymentCardCell: UITableViewCell {
 
     public static let identifier = "PaymentCardCell-\(Guid.New)"
     public static let nibName = "PaymentCardCellView"
+    public static let height: CGFloat = 50
 
     @IBOutlet weak var NumberLabel: UILabel!
     @IBOutlet weak var TypeLabel: UILabel!
