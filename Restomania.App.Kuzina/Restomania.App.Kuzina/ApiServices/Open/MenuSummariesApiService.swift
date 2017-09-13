@@ -9,16 +9,16 @@
 import Foundation
 import IOSLibrary
 
-public class OpenMenuSummariesApiService: BaseApiService {
+public class MenuSummariesApiService: BaseApiService {
 
     public init() {
-        super.init(area: "Open/MenuSummaries", tag: "OpenMenuSummariesApiService")
+        super.init(area: "Menu/Summaries", tag: "MenuSummariesApiService")
     }
 
     public func find(placeID: Long) -> RequestResult<MenuSummary> {
 
         let parameters = CollectParameters([
-                "placeID": placeID
+                "placeId": placeID
             ])
 
         return _client.Get(action: "Find", type: MenuSummary.self, parameters: parameters)
@@ -26,7 +26,7 @@ public class OpenMenuSummariesApiService: BaseApiService {
     public func range(placeIDs: [Long]) -> RequestResult<[MenuSummary]> {
 
         let parameters = CollectParameters([
-                "placeIDs": placeIDs
+                "placeIds": placeIDs
             ])
 
         return _client.GetRange(action: "Range", type: MenuSummary.self, parameters: parameters)

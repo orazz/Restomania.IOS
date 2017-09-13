@@ -14,6 +14,12 @@ public class MenuDishCard: UITableViewCell {
     public static let nibName = "MenuDishCard"
     public static let identifier = "MenuDishCard-\(Guid.New)"
     public static let height = CGFloat(110)
+    public static let nib = UINib(nibName: nibName, bundle: Bundle.main)
+
+    public static var newInstance: MenuDishCard {
+
+        return nib.instantiate(withOwner: nil, options: nil).first as! MenuDishCard
+    }
 
     @IBOutlet weak var dishImage: WrappedImage!
     @IBOutlet weak var dishName: UILabel!
@@ -40,21 +46,21 @@ public class MenuDishCard: UITableViewCell {
 
         //Name
         dishName.font = UIFont(name: _theme.susanBoldFont, size: _theme.titleFontSize)
-        dishName.text = _dish.Name
+        dishName.text = _dish.name
         dishName.textColor = _theme.blackColor
 
         //Description
         dishDescription.font = UIFont(name: _theme.susanBookFont, size: _theme.captionFontSize)
-        dishDescription.text = _dish.Description
+        dishDescription.text = _dish.description
         dishDescription.textColor = _theme.blackColor
 
         //Price
         dishPrice.font = UIFont(name: _theme.susanBookFont, size: _theme.subheadFontSize)
         dishPrice.textColor = _theme.blackColor
-        dishPrice.setup(amount: _dish.Price, currency: _currency)
+        dishPrice.setup(amount: _dish.price.double, currency: _currency)
 
         //Image
-        dishImage.setup(url: _dish.ImageLink)
+        dishImage.setup(url: _dish.image)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapAction))
         addButton.addGestureRecognizer(tap)

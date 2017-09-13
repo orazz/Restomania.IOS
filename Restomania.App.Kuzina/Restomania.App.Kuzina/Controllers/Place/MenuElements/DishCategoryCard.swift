@@ -21,11 +21,11 @@ public class DishCategoryCard: UICollectionViewCell {
     private var _categoryID: Long!
     private var _handler: ((Long, DishCategoryCard) -> Void)?
 
-    public func setup(category: DishCategory, handler: @escaping (Long, DishCategoryCard) -> Void ) {
+    public func setup(category: MenuCategory, handler: @escaping (Long, DishCategoryCard) -> Void ) {
 
         _categoryID = category.ID
         _handler = handler
-        name.text = category.Name.lowercased()
+        name.text = category.name.lowercased()
 
         setupStyles()
     }
@@ -57,9 +57,9 @@ public class DishCategoryCard: UICollectionViewCell {
         backgroundColor = _theme.whiteColor
     }
 
-    public static func sizeOfCell(category: DishCategory) -> CGSize {
+    public static func sizeOfCell(category: MenuCategory) -> CGSize {
 
-        let text = category.Name as NSString
+        let text = category.name as NSString
         let width = text.size(attributes: [NSFontAttributeName: DishCategoryCard._nameFont!]).width + 12 + 12 //12 is offset label from parent cell
 
         return CGSize(width: width, height: 36)

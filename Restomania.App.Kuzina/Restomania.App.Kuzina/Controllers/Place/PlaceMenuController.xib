@@ -25,7 +25,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="JL5-6G-4pb">
+        <view clipsSubviews="YES" contentMode="scaleAspectFill" id="JL5-6G-4pb">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -131,15 +131,25 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cX6-7I-o3u">
-                            <rect key="frame" x="0.0" y="51" width="375" height="406"/>
+                            <rect key="frame" x="0.0" y="51" width="375" height="356"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frE-7D-lFj" customClass="BlackBottomButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="407" width="375" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="hgE-2H-dra"/>
+                            </constraints>
+                            <state key="normal" title="Корзина"/>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="uyu-GQ-MJt" firstAttribute="top" secondItem="BJn-g2-TZp" secondAttribute="top" id="4HV-UR-50r"/>
-                        <constraint firstAttribute="bottom" secondItem="cX6-7I-o3u" secondAttribute="bottom" id="LL1-om-MZU"/>
+                        <constraint firstItem="frE-7D-lFj" firstAttribute="leading" secondItem="BJn-g2-TZp" secondAttribute="leading" id="4YR-LJ-L6O"/>
+                        <constraint firstItem="frE-7D-lFj" firstAttribute="top" secondItem="cX6-7I-o3u" secondAttribute="bottom" id="MMu-bX-xRM"/>
+                        <constraint firstAttribute="trailing" secondItem="frE-7D-lFj" secondAttribute="trailing" id="Nf0-IO-38H"/>
                         <constraint firstItem="cX6-7I-o3u" firstAttribute="top" secondItem="uyu-GQ-MJt" secondAttribute="bottom" constant="15" id="UIi-4K-G2k"/>
                         <constraint firstItem="uyu-GQ-MJt" firstAttribute="leading" secondItem="BJn-g2-TZp" secondAttribute="leading" id="iHI-zh-Xyq"/>
+                        <constraint firstAttribute="bottom" secondItem="frE-7D-lFj" secondAttribute="bottom" id="iUG-nM-KwO"/>
                         <constraint firstAttribute="trailing" secondItem="cX6-7I-o3u" secondAttribute="trailing" id="pSA-is-aNR"/>
                         <constraint firstItem="cX6-7I-o3u" firstAttribute="leading" secondItem="BJn-g2-TZp" secondAttribute="leading" id="rgc-tx-QSZ"/>
                         <constraint firstAttribute="trailing" secondItem="uyu-GQ-MJt" secondAttribute="trailing" id="yZs-YD-cF7"/>
@@ -157,6 +167,7 @@
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <nil key="simulatedTopBarMetrics"/>
+            <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-25.5" y="-336.5"/>
         </view>
     </objects>

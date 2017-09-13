@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */; };
+		1F1DA2C91F6889FB00EFE5CE /* DishType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2C81F6889FB00EFE5CE /* DishType.swift */; };
+		1F1DA2CB1F688A4400EFE5CE /* IMenuDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CA1F688A4400EFE5CE /* IMenuDependent.swift */; };
+		1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CC1F688AAE00EFE5CE /* UnitsOfSize.swift */; };
+		1F1DA2CF1F688AFD00EFE5CE /* PlaceDependentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CE1F688AFD00EFE5CE /* PlaceDependentProtocol.swift */; };
+		1F1DA2D11F688B5800EFE5CE /* BaseDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2D01F688B5800EFE5CE /* BaseDish.swift */; };
+		1F1DA2D31F688BD700EFE5CE /* ISortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2D21F688BD700EFE5CE /* ISortable.swift */; };
 		1F261C7A1F42BC88004BFFCB /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C791F42BC88004BFFCB /* BaseButton.swift */; };
 		1F261C7C1F42BCC5004BFFCB /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C7B1F42BCC5004BFFCB /* WhiteButton.swift */; };
 		1F261C7E1F42BCF1004BFFCB /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C7D1F42BCF1004BFFCB /* BlackButton.swift */; };
@@ -41,7 +47,7 @@
 		1F36C89C1F20CE6900232B9A /* PropertiesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89A1F20CE6900232B9A /* PropertiesStorage.swift */; };
 		1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF681F285866000614C9 /* MenuSummary.swift */; };
 		1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */; };
-		1F68AF6D1F285ABB000614C9 /* OpenMenuSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6C1F285ABB000614C9 /* OpenMenuSummariesApiService.swift */; };
+		1F68AF6D1F285ABB000614C9 /* MenuSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */; };
 		1F68AF8E1F29EB77000614C9 /* InterfaceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF8D1F29EB77000614C9 /* InterfaceLoader.swift */; };
 		1F68AF911F2A3B98000614C9 /* DishCategoryCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68AF901F2A3B98000614C9 /* DishCategoryCard.xib */; };
 		1F68AF931F2A3BC2000614C9 /* DishCategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF921F2A3BC2000614C9 /* DishCategoryCard.swift */; };
@@ -81,7 +87,7 @@
 		1FB8EFE21F1D49E20090045E /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFE11F1D49E20090045E /* Link.swift */; };
 		1FB8EFE41F1D4A970090045E /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFE31F1D4A970090045E /* Contacts.swift */; };
 		1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFE51F1D4BDF0090045E /* Dish.swift */; };
-		1FB8EFE81F1D4BF90090045E /* DishCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFE71F1D4BF90090045E /* DishCategory.swift */; };
+		1FB8EFE81F1D4BF90090045E /* MenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFE71F1D4BF90090045E /* MenuCategory.swift */; };
 		1FB8EFEA1F1D4C0C0090045E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFE91F1D4C0C0090045E /* Menu.swift */; };
 		1FB8EFEC1F1D4EEC0090045E /* KitchenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFEB1F1D4EEC0090045E /* KitchenType.swift */; };
 		1FB8EFEE1F1D4F480090045E /* RegistrationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFED1F1D4F480090045E /* RegistrationStatus.swift */; };
@@ -232,6 +238,12 @@
 
 /* Begin PBXFileReference section */
 		0A71E4697424BB89A1AA9DFA /* Pods-RestomaniaAppKuzina-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina-Tests/Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1F1DA2C81F6889FB00EFE5CE /* DishType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishType.swift; path = Domains/Places/Menues/DishType.swift; sourceTree = "<group>"; };
+		1F1DA2CA1F688A4400EFE5CE /* IMenuDependent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMenuDependent.swift; path = Domains/Places/Menues/IMenuDependent.swift; sourceTree = "<group>"; };
+		1F1DA2CC1F688AAE00EFE5CE /* UnitsOfSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitsOfSize.swift; path = Domains/Places/Menues/UnitsOfSize.swift; sourceTree = "<group>"; };
+		1F1DA2CE1F688AFD00EFE5CE /* PlaceDependentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceDependentProtocol.swift; path = Domains/Places/PlaceDependentProtocol.swift; sourceTree = "<group>"; };
+		1F1DA2D01F688B5800EFE5CE /* BaseDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDish.swift; path = Domains/Places/Menues/BaseDish.swift; sourceTree = "<group>"; };
+		1F1DA2D21F688BD700EFE5CE /* ISortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISortable.swift; path = Domains/ISortable.swift; sourceTree = "<group>"; };
 		1F261C791F42BC88004BFFCB /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseButton.swift; path = Elements/Buttons/BaseButton.swift; sourceTree = "<group>"; };
 		1F261C7B1F42BCC5004BFFCB /* WhiteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteButton.swift; path = Elements/Buttons/WhiteButton.swift; sourceTree = "<group>"; };
 		1F261C7D1F42BCF1004BFFCB /* BlackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlackButton.swift; path = Elements/Buttons/BlackButton.swift; sourceTree = "<group>"; };
@@ -267,7 +279,7 @@
 		1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorageTests.swift; path = Tools/PropertiesStorageTests.swift; sourceTree = "<group>"; };
 		1F68AF681F285866000614C9 /* MenuSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummary.swift; path = Domains/PlaceModels/MenuSummary.swift; sourceTree = "<group>"; };
 		1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheMenuSummariesService.swift; path = Services/Cache/CacheMenuSummariesService.swift; sourceTree = "<group>"; };
-		1F68AF6C1F285ABB000614C9 /* OpenMenuSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenMenuSummariesApiService.swift; path = ApiServices/Open/OpenMenuSummariesApiService.swift; sourceTree = "<group>"; };
+		1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummariesApiService.swift; path = ApiServices/Open/MenuSummariesApiService.swift; sourceTree = "<group>"; };
 		1F68AF8D1F29EB77000614C9 /* InterfaceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceLoader.swift; path = Elements/InterfaceLoader.swift; sourceTree = "<group>"; };
 		1F68AF901F2A3B98000614C9 /* DishCategoryCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DishCategoryCard.xib; path = Controllers/Place/MenuElements/DishCategoryCard.xib; sourceTree = "<group>"; };
 		1F68AF921F2A3BC2000614C9 /* DishCategoryCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishCategoryCard.swift; path = Controllers/Place/MenuElements/DishCategoryCard.swift; sourceTree = "<group>"; };
@@ -308,7 +320,7 @@
 		1FB8EFE11F1D49E20090045E /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Link.swift; path = Domains/Places/Contacts/Link.swift; sourceTree = "<group>"; };
 		1FB8EFE31F1D4A970090045E /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contacts.swift; path = Domains/Places/Contacts/Contacts.swift; sourceTree = "<group>"; };
 		1FB8EFE51F1D4BDF0090045E /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dish.swift; path = Domains/Places/Menues/Dish.swift; sourceTree = "<group>"; };
-		1FB8EFE71F1D4BF90090045E /* DishCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishCategory.swift; path = Domains/Places/Menues/DishCategory.swift; sourceTree = "<group>"; };
+		1FB8EFE71F1D4BF90090045E /* MenuCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuCategory.swift; path = Domains/Places/Menues/MenuCategory.swift; sourceTree = "<group>"; };
 		1FB8EFE91F1D4C0C0090045E /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Domains/Places/Menues/Menu.swift; sourceTree = "<group>"; };
 		1FB8EFEB1F1D4EEC0090045E /* KitchenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KitchenType.swift; path = Domains/Places/KitchenType.swift; sourceTree = "<group>"; };
 		1FB8EFED1F1D4F480090045E /* RegistrationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationStatus.swift; path = Domains/Places/RegistrationStatus.swift; sourceTree = "<group>"; };
@@ -464,6 +476,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F1DA2C71F687E1800EFE5CE /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		1F261C781F42BC4B004BFFCB /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,8 +586,8 @@
 			isa = PBXGroup;
 			children = (
 				1F68AF8F1F2A3B3B000614C9 /* MenuElements */,
-				1F261C831F42C3E8004BFFCB /* PlaceMenuController.xib */,
 				1F261C821F42C3E8004BFFCB /* PlaceMenuController.swift */,
+				1F261C831F42C3E8004BFFCB /* PlaceMenuController.xib */,
 			);
 			name = Place;
 			sourceTree = "<group>";
@@ -639,6 +659,7 @@
 				1FD9A0C81F23C7480026BDF8 /* ICached.swift */,
 				1FD9A0B01F2356860026BDF8 /* ICopying.swift */,
 				1FD9A0B21F235C830026BDF8 /* IIdentified.swift */,
+				1F1DA2D21F688BD700EFE5CE /* ISortable.swift */,
 				1FA260801F14A04F00C14886 /* BaseDataType.swift */,
 				1FF4FE7F1F1CE8B600CC78B3 /* Accounts */,
 				1FF4FE891F1CF18100CC78B3 /* NotificationPreferences */,
@@ -685,6 +706,7 @@
 				1FB8EFD71F1D47C40090045E /* Menues */,
 				1FB8EFD61F1D47AA0090045E /* Contacts */,
 				1FB8EFF71F1D520A0090045E /* Loyalties */,
+				1F1DA2CE1F688AFD00EFE5CE /* PlaceDependentProtocol.swift */,
 				1FB8EFED1F1D4F480090045E /* RegistrationStatus.swift */,
 				1FB8EFEF1F1D4F7C0090045E /* PlaceType.swift */,
 				1FB8EFEB1F1D4EEC0090045E /* KitchenType.swift */,
@@ -718,7 +740,11 @@
 		1FB8EFD71F1D47C40090045E /* Menues */ = {
 			isa = PBXGroup;
 			children = (
-				1FB8EFE71F1D4BF90090045E /* DishCategory.swift */,
+				1F1DA2CA1F688A4400EFE5CE /* IMenuDependent.swift */,
+				1F1DA2CC1F688AAE00EFE5CE /* UnitsOfSize.swift */,
+				1F1DA2C81F6889FB00EFE5CE /* DishType.swift */,
+				1FB8EFE71F1D4BF90090045E /* MenuCategory.swift */,
+				1F1DA2D01F688B5800EFE5CE /* BaseDish.swift */,
 				1FB8EFE51F1D4BDF0090045E /* Dish.swift */,
 				1FB8EFE91F1D4C0C0090045E /* Menu.swift */,
 				1FF703A61F6845C50028A9B8 /* Price.swift */,
@@ -994,6 +1020,7 @@
 				1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */,
 				1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */,
 				1FB8F0151F1E14710090045E /* Models */,
+				1F1DA2C71F687E1800EFE5CE /* Menu */,
 				1FB8F0451F1EC27F0090045E /* User */,
 				1FF4FE5B1F1BE68800CC78B3 /* System */,
 				1FF4FE5A1F1BE68200CC78B3 /* Open */,
@@ -1034,7 +1061,6 @@
 				1FB8F0131F1E12AE0090045E /* OpenReviewsApiService.swift */,
 				1FB8F0271F1E5D510090045E /* OpenDevicesApiService.swift */,
 				1F36C8921F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift */,
-				1F68AF6C1F285ABB000614C9 /* OpenMenuSummariesApiService.swift */,
 			);
 			name = Open;
 			sourceTree = "<group>";
@@ -1500,13 +1526,14 @@
 				1FB8F0081F1DF68E0090045E /* Step.swift in Sources */,
 				1F77EFA21F66CDAB00C93DB0 /* OrdersController.swift in Sources */,
 				1F77EFA81F66D01700C93DB0 /* EditNotificationPreferencesController.swift in Sources */,
+				1F1DA2C91F6889FB00EFE5CE /* DishType.swift in Sources */,
 				1FD7E69B1F1D0E140023C033 /* SystemReportsApiService.swift in Sources */,
 				1F261C841F42C3E8004BFFCB /* PlaceMenuController.swift in Sources */,
 				1F77EFBF1F6718EB00C93DB0 /* PaymentCardsController.swift in Sources */,
 				1FD9A0991F2321B60026BDF8 /* AppType.swift in Sources */,
 				1F68AF8E1F29EB77000614C9 /* InterfaceLoader.swift in Sources */,
 				1F36C8931F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift in Sources */,
-				1FB8EFE81F1D4BF90090045E /* DishCategory.swift in Sources */,
+				1FB8EFE81F1D4BF90090045E /* MenuCategory.swift in Sources */,
 				1FB8F0101F1E03470090045E /* OpenAccountsApiService.swift in Sources */,
 				1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */,
 				1FB8EFF01F1D4F7C0090045E /* PlaceType.swift in Sources */,
@@ -1541,7 +1568,7 @@
 				1FB8F0281F1E5D510090045E /* OpenDevicesApiService.swift in Sources */,
 				1F261C7A1F42BC88004BFFCB /* BaseButton.swift in Sources */,
 				1FBE84081F2617FE0002F0B5 /* CommonCartContainer.swift in Sources */,
-				1F68AF6D1F285ABB000614C9 /* OpenMenuSummariesApiService.swift in Sources */,
+				1F68AF6D1F285ABB000614C9 /* MenuSummariesApiService.swift in Sources */,
 				1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */,
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
@@ -1592,7 +1619,9 @@
 				1FF703A51F6747A90028A9B8 /* BlackBottomButton.swift in Sources */,
 				1FFA57D31F2240DB00E83463 /* NavigationController.swift in Sources */,
 				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
+				1F1DA2CF1F688AFD00EFE5CE /* PlaceDependentProtocol.swift in Sources */,
 				1F261C8B1F42C40C004BFFCB /* SearchController.swift in Sources */,
+				1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */,
 				1FB8F05A1F1EC5C90090045E /* OrderSummary.swift in Sources */,
 				1FD7E6A71F1D0E140023C033 /* Version.swift in Sources */,
 				1FB8EFE01F1D49AF0090045E /* LinkType.swift in Sources */,
@@ -1602,10 +1631,12 @@
 				1FB8EFD31F1D42DF0090045E /* ReviewStatus.swift in Sources */,
 				1FD7E6A81F1D0E140023C033 /* BaseDataType.swift in Sources */,
 				1FB8F05C1F1ECBFD0090045E /* BaseOrder.swift in Sources */,
+				1F1DA2D31F688BD700EFE5CE /* ISortable.swift in Sources */,
 				1FB8F04C1F1EC28C0090045E /* UserAccountApiService.swift in Sources */,
 				1F77EF971F66703C00C93DB0 /* EditProfileController.swift in Sources */,
 				1F68AF931F2A3BC2000614C9 /* DishCategoryCard.swift in Sources */,
 				1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */,
+				1F1DA2CB1F688A4400EFE5CE /* IMenuDependent.swift in Sources */,
 				1F261CA01F42F6C1004BFFCB /* BaseAuthController.swift in Sources */,
 				1FB8F04E1F1EC28C0090045E /* UserLoyaltyApiService.swift in Sources */,
 				1FFA57C61F21EDBA00E83463 /* AppDelegate.swift in Sources */,
@@ -1621,6 +1652,7 @@
 				1FB8F0121F1E0B520090045E /* OpenPlacesApiService.swift in Sources */,
 				1FB8F03F1F1EADFB0090045E /* PaymentCardStatus.swift in Sources */,
 				1F261C8D1F42C40C004BFFCB /* TabsController.swift in Sources */,
+				1F1DA2D11F688B5800EFE5CE /* BaseDish.swift in Sources */,
 				1FF703A71F6845C50028A9B8 /* Price.swift in Sources */,
 				1FB8F0171F1E14B30090045E /* GetArgs.swift in Sources */,
 				1FB8F06C1F1EDCDB0090045E /* AddingOrder.swift in Sources */,

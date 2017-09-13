@@ -15,16 +15,16 @@ public class MenuSummary: ICached {
     public struct Keys {
 
         public static let ID = BaseDataType.Keys.ID
-        public static let PlaceID = "PlaceID"
-        public static let Currency = "Currency"
-        public static let Categories = "Categories"
-        public static let Dishes = "Dishes"
+        public static let placeID = "PlaceID"
+        public static let currency = "Currency"
+        public static let categories = "Categories"
+        public static let dishes = "Dishes"
     }
 
     public let ID: Long
     public let placeID: Long
     public let currency: CurrencyType
-    public let categories: [DishCategory]
+    public let categories: [MenuCategory]
     public let dishes: [Dish]
 
     public init() {
@@ -32,7 +32,7 @@ public class MenuSummary: ICached {
         self.ID = 0
         self.placeID = 0
         self.currency = .RUB
-        self.categories = [DishCategory]()
+        self.categories = [MenuCategory]()
         self.dishes = [Dish]()
     }
     public required init(source: MenuSummary) {
@@ -46,19 +46,19 @@ public class MenuSummary: ICached {
     public required init(json: JSON) {
 
         self.ID = (Keys.ID <~~ json)!
-        self.placeID = (Keys.PlaceID <~~ json)!
-        self.currency = (Keys.PlaceID <~~ json)!
-        self.categories = (Keys.Categories <~~ json)!
-        self.dishes = (Keys.Dishes <~~ json)!
+        self.placeID = (Keys.placeID <~~ json)!
+        self.currency = (Keys.currency <~~ json)!
+        self.categories = (Keys.categories <~~ json)!
+        self.dishes = (Keys.dishes <~~ json)!
     }
     public func toJSON() -> JSON? {
 
         return jsonify([
                 Keys.ID ~~> self.ID,
-                Keys.PlaceID ~~> self.placeID,
-                Keys.Currency ~~> self.currency,
-                Keys.Categories ~~> self.categories,
-                Keys.Dishes ~~> self.dishes
+                Keys.placeID ~~> self.placeID,
+                Keys.currency ~~> self.currency,
+                Keys.categories ~~> self.categories,
+                Keys.dishes ~~> self.dishes
             ])
     }
 

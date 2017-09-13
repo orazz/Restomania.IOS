@@ -10,7 +10,13 @@ import UIKit
 import AsyncTask
 import IOSLibrary
 
-public class PlaceMenuController: UIViewController {
+public protocol PlaceMenuControllerProtocol {
+
+    func select(category: Long)
+    func add(dish: Long)
+    func scrollTo(offset: CGFloat)
+}
+public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol {
 
     public static let nibName = "PlaceMenuController"
 
@@ -49,6 +55,8 @@ public class PlaceMenuController: UIViewController {
         setupUIElements()
         tryHideLoader()
 
+        _loader = InterfaceLoader(for: self.view)
+
         Log.Info(_tag, "Load place's menu of #\(placeID).")
     }
     override public func viewWillAppear(_ animated: Bool) {
@@ -56,11 +64,10 @@ public class PlaceMenuController: UIViewController {
 
         hideNavigationBar()
 
-        _loader = InterfaceLoader(for: self.view)
         _loader.show()
 
-        _categoriesAdapter = CategoriesCollection(source: self)
-        _dishesAdapter = DishesAdapter(source: self)
+        _categoriesAdapter = CategoriesCollection(collection: categoriesStack, delegate: self)
+        _dishesAdapter = DishesAdapter(table: dishesTable, delegate: self)
 
         _cart = ServicesManager.current.cartsService.cart(placeID: placeID)
         requestSummary()
@@ -206,12 +213,6 @@ public class PlaceMenuController: UIViewController {
 
         tryHideLoader()
     }
-    private func selectCategory(_ id: Long) {
-        Log.Debug(_tag, "Select category #\(id)")
-    }
-    private func add(dish id: Long) {
-        Log.Debug(_tag, "Add dish #\(id)")
-    }
 
     private func tryHideLoader() {
 
@@ -223,24 +224,54 @@ public class PlaceMenuController: UIViewController {
             nil == _menu && _menuCompleteRequest) {
             Log.Error(_tag, "Problem with load data for page.")
 
-            let alert = UIAlertController(title: "Ошибка", message: "У нас возникла проблема с закгрузкой данныхю", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            DispatchQueue.main.async {
 
-            self.navigationController?.popViewController(animated: true)
+                let alert = UIAlertController(title: "Ошибка", message: "У нас возникла проблема с загрузкой данных.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+
+                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.present(alert, animated: true, completion: nil)
+            }
         }
+    }
+
+    // MARK: PlaceMenuControllerProtocol
+    public func select(category id: Long) {
+        Log.Debug(_tag, "Select category #\(id)")
+
+        if (-1 == id) {
+
+            _dishesAdapter.filter(category: nil)
+        } else {
+
+            _dishesAdapter.filter(category: id)
+        }
+    }
+    public func add(dish id: Long) {
+        Log.Debug(_tag, "Add dish #\(id)")
+    }
+    public func scrollTo(offset: CGFloat) {
+
+//        Log.Debug(_tag, "scroll table to \(offset)")
+
+//        let bounds = self.view.bounds
+//        self.view.frame = CGRect(x: 0, y: -offset, width: bounds.width, height: bounds.height)
+    }
+    private func moveViewToVerticaly() {
+
     }
 
     private class CategoriesCollection: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-        private let _source: PlaceMenuController
         private let _collection: UICollectionView
-        private var _data: [DishCategory]
+        private let _delegate: PlaceMenuControllerProtocol
+        private var _cateegories: [MenuCategory]
 
-        public init(source: PlaceMenuController) {
-            _source = source
-            _collection = source.categoriesStack
-            _data = [DishCategory]()
+        public init(collection: UICollectionView, delegate: PlaceMenuControllerProtocol) {
+
+            _collection = collection
+            _delegate = delegate
+            _cateegories = [MenuCategory]()
 
             super.init()
 
@@ -250,29 +281,38 @@ public class PlaceMenuController: UIViewController {
             _collection.delegate = self
         }
 
-        public func update(range: [DishCategory]) {
+        // MARK: Interface
+        public func update(range: [MenuCategory]) {
 
-            _data = range.sorted(by: { $0.OrderNumber > $1.OrderNumber })
+            let allCategory = MenuCategory()
+            allCategory.name = "Все"
+            allCategory.ID = -1
+
+            _cateegories = [allCategory] + range.sorted(by: { $0.orderNumber > $1.orderNumber })
             _collection.reloadData()
+
+            let cell = _collection.cellForItem(at: IndexPath(row: 0, section: 0)) as? DishCategoryCard
+            cell?.select()
         }
 
-        func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // MARK: UICollectionViewDataSource
+        public func numberOfSections(in collectionView: UICollectionView) -> Int {
+
             return 1
         }
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return _data.count
-        }
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
+            return _cateegories.count
+        }
+        public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+            let category = _cateegories[indexPath.row]
             let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: DishCategoryCard.identifier, for: indexPath) as! DishCategoryCard
-            cell.setup(category: _data[indexPath.row], handler: { id, card in self.selectCategory(id, sender: card, index: indexPath) })
+            cell.setup(category: category, handler: { id, card in self.selectCategory(id, sender: card, index: indexPath) })
 
             return cell
         }
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-            return DishCategoryCard.sizeOfCell(category: _data[indexPath.row])
-        }
         private func selectCategory(_ id: Long, sender: DishCategoryCard, index: IndexPath) {
 
             for cell in _collection.visibleCells {
@@ -284,23 +324,36 @@ public class PlaceMenuController: UIViewController {
             sender.select()
             _collection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
 
-            _source.selectCategory(id)
+            _delegate.select(category: id)
+        }
+
+        // MARK: UICollectionViewDelegateFlowLayout
+        public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+            return DishCategoryCard.sizeOfCell(category: _cateegories[indexPath.row])
         }
     }
     private class DishesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-        private let _source: PlaceMenuController
         private let _table: UITableView
-        private var _data: [Dish]
-        private let _celNib = UINib(nibName: MenuDishCard.nibName, bundle: nil)
+        private let _delegate: PlaceMenuControllerProtocol
+
+        private var _dishes: [Dish]
+        private var _filtered: [Dish]
+        private var _filterCategoryId: Long?
+
         private var _cells: [Int:MenuDishCard]
         private var _currency: CurrencyType
 
-        public init(source: PlaceMenuController) {
+        public init(table: UITableView, delegate: PlaceMenuControllerProtocol) {
 
-            _source = source
-            _table = source.dishesTable
-            _data = [Dish]()
+            _table = table
+            _delegate = delegate
+
+            _dishes = [Dish]()
+            _filtered = [Dish]()
+            _filterCategoryId = nil
+
             _cells = [Int: MenuDishCard]()
             _currency = .All
 
@@ -310,35 +363,61 @@ public class PlaceMenuController: UIViewController {
             _table.dataSource = self
         }
 
+        // MARK: Interface
         public func update(range: [Dish], currency: CurrencyType) {
 
-            _data = range.sorted(by: { $0.OrderNumber > $1.OrderNumber  })
+            _dishes = range.sorted(by: { $0.orderNumber > $1.orderNumber  })
             _currency = currency
+
+            filter(category: _filterCategoryId)
+        }
+        public func filter(category id: Long?) {
+
+            _filterCategoryId = id
+            if let categoryId = _filterCategoryId {
+
+                _filtered = _dishes.where ({ categoryId == $0.categoryId })
+            } else {
+
+                _filtered = _dishes
+            }
+
             _table.reloadData()
         }
 
-        //Delegates
-        func numberOfSections(in tableView: UITableView) -> Int {
+        // MARK: UITableViewDataSource
+        public func numberOfSections(in tableView: UITableView) -> Int {
+
             return 1
         }
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return _data.count
+        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+            return _filtered.count
         }
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        // MARK: UITableViewDelegate
+        public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
             return MenuDishCard.height
         }
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
             if let cell = _cells[indexPath.row] {
 
                 return cell
             }
 
-            let cell = _celNib.instantiate(withOwner: nil, options: nil).first as! MenuDishCard
+            let cell = MenuDishCard.newInstance
             _cells[indexPath.row] = cell
-            cell.setup(dish: _data[indexPath.row], currency: _currency, handler: { self._source.add(dish: $0) })
+            let dish = _filtered[indexPath.row]
+
+            cell.setup(dish: dish, currency: _currency, handler: { self._delegate.add(dish: $0) })
 
             return cell
+        }
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+            _delegate.scrollTo(offset: scrollView.contentOffset.y )
         }
     }
 }

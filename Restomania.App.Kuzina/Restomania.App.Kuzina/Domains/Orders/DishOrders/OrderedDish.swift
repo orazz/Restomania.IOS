@@ -50,8 +50,8 @@ public class OrderedDish: BaseDataType {
     public init(_ dish: Dish, count: Int) {
 
         self.DishID = dish.ID
-        self.Name = dish.Name
-        self.Price = PriceType(double: dish.Price)
+        self.Name = dish.name
+        self.Price = dish.price
         self.Count = count
 
         super.init()

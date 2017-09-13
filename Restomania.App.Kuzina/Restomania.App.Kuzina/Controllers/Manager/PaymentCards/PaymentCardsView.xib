@@ -49,6 +49,7 @@
                 <constraint firstItem="H7f-OT-Z9s" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="skr-z0-tqa"/>
                 <constraint firstItem="6yu-W8-BDc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zko-Cz-eJj"/>
             </constraints>
+            <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>

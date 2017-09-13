@@ -122,8 +122,8 @@ public class Cart: Reservation {
         for dish in menuDishes {
             if let ordered = find(dish) {
 
-                ordered.Price = PriceType(double: dish.Price)
-                ordered.Name = dish.Name
+                ordered.Price = dish.price
+                ordered.Name = dish.name
             }
         }
 
