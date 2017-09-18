@@ -8,6 +8,7 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class BaseNotificationPreference: BaseDataType {
 

@@ -1,27 +1,67 @@
 //
 //  CacheImagesService.swift
-//  Restomania.App.Kuzina
+//  IOS Library
 //
-//  Created by Алексей on 23.07.17.
+//  Created by Алексей on 18.09.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
 import Foundation
 import AsyncTask
 import Gloss
-import IOSLibrary
 
-public struct DownloadResult {
-
-    public let success: Bool
-    public let data: Data?
-
-    public init(data: Data? = nil) {
-        self.success = nil != data
-        self.data = data
-    }
-}
 public class CacheImagesService {
+
+    public struct DownloadResult {
+
+        public let success: Bool
+        public let data: Data?
+
+        public init(data: Data? = nil) {
+            self.success = nil != data
+            self.data = data
+        }
+    }
+
+    private class CacheImageContainer: ICached {
+
+        public var ID: Long
+        public var url: String
+        public var filename: String
+        public var lastUseDate: Date
+
+        public init() {
+
+            self.ID = 0
+            self.url = String.Empty
+            self.filename = String.Empty
+            self.lastUseDate = Date()
+        }
+        public required init(source: CacheImageContainer) {
+
+            self.ID = source.ID
+            self.url = source.url
+            self.filename = source.filename
+            self.lastUseDate = source.lastUseDate
+        }
+        public required init(json: JSON) {
+
+            self.ID = ("id" <~~ json)!
+            self.url = ("url" <~~ json)!
+            self.filename = ("filename" <~~ json)!
+            self.lastUseDate = Date.parseJson(value: ("lastUseDate" <~~ json)!)
+        }
+
+        public func toJSON() -> JSON? {
+
+            return jsonify([
+                "id" ~~> self.ID,
+                "url" ~~> self.url,
+                "filename" ~~> self.filename,
+                "lastUseDate" ~~> self.lastUseDate.prepareForJson()
+                ])
+        }
+    }
 
     public let tag = "CacheImagesService"
     private let _adapter: CacheRangeAdapter<CacheImageContainer>
@@ -128,44 +168,5 @@ public class CacheImagesService {
             Log.Debug(self.tag, "Remove old cached images.")
         }
         task.await(.background)
-    }
-}
-private class CacheImageContainer: ICached {
-
-    public var ID: Long
-    public var url: String
-    public var filename: String
-    public var lastUseDate: Date
-
-    public init() {
-
-        self.ID = 0
-        self.url = String.Empty
-        self.filename = String.Empty
-        self.lastUseDate = Date()
-    }
-    public required init(source: CacheImageContainer) {
-
-        self.ID = source.ID
-        self.url = source.url
-        self.filename = source.filename
-        self.lastUseDate = source.lastUseDate
-    }
-    public required init(json: JSON) {
-
-        self.ID = ("id" <~~ json)!
-        self.url = ("url" <~~ json)!
-        self.filename = ("filename" <~~ json)!
-        self.lastUseDate = Date.parseJson(value: ("lastUseDate" <~~ json)!)
-    }
-
-    public func toJSON() -> JSON? {
-
-        return jsonify([
-            "id" ~~> self.ID,
-            "url" ~~> self.url,
-            "filename" ~~> self.filename,
-            "lastUseDate" ~~> self.lastUseDate.prepareForJson()
-            ])
     }
 }

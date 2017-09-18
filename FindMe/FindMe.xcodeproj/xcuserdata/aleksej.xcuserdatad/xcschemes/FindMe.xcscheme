@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1FC5A7231F138B5100ABE1A6"
-               BuildableName = "FindMeTests.xctest"
-               BlueprintName = "FindMeTests"
+               BuildableName = "FindMe-Tests.xctest"
+               BlueprintName = "FindMe-Tests"
                ReferencedContainer = "container:FindMe.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1FC5A72E1F138B5100ABE1A6"
-               BuildableName = "FindMeUITests.xctest"
-               BlueprintName = "FindMeUITests"
+               BuildableName = "FindMe-UITests.xctest"
+               BlueprintName = "FindMe-UITests"
                ReferencedContainer = "container:FindMe.xcodeproj">
             </BuildableReference>
          </TestableReference>

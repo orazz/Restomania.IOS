@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class Review: BaseDataType {
+
     public var  UserID: Int64
     public  var PlaceID: Int64
     public var Rating: Rate

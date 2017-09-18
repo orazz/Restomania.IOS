@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class BaseBugReport: BaseDataType {
+
     public var Tag: String
     public var Description: String
     public var ExceptionName: String

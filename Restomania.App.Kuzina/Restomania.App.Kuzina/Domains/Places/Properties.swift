@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class PlaceProperties: BaseDataType {
+
     public var FreeWIFI: Bool
     public var SmokingPlace: Bool
     public var NoSmokingPlace: Bool

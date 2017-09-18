@@ -13,10 +13,10 @@
       name = "Restomania">
    </Group>
    <FileRef
-      location = "group:IOS Library/IOS Library.xcodeproj">
+      location = "group:FindMe/FindMe.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:FindMe/FindMe.xcodeproj">
+      location = "group:IOS Library/IOS Library.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

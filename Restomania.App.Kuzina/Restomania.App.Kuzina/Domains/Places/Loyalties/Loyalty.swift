@@ -8,6 +8,7 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class PlaceLoyalty: BaseDataType {
     public var bonuses: Bonuses

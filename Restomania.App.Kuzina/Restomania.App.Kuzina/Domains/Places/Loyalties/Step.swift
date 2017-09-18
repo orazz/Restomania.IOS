@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class Step: BaseDataType {
+
     public var Sum: Double
     public var Percent: Double
 

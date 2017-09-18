@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class PlaceContacts: BaseDataType {
+
     public var PhoneNumber: String
     public var Email: String
     public var Website: String

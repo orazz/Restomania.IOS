@@ -39,6 +39,8 @@
 		1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F21F6FA322007CE6AB /* ICopying.swift */; };
 		1FC547F51F6FA342007CE6AB /* ICached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F41F6FA342007CE6AB /* ICached.swift */; };
 		1FC547F71F6FA3F5007CE6AB /* CacheContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F61F6FA3F5007CE6AB /* CacheContainer.swift */; };
+		1FC547F91F6FB3A7007CE6AB /* CacheImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F81F6FB3A7007CE6AB /* CacheImagesService.swift */; };
+		1FC5480D1F6FFEFD007CE6AB /* BaseDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5480C1F6FFEFD007CE6AB /* BaseDataType.swift */; };
 		1FD9A0A61F233B5E0026BDF8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A51F233B5E0026BDF8 /* Array.swift */; };
 		1FD9A0A81F233C220026BDF8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A71F233C220026BDF8 /* Array.swift */; };
 		1FF4FE561F1A24E000CC78B3 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */; };
@@ -103,6 +105,8 @@
 		1FC547F21F6FA322007CE6AB /* ICopying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICopying.swift; path = Services/ICopying.swift; sourceTree = "<group>"; };
 		1FC547F41F6FA342007CE6AB /* ICached.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICached.swift; path = Services/Cache/ICached.swift; sourceTree = "<group>"; };
 		1FC547F61F6FA3F5007CE6AB /* CacheContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheContainer.swift; path = Services/Cache/CacheContainer.swift; sourceTree = "<group>"; };
+		1FC547F81F6FB3A7007CE6AB /* CacheImagesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheImagesService.swift; path = Services/CacheImagesService.swift; sourceTree = "<group>"; };
+		1FC5480C1F6FFEFD007CE6AB /* BaseDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDataType.swift; path = Services/BaseDataType.swift; sourceTree = "<group>"; };
 		1FD9A0A51F233B5E0026BDF8 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Tools/Array.swift; sourceTree = "<group>"; };
 		1FD9A0A71F233C220026BDF8 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Tools/Array.swift; sourceTree = "<group>"; };
 		1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -278,9 +282,11 @@
 			isa = PBXGroup;
 			children = (
 				1FC547E91F6FA27A007CE6AB /* Cache */,
+				1FC547F81F6FB3A7007CE6AB /* CacheImagesService.swift */,
 				1FC547EE1F6FA2E1007CE6AB /* IIdentified.swift */,
 				1FC547F01F6FA305007CE6AB /* ISortable.swift */,
 				1FC547F21F6FA322007CE6AB /* ICopying.swift */,
+				1FC5480C1F6FFEFD007CE6AB /* BaseDataType.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -483,13 +489,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IOSLibraryTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		78308921A6EF40810B64B812 /* [CP] Check Pods Manifest.lock */ = {
@@ -498,13 +507,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IOSLibrary-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9AD8E8204D9C968A282948C8 /* [CP] Embed Pods Frameworks */ = {
@@ -513,9 +525,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-IOSLibraryTests/Pods-IOSLibraryTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AsyncTask/AsyncTask.framework",
+				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncTask.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -565,10 +582,12 @@
 				1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */,
 				1FC547EB1F6FA293007CE6AB /* CacheRangeAdapter.swift in Sources */,
 				1FA20BBC1F226D2A00215C4A /* SearchAdapter.swift in Sources */,
+				1FC5480D1F6FFEFD007CE6AB /* BaseDataType.swift in Sources */,
 				1FC547F71F6FA3F5007CE6AB /* CacheContainer.swift in Sources */,
 				1FC547F11F6FA305007CE6AB /* ISortable.swift in Sources */,
 				1FA20BC21F2276DD00215C4A /* NumberFilter.swift in Sources */,
 				1F138C8E1F19ED11003EAEE6 /* HttpStatusCode.swift in Sources */,
+				1FC547F91F6FB3A7007CE6AB /* CacheImagesService.swift in Sources */,
 				1FFA57C31F211EE800E83463 /* Date.swift in Sources */,
 				1FA20BB61F226D1400215C4A /* IFIlter.swift in Sources */,
 				1FFEA28D1F14AE95002DD78F /* ILoggable.swift in Sources */,

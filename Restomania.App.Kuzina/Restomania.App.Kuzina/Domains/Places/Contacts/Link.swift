@@ -8,9 +8,11 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class Link: BaseDataType {
-    public var `Type`:LinkType
+
+    public var `Type`: LinkType
     public var Url: String
 
     public override init() {

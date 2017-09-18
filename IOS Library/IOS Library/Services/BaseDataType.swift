@@ -1,14 +1,15 @@
 //
 //  BaseDataType.swift
-//  Restomania.App.Kuzina
+//  IOS Library
 //
-//  Created by Алексей on 11.07.17.
+//  Created by Алексей on 18.09.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
+import Foundation
 import Gloss
 
-public class BaseDataType: Glossy {
+open class BaseDataType: Glossy {
 
     public struct Keys {
 
@@ -17,9 +18,9 @@ public class BaseDataType: Glossy {
         public static let UpdateAt = "UpdateAt"
     }
 
-    public var ID: Int64
-    public var CreateAt: Date
-    public var UpdateAt: Date
+    open var ID: Int64
+    open var CreateAt: Date
+    open var UpdateAt: Date
 
     public init() {
 
@@ -50,7 +51,7 @@ public class BaseDataType: Glossy {
         self.UpdateAt = source.UpdateAt
     }
 
-    public func toJSON() -> JSON? {
+    open func toJSON() -> JSON? {
         return jsonify([
             Keys.ID ~~> self.ID,
             Keys.CreateAt ~~> self.CreateAt.prepareForJson(),

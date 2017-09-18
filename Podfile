@@ -8,6 +8,7 @@ def shared_pods
     pod 'AsyncTask', '~> 0.1.3'
 end
 
+
 target 'RestomaniaAppKuzina' do
     project './Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj'
     shared_pods
@@ -16,6 +17,17 @@ target 'RestomaniaAppKuzina-Tests' do
     project './Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj'
     shared_pods
 end
+
+
+target 'FindMe' do
+    project './FindMe/FindMe.xcodeproj'
+    shared_pods
+end
+target 'FindMe-Tests' do
+    project './FindMe/FindMe.xcodeproj'
+    shared_pods
+end
+
 
 target 'IOSLibrary' do
   project './IOS Library/IOS Library.xcodeproj'

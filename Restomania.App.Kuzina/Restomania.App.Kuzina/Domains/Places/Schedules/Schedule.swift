@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class PlaceSchedule: BaseDataType {
+
     public var Sunday: Day
     public var Monday: Day
     public var Tuesday: Day

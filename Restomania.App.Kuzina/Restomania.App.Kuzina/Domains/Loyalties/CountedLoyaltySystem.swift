@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class CountedLoyaltySystem: BaseDataType {
+
     public var Discount: Double
     public var LoyaltyID: Int64
     public var TotalPrice: Double

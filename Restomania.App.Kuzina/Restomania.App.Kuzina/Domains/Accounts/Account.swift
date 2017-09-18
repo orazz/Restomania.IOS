@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class Account: BaseDataType {
+
     public var Email: String
     public var Name: String
     public var Rights: AccessRights

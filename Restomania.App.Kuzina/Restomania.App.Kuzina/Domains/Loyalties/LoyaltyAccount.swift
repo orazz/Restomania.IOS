@@ -8,6 +8,7 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class LoyaltyAccount: BaseDataType {
     public var UserID: Int64

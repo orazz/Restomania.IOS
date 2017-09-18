@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class BaseLoyaltySystem: BaseDataType {
+
     public var Steps: [Step]
     public var `Type`:LoyaltyType
 

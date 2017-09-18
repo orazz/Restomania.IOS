@@ -8,8 +8,10 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
 public class Day: BaseDataType {
+
     public var Open: Int
     public var Close: Int
 
