@@ -1,16 +1,15 @@
 //
 //  CacheRangeAdapter.swift
-//  Restomania.App.Kuzina
+//  IOS Library
 //
-//  Created by Алексей on 23.07.17.
+//  Created by Алексей on 18.09.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
 import Foundation
 import Gloss
-import IOSLibrary
 
-internal class CacheRangeAdapter<TElement>  where TElement: ICached {
+open class CacheRangeAdapter<TElement>  where TElement: ICached {
 
     private let _tag: String
     private let _filename: String
@@ -47,7 +46,7 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
         self.clearCached()
     }
 
-    //Local
+    // MARK: Local work
     public var hasData: Bool {
         return 0 != _data.count
     }
@@ -55,7 +54,7 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
         return !hasData
     }
 
-    // Search data
+    // MARK: Search
     public var localData: [TElement] {
         return _data.map({ $0.data })
     }
@@ -104,7 +103,7 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
         return (cached: cached, notFound: notFound)
     }
 
-    // Adding
+    // MARK: Adding
     public func addOrUpdate(_ element: TElement) {
 
         _queue.sync {
@@ -186,7 +185,7 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
         save()
     }
 
-    //Save & Load
+    // MARK: Save & Load
     private func save() {
 
         _queue.sync {
@@ -234,37 +233,5 @@ internal class CacheRangeAdapter<TElement>  where TElement: ICached {
             }
         }
         remove(ids)
-    }
-}
-private class CacheContainer<T: ICached> : ICached {
-
-    public var ID: Long {
-        return data.ID
-    }
-    public var data: T
-    public var relevanceDate: Date
-
-    public init(data: T, livetime: TimeInterval) {
-
-        self.data = data
-        self.relevanceDate = Date().addingTimeInterval(livetime)
-    }
-    public required init(source: CacheContainer<T>) {
-
-        self.data = source.data
-        self.relevanceDate = source.relevanceDate
-    }
-    public required init(json: JSON) {
-
-        self.data = ("data" <~~ json)!
-        self.relevanceDate = Date.parseJson(value: ("relevanceDate" <~~ json)! as String)
-    }
-
-    public func toJSON() -> JSON? {
-
-        return jsonify([
-            "data" ~~> self.data,
-            "relevanceDate" ~~> self.relevanceDate.prepareForJson()
-            ])
     }
 }

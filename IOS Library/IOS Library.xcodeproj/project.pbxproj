@@ -33,6 +33,12 @@
 		1FA20BC61F2294A400215C4A /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BC51F2294A400215C4A /* SearchField.swift */; };
 		1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606B1F13D3A500C14886 /* FileSystem.swift */; };
 		1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606D1F13E98A00C14886 /* FileSystem.swift */; };
+		1FC547EB1F6FA293007CE6AB /* CacheRangeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547EA1F6FA293007CE6AB /* CacheRangeAdapter.swift */; };
+		1FC547EF1F6FA2E1007CE6AB /* IIdentified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547EE1F6FA2E1007CE6AB /* IIdentified.swift */; };
+		1FC547F11F6FA305007CE6AB /* ISortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F01F6FA305007CE6AB /* ISortable.swift */; };
+		1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F21F6FA322007CE6AB /* ICopying.swift */; };
+		1FC547F51F6FA342007CE6AB /* ICached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F41F6FA342007CE6AB /* ICached.swift */; };
+		1FC547F71F6FA3F5007CE6AB /* CacheContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F61F6FA3F5007CE6AB /* CacheContainer.swift */; };
 		1FD9A0A61F233B5E0026BDF8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A51F233B5E0026BDF8 /* Array.swift */; };
 		1FD9A0A81F233C220026BDF8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A71F233C220026BDF8 /* Array.swift */; };
 		1FF4FE561F1A24E000CC78B3 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */; };
@@ -91,6 +97,12 @@
 		1FA2606D1F13E98A00C14886 /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSystem.swift; path = Tools/FileSystem.swift; sourceTree = "<group>"; };
 		1FA260721F13FEC900C14886 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1FA2607C1F149CC600C14886 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = ../_frameworks/Gloss.framework; sourceTree = "<group>"; };
+		1FC547EA1F6FA293007CE6AB /* CacheRangeAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheRangeAdapter.swift; path = Services/Cache/CacheRangeAdapter.swift; sourceTree = "<group>"; };
+		1FC547EE1F6FA2E1007CE6AB /* IIdentified.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IIdentified.swift; path = Services/IIdentified.swift; sourceTree = "<group>"; };
+		1FC547F01F6FA305007CE6AB /* ISortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISortable.swift; path = Services/ISortable.swift; sourceTree = "<group>"; };
+		1FC547F21F6FA322007CE6AB /* ICopying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICopying.swift; path = Services/ICopying.swift; sourceTree = "<group>"; };
+		1FC547F41F6FA342007CE6AB /* ICached.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICached.swift; path = Services/Cache/ICached.swift; sourceTree = "<group>"; };
+		1FC547F61F6FA3F5007CE6AB /* CacheContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheContainer.swift; path = Services/Cache/CacheContainer.swift; sourceTree = "<group>"; };
 		1FD9A0A51F233B5E0026BDF8 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Tools/Array.swift; sourceTree = "<group>"; };
 		1FD9A0A71F233C220026BDF8 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Tools/Array.swift; sourceTree = "<group>"; };
 		1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -155,6 +167,7 @@
 		1F41CE451F13BE5B000B92E1 /* IOS Library */ = {
 			isa = PBXGroup;
 			children = (
+				1FC547E81F6FA25E007CE6AB /* Services */,
 				1FFEA2861F14AC74002DD78F /* Events */,
 				1FFEA2841F14AB9C002DD78F /* Requests */,
 				1FFEA2851F14ABAA002DD78F /* Responses */,
@@ -259,6 +272,27 @@
 				3A1AB6CB30F93381D7761F69 /* Pods_IOSLibraryTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1FC547E81F6FA25E007CE6AB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1FC547E91F6FA27A007CE6AB /* Cache */,
+				1FC547EE1F6FA2E1007CE6AB /* IIdentified.swift */,
+				1FC547F01F6FA305007CE6AB /* ISortable.swift */,
+				1FC547F21F6FA322007CE6AB /* ICopying.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		1FC547E91F6FA27A007CE6AB /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				1FC547F41F6FA342007CE6AB /* ICached.swift */,
+				1FC547F61F6FA3F5007CE6AB /* CacheContainer.swift */,
+				1FC547EA1F6FA293007CE6AB /* CacheRangeAdapter.swift */,
+			);
+			name = Cache;
 			sourceTree = "<group>";
 		};
 		1FFEA2841F14AB9C002DD78F /* Requests */ = {
@@ -527,12 +561,18 @@
 			files = (
 				1F77EFBB1F66D8EB00C93DB0 /* PartialUpdateContainer.swift in Sources */,
 				1FA20BB51F226D1400215C4A /* FiltersFactory.swift in Sources */,
+				1FC547EF1F6FA2E1007CE6AB /* IIdentified.swift in Sources */,
+				1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */,
+				1FC547EB1F6FA293007CE6AB /* CacheRangeAdapter.swift in Sources */,
 				1FA20BBC1F226D2A00215C4A /* SearchAdapter.swift in Sources */,
+				1FC547F71F6FA3F5007CE6AB /* CacheContainer.swift in Sources */,
+				1FC547F11F6FA305007CE6AB /* ISortable.swift in Sources */,
 				1FA20BC21F2276DD00215C4A /* NumberFilter.swift in Sources */,
 				1F138C8E1F19ED11003EAEE6 /* HttpStatusCode.swift in Sources */,
 				1FFA57C31F211EE800E83463 /* Date.swift in Sources */,
 				1FA20BB61F226D1400215C4A /* IFIlter.swift in Sources */,
 				1FFEA28D1F14AE95002DD78F /* ILoggable.swift in Sources */,
+				1FC547F51F6FA342007CE6AB /* ICached.swift in Sources */,
 				1FA20BC41F22791200215C4A /* DateTimeFilter.swift in Sources */,
 				1F138C921F19F911003EAEE6 /* HttpMethod.swift in Sources */,
 				1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */,

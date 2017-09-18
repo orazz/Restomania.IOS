@@ -1,8 +1,8 @@
 //
-//  Orderable.swift
-//  Restomania.App.Kuzina
+//  ISortable.swift
+//  IOS Library
 //
-//  Created by Алексей on 13.09.17.
+//  Created by Алексей on 18.09.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
