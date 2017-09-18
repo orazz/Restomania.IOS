@@ -14,6 +14,8 @@
 		1F1DA2CF1F688AFD00EFE5CE /* PlaceDependentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CE1F688AFD00EFE5CE /* PlaceDependentProtocol.swift */; };
 		1F1DA2D11F688B5800EFE5CE /* BaseDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2D01F688B5800EFE5CE /* BaseDish.swift */; };
 		1F1DA2D31F688BD700EFE5CE /* ISortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2D21F688BD700EFE5CE /* ISortable.swift */; };
+		1F2064BA1F68B2F9005BFF91 /* PlaceInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2064B91F68B2F9005BFF91 /* PlaceInfoController.swift */; };
+		1F2064BC1F68B333005BFF91 /* PlaceInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2064BB1F68B333005BFF91 /* PlaceInfoController.xib */; };
 		1F261C7A1F42BC88004BFFCB /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C791F42BC88004BFFCB /* BaseButton.swift */; };
 		1F261C7C1F42BCC5004BFFCB /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C7B1F42BCC5004BFFCB /* WhiteButton.swift */; };
 		1F261C7E1F42BCF1004BFFCB /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F261C7D1F42BCF1004BFFCB /* BlackButton.swift */; };
@@ -244,6 +246,8 @@
 		1F1DA2CE1F688AFD00EFE5CE /* PlaceDependentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceDependentProtocol.swift; path = Domains/Places/PlaceDependentProtocol.swift; sourceTree = "<group>"; };
 		1F1DA2D01F688B5800EFE5CE /* BaseDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDish.swift; path = Domains/Places/Menues/BaseDish.swift; sourceTree = "<group>"; };
 		1F1DA2D21F688BD700EFE5CE /* ISortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISortable.swift; path = Domains/ISortable.swift; sourceTree = "<group>"; };
+		1F2064B91F68B2F9005BFF91 /* PlaceInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceInfoController.swift; path = Controllers/Place/PlaceInfoController.swift; sourceTree = "<group>"; };
+		1F2064BB1F68B333005BFF91 /* PlaceInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceInfoController.xib; path = Controllers/Place/PlaceInfoController.xib; sourceTree = "<group>"; };
 		1F261C791F42BC88004BFFCB /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseButton.swift; path = Elements/Buttons/BaseButton.swift; sourceTree = "<group>"; };
 		1F261C7B1F42BCC5004BFFCB /* WhiteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteButton.swift; path = Elements/Buttons/WhiteButton.swift; sourceTree = "<group>"; };
 		1F261C7D1F42BCF1004BFFCB /* BlackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlackButton.swift; path = Elements/Buttons/BlackButton.swift; sourceTree = "<group>"; };
@@ -588,6 +592,8 @@
 				1F68AF8F1F2A3B3B000614C9 /* MenuElements */,
 				1F261C821F42C3E8004BFFCB /* PlaceMenuController.swift */,
 				1F261C831F42C3E8004BFFCB /* PlaceMenuController.xib */,
+				1F2064B91F68B2F9005BFF91 /* PlaceInfoController.swift */,
+				1F2064BB1F68B333005BFF91 /* PlaceInfoController.xib */,
 			);
 			name = Place;
 			sourceTree = "<group>";
@@ -1339,6 +1345,7 @@
 				1FF703AE1F6862F50028A9B8 /* OrderedDishCellView.xib in Resources */,
 				1F77EFC41F6719B400C93DB0 /* PaymentCardCellView.xib in Resources */,
 				1F261CA61F430485004BFFCB /* SignupPage.xib in Resources */,
+				1F2064BC1F68B333005BFF91 /* PlaceInfoController.xib in Resources */,
 				1F77EFB01F66D35A00C93DB0 /* OrdersView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1602,6 +1609,7 @@
 				1F36C89B1F20CE6900232B9A /* PropertiesKey.swift in Sources */,
 				1FD7E6A61F1D0E140023C033 /* Platform.swift in Sources */,
 				1F261CA21F42FEC2004BFFCB /* AuthContainer.swift in Sources */,
+				1F2064BA1F68B2F9005BFF91 /* PlaceInfoController.swift in Sources */,
 				1FB8F0041F1DF47B0090045E /* CountedLoyaltyDiscounts.swift in Sources */,
 				1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */,
 				1FB8EFCF1F1D41590090045E /* UserSex.swift in Sources */,
