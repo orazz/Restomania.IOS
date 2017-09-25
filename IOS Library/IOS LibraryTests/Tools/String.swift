@@ -12,11 +12,11 @@ import XCTest
 public class StringTests {
 
     public func testString() {
-        XCTAssertEqual("", String.Empty)
+        XCTAssertEqual("", String.empty)
 
-        XCTAssertTrue(String.IsNullOrEmpty(""))
-        XCTAssertTrue(String.IsNullOrEmpty(nil))
+        XCTAssertTrue(String.isNullOrEmpty(""))
+        XCTAssertTrue(String.isNullOrEmpty(nil))
 
-        XCTAssertFalse(String.IsNullOrEmpty("Test"))
+        XCTAssertFalse(String.isNullOrEmpty("Test"))
     }
 }

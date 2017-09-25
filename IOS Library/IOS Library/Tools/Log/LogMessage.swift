@@ -9,10 +9,10 @@
 import Foundation
 
 public enum LogMessageType {
-    case Debug
-    case Info
-    case Warning
-    case Error
+    case debug
+    case info
+    case warning
+    case error
 }
 public class LogMessage: CustomStringConvertible {
     public let Time: Date

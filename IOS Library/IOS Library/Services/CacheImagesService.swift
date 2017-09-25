@@ -33,8 +33,8 @@ public class CacheImagesService {
         public init() {
 
             self.ID = 0
-            self.url = String.Empty
-            self.filename = String.Empty
+            self.url = String.empty
+            self.filename = String.empty
             self.lastUseDate = Date()
         }
         public required init(source: CacheImageContainer) {

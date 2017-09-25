@@ -15,6 +15,6 @@ public class ObjectExtensionTests: XCTestCase {
 
     public func testTag() {
 
-        XCTAssertEqual("ObjectExtensionTests", self.getTag())
+        XCTAssertEqual("ObjectExtensionTests", self.tag)
     }
 }

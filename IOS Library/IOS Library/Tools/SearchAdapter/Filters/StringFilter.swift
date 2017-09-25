@@ -17,7 +17,8 @@ internal class StringFilter: IFilter {
             return false
         }
 
-        if (String.IsNullOrEmpty(value)) {
+        if (String.isNullOrEmpty(value)) {
+
             return false
         }
 
@@ -44,7 +45,8 @@ internal class StringFilter: IFilter {
         let range = value.lowercased().components(separatedBy: CharacterSet(charactersIn: "[] ,:.?-#;!()&\\/_+"))
 
         for part in range {
-            if (!String.IsNullOrEmpty(part)) {
+            if (!String.isNullOrEmpty(part)) {
+
                 result.append(part)
             }
         }

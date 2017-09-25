@@ -8,7 +8,7 @@
 
 import Gloss
 
-public class ApiResponse<TData>: Decodable {
+public class ApiResponse<TData>: Gloss.Decodable {
 
     public let statusCode: HttpStatusCode
     public let exception: String?

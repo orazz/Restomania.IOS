@@ -61,7 +61,7 @@ public class ApiClientTests: XCTestCase {
         XCTAssertTrue(date == Date.parseJson(value: result.data!))
     }
 }
-class Settings: Decodable {
+class Settings: Gloss.Decodable {
     public let HostName: String
     public let ApiHostName: String
     public let StatusPath: String

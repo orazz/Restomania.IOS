@@ -1,13 +1,12 @@
 //
 //  ConfigsStorage.swift
-//  Restomania.App.Kuzina
+//  IOS Library
 //
-//  Created by Алексей on 20.07.17.
+//  Created by Алексей on 20.09.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
 import Foundation
-import IOSLibrary
 
 public class ConfigsStorage {
 
@@ -25,7 +24,12 @@ public class ConfigsStorage {
         return _configs.hasValue
     }
 
-    public func Get(forKey key: String) -> OptionalValue<Any> {
+    public func get<TKey: RawRepresentable>(forKey key: TKey) -> OptionalValue<Any> {
+
+        return get(forKey: "\(key.rawValue)")
+    }
+    public func get(forKey key: String) -> OptionalValue<Any> {
+
         if (!IsLoaded) {
             return OptionalValue(nil)
         }

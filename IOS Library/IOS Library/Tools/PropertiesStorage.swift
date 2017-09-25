@@ -1,67 +1,72 @@
 //
-//  KeyValueStorage.swift
-//  Restomania.App.Kuzina
+//  PropertiesStorage.swift
+//  IOS Library
 //
-//  Created by Алексей on 20.07.17.
+//  Created by Алексей on 20.09.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
 import Foundation
-import IOSLibrary
 import Gloss
 
-public class PropertiesStorage {
-    private static let _tag = "PropertiesStorage"
-    private static let _storage = UserDefaults.standard
+public class PropertiesStorage<TKey: RawRepresentable> : NSObject {
 
-    public class func hasValue(_ key: PropertiesKey) -> Bool {
+    private let _storage: UserDefaults
+
+    public override init() {
+        _storage = UserDefaults.standard
+
+        super.init()
+    }
+
+    public func hasValue(_ key: TKey) -> Bool {
         let name = build(key)
 
         return nil != _storage.value(forKey: name)
     }
-    public class func remove(_ key: PropertiesKey) {
+    public func remove(_ key: TKey) {
         let name = build(key)
 
         _storage.removeObject(forKey: name)
     }
 
     //Settings
-    public class func set(_ key: PropertiesKey, value: String) {
+    public func set(_ key: TKey, value: String) {
         let name = build(key)
 
         _storage.set(value, forKey:name)
     }
-    public class func set(_ key: PropertiesKey, value: Int) {
+    public func set(_ key: TKey, value: Int) {
         let name = build(key)
 
         _storage.set(value, forKey: name)
     }
-    public class func set(_ key: PropertiesKey, value: Long) {
+    public func set(_ key: TKey, value: Long) {
         let name = build(key)
 
         _storage.set("\(value)", forKey: name)
     }
-    public class func set(_ key: PropertiesKey, value: Float) {
+    public func set(_ key: TKey, value: Float) {
         let name = build(key)
 
         _storage.set(value, forKey: name)
     }
-    public class func set(_ key: PropertiesKey, value: Double) {
+    public func set(_ key: TKey, value: Double) {
         let name = build(key)
 
         _storage.set(value, forKey: name)
     }
-    public class func set(_ key: PropertiesKey, value: Date) {
+    public func set(_ key: TKey, value: Date) {
         let name = build(key)
 
         _storage.set(value.timeIntervalSince1970, forKey: name)
     }
-    public class func set(_ key: PropertiesKey, value: Bool) {
+    public func set(_ key: TKey, value: Bool) {
         let name = build(key)
 
         _storage.set(value, forKey: name)
     }
-    public class func set(_ key: PropertiesKey, value: Encodable) {
+    public func set(_ key: TKey, value: Gloss.Encodable) {
         let json = value.toJSON()
 
         if (nil == json) {
@@ -73,25 +78,26 @@ public class PropertiesStorage {
 
             set(key, value: String(data:data, encoding: .utf8)!)
         } catch {
-            Log.Warning(_tag, "Problem with save JSON for \(build(key)).")
+
+            Log.Warning(tag, "Problem with save JSON for \(build(key)).")
         }
 
     }
 
     //Getting
-    public class func getString(_ key: PropertiesKey) -> OptionalValue<String> {
+    public func getString(_ key: TKey) -> OptionalValue<String> {
         let name = build(key)
         let value = _storage.value(forKey: name) as? String
 
         return OptionalValue(value)
     }
-    public class func getInt(_ key: PropertiesKey) -> OptionalValue<Int> {
+    public func getInt(_ key: TKey) -> OptionalValue<Int> {
         let name = build(key)
         let value = _storage.value(forKey: name) as? Int
 
         return OptionalValue(value)
     }
-    public class func getLong(_ key: PropertiesKey) -> OptionalValue<Long> {
+    public func getLong(_ key: TKey) -> OptionalValue<Long> {
         let name = build(key)
         let value = _storage.value(forKey: name) as? String
 
@@ -101,19 +107,19 @@ public class PropertiesStorage {
 
         return OptionalValue(Long(value!))
     }
-    public class func getFloat(_ key: PropertiesKey) -> OptionalValue<Float> {
+    public func getFloat(_ key: TKey) -> OptionalValue<Float> {
         let name = build(key)
         let value = _storage.value(forKey: name) as? Float
 
         return OptionalValue(value)
     }
-    public class func getDouble(_ key: PropertiesKey) -> OptionalValue<Double> {
+    public func getDouble(_ key: TKey) -> OptionalValue<Double> {
         let name = build(key)
         let value = _storage.value(forKey: name) as? Double
 
         return OptionalValue(value)
     }
-    public class func getDate(_ key: PropertiesKey) -> OptionalValue<Date> {
+    public func getDate(_ key: TKey) -> OptionalValue<Date> {
         let name = build(key)
         let value = _storage.value(forKey: name) as? TimeInterval
 
@@ -123,13 +129,13 @@ public class PropertiesStorage {
 
         return OptionalValue( Date(timeIntervalSince1970: value!))
     }
-    public class func getBool(_ key: PropertiesKey) -> OptionalValue<Bool> {
+    public func getBool(_ key: TKey) -> OptionalValue<Bool> {
         let name = build(key)
         let value = _storage.value(forKey: name) as? Bool
 
         return OptionalValue(value)
     }
-    public class func get<T: Decodable>(_ type: T.Type, key: PropertiesKey) -> OptionalValue<T> {
+    public func get<T: Gloss.Decodable>(_ type: T.Type, key: TKey) -> OptionalValue<T> {
 
         let jsonString = getString(key)
 
@@ -147,7 +153,7 @@ public class PropertiesStorage {
         }
     }
 
-    private class func build(_ key: PropertiesKey) -> String {
-        return "res-storage-key-\(key)"
+    private func build(_ key: TKey) -> String {
+        return "storage-key-\(key.rawValue)"
     }
 }

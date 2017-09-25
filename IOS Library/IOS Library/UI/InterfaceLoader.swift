@@ -1,11 +1,12 @@
 //
-//  Loader.swift
-//  Restomania.App.Kuzina
+//  InterfaceLoader.swift
+//  IOS Library
 //
-//  Created by Алексей on 27.07.17.
+//  Created by Алексей on 25.09.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 public class InterfaceLoader {
@@ -18,7 +19,7 @@ public class InterfaceLoader {
 
         _parent = parent
         _overlay = UIView(frame: UIScreen.main.bounds)
-        _overlay.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.55)
+        _overlay.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.55)
 
         _indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         _indicator.center = _overlay.center

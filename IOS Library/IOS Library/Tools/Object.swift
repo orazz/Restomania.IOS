@@ -10,7 +10,7 @@ import Foundation
 
 public extension NSObject {
 
-    public func getTag() -> String {
+    public var tag: String {
 
         return String(describing: type(of: self))
     }

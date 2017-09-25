@@ -26,16 +26,16 @@ public class LogTests: XCTestCase {
         let message = "MESSAGE"
 
         Log.Debug(tag, message)
-        CheckMessage(Log.Messages.last!, .Debug, tag, message)
+        CheckMessage(Log.Messages.last!, .debug, tag, message)
 
         Log.Info(tag, message)
-        CheckMessage(Log.Messages.last!, .Info, tag, message)
+        CheckMessage(Log.Messages.last!, .info, tag, message)
 
         Log.Warning(tag, message)
-        CheckMessage(Log.Messages.last!, .Warning, tag, message)
+        CheckMessage(Log.Messages.last!, .warning, tag, message)
 
         Log.Error(tag, message)
-        CheckMessage(Log.Messages.last!, .Error, tag, message)
+        CheckMessage(Log.Messages.last!, .error, tag, message)
 
         XCTAssertEqual(4, Log.Messages.count)
     }

@@ -14,17 +14,17 @@ public class Log {
 
     public static func Debug(_ tag: String, _ message: String) {
         if (IsDebug) {
-            Show(.Debug, tag, message)
+            Show(.debug, tag, message)
         }
     }
     public static func Info(_ tag: String, _ message: String) {
-        Show(.Info, tag, message)
+        Show(.info, tag, message)
     }
     public static func Warning(_ tag: String, _ message: String) {
-        Show(.Warning, tag, message)
+        Show(.warning, tag, message)
     }
     public static func Error(_ tag: String, _ message: String) {
-        Show(.Error, tag, message)
+        Show(.error, tag, message)
     }
 
     private static func Show(_ type: LogMessageType, _ tag: String, _ message: String) {

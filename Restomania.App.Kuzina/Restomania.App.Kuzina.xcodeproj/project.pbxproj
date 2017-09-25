@@ -43,13 +43,10 @@
 		1F36C88E1F20C4DA00232B9A /* ShortSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88D1F20C4DA00232B9A /* ShortSchedule.swift */; };
 		1F36C8901F20C5E000232B9A /* PlaceSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88F1F20C5E000232B9A /* PlaceSummary.swift */; };
 		1F36C8931F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8921F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift */; };
-		1F36C8981F20CE5E00232B9A /* ConfigsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8971F20CE5E00232B9A /* ConfigsStorage.swift */; };
 		1F36C89B1F20CE6900232B9A /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8991F20CE6900232B9A /* PropertiesKey.swift */; };
-		1F36C89C1F20CE6900232B9A /* PropertiesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89A1F20CE6900232B9A /* PropertiesStorage.swift */; };
 		1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF681F285866000614C9 /* MenuSummary.swift */; };
 		1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */; };
 		1F68AF6D1F285ABB000614C9 /* MenuSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */; };
-		1F68AF8E1F29EB77000614C9 /* InterfaceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF8D1F29EB77000614C9 /* InterfaceLoader.swift */; };
 		1F68AF911F2A3B98000614C9 /* DishCategoryCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68AF901F2A3B98000614C9 /* DishCategoryCard.xib */; };
 		1F68AF931F2A3BC2000614C9 /* DishCategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF921F2A3BC2000614C9 /* DishCategoryCard.swift */; };
 		1F68AF951F2A3BF4000614C9 /* MenuDishCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF941F2A3BF4000614C9 /* MenuDishCard.swift */; };
@@ -269,15 +266,12 @@
 		1F36C88D1F20C4DA00232B9A /* ShortSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortSchedule.swift; path = Domains/PlaceModels/ShortSchedule.swift; sourceTree = "<group>"; };
 		1F36C88F1F20C5E000232B9A /* PlaceSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceSummary.swift; path = Domains/PlaceModels/PlaceSummary.swift; sourceTree = "<group>"; };
 		1F36C8921F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenPlaceSummariesApiService.swift; path = ApiServices/Open/OpenPlaceSummariesApiService.swift; sourceTree = "<group>"; };
-		1F36C8971F20CE5E00232B9A /* ConfigsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorage.swift; path = Tools/ConfigsStorage.swift; sourceTree = "<group>"; };
 		1F36C8991F20CE6900232B9A /* PropertiesKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesKey.swift; path = Tools/PropertiesStorage/PropertiesKey.swift; sourceTree = "<group>"; };
-		1F36C89A1F20CE6900232B9A /* PropertiesStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorage.swift; path = Tools/PropertiesStorage/PropertiesStorage.swift; sourceTree = "<group>"; };
 		1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorageTests.swift; path = Tools/ConfigsStorageTests.swift; sourceTree = "<group>"; };
 		1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorageTests.swift; path = Tools/PropertiesStorageTests.swift; sourceTree = "<group>"; };
 		1F68AF681F285866000614C9 /* MenuSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummary.swift; path = Domains/PlaceModels/MenuSummary.swift; sourceTree = "<group>"; };
 		1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheMenuSummariesService.swift; path = Services/Cache/CacheMenuSummariesService.swift; sourceTree = "<group>"; };
 		1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummariesApiService.swift; path = ApiServices/Open/MenuSummariesApiService.swift; sourceTree = "<group>"; };
-		1F68AF8D1F29EB77000614C9 /* InterfaceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceLoader.swift; path = Elements/InterfaceLoader.swift; sourceTree = "<group>"; };
 		1F68AF901F2A3B98000614C9 /* DishCategoryCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DishCategoryCard.xib; path = Controllers/Place/MenuElements/DishCategoryCard.xib; sourceTree = "<group>"; };
 		1F68AF921F2A3BC2000614C9 /* DishCategoryCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishCategoryCard.swift; path = Controllers/Place/MenuElements/DishCategoryCard.swift; sourceTree = "<group>"; };
 		1F68AF941F2A3BF4000614C9 /* MenuDishCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuDishCard.swift; path = Controllers/Place/MenuElements/MenuDishCard.swift; sourceTree = "<group>"; };
@@ -538,20 +532,10 @@
 		1F36C8951F20CE0A00232B9A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1F36C8991F20CE6900232B9A /* PropertiesKey.swift */,
 				1FD9A0931F2321A30026BDF8 /* AppSummary */,
-				1F36C8961F20CE1300232B9A /* PropertiesStorage */,
-				1F36C8971F20CE5E00232B9A /* ConfigsStorage.swift */,
 			);
 			name = Tools;
-			sourceTree = "<group>";
-		};
-		1F36C8961F20CE1300232B9A /* PropertiesStorage */ = {
-			isa = PBXGroup;
-			children = (
-				1F36C8991F20CE6900232B9A /* PropertiesKey.swift */,
-				1F36C89A1F20CE6900232B9A /* PropertiesStorage.swift */,
-			);
-			name = PropertiesStorage;
 			sourceTree = "<group>";
 		};
 		1F36C89D1F20CE7200232B9A /* Services */ = {
@@ -912,11 +896,11 @@
 				1FFA57D61F2241FA00E83463 /* Images */,
 				1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */,
 				1FFA57C41F21ED8A00E83463 /* App */,
-				1F36C8951F20CE0A00232B9A /* Tools */,
 				1FF4FE591F1BE48600CC78B3 /* Controllers */,
 				1FFA57C91F21EE0200E83463 /* Elements */,
 				1FF4FE581F1BE48100CC78B3 /* Services */,
 				1FF4FE571F1BE47300CC78B3 /* ApiServices */,
+				1F36C8951F20CE0A00232B9A /* Tools */,
 				1FA2607E1F14A02400C14886 /* Domains */,
 			);
 			path = Restomania.App.Kuzina;
@@ -1130,7 +1114,6 @@
 				1FBE83F91F25C9D00002F0B5 /* WrappedImage */,
 				1FD9A0BA1F23607C0026BDF8 /* Cards */,
 				1FBE83FF1F25D06E0002F0B5 /* PriceLabel.swift */,
-				1F68AF8D1F29EB77000614C9 /* InterfaceLoader.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -1246,7 +1229,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Medved-Studio";
 				TargetAttributes = {
 					1FC5A69B1F138A8600ABE1A6 = {
@@ -1504,7 +1487,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FD7E6971F1D0E140023C033 /* BaseApiService.swift in Sources */,
-				1F36C89C1F20CE6900232B9A /* PropertiesStorage.swift in Sources */,
 				1FB8F02C1F1E610B0090045E /* AddingCard.swift in Sources */,
 				1FD9A09B1F2321B60026BDF8 /* ThemeSettings.swift in Sources */,
 				1F68AF951F2A3BF4000614C9 /* MenuDishCard.swift in Sources */,
@@ -1535,7 +1517,6 @@
 				1F261C841F42C3E8004BFFCB /* PlaceMenuController.swift in Sources */,
 				1F77EFBF1F6718EB00C93DB0 /* PaymentCardsController.swift in Sources */,
 				1FD9A0991F2321B60026BDF8 /* AppType.swift in Sources */,
-				1F68AF8E1F29EB77000614C9 /* InterfaceLoader.swift in Sources */,
 				1F36C8931F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift in Sources */,
 				1FB8EFE81F1D4BF90090045E /* MenuCategory.swift in Sources */,
 				1FB8F0101F1E03470090045E /* OpenAccountsApiService.swift in Sources */,
@@ -1590,7 +1571,6 @@
 				1F77EFC21F67190200C93DB0 /* PaymentCardCell.swift in Sources */,
 				1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */,
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
-				1F36C8981F20CE5E00232B9A /* ConfigsStorage.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
 				1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */,
 				1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */,
@@ -1706,7 +1686,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1714,7 +1696,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1757,7 +1743,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1765,7 +1753,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

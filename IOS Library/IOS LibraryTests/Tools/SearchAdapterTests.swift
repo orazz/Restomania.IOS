@@ -55,8 +55,8 @@ public class SearchAdapterTests: XCTestCase {
         public var birthdate: Date
 
         public init() {
-            name = String.Empty
-            surname = String.Empty
+            name = String.empty
+            surname = String.empty
             age = 0
             birthdate = Date()
         }
@@ -82,7 +82,7 @@ public class SearchAdapterTests: XCTestCase {
 
         //False
         XCTAssertEqual(false, filter("", 4))
-        XCTAssertEqual(false, filter(String.Empty, ""))
+        XCTAssertEqual(false, filter(String.empty, ""))
         XCTAssertEqual(false, filter("A C T", "C B A F"))
     }
     public func testNumberFilter() {
@@ -95,7 +95,7 @@ public class SearchAdapterTests: XCTestCase {
         XCTAssertEqual(true, filter("12", -123))
 
         //False
-        XCTAssertEqual(false, filter("ASD", String.Empty))
+        XCTAssertEqual(false, filter("ASD", String.empty))
         XCTAssertEqual(false, filter("123", 12))
     }
     public func testTimeFilter() {
