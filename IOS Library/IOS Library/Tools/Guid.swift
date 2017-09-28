@@ -9,7 +9,8 @@
 import Foundation
 
 public class Guid {
-    public static var New: String {
+    
+    public static var new: String {
         return UUID().uuidString
     }
 }

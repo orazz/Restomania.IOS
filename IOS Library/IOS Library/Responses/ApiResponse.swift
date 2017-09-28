@@ -32,4 +32,8 @@ public class ApiResponse<TData>: Gloss.Decodable {
 
         return statusCode == .OK
     }
+    public var isFail: Bool {
+
+        return !isSuccess
+    }
 }

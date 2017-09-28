@@ -12,7 +12,16 @@ import AsyncTask
 
 public class BaseImageWrapper: UIImageView {
 
-    private var delegate: ImageWrapperDelegate?
+    public var delegate: ImageWrapperDelegate? {
+        didSet {
+
+            if (nil == self.image) {
+
+                self.image = delegate?.defaultImage
+            }
+        }
+    }
+
     private var _url: String?
 
     // MARK: Constructors & initialization
@@ -27,8 +36,6 @@ public class BaseImageWrapper: UIImageView {
         initialize()
     }
     private func initialize() {
-
-        self.image = delegate?.defaultImage
 
         self.contentMode = .scaleAspectFill
         self.backgroundColor = UIColor.white

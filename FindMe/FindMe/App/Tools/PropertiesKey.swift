@@ -21,4 +21,8 @@ public enum PropertiesKey: Int {
     
     
     case pushDeviceToken = 6
+
+    //Seearch cards
+    case lastUpdateSearchCards = 7
+    case lastRefreshSearchCards = 8
 }

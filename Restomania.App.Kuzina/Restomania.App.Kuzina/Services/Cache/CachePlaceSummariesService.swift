@@ -42,7 +42,7 @@ public class CachePlaceSummariesService {
     public func findInLocal(_ id: Long) -> PlaceSummary? {
         return _adapter.find(id)
     }
-    public func checkCache(_ range: [Long]) -> (cached: [Long], notFound: [Long]) {
+    public func checkCache(_ range: [Long]) -> CacheSearchResult<Long> {
         return _adapter.checkCache(range)
     }
 

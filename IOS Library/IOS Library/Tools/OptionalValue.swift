@@ -22,4 +22,7 @@ public class OptionalValue<T> {
     public var value: T {
         return _value!
     }
+    public var unwrapped: T? {
+        return _value
+    }
 }

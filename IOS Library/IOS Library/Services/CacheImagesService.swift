@@ -117,7 +117,7 @@ public class CacheImagesService {
                 let container = CacheImageContainer()
                 container.ID = self._lastID
                 container.url = url
-                container.filename = "\(self._directoryName)/\(Guid.New).image"
+                container.filename = "\(self._directoryName)/\(Guid.new).image"
                 self._lastID += 1
 
                 self._fileClient.saveTo(container.filename, data: data, toCache: true)

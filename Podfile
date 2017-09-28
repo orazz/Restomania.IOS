@@ -32,8 +32,10 @@ end
 target 'IOSLibrary' do
   project './IOS Library/IOS Library.xcodeproj'
   shared_pods
+  pod 'RealmSwift', '~> 2.10.2'
 end
 target 'IOSLibraryTests' do
     project './IOS Library/IOS Library.xcodeproj'
     shared_pods
+    pod 'RealmSwift', '~> 2.10.2'
 end

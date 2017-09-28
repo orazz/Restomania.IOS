@@ -26,7 +26,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
         _tag = tag
         _filename = filename
         _fileClient = FileSystem()
-        _queue = DispatchQueue(label: "\(tag)-\(Guid.New)")
+        _queue = DispatchQueue(label: "\(tag)-\(Guid.new)")
 
         _data = [CacheContainer<TElement>]()
 
@@ -78,7 +78,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
     public func range(_ predicate: @escaping ((TElement) -> Bool)) -> [TElement] {
         return localData.where(predicate)
     }
-    public func checkCache(_ range: [Long]) -> (cached: [Long], notFound: [Long]) {
+    public func checkCache(_ range: [Long]) -> CacheSearchResult<Long> {
 
         var cached = [Long]()
         var notFound = [Long]()
@@ -100,7 +100,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
             }
         }
 
-        return (cached: cached, notFound: notFound)
+        return CacheSearchResult<Long>(cached: cached, notFound: notFound)
     }
 
     // MARK: Adding

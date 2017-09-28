@@ -9,10 +9,12 @@
 import Foundation
 
 public class FileSystem {
-    private let _tag = "FileSystem"
+
+    private let _tag: String
     private let _client: FileManager
 
-    public init() {
+    public init(tag: String? = nil) {
+        _tag = tag ?? String.tag(FileSystem.self)
         _client = FileManager.default
     }
 

@@ -10,12 +10,13 @@ import XCTest
 @testable import IOSLibrary
 
 public class GuidTests: XCTestCase {
+    
     public func testGuid() {
         var keys = [String]()
         let size = 100
 
         for _ in 0...size {
-            keys.append(Guid.New)
+            keys.append(Guid.new)
         }
 
         for i in 0...size {

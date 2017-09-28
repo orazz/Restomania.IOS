@@ -10,6 +10,7 @@
 		1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C871F19EC66003EAEE6 /* ApiResponse.swift */; };
 		1F138C8C1F19EC93003EAEE6 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8B1F19EC93003EAEE6 /* ApiClient.swift */; };
 		1F138C8E1F19ED11003EAEE6 /* HttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */; };
+		1F1916961F7BC46600BC8446 /* Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1916951F7BC46600BC8446 /* Predicate.swift */; };
 		1F1A0E3C1F77C34600FDBA97 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E3B1F77C34600FDBA97 /* Color.swift */; };
 		1F1A0E491F78D68A00FDBA97 /* PartialUpdateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E481F78D68A00FDBA97 /* PartialUpdateContainer.swift */; };
 		1F1A0E4D1F78D9EF00FDBA97 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E4C1F78D9EF00FDBA97 /* HttpMethod.swift */; };
@@ -18,6 +19,7 @@
 		1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DC3C41F1CFAD70058E699 /* String.swift */; };
 		1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8711F20768E00232B9A /* OptionalValue.swift */; };
 		1F36C8741F20787900232B9A /* Long.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8731F20787900232B9A /* Long.swift */; };
+		1F3705811F7B694F00E6CB0D /* CacheSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3705801F7B694F00E6CB0D /* CacheSearchResult.swift */; };
 		1F3D71CC1F72B6100010818A /* PropertiesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3D71CB1F72B6100010818A /* PropertiesStorage.swift */; };
 		1F3D71CF1F72CAC40010818A /* ConfigsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3D71CE1F72CAC40010818A /* ConfigsStorage.swift */; };
 		1F41CE4D1F13BE5B000B92E1 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */; };
@@ -25,6 +27,7 @@
 		1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE5F1F13BEA1000B92E1 /* Log.swift */; };
 		1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE601F13BEA1000B92E1 /* LogMessage.swift */; };
 		1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE641F13BEB7000B92E1 /* Log.swift */; };
+		1F49E1F21F7B996F00F384B3 /* FSOneFileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49E1F11F7B996C00F384B3 /* FSOneFileClient.swift */; };
 		1F77EF9C1F66C85700C93DB0 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EF9B1F66C85700C93DB0 /* Object.swift */; };
 		1F77EF9E1F66C8C100C93DB0 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EF9D1F66C8C100C93DB0 /* Object.swift */; };
 		1FA20BB51F226D1400215C4A /* FiltersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BB21F226D1400215C4A /* FiltersFactory.swift */; };
@@ -49,6 +52,7 @@
 		1FC5480D1F6FFEFD007CE6AB /* BaseDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5480C1F6FFEFD007CE6AB /* BaseDataType.swift */; };
 		1FD9A0A61F233B5E0026BDF8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A51F233B5E0026BDF8 /* Array.swift */; };
 		1FD9A0A81F233C220026BDF8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A71F233C220026BDF8 /* Array.swift */; };
+		1FE7E3D21F7BA45D00D1745E /* JsonSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7E3D11F7BA45D00D1745E /* JsonSerialization.swift */; };
 		1FF4FE561F1A24E000CC78B3 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */; };
 		1FF4FE6B1F1BF77800CC78B3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE6A1F1BF77800CC78B3 /* String.swift */; };
 		1FF703AA1F6851160028A9B8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A81F6850BE0028A9B8 /* Date.swift */; };
@@ -77,6 +81,7 @@
 		1F138C871F19EC66003EAEE6 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiResponse.swift; path = Responses/ApiResponse.swift; sourceTree = "<group>"; };
 		1F138C8B1F19EC93003EAEE6 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiClient.swift; path = Requests/ApiClient.swift; sourceTree = "<group>"; };
 		1F138C8D1F19ED11003EAEE6 /* HttpStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpStatusCode.swift; path = Responses/HttpStatusCode.swift; sourceTree = "<group>"; };
+		1F1916951F7BC46600BC8446 /* Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Predicate.swift; path = Tools/Predicate.swift; sourceTree = "<group>"; };
 		1F1A0E3B1F77C34600FDBA97 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Tools/Color.swift; sourceTree = "<group>"; };
 		1F1A0E481F78D68A00FDBA97 /* PartialUpdateContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartialUpdateContainer.swift; path = Requests/PartialUpdateContainer.swift; sourceTree = "<group>"; };
 		1F1A0E4C1F78D9EF00FDBA97 /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpMethod.swift; path = Requests/HttpMethod.swift; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 		1F2DC3C41F1CFAD70058E699 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
 		1F36C8711F20768E00232B9A /* OptionalValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionalValue.swift; path = Tools/OptionalValue.swift; sourceTree = "<group>"; };
 		1F36C8731F20787900232B9A /* Long.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Long.swift; path = Tools/Long.swift; sourceTree = "<group>"; };
+		1F3705801F7B694F00E6CB0D /* CacheSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheSearchResult.swift; path = Services/Cache/CacheSearchResult.swift; sourceTree = "<group>"; };
 		1F3D71CB1F72B6100010818A /* PropertiesStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorage.swift; path = Tools/PropertiesStorage.swift; sourceTree = "<group>"; };
 		1F3D71CE1F72CAC40010818A /* ConfigsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorage.swift; path = Tools/ConfigsStorage.swift; sourceTree = "<group>"; };
 		1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +101,7 @@
 		1F41CE5F1F13BEA1000B92E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Tools/Log/Log.swift; sourceTree = "<group>"; };
 		1F41CE601F13BEA1000B92E1 /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogMessage.swift; path = Tools/Log/LogMessage.swift; sourceTree = "<group>"; };
 		1F41CE641F13BEB7000B92E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Tools/Log.swift; sourceTree = "<group>"; };
+		1F49E1F11F7B996C00F384B3 /* FSOneFileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FSOneFileClient.swift; path = Tools/FileSystem/FSOneFileClient.swift; sourceTree = "<group>"; };
 		1F77EF9B1F66C85700C93DB0 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = Tools/Object.swift; sourceTree = "<group>"; };
 		1F77EF9D1F66C8C100C93DB0 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = Tools/Object.swift; sourceTree = "<group>"; };
 		1FA20BB21F226D1400215C4A /* FiltersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersFactory.swift; path = Tools/SearchAdapter/Filters/FiltersFactory.swift; sourceTree = "<group>"; };
@@ -121,6 +128,7 @@
 		1FC5480C1F6FFEFD007CE6AB /* BaseDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDataType.swift; path = Services/BaseDataType.swift; sourceTree = "<group>"; };
 		1FD9A0A51F233B5E0026BDF8 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Tools/Array.swift; sourceTree = "<group>"; };
 		1FD9A0A71F233C220026BDF8 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Tools/Array.swift; sourceTree = "<group>"; };
+		1FE7E3D11F7BA45D00D1745E /* JsonSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JsonSerialization.swift; path = Tools/JsonSerialization.swift; sourceTree = "<group>"; };
 		1FF4FE551F1A24E000CC78B3 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		1FF4FE6A1F1BF77800CC78B3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
 		1FF703A81F6850BE0028A9B8 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Tools/Date.swift; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 				1FD9A0A51F233B5E0026BDF8 /* Array.swift */,
 				1F77EF9B1F66C85700C93DB0 /* Object.swift */,
 				1F1A0E3B1F77C34600FDBA97 /* Color.swift */,
+				1FE7E3D11F7BA45D00D1745E /* JsonSerialization.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -265,6 +274,7 @@
 				1FD9A0A71F233C220026BDF8 /* Array.swift */,
 				1F77EF9D1F66C8C100C93DB0 /* Object.swift */,
 				1FF703A81F6850BE0028A9B8 /* Date.swift */,
+				1F1916951F7BC46600BC8446 /* Predicate.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -296,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				1FA2606B1F13D3A500C14886 /* FileSystem.swift */,
+				1F49E1F11F7B996C00F384B3 /* FSOneFileClient.swift */,
 			);
 			name = FileSystem;
 			sourceTree = "<group>";
@@ -330,6 +341,7 @@
 				1FC547F41F6FA342007CE6AB /* ICached.swift */,
 				1FC547F61F6FA3F5007CE6AB /* CacheContainer.swift */,
 				1FC547EA1F6FA293007CE6AB /* CacheRangeAdapter.swift */,
+				1F3705801F7B694F00E6CB0D /* CacheSearchResult.swift */,
 			);
 			name = Cache;
 			sourceTree = "<group>";
@@ -533,11 +545,15 @@
 				"${SRCROOT}/../Pods/Target Support Files/Pods-IOSLibraryTests/Pods-IOSLibraryTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AsyncTask/AsyncTask.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncTask.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -581,9 +597,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3705811F7B694F00E6CB0D /* CacheSearchResult.swift in Sources */,
 				1FA20BB51F226D1400215C4A /* FiltersFactory.swift in Sources */,
 				1FBB97CA1F79985F00FF4D1C /* ImageWrapper.swift in Sources */,
 				1FC547EF1F6FA2E1007CE6AB /* IIdentified.swift in Sources */,
+				1F49E1F21F7B996F00F384B3 /* FSOneFileClient.swift in Sources */,
 				1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */,
 				1FC547EB1F6FA293007CE6AB /* CacheRangeAdapter.swift in Sources */,
 				1F3D71CF1F72CAC40010818A /* ConfigsStorage.swift in Sources */,
@@ -614,6 +632,7 @@
 				1FFEA2811F14A824002DD78F /* Guid.swift in Sources */,
 				1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */,
 				1FA20BBD1F226D2A00215C4A /* ValueType.swift in Sources */,
+				1FE7E3D21F7BA45D00D1745E /* JsonSerialization.swift in Sources */,
 				1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */,
 				1FA20BB71F226D1400215C4A /* StringFilter.swift in Sources */,
 				1F77EF9C1F66C85700C93DB0 /* Object.swift in Sources */,
@@ -628,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1916961F7BC46600BC8446 /* Predicate.swift in Sources */,
 				1FFEA28F1F14C0D8002DD78F /* EventsAdapter.swift in Sources */,
 				1FF703AA1F6851160028A9B8 /* Date.swift in Sources */,
 				1FA20BC01F226DAD00215C4A /* SearchAdapterTests.swift in Sources */,
@@ -786,7 +806,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -811,7 +831,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -827,7 +847,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.IOS-LibraryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -842,7 +862,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "MDS.IOS-LibraryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

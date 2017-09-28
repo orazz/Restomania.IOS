@@ -5,6 +5,24 @@
 ////  Created by Алексей on 25.09.17.
 ////  Copyright © 2017 Medved-Studio. All rights reserved.
 ////
+
+import Foundation
+import IOSLibrary
+
+
+public class ImageWrapper: BaseImageWrapper, ImageWrapperDelegate {
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        self.delegate = self
+    }
+    public override required init(coder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        self.delegate = self
+    }
+}
 //
 //import UIKit
 //import AsyncTask

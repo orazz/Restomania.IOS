@@ -20,10 +20,11 @@ public class AppSummary {
     public var isNewVersion: Bool
     public var isCriticalUpdate: Bool
     
-    
+
+
     private init() {
         
-        let configs = ConfigsStorage(plistName: "Configs")
+        let configs = ServicesFactory.shared.configs
         
         self.serverUrl = configs.get(forKey: ConfigsKey.serverUrl).value as! String
         
@@ -87,5 +88,12 @@ public class AppSummary {
         return (Int(range[0])!,
                 Int(range[1])!,
                 Int(range[2])!)
+    }
+
+
+
+    public func launchApp() {
+
+        Log.Info(String.tag(AppSummary.self), "Init AppSummary.")
     }
 }
