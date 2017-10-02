@@ -25,15 +25,26 @@ public class BorderedButton: BaseButton {
 public class BaseButton: UIButton {
     
     internal let colors = ThemeSettings.Colors.self
+    private var _heightConstraint: NSLayoutConstraint? = nil
     
     public override init(frame: CGRect) {
         
         super.init(frame: frame)
-        stylize()
+        initialize()
     }
     public required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+        initialize()
+    }
+    private func initialize() {
+
+        for constraint in self.constraints {
+            if (constraint.firstAttribute == NSLayoutAttribute.height) {
+                _heightConstraint = constraint
+            }
+        }
+
         stylize()
     }
     
@@ -43,7 +54,8 @@ public class BaseButton: UIButton {
     public func stylize(text: UIColor, background: UIColor, border: UIColor? = nil) {
         
         //Sizes
-        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
+//        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
+        self.setup(height: 50)
         
         //Styles
         self.titleLabel?.font = ThemeSettings.Fonts.default(size: .headline)
@@ -54,5 +66,15 @@ public class BaseButton: UIButton {
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
         self.layer.borderColor = border?.cgColor ?? background.cgColor
+    }
+
+    public func setup(height: Int) {
+
+        if let constraint = _heightConstraint {
+            constraint.constant = CGFloat(height)
+        }
+        else {
+            self.frame = CGRect.init(origin: self.frame.origin, size: CGSize(width: self.frame.width, height: CGFloat(height)))
+        }
     }
 }

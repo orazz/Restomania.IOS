@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExplainerBlockView" customModule="FindMe" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ExplainerBlockView" customModule="FindMe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="418"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VUJ-lU-jgK">
+                    <rect key="frame" x="88" y="10" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="3cj-4L-Biw"/>
+                        <constraint firstAttribute="height" constant="150" id="Emy-Wk-7Gu"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHx-eA-tuY">
+                    <rect key="frame" x="10" y="190" width="307" height="218"/>
+                    <string key="text">I think the thing you're missing is that you can set the frame of your new UIView after loading the nib. Load/Init time isn't your only shot at that. I'm also breaking the load function into its pieces, in the code below, so you can see more easily what's going on.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fHx-eA-tuY" firstAttribute="top" secondItem="VUJ-lU-jgK" secondAttribute="bottom" constant="30" id="8sX-EY-h4g"/>
+                <constraint firstItem="VUJ-lU-jgK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="C6k-C6-heW"/>
+                <constraint firstItem="VUJ-lU-jgK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qeQ-ie-c4a"/>
+                <constraint firstItem="fHx-eA-tuY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="tXU-Ab-G27"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fHx-eA-tuY" secondAttribute="trailing" constant="10" id="u0t-MF-VV9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="fHx-eA-tuY" secondAttribute="bottom" constant="10" id="vG6-FY-F6e"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="Image" destination="VUJ-lU-jgK" id="GHl-hj-maR"/>
+                <outlet property="Text" destination="fHx-eA-tuY" id="qmX-5H-j1I"/>
+            </connections>
+            <point key="canvasLocation" x="2.5" y="-72"/>
+        </view>
+    </objects>
+</document>

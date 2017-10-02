@@ -11,5 +11,7 @@ import IOSLibrary
 
 public protocol IKeysStorage {
     
-    func keys(for rights: ApiRights) -> OptionalValue<ApiKeys>
+    func keys(for rights: ApiRights) -> ApiKeys?
+    func set(for rights: ApiRights, keys: ApiKeys)
+    func isAuth(rights: ApiRights) -> Bool
 }

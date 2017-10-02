@@ -15,7 +15,7 @@ public class LikesService {
     private let _tag: String
     private let _queue: DispatchQueue
     private let _fileClient: FSOneFileClient
-    private let _data: [LikeContainer]
+    private var _data: [LikeContainer] = []
 
     //MARK: Initialization
     public init() {

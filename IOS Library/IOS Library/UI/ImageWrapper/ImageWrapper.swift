@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AsyncTask
 
-public class BaseImageWrapper: UIImageView {
+open class BaseImageWrapper: UIImageView {
 
     public var delegate: ImageWrapperDelegate? {
         didSet {

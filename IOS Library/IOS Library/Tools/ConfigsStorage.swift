@@ -16,7 +16,7 @@ public class ConfigsStorage {
     public init(plistName filename: String) {
         _filename = filename
 
-        let manager = FileSystem()
+        let manager = FileSystem(tag: String.tag(ConfigsStorage.self))
         _configs = manager.loadBundlePlist(filename)
     }
 

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */; };
-		1F1A0E2F1F77C06A00FDBA97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1A0E2C1F77C06A00FDBA97 /* LaunchScreen.storyboard */; };
-		1F1A0E301F77C06A00FDBA97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1A0E2D1F77C06A00FDBA97 /* Main.storyboard */; };
 		1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */; };
 		1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */; };
 		1F1A0E381F77C12400FDBA97 /* AppSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E371F77C12400FDBA97 /* AppSummary.swift */; };
@@ -25,6 +23,7 @@
 		1F1A0E5C1F7950AB00FDBA97 /* ClientsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E5B1F7950AB00FDBA97 /* ClientsDataManager.swift */; };
 		1F1A0E671F79568900FDBA97 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E661F79568900FDBA97 /* Buttons.swift */; };
 		1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */; };
+		1F2F4B211F81267C002FE39B /* SliderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F4B201F81267C002FE39B /* SliderIndicator.swift */; };
 		1F37057F1F7B68B500E6CB0D /* SearchCardsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */; };
 		1F3705851F7B811600E6CB0D /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F3705841F7B811600E6CB0D /* Configs.plist */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
@@ -50,6 +49,18 @@
 		1FC548211F704E62007CE6AB /* ClientsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548201F704E62007CE6AB /* ClientsData.swift */; };
 		1FC548231F705822007CE6AB /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548221F705822007CE6AB /* Place.swift */; };
 		1FC548251F7095B4007CE6AB /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548241F7095B4007CE6AB /* BaseApiService.swift */; };
+		1FC5838A1F814C0F0045941A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC583891F814C0F0045941A /* NavigationController.swift */; };
+		1FC5838C1F814CDB0045941A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5838B1F814CDB0045941A /* TabBarController.swift */; };
+		1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5838D1F814E5C0045941A /* Start.storyboard */; };
+		1FC583901F8150050045941A /* StartContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5838F1F8150050045941A /* StartContoller.swift */; };
+		1FC583921F8150EF0045941A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC583911F8150EF0045941A /* Main.storyboard */; };
+		1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC583931F8150F80045941A /* LaunchScreen.storyboard */; };
+		1FC583961F816BFF0045941A /* EnteringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC583951F816BFF0045941A /* EnteringController.swift */; };
+		1FC583981F816CB30045941A /* EnteringView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC583971F816CB30045941A /* EnteringView.xib */; };
+		1FC5839A1F824BEA0045941A /* ExplainerBlock.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC583991F824BEA0045941A /* ExplainerBlock.xib */; };
+		1FC5839C1F824C0F0045941A /* ExplainerBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5839B1F824C0F0045941A /* ExplainerBlockView.swift */; };
+		1FC5839E1F827C5D0045941A /* SliderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5839D1F827C5C0045941A /* SliderControl.swift */; };
+		1FC583A01F827F360045941A /* SliderControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5839F1F827F360045941A /* SliderControlDelegate.swift */; };
 		1FC5A7291F138B5100ABE1A6 /* FindMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A7281F138B5100ABE1A6 /* FindMeTests.swift */; };
 		1FC5A7341F138B5100ABE1A6 /* FindMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A7331F138B5100ABE1A6 /* FindMeUITests.swift */; };
 		1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7E3D81F7BAB2600D1745E /* KeysStorage.swift */; };
@@ -78,8 +89,6 @@
 /* Begin PBXFileReference section */
 		0E7E6F4D956A6631217C7878 /* Pods_FindMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
-		1F1A0E2C1F77C06A00FDBA97 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = UI/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1F1A0E2D1F77C06A00FDBA97 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = UI/Main.storyboard; sourceTree = "<group>"; };
 		1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesKey.swift; path = App/Tools/PropertiesKey.swift; sourceTree = "<group>"; };
 		1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsKey.swift; path = App/Tools/ConfigsKey.swift; sourceTree = "<group>"; };
 		1F1A0E371F77C12400FDBA97 /* AppSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSummary.swift; path = App/Tools/AppSummary.swift; sourceTree = "<group>"; };
@@ -95,6 +104,7 @@
 		1F1A0E5B1F7950AB00FDBA97 /* ClientsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientsDataManager.swift; path = App/ClientsDataManager.swift; sourceTree = "<group>"; };
 		1F1A0E661F79568900FDBA97 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buttons.swift; path = UI/Elements/Buttons.swift; sourceTree = "<group>"; };
 		1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WrappedImage.swift; path = UI/Elements/WrappedImage.swift; sourceTree = "<group>"; };
+		1F2F4B201F81267C002FE39B /* SliderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SliderIndicator.swift; path = UI/Elements/Slider/SliderIndicator.swift; sourceTree = "<group>"; };
 		1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCardsCacheService.swift; path = Services/Cache/SearchCardsCacheService.swift; sourceTree = "<group>"; };
 		1F3705841F7B811600E6CB0D /* Configs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
@@ -120,6 +130,18 @@
 		1FC548201F704E62007CE6AB /* ClientsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientsData.swift; path = Domains/Places/ClientsData.swift; sourceTree = "<group>"; };
 		1FC548221F705822007CE6AB /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Domains/Places/Place.swift; sourceTree = "<group>"; };
 		1FC548241F7095B4007CE6AB /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiService.swift; path = ApiServices/BaseApiService.swift; sourceTree = "<group>"; };
+		1FC583891F814C0F0045941A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = UI/Main/NavigationController.swift; sourceTree = "<group>"; };
+		1FC5838B1F814CDB0045941A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = UI/Main/TabBarController.swift; sourceTree = "<group>"; };
+		1FC5838D1F814E5C0045941A /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Start.storyboard; path = UI/Start/Start.storyboard; sourceTree = "<group>"; };
+		1FC5838F1F8150050045941A /* StartContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartContoller.swift; path = UI/Start/StartContoller.swift; sourceTree = "<group>"; };
+		1FC583911F8150EF0045941A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = UI/Main/Main.storyboard; sourceTree = "<group>"; };
+		1FC583931F8150F80045941A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = UI/Start/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1FC583951F816BFF0045941A /* EnteringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EnteringController.swift; path = UI/Start/EnteringController.swift; sourceTree = "<group>"; };
+		1FC583971F816CB30045941A /* EnteringView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EnteringView.xib; path = UI/Start/EnteringView.xib; sourceTree = "<group>"; };
+		1FC583991F824BEA0045941A /* ExplainerBlock.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExplainerBlock.xib; path = UI/Start/ExplainerBlock.xib; sourceTree = "<group>"; };
+		1FC5839B1F824C0F0045941A /* ExplainerBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExplainerBlockView.swift; path = UI/Start/ExplainerBlockView.swift; sourceTree = "<group>"; };
+		1FC5839D1F827C5C0045941A /* SliderControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SliderControl.swift; path = UI/Elements/Slider/SliderControl.swift; sourceTree = "<group>"; };
+		1FC5839F1F827F360045941A /* SliderControlDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SliderControlDelegate.swift; path = UI/Elements/Slider/SliderControlDelegate.swift; sourceTree = "<group>"; };
 		1FC5A7101F138B5100ABE1A6 /* FindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A71F1F138B5100ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FC5A7241F138B5100ABE1A6 /* FindMe-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FindMe-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,9 +241,15 @@
 		1F1A0E501F78EA3300FDBA97 /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				1F1A0E2C1F77C06A00FDBA97 /* LaunchScreen.storyboard */,
+				1FC583931F8150F80045941A /* LaunchScreen.storyboard */,
+				1FC5838D1F814E5C0045941A /* Start.storyboard */,
+				1FC5838F1F8150050045941A /* StartContoller.swift */,
+				1FC583991F824BEA0045941A /* ExplainerBlock.xib */,
+				1FC5839B1F824C0F0045941A /* ExplainerBlockView.swift */,
 				1F1A0E531F78ED3800FDBA97 /* GreetingView.xib */,
 				1F1A0E551F78ED4900FDBA97 /* GreetingController.swift */,
+				1FC583971F816CB30045941A /* EnteringView.xib */,
+				1FC583951F816BFF0045941A /* EnteringController.swift */,
 			);
 			name = Start;
 			sourceTree = "<group>";
@@ -251,6 +279,7 @@
 		1F1A0E5E1F7951AF00FDBA97 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1F2F4B1F1F81263F002FE39B /* Slider */,
 				1F1A0E6B1F795DD400FDBA97 /* Cards */,
 				1F1A0E661F79568900FDBA97 /* Buttons.swift */,
 				1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */,
@@ -275,10 +304,22 @@
 			name = SearchPlaceCell;
 			sourceTree = "<group>";
 		};
+		1F2F4B1F1F81263F002FE39B /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				1FC5839D1F827C5C0045941A /* SliderControl.swift */,
+				1FC5839F1F827F360045941A /* SliderControlDelegate.swift */,
+				1F2F4B201F81267C002FE39B /* SliderIndicator.swift */,
+			);
+			name = Slider;
+			sourceTree = "<group>";
+		};
 		1F3705861F7B880700E6CB0D /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1F1A0E2D1F77C06A00FDBA97 /* Main.storyboard */,
+				1FC583911F8150EF0045941A /* Main.storyboard */,
+				1FC583891F814C0F0045941A /* NavigationController.swift */,
+				1FC5838B1F814CDB0045941A /* TabBarController.swift */,
 				1F3705871F7B881A00E6CB0D /* Map */,
 				1F3705881F7B882500E6CB0D /* Favoutites */,
 				1F1A0E511F78EA3C00FDBA97 /* List */,
@@ -417,6 +458,8 @@
 		1FC5A7121F138B5100ABE1A6 /* FindMe */ = {
 			isa = PBXGroup;
 			children = (
+				1FC5A71F1F138B5100ABE1A6 /* Info.plist */,
+				1F3705841F7B811600E6CB0D /* Configs.plist */,
 				1F1A0E4E1F78EA0300FDBA97 /* Assets.xcassets */,
 				1FC548001F6FF0EE007CE6AB /* _markup */,
 				1F1A0E271F77BFC700FDBA97 /* App */,
@@ -425,8 +468,6 @@
 				1FC547FD1F6FBA01007CE6AB /* ApiServices */,
 				1F3D71CD1F72C9E90010818A /* Tools */,
 				1FC547FC1F6FB9F9007CE6AB /* Domains */,
-				1FC5A71F1F138B5100ABE1A6 /* Info.plist */,
-				1F3705841F7B811600E6CB0D /* Configs.plist */,
 			);
 			path = FindMe;
 			sourceTree = "<group>";
@@ -599,12 +640,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F1A0E2F1F77C06A00FDBA97 /* LaunchScreen.storyboard in Resources */,
+				1FC5839A1F824BEA0045941A /* ExplainerBlock.xib in Resources */,
+				1FC583921F8150EF0045941A /* Main.storyboard in Resources */,
+				1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */,
 				1FC548011F6FF0EE007CE6AB /* _markup in Resources */,
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
 				1F1A0E541F78ED3800FDBA97 /* GreetingView.xib in Resources */,
+				1FC583981F816CB30045941A /* EnteringView.xib in Resources */,
 				1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */,
-				1F1A0E301F77C06A00FDBA97 /* Main.storyboard in Resources */,
+				1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */,
 				1F49E1EE1F7B8B7500F384B3 /* SearchPlaceCardCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,6 +786,8 @@
 				1FC548211F704E62007CE6AB /* ClientsData.swift in Sources */,
 				1FC5481B1F70443B007CE6AB /* PlaceStatus.swift in Sources */,
 				1F1A0E3A1F77C14600FDBA97 /* ThemeSettings.swift in Sources */,
+				1FC583961F816BFF0045941A /* EnteringController.swift in Sources */,
+				1FC5839E1F827C5D0045941A /* SliderControl.swift in Sources */,
 				1FC5481D1F7047F7007CE6AB /* Action.swift in Sources */,
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
 				1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */,
@@ -760,19 +806,25 @@
 				1FC548191F703FBB007CE6AB /* Contacts.swift in Sources */,
 				1FC548231F705822007CE6AB /* Place.swift in Sources */,
 				1F1A0E5A1F79504000FDBA97 /* RefreshDataManager.swift in Sources */,
+				1FC583901F8150050045941A /* StartContoller.swift in Sources */,
 				1FC548171F703442007CE6AB /* Location.swift in Sources */,
 				1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */,
 				1FC5480F1F702CFD007CE6AB /* CheckInData.swift in Sources */,
+				1FC5838A1F814C0F0045941A /* NavigationController.swift in Sources */,
 				1F37057F1F7B68B500E6CB0D /* SearchCardsCacheService.swift in Sources */,
 				1F1A0E671F79568900FDBA97 /* Buttons.swift in Sources */,
+				1FC5839C1F824C0F0045941A /* ExplainerBlockView.swift in Sources */,
 				1FC548151F7033FF007CE6AB /* ApiRights.swift in Sources */,
 				1FC5480B1F6FF8B4007CE6AB /* PlaceImage.swift in Sources */,
+				1FC5838C1F814CDB0045941A /* TabBarController.swift in Sources */,
+				1FC583A01F827F360045941A /* SliderControlDelegate.swift in Sources */,
 				1F1A0E471F78CEB100FDBA97 /* SearchPlaceCard.swift in Sources */,
 				1FC548131F70325A007CE6AB /* Account.swift in Sources */,
 				1F1A0E561F78ED4900FDBA97 /* GreetingController.swift in Sources */,
 				1F1A0E5C1F7950AB00FDBA97 /* ClientsDataManager.swift in Sources */,
 				1FBB97CC1F79AFEF00FF4D1C /* Main.swift in Sources */,
 				1F1A0E411F77E8D500FDBA97 /* IKeysStorage.swift in Sources */,
+				1F2F4B211F81267C002FE39B /* SliderIndicator.swift in Sources */,
 				1F49E1EC1F7B8B3F00F384B3 /* SearchPlaceCardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -925,7 +977,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MDS.FindMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -940,7 +992,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MDS.FindMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -955,7 +1007,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MDS.FindMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindMe.app/FindMe";
 			};
 			name = Debug;
@@ -971,7 +1023,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MDS.FindMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindMe.app/FindMe";
 			};
 			name = Release;

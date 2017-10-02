@@ -20,6 +20,11 @@ public class ApiKeys: Glossy {
     
     public var id: Long
     public var token: String
+
+    public init(id: Long, token: String) {
+        self.id = id
+        self.token = token
+    }
     
     //MARK: Glossy
     public required init(json: JSON) {

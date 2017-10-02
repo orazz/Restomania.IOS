@@ -56,10 +56,9 @@ public class BaseApiService: NSObject {
         
         var parameters = CollectParameters(values)
         
-        if let keys = _keys?.keys(for: rights),
-            keys.hasValue {
+        if let keys = _keys?.keys(for: rights) {
             
-            parameters["keys"] = keys.value.toJSON()
+            parameters["keys"] = keys.toJSON()
         }
     
         return parameters

@@ -25,4 +25,7 @@ public enum PropertiesKey: Int {
     //Seearch cards
     case lastUpdateSearchCards = 7
     case lastRefreshSearchCards = 8
+
+    case isShowWhatisNew = 9
+    case isShowExplainer = 10
 }

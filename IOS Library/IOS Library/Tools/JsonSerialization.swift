@@ -14,10 +14,11 @@ enum JSONSerializationErrors: Error {
     case invalidConstructor
     case problemWithCast
     case invalidData(Error)
+    case invalidSerialization
 }
 extension JSONSerialization {
 
-    public static func parse<Type: Gloss.Decodable>(data: Data) throws -> Type  {
+    open static func parse<Type: Gloss.Decodable>(data: Data) throws -> Type  {
 
         var json: JSON
         do {
@@ -34,7 +35,7 @@ extension JSONSerialization {
             throw JSONSerializationErrors.invalidConstructor
         }
     }
-    public static func parseRange<Type: Gloss.Decodable>(data: Data) throws -> [Type] {
+    open static func parseRange<Type: Gloss.Decodable>(data: Data) throws -> [Type] {
 
         var json: [JSON]
         do {
@@ -73,6 +74,38 @@ extension JSONSerialization {
         else {
             throw JSONSerializationErrors.problemWithCast
         }
+    }
 
+    open static func serialize(data: Gloss.Encodable) throws -> Data {
+
+        guard let prepared = data.toJSON() else {
+            throw JSONSerializationErrors.invalidSerialization
+        }
+
+        do {
+            return try JSONSerialization.data(withJSONObject: prepared, options: [])
+        }
+        catch {
+            throw JSONSerializationErrors.invalidData(error)
+        }
+    }
+    open static func serialize(data: [Gloss.Encodable]) throws -> Data {
+
+        var prepared = [JSON]()
+        for entity in data {
+
+            guard let serialized = entity.toJSON() else {
+                throw JSONSerializationErrors.invalidSerialization
+            }
+
+            prepared.append(serialized)
+        }
+
+        do {
+            return try JSONSerialization.data(withJSONObject: prepared, options: [])
+        }
+        catch {
+            throw JSONSerializationErrors.invalidData(error)
+        }
     }
 }

@@ -8,124 +8,86 @@
 
 import Foundation
 import IOSLibrary
-
+import UIKit
+import AsyncTask
 
 public class ImageWrapper: BaseImageWrapper, ImageWrapperDelegate {
+
+    private var _cache: CacheImagesService?
+    private var _sizes:[CGFloat: String]?
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.delegate = self
+        initialize()
     }
-    public override required init(coder: NSCoder) {
-        super.init(coder: aDecoder)
+    public required init(coder: NSCoder) {
+        super.init(coder: coder)
 
-        self.delegate = self
+        initialize()
+    }
+    private func initialize(){
+
+        delegate = self
+
+        _cache = ServicesFactory.shared.images
+        _sizes = [:]
+        _sizes![CGFloat(50)] = "t"
+        _sizes![CGFloat(150)] = "s"
+        _sizes![CGFloat(350)] = "m"
+    }
+
+    //MARK: ImageWrapperDelegate
+    public var defaultImage: UIImage {
+
+        return ThemeSettings.Images.default
+    }
+    public func prepare(url: String, width: CGFloat) -> String {
+
+        if (!url.contains("cdn.zerocdn.com")) {
+            return url
+        }
+
+        let suffix = buildSuffix(size: self.bounds.width)
+
+        if let suffix = suffix {
+
+            let lastDotRange = url.range(of: ".", options: .backwards, range: nil, locale: nil)
+            return url.replacingCharacters(in: lastDotRange!, with: "-\(suffix).")
+        } else {
+
+            return url
+        }
+    }
+    private func buildSuffix(size: CGFloat) -> String? {
+
+        var prev = _sizes!.keys.first!
+        for key in _sizes!.keys {
+
+            if (size < key) {
+                return _sizes![prev]
+            }
+
+            prev = key
+        }
+
+        return nil
+    }
+    public func download(url: String) -> Task<UIImage?> {
+
+        return Task {
+
+            let task = self._cache?.download(url: url)
+            let result = task?.await(.background)
+
+            if let result = result,
+                   result.success,
+                   let data = result.data {
+
+                return UIImage(data: data)
+            }
+
+            return nil
+        }
     }
 }
-//
-//import UIKit
-//import AsyncTask
-//import IOSLibrary
-//
-//public class WrappedImage: BaseImageWrapper {
-//    
-//    private let _tag = "WrappedImage"
-//    private let _images = ServicesManager.current.images
-//    private let _theme = AppSummary.current.theme
-//    private var _url: String?
-//    
-//    public override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        
-//        initialize()
-//    }
-//    public required init(coder: NSCoder) {
-//        super.init(coder: coder)!
-//        
-//        initialize()
-//    }
-//    private func initialize() {
-//        
-//        self.image = _theme.defaultImage
-//        
-//        self.contentMode = .scaleAspectFill
-//        self.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0)
-//        
-//    }
-//    
-//    public func setup(url: String) {
-//        
-//        let url = prepare(url: url)
-//        if (_url == url) {
-//            return
-//        }
-//        
-//        _url = url
-//        
-//        if (String.IsNullOrEmpty(url)) {
-//            
-//            self.animatedSetupImage(nil)
-//            return
-//        }
-//        
-//        let task = _images.download(url: url)
-//        task.async(.background, completion: { result in
-//            
-//            var image: UIImage? = nil
-//            
-//            if (result.success) {
-//                if let data = result.data {
-//                    
-//                    image = UIImage(data: data)
-//                }
-//            }
-//            
-//            self.animatedSetupImage(image)
-//        })
-//    }
-//    private func prepare(url: String) -> String {
-//        
-//        if (!url.contains("cdn.zerocdn.com")) {
-//            
-//            return url
-//        }
-//        
-//        let suffix = buildSuffix(size: self.bounds.width)
-//        
-//        if let suffix = suffix {
-//            
-//            let lastDotRange = url.range(of: ".", options: .backwards, range: nil, locale: nil)
-//            return url.replacingCharacters(in: lastDotRange!, with: "_\(suffix).")
-//        } else {
-//            
-//            return url
-//        }
-//    }
-//    private func buildSuffix(size: CGFloat) -> String? {
-//        
-//        if (size <= ImageSize.ExtraExtraSmall.rawValue) {
-//            
-//            return "xss"
-//        } else if (size <= ImageSize.ExtraSmall.rawValue) {
-//            
-//            return "xs"
-//        } else if (size <= ImageSize.Small.rawValue) {
-//            
-//            return "s"
-//        } else if (size <= ImageSize.Middle.rawValue) {
-//            
-//            return "m"
-//        } else if (size <= ImageSize.Large.rawValue) {
-//            
-//            return "l"
-//        } else if (size <= ImageSize.ExtraLarge.rawValue) {
-//            
-//            return "xl"
-//        } else {
-//            
-//            return nil
-//        }
-//    }
-//}
-

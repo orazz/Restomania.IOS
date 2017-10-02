@@ -16,7 +16,7 @@ extension String {
         return value == "" || value == nil
     }
     public static func tag(_ type: Any) -> String {
-        return String(describing: Swift.type(of: type.self))
+        return String(describing: Swift.type(of: type))
     }
 
 }

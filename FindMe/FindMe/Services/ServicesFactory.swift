@@ -18,20 +18,24 @@ public class ServicesFactory {
     public let properties: PropertiesStorage<PropertiesKey>
 
     //MARK: Storage services
-    public let keysStorage: IKeysStorage
-    public let likes: LikesService
-
+    public let keys: IKeysStorage
+//    public let likes: LikesService
+//    public let positions: PositionService
+//
     //MARk: Cache services
-    public let searchCards: SearchPlaceCardsCacheService
-    
+    public let images: CacheImagesService
+//    public let searchCards: SearchPlaceCardsCacheService
+
     private init() {
 
-        configs = ConfigsStorage(plistName: "Configs.plist")
+        configs = ConfigsStorage(plistName: "Configs")
         properties = PropertiesStorage<PropertiesKey>()
 
-        keysStorage = KeysStorage()
-        likes = LikesService()
-
-        searchCards = SearchPlaceCardsCacheService(properties: properties)
+        keys = KeysStorage()
+//        likes = LikesService()
+//        positions = PositionService()
+//
+        images = CacheImagesService()
+//        searchCards = SearchPlaceCardsCacheService(properties: properties)
     }
 }

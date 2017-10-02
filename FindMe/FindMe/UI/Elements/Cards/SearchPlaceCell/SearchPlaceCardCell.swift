@@ -26,21 +26,24 @@ public class SearchPlaceCardCell: UITableViewCell {
     //MARK: UIElements
 
     //MARK: Data
-    private let _likes: LikesService
-    private let _position: PositionService
-    private var _source: SearchPlaceCard
+//    private let _likes: LikesService
+//    private let _positions: PositionService
+    private weak var _source: SearchPlaceCard!
 
     //MARK: Constructors
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+
+//        _likes = ServicesFactory.shared.likes
+//        _positions = ServicesFactory.shared.positions
+
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        _likes = ServicesFactory.shared.likes
     }
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    public required init?(coder: NSCoder) {
 
-        _likes = ServicesFactory.shared.likes
-//        fatalError("init(coder:) has not been implemented in \(String.tag(SearchPlaceCardCell.self))")
+//        _likes = ServicesFactory.shared.likes
+//        _positions = ServicesFactory.shared.positions
+
+        super.init(coder: coder)
     }
 
 
