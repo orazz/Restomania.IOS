@@ -45,6 +45,7 @@
 		1F49C4FA1F7BD15C00051CAD /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49C4F91F7BD15C00051CAD /* PositionsService.swift */; };
 		1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */; };
 		1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */; };
+		1FC35EA81F86E483004633E9 /* OnePlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC35EA71F86E483004633E9 /* OnePlaceView.xib */; };
 		1FC547FB1F6FB52B007CE6AB /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */; };
 		1FC548011F6FF0EE007CE6AB /* _markup in Resources */ = {isa = PBXBuildFile; fileRef = 1FC548001F6FF0EE007CE6AB /* _markup */; };
 		1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548081F6FF8A4007CE6AB /* IPlaceDependent.swift */; };
@@ -138,6 +139,7 @@
 		1F49C4F91F7BD15C00051CAD /* PositionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PositionsService.swift; path = Services/PositionsService.swift; sourceTree = "<group>"; };
 		1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesMainApiService.swift; path = ApiServices/Places/PlacesMainApiService.swift; sourceTree = "<group>"; };
 		1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectParameters.swift; path = ApiServices/SelectParameters.swift; sourceTree = "<group>"; };
+		1FC35EA71F86E483004633E9 /* OnePlaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceView.xib; path = UI/Place/OnePlaceView.xib; sourceTree = "<group>"; };
 		1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1FC548001F6FF0EE007CE6AB /* _markup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _markup; sourceTree = "<group>"; };
 		1FC548081F6FF8A4007CE6AB /* IPlaceDependent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IPlaceDependent.swift; path = Domains/Tools/IPlaceDependent.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				1F4690741F86A1B50056F9B0 /* OnePlaceController.swift */,
+				1FC35EA71F86E483004633E9 /* OnePlaceView.xib */,
 			);
 			name = Place;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				1F4690801F86A6340056F9B0 /* SearchPlaceCardView.xib in Resources */,
 				1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */,
 				1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */,
+				1FC35EA81F86E483004633E9 /* OnePlaceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

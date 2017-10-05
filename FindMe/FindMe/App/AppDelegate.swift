@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ThemeSettings.initializeStyles()
         AppSummary.shared.launchApp()
 
+        let positions = ServicesFactory.shared.positions
+        positions.requestPermission()
+
         return true
     }
 

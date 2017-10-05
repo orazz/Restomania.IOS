@@ -43,10 +43,36 @@ public class SearchPlaceCardsCacheService {
     public func findInLocal(_ placeId: Long) -> SearchPlaceCard? {
         return _adapter.find(placeId)
     }
+    public func rangeInLocal(_ range: [Long]) -> [SearchPlaceCard] {
+        return _adapter.range(range)
+    }
 
 
     //MARK: Remote
+    
+    public func all() -> Task<[SearchPlaceCard]?> {
 
+        return Task { (handler: @escaping (([SearchPlaceCard]?) -> Void)) in
+
+            Log.Debug(self._tag, "Request all places' cards.")
+
+            let request = self._client.SearchCards(args: SelectParameters(time: nil))
+            let response = request.await()
+
+            if (response.isFail) {
+                handler(nil)
+                Log.Warning(self._tag, "Problem with request all search cards.")
+                return
+            }
+
+            if let update = response.data {
+
+                self._adapter.addOrUpdate(with: update)
+                Log.Debug(self._tag, "Complete request all.")
+            }
+            handler(self._adapter.localData)
+        }
+    }
     public func refresh() {
 
         if (_adapter.isEmpty) {
@@ -72,6 +98,7 @@ public class SearchPlaceCardsCacheService {
                 self._adapter.addOrUpdate(with: update)
                 Log.Info(self._tag, "Complete refresh data.")
             }
+            self._properties.set(.lastUpdateSearchCards, value: Date())
             handler(nil)
         }
         task.async(.background)

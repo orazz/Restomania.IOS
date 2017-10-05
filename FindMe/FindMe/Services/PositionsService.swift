@@ -73,6 +73,10 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
     }
 
     //MARK: Methods
+    public func requestPermission() {
+
+        _manager.requestWhenInUseAuthorization()
+    }
     public var canUse: Bool {
 
         if (!CLLocationManager.locationServicesEnabled()) {

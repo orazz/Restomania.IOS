@@ -38,31 +38,19 @@ public class SearchPlaceCardCell: UITableViewCell {
     private var _source: SearchPlaceCard!
     private var _isLiked: Bool = false
     private var _delegate: PlacesListDelegate!
+    private var _isSetupMarkup: Bool = false
 
 
 
     //MARK: Constructors
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        setupMarkup()
-    }
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-
-        setupMarkup()
-    }
-    private func setupMarkup() {
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnLike))
-        LikeImage.addGestureRecognizer(tap)
-    }
 
 
 
     public func setup(card: SearchPlaceCard, delegate: PlacesListDelegate) {
 
+        setupMarkup()
         _source = card
+        _delegate = delegate
 
         PlaceImage.setup(url: card.image)
         PlaceNameLabel.text = card.name
@@ -71,8 +59,17 @@ public class SearchPlaceCardCell: UITableViewCell {
 
         setupDistance()
         setupLike()
+    }
 
-        _delegate = delegate
+    private func setupMarkup() {
+
+        if (_isSetupMarkup){
+            return
+        }
+        _isSetupMarkup = true
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnLike))
+        LikeImage.addGestureRecognizer(tap)
     }
     private func setupDistance() {
 

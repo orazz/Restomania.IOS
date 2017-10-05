@@ -32,7 +32,7 @@ public class ThemeSettings {
     //MARK: Images
     public struct Images {
         
-        public static let `default` = UIImage(contentsOfFile: "\(Bundle.main.bundlePath)/default-image.jpg")!
+        public static let `default` = UIImage(named: "default-image", in: Bundle.main, compatibleWith: nil)!
         public static let vkLogo = UIImage(named: "vk", in: Bundle.main, compatibleWith: nil)
 
         public static let heartActive = UIImage(named: "heart", in: Bundle.main, compatibleWith: nil)

@@ -78,7 +78,7 @@ public class ImageWrapper: BaseImageWrapper, ImageWrapperDelegate {
         return Task {
 
             let task = self._cache?.download(url: url)
-            let result = task?.await(.background)
+            let result = task?.await()
 
             if let result = result,
                    result.success,

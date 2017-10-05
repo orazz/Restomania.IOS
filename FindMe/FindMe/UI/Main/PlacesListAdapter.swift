@@ -59,7 +59,7 @@ public class PlacesListAdapter: PlacesListDelegate {
         return _likes.isLiked(place: place)
     }
     public func like(place: Long) {
-        _likes.unlike(place: place)
+        _likes.like(place: place)
     }
     public func unlike(place: Long) {
         _likes.unlike(place: place)
