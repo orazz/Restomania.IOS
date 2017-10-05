@@ -14,17 +14,16 @@ import Gloss
 public class BaseApiService: NSObject {
     
     internal var _client: ApiClient!
+    internal var _keys: IKeysStorage? = nil
     
-    private var _url: String!
-    private var _keys: IKeysStorage? = nil
+    private var _url: String
     
-    
-    public init(area: String) {
-        
-        super.init()
-        
+    public init(area: String, tag: String = "") {
+
         self._url = AppSummary.shared.serverUrl
         self._client = ApiClient(url: "\(_url)/api/\(area)", tag: tag)
+
+        super.init()
     }
     public convenience init(area: String, storage: IKeysStorage) {
         self.init(area: area)

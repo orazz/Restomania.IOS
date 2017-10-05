@@ -21,12 +21,12 @@ public class ServicesFactory {
     //MARk: Cache services
     public let keys: IKeysStorage
     public let images: CacheImagesService
-    public let searchCards: SearchPlaceCardsCacheService
-    public let likes: LikesService
+//    public let searchCards: SearchPlaceCardsCacheService
+//    public let likes: LikesService
 
     //MARK: Storage services
     public let positions: PositionsService
-    public let checkIns: CheckInService
+//    public let checkIns: CheckInService
 
 
 
@@ -39,11 +39,11 @@ public class ServicesFactory {
 
         keys = KeysStorage()
         images = CacheImagesService()
-        searchCards = SearchPlaceCardsCacheService(properties: properties)
-        likes = LikesService()
+//        searchCards = SearchPlaceCardsCacheService(properties: properties)
+//        likes = LikesService()
 
         positions = PositionsService(background: backgrounds)
-        checkIns = CheckInService(positions: positions, searchCards: searchCards)
+//        checkIns = CheckInService(positions: positions, searchCards: searchCards)
 //
     }
 }

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnteringController" customModule="FindMe" customModuleProvider="target">
             <connections>
+                <outlet property="VkButton" destination="Xfe-iW-it4" id="iGa-9z-Bhn"/>
                 <outlet property="view" destination="iN0-l3-epB" id="VIV-er-aiW"/>
             </connections>
         </placeholder>
@@ -19,8 +20,49 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизуйтесь в приложении" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmR-Dr-agY" customClass="FMTitleLabel" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="20" y="60" width="315" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdA-t3-yR6" customClass="BorderedButton" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="37" y="597" width="300" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="89i-45-R2s"/>
+                        <constraint firstAttribute="height" constant="50" id="EhL-nt-3vC"/>
+                    </constraints>
+                    <state key="normal" title="Продолжить без авторизации"/>
+                    <connections>
+                        <action selector="continueWithoutAuth" destination="-1" eventType="touchUpInside" id="qHi-AO-ibi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfe-iW-it4" customClass="FilledButton" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="62.5" y="161" width="250" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="nsh-UC-eVU"/>
+                        <constraint firstAttribute="height" constant="50" id="tEe-MB-v8g"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Войти через ВКонтакте"/>
+                    <connections>
+                        <action selector="authViaVk" destination="-1" eventType="touchUpInside" id="7FL-G2-ebV"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="TmR-Dr-agY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="RnH-KE-dQm"/>
+                <constraint firstItem="TmR-Dr-agY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="au1-dv-Has"/>
+                <constraint firstItem="hdA-t3-yR6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fWS-hj-dG1"/>
+                <constraint firstItem="Xfe-iW-it4" firstAttribute="top" secondItem="TmR-Dr-agY" secondAttribute="bottom" constant="80" id="v1F-Cc-ShQ"/>
+                <constraint firstItem="Xfe-iW-it4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wVh-ky-Jkp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hdA-t3-yR6" secondAttribute="bottom" constant="20" id="wd2-Bh-4YW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TmR-Dr-agY" secondAttribute="trailing" constant="40" id="zvE-dl-PuH"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>
     </objects>
 </document>

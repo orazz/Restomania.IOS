@@ -17,7 +17,7 @@ public class UsersAuthApiService: BaseApiService {
     }
 
     //MARK: Methods
-    public func VK(userId: Long, token: String, expireIn: Long) -> RequestResult<ApiKeys> {
+    public func vk(userId: Long, token: String, expireIn: Long) -> RequestResult<ApiKeys> {
 
         let parameters = CollectParameters([
             "userId": userId,

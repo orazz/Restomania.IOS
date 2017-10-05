@@ -3,10 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PlaceMenuController.DishesAdapter.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:PlaceMenuController.swift">
+         contextName = "static Date.parseJson(value : String) -&gt; Date:Date.swift">
          <PersistentStrings>
             <PersistentString
-               value = "indexPath.row">
+               value = "date.components(separatedBy: &quot;.&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static ThemeSettings.Fonts.default(size:):ThemeSettings.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "IFont(name: defaultName, size: CGFloat(size.rawValue))">
+            </PersistentString>
+            <PersistentString
+               value = "CGFloat(ThemeSettings.Fonts.Sizes.title.rawValue)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -56,6 +67,17 @@
          contextName = "KeysStorage.remove(for : AccessRights) -&gt; ():KeysStorage.swift">
       </ContextState>
       <ContextState
+         contextName = "VKAuthorizationController.VKAuthorizationResult.init(url:):VKAuthorizationController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url.characters.split(whereSeparator:  { $0 == &quot;?&quot; || $0 == &quot;#&quot; }).map(String.init)">
+            </PersistentString>
+            <PersistentString
+               value = "url.characters.split(whereSeparator:  { $0 == &quot;?&quot; || $0 == &quot;#&quot; })">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CartService.cart(placeID : Int64) -&gt; Cart:CartService.swift">
       </ContextState>
       <ContextState
@@ -101,13 +123,13 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
-            </PersistentString>
-            <PersistentString
                value = "formatter.date(from: value)">
             </PersistentString>
             <PersistentString
                value = "notUTC!.toUTC()">
+            </PersistentString>
+            <PersistentString
+               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -176,6 +198,17 @@
                value = "name.value as String">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "VKAuthorizationController.webView(_:didFinish:):VKAuthorizationController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "webView.url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "VKAuthorizationController.completeAuth(url:):VKAuthorizationController.swift">
       </ContextState>
       <ContextState
          contextName = "AddPaymentCardService.(addCard(for : CurrencyType, on : UIViewController, complete : (Bool, Int64) -&gt; ()) -&gt; ()).(closure #2):AddPaymentCardService.swift">
@@ -310,6 +343,17 @@
          contextName = "FileSystem.saveTo(String, data : Data, toCache : Bool) -&gt; ():FileSystem.swift">
       </ContextState>
       <ContextState
+         contextName = "VKAuthorizationController.initElements():VKAuthorizationController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "NavigationBar.frame.height">
+            </PersistentString>
+            <PersistentString
+               value = "self.view.frame.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
          <PersistentStrings>
             <PersistentString
@@ -319,6 +363,17 @@
       </ContextState>
       <ContextState
          contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
+      </ContextState>
+      <ContextState
+         contextName = "FMTitleLabel.initialize():Labels.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.font">
+            </PersistentString>
+            <PersistentString
+               value = "self.font.fontName">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "SearchField.search(phrase : String, in : A) -&gt; Bool:SearchField.swift">
@@ -441,6 +496,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "VKAuthorizationController.viewWillAppear(_:):VKAuthorizationController.swift">
+      </ContextState>
+      <ContextState
          contextName = "BaseAuthController.setup(AuthContainer) -&gt; ():BaseAuthController.swift">
       </ContextState>
       <ContextState
@@ -468,10 +526,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static Date.parseJson(value : String) -&gt; Date:Date.swift">
+         contextName = "PlaceMenuController.DishesAdapter.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:PlaceMenuController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "date.components(separatedBy: &quot;.&quot;)">
+               value = "indexPath.row">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

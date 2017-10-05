@@ -28,8 +28,9 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
     }
 
     //MARK: UIElements
-    @IBOutlet weak var WebView: WKWebView!
-    private weak var _loader: InterfaceLoader!
+    @IBOutlet weak var NavigationBar: UINavigationBar!
+    private var _loader: InterfaceLoader!
+    private var _webView: WKWebView!
 
     //MARK: Data & Services
     private let _tag = String.tag(VKAuthorizationController.self)
@@ -40,19 +41,41 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
 
 
     //MARK: Controller circle
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+        initElements()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        initElements()
+    }
+    private func initElements() {
+
+        _loader = InterfaceLoader(for: self.view)
+        _webView = WKWebView(frame: CGRect(x: 0,
+                                           y: NavigationBar.frame.height,
+                                           width: self.view.frame.width,
+                                           height: self.view.frame.height - NavigationBar.frame.height))
+        self.view.addSubview(_webView)
+    }
     public override func viewDidLoad() {
 
         Log.Info(_tag, "Load auth controller.")
-
-        _loader = InterfaceLoader(for: self.view)
 
         super.viewDidLoad()
     }
     public override func viewWillAppear(_ animated: Bool) {
 
-        WebView.navigationDelegate = self
-        WebView.load(URLRequest(url: prepareAuthUrl()))
+        self.navigationController?.setToolbarHidden(true, animated: false)
+
+        _webView.navigationDelegate = self
+        _webView.load(URLRequest(url: prepareAuthUrl()))
         _loader.show()
+
+        NavigationBar.backgroundColor = ThemeSettings.Colors.vk
 
         super.viewWillAppear(animated)
     }
@@ -61,10 +84,10 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
         let url = "https://oauth.vk.com/authorize"
 
         var parameters = [String]()
-        parameters.append("client_id=\(_appID)")
+        parameters.append("client_id=\(_appID!)")
         parameters.append("scope=\(VKPermissions.prepare(.offline, .email))")
         parameters.append("redirect_uri=https://oauth.vk.com/blank.html")
-        parameters.append("display=touch")
+        parameters.append("display=mobile")
         parameters.append("v=5.68")
         parameters.append("response_type=token")
 
@@ -75,13 +98,16 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        WebView.stopLoading()
-        WebView.navigationDelegate = nil
+        _webView.stopLoading()
+        _webView.navigationDelegate = nil
     }
     override public func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         _loader.hide()
+    }
+    public override var prefersStatusBarHidden: Bool {
+        return true
     }
     @IBAction public func cancelLoad() {
         self.dismiss(animated: true, completion: nil)
@@ -99,7 +125,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
         _loader.hide()
 
         if let url = webView.url,
-            url.absoluteString.contains("https://oauth.vk.com/blank.html") {
+            url.absoluteString.starts(with: "https://oauth.vk.com/blank.html") {
 
             self.completeAuth(url: url.absoluteString)
             _loader.show()
@@ -122,7 +148,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
             return
         }
 
-        let task = _auth.VK(userId: container.userId, token: container.accessToken, expireIn: container.expiresIn)
+        let task = _auth.vk(userId: container.userId, token: container.accessToken, expireIn: container.expiresIn)
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -180,8 +206,9 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
 
             self.success = url.contains(Keys.accessToken)
 
-            let argumets = url.characters.split(whereSeparator:  { $0 == "$" || $0 == "#" }).map(String.init)
-            for pair in argumets {
+            let parameters = url.characters.split(whereSeparator:  {  "?#&".contains($0) })
+                                            .map(String.init)
+            for pair in parameters {
 
                 if (pair.contains(Keys.accessToken)) {
 
@@ -204,8 +231,6 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
                     errorDescription = getValue(pair: pair)
                 }
             }
-
-            fatalError()
         }
         private func getValue(pair: String) -> String {
 

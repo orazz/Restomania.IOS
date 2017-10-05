@@ -12,6 +12,8 @@
 		1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE511F862E9000694D8D /* VKAuthorizationController.swift */; };
 		1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F09EE531F862F5C00694D8D /* VKAuthorizationView.xib */; };
 		1F09EE571F86336D00694D8D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE561F86336D00694D8D /* Auth.swift */; };
+		1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE581F8655D700694D8D /* UsersMainApiService.swift */; };
+		1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE5A1F865D7900694D8D /* Labels.swift */; };
 		1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */; };
 		1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */; };
 		1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */; };
@@ -36,7 +38,7 @@
 		1F49C4FA1F7BD15C00051CAD /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49C4F91F7BD15C00051CAD /* PositionsService.swift */; };
 		1F49E1EC1F7B8B3F00F384B3 /* SearchPlaceCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49E1EB1F7B8B3F00F384B3 /* SearchPlaceCardCell.swift */; };
 		1F49E1EE1F7B8B7500F384B3 /* SearchPlaceCardCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F49E1ED1F7B8B7500F384B3 /* SearchPlaceCardCellView.xib */; };
-		1FBB97CC1F79AFEF00FF4D1C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CB1F79AFEF00FF4D1C /* Main.swift */; };
+		1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */; };
 		1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */; };
 		1FC547FB1F6FB52B007CE6AB /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */; };
 		1FC548011F6FF0EE007CE6AB /* _markup in Resources */ = {isa = PBXBuildFile; fileRef = 1FC548001F6FF0EE007CE6AB /* _markup */; };
@@ -98,6 +100,8 @@
 		1F09EE511F862E9000694D8D /* VKAuthorizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VKAuthorizationController.swift; path = UI/Elements/Authorization/Vk/VKAuthorizationController.swift; sourceTree = "<group>"; };
 		1F09EE531F862F5C00694D8D /* VKAuthorizationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VKAuthorizationView.xib; path = UI/Elements/Authorization/Vk/VKAuthorizationView.xib; sourceTree = "<group>"; };
 		1F09EE561F86336D00694D8D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = ApiServices/Users/Auth.swift; sourceTree = "<group>"; };
+		1F09EE581F8655D700694D8D /* UsersMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersMainApiService.swift; path = ApiServices/Users/UsersMainApiService.swift; sourceTree = "<group>"; };
+		1F09EE5A1F865D7900694D8D /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Labels.swift; path = UI/Elements/Labels.swift; sourceTree = "<group>"; };
 		1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
 		1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesKey.swift; path = App/Tools/PropertiesKey.swift; sourceTree = "<group>"; };
 		1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsKey.swift; path = App/Tools/ConfigsKey.swift; sourceTree = "<group>"; };
@@ -122,7 +126,7 @@
 		1F49C4F91F7BD15C00051CAD /* PositionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PositionsService.swift; path = Services/PositionsService.swift; sourceTree = "<group>"; };
 		1F49E1EB1F7B8B3F00F384B3 /* SearchPlaceCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchPlaceCardCell.swift; path = UI/Elements/Cards/SearchPlaceCell/SearchPlaceCardCell.swift; sourceTree = "<group>"; };
 		1F49E1ED1F7B8B7500F384B3 /* SearchPlaceCardCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchPlaceCardCellView.xib; path = UI/Elements/Cards/SearchPlaceCell/SearchPlaceCardCellView.xib; sourceTree = "<group>"; };
-		1FBB97CB1F79AFEF00FF4D1C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Main.swift; path = ApiServices/Places/Main.swift; sourceTree = "<group>"; };
+		1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesMainApiService.swift; path = ApiServices/Places/PlacesMainApiService.swift; sourceTree = "<group>"; };
 		1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectParameters.swift; path = ApiServices/SelectParameters.swift; sourceTree = "<group>"; };
 		1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1FC548001F6FF0EE007CE6AB /* _markup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _markup; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				1F09EE561F86336D00694D8D /* Auth.swift */,
+				1F09EE581F8655D700694D8D /* UsersMainApiService.swift */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -260,7 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				1F1A0E451F78CE8B00FDBA97 /* Models */,
-				1FBB97CB1F79AFEF00FF4D1C /* Main.swift */,
+				1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */,
 			);
 			name = Places;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				1F1A0E6B1F795DD400FDBA97 /* Cards */,
 				1F1A0E661F79568900FDBA97 /* Buttons.swift */,
 				1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */,
+				1F09EE5A1F865D7900694D8D /* Labels.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -838,6 +844,7 @@
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
 				1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */,
 				1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */,
+				1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */,
 				1F1A0E431F77E99E00FDBA97 /* ServicesFactory.swift in Sources */,
 				1FC548251F7095B4007CE6AB /* BaseApiService.swift in Sources */,
 				1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */,
@@ -869,7 +876,8 @@
 				1FC548131F70325A007CE6AB /* Account.swift in Sources */,
 				1F1A0E561F78ED4900FDBA97 /* GreetingController.swift in Sources */,
 				1F1A0E5C1F7950AB00FDBA97 /* ClientsDataManager.swift in Sources */,
-				1FBB97CC1F79AFEF00FF4D1C /* Main.swift in Sources */,
+				1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */,
+				1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */,
 				1F0483881F84CB8100D00EED /* BackgroundTaskManager.swift in Sources */,
 				1F1A0E411F77E8D500FDBA97 /* IKeysStorage.swift in Sources */,
 				1F0483861F83FCF000D00EED /* CheckInService.swift in Sources */,

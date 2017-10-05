@@ -20,7 +20,7 @@ public class ThemeSettings {
         public static let bullet = UIColor(red: 160, green: 161, blue: 165)
 
         public static let facebook = UIColor(red: 59, green: 89, blue: 152)
-        public static let vkontakte = UIColor(red: 84, green: 118, blue: 155)
+        public static let vk = UIColor(red: 84, green: 118, blue: 155)
         public static let instagram = UIColor(red: 229, green: 47, blue: 140)
 
         public static let blackText = UIColor(red: 57, green: 51, blue: 53)
@@ -33,27 +33,24 @@ public class ThemeSettings {
     public struct Images {
         
         public static let `default` = UIImage(contentsOfFile: "\(Bundle.main.bundlePath)/default-image.jpg")!
+        public static let vkLogo = UIImage(named: "vk", in: Bundle.main, compatibleWith: nil)
     }
 
     //MARK: Fonts
     public class Fonts {
         
-        public static let defaultName = "Helvetica"
+        public static let defaultName = "HelveticaNeue"
         
         public enum Sizes: Int {
             
-            case title = 20
+            case title = 24
             case headline = 18
-            case subhead = 16
+            case subhead = 14
             case caption = 12
         }
         
         
         
-        public class func `default`(size: CGFloat) -> UIFont {
-            
-            return UIFont(name: defaultName, size: size)!
-        }
         public class func `default`(size: Sizes) -> UIFont {
             
             return UIFont(name: defaultName, size: CGFloat(size.rawValue))!
@@ -71,8 +68,6 @@ public class ThemeSettings {
     public static func initializeStyles() {
 
         //Labels
-        let appearance = UILabel.appearance()
-        appearance.font = Fonts.default(size: .subhead)
 
     }
 }

@@ -14,8 +14,8 @@ public class GreetingController: UIViewController, SliderControlDelegate {
      private static let nibName = "GreetingView"
     public static func build(parent: StartController) -> GreetingController {
 
-        var instance = GreetingController(nibName: nibName, bundle: Bundle.main)
-        instance.source = parent
+        let instance = GreetingController(nibName: nibName, bundle: Bundle.main)
+
 
         return instance
     }
@@ -27,7 +27,6 @@ public class GreetingController: UIViewController, SliderControlDelegate {
     @IBOutlet weak var SliderIndicator: SliderIndicator!
     @IBOutlet weak var Slider: SliderControl!
 
-    public var source: StartController!
     private var _isLoadSlider: Bool = false
 
     public override func viewDidLoad() {

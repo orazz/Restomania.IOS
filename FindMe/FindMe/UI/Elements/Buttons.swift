@@ -54,11 +54,11 @@ public class BaseButton: UIButton {
     public func stylize(text: UIColor, background: UIColor, border: UIColor? = nil) {
         
         //Sizes
-//        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
+        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         self.setup(height: 50)
         
         //Styles
-        self.titleLabel?.font = ThemeSettings.Fonts.default(size: .headline)
+        self.titleLabel?.font = ThemeSettings.Fonts.default(size: .subhead)
         self.tintColor = text
         self.backgroundColor = background
         
