@@ -23,10 +23,10 @@ public class EventsAdapterTests: XCTestCase {
         adapter.Setup(action: { (handler:Action) -> Void in handler()}, auto: true)
 
         let guid = Guid.new
-        adapter.Subscribe(guid: guid, handler: action, tag: "1")
-        adapter.Unsubscribe(guid: guid)
-        adapter.Subscribe(guid: Guid.new, handler: action, tag: "2")
-        adapter.Subscribe(guid: Guid.new, handler: action, tag: "3")
+        adapter.subscribe(guid: guid, handler: action, tag: "1")
+        adapter.unsubscribe(guid: guid)
+        adapter.subscribe(guid: Guid.new, handler: action, tag: "2")
+        adapter.subscribe(guid: Guid.new, handler: action, tag: "3")
 
         adapter.Trigger(action: nil)
 

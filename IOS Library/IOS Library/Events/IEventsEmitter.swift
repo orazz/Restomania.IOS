@@ -9,6 +9,6 @@
 public protocol IEventsEmitter {
     associatedtype THandler
 
-    func Subscribe(guid: String, handler: THandler, tag: String)
-    func Unsubscribe(guid: String)
+    func subscribe(guid: String, handler: THandler, tag: String)
+    func unsubscribe(guid: String)
 }

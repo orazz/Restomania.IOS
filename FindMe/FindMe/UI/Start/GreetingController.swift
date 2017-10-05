@@ -82,10 +82,10 @@ public class GreetingController: UIViewController, SliderControlDelegate {
     //MARK: UIActions
     @IBAction public func startUse() {
 
-        self.dismiss(animated: true, completion: nil)
+        closePage()
     }
     @objc private func closePage() {
 
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: false)
     }
 }

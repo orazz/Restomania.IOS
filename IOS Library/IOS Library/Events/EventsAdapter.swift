@@ -40,7 +40,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
         _defaultAction = action
         _automatic = auto
     }
-    public func Subscribe(guid: String, handler: Handler, tag: String) {
+    public func subscribe(guid: String, handler: Handler, tag: String) {
         let subscriber = Subscriber(guid: guid, handler: handler, tag: tag)
         _subscribers[guid] = subscriber
 
@@ -51,7 +51,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
             Notify(subscriber, action:  _defaultAction!)
         }
     }
-    public func Unsubscribe(guid: String) {
+    public func unsubscribe(guid: String) {
         let subscriber = _subscribers[guid]
 
         if (nil != subscriber) {
@@ -60,7 +60,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
         }
     }
     private func ForceUnsubscribe(guid: String) {
-        Unsubscribe(guid: guid)
+        unsubscribe(guid: guid)
         Log.Warning(tag, "Force remove subscriber with GUID: \(guid).")
     }
 
