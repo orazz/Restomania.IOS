@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VKAuthorizationController" customModule="FindMe" customModuleProvider="target">
+            <connections>
+                <outlet property="WebView" destination="BWh-wC-ByJ" id="8cJ-Ua-1hY"/>
+                <outlet property="view" destination="iN0-l3-epB" id="70Y-zC-TUf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHj-qB-Zzd">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="bEo-Vp-Py5"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="VK" id="DDz-lD-Irf">
+                            <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="YOv-8z-Xrn">
+                                <connections>
+                                    <action selector="cancelLoad" destination="-1" id="nbR-0L-C0X"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWh-wC-ByJ">
+                    <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BWh-wC-ByJ" firstAttribute="top" secondItem="jHj-qB-Zzd" secondAttribute="bottom" id="0Do-kG-eyT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BWh-wC-ByJ" secondAttribute="trailing" id="FCU-cI-At5"/>
+                <constraint firstItem="jHj-qB-Zzd" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="IOe-gU-VQn"/>
+                <constraint firstItem="jHj-qB-Zzd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LIX-9D-EkQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="BWh-wC-ByJ" secondAttribute="bottom" id="c5g-OP-DCt"/>
+                <constraint firstItem="jHj-qB-Zzd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="lwJ-PS-hDz"/>
+                <constraint firstItem="BWh-wC-ByJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="mM1-c9-AZK"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

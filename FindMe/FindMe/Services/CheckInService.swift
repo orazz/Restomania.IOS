@@ -14,10 +14,12 @@ public class CheckInService: NSObject, PositionServiceDelegate {
     private let _tag = String.tag(CheckInService.self)
     private let _guid = Guid.new
     private let _positions: PositionsService
+    private let _searchCards: SearchPlaceCardsCacheService
 
-    public init(positions: PositionsService) {
+    public init(positions: PositionsService, searchCards: SearchPlaceCardsCacheService) {
 
         self._positions = positions
+        self._searchCards = searchCards
 
         super.init()
 

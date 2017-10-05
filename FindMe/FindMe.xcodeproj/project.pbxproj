@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1F0483861F83FCF000D00EED /* CheckInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0483851F83FCF000D00EED /* CheckInService.swift */; };
 		1F0483881F84CB8100D00EED /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0483871F84CB8100D00EED /* BackgroundTaskManager.swift */; };
+		1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE511F862E9000694D8D /* VKAuthorizationController.swift */; };
+		1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F09EE531F862F5C00694D8D /* VKAuthorizationView.xib */; };
+		1F09EE571F86336D00694D8D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE561F86336D00694D8D /* Auth.swift */; };
 		1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */; };
 		1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */; };
 		1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */; };
@@ -92,6 +95,9 @@
 		0E7E6F4D956A6631217C7878 /* Pods_FindMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0483851F83FCF000D00EED /* CheckInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckInService.swift; path = Services/CheckInService.swift; sourceTree = "<group>"; };
 		1F0483871F84CB8100D00EED /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackgroundTaskManager.swift; path = Services/BackgroundTaskManager.swift; sourceTree = "<group>"; };
+		1F09EE511F862E9000694D8D /* VKAuthorizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VKAuthorizationController.swift; path = UI/Elements/Authorization/Vk/VKAuthorizationController.swift; sourceTree = "<group>"; };
+		1F09EE531F862F5C00694D8D /* VKAuthorizationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VKAuthorizationView.xib; path = UI/Elements/Authorization/Vk/VKAuthorizationView.xib; sourceTree = "<group>"; };
+		1F09EE561F86336D00694D8D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = ApiServices/Users/Auth.swift; sourceTree = "<group>"; };
 		1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
 		1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesKey.swift; path = App/Tools/PropertiesKey.swift; sourceTree = "<group>"; };
 		1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsKey.swift; path = App/Tools/ConfigsKey.swift; sourceTree = "<group>"; };
@@ -194,6 +200,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F09EE4F1F862AAE00694D8D /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				1F09EE501F862AC100694D8D /* Vk */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		1F09EE501F862AC100694D8D /* Vk */ = {
+			isa = PBXGroup;
+			children = (
+				1F09EE511F862E9000694D8D /* VKAuthorizationController.swift */,
+				1F09EE531F862F5C00694D8D /* VKAuthorizationView.xib */,
+			);
+			name = Vk;
+			sourceTree = "<group>";
+		};
+		1F09EE551F86334F00694D8D /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				1F09EE561F86336D00694D8D /* Auth.swift */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
 		1F1A0E271F77BFC700FDBA97 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +314,7 @@
 		1F1A0E5E1F7951AF00FDBA97 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1F09EE4F1F862AAE00694D8D /* Authorization */,
 				1F2F4B1F1F81263F002FE39B /* Slider */,
 				1F1A0E6B1F795DD400FDBA97 /* Cards */,
 				1F1A0E661F79568900FDBA97 /* Buttons.swift */,
@@ -374,6 +406,7 @@
 		1FC547FD1F6FBA01007CE6AB /* ApiServices */ = {
 			isa = PBXGroup;
 			children = (
+				1F09EE551F86334F00694D8D /* Users */,
 				1F1A0E441F77EE9200FDBA97 /* Places */,
 				1FC548241F7095B4007CE6AB /* BaseApiService.swift */,
 				1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */,
@@ -656,6 +689,7 @@
 				1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */,
 				1FC548011F6FF0EE007CE6AB /* _markup in Resources */,
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
+				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
 				1F1A0E541F78ED3800FDBA97 /* GreetingView.xib in Resources */,
 				1FC583981F816CB30045941A /* EnteringView.xib in Resources */,
 				1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */,
@@ -800,6 +834,7 @@
 				1FC583961F816BFF0045941A /* EnteringController.swift in Sources */,
 				1FC5839E1F827C5D0045941A /* SliderControl.swift in Sources */,
 				1FC5481D1F7047F7007CE6AB /* Action.swift in Sources */,
+				1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */,
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
 				1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */,
 				1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */,
@@ -820,6 +855,7 @@
 				1FC583901F8150050045941A /* StartContoller.swift in Sources */,
 				1FC548171F703442007CE6AB /* Location.swift in Sources */,
 				1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */,
+				1F09EE571F86336D00694D8D /* Auth.swift in Sources */,
 				1FC5480F1F702CFD007CE6AB /* CheckInData.swift in Sources */,
 				1FC5838A1F814C0F0045941A /* NavigationController.swift in Sources */,
 				1F37057F1F7B68B500E6CB0D /* SearchCardsCacheService.swift in Sources */,

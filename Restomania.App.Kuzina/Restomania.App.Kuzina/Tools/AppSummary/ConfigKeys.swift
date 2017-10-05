@@ -17,4 +17,5 @@ public enum ConfigKeys: String {
     case PlacesIDs = "PlacesIDs"
 
     case ServerUrl = "ServerUrl"
+    
 }

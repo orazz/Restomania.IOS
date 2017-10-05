@@ -10,7 +10,7 @@ import Foundation
 
 public enum ApiRights: Int
 {
-    case User = 1
-    case Place = 2
-    case Admin = 3
+    case user = 1
+    case place = 2
+    case admin = 3
 }

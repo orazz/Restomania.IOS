@@ -18,15 +18,16 @@ public class ServicesFactory {
     public let properties: PropertiesStorage<PropertiesKey>
     public let backgrounds: BackgroundTaskManager
 
-    //MARK: Storage services
+    //MARk: Cache services
     public let keys: IKeysStorage
-//    public let likes: LikesService
+    public let images: CacheImagesService
+    public let searchCards: SearchPlaceCardsCacheService
+    public let likes: LikesService
+
+    //MARK: Storage services
     public let positions: PositionsService
     public let checkIns: CheckInService
-//
-    //MARk: Cache services
-    public let images: CacheImagesService
-//    public let searchCards: SearchPlaceCardsCacheService
+
 
 
     private init() {
@@ -35,12 +36,14 @@ public class ServicesFactory {
         properties = PropertiesStorage<PropertiesKey>()
         backgrounds = BackgroundTaskManager.shared
 
+
         keys = KeysStorage()
-//        likes = LikesService()
-        positions = PositionsService(background: backgrounds)
-        checkIns = CheckInService(positions: positions)
-//
         images = CacheImagesService()
-//        searchCards = SearchPlaceCardsCacheService(properties: properties)
+        searchCards = SearchPlaceCardsCacheService(properties: properties)
+        likes = LikesService()
+
+        positions = PositionsService(background: backgrounds)
+        checkIns = CheckInService(positions: positions, searchCards: searchCards)
+//
     }
 }

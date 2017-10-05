@@ -23,7 +23,7 @@ public class StartController: UIViewController {
         if (!(properties.getBool(.isShowExplainer).unwrapped ?? false)) {
             toGreetingPage()
         }
-        else if (keys.isAuth(rights: .User)){
+        else if (keys.isAuth(rights: .user)){
             toEnteringPage()
         }
         else {

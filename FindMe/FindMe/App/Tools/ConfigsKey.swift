@@ -11,4 +11,5 @@ import Foundation
 public enum ConfigsKey: String {
     
     case serverUrl = "ServerUrl"
+    case vkAppID = "VKAppID"
 }
