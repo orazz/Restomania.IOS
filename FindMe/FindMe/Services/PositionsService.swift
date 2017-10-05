@@ -75,7 +75,11 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
     //MARK: Methods
     public func requestPermission() {
 
-        _manager.requestWhenInUseAuthorization()
+        let manager = _manager
+        
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     }
     public var canUse: Bool {
 
@@ -183,6 +187,15 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
             _eventsAdapter.Trigger(action: { $0.updateLocation(position: positions) })
         }
 
+
+
+
+
+        //Start proces background mode
+        let application = UIApplication.shared
+        if (application.applicationState != .background) {
+            return
+        }
 
         //Restart updates
         if (nil != _circleTimer) {

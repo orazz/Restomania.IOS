@@ -14,7 +14,6 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
 
     private let _table: UITableView
     private let _delegate: PlacesListDelegate
-    private var _cachedCells: [SearchPlaceCardCell?]
     private var _sourcePlaces: [SearchPlaceCard]
     private var _filtered: [SearchPlaceCard]
     private var _filter: (([SearchPlaceCard]) -> [SearchPlaceCard])?
@@ -25,7 +24,6 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
         SearchPlaceCardCell.register(in: source)
 
         _delegate = delegate
-        _cachedCells = []
         _sourcePlaces = []
         _filtered = []
         _filter = nil
@@ -38,14 +36,13 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
 
     public func update(places: [SearchPlaceCard]) {
 
-        self._sourcePlaces = places.sorted(by: { $0.name > $1.name })
+        self._sourcePlaces = places.sorted(by: { $0.name < $1.name })
 
         reload()
     }
     public func reload() {
 
         self._filtered = _filter?(_sourcePlaces) ?? _sourcePlaces
-        self._cachedCells = [SearchPlaceCardCell?].init(repeating: nil, count: _filtered.count)
 
         self._table.reloadData()
     }
@@ -61,13 +58,10 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
     //MARK: UITableViewDelegate
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if let cell = _cachedCells[indexPath.row] {
-            return cell
-        }
-
-        let cell = SearchPlaceCardCell(style: .default, reuseIdentifier: SearchPlaceCardCell.identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCardCell.identifier) as! SearchPlaceCardCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCardCell.identifier, for: indexPath) as! SearchPlaceCardCell
+        //let cell = SearchPlaceCardCell(style: .default, reuseIdentifier: SearchPlaceCardCell.identifier)
         cell.setup(card: _filtered[indexPath.row], delegate: _delegate)
-        _cachedCells[indexPath.row] = cell
 
         return cell
     }

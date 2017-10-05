@@ -46,7 +46,6 @@ public class FavouritesController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setToolbarHidden(true, animated: false)
         loadData()
     }
 
@@ -56,7 +55,6 @@ public class FavouritesController: UIViewController {
         if (self._isLoadData){
             return
         }
-        self._isLoadData = true
 
         let liked = _likesService.all()
         let result = _cache.checkLocal(liked)
@@ -69,7 +67,13 @@ public class FavouritesController: UIViewController {
             _tableAdapter.update(places: _stored)
         }
 
+        if (result.notFound.isEmpty) {
+            _loader.hide()
+            return
+        }
+
         //WTF: Change on range API
+        self._isLoadData = true
         let task = _cache.all()
         task.async(.background, completion: { response in
 

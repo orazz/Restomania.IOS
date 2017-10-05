@@ -42,10 +42,6 @@ public class SearchPlaceCardCell: UITableViewCell {
 
 
 
-    //MARK: Constructors
-
-
-
     public func setup(card: SearchPlaceCard, delegate: PlacesListDelegate) {
 
         setupMarkup()

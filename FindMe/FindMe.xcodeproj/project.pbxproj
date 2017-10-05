@@ -78,6 +78,7 @@
 		1FC5A7341F138B5100ABE1A6 /* FindMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A7331F138B5100ABE1A6 /* FindMeUITests.swift */; };
 		1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7E3D81F7BAB2600D1745E /* KeysStorage.swift */; };
 		1FE7E3DB1F7BAB2600D1745E /* LikesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7E3D91F7BAB2600D1745E /* LikesService.swift */; };
+		1FF6D57A1F86F71100309ED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6D5791F86F71100309ED3 /* MapKit.framework */; };
 		73795357551239166D348DD0 /* Pods_FindMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7E6F4D956A6631217C7878 /* Pods_FindMe.framework */; };
 		748276F6073B78FAD010392A /* Pods_FindMe_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733A71B32FF5D5ADE009219D /* Pods_FindMe_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -179,6 +180,7 @@
 		1FC5A7451F138CA100ABE1A6 /* IOS library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS library.framework"; path = "../IOS library/build/Debug-iphoneos/IOS library.framework"; sourceTree = "<group>"; };
 		1FE7E3D81F7BAB2600D1745E /* KeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorage.swift; path = Services/Storage/KeysStorage.swift; sourceTree = "<group>"; };
 		1FE7E3D91F7BAB2600D1745E /* LikesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikesService.swift; path = Services/Storage/LikesService.swift; sourceTree = "<group>"; };
+		1FF6D5791F86F71100309ED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		23F9923EAE9F6E536D1D5BDD /* Pods-FindMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMe.release.xcconfig"; path = "../Pods/Target Support Files/Pods-FindMe/Pods-FindMe.release.xcconfig"; sourceTree = "<group>"; };
 		4935918CCC89441A21172DB7 /* Pods-FindMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMe.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-FindMe/Pods-FindMe.debug.xcconfig"; sourceTree = "<group>"; };
 		6584E651770DDCEABE9D28FD /* Pods-FindMe-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMe-Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-FindMe-Tests/Pods-FindMe-Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FF6D57A1F86F71100309ED3 /* MapKit.framework in Frameworks */,
 				1FC547FB1F6FB52B007CE6AB /* IOSLibrary.framework in Frameworks */,
 				73795357551239166D348DD0 /* Pods_FindMe.framework in Frameworks */,
 			);
@@ -524,6 +527,7 @@
 		1FC5A7441F138CA100ABE1A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FF6D5791F86F71100309ED3 /* MapKit.framework */,
 				1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */,
 				1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */,
 				1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */,
@@ -633,6 +637,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
 						};

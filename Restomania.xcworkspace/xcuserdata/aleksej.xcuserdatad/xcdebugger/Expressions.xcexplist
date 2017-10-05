@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PlaceMenuController.DishesAdapter.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:PlaceMenuController.swift">
+         contextName = "TabBarController.viewDidLoad() -&gt; ():TabBarController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "indexPath.row">
+               value = "self as? UINavigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -106,6 +106,9 @@
          contextName = "SignupController.loginAction() -&gt; ():SignupController.swift">
       </ContextState>
       <ContextState
+         contextName = "SearchPlaceCardCell.setupMarkup():SearchPlaceCardCell.swift">
+      </ContextState>
+      <ContextState
          contextName = "DateTests.testConvertDateToUniversalFormat() -&gt; ():Date.swift">
          <PersistentStrings>
             <PersistentString
@@ -122,6 +125,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in closure #1 in TaskType.throwableTask.getter:Task.swift">
+      </ContextState>
+      <ContextState
          contextName = "DateTests.testUTCDate() -&gt; ():Date.swift">
          <PersistentStrings>
             <PersistentString
@@ -131,18 +137,15 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "notUTC!.toUTC()">
-            </PersistentString>
-            <PersistentString
                value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
             </PersistentString>
             <PersistentString
                value = "formatter.date(from: value)">
             </PersistentString>
+            <PersistentString
+               value = "notUTC!.toUTC()">
+            </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in TaskType.throwableTask.getter:Task.swift">
       </ContextState>
       <ContextState
          contextName = "WrappedImage.animatedSetupImage(UIImage?) -&gt; ():WrappedImage.swift">
@@ -187,6 +190,9 @@
                value = "print( data)">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlacesListTableAdapter.tableView(_:cellForRowAt:):PlacesListTableAdapter.swift">
       </ContextState>
       <ContextState
          contextName = "SearchController.viewDidLoad() -&gt; ():SearchController.swift">
@@ -362,7 +368,13 @@
             <PersistentString
                value = "_loader">
             </PersistentString>
+            <PersistentString
+               value = "local.map({ $0.name })">
+            </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LikesService.init():LikesService.swift">
       </ContextState>
       <ContextState
          contextName = "VKAuthorizationController.initElements():VKAuthorizationController.swift">
@@ -521,10 +533,10 @@
          contextName = "SearchPlaceCard.init(json:):SearchPlaceCard.swift">
          <PersistentStrings>
             <PersistentString
-               value = "let b:String? = Keys.name &lt;~~ json">
+               value = "json[&quot;Name&quot;]">
             </PersistentString>
             <PersistentString
-               value = "json[&quot;Name&quot;]">
+               value = "let b:String? = Keys.name &lt;~~ json">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -559,10 +571,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TabBarController.viewDidLoad() -&gt; ():TabBarController.swift">
+         contextName = "PlaceMenuController.DishesAdapter.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:PlaceMenuController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self as? UINavigationController">
+               value = "indexPath.row">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

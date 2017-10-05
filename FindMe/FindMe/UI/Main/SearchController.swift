@@ -33,14 +33,13 @@ public class SearchController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
 
         _loader = InterfaceLoader(for: self.view)
-        SegmentControl.addTarget(self, action: #selector(updateSegment), for: .touchUpInside)
+        SegmentControl.addTarget(self, action: #selector(updateSegment), for: .valueChanged)
 
         _listAdapter = PlacesListAdapter(source: self)
         _tableAdapter = PlacesListTableAdapter(source: TableView, delegate: _listAdapter)
         Searchbar.delegate = _tableAdapter
         _cache = ServicesFactory.shared.searchCards
         _likesService = ServicesFactory.shared.likes
-
 
         loadData()
     }

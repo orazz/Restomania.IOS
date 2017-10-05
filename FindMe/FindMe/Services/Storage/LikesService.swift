@@ -28,7 +28,8 @@ public class LikesService {
     private func loadCached() -> [LikeContainer] {
 
         do {
-            if let data = _fileClient.loadData() {
+            if let content = _fileClient.load(),
+                let data = content.data(using: .utf8) {
 
                 return try JSONSerialization.parseRange(data: data)
             }
@@ -78,17 +79,14 @@ public class LikesService {
 
     private func save() {
 
-        _queue.async {
+        do {
 
-            do {
+            let data = try JSONSerialization.serialize(data: self._data)
+            self._fileClient.save(data: String(data: data, encoding: .utf8)!)
+        }
+        catch {
 
-                let data = try JSONSerialization.serialize(data: self._data)
-                self._fileClient.save(data: data)
-            }
-            catch {
-
-                Log.Warning(self._tag, "Problem with saving likes to file.")
-            }
+            Log.Warning(self._tag, "Problem with saving likes to file.")
         }
     }
 
