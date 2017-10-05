@@ -18,17 +18,13 @@ public class BaseApiService: NSObject {
     
     private var _url: String
     
-    public init(area: String, tag: String = "") {
+    public init(area: String, configs: ConfigsStorage, tag: String, keys:IKeysStorage? = nil) {
 
-        self._url = AppSummary.shared.serverUrl
+        self._url = configs.get(forKey: ConfigsKey.serverUrl).value as! String
         self._client = ApiClient(url: "\(_url)/api/\(area)", tag: tag)
+        self._keys = keys
 
         super.init()
-    }
-    public convenience init(area: String, storage: IKeysStorage) {
-        self.init(area: area)
-        
-        _keys = storage
     }
     
     

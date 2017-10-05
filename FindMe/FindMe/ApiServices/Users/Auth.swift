@@ -12,8 +12,8 @@ import IOSLibrary
 
 public class UsersAuthApiService: BaseApiService {
 
-    public init() {
-        super.init(area: "Users/Auth")
+    public init(_ configs: ConfigsStorage) {
+        super.init(area: "Users/Auth", configs: configs, tag: String.tag(UsersAuthApiService.self))
     }
 
     //MARK: Methods

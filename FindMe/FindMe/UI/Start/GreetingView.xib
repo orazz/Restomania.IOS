@@ -42,7 +42,7 @@
                         <constraint firstAttribute="height" constant="50" id="3Hp-ln-AaS"/>
                         <constraint firstAttribute="width" constant="250" id="Snq-aj-6B0"/>
                     </constraints>
-                    <state key="normal" title="Начать"/>
+                    <state key="normal" title="Ок, я всё понял"/>
                     <connections>
                         <action selector="startUse" destination="-1" eventType="touchUpInside" id="KfH-pZ-OlY"/>
                     </connections>

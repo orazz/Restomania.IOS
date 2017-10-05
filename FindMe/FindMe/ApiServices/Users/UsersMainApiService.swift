@@ -12,11 +12,9 @@ import AsyncTask
 
 public class UsersMainApiService: BaseApiService {
 
-    public init(keys: IKeysStorage) {
+    public init(configs: ConfigsStorage, keys: IKeysStorage) {
+        super.init(area: "Users", configs: configs, tag: String.tag(UsersMainApiService.self), keys: keys)
 
-        super.init(area: "Users")
-
-        _keys = keys
     }
 
     //MARK: Methods

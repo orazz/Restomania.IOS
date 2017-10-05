@@ -292,6 +292,12 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
             self.longtitude = location.coordinate.longitude
             self.accuracy = location.horizontalAccuracy
         }
+        public init(lat: Double, lng: Double) {
+
+            self.latitude = lat
+            self.longtitude = lng
+            self.accuracy = 1
+        }
 
         public func toCoordinates() -> CLLocationCoordinate2D {
             return CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)

@@ -9,7 +9,39 @@
 import Foundation
 import UIKit
 
-public class FMTitleLabel: UILabel {
+public class FMTitleLabel: BaseFMLabel {
+
+    public override func initialize() {
+
+        self.font = ThemeSettings.Fonts.default(size: .title)
+        self.textColor = ThemeSettings.Colors.main
+    }
+}
+public class FMHeadlineLabel: BaseFMLabel {
+
+    public override func initialize() {
+
+        self.font = ThemeSettings.Fonts.default(size: .headline)
+        self.textColor = ThemeSettings.Colors.main
+    }
+}
+public class FMCaptionLabel: BaseFMLabel {
+
+    public override func initialize() {
+
+        self.font = ThemeSettings.Fonts.default(size: .caption)
+        self.textColor = ThemeSettings.Colors.blackText
+    }
+}
+public class FMSubstringLabel: BaseFMLabel {
+
+    public override func initialize() {
+
+        self.font = ThemeSettings.Fonts.default(size: .substring)
+        self.textColor = ThemeSettings.Colors.blackText
+    }
+}
+public class BaseFMLabel: UILabel {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,9 +53,8 @@ public class FMTitleLabel: UILabel {
 
         initialize()
     }
-    private func initialize() {
+    public func initialize() {
 
-        self.font = ThemeSettings.Fonts.default(size: .title)
-        self.tintColor = ThemeSettings.Colors.main
+        self.textColor = ThemeSettings.Colors.blackText
     }
 }

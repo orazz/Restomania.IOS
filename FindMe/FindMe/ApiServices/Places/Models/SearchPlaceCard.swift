@@ -15,6 +15,7 @@ public class SearchPlaceCard: ICached {
     public struct Keys {
         
         public static let id = "ID"
+        public static let name = "Name"
         public static let type = "Type"
         public static let description = "Description"
         
@@ -24,6 +25,7 @@ public class SearchPlaceCard: ICached {
     }
     
     public var ID: Long
+    public var name: String
     public var type: String
     public var description: String
     public var image: String
@@ -33,6 +35,7 @@ public class SearchPlaceCard: ICached {
     public init() {
         
         ID = 0
+        name = String.empty
         type = String.empty
         description = String.empty
         image = String.empty
@@ -44,6 +47,7 @@ public class SearchPlaceCard: ICached {
     public required init(source: SearchPlaceCard) {
         
         ID = source.ID
+        name = source.name
         type = source.type
         description = source.description
         image = source.image
@@ -55,6 +59,7 @@ public class SearchPlaceCard: ICached {
     public required init?(json: JSON) {
         
         self.ID = (Keys.id <~~ json)!
+        self.name = (Keys.name <~~ json)!
         self.type = (Keys.type <~~ json)!
         self.description = (Keys.description <~~ json)!
         self.image = (Keys.image <~~ json)!
@@ -66,6 +71,7 @@ public class SearchPlaceCard: ICached {
         return jsonify([
             
             Keys.id ~~> self.ID,
+            Keys.name ~~> self.name,
             Keys.type ~~> self.type,
             Keys.description ~~> self.description,
             Keys.image ~~> self.image,

@@ -34,6 +34,9 @@ public class ThemeSettings {
         
         public static let `default` = UIImage(contentsOfFile: "\(Bundle.main.bundlePath)/default-image.jpg")!
         public static let vkLogo = UIImage(named: "vk", in: Bundle.main, compatibleWith: nil)
+
+        public static let heartActive = UIImage(named: "heart", in: Bundle.main, compatibleWith: nil)
+        public static let heartInactive = UIImage(named: "heart-grey", in: Bundle.main, compatibleWith: nil)
     }
 
     //MARK: Fonts
@@ -47,6 +50,7 @@ public class ThemeSettings {
             case headline = 18
             case subhead = 14
             case caption = 12
+            case substring = 10
         }
         
         
@@ -69,5 +73,8 @@ public class ThemeSettings {
 
         //Labels
 
+        //Segment control
+        let segment = UISegmentedControl.appearance()
+        segment.tintColor = Colors.main
     }
 }

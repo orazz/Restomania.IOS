@@ -19,10 +19,11 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
     {
         let instance = VKAuthorizationController.init(nibName: nibName, bundle: Bundle.main)
 
+        let configs = ServicesFactory.shared.configs
         instance._keys = ServicesFactory.shared.keys
-        instance._auth = UsersAuthApiService()
+        instance._auth = UsersAuthApiService(configs)
         instance._callback = callback
-        instance._appID = ServicesFactory.shared.configs.get(forKey: ConfigsKey.vkAppID).value as! Int
+        instance._appID = configs.get(forKey: ConfigsKey.vkAppID).value as! Int
 
         return instance
     }
@@ -75,7 +76,8 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
         _webView.load(URLRequest(url: prepareAuthUrl()))
         _loader.show()
 
-        NavigationBar.backgroundColor = ThemeSettings.Colors.vk
+        NavigationBar.barTintColor = ThemeSettings.Colors.vk
+        NavigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: ThemeSettings.Colors.whiteText]
 
         super.viewWillAppear(animated)
     }

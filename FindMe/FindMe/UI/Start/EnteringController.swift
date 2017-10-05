@@ -16,7 +16,11 @@ public class EnteringController: UIViewController {
     private static let nibName = "EnteringView"
     public static func build(parent: StartController) -> EnteringController {
 
-        return EnteringController(nibName: nibName, bundle: Bundle.main)
+        let instance = EnteringController(nibName: nibName, bundle: Bundle.main)
+
+        instance.startController = parent
+
+        return instance
     }
 
     //MARK: UIElements
@@ -24,13 +28,12 @@ public class EnteringController: UIViewController {
 
     //MARK: Data & Services
     private var isInitMarkup: Bool = false
+    private var startController: StartController!
 
 
     //MARK: Controller circle
     public override func viewDidLoad() {
         super.viewDidLoad()
-
-
     }
     public override func viewWillAppear(_ animated: Bool) {
 
@@ -57,12 +60,13 @@ public class EnteringController: UIViewController {
     //MARK: Actions
     @IBAction public func continueWithoutAuth() {
 
+        startController.toSearch()
     }
     @IBAction public func authViaVk() {
 
         let service = VKAuthorizationController.build(callback: { success, result in
 
-
+            self.continueWithoutAuth()
         })
 
         self.navigationController?.present(service, animated: true, completion: nil)

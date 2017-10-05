@@ -45,6 +45,52 @@ public class LikesService {
     }
 
     //MARK: Methods
+    public func all() -> [Long] {
+        return _data.map({ $0.placeId })
+    }
+    public func isLiked(place: Long) -> Bool {
+        return nil != find(by: place)
+    }
+    public func like(place: Long) {
+
+        Log.Debug(_tag, "Like place #\(place).")
+        if let _ = find(by: place) {
+            return
+        }
+
+        _data.append(LikeContainer(placeId: place))
+        save()
+    }
+    public func unlike(place: Long) {
+
+        Log.Debug(_tag, "Unlike place #\(place).")
+        if nil == find(by: place) {
+            return
+        }
+
+        _data.remove(at: _data.index(where: { $0.placeId == place })!)
+        save()
+    }
+    private func find(by placeId: Long) -> LikeContainer? {
+        return _data.find({ $0.placeId == placeId })
+    }
+
+
+    private func save() {
+
+        _queue.async {
+
+            do {
+
+                let data = try JSONSerialization.serialize(data: self._data)
+                self._fileClient.save(data: data)
+            }
+            catch {
+
+                Log.Warning(self._tag, "Problem with saving likes to file.")
+            }
+        }
+    }
 
 
     private class LikeContainer: Glossy {

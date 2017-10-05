@@ -65,7 +65,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
 
         if let result = _data.find({ predicate($0.data) }) {
 
-            return                TElement(source: result.data)
+            return TElement(source: result.data)
         } else {
 
             return nil

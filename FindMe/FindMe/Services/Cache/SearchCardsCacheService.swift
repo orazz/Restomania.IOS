@@ -19,10 +19,10 @@ public class SearchPlaceCardsCacheService {
 
 
     
-    public init(properties: PropertiesStorage<PropertiesKey>) {
+    public init(configs: ConfigsStorage, properties: PropertiesStorage<PropertiesKey>) {
 
         _tag = String.tag(SearchPlaceCardsCacheService.self)
-        _client = PlacesMainApiService()
+        _client = PlacesMainApiService(configs)
         _adapter = CacheRangeAdapter<SearchPlaceCard>(tag: _tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
         _properties = properties
 
