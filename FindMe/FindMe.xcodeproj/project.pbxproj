@@ -14,6 +14,14 @@
 		1F09EE571F86336D00694D8D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE561F86336D00694D8D /* Auth.swift */; };
 		1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE581F8655D700694D8D /* UsersMainApiService.swift */; };
 		1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE5A1F865D7900694D8D /* Labels.swift */; };
+		1F10F8D31F8704CD00D85903 /* OnePlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F10F8D21F8704CD00D85903 /* OnePlaceView.xib */; };
+		1F10F8D51F87062C00D85903 /* OnePlaceView-Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F10F8D41F87062C00D85903 /* OnePlaceView-Header.xib */; };
+		1F10F8D71F8707BB00D85903 /* OnePlaceView-Statistic.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F10F8D61F8707BB00D85903 /* OnePlaceView-Statistic.xib */; };
+		1F10F8D91F87089E00D85903 /* OnePlaceView-Address.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F10F8D81F87089E00D85903 /* OnePlaceView-Address.xib */; };
+		1F10F8DB1F8708CE00D85903 /* OnePlaceView-Description.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F10F8DA1F8708CE00D85903 /* OnePlaceView-Description.xib */; };
+		1F10F8DD1F8708E000D85903 /* OnePlaceView-Contacts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F10F8DC1F8708E000D85903 /* OnePlaceView-Contacts.xib */; };
+		1F10F8E01F87090200D85903 /* OnePlaceView-Location.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F10F8DF1F87090200D85903 /* OnePlaceView-Location.xib */; };
+		1F10F8E41F870AD600D85903 /* OnePlaceViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10F8E31F870AD600D85903 /* OnePlaceViewHeader.swift */; };
 		1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */; };
 		1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */; };
 		1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */; };
@@ -45,7 +53,6 @@
 		1F49C4FA1F7BD15C00051CAD /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49C4F91F7BD15C00051CAD /* PositionsService.swift */; };
 		1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */; };
 		1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */; };
-		1FC35EA81F86E483004633E9 /* OnePlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC35EA71F86E483004633E9 /* OnePlaceView.xib */; };
 		1FC547FB1F6FB52B007CE6AB /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */; };
 		1FC548011F6FF0EE007CE6AB /* _markup in Resources */ = {isa = PBXBuildFile; fileRef = 1FC548001F6FF0EE007CE6AB /* _markup */; };
 		1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548081F6FF8A4007CE6AB /* IPlaceDependent.swift */; };
@@ -109,6 +116,14 @@
 		1F09EE561F86336D00694D8D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = ApiServices/Users/Auth.swift; sourceTree = "<group>"; };
 		1F09EE581F8655D700694D8D /* UsersMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersMainApiService.swift; path = ApiServices/Users/UsersMainApiService.swift; sourceTree = "<group>"; };
 		1F09EE5A1F865D7900694D8D /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Labels.swift; path = UI/Elements/Labels.swift; sourceTree = "<group>"; };
+		1F10F8D21F8704CD00D85903 /* OnePlaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceView.xib; path = UI/Place/OnePlaceView.xib; sourceTree = "<group>"; };
+		1F10F8D41F87062C00D85903 /* OnePlaceView-Header.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "OnePlaceView-Header.xib"; path = "UI/Place/OnePlaceView-Header.xib"; sourceTree = "<group>"; };
+		1F10F8D61F8707BB00D85903 /* OnePlaceView-Statistic.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "OnePlaceView-Statistic.xib"; path = "UI/Place/OnePlaceView-Statistic.xib"; sourceTree = "<group>"; };
+		1F10F8D81F87089E00D85903 /* OnePlaceView-Address.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "OnePlaceView-Address.xib"; path = "UI/Place/OnePlaceView-Address.xib"; sourceTree = "<group>"; };
+		1F10F8DA1F8708CE00D85903 /* OnePlaceView-Description.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "OnePlaceView-Description.xib"; path = "UI/Place/OnePlaceView-Description.xib"; sourceTree = "<group>"; };
+		1F10F8DC1F8708E000D85903 /* OnePlaceView-Contacts.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "OnePlaceView-Contacts.xib"; sourceTree = "<group>"; };
+		1F10F8DF1F87090200D85903 /* OnePlaceView-Location.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "OnePlaceView-Location.xib"; path = "UI/Place/OnePlaceView-Location.xib"; sourceTree = "<group>"; };
+		1F10F8E31F870AD600D85903 /* OnePlaceViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceViewHeader.swift; path = UI/Place/OnePlaceViewHeader.swift; sourceTree = "<group>"; };
 		1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
 		1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesKey.swift; path = App/Tools/PropertiesKey.swift; sourceTree = "<group>"; };
 		1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsKey.swift; path = App/Tools/ConfigsKey.swift; sourceTree = "<group>"; };
@@ -140,7 +155,6 @@
 		1F49C4F91F7BD15C00051CAD /* PositionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PositionsService.swift; path = Services/PositionsService.swift; sourceTree = "<group>"; };
 		1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesMainApiService.swift; path = ApiServices/Places/PlacesMainApiService.swift; sourceTree = "<group>"; };
 		1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectParameters.swift; path = ApiServices/SelectParameters.swift; sourceTree = "<group>"; };
-		1FC35EA71F86E483004633E9 /* OnePlaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceView.xib; path = UI/Place/OnePlaceView.xib; sourceTree = "<group>"; };
 		1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1FC548001F6FF0EE007CE6AB /* _markup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _markup; sourceTree = "<group>"; };
 		1FC548081F6FF8A4007CE6AB /* IPlaceDependent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IPlaceDependent.swift; path = Domains/Tools/IPlaceDependent.swift; sourceTree = "<group>"; };
@@ -313,7 +327,14 @@
 			isa = PBXGroup;
 			children = (
 				1F4690741F86A1B50056F9B0 /* OnePlaceController.swift */,
-				1FC35EA71F86E483004633E9 /* OnePlaceView.xib */,
+				1F10F8D21F8704CD00D85903 /* OnePlaceView.xib */,
+				1F10F8D41F87062C00D85903 /* OnePlaceView-Header.xib */,
+				1F10F8E31F870AD600D85903 /* OnePlaceViewHeader.swift */,
+				1F10F8D81F87089E00D85903 /* OnePlaceView-Address.xib */,
+				1F10F8D61F8707BB00D85903 /* OnePlaceView-Statistic.xib */,
+				1F10F8DA1F8708CE00D85903 /* OnePlaceView-Description.xib */,
+				1F10F8DC1F8708E000D85903 /* OnePlaceView-Contacts.xib */,
+				1F10F8DF1F87090200D85903 /* OnePlaceView-Location.xib */,
 			);
 			name = Place;
 			sourceTree = "<group>";
@@ -683,8 +704,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F10F8DB1F8708CE00D85903 /* OnePlaceView-Description.xib in Resources */,
 				1FC5839A1F824BEA0045941A /* ExplainerBlock.xib in Resources */,
 				1FC583921F8150EF0045941A /* Main.storyboard in Resources */,
+				1F10F8D71F8707BB00D85903 /* OnePlaceView-Statistic.xib in Resources */,
 				1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */,
 				1FC548011F6FF0EE007CE6AB /* _markup in Resources */,
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
@@ -692,9 +715,13 @@
 				1F1A0E541F78ED3800FDBA97 /* GreetingView.xib in Resources */,
 				1FC583981F816CB30045941A /* EnteringView.xib in Resources */,
 				1F4690801F86A6340056F9B0 /* SearchPlaceCardView.xib in Resources */,
+				1F10F8D51F87062C00D85903 /* OnePlaceView-Header.xib in Resources */,
+				1F10F8D91F87089E00D85903 /* OnePlaceView-Address.xib in Resources */,
+				1F10F8DD1F8708E000D85903 /* OnePlaceView-Contacts.xib in Resources */,
 				1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */,
 				1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */,
-				1FC35EA81F86E483004633E9 /* OnePlaceView.xib in Resources */,
+				1F10F8E01F87090200D85903 /* OnePlaceView-Location.xib in Resources */,
+				1F10F8D31F8704CD00D85903 /* OnePlaceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,6 +865,7 @@
 				1FC5481D1F7047F7007CE6AB /* Action.swift in Sources */,
 				1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */,
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
+				1F10F8E41F870AD600D85903 /* OnePlaceViewHeader.swift in Sources */,
 				1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */,
 				1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */,
 				1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */,

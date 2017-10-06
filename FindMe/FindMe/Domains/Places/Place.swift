@@ -13,7 +13,8 @@ import Gloss
 public class Place: BaseDataType, ICached {
     
     public struct Keys {
-        
+
+        public static let name = "Name"
         public static let type = "Type"
         public static let description = "Description"
         public static let status = "Status"
@@ -30,7 +31,8 @@ public class Place: BaseDataType, ICached {
         public static let clientsDataId = "ClientsDataID"
         public static let clientsData = "ClientsData"
     }
-    
+
+    public var name: String
     public var type: String
     public var description: String
     public var status: PlaceStatus
@@ -49,7 +51,8 @@ public class Place: BaseDataType, ICached {
     
     //MARK: ICopyng
     public required init(source: Place) {
-        
+
+        self.name = source.name
         self.type = source.type
         self.description = source.description
         self.status = source.status
@@ -70,7 +73,8 @@ public class Place: BaseDataType, ICached {
     
     //MARK: Glossy
     public required init(json: JSON) {
-        
+
+        self.name = (Keys.name <~~ json)!
         self.type = (Keys.type <~~ json)!
         self.description = (Keys.type <~~ json)!
         self.status = (Keys.status <~~ json)!
@@ -87,5 +91,24 @@ public class Place: BaseDataType, ICached {
         self.clientsData = (Keys.clientsData <~~ json)!
         
         super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+            Keys.name ~~> self.name,
+            Keys.type ~~> self.type,
+            Keys.description ~~> self.description,
+            Keys.status ~~> self.status,
+            Keys.seatingCapacity ~~> self.seatingCapacity,
+
+            Keys.images ~~> self.images,
+            Keys.actions ~~> self.actions,
+
+            Keys.locationId ~~> self.locationId,
+            Keys.location ~~> self.location,
+            Keys.contactsId ~~> self.contactsId,
+            Keys.contacts ~~> self.contacts,
+            Keys.clientsDataId ~~> self.clientsDataId,
+            Keys.clientsData ~~> self.clientsData,
+            ])
     }
 }

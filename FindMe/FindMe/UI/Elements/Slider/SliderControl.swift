@@ -53,11 +53,12 @@ open class SliderControl: UIView {
         for slide in _slides {
 
             slide.frame = _mainPosition
+            move(slide: slide, to: .left)
             self.addSubview(slide)
         }
 
-        if let _ = _slides.first {
-            swipeLeft()
+        if let slide = _slides.first {
+            slide.frame = _mainPosition
         }
     }
 

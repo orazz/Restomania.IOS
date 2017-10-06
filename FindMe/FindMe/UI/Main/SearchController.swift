@@ -73,10 +73,8 @@ public class SearchController: UIViewController, UISearchBarDelegate {
 
                 if (nil == response) {
                     let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { _ in
-
-                    }))
-                    self.navigationController?.present(alert, animated: false, completion: nil)
+                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
+                    self.navigationController?.show(alert, sender: nil)
                 }
 
             }

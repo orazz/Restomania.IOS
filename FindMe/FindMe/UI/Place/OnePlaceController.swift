@@ -17,17 +17,21 @@ public class OnePlaceController: UIViewController {
 
         let instance = OnePlaceController(nibName: nibName, bundle: Bundle.main)
 
-        instance.placeId = placeId
+        instance._placeId = placeId
+        instance._apiService = PlacesMainApiService(ServicesFactory.shared.configs)
 
         return instance
     }
 
 
     //MARK: UIElements
+    @IBOutlet weak var ContentView: BuildedView!
     private var _loader: InterfaceLoader!
 
     //MARK: Data
-    public var placeId: Long!
+    private var _placeId: Long!
+    private var _apiService: PlacesMainApiService!
+    private var _source: Place? = nil
 
 
     //View controller circle
@@ -35,9 +39,61 @@ public class OnePlaceController: UIViewController {
         super.viewDidLoad()
 
         _loader = InterfaceLoader(for: self.view)
-    }
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
+        loadData()
+    }
+    private func loadData() {
+
+        _loader.show()
+
+        let task = _apiService.Find(placeId: _placeId)
+        task.async(.background, completion: { response in
+            DispatchQueue.main.async {
+
+                if (response.isFail) {
+
+                    self.navigationController?.popViewController(animated: true)
+
+                    let alert = UIAlertController(title: "Ошибка", message: "Проблемы с получение данных заведения. Проверьте подключение к интернету и попробуйте позже.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.navigationController?.present(alert, animated: true, completion: nil)
+
+                    return
+                }
+
+                let place = response.data!
+                self._source = place
+                self.buildPage(for: place)
+
+                self._loader.hide()
+            }
+        })
+    }
+    private func buildPage(for place: Place) {
+
+        ContentView.addSubview(OnePlaceViewHeader.build(place: place))
+    }
+
+
+    //MARK: Actions
+    @IBAction public func goBack() {
+
+        self.navigationController?.popViewController(animated: true)
+    }
+
+
+    public class BuildedView: UIScrollView {
+
+        private var _offsetTop: CGFloat = CGFloat(0)
+
+        public func addPart(view: UIView) {
+
+            let frame = view.frame
+            let source = self.frame
+            view.frame = CGRect(x: 0, y: _offsetTop, width: source.width, height: frame.height)
+            addSubview(view)
+
+            _offsetTop = _offsetTop + frame.height
+        }
     }
 }

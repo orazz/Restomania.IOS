@@ -22,7 +22,15 @@ public class PlaceImage: Attachment, IPlaceDependent, ICached, ISortable  {
     public var placeId: Long
     //MARK: ISortable
     public var orderNumber: Int
-    
+
+    public override init() {
+
+        self.placeId = 0
+        self.orderNumber = 0
+
+        super.init()
+    }
+
     //MARK: ICopying
     public required init(source: PlaceImage) {
         

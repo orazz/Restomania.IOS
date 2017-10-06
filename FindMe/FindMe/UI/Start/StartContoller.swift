@@ -44,7 +44,8 @@ public class StartController: UIViewController {
     public func toSearch() {
 
         let board = UIStoryboard(name: "Main", bundle: Bundle.main)
-        if let vc = board.instantiateInitialViewController() {
+        if let vc = board.instantiateInitialViewController() as? UINavigationController {
+
             self.navigationController?.present(vc, animated: false, completion: {
 
                 Log.Info(self._tag, "Navigate to main storyboard.")
