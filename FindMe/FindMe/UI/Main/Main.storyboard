@@ -70,6 +70,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="pin-grey" selectedImage="pin" id="qyS-oL-vjE"/>
                     <connections>
+                        <outlet property="MapView" destination="SAh-3l-gbN" id="XQW-VJ-0i7"/>
                         <outlet property="Searchbar" destination="LxW-L6-Sls" id="6eu-Cw-3Cb"/>
                         <outlet property="SegmentControl" destination="Izo-Jo-hnK" id="XoA-lQ-Ql7"/>
                     </connections>

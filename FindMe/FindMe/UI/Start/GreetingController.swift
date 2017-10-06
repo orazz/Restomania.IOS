@@ -42,7 +42,7 @@ public class GreetingController: UIViewController, SliderControlDelegate {
 
         loadSildes()
 
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.setToolbarHidden(true, animated: false)
     }
     public override var prefersStatusBarHidden: Bool {
         return true

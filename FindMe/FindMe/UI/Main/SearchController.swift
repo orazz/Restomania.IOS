@@ -11,7 +11,7 @@ import UIKit
 import IOSLibrary
 
 
-public class SearchController: UIViewController, UISearchBarDelegate {
+public class SearchController: UIViewController {
 
     //MARK: UI Elements
     @IBOutlet public weak var SegmentControl: UISegmentedControl!

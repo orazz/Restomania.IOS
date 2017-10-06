@@ -32,11 +32,16 @@ public class ThemeSettings {
     //MARK: Images
     public struct Images {
         
-        public static let `default` = UIImage(named: "default-image", in: Bundle.main, compatibleWith: nil)!
-        public static let vkLogo = UIImage(named: "vk", in: Bundle.main, compatibleWith: nil)
+        public static let `default` = loadAssert(named: "default-image")
+        public static let vkLogo = loadAssert(named: "vk")
+        public static let pinActive = loadAssert(named: "pin")
+        public static let heartActive = loadAssert(named: "heart")
+        public static let heartInactive = loadAssert(named: "heart-grey")
 
-        public static let heartActive = UIImage(named: "heart", in: Bundle.main, compatibleWith: nil)
-        public static let heartInactive = UIImage(named: "heart-grey", in: Bundle.main, compatibleWith: nil)
+        private static func loadAssert(named: String) -> UIImage {
+
+            return UIImage(named: named, in: Bundle.main, compatibleWith: nil)!
+        }
     }
 
     //MARK: Fonts

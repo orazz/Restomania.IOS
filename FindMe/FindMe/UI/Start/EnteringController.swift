@@ -36,10 +36,11 @@ public class EnteringController: UIViewController {
         super.viewDidLoad()
     }
     public override func viewWillAppear(_ animated: Bool) {
-
+        super.viewWillAppear(animated)
+        
         initMarkup()
 
-        super.viewWillAppear(animated)
+        self.navigationController?.setToolbarHidden(true, animated: false)
     }
     private func initMarkup() {
 

@@ -38,6 +38,7 @@ public class PlacesListAdapter: PlacesListDelegate {
         self._likes = services.likes
 
         self._searchAdapter = SearchAdapter()
+        _searchAdapter.add({ $0.name })
         _searchAdapter.add({ $0.type })
         _searchAdapter.add({ $0.description })
         _searchAdapter.add({ $0.location.address })
@@ -71,5 +72,11 @@ public class PlacesListAdapter: PlacesListDelegate {
 
     public func filter(_ range: [SearchPlaceCard], by phrase: String) -> [SearchPlaceCard] {
         return _searchAdapter.filter(phrase: phrase, for: range)
+    }
+    public func filter(for phrase: String) -> ((SearchPlaceCard)->Bool) {
+
+        return { card  in
+            return self._searchAdapter.search(phrase: phrase, in: card)
+        }
     }
 }

@@ -63,15 +63,19 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
 
         super.init()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(enterToBackground), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(enterToBackground),
+                                               name: Notification.Name.UIApplicationDidEnterBackground,
+                                               object: nil)
     }
     @objc private func enterToBackground() {
 
-        startTracking()
-
-        if (canUse) {
-            _backgroundTask = _background.beginNew()
-        }
+        stopTracking()
+//        startTracking()
+//
+//        if (canUse) {
+//            _backgroundTask = _background.beginNew()
+//        }
     }
 
     //MARK: Methods

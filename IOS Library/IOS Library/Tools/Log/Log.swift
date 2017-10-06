@@ -11,6 +11,7 @@ import Foundation
 public class Log {
     public static var Messages: [LogMessage] = [LogMessage]()
     public static var IsDebug: Bool = true
+    private static let _queue: DispatchQueue = DispatchQueue(label: "Log-Queue")
 
     public static func Debug(_ tag: String, _ message: String) {
         if (IsDebug) {
@@ -30,7 +31,10 @@ public class Log {
     private static func Show(_ type: LogMessageType, _ tag: String, _ message: String) {
         let logMessage = LogMessage(Date(), type, tag, message)
 
-        Messages.append(logMessage)
+        _queue.async {
+            Messages.append(logMessage)
+        }
+        
         print("\(logMessage)")
     }
 }
