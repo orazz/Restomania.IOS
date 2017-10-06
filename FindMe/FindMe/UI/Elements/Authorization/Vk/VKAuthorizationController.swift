@@ -150,21 +150,24 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
             return
         }
 
-        let task = _auth.vk(userId: container.userId, token: container.accessToken, expireIn: container.expiresIn)
-        task.async(.background, completion: { response in
 
-            DispatchQueue.main.async {
-
-                if (response.isFail) {
-                    self.showAlertAndClose()
-                    return
-                }
-
-                let keys = response.data!
-                self._keys.set(for: .user, keys: keys)
-                self._callback(true, container)
-            }
-        })
+        self._keys.set(for: .user, keys: ApiKeys(id: 1, token: "test"))
+        self._callback(true, container)
+//        let task = _auth.vk(userId: container.userId, token: container.accessToken, expireIn: container.expiresIn)
+//        task.async(.background, completion: { response in
+//
+//            DispatchQueue.main.async {
+//
+//                if (response.isFail) {
+//                    self.showAlertAndClose()
+//                    return
+//                }
+//
+//                let keys = response.data!
+//                self._keys.set(for: .user, keys: keys)
+//                self._callback(true, container)
+//            }
+//        })
 
     }
     private func showAlertAndClose() {

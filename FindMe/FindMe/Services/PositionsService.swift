@@ -69,7 +69,9 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
 
         startTracking()
 
-        _backgroundTask = _background.beginNew()
+        if (canUse) {
+            _backgroundTask = _background.beginNew()
+        }
     }
 
     //MARK: Methods

@@ -13,7 +13,7 @@ public class FMTitleLabel: BaseFMLabel {
 
     public override func initialize() {
 
-        self.font = ThemeSettings.Fonts.default(size: .title)
+        self.font = ThemeSettings.Fonts.bold(size: .title)
         self.textColor = ThemeSettings.Colors.main
     }
 }

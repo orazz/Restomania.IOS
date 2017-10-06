@@ -36,7 +36,7 @@ public class OnePlaceViewHeader: UIView {
         _source = place
         NameLabel.text = place.name
 
-        var images = place.images.sorted(by: { $0.orderNumber > $1.orderNumber })
+        var images = place.images.sorted(by: { $0.orderNumber < $1.orderNumber })
         if (images.isEmpty) {
             images.append(PlaceImage())
         }

@@ -57,10 +57,10 @@ public class GreetingController: UIViewController, SliderControlDelegate {
         _isLoadSlider = true
 
         var slides = [ExplainerBlockView]()
-        slides.append(ExplainerBlockView.build(image: nil, text: "Fuck"))
-        slides.append(ExplainerBlockView.build(image: nil, text: "New"))
-        slides.append(ExplainerBlockView.build(image: nil, text: "Fuck test"))
-        slides.append(ExplainerBlockView.build(image: nil, text: "End"))
+        let image = ThemeSettings.Images.default
+        slides.append(ExplainerBlockView.build(image: image, text: "Ищите лучшие заведения"))
+        slides.append(ExplainerBlockView.build(image: image, text: "Находите тех, кто хочет познакомиться"))
+        slides.append(ExplainerBlockView.build(image: image, text: "Общайтесь"))
 
         Slider.delegate = self
         Slider.setup(slides: slides)

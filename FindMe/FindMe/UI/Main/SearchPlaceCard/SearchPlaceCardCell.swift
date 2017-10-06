@@ -45,6 +45,7 @@ public class SearchPlaceCardCell: UITableViewCell {
     public func setup(card: SearchPlaceCard, delegate: PlacesListDelegate) {
 
         setupMarkup()
+
         _source = card
         _delegate = delegate
 
@@ -63,6 +64,8 @@ public class SearchPlaceCardCell: UITableViewCell {
             return
         }
         _isSetupMarkup = true
+
+        PlaceImage.useAnimation = false
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnLike))
         LikeImage.addGestureRecognizer(tap)

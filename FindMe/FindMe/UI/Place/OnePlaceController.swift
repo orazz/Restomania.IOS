@@ -72,6 +72,7 @@ public class OnePlaceController: UIViewController {
     private func buildPage(for place: Place) {
 
         ContentView.addSubview(OnePlaceViewHeader.build(place: place))
+//        ContentView.addPart(OnePlaceViewAddress.build(place: place))
     }
 
 
@@ -86,7 +87,7 @@ public class OnePlaceController: UIViewController {
 
         private var _offsetTop: CGFloat = CGFloat(0)
 
-        public func addPart(view: UIView) {
+        public func addPart(_ view: UIView) {
 
             let frame = view.frame
             let source = self.frame

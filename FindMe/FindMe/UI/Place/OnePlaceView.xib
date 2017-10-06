@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnePlaceController" customModule="FindMe" customModuleProvider="target">
             <connections>
-                <outlet property="ContentView" destination="KIZ-Rh-tzk" id="PL3-vn-nuc"/>
+                <outlet property="ContentView" destination="KIZ-Rh-tzk" id="Ypb-Td-dDc"/>
                 <outlet property="view" destination="iN0-l3-epB" id="S3K-UM-fDn"/>
             </connections>
         </placeholder>

@@ -17,7 +17,9 @@ extension String {
     }
     public static func tag(_ type: Any) -> String {
         
-        return String(describing: Swift.type(of: type))
+        let type =  String(describing: Swift.type(of: type))
+
+        return type.components(separatedBy: ".").first!
     }
 
 }

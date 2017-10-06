@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "TabBarController.viewDidLoad() -&gt; ():TabBarController.swift">
+         contextName = "PlaceMenuController.DishesAdapter.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:PlaceMenuController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self as? UINavigationController">
+               value = "indexPath.row">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -28,6 +28,9 @@
                value = "CGFloat(ThemeSettings.Fonts.Sizes.title.rawValue)">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static OnePlaceViewHeader.build(place:):OnePlaceViewHeader.swift">
       </ContextState>
       <ContextState
          contextName = "Cart.refresh(dishes : [Dish]) -&gt; ():Cart.swift">
@@ -137,18 +140,29 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
-            </PersistentString>
-            <PersistentString
                value = "formatter.date(from: value)">
             </PersistentString>
             <PersistentString
                value = "notUTC!.toUTC()">
             </PersistentString>
+            <PersistentString
+               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "WrappedImage.animatedSetupImage(UIImage?) -&gt; ():WrappedImage.swift">
+      </ContextState>
+      <ContextState
+         contextName = "OnePlaceController.buildPage(for:):OnePlaceController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ContentView">
+            </PersistentString>
+            <PersistentString
+               value = "OnePlaceViewHeader.build(place: place)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "PaymentCardCell.setup(card : PaymentCard, delegate : IPaymentCardsDelegate) -&gt; ():PaymentCardCell.swift">
@@ -181,7 +195,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static Decoder.(decode&lt;A where ...&gt; (decodableArrayForKey : String, keyPathDelimiter : String) -&gt; ([String : Any]) -&gt; [A]?).(closure #1):Decoder.swift">
+         contextName = "PlacesListTableAdapter.tableView(_:cellForRowAt:):PlacesListTableAdapter.swift">
       </ContextState>
       <ContextState
          contextName = "ApiClient.(SendTo&lt;A&gt; (String, method : HttpMethod, parameters : [String : Any?], parser : (Any?) -&gt; A) -&gt; Task&lt;ApiResponse&lt;A&gt;&gt;).(closure #1).(closure #1):ApiClient.swift">
@@ -192,7 +206,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PlacesListTableAdapter.tableView(_:cellForRowAt:):PlacesListTableAdapter.swift">
+         contextName = "static Decoder.(decode&lt;A where ...&gt; (decodableArrayForKey : String, keyPathDelimiter : String) -&gt; ([String : Any]) -&gt; [A]?).(closure #1):Decoder.swift">
       </ContextState>
       <ContextState
          contextName = "SearchController.viewDidLoad() -&gt; ():SearchController.swift">
@@ -533,10 +547,10 @@
          contextName = "SearchPlaceCard.init(json:):SearchPlaceCard.swift">
          <PersistentStrings>
             <PersistentString
-               value = "json[&quot;Name&quot;]">
+               value = "let b:String? = Keys.name &lt;~~ json">
             </PersistentString>
             <PersistentString
-               value = "let b:String? = Keys.name &lt;~~ json">
+               value = "json[&quot;Name&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -563,18 +577,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static Date.parseJson(value : String) -&gt; Date:Date.swift">
+         contextName = "TabBarController.viewDidLoad() -&gt; ():TabBarController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "date.components(separatedBy: &quot;.&quot;)">
+               value = "self as? UINavigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PlaceMenuController.DishesAdapter.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:PlaceMenuController.swift">
+         contextName = "static Date.parseJson(value : String) -&gt; Date:Date.swift">
          <PersistentStrings>
             <PersistentString
-               value = "indexPath.row">
+               value = "date.components(separatedBy: &quot;.&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

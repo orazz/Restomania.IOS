@@ -42,7 +42,8 @@ public class ThemeSettings {
     //MARK: Fonts
     public class Fonts {
         
-        public static let defaultName = "HelveticaNeue"
+        private static let defaultName = "HelveticaNeue"
+        private static let boldName = "HelveticaNeue-Bold"
         
         public enum Sizes: Int {
             
@@ -53,11 +54,14 @@ public class ThemeSettings {
             case substring = 10
         }
         
-        
-        
+
         public class func `default`(size: Sizes) -> UIFont {
             
             return UIFont(name: defaultName, size: CGFloat(size.rawValue))!
+        }
+        public class func bold(size: Sizes) -> UIFont {
+
+            return UIFont(name: boldName, size: CGFloat(size.rawValue))!
         }
     }
     
@@ -76,5 +80,9 @@ public class ThemeSettings {
         //Segment control
         let segment = UISegmentedControl.appearance()
         segment.tintColor = Colors.main
+
+        //UINavigationbar
+        let navbar = UINavigationBar.appearance()
+        navbar.tintColor = Colors.main  
     }
 }

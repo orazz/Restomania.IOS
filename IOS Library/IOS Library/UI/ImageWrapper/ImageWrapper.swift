@@ -22,6 +22,7 @@ open class BaseImageWrapper: UIImageView {
         }
     }
 
+    public var useAnimation: Bool = true
     private var _url: String?
 
     // MARK: Constructors & initialization
@@ -70,6 +71,11 @@ open class BaseImageWrapper: UIImageView {
     private func animatedSetupImage(_ image: UIImage? = nil) {
 
         let image = image ?? delegate?.defaultImage
+
+        if (!useAnimation) {
+            self.image = image
+            return
+        }
 
         DispatchQueue.main.async {
 
