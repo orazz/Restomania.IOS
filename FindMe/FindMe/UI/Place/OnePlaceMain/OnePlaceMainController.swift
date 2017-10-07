@@ -10,28 +10,33 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class OnePlaceController: UIViewController {
+internal protocol OnePlaceMainCellProtocol: InterfaceTableCellProtocol {
 
-    private static let nibName = "OnePlaceView"
-    public static func build(placeId: Long) -> OnePlaceController {
+    func update(by: Place)
+}
+public class OnePlaceMainController: UIViewController {
 
-        let instance = OnePlaceController(nibName: nibName, bundle: Bundle.main)
+    private static let nibName = "OnePlaceMainView"
+    public static func build(placeId: Long) -> OnePlaceMainController {
+
+        let instance = OnePlaceMainController(nibName: nibName, bundle: Bundle.main)
 
         instance._placeId = placeId
-        instance._apiService = PlacesMainApiService(ServicesFactory.shared.configs)
+        instance._cache = ServicesFactory.shared.places
 
         return instance
     }
 
 
     //MARK: UIElements
-    @IBOutlet weak var ContentView: BuildedView!
+    @IBOutlet weak var ContentView: UITableView!
     private var _loader: InterfaceLoader!
 
     //MARK: Data
     private var _placeId: Long!
-    private var _apiService: PlacesMainApiService!
+    private var _cache: PlacesCacheservice!
     private var _source: Place? = nil
+    private var _interfaceAdapter: InterfaceTable!
 
 
     //View controller circle
@@ -39,20 +44,33 @@ public class OnePlaceController: UIViewController {
         super.viewDidLoad()
 
         _loader = InterfaceLoader(for: self.view)
+        _interfaceAdapter = InterfaceTable(source: ContentView, navigator: self.navigationController!)
 
+        buildRows()
         loadData()
+    }
+    private func buildRows() {
+
+        _interfaceAdapter.add(OnePlaceMainTitleCell.instance)
     }
     private func loadData() {
 
-        _loader.show()
+        if let place = _cache.findLocal(id: _placeId){
+            _source = place
+            update(by: place)
+        }
+        else {
+            _loader.show()
+        }
 
-        let task = _apiService.Find(placeId: _placeId)
+
+        let task = _cache.findRemote(id: _placeId)
         task.async(.background, completion: { response in
             DispatchQueue.main.async {
 
-                if (response.isFail) {
+                guard let place = response else {
 
-                    self.navigationController?.popViewController(animated: true)
+                    self.goBack()
 
                     let alert = UIAlertController(title: "Ошибка", message: "Проблемы с получение данных заведения. Проверьте подключение к интернету и попробуйте позже.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -61,18 +79,21 @@ public class OnePlaceController: UIViewController {
                     return
                 }
 
-                let place = response.data!
+
                 self._source = place
-                self.buildPage(for: place)
+                self.update(by: place)
 
                 self._loader.hide()
             }
         })
     }
-    private func buildPage(for place: Place) {
+    private func update(by place: Place) {
 
-        ContentView.addSubview(OnePlaceViewHeader.build(place: place))
-//        ContentView.addPart(OnePlaceViewAddress.build(place: place))
+        for it in _interfaceAdapter.rows {
+            if let cell = it as? OnePlaceMainCellProtocol {
+                cell.update(by: place)
+            }
+        }
     }
 
 
@@ -80,21 +101,5 @@ public class OnePlaceController: UIViewController {
     @IBAction public func goBack() {
 
         self.navigationController?.popViewController(animated: true)
-    }
-
-
-    public class BuildedView: UIScrollView {
-
-        private var _offsetTop: CGFloat = CGFloat(0)
-
-        public func addPart(_ view: UIView) {
-
-            let frame = view.frame
-            let source = self.frame
-            view.frame = CGRect(x: 0, y: _offsetTop, width: source.width, height: frame.height)
-            addSubview(view)
-
-            _offsetTop = _offsetTop + frame.height
-        }
     }
 }

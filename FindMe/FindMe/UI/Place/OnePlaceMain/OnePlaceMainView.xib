@@ -10,9 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnePlaceController" customModule="FindMe" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnePlaceMainController" customModule="FindMe" customModuleProvider="target">
             <connections>
-                <outlet property="ContentView" destination="KIZ-Rh-tzk" id="Ypb-Td-dDc"/>
+                <outlet property="ContentView" destination="4m4-h0-wO9" id="4wV-Gc-3Bf"/>
                 <outlet property="view" destination="iN0-l3-epB" id="S3K-UM-fDn"/>
             </connections>
         </placeholder>
@@ -34,19 +34,20 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIZ-Rh-tzk" customClass="BuildedView">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4m4-h0-wO9">
                     <rect key="frame" x="0.0" y="74" width="375" height="593"/>
-                </scrollView>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KIZ-Rh-tzk" secondAttribute="trailing" id="A1v-NQ-DBZ"/>
-                <constraint firstItem="KIZ-Rh-tzk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Lin-tb-qLu"/>
+                <constraint firstItem="4m4-h0-wO9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0xq-gs-AlI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4m4-h0-wO9" secondAttribute="trailing" id="540-DE-QdT"/>
                 <constraint firstItem="t6S-dp-jJa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="U9D-4T-xDZ"/>
                 <constraint firstItem="t6S-dp-jJa" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="UVB-Ce-T0p"/>
                 <constraint firstAttribute="trailing" secondItem="t6S-dp-jJa" secondAttribute="trailing" id="b1N-Cf-BAj"/>
-                <constraint firstItem="KIZ-Rh-tzk" firstAttribute="top" secondItem="t6S-dp-jJa" secondAttribute="bottom" id="kpE-9Z-TXx"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="KIZ-Rh-tzk" secondAttribute="bottom" id="nph-qo-ccf"/>
+                <constraint firstItem="4m4-h0-wO9" firstAttribute="top" secondItem="t6S-dp-jJa" secondAttribute="bottom" id="mWi-OM-hb6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4m4-h0-wO9" secondAttribute="bottom" id="t9C-Sq-nDD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>

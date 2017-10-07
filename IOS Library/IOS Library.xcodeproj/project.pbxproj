@@ -16,6 +16,8 @@
 		1F1A0E4D1F78D9EF00FDBA97 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E4C1F78D9EF00FDBA97 /* HttpMethod.swift */; };
 		1F1A0E6A1F795CC100FDBA97 /* InterfaceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E691F795CC100FDBA97 /* InterfaceLoader.swift */; };
 		1F1A0E751F79682900FDBA97 /* ImageWrapperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E741F79682900FDBA97 /* ImageWrapperDelegate.swift */; };
+		1F24A90F1F8964BC000BD8F1 /* InterfaceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A90E1F8964BC000BD8F1 /* InterfaceTable.swift */; };
+		1F24A9111F89654A000BD8F1 /* InterfaceTableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9101F89654A000BD8F1 /* InterfaceTableCellProtocol.swift */; };
 		1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DC3C41F1CFAD70058E699 /* String.swift */; };
 		1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8711F20768E00232B9A /* OptionalValue.swift */; };
 		1F36C8741F20787900232B9A /* Long.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8731F20787900232B9A /* Long.swift */; };
@@ -87,6 +89,8 @@
 		1F1A0E4C1F78D9EF00FDBA97 /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpMethod.swift; path = Requests/HttpMethod.swift; sourceTree = "<group>"; };
 		1F1A0E691F795CC100FDBA97 /* InterfaceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceLoader.swift; path = UI/InterfaceLoader.swift; sourceTree = "<group>"; };
 		1F1A0E741F79682900FDBA97 /* ImageWrapperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWrapperDelegate.swift; path = UI/ImageWrapper/ImageWrapperDelegate.swift; sourceTree = "<group>"; };
+		1F24A90E1F8964BC000BD8F1 /* InterfaceTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterfaceTable.swift; path = UI/InterfaceTable/InterfaceTable.swift; sourceTree = "<group>"; };
+		1F24A9101F89654A000BD8F1 /* InterfaceTableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterfaceTableCellProtocol.swift; path = UI/InterfaceTable/InterfaceTableCellProtocol.swift; sourceTree = "<group>"; };
 		1F2DC3C41F1CFAD70058E699 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
 		1F36C8711F20768E00232B9A /* OptionalValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionalValue.swift; path = Tools/OptionalValue.swift; sourceTree = "<group>"; };
 		1F36C8731F20787900232B9A /* Long.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Long.swift; path = Tools/Long.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		1F1A0E681F795C4400FDBA97 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1F24A90D1F896469000BD8F1 /* InterfaceTable */,
 				1F1A0E731F79680E00FDBA97 /* ImageWrapper */,
 				1F1A0E691F795CC100FDBA97 /* InterfaceLoader.swift */,
 			);
@@ -184,6 +189,15 @@
 				1FBB97C91F79985F00FF4D1C /* ImageWrapper.swift */,
 			);
 			name = ImageWrapper;
+			sourceTree = "<group>";
+		};
+		1F24A90D1F896469000BD8F1 /* InterfaceTable */ = {
+			isa = PBXGroup;
+			children = (
+				1F24A90E1F8964BC000BD8F1 /* InterfaceTable.swift */,
+				1F24A9101F89654A000BD8F1 /* InterfaceTableCellProtocol.swift */,
+			);
+			name = InterfaceTable;
 			sourceTree = "<group>";
 		};
 		1F41CE391F13BE5B000B92E1 = {
@@ -597,6 +611,7 @@
 				1FA20BB51F226D1400215C4A /* FiltersFactory.swift in Sources */,
 				1FBB97CA1F79985F00FF4D1C /* ImageWrapper.swift in Sources */,
 				1FC547EF1F6FA2E1007CE6AB /* IIdentified.swift in Sources */,
+				1F24A90F1F8964BC000BD8F1 /* InterfaceTable.swift in Sources */,
 				1F49E1F21F7B996F00F384B3 /* FSOneFileClient.swift in Sources */,
 				1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */,
 				1FC547EB1F6FA293007CE6AB /* CacheRangeAdapter.swift in Sources */,
@@ -627,6 +642,7 @@
 				1FFEA28B1F14AD71002DD78F /* EventsAdapter.swift in Sources */,
 				1FFEA2811F14A824002DD78F /* Guid.swift in Sources */,
 				1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */,
+				1F24A9111F89654A000BD8F1 /* InterfaceTableCellProtocol.swift in Sources */,
 				1FA20BBD1F226D2A00215C4A /* ValueType.swift in Sources */,
 				1FE7E3D21F7BA45D00D1745E /* JsonSerialization.swift in Sources */,
 				1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */,

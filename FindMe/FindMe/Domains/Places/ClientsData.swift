@@ -78,4 +78,19 @@ public class ClientsData: BaseDataType, IPlaceDependent, ICopying {
         
         super.init(json: json)
     }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+            Keys.placeId ~~> self.placeId,
+
+            Keys.people ~~> self.people,
+            Keys.men ~~> self.men,
+            Keys.women ~~> self.women,
+
+            Keys.averageAge ~~> self.averageAge,
+            Keys.menForAcquaintance ~~> self.menForAcquaintance,
+            Keys.womenForAcquaintance ~~> self.womenForAcquaintance,
+
+            super.toJSON()
+            ])
+    }
 }

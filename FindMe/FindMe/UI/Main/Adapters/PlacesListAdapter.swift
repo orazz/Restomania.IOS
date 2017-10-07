@@ -51,7 +51,7 @@ public class PlacesListAdapter: PlacesListDelegate {
     //MARK: PlacesListDelegate
     public func goTo(place: Long) {
 
-        let controller = OnePlaceController.build(placeId: place)
+        let controller = OnePlaceMainController.build(placeId: place)
 
         self._navigationContrller.pushViewController(controller, animated: true)
     }
