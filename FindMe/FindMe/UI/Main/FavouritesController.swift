@@ -41,12 +41,12 @@ public class FavouritesController: UIViewController {
         _likesService = ServicesFactory.shared.likes
 
 
-        //loadData()
+        loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        //loadData()
+        loadData()
     }
 
     //MARK: Load data

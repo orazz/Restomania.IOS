@@ -50,7 +50,7 @@ public class MapController: UIViewController {
         _positions = ServicesFactory.shared.positions
 
         setupMap()
-        //loadData()
+        loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -139,15 +139,21 @@ public class MapController: UIViewController {
 //MARK: UISearchBarDelegate
 extension MapController: UISearchBarDelegate {
 
+    public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        _popup.close()
+    }
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         reload(filter: _listAdapter.filter(for: searchText))
+        _popup.close()
     }
     public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+        _popup.close()
     }
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+        _popup.close()
     }
 }
 
@@ -163,6 +169,7 @@ extension MapController {
                 _onlyLiked = false
         }
 
+        _popup.close()
         reload()
     }
 }
@@ -179,13 +186,15 @@ extension MapController: MKMapViewDelegate {
 
         let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: SearchAnnotation.requeseIdentifier)
         pin.canShowCallout = false
-        pin.image = ThemeSettings.Images.pinActive
+        pin.image = ThemeSettings.Images.pinLarge
 
         return pin
     }
     public func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 
         if let annotation = view.annotation as? SearchAnnotation {
+
+            Searchbar.endEditing(true)
 
             _popup.update(by: annotation.card)
             _popup.open()

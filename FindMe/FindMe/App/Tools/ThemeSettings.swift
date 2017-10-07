@@ -34,7 +34,7 @@ public class ThemeSettings {
         
         public static let `default` = loadAssert(named: "default-image")
         public static let vkLogo = loadAssert(named: "vk")
-        public static let pinActive = loadAssert(named: "pin")
+        public static let pinLarge = loadAssert(named: "pin-large")
         public static let heartActive = loadAssert(named: "heart")
         public static let heartInactive = loadAssert(named: "heart-grey")
 

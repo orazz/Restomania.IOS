@@ -40,7 +40,7 @@ public class MapPopupView: UIView {
         TableView.delegate = self
         TableView.dataSource = self
 
-//        SearchPlaceCardCell.register(in: TableView)
+        SearchPlaceCardCell.register(in: TableView)
 
         let parent = _parent.frame
         self.frame = CGRect(x: 0,

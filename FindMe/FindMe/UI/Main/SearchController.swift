@@ -62,7 +62,8 @@ public class SearchController: UIViewController {
             _tableAdapter.update(places: local)
         }
 
-        _cache.all().async(.background, completion: { response in
+        let task = _cache.all()
+        task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
 
