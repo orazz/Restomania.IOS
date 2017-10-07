@@ -72,12 +72,12 @@ open class BaseImageWrapper: UIImageView {
 
         let image = image ?? delegate?.defaultImage
 
-        if (!useAnimation) {
-            self.image = image
-            return
-        }
-
         DispatchQueue.main.async {
+
+            if (!self.useAnimation) {
+                self.image = image
+                return
+            }
 
             let duration = 0.2
             UIView.animate(withDuration: duration, animations: { self.alpha = 0 }, completion: ({ _ in

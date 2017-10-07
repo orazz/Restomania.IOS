@@ -87,26 +87,25 @@ public class MapController: UIViewController {
 
             _stored = local.map({ SearchAnnotation(card: $0) })
             reload()
-//            _tableAdapter.update(places: local)
         }
 
-//        let task = _cache.all()
-//        task.async(.background, completion: { response in
-//
-//            DispatchQueue.main.async {
-//
-//                self._loader.hide()
-//                self._stored = response ?? []
-//                self._tableAdapter.update(places: self._stored)
-//
-//                if (nil == response) {
-//                    let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
-//                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-//                    self.navigationController?.show(alert, sender: nil)
-//                }
-//
-//            }
-//        })
+        let task = _cache.all()
+        task.async(.background, completion: { response in
+
+            DispatchQueue.main.async {
+
+                self._loader.hide()
+                self._stored = (response ?? []).map({ SearchAnnotation(card: $0) })
+                self.reload()
+
+                if (nil == response) {
+                    let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
+                    self.navigationController?.show(alert, sender: nil)
+                }
+
+            }
+        })
     }
 
 
@@ -117,8 +116,10 @@ public class MapController: UIViewController {
     }
     private func reload() {
 
-        MapView.removeAnnotations(_stored)
-
+        let forRemove = MapView.annotations.where({ $0 is SearchAnnotation })
+        if (!forRemove.isEmpty){
+            MapView.removeAnnotations(forRemove)
+        }
         _filtered = _stored
 
         //Apply filter
@@ -151,7 +152,7 @@ extension MapController {
         switch SegmentControl.selectedSegmentIndex {
             case 1:
                 _onlyLiked = true
-
+            
             default:
                 _onlyLiked = false
         }
@@ -168,13 +169,6 @@ extension MapController: MKMapViewDelegate {
         if !(annotation is SearchAnnotation) {
 
             return MKAnnotationView(annotation: annotation, reuseIdentifier: Guid.new)
-        }
-
-        if let pin = mapView.dequeueReusableAnnotationView(withIdentifier: SearchAnnotation.requeseIdentifier) {
-
-            pin.annotation = annotation
-
-            return pin
         }
 
         let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: SearchAnnotation.requeseIdentifier)

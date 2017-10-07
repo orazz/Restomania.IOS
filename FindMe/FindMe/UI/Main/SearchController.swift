@@ -92,5 +92,7 @@ public class SearchController: UIViewController {
             default:
                 return _tableAdapter.update(places: _stored)
         }
+
+        TableView.selectRow(at: IndexPath.init(item: 0, section: 0), animated: true, scrollPosition: .top)
     }
 }

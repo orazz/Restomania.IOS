@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        properties.set(.isShowExplainer, value: false)
 
         ThemeSettings.initializeStyles()
-        AppSummary.shared.launchApp()
 
         let positions = ServicesFactory.shared.positions
         positions.requestPermission()
