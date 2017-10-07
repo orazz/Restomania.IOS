@@ -25,6 +25,14 @@ public class FMHeadlineLabel: BaseFMLabel {
         self.textColor = ThemeSettings.Colors.main
     }
 }
+public class FMSubheadLabel: BaseFMLabel {
+
+    public override func initialize() {
+
+        self.font = ThemeSettings.Fonts.default(size: .subhead)
+        self.textColor = ThemeSettings.Colors.blackText
+    }
+}
 public class FMCaptionLabel: BaseFMLabel {
 
     public override func initialize() {

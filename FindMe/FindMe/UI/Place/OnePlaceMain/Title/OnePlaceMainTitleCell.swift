@@ -23,6 +23,8 @@ public class OnePlaceMainTitleCell: UITableViewCell {
         return instance
     }
 
+
+    
     //MARK: UI Elements
     @IBOutlet public weak var NameTitle: FMTitleLabel!
 
@@ -30,12 +32,7 @@ public class OnePlaceMainTitleCell: UITableViewCell {
     public var _place: Place? {
         didSet {
 
-            if let place = _place {
-                NameTitle?.text = place.name
-            }
-            else {
-                NameTitle?.text = String.empty
-            }
+            NameTitle?.text = _place?.name ?? String.empty
         }
     }
 }

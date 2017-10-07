@@ -53,6 +53,8 @@ public class OnePlaceMainController: UIViewController {
 
         _interfaceAdapter.add(OnePlaceMainTitleCell.instance)
         _interfaceAdapter.add(OnePlaceMainSliderCell.instance)
+        _interfaceAdapter.add(OnePlaceMainAddressCell.instance)
+        _interfaceAdapter.add(OnePlaceMainStatisticCell.instance)
     }
     private func loadData() {
 
