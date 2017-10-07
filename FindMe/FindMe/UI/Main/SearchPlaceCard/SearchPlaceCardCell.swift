@@ -49,6 +49,7 @@ public class SearchPlaceCardCell: UITableViewCell {
         _source = card
         _delegate = delegate
 
+
         PlaceImage.setup(url: card.image)
         PlaceNameLabel.text = card.name
         PlaceDescriptionLabel.text = card.description

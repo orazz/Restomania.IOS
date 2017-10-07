@@ -62,8 +62,7 @@ public class SearchController: UIViewController {
             _tableAdapter.update(places: local)
         }
 
-        let task = _cache.all()
-        task.async(.background, completion: { response in
+        _cache.all().async(.background, completion: { response in
 
             DispatchQueue.main.async {
 
@@ -92,7 +91,5 @@ public class SearchController: UIViewController {
             default:
                 return _tableAdapter.update(places: _stored)
         }
-
-        TableView.selectRow(at: IndexPath.init(item: 0, section: 0), animated: true, scrollPosition: .top)
     }
 }

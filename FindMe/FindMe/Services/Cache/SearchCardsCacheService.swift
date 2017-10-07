@@ -57,20 +57,20 @@ public class SearchPlaceCardsCacheService {
             Log.Debug(self._tag, "Request all places' cards.")
 
             let request = self._client.SearchCards(args: SelectParameters(time: nil))
-            let response = request.await()
+            request.async(.custom(self._adapter.blockQueue), completion: { response in
 
-            if (response.isFail) {
-                handler(nil)
-                Log.Warning(self._tag, "Problem with request all search cards.")
-                return
-            }
+                guard response.isSuccess,
+                    let update = response.data else {
 
-            if let update = response.data {
+                        handler(nil)
+                        Log.Warning(self._tag, "Problem with request all search cards.")
+                        return
+                }
 
                 self._adapter.addOrUpdate(with: update)
+                handler(self._adapter.localData)
                 Log.Debug(self._tag, "Complete request all.")
-            }
-            handler(self._adapter.localData)
+            })
         }
     }
     public func refresh() {
@@ -79,28 +79,25 @@ public class SearchPlaceCardsCacheService {
             return
         }
 
-        let task = Task { (handler: @escaping(_:Any?) -> Void) in
+        _adapter.blockQueue.async {
 
             Log.Debug(self._tag, "Start refresh data.")
 
             let time = self._properties.getDate(.lastUpdateSearchCards)
             let request = self._client.SearchCards(args: SelectParameters(time: time.unwrapped))
-            let response = request.await()
+            request.async(.custom(self._adapter.blockQueue), completion: { response in
 
-            if (response.isFail) {
+                guard response.isSuccess,
+                    let update = response.data else {
 
-                handler(nil)
-                Log.Warning(self._tag, "Problem with refresh data.")
-                return
-            }
+                    Log.Warning(self._tag, "Problem with refresh data.")
+                    return
+                }
 
-            if let update = response.data {
                 self._adapter.addOrUpdate(with: update)
+                self._properties.set(.lastUpdateSearchCards, value: Date())
                 Log.Info(self._tag, "Complete refresh data.")
-            }
-            self._properties.set(.lastUpdateSearchCards, value: Date())
-            handler(nil)
+            })
         }
-        task.async(.background)
     }
 }

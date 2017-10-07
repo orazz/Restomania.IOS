@@ -23,6 +23,7 @@ public class ServicesFactory {
     public let images: CacheImagesService
     public let searchCards: SearchPlaceCardsCacheService
     public let likes: LikesService
+    public let places: PlacesCacheservice
 
     //MARK: Storage services
     public let positions: PositionsService
@@ -39,6 +40,7 @@ public class ServicesFactory {
         images = CacheImagesService()
         searchCards = SearchPlaceCardsCacheService(configs: configs, properties: properties)
         likes = LikesService()
+        places = PlacesCacheservice(configs: configs, properties: properties)
 
         positions = PositionsService(background: backgrounds)
 //        checkIns = CheckInService(positions: positions, searchCards: searchCards)

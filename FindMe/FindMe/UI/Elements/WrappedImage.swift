@@ -75,19 +75,23 @@ public class ImageWrapper: BaseImageWrapper, ImageWrapperDelegate {
     }
     public func download(url: String) -> Task<UIImage?> {
 
-        return Task {
+        return Task<UIImage?>(action: { handler in
 
-            let task = self._cache?.download(url: url)
-            let result = task?.await()
-
-            if let result = result,
-                   result.success,
-                   let data = result.data {
-
-                return UIImage(data: data)
+            guard let task = self._cache?.download(url: url) else {
+                handler(nil)
+                return
             }
 
-            return nil
-        }
+            task.async(.background, completion: { result in
+
+                if let data = result.data {
+
+                    handler(UIImage(data: data))
+                }
+
+                handler(nil)
+            })
+
+        })
     }
 }

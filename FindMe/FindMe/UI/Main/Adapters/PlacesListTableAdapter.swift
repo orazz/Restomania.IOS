@@ -39,6 +39,10 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
         self._sourcePlaces = places.sorted(by: { $0.name < $1.name })
 
         reload()
+
+        if (0 != _table.numberOfRows(inSection: 0)) {
+            _table.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+        }
     }
     public func reload() {
 
@@ -59,8 +63,6 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCardCell.identifier) as! SearchPlaceCardCell
-//        let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCardCell.identifier, for: indexPath) as! SearchPlaceCardCell
-        //let cell = SearchPlaceCardCell(style: .default, reuseIdentifier: SearchPlaceCardCell.identifier)
         cell.setup(card: _filtered[indexPath.row], delegate: _delegate)
 
         return cell

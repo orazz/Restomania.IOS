@@ -63,8 +63,9 @@ public class CacheImagesService {
         }
     }
 
-    public let tag = "CacheImagesService"
+    private let _tag = String.tag(CacheImagesService.self)
     private let _adapter: CacheRangeAdapter<CacheImageContainer>
+    private let _queue: DispatchQueue
     private let _fileClient: FileSystem
     private let _directoryName = "images-cache"
     private var _lastID: Long
@@ -72,11 +73,12 @@ public class CacheImagesService {
 
     public init() {
 
-        _adapter = CacheRangeAdapter<CacheImageContainer>(tag: tag, filename: "image-cache.json")
+        _adapter = CacheRangeAdapter<CacheImageContainer>(tag: _tag, filename: "image-cache.json")
+        _queue  = DispatchQueue(label: _tag)
         _fileClient = FileSystem()
         _lastID = _adapter.localData.max(by: {(left, right) in left.ID > right.ID })?.ID ?? 0
 
-        Log.Info(tag, "Complete load service.")
+        Log.Info(_tag, "Complete load service.")
 
         checkDirectories()
     }
@@ -97,7 +99,7 @@ public class CacheImagesService {
                     }
 
                     handler(DownloadResult(data: content!))
-                    Log.Debug(self.tag, "Take image from cache: \(url)")
+                    Log.Debug(self._tag, "Take image from cache: \(url)")
 
                     return
                 }
@@ -109,7 +111,7 @@ public class CacheImagesService {
 
                 guard let data = data, error == nil else {
                     handler(DownloadResult(data:nil))
-                    Log.Warning(self.tag, "Problem with download image from url: \(url).")
+                    Log.Warning(self._tag, "Problem with download image from url: \(url).")
 
                     return
                 }
@@ -124,7 +126,7 @@ public class CacheImagesService {
                 self._adapter.addOrUpdate(container)
 
                 handler(DownloadResult(data: data))
-                Log.Debug(self.tag, "Download aand cache image for url: \(url)")
+                Log.Debug(self._tag, "Download aand cache image for url: \(url)")
             })
             request.resume()
         }
@@ -149,11 +151,11 @@ public class CacheImagesService {
             }
         }
 
-        Log.Debug(tag, "Check cached images.")
+        Log.Debug(_tag, "Check cached images.")
     }
     private func removeOldImages() {
 
-        let task = Task {
+        _queue.async {
 
             let date = Date()
 
@@ -165,8 +167,18 @@ public class CacheImagesService {
                 self._fileClient.remove(image.filename, fromCache: true)
             }
 
-            Log.Debug(self.tag, "Remove old cached images.")
+            Log.Debug(self._tag, "Remove old cached images.")
         }
-        task.await(.background)
     }
 }
+
+
+
+
+
+
+
+
+
+
+

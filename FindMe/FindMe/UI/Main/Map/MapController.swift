@@ -50,7 +50,7 @@ public class MapController: UIViewController {
         _positions = ServicesFactory.shared.positions
 
         setupMap()
-        loadData()
+        //loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

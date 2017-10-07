@@ -11,10 +11,10 @@ import Gloss
 
 open class CacheRangeAdapter<TElement>  where TElement: ICached {
 
+    public let blockQueue: DispatchQueue
     private let _tag: String
     private let _filename: String
     private let _fileClient: FileSystem
-    public let _queue: DispatchQueue
 
     private var _data: [CacheContainer<TElement>]
 
@@ -26,14 +26,14 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
         _tag = tag
         _filename = filename
         _fileClient = FileSystem()
-        _queue = DispatchQueue(label: "\(tag)-\(Guid.new)")
+        blockQueue = DispatchQueue(label: "\(tag)-\(Guid.new)")
 
         _data = [CacheContainer<TElement>]()
 
         _clearCache = false
         _livetime = 0
 
-        _queue.sync {
+        blockQueue.sync {
             self._data = self.load()
         }
     }
@@ -106,7 +106,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
     // MARK: Adding
     public func addOrUpdate(_ element: TElement) {
 
-        _queue.sync {
+        blockQueue.sync {
 
             let container = CacheContainer<TElement>(data: element, livetime: _livetime)
             var updated = false
@@ -127,7 +127,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
     }
     public func addOrUpdate(with range: [TElement]) {
 
-        _queue.sync {
+        blockQueue.sync {
 
             for update in range {
 
@@ -156,7 +156,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
     }
     public func remove(_ id: Long) {
 
-        _queue.sync {
+        blockQueue.sync {
 
             for (index, element) in _data.enumerated() {
                 if (element.ID == id) {
@@ -171,7 +171,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
         remove(range.map({ $0.ID }))
     }
     public func remove(_ ids: [Long]) {
-        _queue.sync {
+        blockQueue.sync {
 
             for id in ids {
                 for (index, element) in _data.enumerated() {
@@ -188,16 +188,16 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
     // MARK: Save & Load
     private func save() {
 
-        _queue.sync {
+        blockQueue.async {
 
             do {
-                let data = try JSONSerialization.data(withJSONObject: _data.map({ $0.toJSON() }), options: [])
+                let data = try JSONSerialization.data(withJSONObject: self._data.map({ $0.toJSON() }), options: [])
                 let content = String(data: data, encoding: .utf8)!
-                _fileClient.saveTo(_filename, data: content, toCache: false)
+                self._fileClient.saveTo(self._filename, data: content, toCache: false)
 
-                Log.Debug(_tag, "Save data to storage.")
+                Log.Debug(self._tag, "Save data to storage.")
             } catch {
-                Log.Warning(_tag, "Problem with save data.")
+                Log.Warning(self._tag, "Problem with save data.")
             }
         }
     }
@@ -221,7 +221,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
     private func clearCached() {
 
         var ids = [Long]()
-        _queue.sync {
+        blockQueue.sync {
 
             let date = Date()
 

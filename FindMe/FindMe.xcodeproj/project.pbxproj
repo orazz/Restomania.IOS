@@ -86,6 +86,11 @@
 		1FC583A01F827F360045941A /* SliderControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5839F1F827F360045941A /* SliderControlDelegate.swift */; };
 		1FC5A7291F138B5100ABE1A6 /* FindMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A7281F138B5100ABE1A6 /* FindMeTests.swift */; };
 		1FC5A7341F138B5100ABE1A6 /* FindMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A7331F138B5100ABE1A6 /* FindMeUITests.swift */; };
+		1FD0753F1F88F3A200F34A26 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD0753E1F88F3A200F34A26 /* IOSLibrary.framework */; };
+		1FD075401F88F3A200F34A26 /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD0753E1F88F3A200F34A26 /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1FD075471F88F3A200F34A26 /* Pods_FindMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7E6F4D956A6631217C7878 /* Pods_FindMe.framework */; };
+		1FD075481F88F3A200F34A26 /* Pods_FindMe.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7E6F4D956A6631217C7878 /* Pods_FindMe.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1FD0754B1F893F3000F34A26 /* PlacesCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0754A1F893F3000F34A26 /* PlacesCacheService.swift */; };
 		1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7E3D81F7BAB2600D1745E /* KeysStorage.swift */; };
 		1FE7E3DB1F7BAB2600D1745E /* LikesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7E3D91F7BAB2600D1745E /* LikesService.swift */; };
 		1FF6D57A1F86F71100309ED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6D5791F86F71100309ED3 /* MapKit.framework */; };
@@ -109,6 +114,21 @@
 			remoteInfo = FindMe;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1FD075491F88F3A300F34A26 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1FD075481F88F3A200F34A26 /* Pods_FindMe.framework in Embed Frameworks */,
+				1FD075401F88F3A200F34A26 /* IOSLibrary.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E7E6F4D956A6631217C7878 /* Pods_FindMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +218,8 @@
 		1FC5A7331F138B5100ABE1A6 /* FindMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMeUITests.swift; sourceTree = "<group>"; };
 		1FC5A7351F138B5100ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FC5A7451F138CA100ABE1A6 /* IOS library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS library.framework"; path = "../IOS library/build/Debug-iphoneos/IOS library.framework"; sourceTree = "<group>"; };
+		1FD0753E1F88F3A200F34A26 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FD0754A1F893F3000F34A26 /* PlacesCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesCacheService.swift; path = Services/Cache/PlacesCacheService.swift; sourceTree = "<group>"; };
 		1FE7E3D81F7BAB2600D1745E /* KeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorage.swift; path = Services/Storage/KeysStorage.swift; sourceTree = "<group>"; };
 		1FE7E3D91F7BAB2600D1745E /* LikesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikesService.swift; path = Services/Storage/LikesService.swift; sourceTree = "<group>"; };
 		1FF6D5791F86F71100309ED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -213,7 +235,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FD0753F1F88F3A200F34A26 /* IOSLibrary.framework in Frameworks */,
 				1FF6D57A1F86F71100309ED3 /* MapKit.framework in Frameworks */,
+				1FD075471F88F3A200F34A26 /* Pods_FindMe.framework in Frameworks */,
 				1FC547FB1F6FB52B007CE6AB /* IOSLibrary.framework in Frameworks */,
 				73795357551239166D348DD0 /* Pods_FindMe.framework in Frameworks */,
 			);
@@ -358,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */,
+				1FD0754A1F893F3000F34A26 /* PlacesCacheService.swift */,
 			);
 			name = Cache;
 			sourceTree = "<group>";
@@ -525,6 +550,7 @@
 		1FC5A7071F138B5100ABE1A6 = {
 			isa = PBXGroup;
 			children = (
+				1FD0753E1F88F3A200F34A26 /* IOSLibrary.framework */,
 				1FC5A7121F138B5100ABE1A6 /* FindMe */,
 				1FC5A7271F138B5100ABE1A6 /* FindMeTests */,
 				1FC5A7321F138B5100ABE1A6 /* FindMeUITests */,
@@ -625,6 +651,7 @@
 				1FC5A70E1F138B5100ABE1A6 /* Resources */,
 				DECD6648264972A754C54579 /* [CP] Embed Pods Frameworks */,
 				30BA2E0B52D696C29653F2BD /* [CP] Copy Pods Resources */,
+				1FD075491F88F3A300F34A26 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -917,6 +944,7 @@
 				1FC548231F705822007CE6AB /* Place.swift in Sources */,
 				1F1A0E5A1F79504000FDBA97 /* RefreshDataManager.swift in Sources */,
 				1FC583901F8150050045941A /* StartContoller.swift in Sources */,
+				1FD0754B1F893F3000F34A26 /* PlacesCacheService.swift in Sources */,
 				1FC548171F703442007CE6AB /* Location.swift in Sources */,
 				1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */,
 				1F09EE571F86336D00694D8D /* Auth.swift in Sources */,
