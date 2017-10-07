@@ -90,4 +90,10 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
 
         reload()
     }
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
 }

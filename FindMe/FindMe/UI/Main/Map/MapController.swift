@@ -143,6 +143,12 @@ extension MapController: UISearchBarDelegate {
 
         reload(filter: _listAdapter.filter(for: searchText))
     }
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
 }
 
 //MARK: UISegmentedControl
