@@ -23,6 +23,7 @@ public class OnePlaceMainController: UIViewController {
 
         instance._placeId = placeId
         instance._cache = ServicesFactory.shared.places
+        instance._likes = ServicesFactory.shared.likes
 
         return instance
     }
@@ -30,11 +31,13 @@ public class OnePlaceMainController: UIViewController {
 
     //MARK: UIElements
     @IBOutlet weak var ContentView: UITableView!
+    @IBOutlet weak var LikeButton: UIBarButtonItem!
     private var _loader: InterfaceLoader!
 
     //MARK: Data
     private var _placeId: Long!
     private var _cache: PlacesCacheservice!
+    private var _likes: LikesService!
     private var _source: Place? = nil
     private var _interfaceAdapter: InterfaceTable!
 
@@ -46,8 +49,19 @@ public class OnePlaceMainController: UIViewController {
         _loader = InterfaceLoader(for: self.view)
         _interfaceAdapter = InterfaceTable(source: ContentView, navigator: self.navigationController!)
 
+        setupLikeButton()
         buildRows()
         loadData()
+    }
+    private func setupLikeButton() {
+
+        var image = ThemeSettings.Images.heartInactive
+        if (_likes.isLiked(place: _placeId)){
+
+            image = ThemeSettings.Images.heartActive
+        }
+
+        LikeButton.image = image.withRenderingMode(.alwaysOriginal)
     }
     private func buildRows() {
 
@@ -104,5 +118,16 @@ public class OnePlaceMainController: UIViewController {
     @IBAction public func goBack() {
 
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction public func likePlace() {
+
+        if (_likes.isLiked(place: _placeId)){
+            _likes.unlike(place: _placeId)
+        }
+        else {
+            _likes.like(place: _placeId)
+        }
+
+        setupLikeButton()
     }
 }
