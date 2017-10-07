@@ -52,6 +52,7 @@ public class OnePlaceMainController: UIViewController {
     private func buildRows() {
 
         _interfaceAdapter.add(OnePlaceMainTitleCell.instance)
+        _interfaceAdapter.add(OnePlaceMainSliderCell.instance)
     }
     private func loadData() {
 

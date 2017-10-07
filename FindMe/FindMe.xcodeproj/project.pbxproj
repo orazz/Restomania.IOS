@@ -34,6 +34,8 @@
 		1F24A90C1F896366000BD8F1 /* OnePlaceMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A90A1F896366000BD8F1 /* OnePlaceMainView.xib */; };
 		1F24A9131F896927000BD8F1 /* OnePlaceMainTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9121F896927000BD8F1 /* OnePlaceMainTitleCell.swift */; };
 		1F24A9151F896DCF000BD8F1 /* OnePlaceMainTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A9141F896DCF000BD8F1 /* OnePlaceMainTitleCell.xib */; };
+		1F24A9171F89722E000BD8F1 /* OnePlaceMainSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9161F89722E000BD8F1 /* OnePlaceMainSliderCell.swift */; };
+		1F24A9191F897239000BD8F1 /* OnePlaceMainSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A9181F897239000BD8F1 /* OnePlaceMainSliderCell.xib */; };
 		1F2F4B211F81267C002FE39B /* SliderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F4B201F81267C002FE39B /* SliderIndicator.swift */; };
 		1F37057F1F7B68B500E6CB0D /* SearchCardsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */; };
 		1F3705851F7B811600E6CB0D /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F3705841F7B811600E6CB0D /* Configs.plist */; };
@@ -153,6 +155,8 @@
 		1F24A90A1F896366000BD8F1 /* OnePlaceMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainView.xib; path = UI/Place/OnePlaceMain/OnePlaceMainView.xib; sourceTree = "<group>"; };
 		1F24A9121F896927000BD8F1 /* OnePlaceMainTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainTitleCell.swift; path = UI/Place/OnePlaceMain/Title/OnePlaceMainTitleCell.swift; sourceTree = "<group>"; };
 		1F24A9141F896DCF000BD8F1 /* OnePlaceMainTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainTitleCell.xib; path = UI/Place/OnePlaceMain/Title/OnePlaceMainTitleCell.xib; sourceTree = "<group>"; };
+		1F24A9161F89722E000BD8F1 /* OnePlaceMainSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainSliderCell.swift; path = UI/Place/OnePlaceMain/Slider/OnePlaceMainSliderCell.swift; sourceTree = "<group>"; };
+		1F24A9181F897239000BD8F1 /* OnePlaceMainSliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainSliderCell.xib; path = UI/Place/OnePlaceMain/Slider/OnePlaceMainSliderCell.xib; sourceTree = "<group>"; };
 		1F2F4B201F81267C002FE39B /* SliderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SliderIndicator.swift; path = UI/Elements/Slider/SliderIndicator.swift; sourceTree = "<group>"; };
 		1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCardsCacheService.swift; path = Services/Cache/SearchCardsCacheService.swift; sourceTree = "<group>"; };
 		1F3705841F7B811600E6CB0D /* Configs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
@@ -625,6 +629,8 @@
 		1FE033C41F896158000349F7 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				1F24A9161F89722E000BD8F1 /* OnePlaceMainSliderCell.swift */,
+				1F24A9181F897239000BD8F1 /* OnePlaceMainSliderCell.xib */,
 			);
 			name = Slider;
 			sourceTree = "<group>";
@@ -822,6 +828,7 @@
 				1F24A9151F896DCF000BD8F1 /* OnePlaceMainTitleCell.xib in Resources */,
 				1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */,
 				1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */,
+				1F24A9191F897239000BD8F1 /* OnePlaceMainSliderCell.xib in Resources */,
 				1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -963,6 +970,7 @@
 				1FC583961F816BFF0045941A /* EnteringController.swift in Sources */,
 				1FC5839E1F827C5D0045941A /* SliderControl.swift in Sources */,
 				1FC5481D1F7047F7007CE6AB /* Action.swift in Sources */,
+				1F24A9171F89722E000BD8F1 /* OnePlaceMainSliderCell.swift in Sources */,
 				1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */,
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
 				1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */,
