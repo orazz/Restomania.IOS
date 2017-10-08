@@ -44,7 +44,7 @@ extension OnePlaceMainAddressCell: OnePlaceMainCellProtocol {
 extension OnePlaceMainAddressCell: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 35
+        return 50
     }
     public func prepareView() -> UITableViewCell {
         return self

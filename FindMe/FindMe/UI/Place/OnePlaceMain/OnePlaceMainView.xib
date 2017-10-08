@@ -31,7 +31,7 @@
                                     <action selector="goBack" destination="-1" id="cpL-qX-8A0"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title=" " image="heart" style="plain" id="vgD-zG-Eef">
+                            <barButtonItem key="rightBarButtonItem" image="heart" style="plain" id="vgD-zG-Eef">
                                 <connections>
                                     <action selector="likePlace" destination="-1" id="EjA-Qi-e6P"/>
                                 </connections>
