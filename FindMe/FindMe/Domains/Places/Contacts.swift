@@ -15,8 +15,10 @@ public class Contacts: BaseDataType, IPlaceDependent, ICopying {
     public struct Keys {
         
         public static let placeId = "PlaceID"
-        
+
+        public static let email = "Email"
         public static let phone = "Phone"
+        public static let secondPhone = "SecondPhone"
         public static let website = "Website"
         public static let instagram = "Instagram"
         public static let whatsapp = "Whatsapp"
@@ -27,8 +29,10 @@ public class Contacts: BaseDataType, IPlaceDependent, ICopying {
     
     //MARK: IPlaceDependent
     public var placeId: Long
-    
+
+    public var email: String
     public var phone: String
+    public var secondPhone: String
     public var website: String
     public var instagram: String
     public var whatsapp: String
@@ -39,8 +43,10 @@ public class Contacts: BaseDataType, IPlaceDependent, ICopying {
     public override init() {
         
         self.placeId = 0
-        
+
+        self.email = String.empty
         self.phone = String.empty
+        self.secondPhone = String.empty
         self.website = String.empty
         self.instagram = String.empty
         self.whatsapp = String.empty
@@ -55,8 +61,10 @@ public class Contacts: BaseDataType, IPlaceDependent, ICopying {
     public required init(source: Contacts) {
         
         self.placeId = source.placeId
-        
+
+        self.email = source.email
         self.phone = source.phone
+        self.secondPhone = source.secondPhone
         self.website = source.website
         self.instagram = source.instagram
         self.whatsapp = source.whatsapp
@@ -71,8 +79,10 @@ public class Contacts: BaseDataType, IPlaceDependent, ICopying {
     public required init(json: JSON) {
         
         self.placeId = (Keys.placeId <~~ json)!
-        
-        self.phone = (Keys.phone <~~ json)!
+
+        self.email = (Keys.email <~~ json) ?? String.empty
+        self.phone = (Keys.phone <~~ json) ?? String.empty
+        self.secondPhone = (Keys.secondPhone <~~ json) ?? String.empty
         self.website = (Keys.website <~~ json)!
         self.instagram = (Keys.instagram <~~ json)!
         self.whatsapp = (Keys.whatsapp <~~ json)!
@@ -87,8 +97,10 @@ public class Contacts: BaseDataType, IPlaceDependent, ICopying {
         return jsonify([
             
             Keys.placeId ~~> self.placeId,
-            
+
+            Keys.email ~~> self.email,
             Keys.phone ~~> self.phone,
+            Keys.secondPhone ~~> self.secondPhone,
             Keys.website ~~> self.website,
             Keys.instagram ~~> self.instagram,
             Keys.whatsapp ~~> self.whatsapp,

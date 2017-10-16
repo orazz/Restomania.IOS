@@ -13,5 +13,6 @@ public protocol IKeysStorage {
     
     func keys(for rights: ApiRights) -> ApiKeys?
     func set(for rights: ApiRights, keys: ApiKeys)
+    func logout(_ rights: ApiRights)
     func isAuth(rights: ApiRights) -> Bool
 }

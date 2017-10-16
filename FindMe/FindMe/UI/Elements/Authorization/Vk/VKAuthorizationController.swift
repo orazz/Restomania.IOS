@@ -78,6 +78,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
 
         NavigationBar.barTintColor = ThemeSettings.Colors.vk
         NavigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: ThemeSettings.Colors.whiteText]
+        NavigationBar.backItem?.leftBarButtonItem?.tintColor = ThemeSettings.Colors.whiteText
 
         super.viewWillAppear(animated)
     }
@@ -150,25 +151,24 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
             return
         }
 
+        //Request to server
+        let task = _auth.vk(userId: container.userId, token: container.accessToken, email: container.email)
+        task.async(.background, completion: { response in
 
-        self._keys.set(for: .user, keys: ApiKeys(id: 1, token: "test"))
-        self._callback(true, container)
-//        let task = _auth.vk(userId: container.userId, token: container.accessToken, expireIn: container.expiresIn)
-//        task.async(.background, completion: { response in
-//
-//            DispatchQueue.main.async {
-//
-//                if (response.isFail) {
-//                    self.showAlertAndClose()
-//                    return
-//                }
-//
-//                let keys = response.data!
-//                self._keys.set(for: .user, keys: keys)
-//                self._callback(true, container)
-//            }
-//        })
+            DispatchQueue.main.async {
 
+                if (response.isFail) {
+                    self.showAlertAndClose()
+                    return
+                }
+
+                let keys = response.data!
+                self._keys.set(for: .user, keys: keys)
+
+                self.dismiss(animated: true, completion: nil)
+                self._callback(true, container)
+            }
+        })
     }
     private func showAlertAndClose() {
 
@@ -189,6 +189,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
             public static let accessToken = "access_token"
             public static let expiresIn = "expires_in"
             public static let userId = "user_id"
+            public static let email = "email"
 
             public static let error = "error"
             public static let errorDescription = "rror_description"
@@ -198,6 +199,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
         public var accessToken: String = String.empty
         public var expiresIn: Long = 0
         public var userId: Long = 0
+        public var email: String = String.empty
 
         public var error: String = String.empty
         public var errorDescription: String = String.empty
@@ -226,6 +228,10 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
                 else if (pair.contains(Keys.userId)) {
 
                     userId = Long(getValue(pair: pair)) ?? 0
+                }
+                else if (pair.contains(Keys.email)) {
+
+                    email = getValue(pair: pair)
                 }
                 else if (pair.contains(Keys.error)) {
 

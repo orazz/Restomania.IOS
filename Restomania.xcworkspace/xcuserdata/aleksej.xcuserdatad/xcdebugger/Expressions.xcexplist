@@ -135,10 +135,10 @@
          contextName = "SearchPlaceCard.init(json:):SearchPlaceCard.swift">
          <PersistentStrings>
             <PersistentString
-               value = "json[&quot;Name&quot;]">
+               value = "let b:String? = Keys.name &lt;~~ json">
             </PersistentString>
             <PersistentString
-               value = "let b:String? = Keys.name &lt;~~ json">
+               value = "json[&quot;Name&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -236,6 +236,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "OnePlaceMainDescriptionCell.updateDescription():OnePlaceMainDescriptionCell.swift">
+      </ContextState>
+      <ContextState
          contextName = "PlaceMenuController.CategoriesCollection.collectionView(UICollectionView, cellForItemAt : IndexPath) -&gt; UICollectionViewCell:PlaceMenuController.swift">
       </ContextState>
       <ContextState
@@ -316,13 +319,13 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "notUTC!.toUTC()">
-            </PersistentString>
-            <PersistentString
                value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
             </PersistentString>
             <PersistentString
                value = "formatter.date(from: value)">
+            </PersistentString>
+            <PersistentString
+               value = "notUTC!.toUTC()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -412,6 +415,38 @@
          <PersistentStrings>
             <PersistentString
                value = "webView.url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OnePlaceMainDescriptionCell._description.didset:OnePlaceMainDescriptionCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "OnePlaceMainDescriptionCell.resize():OnePlaceMainDescriptionCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "getConstant(.top, of: DescriptionLabel) + getConstant(.height, of: DescriptionLabel) + CGFloat(5)">
+            </PersistentString>
+            <PersistentString
+               value = "DescriptionLabel.superview.constraints.filter({ $0.firstAttribute == .bottom }).first!.constant">
+            </PersistentString>
+            <PersistentString
+               value = "getConstant(.top, of: DescriptionLabel)">
+            </PersistentString>
+            <PersistentString
+               value = "DescriptionLabel.frame.height">
+            </PersistentString>
+            <PersistentString
+               value = "DescriptionLabel.layoutMargins">
+            </PersistentString>
+            <PersistentString
+               value = "getConstant(.height, of: DescriptionLabel)">
+            </PersistentString>
+            <PersistentString
+               value = "DescriptionLabel.frame.origin">
+            </PersistentString>
+            <PersistentString
+               value = " DescriptionLabel.constraints">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

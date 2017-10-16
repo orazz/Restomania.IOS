@@ -27,7 +27,7 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
 
 
 
-    private var _manager :CLLocationManager {
+    private var _manager: CLLocationManager {
 
         if (nil == PositionsService._locationManager) {
 

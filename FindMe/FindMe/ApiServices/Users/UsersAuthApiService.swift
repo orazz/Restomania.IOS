@@ -17,12 +17,12 @@ public class UsersAuthApiService: BaseApiService {
     }
 
     //MARK: Methods
-    public func vk(userId: Long, token: String, expireIn: Long) -> RequestResult<ApiKeys> {
+    public func vk(userId: Long, token: String, email: String) -> RequestResult<ApiKeys> {
 
         let parameters = CollectParameters([
             "userId": userId,
             "token": token,
-            "expireIn": expireIn
+            "email": email
             ])
 
         return _client.Post(action: "Vk", type: ApiKeys.self, parameters: parameters)

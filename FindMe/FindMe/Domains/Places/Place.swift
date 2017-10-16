@@ -76,7 +76,7 @@ public class Place: BaseDataType, ICached {
 
         self.name = (Keys.name <~~ json)!
         self.type = (Keys.type <~~ json)!
-        self.description = (Keys.type <~~ json)!
+        self.description = (Keys.description <~~ json)!
         self.status = (Keys.status <~~ json)!
         self.seatingCapacity = (Keys.seatingCapacity <~~ json)!
         

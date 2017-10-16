@@ -58,7 +58,16 @@ internal class KeysStorage: IKeysStorage {
     }
     public func set(for rights: ApiRights, keys: ApiKeys) {
 
+        logout(rights)
+
         _keys.append(KeysContainer(keys: keys, rights: rights))
+
+        save()
+    }
+    public func logout(_ rights: ApiRights) {
+        if let index = _keys.index(where: { rights == $0.rights }) {
+            _keys.remove(at: index)
+        }
 
         save()
     }

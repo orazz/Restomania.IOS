@@ -17,14 +17,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zu8-Tj-Y35" customClass="OnePlaceMainDivider" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="15" y="50" width="290" height="1"/>
+                    <rect key="frame" x="10" y="50" width="300" height="1"/>
                     <color key="backgroundColor" red="1" green="0.19766298534913296" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="2I7-BM-MhD"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUW-bn-bS0" customClass="OnePlaceMainDivider" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="15" y="89" width="290" height="1"/>
+                    <rect key="frame" x="15" y="89" width="295" height="1"/>
                     <color key="backgroundColor" red="1" green="0.19766298530000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Qy7-Px-A2F"/>
@@ -32,7 +32,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zxm-sm-ln3" customClass="OnePlaceMainDivider" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="15" y="139" width="290" height="1"/>
+                    <rect key="frame" x="10" y="139" width="300" height="1"/>
                     <color key="backgroundColor" red="1" green="0.19766298530000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="FJG-R3-SCl"/>
@@ -41,7 +41,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1o-5n-tr8" customClass="OnePlaceMainDivider" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="15" y="0.0" width="290" height="1"/>
+                    <rect key="frame" x="15" y="0.0" width="295" height="1"/>
                     <color key="backgroundColor" red="1" green="0.19766298530000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1" id="Oqa-cf-yNP"/>
@@ -59,7 +59,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заинтересовано во встрече" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8g5-cU-IiA" customClass="FMCaptionLabel" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="15" y="60" width="290" height="21"/>
+                    <rect key="frame" x="10" y="60" width="300" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -137,16 +137,16 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVJ-0y-3KB">
-                    <rect key="frame" x="15" y="6" width="82.5" height="40"/>
+                    <rect key="frame" x="10" y="6" width="86" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUQ-eg-g1a" customClass="FMHeadlineLabel" customModule="FindMe" customModuleProvider="target">
-                            <rect key="frame" x="5" y="5" width="72.5" height="21"/>
+                            <rect key="frame" x="5" y="5" width="76" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="средний возраст" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X02-ng-r36" customClass="FMSubstringLabel" customModule="FindMe" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="26" width="82.5" height="15"/>
+                            <rect key="frame" x="0.0" y="26" width="86" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -164,7 +164,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNs-Yd-qcu">
-                    <rect key="frame" x="222.5" y="6" width="82.5" height="40"/>
+                    <rect key="frame" x="224" y="6" width="86" height="40"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mars" translatesAutoresizingMaskIntoConstraints="NO" id="9k9-AT-JKy">
                             <rect key="frame" x="0.0" y="5" width="30" height="30"/>
@@ -174,13 +174,13 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ai2-WT-NAg" customClass="FMHeadlineLabel" customModule="FindMe" customModuleProvider="target">
-                            <rect key="frame" x="35" y="5" width="42.5" height="21"/>
+                            <rect key="frame" x="35" y="5" width="46" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="парней" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQE-3q-tTh" customClass="FMSubstringLabel" customModule="FindMe" customModuleProvider="target">
-                            <rect key="frame" x="30" y="26" width="52.5" height="15"/>
+                            <rect key="frame" x="30" y="26" width="56" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -200,7 +200,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jk0-M6-tf1">
-                    <rect key="frame" x="118.5" y="6" width="83" height="40"/>
+                    <rect key="frame" x="117" y="6" width="86" height="40"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venues" translatesAutoresizingMaskIntoConstraints="NO" id="ofI-QC-ZHO">
                             <rect key="frame" x="0.0" y="5" width="30" height="30"/>
@@ -210,13 +210,13 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="девушек" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ue-rt-mMU" customClass="FMSubstringLabel" customModule="FindMe" customModuleProvider="target">
-                            <rect key="frame" x="30" y="26" width="53" height="15"/>
+                            <rect key="frame" x="30" y="26" width="56" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkP-by-BgL" customClass="FMHeadlineLabel" customModule="FindMe" customModuleProvider="target">
-                            <rect key="frame" x="35" y="5" width="43" height="21"/>
+                            <rect key="frame" x="35" y="5" width="46" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -236,7 +236,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8R-5m-3fH" customClass="OnePlaceMainDivider" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="211.5" y="0.0" width="1" height="50"/>
+                    <rect key="frame" x="213" y="0.0" width="1" height="50"/>
                     <color key="backgroundColor" red="1" green="0.35295958157001683" blue="0.37944475454225246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="5yn-Zx-Lgc"/>
@@ -244,7 +244,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAt-qP-J8W" customClass="OnePlaceMainDivider" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="107.5" y="0.0" width="1" height="50"/>
+                    <rect key="frame" x="106" y="0.0" width="1" height="50"/>
                     <color key="backgroundColor" red="1" green="0.35295958160000002" blue="0.37944475449999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="QqG-Xf-VDV"/>
@@ -258,38 +258,38 @@
                 <constraint firstItem="b8R-5m-3fH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2yY-2K-U6d"/>
                 <constraint firstItem="rNs-Yd-qcu" firstAttribute="leading" secondItem="Jk0-M6-tf1" secondAttribute="trailing" constant="21" id="3Nm-xo-kOG"/>
                 <constraint firstItem="Ra2-6M-2Eq" firstAttribute="top" secondItem="aUW-bn-bS0" secondAttribute="bottom" constant="5" id="5PW-53-f9d"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8g5-cU-IiA" secondAttribute="trailing" constant="15" id="67c-p3-cL8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8g5-cU-IiA" secondAttribute="trailing" constant="10" id="67c-p3-cL8"/>
                 <constraint firstItem="rNs-Yd-qcu" firstAttribute="width" secondItem="MVJ-0y-3KB" secondAttribute="width" id="6e9-Rx-VvK"/>
                 <constraint firstItem="Jk0-M6-tf1" firstAttribute="leading" secondItem="MVJ-0y-3KB" secondAttribute="trailing" constant="21" id="7z1-Km-NNF"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zu8-Tj-Y35" secondAttribute="trailing" constant="15" id="AeT-BY-qvQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zu8-Tj-Y35" secondAttribute="trailing" constant="10" id="AeT-BY-qvQ"/>
                 <constraint firstItem="nG8-sW-sNh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="BSm-55-KHJ"/>
                 <constraint firstItem="aUW-bn-bS0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="CBL-jO-TJC"/>
                 <constraint firstItem="zu8-Tj-Y35" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="DOw-B7-b5r"/>
                 <constraint firstItem="Jk0-M6-tf1" firstAttribute="top" secondItem="u1o-5n-tr8" secondAttribute="bottom" constant="5" id="GyO-Zf-Avb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7hi-1t-5pv" secondAttribute="trailing" constant="30" id="Imk-hn-dat"/>
                 <constraint firstItem="rNs-Yd-qcu" firstAttribute="top" secondItem="u1o-5n-tr8" secondAttribute="bottom" constant="5" id="LpP-jh-wfe"/>
-                <constraint firstAttribute="trailing" secondItem="u1o-5n-tr8" secondAttribute="trailing" constant="15" id="MX0-5g-e5A"/>
+                <constraint firstAttribute="trailing" secondItem="u1o-5n-tr8" secondAttribute="trailing" constant="10" id="MX0-5g-e5A"/>
                 <constraint firstItem="7hi-1t-5pv" firstAttribute="top" secondItem="aUW-bn-bS0" secondAttribute="bottom" constant="5" id="Om4-Qj-yYf"/>
                 <constraint firstItem="Jk0-M6-tf1" firstAttribute="width" secondItem="MVJ-0y-3KB" secondAttribute="width" id="Qrf-sp-wsC"/>
                 <constraint firstItem="vAt-qP-J8W" firstAttribute="leading" secondItem="MVJ-0y-3KB" secondAttribute="trailing" constant="10" id="SEx-jL-3Rj"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rNs-Yd-qcu" secondAttribute="trailing" constant="15" id="XBy-qO-H7i"/>
-                <constraint firstItem="MVJ-0y-3KB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="ZHb-Fr-uaw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rNs-Yd-qcu" secondAttribute="trailing" constant="10" id="XBy-qO-H7i"/>
+                <constraint firstItem="MVJ-0y-3KB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="ZHb-Fr-uaw"/>
                 <constraint firstItem="Zxm-sm-ln3" firstAttribute="top" secondItem="nG8-sW-sNh" secondAttribute="bottom" id="cR3-ol-9wn"/>
                 <constraint firstItem="Ra2-6M-2Eq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="cVE-Q4-VES"/>
                 <constraint firstItem="Jk0-M6-tf1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dbb-31-ni7"/>
-                <constraint firstItem="Zxm-sm-ln3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="fru-iF-cRz"/>
+                <constraint firstItem="Zxm-sm-ln3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="fru-iF-cRz"/>
                 <constraint firstItem="8g5-cU-IiA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ftS-py-0Ht"/>
                 <constraint firstItem="7hi-1t-5pv" firstAttribute="leading" secondItem="nG8-sW-sNh" secondAttribute="trailing" constant="15" id="jTQ-VM-m0o"/>
-                <constraint firstItem="zu8-Tj-Y35" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="mSO-Dm-5Y4"/>
+                <constraint firstItem="zu8-Tj-Y35" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="mSO-Dm-5Y4"/>
                 <constraint firstItem="nG8-sW-sNh" firstAttribute="leading" secondItem="Ra2-6M-2Eq" secondAttribute="trailing" constant="15" id="p2L-IG-yab"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Zxm-sm-ln3" secondAttribute="bottom" id="pSR-t4-irC"/>
                 <constraint firstItem="MVJ-0y-3KB" firstAttribute="top" secondItem="u1o-5n-tr8" secondAttribute="bottom" constant="5" id="pgs-DJ-59C"/>
                 <constraint firstItem="vAt-qP-J8W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qxn-2K-WXn"/>
                 <constraint firstItem="u1o-5n-tr8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="ryM-gs-WFd"/>
-                <constraint firstItem="8g5-cU-IiA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="sOk-hy-LqE"/>
-                <constraint firstAttribute="trailing" secondItem="aUW-bn-bS0" secondAttribute="trailing" constant="15" id="tcE-Na-gF0"/>
+                <constraint firstItem="8g5-cU-IiA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="sOk-hy-LqE"/>
+                <constraint firstAttribute="trailing" secondItem="aUW-bn-bS0" secondAttribute="trailing" constant="10" id="tcE-Na-gF0"/>
                 <constraint firstItem="8g5-cU-IiA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="v1Z-9l-Tp0"/>
-                <constraint firstAttribute="trailing" secondItem="Zxm-sm-ln3" secondAttribute="trailing" constant="15" id="vmv-Ig-DMR"/>
+                <constraint firstAttribute="trailing" secondItem="Zxm-sm-ln3" secondAttribute="trailing" constant="10" id="vmv-Ig-DMR"/>
                 <constraint firstItem="rNs-Yd-qcu" firstAttribute="leading" secondItem="b8R-5m-3fH" secondAttribute="trailing" constant="10" id="yeJ-zi-DZp"/>
                 <constraint firstItem="u1o-5n-tr8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zkh-r9-72o"/>
             </constraints>

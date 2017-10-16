@@ -30,6 +30,7 @@
 		1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE601F13BEA1000B92E1 /* LogMessage.swift */; };
 		1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE641F13BEB7000B92E1 /* Log.swift */; };
 		1F49E1F21F7B996F00F384B3 /* FSOneFileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49E1F11F7B996C00F384B3 /* FSOneFileClient.swift */; };
+		1F4C82CF1F953D16004B294C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82CE1F953D16004B294C /* View.swift */; };
 		1F77EF9C1F66C85700C93DB0 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EF9B1F66C85700C93DB0 /* Object.swift */; };
 		1F77EF9E1F66C8C100C93DB0 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EF9D1F66C8C100C93DB0 /* Object.swift */; };
 		1FA20BB51F226D1400215C4A /* FiltersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20BB21F226D1400215C4A /* FiltersFactory.swift */; };
@@ -106,6 +107,7 @@
 		1F41CE601F13BEA1000B92E1 /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogMessage.swift; path = Tools/Log/LogMessage.swift; sourceTree = "<group>"; };
 		1F41CE641F13BEB7000B92E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Tools/Log.swift; sourceTree = "<group>"; };
 		1F49E1F11F7B996C00F384B3 /* FSOneFileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FSOneFileClient.swift; path = Tools/FileSystem/FSOneFileClient.swift; sourceTree = "<group>"; };
+		1F4C82CE1F953D16004B294C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = View.swift; path = Tools/View.swift; sourceTree = "<group>"; };
 		1F77EF9B1F66C85700C93DB0 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = Tools/Object.swift; sourceTree = "<group>"; };
 		1F77EF9D1F66C8C100C93DB0 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = Tools/Object.swift; sourceTree = "<group>"; };
 		1FA20BB21F226D1400215C4A /* FiltersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersFactory.swift; path = Tools/SearchAdapter/Filters/FiltersFactory.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				1F77EF9B1F66C85700C93DB0 /* Object.swift */,
 				1F1A0E3B1F77C34600FDBA97 /* Color.swift */,
 				1FE7E3D11F7BA45D00D1745E /* JsonSerialization.swift */,
+				1F4C82CE1F953D16004B294C /* View.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */,
 				1F36C8741F20787900232B9A /* Long.swift in Sources */,
 				1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */,
+				1F4C82CF1F953D16004B294C /* View.swift in Sources */,
 				1FFEA28B1F14AD71002DD78F /* EventsAdapter.swift in Sources */,
 				1FFEA2811F14A824002DD78F /* Guid.swift in Sources */,
 				1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */,

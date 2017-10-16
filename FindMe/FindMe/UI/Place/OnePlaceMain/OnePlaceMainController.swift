@@ -69,6 +69,22 @@ public class OnePlaceMainController: UIViewController {
         _interfaceAdapter.add(OnePlaceMainSliderCell.instance)
         _interfaceAdapter.add(OnePlaceMainAddressCell.instance)
         _interfaceAdapter.add(OnePlaceMainStatisticCell.instance)
+
+        let description = OnePlaceMainDescriptionCell.instance
+        _interfaceAdapter.add(description)
+        _interfaceAdapter.add(OnePlaceMainDividerCell.instance(for: description))
+
+//        let actions = OnePlaceMainContactsCell.instance
+//        _interfaceAdapter.add(actions)
+//        _interfaceAdapter.add(OnePlaceMainDividerCell.instance(for: actions))
+
+        let contacts = OnePlaceMainContactsCell.instance
+        _interfaceAdapter.add(contacts)
+        _interfaceAdapter.add(OnePlaceMainDividerCell.instance(for: contacts))
+
+//        _interfaceAdapter.add(OnePlaceMainContactsCell.location)
+
+        _interfaceAdapter.add(OnePlaceMainSpaceCell.instance)
     }
     private func loadData() {
 
@@ -111,6 +127,8 @@ public class OnePlaceMainController: UIViewController {
                 cell.update(by: place)
             }
         }
+
+        _interfaceAdapter.reload()
     }
 
 
@@ -129,5 +147,14 @@ public class OnePlaceMainController: UIViewController {
         }
 
         setupLikeButton()
+    }
+}
+public class OnePlaceMainSubheadLabel: FMSubheadLabel {
+
+    public override func initialize() {
+        super.initialize()
+
+        textColor = ThemeSettings.Colors.main
+        font = ThemeSettings.Fonts.bold(size: .subhead)
     }
 }

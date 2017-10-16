@@ -14,7 +14,6 @@ public class UsersMainApiService: BaseApiService {
 
     public init(configs: ConfigsStorage, keys: IKeysStorage) {
         super.init(area: "Users", configs: configs, tag: String.tag(UsersMainApiService.self), keys: keys)
-
     }
 
     //MARK: Methods

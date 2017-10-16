@@ -11,7 +11,7 @@
 		1F0483881F84CB8100D00EED /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0483871F84CB8100D00EED /* BackgroundTaskManager.swift */; };
 		1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE511F862E9000694D8D /* VKAuthorizationController.swift */; };
 		1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F09EE531F862F5C00694D8D /* VKAuthorizationView.xib */; };
-		1F09EE571F86336D00694D8D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE561F86336D00694D8D /* Auth.swift */; };
+		1F09EE571F86336D00694D8D /* UsersAuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE561F86336D00694D8D /* UsersAuthApiService.swift */; };
 		1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE581F8655D700694D8D /* UsersMainApiService.swift */; };
 		1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE5A1F865D7900694D8D /* Labels.swift */; };
 		1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */; };
@@ -45,19 +45,31 @@
 		1F3705851F7B811600E6CB0D /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F3705841F7B811600E6CB0D /* Configs.plist */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
 		1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */; };
+		1F46770B1F910003007E426D /* OnePlaceMainDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46770A1F910003007E426D /* OnePlaceMainDescriptionCell.swift */; };
+		1F46770D1F9100E6007E426D /* OnePlaceMainDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F46770C1F9100E6007E426D /* OnePlaceMainDescriptionCell.xib */; };
+		1F4677111F950F0C007E426D /* OnePlaceMainSpaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4677101F950F0C007E426D /* OnePlaceMainSpaceCell.xib */; };
+		1F4677131F950F21007E426D /* OnePlaceMainSpaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4677121F950F21007E426D /* OnePlaceMainSpaceCell.swift */; };
+		1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4677141F951605007E426D /* OnePlaceMainDividerCell.xib */; };
+		1F4677171F95161D007E426D /* OnePlaceMainDividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4677161F95161D007E426D /* OnePlaceMainDividerCell.swift */; };
 		1F4690711F869CCC0056F9B0 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4690701F869CCC0056F9B0 /* SearchController.swift */; };
 		1F4690801F86A6340056F9B0 /* SearchPlaceCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F46907F1F86A6340056F9B0 /* SearchPlaceCardView.xib */; };
 		1F4690821F86A66E0056F9B0 /* SearchPlaceCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4690811F86A66E0056F9B0 /* SearchPlaceCardCell.swift */; };
 		1F49A0421F86BF980001768F /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49A0411F86BF980001768F /* FavouritesController.swift */; };
 		1F49C4FA1F7BD15C00051CAD /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49C4F91F7BD15C00051CAD /* PositionsService.swift */; };
+		1F4C82C71F952932004B294C /* OnePlaceMainContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82C61F952932004B294C /* OnePlaceMainContactsCell.swift */; };
+		1F4C82C91F952B29004B294C /* OnePlaceMainContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4C82C81F952B29004B294C /* OnePlaceMainContactsCell.xib */; };
+		1F4C82CB1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4C82CA1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib */; };
+		1F4C82CD1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82CC1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift */; };
 		1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B21B91F881DAD0068E29A /* MapPopupView.xib */; };
 		1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */; };
 		1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */; };
 		1F6B21C11F881E310068E29A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21C01F881E300068E29A /* MapController.swift */; };
 		1F6B21C31F881E6D0068E29A /* MapPoputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21C21F881E6D0068E29A /* MapPoputView.swift */; };
+		1F9DDAAB1F8A7A7600F4618D /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F9DDAAE1F8FE90600F4618D /* UsersChangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DDAAD1F8FE90600F4618D /* UsersChangeApiService.swift */; };
+		1F9DDAB01F8FF09A00F4618D /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */; };
 		1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */; };
 		1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */; };
-		1FC547FB1F6FB52B007CE6AB /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */; };
 		1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548081F6FF8A4007CE6AB /* IPlaceDependent.swift */; };
 		1FC5480B1F6FF8B4007CE6AB /* PlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5480A1F6FF8B4007CE6AB /* PlaceImage.swift */; };
 		1FC5480F1F702CFD007CE6AB /* CheckInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5480E1F702CFD007CE6AB /* CheckInData.swift */; };
@@ -110,13 +122,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1F9DDAAC1F8A7A7600F4618D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1F9DDAAB1F8A7A7600F4618D /* IOSLibrary.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0E7E6F4D956A6631217C7878 /* Pods_FindMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0483851F83FCF000D00EED /* CheckInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckInService.swift; path = Services/CheckInService.swift; sourceTree = "<group>"; };
 		1F0483871F84CB8100D00EED /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackgroundTaskManager.swift; path = Services/BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		1F09EE511F862E9000694D8D /* VKAuthorizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VKAuthorizationController.swift; path = UI/Elements/Authorization/Vk/VKAuthorizationController.swift; sourceTree = "<group>"; };
 		1F09EE531F862F5C00694D8D /* VKAuthorizationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VKAuthorizationView.xib; path = UI/Elements/Authorization/Vk/VKAuthorizationView.xib; sourceTree = "<group>"; };
-		1F09EE561F86336D00694D8D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = ApiServices/Users/Auth.swift; sourceTree = "<group>"; };
+		1F09EE561F86336D00694D8D /* UsersAuthApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersAuthApiService.swift; path = ApiServices/Users/UsersAuthApiService.swift; sourceTree = "<group>"; };
 		1F09EE581F8655D700694D8D /* UsersMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersMainApiService.swift; path = ApiServices/Users/UsersMainApiService.swift; sourceTree = "<group>"; };
 		1F09EE5A1F865D7900694D8D /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Labels.swift; path = UI/Elements/Labels.swift; sourceTree = "<group>"; };
 		1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,16 +176,29 @@
 		1F3705841F7B811600E6CB0D /* Configs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
+		1F46770A1F910003007E426D /* OnePlaceMainDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainDescriptionCell.swift; path = UI/Place/OnePlaceMain/Description/OnePlaceMainDescriptionCell.swift; sourceTree = "<group>"; };
+		1F46770C1F9100E6007E426D /* OnePlaceMainDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainDescriptionCell.xib; path = UI/Place/OnePlaceMain/Description/OnePlaceMainDescriptionCell.xib; sourceTree = "<group>"; };
+		1F4677101F950F0C007E426D /* OnePlaceMainSpaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainSpaceCell.xib; path = UI/Place/OnePlaceMain/Space/OnePlaceMainSpaceCell.xib; sourceTree = "<group>"; };
+		1F4677121F950F21007E426D /* OnePlaceMainSpaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainSpaceCell.swift; path = UI/Place/OnePlaceMain/Space/OnePlaceMainSpaceCell.swift; sourceTree = "<group>"; };
+		1F4677141F951605007E426D /* OnePlaceMainDividerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainDividerCell.xib; path = UI/Place/OnePlaceMain/Divider/OnePlaceMainDividerCell.xib; sourceTree = "<group>"; };
+		1F4677161F95161D007E426D /* OnePlaceMainDividerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainDividerCell.swift; path = UI/Place/OnePlaceMain/Divider/OnePlaceMainDividerCell.swift; sourceTree = "<group>"; };
 		1F4690701F869CCC0056F9B0 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = UI/Main/SearchController.swift; sourceTree = "<group>"; };
 		1F46907F1F86A6340056F9B0 /* SearchPlaceCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchPlaceCardView.xib; path = UI/Main/SearchPlaceCard/SearchPlaceCardView.xib; sourceTree = "<group>"; };
 		1F4690811F86A66E0056F9B0 /* SearchPlaceCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPlaceCardCell.swift; path = UI/Main/SearchPlaceCard/SearchPlaceCardCell.swift; sourceTree = "<group>"; };
 		1F49A0411F86BF980001768F /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouritesController.swift; path = UI/Main/FavouritesController.swift; sourceTree = "<group>"; };
 		1F49C4F91F7BD15C00051CAD /* PositionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PositionsService.swift; path = Services/PositionsService.swift; sourceTree = "<group>"; };
+		1F4C82C61F952932004B294C /* OnePlaceMainContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainContactsCell.swift; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCell.swift; sourceTree = "<group>"; };
+		1F4C82C81F952B29004B294C /* OnePlaceMainContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainContactsCell.xib; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCell.xib; sourceTree = "<group>"; };
+		1F4C82CA1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainContactsCellOneLine.xib; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCellOneLine.xib; sourceTree = "<group>"; };
+		1F4C82CC1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainContactsCellOneLine.swift; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCellOneLine.swift; sourceTree = "<group>"; };
 		1F6B21B91F881DAD0068E29A /* MapPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPopupView.xib; path = UI/Main/Map/MapPopupView.xib; sourceTree = "<group>"; };
 		1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListAdapter.swift; path = UI/Main/Adapters/PlacesListAdapter.swift; sourceTree = "<group>"; };
 		1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListTableAdapter.swift; path = UI/Main/Adapters/PlacesListTableAdapter.swift; sourceTree = "<group>"; };
 		1F6B21C01F881E300068E29A /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapController.swift; path = UI/Main/Map/MapController.swift; sourceTree = "<group>"; };
 		1F6B21C21F881E6D0068E29A /* MapPoputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapPoputView.swift; path = UI/Main/Map/MapPoputView.swift; sourceTree = "<group>"; };
+		1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9DDAAD1F8FE90600F4618D /* UsersChangeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersChangeApiService.swift; path = ApiServices/Users/UsersChangeApiService.swift; sourceTree = "<group>"; };
+		1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Migrations.swift; path = App/Migrations.swift; sourceTree = "<group>"; };
 		1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesMainApiService.swift; path = ApiServices/Places/PlacesMainApiService.swift; sourceTree = "<group>"; };
 		1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectParameters.swift; path = ApiServices/SelectParameters.swift; sourceTree = "<group>"; };
 		1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
@@ -215,7 +254,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FF6D57A1F86F71100309ED3 /* MapKit.framework in Frameworks */,
-				1FC547FB1F6FB52B007CE6AB /* IOSLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +297,9 @@
 		1F09EE551F86334F00694D8D /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				1F09EE561F86336D00694D8D /* Auth.swift */,
 				1F09EE581F8655D700694D8D /* UsersMainApiService.swift */,
+				1F09EE561F86336D00694D8D /* UsersAuthApiService.swift */,
+				1F9DDAAD1F8FE90600F4618D /* UsersChangeApiService.swift */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -280,6 +319,7 @@
 				1F1A0E591F79504000FDBA97 /* RefreshDataManager.swift */,
 				1F1A0E571F794FB600FDBA97 /* PushesManager.swift */,
 				1F1A0E5B1F7950AB00FDBA97 /* ClientsDataManager.swift */,
+				1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -416,6 +456,24 @@
 			name = Tools;
 			sourceTree = "<group>";
 		};
+		1F46770E1F950EB7007E426D /* Space */ = {
+			isa = PBXGroup;
+			children = (
+				1F4677121F950F21007E426D /* OnePlaceMainSpaceCell.swift */,
+				1F4677101F950F0C007E426D /* OnePlaceMainSpaceCell.xib */,
+			);
+			name = Space;
+			sourceTree = "<group>";
+		};
+		1F46770F1F950EC0007E426D /* Divider */ = {
+			isa = PBXGroup;
+			children = (
+				1F4677161F95161D007E426D /* OnePlaceMainDividerCell.swift */,
+				1F4677141F951605007E426D /* OnePlaceMainDividerCell.xib */,
+			);
+			name = Divider;
+			sourceTree = "<group>";
+		};
 		1F46907A1F86A5B60056F9B0 /* SearchPlaceCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +584,7 @@
 		1FC5A7071F138B5100ABE1A6 = {
 			isa = PBXGroup;
 			children = (
+				1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */,
 				1FC5A7121F138B5100ABE1A6 /* FindMe */,
 				1FC5A7271F138B5100ABE1A6 /* FindMeTests */,
 				1FC5A7321F138B5100ABE1A6 /* FindMeUITests */,
@@ -606,6 +665,8 @@
 				1FE033C91F896184000349F7 /* Contacts */,
 				1FE033C81F89617D000349F7 /* Actions */,
 				1FE033C51F896162000349F7 /* Location */,
+				1F46770E1F950EB7007E426D /* Space */,
+				1F46770F1F950EC0007E426D /* Divider */,
 			);
 			name = OnePlaceMain;
 			sourceTree = "<group>";
@@ -647,6 +708,8 @@
 		1FE033C71F896176000349F7 /* Description */ = {
 			isa = PBXGroup;
 			children = (
+				1F46770A1F910003007E426D /* OnePlaceMainDescriptionCell.swift */,
+				1F46770C1F9100E6007E426D /* OnePlaceMainDescriptionCell.xib */,
 			);
 			name = Description;
 			sourceTree = "<group>";
@@ -661,6 +724,10 @@
 		1FE033C91F896184000349F7 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				1F4C82C61F952932004B294C /* OnePlaceMainContactsCell.swift */,
+				1F4C82C81F952B29004B294C /* OnePlaceMainContactsCell.xib */,
+				1F4C82CC1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift */,
+				1F4C82CA1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -698,6 +765,7 @@
 				1FC5A70E1F138B5100ABE1A6 /* Resources */,
 				DECD6648264972A754C54579 /* [CP] Embed Pods Frameworks */,
 				30BA2E0B52D696C29653F2BD /* [CP] Copy Pods Resources */,
+				1F9DDAAC1F8A7A7600F4618D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -810,6 +878,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4C82C91F952B29004B294C /* OnePlaceMainContactsCell.xib in Resources */,
+				1F4C82CB1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib in Resources */,
 				1F24A91E1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib in Resources */,
 				1FC5839A1F824BEA0045941A /* ExplainerBlock.xib in Resources */,
 				1FC583921F8150EF0045941A /* Main.storyboard in Resources */,
@@ -818,12 +888,15 @@
 				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
 				1F1A0E541F78ED3800FDBA97 /* GreetingView.xib in Resources */,
 				1FC583981F816CB30045941A /* EnteringView.xib in Resources */,
+				1F4677111F950F0C007E426D /* OnePlaceMainSpaceCell.xib in Resources */,
 				1F4690801F86A6340056F9B0 /* SearchPlaceCardView.xib in Resources */,
 				1F24A90C1F896366000BD8F1 /* OnePlaceMainView.xib in Resources */,
+				1F46770D1F9100E6007E426D /* OnePlaceMainDescriptionCell.xib in Resources */,
 				1F24A9151F896DCF000BD8F1 /* OnePlaceMainTitleCell.xib in Resources */,
 				1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */,
 				1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */,
 				1F24A9191F897239000BD8F1 /* OnePlaceMainSliderCell.xib in Resources */,
+				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
 				1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */,
 				1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */,
 			);
@@ -972,6 +1045,7 @@
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
 				1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */,
 				1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */,
+				1F4C82CD1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift in Sources */,
 				1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */,
 				1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */,
 				1F1A0E431F77E99E00FDBA97 /* ServicesFactory.swift in Sources */,
@@ -994,14 +1068,19 @@
 				1FD0754B1F893F3000F34A26 /* PlacesCacheService.swift in Sources */,
 				1FC548171F703442007CE6AB /* Location.swift in Sources */,
 				1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */,
-				1F09EE571F86336D00694D8D /* Auth.swift in Sources */,
+				1F9DDAB01F8FF09A00F4618D /* Migrations.swift in Sources */,
+				1F46770B1F910003007E426D /* OnePlaceMainDescriptionCell.swift in Sources */,
+				1F4677131F950F21007E426D /* OnePlaceMainSpaceCell.swift in Sources */,
+				1F09EE571F86336D00694D8D /* UsersAuthApiService.swift in Sources */,
 				1FC5480F1F702CFD007CE6AB /* CheckInData.swift in Sources */,
 				1F4690821F86A66E0056F9B0 /* SearchPlaceCardCell.swift in Sources */,
 				1F49A0421F86BF980001768F /* FavouritesController.swift in Sources */,
 				1FC5838A1F814C0F0045941A /* NavigationController.swift in Sources */,
 				1F37057F1F7B68B500E6CB0D /* SearchCardsCacheService.swift in Sources */,
+				1F9DDAAE1F8FE90600F4618D /* UsersChangeApiService.swift in Sources */,
 				1F1A0E671F79568900FDBA97 /* Buttons.swift in Sources */,
 				1FC5839C1F824C0F0045941A /* ExplainerBlockView.swift in Sources */,
+				1F4677171F95161D007E426D /* OnePlaceMainDividerCell.swift in Sources */,
 				1FC548151F7033FF007CE6AB /* ApiRights.swift in Sources */,
 				1FC5480B1F6FF8B4007CE6AB /* PlaceImage.swift in Sources */,
 				1FC5838C1F814CDB0045941A /* TabBarController.swift in Sources */,
@@ -1017,6 +1096,7 @@
 				1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */,
 				1F0483881F84CB8100D00EED /* BackgroundTaskManager.swift in Sources */,
 				1F1A0E411F77E8D500FDBA97 /* IKeysStorage.swift in Sources */,
+				1F4C82C71F952932004B294C /* OnePlaceMainContactsCell.swift in Sources */,
 				1F6B21C31F881E6D0068E29A /* MapPoputView.swift in Sources */,
 				1F0483861F83FCF000D00EED /* CheckInService.swift in Sources */,
 				1F2F4B211F81267C002FE39B /* SliderIndicator.swift in Sources */,
