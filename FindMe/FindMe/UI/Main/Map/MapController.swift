@@ -17,7 +17,7 @@ public class MapController: UIViewController {
     //MARK: UI Elements
     @IBOutlet public weak var SegmentControl: UISegmentedControl!
     @IBOutlet public weak var Searchbar: UISearchBar!
-    @IBOutlet public weak var MapView: MKMapView!
+    @IBOutlet public weak var MapView: FMMap!
     private var _popup: MapPopupView!
     private var _loader: InterfaceLoader!
 
@@ -49,7 +49,6 @@ public class MapController: UIViewController {
         _likesService = ServicesFactory.shared.likes
         _positions = ServicesFactory.shared.positions
 
-        setupMap()
         loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
@@ -57,23 +56,14 @@ public class MapController: UIViewController {
 
         self.navigationController?.setToolbarHidden(true, animated: false)
     }
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        setupMap()
+    }
     private func setupMap() {
 
-        if (_positions.canUse) {
-
-            MapView.showsUserLocation = true
-        }
-
-        if let position = _positions.lastPosition {
-
-            let regionRadius: CLLocationDistance = 2000
-            let region = MKCoordinateRegionMakeWithDistance(position.toCoordinates(), regionRadius, regionRadius)
-
-            MapView.setRegion(region, animated: true)
-        }
-
-        MapView.isRotateEnabled = false
-        MapView.delegate = self
+        MapView.showsControls = true
     }
 
     //MARK: Load data
@@ -181,7 +171,12 @@ extension MapController: MKMapViewDelegate {
 
         if !(annotation is SearchAnnotation) {
 
-            return MKAnnotationView(annotation: annotation, reuseIdentifier: Guid.new)
+            if (annotation.coordinate == mapView.userLocation.coordinate) {
+                return nil
+            }
+            else {
+                return MKAnnotationView(annotation: annotation, reuseIdentifier: Guid.new)
+            }
         }
 
         let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: SearchAnnotation.requeseIdentifier)

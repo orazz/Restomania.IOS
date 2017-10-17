@@ -135,10 +135,10 @@
          contextName = "SearchPlaceCard.init(json:):SearchPlaceCard.swift">
          <PersistentStrings>
             <PersistentString
-               value = "let b:String? = Keys.name &lt;~~ json">
+               value = "json[&quot;Name&quot;]">
             </PersistentString>
             <PersistentString
-               value = "json[&quot;Name&quot;]">
+               value = "let b:String? = Keys.name &lt;~~ json">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -150,6 +150,14 @@
          <PersistentStrings>
             <PersistentString
                value = "String(data: data, encoding: .utf8)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MapController.setupMap():MapController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "MapView.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -299,6 +307,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "OnePlaceMainContactsCell.updateContacts():OnePlaceMainContactsCell.swift">
+      </ContextState>
+      <ContextState
          contextName = "DateFilter.search(phrase : String, field : Any) -&gt; Bool:DateFilter.swift">
          <PersistentStrings>
             <PersistentString
@@ -319,13 +330,21 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
-            </PersistentString>
-            <PersistentString
                value = "formatter.date(from: value)">
             </PersistentString>
             <PersistentString
                value = "notUTC!.toUTC()">
+            </PersistentString>
+            <PersistentString
+               value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FMMap.setupStyles():Map.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigation.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -375,6 +394,14 @@
          contextName = "CartService.(load() -&gt; ()).(closure #1):CartService.swift">
       </ContextState>
       <ContextState
+         contextName = "MapController.updateSegment():MapController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "MapView.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Cart.refresh(dishes : [Dish]) -&gt; ():Cart.swift">
       </ContextState>
       <ContextState
@@ -411,6 +438,9 @@
          contextName = "closure #1 in SearchPlaceCardsCacheService.all():SearchCardsCacheService.swift">
       </ContextState>
       <ContextState
+         contextName = "closure #1 in CacheRangeAdapter.remove(_:):CacheRangeAdapter.swift">
+      </ContextState>
+      <ContextState
          contextName = "VKAuthorizationController.webView(_:didFinish:):VKAuthorizationController.swift">
          <PersistentStrings>
             <PersistentString
@@ -425,13 +455,13 @@
          contextName = "OnePlaceMainDescriptionCell.resize():OnePlaceMainDescriptionCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "getConstant(.top, of: DescriptionLabel) + getConstant(.height, of: DescriptionLabel) + CGFloat(5)">
+               value = "getConstant(.top, of: DescriptionLabel)">
             </PersistentString>
             <PersistentString
                value = "DescriptionLabel.superview.constraints.filter({ $0.firstAttribute == .bottom }).first!.constant">
             </PersistentString>
             <PersistentString
-               value = "getConstant(.top, of: DescriptionLabel)">
+               value = " DescriptionLabel.constraints">
             </PersistentString>
             <PersistentString
                value = "DescriptionLabel.frame.height">
@@ -446,7 +476,7 @@
                value = "DescriptionLabel.frame.origin">
             </PersistentString>
             <PersistentString
-               value = " DescriptionLabel.constraints">
+               value = "getConstant(.top, of: DescriptionLabel) + getConstant(.height, of: DescriptionLabel) + CGFloat(5)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -468,6 +498,9 @@
                value = "name.bounds.width">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OnePlaceMainContactsCell.update(by:):OnePlaceMainContactsCell.swift">
       </ContextState>
       <ContextState
          contextName = "DateFilter.Check(value : Int, date : Date, values : [Calendar.Component]...) -&gt; Bool:DateFilter.swift">
@@ -560,6 +593,9 @@
                value = "_getter(instance)">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OnePlaceMainLocationCell.viewHeight.getter:OnePlaceMainLocationCell.swift">
       </ContextState>
       <ContextState
          contextName = "PredicateTests.testPredicate():Predicate.swift">

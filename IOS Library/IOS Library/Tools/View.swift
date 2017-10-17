@@ -21,9 +21,18 @@ extension UIView {
     }
     public func setContraint(height: CGFloat) {
 
+        setContraint(.height, to: height)
+    }
+    public func setContraint(width: CGFloat) {
+
+        setContraint(.width, to: width)
+    }
+    public func setContraint(_ type:NSLayoutAttribute, to value: CGFloat) {
+
         for contraint in self.constraints {
-            if (contraint.firstAttribute == .height) {
-                contraint.constant = height
+            if (contraint.firstAttribute == type) {
+                contraint.constant = value
+                return
             }
         }
     }

@@ -72,6 +72,7 @@
 		1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */; };
 		1FACBA781F965AA4004CEED0 /* OnePlaceMainLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */; };
 		1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */; };
+		1FACBA7E1F966BEF004CEED0 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACBA7D1F966BEF004CEED0 /* Map.swift */; };
 		1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */; };
 		1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */; };
 		1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548081F6FF8A4007CE6AB /* IPlaceDependent.swift */; };
@@ -207,6 +208,7 @@
 		1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLocationCellOneLine.swift; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.swift; sourceTree = "<group>"; };
 		1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainLocationCell.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCell.xib; sourceTree = "<group>"; };
 		1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLocationCellOneLine.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.xib; sourceTree = "<group>"; };
+		1FACBA7D1F966BEF004CEED0 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Map.swift; path = UI/Elements/Map.swift; sourceTree = "<group>"; };
 		1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesMainApiService.swift; path = ApiServices/Places/PlacesMainApiService.swift; sourceTree = "<group>"; };
 		1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectParameters.swift; path = ApiServices/SelectParameters.swift; sourceTree = "<group>"; };
 		1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				1F1A0E661F79568900FDBA97 /* Buttons.swift */,
 				1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */,
 				1F09EE5A1F865D7900694D8D /* Labels.swift */,
+				1FACBA7D1F966BEF004CEED0 /* Map.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -1049,6 +1052,7 @@
 				1FC548211F704E62007CE6AB /* ClientsData.swift in Sources */,
 				1F4690711F869CCC0056F9B0 /* SearchController.swift in Sources */,
 				1FC5481B1F70443B007CE6AB /* PlaceStatus.swift in Sources */,
+				1FACBA7E1F966BEF004CEED0 /* Map.swift in Sources */,
 				1F1A0E3A1F77C14600FDBA97 /* ThemeSettings.swift in Sources */,
 				1FC583961F816BFF0045941A /* EnteringController.swift in Sources */,
 				1FC5839E1F827C5D0045941A /* SliderControl.swift in Sources */,

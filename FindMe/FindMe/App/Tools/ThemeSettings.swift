@@ -38,6 +38,10 @@ public class ThemeSettings {
         public static let heartActive = loadAssert(named: "heart")
         public static let heartInactive = loadAssert(named: "heart-grey")
 
+        public static let plus = loadAssert(named: "plus")
+        public static let minus = loadAssert(named: "minus")
+        public static let navigation = loadAssert(named: "navigation")
+
         private static func loadAssert(named: String) -> UIImage {
 
             return UIImage(named: named, in: Bundle.main, compatibleWith: nil)!

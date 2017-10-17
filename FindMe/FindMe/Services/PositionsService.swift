@@ -330,3 +330,10 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
         }
     }
 }
+extension CLLocationCoordinate2D {
+
+    public static func == (left: CLLocationCoordinate2D, right: CLLocationCoordinate2D) -> Bool {
+
+        return left.latitude == right.latitude && left.longitude == right.longitude
+    }
+}
