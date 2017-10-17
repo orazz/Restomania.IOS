@@ -23,45 +23,6 @@ public class CacheImagesService {
         }
     }
 
-    private class CacheImageContainer: ICached {
-
-        public var ID: Long
-        public var url: String
-        public var filename: String
-        public var lastUseDate: Date
-
-        public init() {
-
-            self.ID = 0
-            self.url = String.empty
-            self.filename = String.empty
-            self.lastUseDate = Date()
-        }
-        public required init(source: CacheImageContainer) {
-
-            self.ID = source.ID
-            self.url = source.url
-            self.filename = source.filename
-            self.lastUseDate = source.lastUseDate
-        }
-        public required init(json: JSON) {
-
-            self.ID = ("id" <~~ json)!
-            self.url = ("url" <~~ json)!
-            self.filename = ("filename" <~~ json)!
-            self.lastUseDate = Date.parseJson(value: ("lastUseDate" <~~ json)!)
-        }
-
-        public func toJSON() -> JSON? {
-
-            return jsonify([
-                "id" ~~> self.ID,
-                "url" ~~> self.url,
-                "filename" ~~> self.filename,
-                "lastUseDate" ~~> self.lastUseDate.prepareForJson()
-                ])
-        }
-    }
 
     private let _tag = String.tag(CacheImagesService.self)
     private let _adapter: CacheRangeAdapter<CacheImageContainer>
@@ -168,6 +129,46 @@ public class CacheImagesService {
             }
 
             Log.Debug(self._tag, "Remove old cached images.")
+        }
+    }
+
+    
+    private class CacheImageContainer: ICached {
+        
+        public var ID: Long
+        public var url: String
+        public var filename: String
+        public var lastUseDate: Date
+        
+        public init() {
+            
+            self.ID = 0
+            self.url = String.empty
+            self.filename = String.empty
+            self.lastUseDate = Date()
+        }
+        public required init(source: CacheImageContainer) {
+            
+            self.ID = source.ID
+            self.url = source.url
+            self.filename = source.filename
+            self.lastUseDate = source.lastUseDate
+        }
+        public required init(json: JSON) {
+            
+            self.ID = ("id" <~~ json)!
+            self.url = ("url" <~~ json)!
+            self.filename = ("filename" <~~ json)!
+            self.lastUseDate = Date.parseJson(value: ("lastUseDate" <~~ json)!)
+        }
+        public func toJSON() -> JSON? {
+            
+            return jsonify([
+                "id" ~~> self.ID,
+                "url" ~~> self.url,
+                "filename" ~~> self.filename,
+                "lastUseDate" ~~> self.lastUseDate.prepareForJson()
+                ])
         }
     }
 }

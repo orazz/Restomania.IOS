@@ -162,6 +162,7 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
                 if (element.ID == id) {
 
                     _data.remove(at: index)
+                    break
                 }
             }
         }
@@ -174,11 +175,9 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
         blockQueue.sync {
 
             for id in ids {
-                for (index, element) in _data.enumerated() {
-                    if (element.ID == id) {
 
-                        _data.remove(at: index)
-                    }
+                if let index = _data.index(where: { $0.ID == id }) {
+                    _data.remove(at: index)
                 }
             }
         }

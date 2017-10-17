@@ -82,7 +82,7 @@ public class OnePlaceMainController: UIViewController {
         _interfaceAdapter.add(contacts)
         _interfaceAdapter.add(OnePlaceMainDividerCell.instance(for: contacts))
 
-//        _interfaceAdapter.add(OnePlaceMainContactsCell.location)
+        _interfaceAdapter.add(OnePlaceMainLocationCell.instance)
 
         _interfaceAdapter.add(OnePlaceMainSpaceCell.instance)
     }

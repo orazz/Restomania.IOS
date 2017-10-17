@@ -60,6 +60,7 @@
 		1F4C82C91F952B29004B294C /* OnePlaceMainContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4C82C81F952B29004B294C /* OnePlaceMainContactsCell.xib */; };
 		1F4C82CB1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4C82CA1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib */; };
 		1F4C82CD1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82CC1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift */; };
+		1F4C82D11F95C894004B294C /* OnePlaceMainLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82D01F95C894004B294C /* OnePlaceMainLocationCell.swift */; };
 		1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B21B91F881DAD0068E29A /* MapPopupView.xib */; };
 		1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */; };
 		1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */; };
@@ -68,6 +69,9 @@
 		1F9DDAAB1F8A7A7600F4618D /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F9DDAAE1F8FE90600F4618D /* UsersChangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DDAAD1F8FE90600F4618D /* UsersChangeApiService.swift */; };
 		1F9DDAB01F8FF09A00F4618D /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */; };
+		1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */; };
+		1FACBA781F965AA4004CEED0 /* OnePlaceMainLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */; };
+		1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */; };
 		1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */; };
 		1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */; };
 		1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548081F6FF8A4007CE6AB /* IPlaceDependent.swift */; };
@@ -191,6 +195,7 @@
 		1F4C82C81F952B29004B294C /* OnePlaceMainContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainContactsCell.xib; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCell.xib; sourceTree = "<group>"; };
 		1F4C82CA1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainContactsCellOneLine.xib; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCellOneLine.xib; sourceTree = "<group>"; };
 		1F4C82CC1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainContactsCellOneLine.swift; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCellOneLine.swift; sourceTree = "<group>"; };
+		1F4C82D01F95C894004B294C /* OnePlaceMainLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLocationCell.swift; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCell.swift; sourceTree = "<group>"; };
 		1F6B21B91F881DAD0068E29A /* MapPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPopupView.xib; path = UI/Main/Map/MapPopupView.xib; sourceTree = "<group>"; };
 		1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListAdapter.swift; path = UI/Main/Adapters/PlacesListAdapter.swift; sourceTree = "<group>"; };
 		1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListTableAdapter.swift; path = UI/Main/Adapters/PlacesListTableAdapter.swift; sourceTree = "<group>"; };
@@ -199,6 +204,9 @@
 		1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9DDAAD1F8FE90600F4618D /* UsersChangeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersChangeApiService.swift; path = ApiServices/Users/UsersChangeApiService.swift; sourceTree = "<group>"; };
 		1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Migrations.swift; path = App/Migrations.swift; sourceTree = "<group>"; };
+		1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLocationCellOneLine.swift; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.swift; sourceTree = "<group>"; };
+		1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainLocationCell.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCell.xib; sourceTree = "<group>"; };
+		1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLocationCellOneLine.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.xib; sourceTree = "<group>"; };
 		1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesMainApiService.swift; path = ApiServices/Places/PlacesMainApiService.swift; sourceTree = "<group>"; };
 		1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectParameters.swift; path = ApiServices/SelectParameters.swift; sourceTree = "<group>"; };
 		1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
@@ -692,6 +700,10 @@
 		1FE033C51F896162000349F7 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				1F4C82D01F95C894004B294C /* OnePlaceMainLocationCell.swift */,
+				1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */,
+				1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */,
+				1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */,
 			);
 			name = Location;
 			sourceTree = "<group>";
@@ -885,6 +897,7 @@
 				1FC583921F8150EF0045941A /* Main.storyboard in Resources */,
 				1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */,
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
+				1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */,
 				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
 				1F1A0E541F78ED3800FDBA97 /* GreetingView.xib in Resources */,
 				1FC583981F816CB30045941A /* EnteringView.xib in Resources */,
@@ -894,6 +907,7 @@
 				1F46770D1F9100E6007E426D /* OnePlaceMainDescriptionCell.xib in Resources */,
 				1F24A9151F896DCF000BD8F1 /* OnePlaceMainTitleCell.xib in Resources */,
 				1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */,
+				1FACBA781F965AA4004CEED0 /* OnePlaceMainLocationCell.xib in Resources */,
 				1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */,
 				1F24A9191F897239000BD8F1 /* OnePlaceMainSliderCell.xib in Resources */,
 				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
@@ -1048,6 +1062,7 @@
 				1F4C82CD1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift in Sources */,
 				1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */,
 				1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */,
+				1F4C82D11F95C894004B294C /* OnePlaceMainLocationCell.swift in Sources */,
 				1F1A0E431F77E99E00FDBA97 /* ServicesFactory.swift in Sources */,
 				1FC548251F7095B4007CE6AB /* BaseApiService.swift in Sources */,
 				1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */,
@@ -1092,6 +1107,7 @@
 				1F6B21C11F881E310068E29A /* MapController.swift in Sources */,
 				1F1A0E561F78ED4900FDBA97 /* GreetingController.swift in Sources */,
 				1F1A0E5C1F7950AB00FDBA97 /* ClientsDataManager.swift in Sources */,
+				1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */,
 				1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */,
 				1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */,
 				1F0483881F84CB8100D00EED /* BackgroundTaskManager.swift in Sources */,

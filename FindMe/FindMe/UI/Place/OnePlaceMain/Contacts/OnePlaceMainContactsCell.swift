@@ -45,16 +45,17 @@ public class OnePlaceMainContactsCell: UITableViewCell {
             return
         }
 
+        let contacts = _contacts!
         _lines = []
-        add(_contacts!.phone, for: "Телефон", to: _lines)
-        add(_contacts!.secondPhone, for: "Телефон", to: _lines)
-        add(_contacts!.vk, for: "Вконтакте", to: _lines)
-        add(_contacts!.facebook, for: "Facebook", to: _lines)
-        add(_contacts!.instagram, for: "Instagram", to: _lines)
-        add(_contacts!.email, for: "Email", to: _lines)
-        add(_contacts!.website, for: "Сайт", to: _lines)
-        add(_contacts!.whatsapp, for: "Whatsapp", to: _lines)
-        add(_contacts!.viber, for: "Viber", to: _lines)
+        add(contacts.phone, for: "Телефон", to: _lines)
+        add(contacts.secondPhone, for: "Телефон", to: _lines)
+        add(contacts.vk, for: "Вконтакте", to: _lines)
+        add(contacts.facebook, for: "Facebook", to: _lines)
+        add(contacts.instagram, for: "Instagram", to: _lines)
+        add(contacts.email, for: "Email", to: _lines)
+        add(contacts.website, for: "Сайт", to: _lines)
+        add(contacts.whatsapp, for: "Whatsapp", to: _lines)
+        add(contacts.viber, for: "Viber", to: _lines)
 
         ContactsTable.reloadData()
 
@@ -99,12 +100,16 @@ public class OnePlaceMainContactsCell: UITableViewCell {
 
             if (isCorrect) {
                 self.displayValue = link!.components(separatedBy: "://").last!
+                                          .components(separatedBy: "www.").last!
                                           .components(separatedBy: ".com/").last!
                                           .components(separatedBy: "/").first!
             }
         }
     }
 }
+
+
+
 //Table delegate and source
 extension OnePlaceMainContactsCell: UITableViewDelegate {
 
@@ -136,6 +141,8 @@ extension OnePlaceMainContactsCell: UITableViewDataSource {
         return OnePlaceMainContactsCellOneLine.height
     }
 }
+
+
 
 //Cells
 extension OnePlaceMainContactsCell: OnePlaceShowDividerDelegate {
