@@ -85,13 +85,11 @@ public class FMSegmentedControl: UIView {
 
         segmentedControl.removeAllSegments()
 
-        var index = 0
         for (key, _) in range {
-            segmentedControl.insertSegment(withTitle: key, at: index, animated: false)
-            index += 1
+            segmentedControl.insertSegment(withTitle: key, at: 0, animated: false)
         }
 
-        if (index > 0) {
+        if (range.count > 0) {
             segmentedControl.selectedSegmentIndex = 0
         }
     }

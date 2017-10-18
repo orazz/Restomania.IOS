@@ -394,6 +394,9 @@
          contextName = "CartService.(load() -&gt; ()).(closure #1):CartService.swift">
       </ContextState>
       <ContextState
+         contextName = "FMSwitch.notify():FMSwitch.swift">
+      </ContextState>
+      <ContextState
          contextName = "MapController.updateSegment():MapController.swift">
          <PersistentStrings>
             <PersistentString
@@ -540,6 +543,14 @@
       </ContextState>
       <ContextState
          contextName = "FileSystem.saveTo(String, data : Data, toCache : Bool) -&gt; ():FileSystem.swift">
+      </ContextState>
+      <ContextState
+         contextName = "FMSegmentedControl.notify():FMSegmentedControl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "value">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "CacheImagesService.(download(url : String) -&gt; Task&lt;(Bool, Data?)&gt;).(closure #1).(closure #1):CacheImagesService.swift">
