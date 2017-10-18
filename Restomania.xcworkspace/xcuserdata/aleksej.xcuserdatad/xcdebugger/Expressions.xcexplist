@@ -658,6 +658,9 @@
             <PersistentString
                value = "TitleLabel.frame.width">
             </PersistentString>
+            <PersistentString
+               value = "titleLabel.frame">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState

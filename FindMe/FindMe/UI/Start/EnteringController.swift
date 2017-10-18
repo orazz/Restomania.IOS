@@ -39,18 +39,24 @@ public class EnteringController: UIViewController {
     //MARK: Data & Services
     private var startController: StartController!
 
-
+    private var fieldsStorage: UIViewController.TextFieldsStorage?
     //MARK: Controller circle
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        initMarkup()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.navigationController?.setToolbarHidden(true, animated: false)
-        self.subscribeToScrollWhenKeyboardShow()
+       self.subscribeToScrollWhenKeyboardShow()
+    }
+    public override func viewDidAppear(_ animated: Bool) {
+
+        initMarkup()
+        fieldsStorage = self.closeKeyboardWhenTapOnRootView()
+
+        super.viewDidAppear(animated)
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -63,6 +69,7 @@ public class EnteringController: UIViewController {
 
         NameTextField.title = "Ваше имя"
         AgeTextField.title = "Сколько вам лет"
+        AgeTextField.valueType = .number
         CityTextField.title = "Ваш город"
 
         FirstDividerView.backgroundColor = ThemeSettings.Colors.divider

@@ -455,6 +455,13 @@
 			name = Slider;
 			sourceTree = "<group>";
 		};
+		1F3382F11F97C5C300E43596 /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Switch;
+			sourceTree = "<group>";
+		};
 		1F3705861F7B880700E6CB0D /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,6 +525,7 @@
 		1F4E10F91F97059700EB8391 /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
+				1F3382F11F97C5C300E43596 /* Switch */,
 				1F4E10FB1F970A7500EB8391 /* TextField */,
 				1F4E10FA1F970A6200EB8391 /* InputCell */,
 			);

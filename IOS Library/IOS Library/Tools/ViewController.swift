@@ -11,6 +11,7 @@ import UIKit
 
 extension UIViewController {
 
+    //MARK: Focus by scroll on active text field
     open func subscribeToScrollWhenKeyboardShow() {
 
         if (self.view is UIScrollView) {
@@ -20,7 +21,6 @@ extension UIViewController {
             center.addObserver(self, selector: #selector(keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         }
     }
-
     open func unsubscribefromScrollWhenKeyboardShow() {
 
         if (self.view is UIScrollView) {
@@ -30,7 +30,6 @@ extension UIViewController {
             center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         }
     }
-
     @objc private func keyboardWasShown(notification: NSNotification){
 
         guard let scrollView = self.view as? UIScrollView else {
@@ -99,4 +98,57 @@ extension UIViewController {
 
         return nil
     }
+
+
+
+
+    //MARK: Hide keyboard by tap by root view
+    open func closeKeyboardWhenTapOnRootView(_ selector: Selector? = nil) -> TextFieldsStorage {
+
+        let storage = TextFieldsStorage(vc: self)
+
+        let tap = UITapGestureRecognizer(target: storage, action: #selector(storage.closeKeyboard))
+        if let selector = selector {
+            tap.addTarget(self, action: selector)
+        }
+        self.view.addGestureRecognizer(tap)
+        self.view.isUserInteractionEnabled = true
+
+        return storage
+    }
+    open class TextFieldsStorage {
+
+        public var fields: [UITextField]
+
+        public init(vc: UIViewController) {
+
+            self.fields = []
+
+            collectFields(root: vc.view, range: &fields)
+        }
+
+        @objc public func closeKeyboard() {
+
+            for field in fields {
+                if (field.isFirstResponder) {
+                    field.resignFirstResponder()
+                }
+            }
+        }
+
+        private  func collectFields(root: UIView, range: inout [UITextField]) {
+
+            for subview in root.subviews {
+
+                if (subview is UITextField) {
+                    range.append(subview as! UITextField)
+                }
+                else {
+
+                    collectFields(root: subview, range: &range)
+                }
+            }
+        }
+    }
+
 }

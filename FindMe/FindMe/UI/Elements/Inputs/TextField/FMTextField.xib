@@ -12,10 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FMTextField" customModule="FindMe" customModuleProvider="target">
             <connections>
-                <outlet property="ContentField" destination="cFW-rn-hWB" id="D2m-0W-Lq1"/>
-                <outlet property="ContentView" destination="iN0-l3-epB" id="VwV-1r-uXK"/>
-                <outlet property="DividerView" destination="iHg-Na-UaO" id="WlN-3f-exo"/>
-                <outlet property="TitleLabel" destination="lKx-CE-tLb" id="WCD-hd-4w2"/>
+                <outlet property="contentField" destination="cFW-rn-hWB" id="D2m-0W-Lq1"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="VwV-1r-uXK"/>
+                <outlet property="dividerView" destination="iHg-Na-UaO" id="WlN-3f-exo"/>
+                <outlet property="titleLabel" destination="lKx-CE-tLb" id="WCD-hd-4w2"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
