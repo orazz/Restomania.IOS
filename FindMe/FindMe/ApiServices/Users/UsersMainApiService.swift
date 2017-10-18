@@ -19,12 +19,18 @@ public class UsersMainApiService: BaseApiService {
 
     
     //MARK: Methods
-    public func change(updates:PartialUpdateContainer ...) -> RequestResult<Bool> {
+    public func find() -> RequestResult<User> {
+
+        let parameters = CollectParameters(rights: .user)
+
+        return _client.Get(action: "Find", type: User.self, parameters: parameters)
+    }
+    public func checkIn(placeId: Long) -> RequestResult<Bool> {
 
         let parameters = CollectParameters(rights: .user, [
-            "updates": updates
-            ])
+            "placeID": placeId
+        ])
 
-        return _client.PutBool(action: "Change", parameters: parameters)
+        return _client.PostBool(action: "CheckIn", parameters: parameters)
     }
 }

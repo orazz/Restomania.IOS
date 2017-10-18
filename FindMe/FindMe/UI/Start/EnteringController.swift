@@ -13,7 +13,7 @@ import IOSLibrary
 
 public class EnteringController: UIViewController {
 
-    private static let nibName = "EnteringView"
+    private static let nibName = "EnteringController"
     public static func build(parent: StartController) -> EnteringController {
 
         let instance = EnteringController(nibName: nibName, bundle: Bundle.main)
@@ -24,30 +24,49 @@ public class EnteringController: UIViewController {
     }
 
     //MARK: UIElements
+    @IBOutlet public weak var NameTextField: FMTextField!
+//    @IBOutlet public weak var NameTextField: FMTextField!
+    @IBOutlet public weak var AgeTextField: FMTextField!
+//    @IBOutlet public weak var NameTextField: FMTextField!
+    @IBOutlet public weak var CityTextField: FMTextField!
+
+    @IBOutlet public weak var FirstDividerView:UIView!
+    @IBOutlet public weak var SecondDividerView:UIView!
+
     @IBOutlet public weak var VkButton: UIButton!
 
+
     //MARK: Data & Services
-    private var isInitMarkup: Bool = false
     private var startController: StartController!
 
 
     //MARK: Controller circle
     public override func viewDidLoad() {
         super.viewDidLoad()
+
+        initMarkup()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        initMarkup()
 
         self.navigationController?.setToolbarHidden(true, animated: false)
+        self.subscribeToScrollWhenKeyboardShow()
+    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        self.unsubscribefromScrollWhenKeyboardShow()
     }
     private func initMarkup() {
 
-        if (isInitMarkup) {
-            return
-        }
-        isInitMarkup = true
+        self.view.backgroundColor = ThemeSettings.Colors.background 
+
+        NameTextField.title = "Ваше имя"
+        AgeTextField.title = "Сколько вам лет"
+        CityTextField.title = "Ваш город"
+
+        FirstDividerView.backgroundColor = ThemeSettings.Colors.divider
+        SecondDividerView.backgroundColor = ThemeSettings.Colors.divider
 
         VkButton.backgroundColor = ThemeSettings.Colors.vk
         VkButton.layer.borderColor = ThemeSettings.Colors.vk.cgColor

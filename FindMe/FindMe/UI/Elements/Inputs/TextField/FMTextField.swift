@@ -13,10 +13,8 @@ import CoreGraphics
 
 public class FMTextField: UIView {
 
-    public static let height = 40.0
-    private let scaleFactor = CGFloat(1/1.2)
-    private var topOffset = CGFloat(15)
-    private var rightOffset = CGFloat(15)
+    public static let height = 35.0
+    private let scaleFactor = CGFloat(1/1.5)
     private let nibName = "FMTextField"
 
 
@@ -71,13 +69,16 @@ public class FMTextField: UIView {
         self.addSubview(ContentView)
         ContentView.frame = self.bounds
         ContentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        ContentView.setContraint(height: CGFloat(FMTextField.height))
 
+
+        TitleLabel.text = nil
         TitleLabel.font = ThemeSettings.Fonts.default(size: .headline)
+        ContentField.text = nil
         ContentField.font = ThemeSettings.Fonts.default(size: .headline)
 
         //Magic count how move label
-        topOffset = TitleLabel.frame.height * (2.0 - scaleFactor)
-        rightOffset =  TitleLabel.frame.width * (1.0 - scaleFactor) / 2
+
 
         focusedTitleColor = ThemeSettings.Colors.main
         defaultTitleColor = ThemeSettings.Colors.blackText
@@ -117,8 +118,11 @@ public class FMTextField: UIView {
         }
         titleIsFocused = true
 
-        var transform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
-        transform = transform.translatedBy(x: -rightOffset, y: -topOffset)
+        let topOffset = TitleLabel.frame.height * (1.8 - scaleFactor)
+        let rightOffset = TitleLabel.frame.width * (1.0 - scaleFactor) / 2
+
+        var transform = CGAffineTransform.init(translationX: -rightOffset, y: -topOffset)
+        transform = transform.scaledBy(x: scaleFactor, y: scaleFactor)
         transformTitle(by: transform, color: focusedTitleColor)
     }
     private func moveTitleBottom() {
