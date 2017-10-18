@@ -62,10 +62,10 @@ public class EnteringController: UIViewController {
     }
     public override func viewDidAppear(_ animated: Bool) {
 
-        initMarkup()
-        fieldsStorage = self.closeKeyboardWhenTapOnRootView()
-
         super.viewDidAppear(animated)
+
+        fieldsStorage = self.closeKeyboardWhenTapOnRootView()
+        initMarkup()
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
