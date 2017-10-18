@@ -247,6 +247,17 @@
          contextName = "OnePlaceMainDescriptionCell.updateDescription():OnePlaceMainDescriptionCell.swift">
       </ContextState>
       <ContextState
+         contextName = "BaseApiService.CollectParameters(_:):BaseApiService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "value is NSArray">
+            </PersistentString>
+            <PersistentString
+               value = "value is [Gloss.Encodable]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PlaceMenuController.CategoriesCollection.collectionView(UICollectionView, cellForItemAt : IndexPath) -&gt; UICollectionViewCell:PlaceMenuController.swift">
       </ContextState>
       <ContextState
@@ -439,6 +450,17 @@
       </ContextState>
       <ContextState
          contextName = "closure #1 in SearchPlaceCardsCacheService.all():SearchCardsCacheService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in EnteringController.continueWithoutAuth():EnteringController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "updates.first!.toJSON()">
+            </PersistentString>
+            <PersistentString
+               value = "String(data: JSONSerialization.data(withJSONObject: [updates.first!.toJSON()], options: []), encoding: .utf8)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #1 in CacheRangeAdapter.remove(_:):CacheRangeAdapter.swift">

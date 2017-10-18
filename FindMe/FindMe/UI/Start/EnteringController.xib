@@ -12,12 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnteringController" customModule="FindMe" customModuleProvider="target">
             <connections>
-                <outlet property="SexSegmentControl" destination="S9o-gu-hNy" id="r3a-ek-tqh"/>
                 <outlet property="acquaintancesStatusSwitch" destination="0CE-uV-FuK" id="Wv5-UD-xh5"/>
                 <outlet property="ageTextField" destination="ubO-IO-PWG" id="Jne-s0-t73"/>
                 <outlet property="firstDividerView" destination="pTA-HL-v5F" id="kOq-qe-erS"/>
                 <outlet property="nameTextField" destination="afi-tJ-dwp" id="HoZ-zl-sUB"/>
                 <outlet property="secondDividerView" destination="yqf-Iq-6Pm" id="W0Y-hl-C2Z"/>
+                <outlet property="sexSegmentControl" destination="S9o-gu-hNy" id="r3a-ek-tqh"/>
                 <outlet property="view" destination="6HI-2l-VVw" id="b42-xb-HTa"/>
                 <outlet property="vkButton" destination="Xfe-iW-it4" id="iGa-9z-Bhn"/>
             </connections>

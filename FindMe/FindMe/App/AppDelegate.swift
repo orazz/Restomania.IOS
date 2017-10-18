@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let properties = ServicesFactory.shared.properties
 //        properties.set(.isShowExplainer, value: false)
 
+//        ServicesFactory.shared.keys.logout(.user)
+
         ThemeSettings.initializeStyles()
 
         let positions = ServicesFactory.shared.positions

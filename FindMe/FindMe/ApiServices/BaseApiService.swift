@@ -34,11 +34,16 @@ public class BaseApiService: NSObject {
         
         if let values = values {
             for (key, value) in values {
-                
-                if let object = value as? Gloss.Encodable {
+
+                if let array = value as? [Gloss.Encodable] {
+
+                    result[key] = array.map({ $0.toJSON() })
+                }
+                else if let object = value as? Gloss.Encodable {
                     
                     result[key] = object.toJSON()
-                } else {
+                }
+                else {
                     
                     result[key] = value
                 }

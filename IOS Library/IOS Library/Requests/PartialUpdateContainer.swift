@@ -26,40 +26,27 @@ public class PartialUpdateContainer: Glossy {
         self.property = property
         self.update = update
     }
-    public convenience init(property: String, update: Int) {
+    public convenience init(property: String, update: Any?) {
 
-        self.init(property: property, update:"\(update)")
+        if let value = update as? Gloss.Encodable {
+
+            var jsonUpdate = "{}"
+
+            do {
+
+                if let json = value.toJSON() {
+                    let data = try JSONSerialization.data(withJSONObject: json, options: [])
+                    jsonUpdate = String(data: data, encoding: .utf8)!
+                }
+            } catch {}
+
+            self.init(property: property, update:"\(jsonUpdate)")
+        }
+        else {
+            self.init(property: property, update: "\(update ?? String.empty)")
+        }
     }
-    public convenience init(property: String, update: Long) {
 
-        self.init(property: property, update:"\(update)")
-    }
-    public convenience init(property: String, update: Float) {
-
-        self.init(property: property, update:"\(update)")
-    }
-    public convenience init(property: String, update: Double) {
-
-        self.init(property: property, update:"\(update)")
-    }
-    public convenience init(property: String, update: Bool) {
-
-        self.init(property: property, update:"\(update)")
-    }
-    public convenience init(property: String, update: Gloss.Encodable) {
-
-        var jsonUpdate = "{}"
-
-        do {
-
-            if let json = update.toJSON() {
-                let data = try JSONSerialization.data(withJSONObject: json, options: [])
-                jsonUpdate = String(data: data, encoding: .utf8)!
-            }
-        } catch {}
-
-        self.init(property: property, update:"\(jsonUpdate)")
-    }
 
     // MARK: Glossy
     public required init?(json: JSON) {
@@ -74,5 +61,18 @@ public class PartialUpdateContainer: Glossy {
             Keys.property ~~> self.property,
             Keys.update ~~> self.update
             ])
+    }
+
+
+
+    public static func collect(_ range: [String:Any?]) -> [PartialUpdateContainer] {
+
+        var result = [PartialUpdateContainer]()
+
+        for (key, value) in range {
+            result.append(PartialUpdateContainer(property: key, update: value))
+        }
+
+        return result
     }
 }

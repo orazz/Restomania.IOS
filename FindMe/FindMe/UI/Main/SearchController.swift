@@ -25,7 +25,11 @@ public class SearchController: UIViewController {
     private var _tableAdapter: PlacesListTableAdapter!
     private var _cache: SearchPlaceCardsCacheService!
     private var _likesService: LikesService!
-    private var _stored: [SearchPlaceCard] = []
+    private var _stored: [SearchPlaceCard]! {
+        didSet {
+            _tableAdapter.update(places: _stored)
+        }
+    }
 
 
     //MARK: View controller circle
@@ -55,11 +59,11 @@ public class SearchController: UIViewController {
         let local = _cache.allLocal
         if (local.isEmpty) {
             _loader.show()
+
+            _stored = []
         }
         else {
-
             _stored = local
-            _tableAdapter.update(places: local)
         }
 
         let task = _cache.all()
@@ -68,15 +72,17 @@ public class SearchController: UIViewController {
             DispatchQueue.main.async {
 
                 self._loader.hide()
-                self._stored = response ?? []
-                self._tableAdapter.update(places: self._stored)
 
-                if (nil == response) {
+                if let response = response {
+                    
+                    self._stored = response
+                }
+                else if (self._stored.isEmpty) {
+
                     let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-                    self.navigationController?.show(alert, sender: nil)
+                    self.present(alert, animated: false, completion: nil)
                 }
-
             }
         })
     }

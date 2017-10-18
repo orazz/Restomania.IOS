@@ -28,7 +28,16 @@ public class MapController: UIViewController {
     private var _likesService: LikesService!
     private var _positions: PositionsService!
 
-    private var _stored: [SearchAnnotation] = []
+    private var _places: [SearchPlaceCard]! {
+        didSet {
+            _stored = _places.map({ SearchAnnotation(card: $0) })
+        }
+    }
+    private var _stored: [SearchAnnotation]! {
+        didSet {
+            reload()
+        }
+    }
     private var _filtered: [SearchAnnotation] = []
     private var _onlyLiked: Bool = false
     private var _filter: ((SearchPlaceCard)->Bool)? = nil
@@ -72,11 +81,12 @@ public class MapController: UIViewController {
         let local = _cache.allLocal
         if (local.isEmpty) {
             _loader.show()
+
+            _places = []
         }
         else {
 
-            _stored = local.map({ SearchAnnotation(card: $0) })
-            reload()
+            _places = local
         }
 
         let task = _cache.all()
@@ -85,15 +95,17 @@ public class MapController: UIViewController {
             DispatchQueue.main.async {
 
                 self._loader.hide()
-                self._stored = (response ?? []).map({ SearchAnnotation(card: $0) })
-                self.reload()
 
-                if (nil == response) {
+                if let response = response {
+
+                    self._places = response
+                }
+                else if (self._places.isEmpty) {
+
                     let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-                    self.navigationController?.show(alert, sender: nil)
+                    self.present(alert, animated: false, completion: nil)
                 }
-
             }
         })
     }

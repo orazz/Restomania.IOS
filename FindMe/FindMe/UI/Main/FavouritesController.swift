@@ -24,7 +24,11 @@ public class FavouritesController: UIViewController {
     private var _tableAdapter: PlacesListTableAdapter!
     private var _cache: SearchPlaceCardsCacheService!
     private var _likesService: LikesService!
-    private var _stored: [SearchPlaceCard] = []
+    private var _stored: [SearchPlaceCard]! {
+        didSet {
+            _tableAdapter.update(places: _stored)
+        }
+    }
     private var _isLoadData: Bool = false
 
 
@@ -60,6 +64,8 @@ public class FavouritesController: UIViewController {
         let result = _cache.checkLocal(liked)
         if (result.cached.isEmpty) {
             _loader.show()
+
+            _stored = []
         }
         else {
 
@@ -80,15 +86,16 @@ public class FavouritesController: UIViewController {
             DispatchQueue.main.async {
 
                 self._loader.hide()
-                self._stored = response ?? []
-                self._tableAdapter.update(places: self._stored)
 
-                if (nil == response) {
+                if let response = response {
+
+                    self._stored = response
+                }
+                else if(!liked.isEmpty && self._stored.isEmpty) {
+
                     let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { _ in
-
-                    }))
-                    self.navigationController?.present(alert, animated: false, completion: nil)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: false, completion: nil)
                 }
 
                 self._isLoadData = false
