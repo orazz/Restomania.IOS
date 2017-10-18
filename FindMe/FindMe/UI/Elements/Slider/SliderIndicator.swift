@@ -32,7 +32,7 @@ open class SliderIndicator: UIView {
     }
     public func setup(size: Int){
 
-        _size = 0
+        _size = size
         _isFocusOn = 0
 
         reDraw()
@@ -41,24 +41,64 @@ open class SliderIndicator: UIView {
     //MARK: Draw methods
     private func reDraw() {
 
+        for bullet in _bullets {
+            bullet.removeFromSuperview()
+        }
+        _bullets = []
+
+        if (0 == _size) {
+            return
+        }
+
+        let size = CGFloat(_size)
+        let bulletsWidth = size * Bullet.side + (size - 1) * Bullet.offset
+        var x = (frame.width - bulletsWidth)/2
+        let y = (frame.height - Bullet.side)/2
+        for _ in 0..<_size {
+
+            let bullet = Bullet(x: x, y: y, main: ThemeSettings.Colors.background, focus: ThemeSettings.Colors.bullet)
+            _bullets.append(bullet)
+            self.addSubview(bullet)
+            x = x + Bullet.side + Bullet.offset
+        }
+
+        if let first = _bullets.first {
+            first.focus()
+        }
     }
 
 
     //MARK: Focus methods
     public func focusTo(index: Int){
 
+        let next = fixIndex(index)
+
+        for (index, element) in _bullets.enumerated() {
+
+            if (index == next) {
+                element.focus()
+            }
+            else {
+                element.unfocus()
+            }
+        }
     }
     public func focusToNext() {
-
+        focusTo(index: _isFocusOn + 1)
     }
     public func focusToPrev() {
+        focusTo(index: _isFocusOn - 1)
+    }
+    private func fixIndex(_ next: Int) -> Int{
 
+        return (next + _size) % _size
     }
 
 
     private class Bullet: UIView {
 
-        public static let side = CGFloat(12)
+        public static let side = CGFloat(9)
+        public static let offset = CGFloat(12)
 
         public var mainColor: UIColor {
             didSet{
@@ -78,7 +118,7 @@ open class SliderIndicator: UIView {
         private var _isFocus: Bool
         private let _shape: CAShapeLayer
 
-        public init(frame: CGRect, main: UIColor, focus: UIColor) {
+        public init(x: CGFloat, y: CGFloat, main: UIColor, focus: UIColor) {
 
             _isFocus = false
 
@@ -88,24 +128,24 @@ open class SliderIndicator: UIView {
                                           startAngle: CGFloat(0),
                                           endAngle:CGFloat(Double.pi * 2),
                                           clockwise: true)
+
             _shape.path = circlePath.cgPath
             _shape.fillColor = main.cgColor
             _shape.strokeColor = focus.cgColor
-            _shape.lineWidth = 3.0
+            _shape.lineWidth = 1.0
 
             //Setup colors
             mainColor = main
             focusColor = focus
 
-            super.init(frame: CGRect(x: frame.origin.x,
-                                     y: frame.origin.y,
+            super.init(frame: CGRect(x: x,
+                                     y: y,
                                      width: Bullet.side,
                                      height: Bullet.side))
 
             self.layer.addSublayer(_shape)
         }
         public required init?(coder aDecoder: NSCoder) {
-//            super.init(coder: aDecoder)
             fatalError("init(coder:) has not been implemented")
         }
 

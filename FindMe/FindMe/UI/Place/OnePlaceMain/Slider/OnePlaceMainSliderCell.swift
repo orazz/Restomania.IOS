@@ -19,6 +19,7 @@ public class OnePlaceMainSliderCell: UITableViewCell {
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! OnePlaceMainSliderCell
 
         instance._images = []
+        instance.SliderView.delegate = instance
 
         return instance
     }
@@ -27,6 +28,7 @@ public class OnePlaceMainSliderCell: UITableViewCell {
 
     //MARK: UI elements
     @IBOutlet public weak var SliderView: SliderControl!
+    @IBOutlet public weak var SliderIndicator: SliderIndicator!
 
     //MARK: Data and service
     private var _images: [PlaceImage]? {
@@ -53,8 +55,18 @@ public class OnePlaceMainSliderCell: UITableViewCell {
             slides.append(wrapper)
         }
         SliderView.setup(slides: slides)
+        SliderIndicator.setup(size: slides.count)
     }
 }
+extension OnePlaceMainSliderCell: SliderControlDelegate {
+
+    public func move(slider: SliderControl, focusOn: Int) {
+        SliderIndicator.focusTo(index: focusOn)
+    }
+}
+
+
+
 extension OnePlaceMainSliderCell: OnePlaceMainCellProtocol {
 
     public func update(by place: Place) {
@@ -64,7 +76,7 @@ extension OnePlaceMainSliderCell: OnePlaceMainCellProtocol {
 extension OnePlaceMainSliderCell: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 210
+        return 230
     }
     public func prepareView() -> UITableViewCell {
         return self

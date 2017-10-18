@@ -135,10 +135,10 @@
          contextName = "SearchPlaceCard.init(json:):SearchPlaceCard.swift">
          <PersistentStrings>
             <PersistentString
-               value = "json[&quot;Name&quot;]">
+               value = "let b:String? = Keys.name &lt;~~ json">
             </PersistentString>
             <PersistentString
-               value = "let b:String? = Keys.name &lt;~~ json">
+               value = "json[&quot;Name&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -146,18 +146,18 @@
          contextName = "CartServiceTests.testCart() -&gt; ():CartServiceTests.swift">
       </ContextState>
       <ContextState
-         contextName = "CacheRangeAdapter.(save() -&gt; ()).(closure #1):CacheRangeAdapter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "String(data: data, encoding: .utf8)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "MapController.setupMap():MapController.swift">
          <PersistentStrings>
             <PersistentString
                value = "MapView.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CacheRangeAdapter.(save() -&gt; ()).(closure #1):CacheRangeAdapter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "String(data: data, encoding: .utf8)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -321,6 +321,14 @@
          contextName = "SignupController.loginAction() -&gt; ():SignupController.swift">
       </ContextState>
       <ContextState
+         contextName = "FMMap.setupStyles():Map.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigation.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "DateTests.testUTCDate() -&gt; ():Date.swift">
          <PersistentStrings>
             <PersistentString
@@ -330,21 +338,13 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "formatter.date(from: value)">
-            </PersistentString>
-            <PersistentString
                value = "notUTC!.toUTC()">
             </PersistentString>
             <PersistentString
                value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "FMMap.setupStyles():Map.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "navigation.frame">
+               value = "formatter.date(from: value)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -461,7 +461,7 @@
                value = "DescriptionLabel.superview.constraints.filter({ $0.firstAttribute == .bottom }).first!.constant">
             </PersistentString>
             <PersistentString
-               value = " DescriptionLabel.constraints">
+               value = "getConstant(.top, of: DescriptionLabel) + getConstant(.height, of: DescriptionLabel) + CGFloat(5)">
             </PersistentString>
             <PersistentString
                value = "DescriptionLabel.frame.height">
@@ -476,7 +476,7 @@
                value = "DescriptionLabel.frame.origin">
             </PersistentString>
             <PersistentString
-               value = "getConstant(.top, of: DescriptionLabel) + getConstant(.height, of: DescriptionLabel) + CGFloat(5)">
+               value = " DescriptionLabel.constraints">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -577,6 +577,17 @@
             </PersistentString>
             <PersistentString
                value = "Date.UTCFomatter.date(from: value) ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FMTextField.stylize():FMTextField.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "TitleLabel.frame">
+            </PersistentString>
+            <PersistentString
+               value = "Int(TitleLabel.frame.height)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

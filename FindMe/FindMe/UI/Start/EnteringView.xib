@@ -33,7 +33,7 @@
                         <constraint firstAttribute="width" constant="300" id="89i-45-R2s"/>
                         <constraint firstAttribute="height" constant="50" id="EhL-nt-3vC"/>
                     </constraints>
-                    <state key="normal" title="Продолжить без авторизации"/>
+                    <state key="normal" title="Начать"/>
                     <connections>
                         <action selector="continueWithoutAuth" destination="-1" eventType="touchUpInside" id="qHi-AO-ibi"/>
                     </connections>
@@ -50,12 +50,22 @@
                         <action selector="authViaVk" destination="-1" eventType="touchUpInside" id="7FL-G2-ebV"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afi-tJ-dwp" customClass="FMTextField" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="67.5" y="261" width="240" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="N0T-mJ-NHr"/>
+                        <constraint firstAttribute="width" constant="240" id="SyC-8B-o79"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="TmR-Dr-agY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="RnH-KE-dQm"/>
                 <constraint firstItem="TmR-Dr-agY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="au1-dv-Has"/>
                 <constraint firstItem="hdA-t3-yR6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fWS-hj-dG1"/>
+                <constraint firstItem="afi-tJ-dwp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pmm-0T-ZOZ"/>
+                <constraint firstItem="afi-tJ-dwp" firstAttribute="top" secondItem="Xfe-iW-it4" secondAttribute="bottom" constant="50" id="rAR-sI-dNn"/>
                 <constraint firstItem="Xfe-iW-it4" firstAttribute="top" secondItem="TmR-Dr-agY" secondAttribute="bottom" constant="80" id="v1F-Cc-ShQ"/>
                 <constraint firstItem="Xfe-iW-it4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wVh-ky-Jkp"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hdA-t3-yR6" secondAttribute="bottom" constant="20" id="wd2-Bh-4YW"/>

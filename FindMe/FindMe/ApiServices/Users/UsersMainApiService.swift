@@ -16,6 +16,8 @@ public class UsersMainApiService: BaseApiService {
         super.init(area: "Users", configs: configs, tag: String.tag(UsersMainApiService.self), keys: keys)
     }
 
+
+    
     //MARK: Methods
     public func change(updates:PartialUpdateContainer ...) -> RequestResult<Bool> {
 
@@ -24,13 +26,5 @@ public class UsersMainApiService: BaseApiService {
             ])
 
         return _client.PutBool(action: "Change", parameters: parameters)
-    }
-    public func checkIn(placeId: Long) -> RequestResult<Bool> {
-
-        let parameters = CollectParameters(rights: .user, [
-            "placeID": placeId
-            ])
-
-        return _client.PostBool(action: "CheckIn", parameters: parameters)
     }
 }

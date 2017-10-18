@@ -16,7 +16,15 @@ public class UsersAuthApiService: BaseApiService {
         super.init(area: "Users/Auth", configs: configs, tag: String.tag(UsersAuthApiService.self))
     }
 
+
+    
     //MARK: Methods
+    public func anonymous() -> RequestResult<ApiKeys> {
+
+        let parameters = CollectParameters()
+
+        return _client.Post(action: "Anonymous", type: ApiKeys.self, parameters: parameters)
+    }
     public func vk(userId: Long, token: String, email: String) -> RequestResult<ApiKeys> {
 
         let parameters = CollectParameters([

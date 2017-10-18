@@ -16,6 +16,9 @@ public class UsersChangeApiService: BaseApiService {
         super.init(area: "Users/Change", configs: configs, tag: String.tag(UsersMainApiService.self), keys: keys)
     }
 
+
+
+    //MARK: Methods
     public func change(updates: [PartialUpdateContainer]) -> RequestResult<Bool> {
 
         let parameters = self.CollectParameters(rights: .user, [

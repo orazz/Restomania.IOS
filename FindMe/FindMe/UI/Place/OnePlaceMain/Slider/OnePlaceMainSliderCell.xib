@@ -13,29 +13,42 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnePlaceViewHeader" customModule="FindMe" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="OnePlaceMainSliderCell" customModule="FindMe" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Im8-Ft-VDT" customClass="SliderControl" customModule="FindMe" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="5" width="375" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="nUn-hG-kgB"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRM-2z-4Ry" customClass="SliderIndicator" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="5" y="210" width="365" height="15"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Im8-Ft-VDT" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="3HU-wc-Tas"/>
+                <constraint firstItem="YRM-2z-4Ry" firstAttribute="top" secondItem="Im8-Ft-VDT" secondAttribute="bottom" constant="5" id="CXv-Up-D7O"/>
                 <constraint firstItem="Im8-Ft-VDT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="GDU-3h-RPD"/>
                 <constraint firstItem="Im8-Ft-VDT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="GzM-Cf-Ogb"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Im8-Ft-VDT" secondAttribute="bottom" constant="5" id="Uqk-9H-sTP"/>
+                <constraint firstItem="YRM-2z-4Ry" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="Jql-26-Azm"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Im8-Ft-VDT" secondAttribute="trailing" id="ZyS-Wf-VZz"/>
+                <constraint firstItem="YRM-2z-4Ry" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="byW-Wr-jON"/>
+                <constraint firstItem="YRM-2z-4Ry" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="d3V-dW-Rsy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YRM-2z-4Ry" secondAttribute="trailing" constant="5" id="kZK-aI-CmP"/>
                 <constraint firstItem="Im8-Ft-VDT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rQM-oK-c1A"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="YRM-2z-4Ry" secondAttribute="bottom" constant="5" id="yST-PH-uiB"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="SliderIndicator" destination="YRM-2z-4Ry" id="XIe-Em-3bo"/>
                 <outlet property="SliderView" destination="Im8-Ft-VDT" id="ecd-dQ-W5D"/>
             </connections>
-            <point key="canvasLocation" x="25.5" y="-191.5"/>
+            <point key="canvasLocation" x="25.5" y="-172.5"/>
         </view>
     </objects>
 </document>

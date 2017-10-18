@@ -61,6 +61,8 @@
 		1F4C82CB1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4C82CA1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib */; };
 		1F4C82CD1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82CC1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift */; };
 		1F4C82D11F95C894004B294C /* OnePlaceMainLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82D01F95C894004B294C /* OnePlaceMainLocationCell.swift */; };
+		1F4E10FD1F970BFA00EB8391 /* FMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E10FC1F970BFA00EB8391 /* FMTextField.swift */; };
+		1F4E10FF1F970C4200EB8391 /* FMTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E10FE1F970C4200EB8391 /* FMTextField.xib */; };
 		1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B21B91F881DAD0068E29A /* MapPopupView.xib */; };
 		1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */; };
 		1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */; };
@@ -197,6 +199,8 @@
 		1F4C82CA1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainContactsCellOneLine.xib; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCellOneLine.xib; sourceTree = "<group>"; };
 		1F4C82CC1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainContactsCellOneLine.swift; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCellOneLine.swift; sourceTree = "<group>"; };
 		1F4C82D01F95C894004B294C /* OnePlaceMainLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLocationCell.swift; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCell.swift; sourceTree = "<group>"; };
+		1F4E10FC1F970BFA00EB8391 /* FMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMTextField.swift; path = UI/Elements/Inputs/TextField/FMTextField.swift; sourceTree = "<group>"; };
+		1F4E10FE1F970C4200EB8391 /* FMTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMTextField.xib; path = UI/Elements/Inputs/TextField/FMTextField.xib; sourceTree = "<group>"; };
 		1F6B21B91F881DAD0068E29A /* MapPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPopupView.xib; path = UI/Main/Map/MapPopupView.xib; sourceTree = "<group>"; };
 		1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListAdapter.swift; path = UI/Main/Adapters/PlacesListAdapter.swift; sourceTree = "<group>"; };
 		1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListTableAdapter.swift; path = UI/Main/Adapters/PlacesListTableAdapter.swift; sourceTree = "<group>"; };
@@ -407,6 +411,7 @@
 		1F1A0E5E1F7951AF00FDBA97 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1F4E10F91F97059700EB8391 /* Inputs */,
 				1F09EE4F1F862AAE00694D8D /* Authorization */,
 				1F2F4B1F1F81263F002FE39B /* Slider */,
 				1F1A0E6B1F795DD400FDBA97 /* Cards */,
@@ -492,6 +497,31 @@
 				1F46907F1F86A6340056F9B0 /* SearchPlaceCardView.xib */,
 			);
 			name = SearchPlaceCard;
+			sourceTree = "<group>";
+		};
+		1F4E10F91F97059700EB8391 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				1F4E10FB1F970A7500EB8391 /* TextField */,
+				1F4E10FA1F970A6200EB8391 /* InputCell */,
+			);
+			name = Inputs;
+			sourceTree = "<group>";
+		};
+		1F4E10FA1F970A6200EB8391 /* InputCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = InputCell;
+			sourceTree = "<group>";
+		};
+		1F4E10FB1F970A7500EB8391 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				1F4E10FC1F970BFA00EB8391 /* FMTextField.swift */,
+				1F4E10FE1F970C4200EB8391 /* FMTextField.xib */,
+			);
+			name = TextField;
 			sourceTree = "<group>";
 		};
 		1F6B21B81F881D540068E29A /* Map */ = {
@@ -913,6 +943,7 @@
 				1FACBA781F965AA4004CEED0 /* OnePlaceMainLocationCell.xib in Resources */,
 				1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */,
 				1F24A9191F897239000BD8F1 /* OnePlaceMainSliderCell.xib in Resources */,
+				1F4E10FF1F970C4200EB8391 /* FMTextField.xib in Resources */,
 				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
 				1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */,
 				1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */,
@@ -1081,6 +1112,7 @@
 				1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */,
 				1F49C4FA1F7BD15C00051CAD /* PositionsService.swift in Sources */,
 				1FC548191F703FBB007CE6AB /* Contacts.swift in Sources */,
+				1F4E10FD1F970BFA00EB8391 /* FMTextField.swift in Sources */,
 				1FC548231F705822007CE6AB /* Place.swift in Sources */,
 				1F1A0E5A1F79504000FDBA97 /* RefreshDataManager.swift in Sources */,
 				1FC583901F8150050045941A /* StartContoller.swift in Sources */,

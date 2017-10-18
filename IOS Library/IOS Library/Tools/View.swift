@@ -36,4 +36,13 @@ extension UIView {
             }
         }
     }
+    public func setParentContraint(_ type:NSLayoutAttribute, to value: CGFloat) {
+
+        for contraint in self.superview?.constraints ?? [] {
+            if (contraint.firstAttribute == type) {
+                contraint.constant = value
+                return
+            }
+        }
+    }
 }

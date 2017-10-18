@@ -40,9 +40,12 @@ public class GreetingController: UIViewController, SliderControlDelegate {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        loadSildes()
-
         self.navigationController?.setToolbarHidden(true, animated: false)
+    }
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        loadSildes()
     }
     public override var prefersStatusBarHidden: Bool {
         return true
@@ -64,7 +67,7 @@ public class GreetingController: UIViewController, SliderControlDelegate {
 
         Slider.delegate = self
         Slider.setup(slides: slides)
-//        SliderIndicator.setup(size: slides.count)
+        SliderIndicator.setup(size: slides.count)
     }
     private func setupHandlers() {
 
@@ -76,7 +79,7 @@ public class GreetingController: UIViewController, SliderControlDelegate {
     //MARK: SliderControlDelegate
     public func move(slider: SliderControl, focusOn: Int) {
 
-//        SliderIndicator?.focusTo(index: focusOn)
+        SliderIndicator?.focusTo(index: focusOn)
     }
     //MARK: UIActions
     @IBAction public func startUse() {
