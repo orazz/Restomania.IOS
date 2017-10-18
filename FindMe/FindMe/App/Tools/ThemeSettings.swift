@@ -58,6 +58,7 @@ public class ThemeSettings {
             
             case title = 24
             case headline = 18
+            case body = 16
             case subhead = 14
             case caption = 12
             case substring = 10

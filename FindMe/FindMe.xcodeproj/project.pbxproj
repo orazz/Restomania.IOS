@@ -41,6 +41,10 @@
 		1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A91F1F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib */; };
 		1F24A9221F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9211F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift */; };
 		1F2F4B211F81267C002FE39B /* SliderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F4B201F81267C002FE39B /* SliderIndicator.swift */; };
+		1F3382F31F97D1C700E43596 /* FMSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3382F21F97D1C700E43596 /* FMSwitch.swift */; };
+		1F3382F71F97D45300E43596 /* FMSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3382F61F97D45300E43596 /* FMSwitch.xib */; };
+		1F3382FC1F97DAD400E43596 /* FMSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3382FB1F97DAD400E43596 /* FMSegmentedControl.swift */; };
+		1F3382FE1F97DD5E00E43596 /* FMSegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3382FD1F97DD5E00E43596 /* FMSegmentedControl.xib */; };
 		1F37057F1F7B68B500E6CB0D /* SearchCardsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */; };
 		1F3705851F7B811600E6CB0D /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F3705841F7B811600E6CB0D /* Configs.plist */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
@@ -182,6 +186,10 @@
 		1F24A91F1F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainStatisticCell.xib; path = UI/Place/OnePlaceMain/Statistic/OnePlaceMainStatisticCell.xib; sourceTree = "<group>"; };
 		1F24A9211F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainStatisticCell.swift; path = UI/Place/OnePlaceMain/Statistic/OnePlaceMainStatisticCell.swift; sourceTree = "<group>"; };
 		1F2F4B201F81267C002FE39B /* SliderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SliderIndicator.swift; path = UI/Elements/Slider/SliderIndicator.swift; sourceTree = "<group>"; };
+		1F3382F21F97D1C700E43596 /* FMSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMSwitch.swift; path = UI/Elements/Inputs/Switch/FMSwitch.swift; sourceTree = "<group>"; };
+		1F3382F61F97D45300E43596 /* FMSwitch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSwitch.xib; path = UI/Elements/Inputs/Switch/FMSwitch.xib; sourceTree = "<group>"; };
+		1F3382FB1F97DAD400E43596 /* FMSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMSegmentedControl.swift; path = UI/Elements/Inputs/Segmented/FMSegmentedControl.swift; sourceTree = "<group>"; };
+		1F3382FD1F97DD5E00E43596 /* FMSegmentedControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSegmentedControl.xib; path = UI/Elements/Inputs/Segmented/FMSegmentedControl.xib; sourceTree = "<group>"; };
 		1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCardsCacheService.swift; path = Services/Cache/SearchCardsCacheService.swift; sourceTree = "<group>"; };
 		1F3705841F7B811600E6CB0D /* Configs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
@@ -458,8 +466,19 @@
 		1F3382F11F97C5C300E43596 /* Switch */ = {
 			isa = PBXGroup;
 			children = (
+				1F3382F21F97D1C700E43596 /* FMSwitch.swift */,
+				1F3382F61F97D45300E43596 /* FMSwitch.xib */,
 			);
 			name = Switch;
+			sourceTree = "<group>";
+		};
+		1F3382FA1F97DAA000E43596 /* Segmented */ = {
+			isa = PBXGroup;
+			children = (
+				1F3382FB1F97DAD400E43596 /* FMSegmentedControl.swift */,
+				1F3382FD1F97DD5E00E43596 /* FMSegmentedControl.xib */,
+			);
+			name = Segmented;
 			sourceTree = "<group>";
 		};
 		1F3705861F7B880700E6CB0D /* Main */ = {
@@ -525,6 +544,7 @@
 		1F4E10F91F97059700EB8391 /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
+				1F3382FA1F97DAA000E43596 /* Segmented */,
 				1F3382F11F97C5C300E43596 /* Switch */,
 				1F4E10FB1F970A7500EB8391 /* TextField */,
 				1F4E10FA1F970A6200EB8391 /* InputCell */,
@@ -971,7 +991,9 @@
 				1F4E10FF1F970C4200EB8391 /* FMTextField.xib in Resources */,
 				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
 				1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */,
+				1F3382FE1F97DD5E00E43596 /* FMSegmentedControl.xib in Resources */,
 				1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */,
+				1F3382F71F97D45300E43596 /* FMSwitch.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,6 +1137,7 @@
 				1F24A9221F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift in Sources */,
 				1FC5481D1F7047F7007CE6AB /* Action.swift in Sources */,
 				1F24A9171F89722E000BD8F1 /* OnePlaceMainSliderCell.swift in Sources */,
+				1F3382FC1F97DAD400E43596 /* FMSegmentedControl.swift in Sources */,
 				1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */,
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
 				1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */,
@@ -1147,6 +1170,7 @@
 				1F9DDAB01F8FF09A00F4618D /* Migrations.swift in Sources */,
 				1F46770B1F910003007E426D /* OnePlaceMainDescriptionCell.swift in Sources */,
 				1F4677131F950F21007E426D /* OnePlaceMainSpaceCell.swift in Sources */,
+				1F3382F31F97D1C700E43596 /* FMSwitch.swift in Sources */,
 				1F09EE571F86336D00694D8D /* UsersAuthApiService.swift in Sources */,
 				1FC5480F1F702CFD007CE6AB /* CheckInData.swift in Sources */,
 				1F4690821F86A66E0056F9B0 /* SearchPlaceCardCell.swift in Sources */,

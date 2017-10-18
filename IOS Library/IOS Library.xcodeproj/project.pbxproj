@@ -20,6 +20,7 @@
 		1F24A9111F89654A000BD8F1 /* InterfaceTableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9101F89654A000BD8F1 /* InterfaceTableCellProtocol.swift */; };
 		1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DC3C41F1CFAD70058E699 /* String.swift */; };
 		1F3382F01F97A51D00E43596 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3382EF1F97A51D00E43596 /* ViewController.swift */; };
+		1F3382F91F97D56700E43596 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3382F81F97D56700E43596 /* Switch.swift */; };
 		1F36C8721F20768E00232B9A /* OptionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8711F20768E00232B9A /* OptionalValue.swift */; };
 		1F36C8741F20787900232B9A /* Long.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8731F20787900232B9A /* Long.swift */; };
 		1F3705811F7B694F00E6CB0D /* CacheSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3705801F7B694F00E6CB0D /* CacheSearchResult.swift */; };
@@ -95,6 +96,7 @@
 		1F24A9101F89654A000BD8F1 /* InterfaceTableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterfaceTableCellProtocol.swift; path = UI/InterfaceTable/InterfaceTableCellProtocol.swift; sourceTree = "<group>"; };
 		1F2DC3C41F1CFAD70058E699 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
 		1F3382EF1F97A51D00E43596 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Tools/ViewController.swift; sourceTree = "<group>"; };
+		1F3382F81F97D56700E43596 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Switch.swift; path = Tools/Switch.swift; sourceTree = "<group>"; };
 		1F36C8711F20768E00232B9A /* OptionalValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionalValue.swift; path = Tools/OptionalValue.swift; sourceTree = "<group>"; };
 		1F36C8731F20787900232B9A /* Long.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Long.swift; path = Tools/Long.swift; sourceTree = "<group>"; };
 		1F3705801F7B694F00E6CB0D /* CacheSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheSearchResult.swift; path = Services/Cache/CacheSearchResult.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				1FE7E3D11F7BA45D00D1745E /* JsonSerialization.swift */,
 				1F4C82CE1F953D16004B294C /* View.swift */,
 				1F3382EF1F97A51D00E43596 /* ViewController.swift */,
+				1F3382F81F97D56700E43596 /* Switch.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */,
 				1FC547EB1F6FA293007CE6AB /* CacheRangeAdapter.swift in Sources */,
 				1F3D71CF1F72CAC40010818A /* ConfigsStorage.swift in Sources */,
+				1F3382F91F97D56700E43596 /* Switch.swift in Sources */,
 				1FA20BBC1F226D2A00215C4A /* SearchAdapter.swift in Sources */,
 				1FC5480D1F6FFEFD007CE6AB /* BaseDataType.swift in Sources */,
 				1F1A0E491F78D68A00FDBA97 /* PartialUpdateContainer.swift in Sources */,

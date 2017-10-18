@@ -24,16 +24,15 @@ public class EnteringController: UIViewController {
     }
 
     //MARK: UIElements
-    @IBOutlet public weak var NameTextField: FMTextField!
-//    @IBOutlet public weak var NameTextField: FMTextField!
-    @IBOutlet public weak var AgeTextField: FMTextField!
-//    @IBOutlet public weak var NameTextField: FMTextField!
-    @IBOutlet public weak var CityTextField: FMTextField!
+    @IBOutlet public weak var nameTextField: FMTextField!
+    @IBOutlet public weak var SexSegmentControl: FMSegmentedControl!
+    @IBOutlet public weak var ageTextField: FMTextField!
+    @IBOutlet public weak var acquaintancesStatusSwitch: FMSwitch!
 
-    @IBOutlet public weak var FirstDividerView:UIView!
-    @IBOutlet public weak var SecondDividerView:UIView!
+    @IBOutlet public weak var firstDividerView:UIView!
+    @IBOutlet public weak var secondDividerView:UIView!
 
-    @IBOutlet public weak var VkButton: UIButton!
+    @IBOutlet public weak var vkButton: UIButton!
 
 
     //MARK: Data & Services
@@ -67,20 +66,26 @@ public class EnteringController: UIViewController {
 
         self.view.backgroundColor = ThemeSettings.Colors.background 
 
-        NameTextField.title = "Ваше имя"
-        AgeTextField.title = "Сколько вам лет"
-        AgeTextField.valueType = .number
-        CityTextField.title = "Ваш город"
+        nameTextField.title = "Ваше имя"
+        SexSegmentControl.title = "Кто вы?"
+        SexSegmentControl.values = [
+            "Парень": UserSex.male,
+            "Девушка": UserSex.female
+        ]
+        ageTextField.title = "Сколько вам лет"
+        ageTextField.text = "21"
+        ageTextField.valueType = .number
+        acquaintancesStatusSwitch.title = "Заинтересованы во встречах?"
 
-        FirstDividerView.backgroundColor = ThemeSettings.Colors.divider
-        SecondDividerView.backgroundColor = ThemeSettings.Colors.divider
+        firstDividerView.backgroundColor = ThemeSettings.Colors.divider
+        secondDividerView.backgroundColor = ThemeSettings.Colors.divider
 
-        VkButton.backgroundColor = ThemeSettings.Colors.vk
-        VkButton.layer.borderColor = ThemeSettings.Colors.vk.cgColor
-        VkButton.titleLabel?.textColor = ThemeSettings.Colors.whiteText
+        vkButton.backgroundColor = ThemeSettings.Colors.vk
+        vkButton.layer.borderColor = ThemeSettings.Colors.vk.cgColor
+        vkButton.titleLabel?.textColor = ThemeSettings.Colors.whiteText
         let icon = UIImageView(frame: CGRect(x: 5, y: 5, width: 40, height: 40))
         icon.image = ThemeSettings.Images.vkLogo
-        VkButton.addSubview(icon)
+        vkButton.addSubview(icon)
     }
 
 

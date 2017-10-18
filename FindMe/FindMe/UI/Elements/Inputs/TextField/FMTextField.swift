@@ -19,8 +19,9 @@ import CoreGraphics
 public class FMTextField: UIView {
 
     public static let height = 35.0
-    private let scaleFactor = CGFloat(1/1.5)
+    private let scaleFactor = CGFloat(1/1.3)
     private let nibName = "FMTextField"
+
 
 
     //MARK: UIElements
@@ -30,6 +31,14 @@ public class FMTextField: UIView {
     @IBOutlet public weak var dividerView: UIView!
 
 
+
+    //MARK: Callbacks
+    public var delegate: FMTextFieldDelegate?
+    public var onChangeEvent: ((_: UITextField, _: String?) -> Void)?
+    public var onCompleteChange: ((_: UITextField, _: String?) -> Void)?
+
+
+    
     //MARK: Properties
     public var title: String? {
         didSet {
@@ -52,18 +61,23 @@ public class FMTextField: UIView {
             switch (valueType) {
 
                 case .email:
+                    contentField.autocapitalizationType = .none
+                    contentField.autocorrectionType = .no
                     contentField.keyboardType = .emailAddress
+
                 case .url:
                     contentField.keyboardType = .URL
+
                 case .number:
                     contentField.keyboardType = .numberPad
+
                 default:
+                    contentField.autocapitalizationType = .sentences
                     contentField.keyboardType = .default
             }
         }
     }
 
-    public var delegate: FMTextFieldDelegate?
     public var focusedTitleColor: UIColor! {
         didSet {
             updateColors()
@@ -99,15 +113,16 @@ public class FMTextField: UIView {
 
         titleIsFocused = false
         titleLabel.text = nil
-        titleLabel.font = ThemeSettings.Fonts.default(size: .headline)
+        titleLabel.font = ThemeSettings.Fonts.default(size: .body)
         contentField.text = nil
-        contentField.font = ThemeSettings.Fonts.default(size: .headline)
+        contentField.font = ThemeSettings.Fonts.default(size: .body)
         valueType = .text
 
         focusedTitleColor = ThemeSettings.Colors.main
         defaultTitleColor = ThemeSettings.Colors.blackText
 
 
+        contentField.addTarget(self, action: #selector(textFieldChangeValue), for: .editingChanged)
     }
 
     //MARK: Methods
@@ -194,10 +209,15 @@ extension FMTextField: UITextFieldDelegate {
 
         delegate?.startEdit?(textField)
     }
+    @objc private func textFieldChangeValue() {
+
+        onChangeEvent?(contentField, text)
+    }
     public func textFieldDidEndEditing(_ textField: UITextField) {
         updateTitleLabel()
 
         delegate?.endEdit?(textField, value: textField.text)
+        onCompleteChange?(textField, textField.text)
     }
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FMSegmentedControl" customModule="FindMe" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ojY-Dh-2ft"/>
+                <outlet property="segmentedControl" destination="UPU-yW-0yM" id="v9W-OV-vPp"/>
+                <outlet property="titleLabel" destination="kwl-Ab-UG7" id="9tg-qy-SDA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UPU-yW-0yM">
+                    <rect key="frame" x="0.0" y="18" width="375" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="XMb-AN-fXB"/>
+                    </constraints>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwl-Ab-UG7">
+                    <rect key="frame" x="5" y="0.0" width="365" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="zl3-Dc-0oV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UPU-yW-0yM" firstAttribute="top" secondItem="kwl-Ab-UG7" secondAttribute="bottom" constant="5" id="BJH-Xj-Ho0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UPU-yW-0yM" secondAttribute="trailing" id="U1c-Jl-k4h"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kwl-Ab-UG7" secondAttribute="trailing" constant="5" id="V11-MB-Xfr"/>
+                <constraint firstItem="UPU-yW-0yM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="aIX-dX-bc6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UPU-yW-0yM" secondAttribute="bottom" constant="2" id="mWv-rw-z8Z"/>
+                <constraint firstItem="kwl-Ab-UG7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="mb7-Ji-W66"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="25.5" y="46.5"/>
+        </view>
+    </objects>
+</document>

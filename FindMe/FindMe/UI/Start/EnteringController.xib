@@ -12,13 +12,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnteringController" customModule="FindMe" customModuleProvider="target">
             <connections>
-                <outlet property="AgeTextField" destination="ubO-IO-PWG" id="Jne-s0-t73"/>
-                <outlet property="CityTextField" destination="WjY-65-oad" id="MQ7-uB-9eZ"/>
-                <outlet property="FirstDividerView" destination="pTA-HL-v5F" id="kOq-qe-erS"/>
-                <outlet property="NameTextField" destination="afi-tJ-dwp" id="HoZ-zl-sUB"/>
-                <outlet property="SecondDividerView" destination="yqf-Iq-6Pm" id="W0Y-hl-C2Z"/>
-                <outlet property="VkButton" destination="Xfe-iW-it4" id="iGa-9z-Bhn"/>
+                <outlet property="SexSegmentControl" destination="S9o-gu-hNy" id="r3a-ek-tqh"/>
+                <outlet property="acquaintancesStatusSwitch" destination="0CE-uV-FuK" id="Wv5-UD-xh5"/>
+                <outlet property="ageTextField" destination="ubO-IO-PWG" id="Jne-s0-t73"/>
+                <outlet property="firstDividerView" destination="pTA-HL-v5F" id="kOq-qe-erS"/>
+                <outlet property="nameTextField" destination="afi-tJ-dwp" id="HoZ-zl-sUB"/>
+                <outlet property="secondDividerView" destination="yqf-Iq-6Pm" id="W0Y-hl-C2Z"/>
                 <outlet property="view" destination="6HI-2l-VVw" id="b42-xb-HTa"/>
+                <outlet property="vkButton" destination="Xfe-iW-it4" id="iGa-9z-Bhn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -40,40 +41,32 @@
                         <constraint firstAttribute="width" constant="240" id="SyC-8B-o79"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9o-gu-hNy" customClass="FMTextField" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="40" y="162.5" width="240" height="35"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9o-gu-hNy" customClass="FMSegmentedControl" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="40" y="172.5" width="240" height="45"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="240" id="alr-aS-fdy"/>
-                        <constraint firstAttribute="height" constant="35" id="wNM-ql-3SV"/>
+                        <constraint firstAttribute="height" constant="45" id="wNM-ql-3SV"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubO-IO-PWG" customClass="FMTextField" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="40" y="207.5" width="240" height="35"/>
+                    <rect key="frame" x="40" y="237.5" width="240" height="35"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="240" id="4XZ-9C-ynx"/>
                         <constraint firstAttribute="height" constant="35" id="ZFq-Gn-5jb"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CE-uV-FuK" customClass="FMTextField" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="40" y="252.5" width="240" height="35"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CE-uV-FuK" customClass="FMSwitch" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="40" y="292.5" width="240" height="35"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="240" id="bBb-9G-aAm"/>
                         <constraint firstAttribute="height" constant="35" id="muf-sa-Vex"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WjY-65-oad" customClass="FMTextField" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="40" y="297.5" width="240" height="35"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="240" id="7zB-e9-ATO"/>
-                        <constraint firstAttribute="height" constant="35" id="vCu-nL-opo"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02r-b5-ymZ">
-                    <rect key="frame" x="5" y="352.5" width="310" height="20"/>
+                    <rect key="frame" x="5" y="347.5" width="310" height="20"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTA-HL-v5F">
                             <rect key="frame" x="5" y="9" width="130" height="1"/>
@@ -115,7 +108,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdA-t3-yR6" customClass="BorderedButton" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="10" y="492.5" width="300" height="50"/>
+                    <rect key="frame" x="10" y="487.5" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="89i-45-R2s"/>
                         <constraint firstAttribute="height" constant="50" id="EhL-nt-3vC"/>
@@ -126,7 +119,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfe-iW-it4" customClass="FilledButton" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="35" y="392.5" width="250" height="40"/>
+                    <rect key="frame" x="35" y="387.5" width="250" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="250" id="nsh-UC-eVU"/>
                         <constraint firstAttribute="height" constant="40" id="tEe-MB-v8g"/>
@@ -141,26 +134,23 @@
             <color key="backgroundColor" red="0.55258595943450928" green="0.51018869876861572" blue="0.99870163202285767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Xfe-iW-it4" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="0di-rL-vcu"/>
-                <constraint firstItem="0CE-uV-FuK" firstAttribute="top" secondItem="ubO-IO-PWG" secondAttribute="bottom" constant="10" id="1zY-0m-Ciq"/>
-                <constraint firstItem="WjY-65-oad" firstAttribute="top" secondItem="0CE-uV-FuK" secondAttribute="bottom" constant="10" id="5kC-J5-FEM"/>
+                <constraint firstItem="0CE-uV-FuK" firstAttribute="top" secondItem="ubO-IO-PWG" secondAttribute="bottom" constant="20" id="1zY-0m-Ciq"/>
                 <constraint firstItem="0CE-uV-FuK" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="8ag-BU-ZKU"/>
                 <constraint firstItem="Mx6-zm-Ay7" firstAttribute="trailing" secondItem="TmR-Dr-agY" secondAttribute="trailing" constant="20" id="BiT-a8-w4C"/>
                 <constraint firstItem="hdA-t3-yR6" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="C6C-TD-yKG"/>
                 <constraint firstItem="afi-tJ-dwp" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="CdJ-wa-Zek"/>
-                <constraint firstItem="ubO-IO-PWG" firstAttribute="top" secondItem="S9o-gu-hNy" secondAttribute="bottom" constant="10" id="EQ9-SL-TiH"/>
-                <constraint firstItem="WjY-65-oad" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="HM6-AW-FA6"/>
-                <constraint firstItem="WjY-65-oad" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="Lsq-Ew-Z1a"/>
+                <constraint firstItem="ubO-IO-PWG" firstAttribute="top" secondItem="S9o-gu-hNy" secondAttribute="bottom" constant="20" id="EQ9-SL-TiH"/>
                 <constraint firstItem="Xfe-iW-it4" firstAttribute="top" secondItem="02r-b5-ymZ" secondAttribute="bottom" constant="20" id="WE2-cH-q7f"/>
                 <constraint firstItem="S9o-gu-hNy" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="X7B-oV-GC7"/>
+                <constraint firstItem="02r-b5-ymZ" firstAttribute="top" secondItem="0CE-uV-FuK" secondAttribute="bottom" constant="20" id="XzV-oN-CMA"/>
                 <constraint firstItem="ubO-IO-PWG" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="YY3-8H-dtv"/>
                 <constraint firstItem="02r-b5-ymZ" firstAttribute="leading" secondItem="Mx6-zm-Ay7" secondAttribute="leading" constant="5" id="ZtE-8Q-c1d"/>
                 <constraint firstItem="afi-tJ-dwp" firstAttribute="top" secondItem="TmR-Dr-agY" secondAttribute="bottom" constant="20" id="cX0-XC-VoT"/>
                 <constraint firstItem="hdA-t3-yR6" firstAttribute="top" secondItem="Xfe-iW-it4" secondAttribute="bottom" constant="60" id="gBp-09-T9C"/>
                 <constraint firstItem="TmR-Dr-agY" firstAttribute="leading" secondItem="Mx6-zm-Ay7" secondAttribute="leading" constant="20" id="iz1-Ox-VcA"/>
-                <constraint firstItem="02r-b5-ymZ" firstAttribute="top" secondItem="WjY-65-oad" secondAttribute="bottom" constant="20" id="mpJ-qx-toH"/>
                 <constraint firstItem="Mx6-zm-Ay7" firstAttribute="trailing" secondItem="02r-b5-ymZ" secondAttribute="trailing" constant="5" id="o5d-rq-6H4"/>
                 <constraint firstItem="Mx6-zm-Ay7" firstAttribute="trailing" secondItem="hdA-t3-yR6" secondAttribute="trailing" constant="10" id="oFS-qo-MHY"/>
-                <constraint firstItem="S9o-gu-hNy" firstAttribute="top" secondItem="afi-tJ-dwp" secondAttribute="bottom" constant="10" id="sYu-7Z-R3O"/>
+                <constraint firstItem="S9o-gu-hNy" firstAttribute="top" secondItem="afi-tJ-dwp" secondAttribute="bottom" constant="20" id="sYu-7Z-R3O"/>
                 <constraint firstItem="TmR-Dr-agY" firstAttribute="top" secondItem="Mx6-zm-Ay7" secondAttribute="top" constant="20" id="vQy-GC-djU"/>
                 <constraint firstItem="hdA-t3-yR6" firstAttribute="leading" secondItem="Mx6-zm-Ay7" secondAttribute="leading" constant="10" id="xiO-kn-zDu"/>
             </constraints>
