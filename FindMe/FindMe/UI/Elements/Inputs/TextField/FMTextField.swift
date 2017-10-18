@@ -33,6 +33,14 @@ public class FMTextField: UIView {
             TitleLabel.text = title
         }
     }
+    public var text: String? {
+        get {
+            return ContentField.text
+        }
+        set {
+            ContentField.text = newValue
+        }
+    }
     public var focusedTitleColor: UIColor! {
         didSet {
             updateColors()
@@ -75,6 +83,13 @@ public class FMTextField: UIView {
         defaultTitleColor = ThemeSettings.Colors.blackText
     }
 
+    //MARK: Methods
+    public func focus() {
+        ContentField.becomeFirstResponder()
+    }
+    public func blur() {
+        ContentField.resignFirstResponder()
+    }
 
     //MARK: Actions
     private func updateColors() {
@@ -91,7 +106,7 @@ public class FMTextField: UIView {
         ContentField.textColor = defaultTitleColor
     }
     @IBAction private func focusField() {
-        ContentField.becomeFirstResponder()
+        focus()
     }
 
     //MARK: Move title
@@ -140,8 +155,7 @@ extension FMTextField: UITextFieldDelegate {
     }
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
-        textField.resignFirstResponder()
-
+        blur()
         return true
     }
 }
