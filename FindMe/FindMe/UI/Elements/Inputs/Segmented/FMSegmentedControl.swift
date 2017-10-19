@@ -97,6 +97,22 @@ public class FMSegmentedControl: UIView {
 
 
     //MARK: Actions
+    public func select(_ newValue: Any) {
+
+        var index = 0
+        for (_, value) in values.reversed() {
+            if ((value as AnyObject).isEqual(newValue)) {
+
+                segmentedControl.selectedSegmentIndex = index
+                return
+            }
+            index += 1
+        }
+
+        if (!values.isEmpty){
+            segmentedControl.selectedSegmentIndex = 0
+        }
+    }
     public func select(_ index: Int) {
 
         segmentedControl.selectedSegmentIndex = index % values.count

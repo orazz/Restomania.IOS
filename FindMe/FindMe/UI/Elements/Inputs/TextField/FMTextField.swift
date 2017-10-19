@@ -35,7 +35,7 @@ public class FMTextField: UIView {
     //MARK: Callbacks
     public var delegate: FMTextFieldDelegate?
     public var onChangeEvent: ((_: UITextField, _: String?) -> Void)?
-    public var onCompleteChange: ((_: UITextField, _: String?) -> Void)?
+    public var onCompleteChangeEvent: ((_: UITextField, _: String?) -> Void)?
 
 
     
@@ -217,7 +217,7 @@ extension FMTextField: UITextFieldDelegate {
         updateTitleLabel()
 
         delegate?.endEdit?(textField, value: textField.text)
-        onCompleteChange?(textField, textField.text)
+        onCompleteChangeEvent?(textField, textField.text)
     }
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 

@@ -20,9 +20,8 @@ public class EnteringController: UIViewController {
 
         instance.startController = parent
         instance.keysStorage = ServicesFactory.shared.keys
-        instance.authApiService = UsersAuthApiService(ServicesFactory.shared.configs)
-        instance.changeApiService = UsersChangeApiService(configs: ServicesFactory.shared.configs,
-                                                           keys: ServicesFactory.shared.keys)
+        instance.authApiService = ServicesFactory.ApiServices.Users.auth
+        instance.usersApiService = ServicesFactory.ApiServices.Users.main
 
         return instance
     }
@@ -42,10 +41,11 @@ public class EnteringController: UIViewController {
 
 
     //MARK: Data & Services
+    private let _tag = String.tag(EnteringController.self)
     private var startController: StartController!
     private var keysStorage: IKeysStorage!
     private var authApiService: UsersAuthApiService!
-    private var changeApiService: UsersChangeApiService!
+    private var usersApiService: UsersMainApiService!
     private var fieldsStorage: UIViewController.TextFieldsStorage?
 
 
@@ -58,7 +58,7 @@ public class EnteringController: UIViewController {
         super.viewWillAppear(animated)
 
         self.navigationController?.setToolbarHidden(true, animated: false)
-       self.subscribeToScrollWhenKeyboardShow()
+        self.subscribeToScrollWhenKeyboardShow()
     }
     public override func viewDidAppear(_ animated: Bool) {
 
@@ -118,11 +118,17 @@ public class EnteringController: UIViewController {
                     Account.Keys.name: self.nameTextField.text,
                     User.Keys.sex: (self.sexSegmentControl.value as! UserSex).rawValue,
                     User.Keys.age: self.ageTextField.text ?? "21",
-                    User.Keys.status: self.acquaintancesStatusSwitch.value
+                    User.Keys.status: (self.acquaintancesStatusSwitch.value ? UserStatus.readyForAcquaintance : UserStatus.hidden).rawValue
                     ])
 
-                let changeRequest = self.changeApiService.change(updates: updates)
-                changeRequest.async(.background, completion: {_ in })
+                let changeRequest = self.usersApiService.change(updates: updates)
+                changeRequest.async(.background, completion: { response in
+
+                    if (response.isFail) {
+
+                        Log.Warning(self._tag, "Problem with udpate user profile.")
+                    }
+                })
             }
 
             DispatchQueue.main.async {

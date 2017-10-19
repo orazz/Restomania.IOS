@@ -25,6 +25,15 @@ public class UsersMainApiService: BaseApiService {
 
         return _client.Get(action: "Find", type: User.self, parameters: parameters)
     }
+
+    public func change(updates: [PartialUpdateContainer]) -> RequestResult<Bool> {
+
+        let parameters = self.CollectParameters(rights: .user, [
+            "updates": updates
+            ])
+
+        return self._client.PutBool(action: "Change", parameters: parameters)
+    }
     public func checkIn(placeId: Long) -> RequestResult<Bool> {
 
         let parameters = CollectParameters(rights: .user, [

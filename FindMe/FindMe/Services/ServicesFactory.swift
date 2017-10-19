@@ -46,4 +46,18 @@ public class ServicesFactory {
 //        checkIns = CheckInService(positions: positions, searchCards: searchCards)
 //
     }
+
+
+    public struct ApiServices {
+
+        public struct Users {
+
+            public static var main: UsersMainApiService {
+                return UsersMainApiService(configs: shared.configs, keys: shared.keys)
+            }
+            public static var auth: UsersAuthApiService {
+                return UsersAuthApiService(shared.configs)
+            }
+        }
+    }
 }
