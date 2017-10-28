@@ -7,8 +7,45 @@
 //
 
 import Foundation
+import UIKit
+import IOSLibrary
 
 public class RefreshDataManager {
-    
-    
+
+    private static var _instance: RefreshDataManager?
+    public static var shared: RefreshDataManager {
+
+        if (nil == _instance) {
+
+            _instance = RefreshDataManager();
+        }
+
+        return _instance!
+    }
+
+
+    private let _tag = String.tag(RefreshDataManager.self)
+    private let _application = UIApplication.shared
+
+    private let _cards: SearchPlaceCardsCacheService
+    private let _places: PlacesCacheservice
+
+    private init() {
+
+        let factory = ServicesFactory.shared
+        self._cards = factory.searchCards
+        self._places = factory.places
+    }
+
+
+    //#MARK: Methods
+    public func register() {
+
+        _application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+    }
+    public func refreshData() {
+
+        _cards.refresh()
+        _places.refresh()
+    }
 }

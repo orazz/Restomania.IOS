@@ -16,7 +16,7 @@ public class ServicesFactory {
     //MARK: Base services
     public let configs: ConfigsStorage
     public let properties: PropertiesStorage<PropertiesKey>
-    public let backgrounds: BackgroundTaskManager
+    public let tasksService: BackgroundTasksService
 
     //MARk: Cache services
     public let keys: IKeysStorage
@@ -27,24 +27,29 @@ public class ServicesFactory {
 
     //MARK: Storage services
     public let positions: PositionsService
-//    public let checkIns: CheckInService
+    public let checkIns: CheckInService
 
 
     private init() {
 
         configs = ConfigsStorage(plistName: "Configs")
         properties = PropertiesStorage<PropertiesKey>()
-        backgrounds = BackgroundTaskManager.shared
+        tasksService = BackgroundTasksService.shared
 
         keys = KeysStorage()
         images = CacheImagesService()
-        searchCards = SearchPlaceCardsCacheService(configs: configs, properties: properties)
+        searchCards = SearchPlaceCardsCacheService(configs: configs,
+                                                    properties: properties)
         likes = LikesService()
-        places = PlacesCacheservice(configs: configs, properties: properties)
+        places = PlacesCacheservice(configs: configs,
+                                    properties: properties)
 
-        positions = PositionsService(background: backgrounds)
-//        checkIns = CheckInService(positions: positions, searchCards: searchCards)
-//
+        positions = PositionsService()
+        checkIns = CheckInService(positions: PositionsService(),
+                                  searchCards: searchCards,
+                                  tasksService: tasksService,
+                                  configs: configs,
+                                  keys: keys)
     }
 
 

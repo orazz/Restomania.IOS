@@ -83,8 +83,9 @@ public class SearchPlaceCardsCacheService {
 
             Log.Debug(self._tag, "Start refresh data.")
 
-            let time = self._properties.getDate(.lastUpdateSearchCards)
-            let request = self._client.SearchCards(args: SelectParameters(time: time.unwrapped))
+//            let time = self._properties.getDate(.lastUpdateSearchCards)
+            let request = self._client.SearchCards(args: SelectParameters(time: nil))
+//            let request = self._client.SearchCards(args: SelectParameters(time: time.unwrapped))
             request.async(.custom(self._adapter.blockQueue), completion: { response in
 
                 guard response.isSuccess,

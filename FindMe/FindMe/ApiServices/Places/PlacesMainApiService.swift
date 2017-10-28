@@ -34,6 +34,14 @@ public class PlacesMainApiService: BaseApiService {
 
         return _client.Get(action: "Find", type: Place.self, parameters: parameters)
     }
+    public func range(ids: [Long]) -> RequestResult<[Place]> {
+
+        let parameters = sCollectParameters([
+            "placeIds": ids
+            ])
+
+        return _client.GetRange(action: "Range", type: Place.self, parameters: parameters)
+    }
     public func SearchCards(args: SelectParameters) -> RequestResult<[SearchPlaceCard]> {
 
         let parameters = CollectParameters([

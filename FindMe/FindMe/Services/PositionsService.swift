@@ -13,7 +13,7 @@ import UIKit
 
 public protocol PositionServiceDelegate {
 
-    func updateLocation(position: [PositionsService.Position])
+    func updateLocation(positions: [PositionsService.Position])
 }
 
 public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitter {
@@ -36,6 +36,7 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
             manager.distanceFilter = kCLDistanceFilterNone
             manager.allowsBackgroundLocationUpdates = true
             manager.pausesLocationUpdatesAutomatically = false
+            manager.delegate = self
 
             PositionsService._locationManager = manager
         }
@@ -44,17 +45,13 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
     }
 
     private let _tag = String.tag(PositionsService.self)
-    private let _background: BackgroundTaskManager
-    private var _backgroundTask: UIBackgroundTaskIdentifier
     private let _eventsAdapter: EventsAdapter<PositionServiceDelegate>
     private var _lastPosition: Position?
     private var _circleTimer: Timer?
     private var _workTimer: Timer?
 
-    public init(background: BackgroundTaskManager) {
+    public override init() {
 
-        self._background = background
-        self._backgroundTask = UIBackgroundTaskInvalid
         self._eventsAdapter = EventsAdapter(name: _tag)
         self._lastPosition = nil
 
@@ -62,35 +59,26 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
         self._workTimer = nil
 
         super.init()
-
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(enterToBackground),
-                                               name: Notification.Name.UIApplicationDidEnterBackground,
-                                               object: nil)
-    }
-    @objc private func enterToBackground() {
-
-        stopTracking()
-//        startTracking()
-//
-//        if (canUse) {
-//            _backgroundTask = _background.beginNew()
-//        }
     }
 
     //MARK: Methods
-    public func requestPermission() {
+    public func requestPermission(always: Bool = false) {
 
         let manager = _manager
-        
-        manager.delegate = self
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
+
+        if (always) {
+            manager.requestAlwaysAuthorization()
+        }
+        else {
+            manager.requestWhenInUseAuthorization()
+        }
+    }
+    public var isEnable: Bool {
+        return CLLocationManager.locationServicesEnabled()
     }
     public var canUse: Bool {
 
-        if (!CLLocationManager.locationServicesEnabled()) {
-
+        if (!isEnable) {
             return false
         }
 
@@ -105,6 +93,9 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
                  .authorizedWhenInUse:
                 return true
         }
+    }
+    public var canUseInBackground: Bool {
+        return CLLocationManager.authorizationStatus() == .authorizedAlways
     }
     public var isBlock: Bool {
         return !canUse
@@ -125,7 +116,7 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
 
 
     //MARK: Tracking
-    public func startTracking() {
+    public func startTracking(always: Bool = false) {
 
         if (isBlock) {
 
@@ -134,9 +125,14 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
         }
 
         let manager = _manager
-        manager.delegate = self
 
-        manager.requestAlwaysAuthorization()
+        if (always) {
+            manager.requestAlwaysAuthorization()
+        }
+        else {
+            manager.requestWhenInUseAuthorization()
+        }
+
         manager.startUpdatingLocation()
     }
     public func stopTracking() {
@@ -190,7 +186,7 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
 
         if (!positions.isEmpty) {
 
-            _eventsAdapter.Trigger(action: { $0.updateLocation(position: positions) })
+            _eventsAdapter.Trigger(action: { $0.updateLocation(positions: positions) })
         }
 
 
@@ -209,7 +205,6 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
         }
 
         //Process full work circle
-        _backgroundTask = _background.beginNew()
         _circleTimer = Timer(timeInterval: PositionsService._circlePeriod,
                              target: self,
                              selector: #selector(restartUpdates),
@@ -327,6 +322,15 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
         }
         public func toLocation() -> CLLocation {
             return CLLocation(latitude: latitude, longitude: longtitude)
+        }
+        public func isCorrelateWith(lat: Double, long: Double, tolerance: Double) -> Bool {
+
+            let left = CLLocation(latitude: latitude, longitude: longtitude)
+            let right = CLLocation(latitude: lat, longitude: long)
+
+            let distance = left.distance(from: right)
+
+            return abs(distance) < abs(tolerance)
         }
     }
 }

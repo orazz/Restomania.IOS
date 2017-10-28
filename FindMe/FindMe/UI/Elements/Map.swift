@@ -138,7 +138,7 @@ public class FMMap: MKMapView {
 }
 extension FMMap: PositionServiceDelegate {
 
-    public func updateLocation(position: [PositionsService.Position]) {
+    public func updateLocation(positions: [PositionsService.Position]) {
 
     }
 }

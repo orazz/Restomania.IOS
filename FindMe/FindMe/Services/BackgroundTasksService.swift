@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class BackgroundTaskManager {
+public class BackgroundTasksService {
 
-    public static let shared = BackgroundTaskManager()
+    public static let shared = BackgroundTasksService()
 
-    private let _tag = String.tag(BackgroundTaskManager.self)
+    private let _tag = String.tag(BackgroundTasksService.self)
     private var _masterTaskId: UIBackgroundTaskIdentifier
     private var _tasksRange: [UIBackgroundTaskIdentifier]
 
@@ -49,6 +49,19 @@ public class BackgroundTaskManager {
         }
 
         return result
+    }
+    public func end(task: UIBackgroundTaskIdentifier) {
+
+        if (task == UIBackgroundTaskInvalid) {
+            return
+        }
+
+        if (_masterTaskId == task) {
+            endAllBackgroundTasks()
+        }
+        else {
+            UIApplication.shared.endBackgroundTask(task)
+        }
     }
     public func endBackgroundTasks() {
         drainList(all: false)

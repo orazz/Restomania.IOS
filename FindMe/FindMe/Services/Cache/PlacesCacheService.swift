@@ -56,4 +56,29 @@ public class PlacesCacheservice {
             })
         })
     }
+    public func refresh() {
+
+        if _adapter.isEmpty {
+            return
+        }
+
+        _adapter.blockQueue.async {
+
+            Log.Debug(self._tag, "Start refresh data.")
+
+            let ids = self._adapter.localData.map { $0.ID }
+            let request = self._client.range(ids: ids)
+            request.async(.custom(self._adapter.blockQueue), completion: { response in
+
+                guard let update = response.data else {
+
+                    Log.Warning(self._tag, "Problem with refresh data.")
+                    return
+                }
+
+                self._adapter.addOrUpdate(with: update)
+                Log.Info(self._tag, "Complete refresh data.")
+            })
+        }
+    }
 }

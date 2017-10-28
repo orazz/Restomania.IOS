@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F0483861F83FCF000D00EED /* CheckInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0483851F83FCF000D00EED /* CheckInService.swift */; };
-		1F0483881F84CB8100D00EED /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0483871F84CB8100D00EED /* BackgroundTaskManager.swift */; };
+		1F0483881F84CB8100D00EED /* BackgroundTasksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0483871F84CB8100D00EED /* BackgroundTasksService.swift */; };
 		1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE511F862E9000694D8D /* VKAuthorizationController.swift */; };
 		1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F09EE531F862F5C00694D8D /* VKAuthorizationView.xib */; };
 		1F09EE571F86336D00694D8D /* UsersAuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE561F86336D00694D8D /* UsersAuthApiService.swift */; };
@@ -153,7 +153,7 @@
 /* Begin PBXFileReference section */
 		0E7E6F4D956A6631217C7878 /* Pods_FindMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0483851F83FCF000D00EED /* CheckInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckInService.swift; path = Services/CheckInService.swift; sourceTree = "<group>"; };
-		1F0483871F84CB8100D00EED /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackgroundTaskManager.swift; path = Services/BackgroundTaskManager.swift; sourceTree = "<group>"; };
+		1F0483871F84CB8100D00EED /* BackgroundTasksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackgroundTasksService.swift; path = Services/BackgroundTasksService.swift; sourceTree = "<group>"; };
 		1F09EE511F862E9000694D8D /* VKAuthorizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VKAuthorizationController.swift; path = UI/Elements/Authorization/Vk/VKAuthorizationController.swift; sourceTree = "<group>"; };
 		1F09EE531F862F5C00694D8D /* VKAuthorizationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VKAuthorizationView.xib; path = UI/Elements/Authorization/Vk/VKAuthorizationView.xib; sourceTree = "<group>"; };
 		1F09EE561F86336D00694D8D /* UsersAuthApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersAuthApiService.swift; path = ApiServices/Users/UsersAuthApiService.swift; sourceTree = "<group>"; };
@@ -617,7 +617,7 @@
 				1F1A0E5D1F79513F00FDBA97 /* Cache */,
 				1F49C4F91F7BD15C00051CAD /* PositionsService.swift */,
 				1F0483851F83FCF000D00EED /* CheckInService.swift */,
-				1F0483871F84CB8100D00EED /* BackgroundTaskManager.swift */,
+				1F0483871F84CB8100D00EED /* BackgroundTasksService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -1198,7 +1198,7 @@
 				1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */,
 				1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */,
 				1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */,
-				1F0483881F84CB8100D00EED /* BackgroundTaskManager.swift in Sources */,
+				1F0483881F84CB8100D00EED /* BackgroundTasksService.swift in Sources */,
 				1F1A0E411F77E8D500FDBA97 /* IKeysStorage.swift in Sources */,
 				1F4C82C71F952932004B294C /* OnePlaceMainContactsCell.swift in Sources */,
 				1F6B21C31F881E6D0068E29A /* MapPoputView.swift in Sources */,
