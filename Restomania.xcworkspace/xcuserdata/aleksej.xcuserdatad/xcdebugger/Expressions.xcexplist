@@ -135,10 +135,10 @@
          contextName = "SearchPlaceCard.init(json:):SearchPlaceCard.swift">
          <PersistentStrings>
             <PersistentString
-               value = "let b:String? = Keys.name &lt;~~ json">
+               value = "json[&quot;Name&quot;]">
             </PersistentString>
             <PersistentString
-               value = "json[&quot;Name&quot;]">
+               value = "let b:String? = Keys.name &lt;~~ json">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -360,13 +360,13 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "formatter.date(from: value)">
-            </PersistentString>
-            <PersistentString
                value = "notUTC!.toUTC()">
             </PersistentString>
             <PersistentString
                value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.date(from: value)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -378,6 +378,14 @@
       </ContextState>
       <ContextState
          contextName = "PlaceCard.(refresh() -&gt; ()).(closure #1):PlaceCard.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PositionsService.locationManager(_:didUpdateLocations:):PositionsService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "PositionsService._circlePeriod">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "FileSystemTests.testIsExist() -&gt; ():FileSystem.swift">
@@ -497,7 +505,7 @@
                value = "DescriptionLabel.superview.constraints.filter({ $0.firstAttribute == .bottom }).first!.constant">
             </PersistentString>
             <PersistentString
-               value = "getConstant(.top, of: DescriptionLabel) + getConstant(.height, of: DescriptionLabel) + CGFloat(5)">
+               value = " DescriptionLabel.constraints">
             </PersistentString>
             <PersistentString
                value = "DescriptionLabel.frame.height">
@@ -512,7 +520,7 @@
                value = "DescriptionLabel.frame.origin">
             </PersistentString>
             <PersistentString
-               value = " DescriptionLabel.constraints">
+               value = "getConstant(.top, of: DescriptionLabel) + getConstant(.height, of: DescriptionLabel) + CGFloat(5)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

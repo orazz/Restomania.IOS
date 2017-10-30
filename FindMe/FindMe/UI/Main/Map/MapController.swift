@@ -181,21 +181,17 @@ extension MapController: MKMapViewDelegate {
 
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
-        if !(annotation is SearchAnnotation) {
+        if let annotation = annotation as? SearchAnnotation {
 
-            if (annotation.coordinate == mapView.userLocation.coordinate) {
-                return nil
-            }
-            else {
-                return MKAnnotationView(annotation: annotation, reuseIdentifier: Guid.new)
-            }
+            let pin = annotation.buildView()
+            pin.canShowCallout = false
+            pin.image = ThemeSettings.Images.pinLarge
+
+            return pin
         }
-
-        let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: SearchAnnotation.requeseIdentifier)
-        pin.canShowCallout = false
-        pin.image = ThemeSettings.Images.pinLarge
-
-        return pin
+        else {
+            return MKAnnotationView(annotation: annotation, reuseIdentifier: Guid.new)
+        }
     }
     public func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 
@@ -208,9 +204,21 @@ extension MapController: MKMapViewDelegate {
         }
     }
 
-    internal class SearchAnnotation: NSObject,MKAnnotation {
+    internal class SearchAnnotation: NSObject, MKAnnotation {
 
         public static let requeseIdentifier: String = Guid.new
+        public let card: SearchPlaceCard
+
+        public init(card: SearchPlaceCard){
+
+            self.card = card
+
+            super.init()
+        }
+        public convenience init(place: Place) {
+            self.init(card: SearchPlaceCard(source: place))
+        }
+
 
         public var isValidLocation: Bool {
 
@@ -218,6 +226,12 @@ extension MapController: MKMapViewDelegate {
 
             return 0.0 != location.latitude && 0.0 != location.longitude
         }
+        public func buildView() -> MKAnnotationView {
+
+            return MKAnnotationView(annotation: self, reuseIdentifier: SearchAnnotation.requeseIdentifier)
+        }
+
+
         //MARK: MKAnnotation
         public var coordinate: CLLocationCoordinate2D {
             return CLLocationCoordinate2D(latitude: card.location.latitude,
@@ -228,15 +242,6 @@ extension MapController: MKMapViewDelegate {
         }
         public var subtitle: String? {
             return card.type
-        }
-
-        public let card: SearchPlaceCard
-
-        public init(card: SearchPlaceCard){
-
-            self.card = card
-
-            super.init()
         }
     }
 }

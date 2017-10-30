@@ -36,7 +36,7 @@ public class PlacesMainApiService: BaseApiService {
     }
     public func range(ids: [Long]) -> RequestResult<[Place]> {
 
-        let parameters = sCollectParameters([
+        let parameters = CollectParameters([
             "placeIds": ids
             ])
 

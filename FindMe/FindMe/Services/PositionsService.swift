@@ -19,17 +19,10 @@ public protocol PositionServiceDelegate {
 public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitter {
     public typealias THandler = PositionServiceDelegate
 
-
-
-    private static var _locationManager: CLLocationManager? = nil
-    private static let _circlePeriod = 300.0
-    private static let _workPeriod = 10.0
-
-
-
+    private var _locationManager: CLLocationManager? = nil
     private var _manager: CLLocationManager {
 
-        if (nil == PositionsService._locationManager) {
+        if (nil == _locationManager) {
 
             let manager = CLLocationManager()
             manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
@@ -38,25 +31,22 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
             manager.pausesLocationUpdatesAutomatically = false
             manager.delegate = self
 
-            PositionsService._locationManager = manager
+            _locationManager = manager
         }
 
-        return PositionsService._locationManager!
+        return _locationManager!
     }
 
     private let _tag = String.tag(PositionsService.self)
+    private let _application = UIApplication.shared
     private let _eventsAdapter: EventsAdapter<PositionServiceDelegate>
     private var _lastPosition: Position?
-    private var _circleTimer: Timer?
-    private var _workTimer: Timer?
 
     public override init() {
 
         self._eventsAdapter = EventsAdapter(name: _tag)
         self._lastPosition = nil
 
-        self._circleTimer = nil
-        self._workTimer = nil
 
         super.init()
     }
@@ -137,12 +127,6 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
     }
     public func stopTracking() {
 
-        if let timer = _circleTimer {
-
-            timer.invalidate()
-            _circleTimer = nil
-        }
-
         _manager.stopUpdatingLocation()
     }
 
@@ -185,69 +169,59 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
         _lastPosition = positions.first
 
         if (!positions.isEmpty) {
-
             _eventsAdapter.Trigger(action: { $0.updateLocation(positions: positions) })
         }
-
-
-
-
-
-        //Start proces background mode
-        let application = UIApplication.shared
-        if (application.applicationState != .background) {
-            return
-        }
-
-        //Restart updates
-        if (nil != _circleTimer) {
-            return
-        }
-
-        //Process full work circle
-        _circleTimer = Timer(timeInterval: PositionsService._circlePeriod,
-                             target: self,
-                             selector: #selector(restartUpdates),
-                             userInfo: nil,
-                             repeats: false)
-
-
-        //Process work timer
-        if let timer = _workTimer {
-
-            timer.invalidate()
-            _workTimer = nil
-        }
-        _workTimer = Timer(timeInterval: PositionsService._workPeriod,
-                           target: self,
-                           selector: #selector(stopWork),
-                           userInfo: nil,
-                           repeats: false)
     }
-    @objc private func restartUpdates() {
-
-        Log.Debug(_tag, "Restart location updates.")
-
-        if let timer = _circleTimer {
-
-            timer.invalidate()
-            _circleTimer = nil
-        }
-
-        startTracking()
-    }
-    @objc private func stopWork() {
-
-        Log.Debug(_tag, "Go to sleep updates of location.")
-
-        _manager.stopUpdatingLocation()
-    }
-
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 
         Log.Warning(_tag, "Error with update location: \(error)")
     }
 
+
+
+    public class Position {
+
+        public let latitude: Double
+        public let longtitude: Double
+        public let accuracy: Double
+
+        public init(from location: CLLocation) {
+
+            self.latitude = location.coordinate.latitude
+            self.longtitude = location.coordinate.longitude
+            self.accuracy = location.horizontalAccuracy
+        }
+        public init(lat: Double, lng: Double) {
+
+            self.latitude = lat
+            self.longtitude = lng
+            self.accuracy = 1
+        }
+
+        public func toCoordinates() -> CLLocationCoordinate2D {
+            return CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+        }
+        public func toLocation() -> CLLocation {
+            return CLLocation(latitude: latitude, longitude: longtitude)
+        }
+        public func isCorrelateWith(lat: Double, long: Double, tolerance: Double) -> Bool {
+
+            let left = CLLocation(latitude: latitude, longitude: longtitude)
+            let right = CLLocation(latitude: lat, longitude: long)
+
+            let distance = left.distance(from: right)
+
+            return abs(distance) < abs(tolerance)
+        }
+    }
+}
+extension CLLocationCoordinate2D {
+
+    public static func == (left: CLLocationCoordinate2D, right: CLLocationCoordinate2D) -> Bool {
+
+        return left.latitude == right.latitude && left.longitude == right.longitude
+    }
+}
 
 
 //    //Send the location to Server
@@ -297,47 +271,3 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
 //    self.shareModel.myLocationArray = nil;
 //    self.shareModel.myLocationArray = [[NSMutableArray alloc]init];
 //    }
-
-    public class Position {
-
-        public let latitude: Double
-        public let longtitude: Double
-        public let accuracy: Double
-
-        public init(from location: CLLocation) {
-
-            self.latitude = location.coordinate.latitude
-            self.longtitude = location.coordinate.longitude
-            self.accuracy = location.horizontalAccuracy
-        }
-        public init(lat: Double, lng: Double) {
-
-            self.latitude = lat
-            self.longtitude = lng
-            self.accuracy = 1
-        }
-
-        public func toCoordinates() -> CLLocationCoordinate2D {
-            return CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
-        }
-        public func toLocation() -> CLLocation {
-            return CLLocation(latitude: latitude, longitude: longtitude)
-        }
-        public func isCorrelateWith(lat: Double, long: Double, tolerance: Double) -> Bool {
-
-            let left = CLLocation(latitude: latitude, longitude: longtitude)
-            let right = CLLocation(latitude: lat, longitude: long)
-
-            let distance = left.distance(from: right)
-
-            return abs(distance) < abs(tolerance)
-        }
-    }
-}
-extension CLLocationCoordinate2D {
-
-    public static func == (left: CLLocationCoordinate2D, right: CLLocationCoordinate2D) -> Bool {
-
-        return left.latitude == right.latitude && left.longitude == right.longitude
-    }
-}

@@ -27,6 +27,7 @@ public class ServicesFactory {
 
     //MARK: Storage services
     public let positions: PositionsService
+    public let backgroundPositions: BackgroundPositionsServices
     public let checkIns: CheckInService
 
 
@@ -45,9 +46,10 @@ public class ServicesFactory {
                                     properties: properties)
 
         positions = PositionsService()
-        checkIns = CheckInService(positions: PositionsService(),
+        backgroundPositions = BackgroundPositionsServices(tasksService: tasksService)
+        checkIns = CheckInService(positions: positions,
+                                  backgroundPositions: backgroundPositions,
                                   searchCards: searchCards,
-                                  tasksService: tasksService,
                                   configs: configs,
                                   keys: keys)
     }

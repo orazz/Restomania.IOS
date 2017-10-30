@@ -18,6 +18,7 @@ public class OnePlaceMainAddressCell: UITableViewCell {
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! OnePlaceMainAddressCell
 
+        instance._place = nil
         instance._location = nil
 
         return instance
@@ -29,6 +30,7 @@ public class OnePlaceMainAddressCell: UITableViewCell {
     @IBOutlet public weak var AddressLabel: FMSubheadLabel!
 
     //MARK: Data & Services
+    private var _place: Place?
     private var _location: Location? {
         didSet {
             AddressLabel?.text = _location?.address ?? String.empty
@@ -38,6 +40,8 @@ public class OnePlaceMainAddressCell: UITableViewCell {
 }
 extension OnePlaceMainAddressCell: OnePlaceMainCellProtocol {
     public func update(by place: Place) {
+
+        _place = place
         _location = place.location
     }
 }
@@ -48,5 +52,11 @@ extension OnePlaceMainAddressCell: InterfaceTableCellProtocol {
     }
     public func prepareView() -> UITableViewCell {
         return self
+    }
+    public func select(with controller: UINavigationController) {
+
+        let vc = OnePlaceLocationController.instance(place: _place!)
+
+        controller.pushViewController(vc, animated: true)
     }
 }

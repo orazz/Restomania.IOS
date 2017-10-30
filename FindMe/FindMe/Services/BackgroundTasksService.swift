@@ -78,7 +78,7 @@ public class BackgroundTasksService {
             count = count - 1
         }
 
-        for _ in 0...count {
+        for _ in 0..<count {
 
             let identifier = _tasksRange.first!
             Log.Debug(_tag, "End background task #\(identifier).")

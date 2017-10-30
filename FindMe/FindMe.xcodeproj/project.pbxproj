@@ -14,6 +14,7 @@
 		1F09EE571F86336D00694D8D /* UsersAuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE561F86336D00694D8D /* UsersAuthApiService.swift */; };
 		1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE581F8655D700694D8D /* UsersMainApiService.swift */; };
 		1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09EE5A1F865D7900694D8D /* Labels.swift */; };
+		1F0E2B4B1FA62295006C707E /* BackgroundPositionsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E2B4A1FA62295006C707E /* BackgroundPositionsServices.swift */; };
 		1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */; };
 		1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */; };
 		1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */; };
@@ -116,6 +117,9 @@
 		1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7E3D81F7BAB2600D1745E /* KeysStorage.swift */; };
 		1FE7E3DB1F7BAB2600D1745E /* LikesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7E3D91F7BAB2600D1745E /* LikesService.swift */; };
 		1FF6D57A1F86F71100309ED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6D5791F86F71100309ED3 /* MapKit.framework */; };
+		1FF8E6261FA6359A001852CE /* SlackNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8E6251FA6359A001852CE /* SlackNotifier.swift */; };
+		1FF8E6291FA7A331001852CE /* OnePlaceLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8E6281FA7A331001852CE /* OnePlaceLocationController.swift */; };
+		1FF8E62B1FA7A387001852CE /* OnePlaceLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF8E62A1FA7A387001852CE /* OnePlaceLocationView.xib */; };
 		748276F6073B78FAD010392A /* Pods_FindMe_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733A71B32FF5D5ADE009219D /* Pods_FindMe_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +163,7 @@
 		1F09EE561F86336D00694D8D /* UsersAuthApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersAuthApiService.swift; path = ApiServices/Users/UsersAuthApiService.swift; sourceTree = "<group>"; };
 		1F09EE581F8655D700694D8D /* UsersMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersMainApiService.swift; path = ApiServices/Users/UsersMainApiService.swift; sourceTree = "<group>"; };
 		1F09EE5A1F865D7900694D8D /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Labels.swift; path = UI/Elements/Labels.swift; sourceTree = "<group>"; };
+		1F0E2B4A1FA62295006C707E /* BackgroundPositionsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackgroundPositionsServices.swift; path = Services/BackgroundPositionsServices.swift; sourceTree = "<group>"; };
 		1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
 		1F1A0E331F77C0D900FDBA97 /* PropertiesKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesKey.swift; path = App/Tools/PropertiesKey.swift; sourceTree = "<group>"; };
 		1F1A0E351F77C10300FDBA97 /* ConfigsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsKey.swift; path = App/Tools/ConfigsKey.swift; sourceTree = "<group>"; };
@@ -269,6 +274,9 @@
 		1FE7E3D81F7BAB2600D1745E /* KeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorage.swift; path = Services/Storage/KeysStorage.swift; sourceTree = "<group>"; };
 		1FE7E3D91F7BAB2600D1745E /* LikesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikesService.swift; path = Services/Storage/LikesService.swift; sourceTree = "<group>"; };
 		1FF6D5791F86F71100309ED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1FF8E6251FA6359A001852CE /* SlackNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlackNotifier.swift; path = Tools/SlackNotifier.swift; sourceTree = "<group>"; };
+		1FF8E6281FA7A331001852CE /* OnePlaceLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceLocationController.swift; path = UI/Place/OnePlaceLocation/OnePlaceLocationController.swift; sourceTree = "<group>"; };
+		1FF8E62A1FA7A387001852CE /* OnePlaceLocationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceLocationView.xib; path = UI/Place/OnePlaceLocation/OnePlaceLocationView.xib; sourceTree = "<group>"; };
 		23F9923EAE9F6E536D1D5BDD /* Pods-FindMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMe.release.xcconfig"; path = "../Pods/Target Support Files/Pods-FindMe/Pods-FindMe.release.xcconfig"; sourceTree = "<group>"; };
 		4935918CCC89441A21172DB7 /* Pods-FindMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMe.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-FindMe/Pods-FindMe.debug.xcconfig"; sourceTree = "<group>"; };
 		6584E651770DDCEABE9D28FD /* Pods-FindMe-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMe-Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-FindMe-Tests/Pods-FindMe-Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -331,11 +339,13 @@
 			name = Users;
 			sourceTree = "<group>";
 		};
-		1F10F8E71F87259900D85903 /* OnePlaceLocationModal */ = {
+		1F10F8E71F87259900D85903 /* OnePlaceLocation */ = {
 			isa = PBXGroup;
 			children = (
+				1FF8E6281FA7A331001852CE /* OnePlaceLocationController.swift */,
+				1FF8E62A1FA7A387001852CE /* OnePlaceLocationView.xib */,
 			);
-			name = OnePlaceLocationModal;
+			name = OnePlaceLocation;
 			sourceTree = "<group>";
 		};
 		1F1A0E271F77BFC700FDBA97 /* App */ = {
@@ -406,8 +416,9 @@
 		1F1A0E521F78EA4600FDBA97 /* Place */ = {
 			isa = PBXGroup;
 			children = (
+				1FF8E6271FA7A2D2001852CE /* OnePlaceClients */,
 				1FE033C21F896120000349F7 /* OnePlaceMain */,
-				1F10F8E71F87259900D85903 /* OnePlaceLocationModal */,
+				1F10F8E71F87259900D85903 /* OnePlaceLocation */,
 			);
 			name = Place;
 			sourceTree = "<group>";
@@ -499,6 +510,7 @@
 		1F3D71CD1F72C9E90010818A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1FF8E6251FA6359A001852CE /* SlackNotifier.swift */,
 				1F1A0E3F1F77E8B600FDBA97 /* Interfaces */,
 			);
 			name = Tools;
@@ -616,6 +628,7 @@
 				1FE7E3D31F7BAACB00D1745E /* Storage */,
 				1F1A0E5D1F79513F00FDBA97 /* Cache */,
 				1F49C4F91F7BD15C00051CAD /* PositionsService.swift */,
+				1F0E2B4A1FA62295006C707E /* BackgroundPositionsServices.swift */,
 				1F0483851F83FCF000D00EED /* CheckInService.swift */,
 				1F0483871F84CB8100D00EED /* BackgroundTasksService.swift */,
 			);
@@ -831,6 +844,13 @@
 			name = Storage;
 			sourceTree = "<group>";
 		};
+		1FF8E6271FA7A2D2001852CE /* OnePlaceClients */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = OnePlaceClients;
+			sourceTree = "<group>";
+		};
 		D5E43D2EE7F951279EA3837D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -971,6 +991,7 @@
 				1F4C82C91F952B29004B294C /* OnePlaceMainContactsCell.xib in Resources */,
 				1F4C82CB1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib in Resources */,
 				1F24A91E1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib in Resources */,
+				1FF8E62B1FA7A387001852CE /* OnePlaceLocationView.xib in Resources */,
 				1FC5839A1F824BEA0045941A /* ExplainerBlock.xib in Resources */,
 				1FC583921F8150EF0045941A /* Main.storyboard in Resources */,
 				1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */,
@@ -1141,6 +1162,7 @@
 				1F3382FC1F97DAD400E43596 /* FMSegmentedControl.swift in Sources */,
 				1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */,
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
+				1FF8E6291FA7A331001852CE /* OnePlaceLocationController.swift in Sources */,
 				1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */,
 				1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */,
 				1F4C82CD1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift in Sources */,
@@ -1150,6 +1172,7 @@
 				1F1A0E431F77E99E00FDBA97 /* ServicesFactory.swift in Sources */,
 				1FC548251F7095B4007CE6AB /* BaseApiService.swift in Sources */,
 				1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */,
+				1FF8E6261FA6359A001852CE /* SlackNotifier.swift in Sources */,
 				1FC548111F702FC5007CE6AB /* ApiKeys.swift in Sources */,
 				1F24A90B1F896366000BD8F1 /* OnePlaceMainController.swift in Sources */,
 				1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */,
@@ -1163,6 +1186,7 @@
 				1FC548191F703FBB007CE6AB /* Contacts.swift in Sources */,
 				1F4E10FD1F970BFA00EB8391 /* FMTextField.swift in Sources */,
 				1FC548231F705822007CE6AB /* Place.swift in Sources */,
+				1F0E2B4B1FA62295006C707E /* BackgroundPositionsServices.swift in Sources */,
 				1F1A0E5A1F79504000FDBA97 /* RefreshDataManager.swift in Sources */,
 				1FC583901F8150050045941A /* StartContoller.swift in Sources */,
 				1FD0754B1F893F3000F34A26 /* PlacesCacheService.swift in Sources */,

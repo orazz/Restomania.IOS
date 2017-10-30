@@ -45,7 +45,9 @@ public class RefreshDataManager {
     }
     public func refreshData() {
 
-        _cards.refresh()
-        _places.refresh()
+//        _cards.refresh()
+//        _places.refresh()
+
+        SlackNotifier.notify("<\(_tag)>: Refresh data.")
     }
 }

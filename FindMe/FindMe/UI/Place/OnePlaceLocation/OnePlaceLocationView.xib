@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnePlaceLocationController" customModule="FindMe" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="6by-wa-3tq" id="gPk-XD-JUb"/>
+                <outlet property="view" destination="iN0-l3-epB" id="tXC-Nz-hWj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6by-wa-3tq" customClass="FMMap" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="54" width="375" height="613"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="7IP-Zv-FIV"/>
+                    </connections>
+                </mapView>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-vP-Odb">
+                    <rect key="frame" x="0.0" y="10" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="sb1-AY-dJk"/>
+                    </constraints>
+                    <items>
+                        <navigationItem id="dhF-4l-adF">
+                            <barButtonItem key="leftBarButtonItem" title="Назад" id="QrC-wv-Ayo">
+                                <connections>
+                                    <action selector="close" destination="-1" id="WNe-eW-oDB"/>
+                                </connections>
+                            </barButtonItem>
+                            <connections>
+                                <outlet property="backBarButtonItem" destination="QrC-wv-Ayo" id="Wjs-Bl-IZa"/>
+                            </connections>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6by-wa-3tq" secondAttribute="trailing" id="3QT-sX-70p"/>
+                <constraint firstItem="Qgb-vP-Odb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Ku6-sR-fb4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6by-wa-3tq" secondAttribute="bottom" id="Nyx-4T-WEP"/>
+                <constraint firstItem="6by-wa-3tq" firstAttribute="top" secondItem="Qgb-vP-Odb" secondAttribute="bottom" id="Rhe-mm-a06"/>
+                <constraint firstItem="Qgb-vP-Odb" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="V8E-bQ-g2Q"/>
+                <constraint firstItem="6by-wa-3tq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Xcv-hV-BcI"/>
+                <constraint firstItem="Qgb-vP-Odb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="lLt-Mg-6wM"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

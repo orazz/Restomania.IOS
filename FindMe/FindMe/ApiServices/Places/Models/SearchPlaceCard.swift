@@ -42,6 +42,16 @@ public class SearchPlaceCard: ICached {
         location = Location()
         peopleCount = 0
     }
+    public init(source: Place) {
+
+        ID = source.ID
+        name = source.name
+        type = source.type
+        description = source.description
+        image = source.images.first?.link ?? String.empty
+        location = source.location
+        peopleCount = source.clientsData.people
+    }
     
     //MARK: ICopyng
     public required init(source: SearchPlaceCard) {

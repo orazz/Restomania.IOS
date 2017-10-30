@@ -20,24 +20,25 @@ public class CheckInService: NSObject, PositionServiceDelegate {
     private let _application = UIApplication.shared
 
     private let _positionsService: PositionsService
+    private let _backgroundPositions: BackgroundPositionsServices
     private let _searchCardsService: SearchPlaceCardsCacheService
-    private let _tasksService: BackgroundTasksService
     private let _apiService: UsersMainApiService
 
     public init(positions: PositionsService,
+                backgroundPositions: BackgroundPositionsServices,
                 searchCards: SearchPlaceCardsCacheService,
-                tasksService: BackgroundTasksService,
                 configs: ConfigsStorage,
                 keys: IKeysStorage) {
 
         self._positionsService = positions
+        self._backgroundPositions = backgroundPositions
         self._searchCardsService = searchCards
-        self._tasksService = tasksService
         self._apiService = UsersMainApiService(configs: configs, keys: keys)
 
         super.init()
 
-        self._positionsService.subscribe(guid: _guid, handler: self, tag: _tag)
+        _positionsService.subscribe(guid: _guid, handler: self, tag: _tag)
+        _backgroundPositions.subscribe(guid: _guid, handler: self, tag: _tag)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(enterToBackground),
@@ -50,12 +51,8 @@ public class CheckInService: NSObject, PositionServiceDelegate {
     }
 
 
-    //MARK: Methods
-    public func launch() {
 
-        _positionsService.requestPermission()
-        _positionsService.startTracking()
-    }
+    //MARK: Methods
     public func tryCheckIn() {
 
         guard let coordinates = _positionsService.lastPosition else {
@@ -92,34 +89,20 @@ public class CheckInService: NSObject, PositionServiceDelegate {
     //MARK: PositionServiceDelegate
     public func updateLocation(positions: [PositionsService.Position]) {
 
-        if (_application.applicationState == .background) {
-            _backgroundTask = _tasksService.beginNew()
-        }
-
-        tryCheckIn()
+        messageToSlack(positions.first!)
+//        tryCheckIn()
     }
-
-
+    private func messageToSlack(_ position: PositionsService.Position) {
+        SlackNotifier.notify("<\(_tag)>: lat: \(position.latitude) lng: \(position.longtitude) +-\(position.accuracy)m")
+    }
     //MARK: Events
     @objc private func enterToBackground() {
 
-        let service = self._positionsService
-        service.requestPermission(always: true)
-
-        if (service.canUseInBackground) {
-            service.startTracking()
-        }
-
-        _backgroundTask = _tasksService.beginNew()
+        _positionsService.requestPermission(always: true)
+        _positionsService.stopTracking()
     }
     @objc private func enterToForeground() {
 
-        let service = self._positionsService
-
-        if (service.canUseInBackground) {
-            service.stopTracking()
-        }
-
-        _tasksService.end(task: _backgroundTask)
+        _positionsService.startTracking()
     }
 }

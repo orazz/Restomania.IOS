@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FindMe/FindMe/UI/Main/ProfileController.swift"
-            timestampString = "530091080.308409"
+            filePath = "FindMe/FindMe/Services/CheckInService.swift"
+            timestampString = "530987418.303412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "sendChanges(_:)"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "updateLocation(positions:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,29 +25,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FindMe/FindMe/UI/Main/ProfileController.swift"
-            timestampString = "530091080.308704"
+            filePath = "FindMe/FindMe/Services/CheckInService.swift"
+            timestampString = "530987418.303489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "apply(account:)"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "enterToForeground()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FindMe/FindMe/App/AppDelegate.swift"
-            timestampString = "530916035.910805"
+            filePath = "FindMe/FindMe/Services/BackgroundPositionsServices.swift"
+            timestampString = "530987454.952898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "application(_:performFetchWithCompletionHandler:)"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "stopWork()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMe/FindMe/Services/BackgroundPositionsServices.swift"
+            timestampString = "530987456.401679"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "restartUpdates()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
