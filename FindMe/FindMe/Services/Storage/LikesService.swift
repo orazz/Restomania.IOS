@@ -10,19 +10,31 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-public class LikesService {
+@objc public protocol LikesServiceDelegate{
+
+    @objc optional func like(placeId: Long)
+    @objc optional func unlike(placeId: Long)
+    @objc optional func change(placeId: Long, isLiked: Bool)
+}
+public class LikesService: NSObject {
+    public typealias THandler = LikesServiceDelegate
 
     private let _tag: String
     private let _queue: DispatchQueue
     private let _fileClient: FSOneFileClient
+    private let _eventsAdapter: EventsAdapter<THandler>
     private var _data: [LikeContainer] = []
 
     //MARK: Initialization
-    public init() {
+    public override init() {
 
         _tag = String.tag(LikesService.self)
         _queue = DispatchQueue(label: "\(_tag)-\(Guid.new)")
         _fileClient = FSOneFileClient(filename: "favourites-places.json", inCache: false, tag: _tag)
+        _eventsAdapter = EventsAdapter<THandler>(name: _tag)
+
+        super.init()
+
         _data = loadCached()
     }
     private func loadCached() -> [LikeContainer] {
@@ -55,22 +67,32 @@ public class LikesService {
     public func like(place: Long) {
 
         Log.Debug(_tag, "Like place #\(place).")
-        if let _ = find(by: place) {
-            return
+
+        if nil == find(by: place) {
+
+            _data.append(LikeContainer(placeId: place))
+            save()
         }
 
-        _data.append(LikeContainer(placeId: place))
-        save()
+        _eventsAdapter.Trigger(action: { handler in
+            handler.like?(placeId: place)
+            handler.change?(placeId: place, isLiked: true)
+        })
     }
     public func unlike(place: Long) {
 
         Log.Debug(_tag, "Unlike place #\(place).")
-        if nil == find(by: place) {
-            return
+
+        if let _ = find(by: place) {
+            
+            _data.remove(at: _data.index(where: { $0.placeId == place })!)
+            save()
         }
 
-        _data.remove(at: _data.index(where: { $0.placeId == place })!)
-        save()
+        _eventsAdapter.Trigger(action: { handler in
+            handler.unlike?(placeId: place)
+            handler.change?(placeId: place, isLiked: false)
+        })
     }
     private func find(by placeId: Long) -> LikeContainer? {
         return _data.find({ $0.placeId == placeId })
@@ -117,5 +139,16 @@ public class LikesService {
                 Keys.placeId ~~> self.placeId
                 ])
         }
+    }
+}
+
+//MARK: IEventsEmitter
+extension LikesService: IEventsEmitter {
+
+    public func subscribe(guid: String, handler: LikesServiceDelegate, tag: String) {
+        _eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        _eventsAdapter.unsubscribe(guid: guid)
     }
 }

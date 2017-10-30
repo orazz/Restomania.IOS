@@ -35,10 +35,31 @@ public class SearchPlaceCardCell: UITableViewCell {
     
 
     //MARK: Data
+    private let _tag = String.tag(SearchPlaceCardCell.self)
+    private let _guid = Guid.new
     private var _source: SearchPlaceCard!
     private var _isLiked: Bool = false
     private var _delegate: PlacesListDelegate!
     private var _isSetupMarkup: Bool = false
+
+    //Services
+    private let _likes = ServicesFactory.shared.likes
+
+
+
+    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        _likes.subscribe(guid: _guid, handler: self, tag: _tag)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        _likes.subscribe(guid: _guid, handler: self, tag: _tag)
+    }
+    deinit {
+        _likes.unsubscribe(guid: _guid)
+    }
 
 
 
@@ -108,22 +129,23 @@ public class SearchPlaceCardCell: UITableViewCell {
         let isLiked = _delegate.isLiked(place: _source.ID)
 
         setupLike(isLiked)
-
-        _isLiked = isLiked
     }
     private func setupLike(_ isLiked: Bool) {
 
-        if (isLiked) {
-            LikeImage.image = ThemeSettings.Images.heartActive
+        DispatchQueue.main.async {
+            if (isLiked) {
+                self.LikeImage.image = ThemeSettings.Images.heartActive
+            }
+            else {
+                self.LikeImage.image = ThemeSettings.Images.heartInactive
+            }
         }
-        else {
-            LikeImage.image = ThemeSettings.Images.heartInactive
-        }
+
+        _isLiked = isLiked
     }
     @objc private func tapOnLike() {
 
-        _isLiked = !_isLiked
-        setupLike(_isLiked)
+        setupLike(!_isLiked)
 
         if (_isLiked) {
             _delegate.like(place: _source.ID)
@@ -131,6 +153,16 @@ public class SearchPlaceCardCell: UITableViewCell {
         else {
             _delegate.unlike(place: _source.ID)
         }
+    }
+}
 
+//MARK: LikesServiceDelegate
+extension SearchPlaceCardCell: LikesServiceDelegate {
+
+    public func change(placeId: Long, isLiked: Bool) {
+
+        if (_source.ID == placeId) {
+            setupLike(isLiked)
+        }
     }
 }

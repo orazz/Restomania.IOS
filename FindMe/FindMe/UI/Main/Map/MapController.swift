@@ -23,6 +23,8 @@ public class MapController: UIViewController {
 
 
     //MARK: Data & Services
+    private let _tag = String.tag(MapController.self)
+    private let _guid = Guid.new
     private var _listAdapter: PlacesListAdapter!
     private var _cache: SearchPlaceCardsCacheService!
     private var _likesService: LikesService!
@@ -58,7 +60,12 @@ public class MapController: UIViewController {
         _likesService = ServicesFactory.shared.likes
         _positions = ServicesFactory.shared.positions
 
+        _likesService.subscribe(guid: _guid, handler: self, tag: _tag)
+
         loadData()
+    }
+    deinit {
+        _likesService.unsubscribe(guid: _guid)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -246,7 +253,16 @@ extension MapController: MKMapViewDelegate {
     }
 }
 
+//MARK: LikesServiceDelegate
+extension MapController: LikesServiceDelegate {
 
+    public func change(placeId: Long, isLiked: Bool) {
+        
+        DispatchQueue.main.async {
+            self.reload()
+        }
+    }
+}
 
 
 

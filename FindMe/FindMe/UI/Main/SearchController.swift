@@ -21,6 +21,8 @@ public class SearchController: UIViewController {
 
 
     //MARK: Data & Services
+    private let _tag = String.tag(SearchController.self)
+    private let _guid = Guid.new
     private var _listAdapter: PlacesListAdapter!
     private var _tableAdapter: PlacesListTableAdapter!
     private var _cache: SearchPlaceCardsCacheService!
@@ -45,7 +47,12 @@ public class SearchController: UIViewController {
         _cache = ServicesFactory.shared.searchCards
         _likesService = ServicesFactory.shared.likes
 
+        _likesService.subscribe(guid: _guid, handler: self, tag: _tag)
+
         loadData()
+    }
+    deinit {
+        _likesService.unsubscribe(guid: _guid)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -97,6 +104,17 @@ public class SearchController: UIViewController {
 
             default:
                 return _tableAdapter.update(places: _stored)
+        }
+    }
+}
+
+//MARK: LikesServiceDelegate
+extension SearchController: LikesServiceDelegate {
+
+    public func change(placeId: Long, isLiked: Bool) {
+        DispatchQueue.main.async {
+            //Analog of update all
+            self.updateSegment()
         }
     }
 }

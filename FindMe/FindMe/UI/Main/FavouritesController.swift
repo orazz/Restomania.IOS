@@ -20,6 +20,8 @@ public class FavouritesController: UIViewController {
 
 
     //MARK: Data & Services
+    private let _tag = String.tag(FavouritesController.self)
+    private let _guid = Guid.new
     private var _listAdapter: PlacesListAdapter!
     private var _tableAdapter: PlacesListTableAdapter!
     private var _cache: SearchPlaceCardsCacheService!
@@ -44,8 +46,12 @@ public class FavouritesController: UIViewController {
         _cache = ServicesFactory.shared.searchCards
         _likesService = ServicesFactory.shared.likes
 
+        _likesService.subscribe(guid: _guid, handler: self, tag: _tag)
 
         loadData()
+    }
+    deinit {
+        _likesService.unsubscribe(guid: _guid)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -101,5 +107,16 @@ public class FavouritesController: UIViewController {
                 self._isLoadData = false
             }
         })
+    }
+}
+
+//MARK: LikesServiceDelegate
+extension FavouritesController: LikesServiceDelegate {
+
+    public func change(placeId: Long, isLiked: Bool) {
+
+        DispatchQueue.main.async {
+            self._tableAdapter.reload()
+        }
     }
 }
