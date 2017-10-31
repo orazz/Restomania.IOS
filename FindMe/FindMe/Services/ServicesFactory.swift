@@ -66,5 +66,15 @@ public class ServicesFactory {
                 return UsersAuthApiService(shared.configs)
             }
         }
+
+        public struct Places {
+
+            public static var main: PlacesMainApiService {
+                return PlacesMainApiService(shared.configs)
+            }
+            public static var clients: PlacesClientsApiService {
+                return PlacesClientsApiService(shared.configs)
+            }
+        }
     }
 }

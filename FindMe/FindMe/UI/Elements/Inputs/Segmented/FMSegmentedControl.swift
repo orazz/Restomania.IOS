@@ -85,7 +85,7 @@ public class FMSegmentedControl: UIView {
 
         segmentedControl.removeAllSegments()
 
-        for (key, _) in range {
+        for (key, _) in range.reversed() {
             segmentedControl.insertSegment(withTitle: key, at: 0, animated: false)
         }
 

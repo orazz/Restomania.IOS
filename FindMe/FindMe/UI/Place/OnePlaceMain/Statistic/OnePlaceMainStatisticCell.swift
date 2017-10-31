@@ -18,6 +18,7 @@ public class OnePlaceMainStatisticCell: UITableViewCell {
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! OnePlaceMainStatisticCell
 
+        instance._place = nil
         instance._statistic = nil
         instance.initMarkup()
 
@@ -35,6 +36,7 @@ public class OnePlaceMainStatisticCell: UITableViewCell {
     @IBOutlet public weak var MenAcquaintanceLabel: FMHeadlineLabel!
 
     //MARK: Data & Services
+    private var _place: Place?
     private var _statistic: ClientsData? {
         didSet {
             updateStatistic()
@@ -57,6 +59,7 @@ public class OnePlaceMainStatisticCell: UITableViewCell {
 extension OnePlaceMainStatisticCell: OnePlaceMainCellProtocol {
 
     public func update(by place: Place){
+        self._place = place
         self._statistic = place.clientsData
     }
 }
@@ -67,6 +70,12 @@ extension OnePlaceMainStatisticCell: InterfaceTableCellProtocol {
     }
     public func prepareView() -> UITableViewCell {
         return self
+    }
+    public func select(with navigationController: UINavigationController) {
+
+        let vc = OnePlaceClientsController.build(for: _place!)
+
+        navigationController.pushViewController(vc, animated: true)
     }
 }
 public class OnePlaceMainDivider: UIView {

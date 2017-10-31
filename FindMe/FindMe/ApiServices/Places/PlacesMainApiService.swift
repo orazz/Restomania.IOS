@@ -13,8 +13,7 @@ import AsyncTask
 public class PlacesMainApiService: BaseApiService {
 
     public init(_ configs: ConfigsStorage) {
-        super.init(area: "Places",configs: configs, tag: String.tag(PlacesMainApiService.self))
-        
+        super.init(area: "Places", configs: configs, tag: String.tag(PlacesMainApiService.self))
     }
 
     //MARK: Methods

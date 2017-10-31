@@ -77,6 +77,12 @@
 		1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */; };
 		1F6B21C11F881E310068E29A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21C01F881E300068E29A /* MapController.swift */; };
 		1F6B21C31F881E6D0068E29A /* MapPoputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21C21F881E6D0068E29A /* MapPoputView.swift */; };
+		1F6B892E1FA860F900B7A99A /* PlaceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B892D1FA860F900B7A99A /* PlaceClient.swift */; };
+		1F6B89301FA865D800B7A99A /* OnePlaceClientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B892F1FA865D800B7A99A /* OnePlaceClientsController.swift */; };
+		1F6B89321FA8666F00B7A99A /* OnePlaceClientsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B89311FA8666F00B7A99A /* OnePlaceClientsView.xib */; };
+		1F6B89341FA867CC00B7A99A /* PlacesClientsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B89331FA867CC00B7A99A /* PlacesClientsApiService.swift */; };
+		1F6B89361FA86D7100B7A99A /* OnePlaceClientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B89351FA86D7100B7A99A /* OnePlaceClientsCell.swift */; };
+		1F6B89381FA86DD300B7A99A /* OnePlaceClientsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B89371FA86DD300B7A99A /* OnePlaceClientsCellView.xib */; };
 		1F9DDAAB1F8A7A7600F4618D /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F9DDAB01F8FF09A00F4618D /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */; };
 		1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */; };
@@ -226,6 +232,12 @@
 		1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListTableAdapter.swift; path = UI/Main/Adapters/PlacesListTableAdapter.swift; sourceTree = "<group>"; };
 		1F6B21C01F881E300068E29A /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapController.swift; path = UI/Main/Map/MapController.swift; sourceTree = "<group>"; };
 		1F6B21C21F881E6D0068E29A /* MapPoputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapPoputView.swift; path = UI/Main/Map/MapPoputView.swift; sourceTree = "<group>"; };
+		1F6B892D1FA860F900B7A99A /* PlaceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceClient.swift; path = Domains/Clients/PlaceClient.swift; sourceTree = "<group>"; };
+		1F6B892F1FA865D800B7A99A /* OnePlaceClientsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceClientsController.swift; path = UI/Place/OnePlaceClients/OnePlaceClientsController.swift; sourceTree = "<group>"; };
+		1F6B89311FA8666F00B7A99A /* OnePlaceClientsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceClientsView.xib; path = UI/Place/OnePlaceClients/OnePlaceClientsView.xib; sourceTree = "<group>"; };
+		1F6B89331FA867CC00B7A99A /* PlacesClientsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesClientsApiService.swift; path = ApiServices/Places/PlacesClientsApiService.swift; sourceTree = "<group>"; };
+		1F6B89351FA86D7100B7A99A /* OnePlaceClientsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceClientsCell.swift; path = UI/Place/OnePlaceClients/OnePlaceClientsCell.swift; sourceTree = "<group>"; };
+		1F6B89371FA86DD300B7A99A /* OnePlaceClientsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceClientsCellView.xib; path = UI/Place/OnePlaceClients/OnePlaceClientsCellView.xib; sourceTree = "<group>"; };
 		1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Migrations.swift; path = App/Migrations.swift; sourceTree = "<group>"; };
 		1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLocationCellOneLine.swift; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.swift; sourceTree = "<group>"; };
@@ -385,6 +397,7 @@
 			children = (
 				1F1A0E451F78CE8B00FDBA97 /* Models */,
 				1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */,
+				1F6B89331FA867CC00B7A99A /* PlacesClientsApiService.swift */,
 			);
 			name = Places;
 			sourceTree = "<group>";
@@ -599,12 +612,21 @@
 			name = Adapters;
 			sourceTree = "<group>";
 		};
+		1F6B892C1FA85FBA00B7A99A /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				1F6B892D1FA860F900B7A99A /* PlaceClient.swift */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
 		1FC547FC1F6FB9F9007CE6AB /* Domains */ = {
 			isa = PBXGroup;
 			children = (
 				1FC548041F6FF783007CE6AB /* Accounts */,
 				1FC548051F6FF78F007CE6AB /* Places */,
 				1F4DDE051F97751C005CED0B /* Users */,
+				1F6B892C1FA85FBA00B7A99A /* Clients */,
 				1FC548061F6FF7A0007CE6AB /* Tools */,
 			);
 			name = Domains;
@@ -847,6 +869,10 @@
 		1FF8E6271FA7A2D2001852CE /* OnePlaceClients */ = {
 			isa = PBXGroup;
 			children = (
+				1F6B892F1FA865D800B7A99A /* OnePlaceClientsController.swift */,
+				1F6B89311FA8666F00B7A99A /* OnePlaceClientsView.xib */,
+				1F6B89351FA86D7100B7A99A /* OnePlaceClientsCell.swift */,
+				1F6B89371FA86DD300B7A99A /* OnePlaceClientsCellView.xib */,
 			);
 			name = OnePlaceClients;
 			sourceTree = "<group>";
@@ -996,6 +1022,7 @@
 				1FC583921F8150EF0045941A /* Main.storyboard in Resources */,
 				1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */,
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
+				1F6B89321FA8666F00B7A99A /* OnePlaceClientsView.xib in Resources */,
 				1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */,
 				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
 				1F1A0E541F78ED3800FDBA97 /* GreetingController.xib in Resources */,
@@ -1013,6 +1040,7 @@
 				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
 				1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */,
 				1F3382FE1F97DD5E00E43596 /* FMSegmentedControl.xib in Resources */,
+				1F6B89381FA86DD300B7A99A /* OnePlaceClientsCellView.xib in Resources */,
 				1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */,
 				1F3382F71F97D45300E43596 /* FMSwitch.xib in Resources */,
 			);
@@ -1160,6 +1188,7 @@
 				1FC5481D1F7047F7007CE6AB /* Action.swift in Sources */,
 				1F24A9171F89722E000BD8F1 /* OnePlaceMainSliderCell.swift in Sources */,
 				1F3382FC1F97DAD400E43596 /* FMSegmentedControl.swift in Sources */,
+				1F6B892E1FA860F900B7A99A /* PlaceClient.swift in Sources */,
 				1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */,
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
 				1FF8E6291FA7A331001852CE /* OnePlaceLocationController.swift in Sources */,
@@ -1174,6 +1203,7 @@
 				1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */,
 				1FF8E6261FA6359A001852CE /* SlackNotifier.swift in Sources */,
 				1FC548111F702FC5007CE6AB /* ApiKeys.swift in Sources */,
+				1F6B89301FA865D800B7A99A /* OnePlaceClientsController.swift in Sources */,
 				1F24A90B1F896366000BD8F1 /* OnePlaceMainController.swift in Sources */,
 				1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */,
 				1FC5481F1F7048EF007CE6AB /* Attachment.swift in Sources */,
@@ -1195,6 +1225,7 @@
 				1F9DDAB01F8FF09A00F4618D /* Migrations.swift in Sources */,
 				1F46770B1F910003007E426D /* OnePlaceMainDescriptionCell.swift in Sources */,
 				1F4677131F950F21007E426D /* OnePlaceMainSpaceCell.swift in Sources */,
+				1F6B89361FA86D7100B7A99A /* OnePlaceClientsCell.swift in Sources */,
 				1F3382F31F97D1C700E43596 /* FMSwitch.swift in Sources */,
 				1F09EE571F86336D00694D8D /* UsersAuthApiService.swift in Sources */,
 				1FC5480F1F702CFD007CE6AB /* CheckInData.swift in Sources */,
@@ -1223,6 +1254,7 @@
 				1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */,
 				1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */,
 				1F0483881F84CB8100D00EED /* BackgroundTasksService.swift in Sources */,
+				1F6B89341FA867CC00B7A99A /* PlacesClientsApiService.swift in Sources */,
 				1F1A0E411F77E8D500FDBA97 /* IKeysStorage.swift in Sources */,
 				1F4C82C71F952932004B294C /* OnePlaceMainContactsCell.swift in Sources */,
 				1F6B21C31F881E6D0068E29A /* MapPoputView.swift in Sources */,
