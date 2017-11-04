@@ -20,7 +20,8 @@ public class OrdersController: UIViewController, OrdersControllerProtocol, UITab
     //UI Elements
     @IBOutlet weak var TableView: UITableView!
 
-    //Tools 
+    //Tools
+    private let _tag = String.tag(OrdersController.self)
     private var _loader: InterfaceLoader!
     private var _apiService: UserOrdersApiService!
     private var _orders: [DishOrder] = [DishOrder]()
@@ -72,7 +73,7 @@ public class OrdersController: UIViewController, OrdersControllerProtocol, UITab
 
                 if (!response.isSuccess) {
 
-                    Log.Warning(self.getTag(), "Problem with getting orders.")
+                    Log.Warning(self._tag, "Problem with getting orders.")
                 } else {
 
                     let orders = response.data?.filter({ placeIds.contains($0.Summary.PlaceID)  })

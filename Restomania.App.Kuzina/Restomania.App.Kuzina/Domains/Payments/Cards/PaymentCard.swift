@@ -12,6 +12,15 @@ import IOSLibrary
 
 public class PaymentCard: BaseDataType {
 
+    public struct Keys {
+        public static let userId = "UserID"
+        public static let last4Number = "Last4Number"
+        public static let status = "Status"
+        public static let type = "Type"
+        public static let clientType = "ClientType"
+        public static let currency = "Currency"
+    }
+
     public var UserID: Int64
     public var Last4Number: String
     public var Status: PaymentCardStatus
@@ -22,7 +31,7 @@ public class PaymentCard: BaseDataType {
     public override init() {
 
         self.UserID = 0
-        self.Last4Number = String.Empty
+        self.Last4Number = String.empty
         self.Status = .Proccessing
         self.Type = .Other
         self.ClientType = .TestClient
@@ -30,16 +39,29 @@ public class PaymentCard: BaseDataType {
 
         super.init()
     }
+
+    // MARK: Glossy
     public required init(json: JSON) {
 
-        self.UserID = ("UserID" <~~ json)!
-        self.Last4Number = ("Last4Number" <~~ json)!
-        self.Status = ("Status" <~~ json)!
-        self.Type = ("Type" <~~ json)!
-        self.ClientType = ("ClientType" <~~ json)!
-        self.Currency = ("Currency" <~~ json)!
+        self.UserID = (Keys.userId <~~ json)!
+        self.Last4Number = (Keys.last4Number <~~ json)!
+        self.Status = (Keys.status <~~ json)!
+        self.Type = (Keys.type <~~ json)!
+        self.ClientType = (Keys.clientType <~~ json)!
+        self.Currency = (Keys.currency <~~ json)!
 
         super.init(json: json)
     }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+            super.toJSON(),
 
+            Keys.userId ~~> self.UserID,
+            Keys.last4Number ~~> self.Last4Number,
+            Keys.status ~~> self.Status,
+            Keys.type ~~> self.Type,
+            Keys.clientType ~~> self.ClientType,
+            Keys.currency ~~> self.Currency
+            ])
+    }
 }

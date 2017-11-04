@@ -11,9 +11,8 @@ import AsyncTask
 
 public class WrappedImage: UIImageView {
 
-    private let _tag = "WrappedImage"
+    private let _tag = String.tag(WrappedImage.self)
     private let _images = ServicesManager.current.images
-    private let _theme = AppSummary.current.theme
     private var _url: String?
 
     public override init(frame: CGRect) {
@@ -28,10 +27,10 @@ public class WrappedImage: UIImageView {
     }
     private func initialize() {
 
-        self.image = _theme.defaultImage
+        self.image = ThemeSettings.Images.default
 
         self.contentMode = .scaleAspectFill
-        self.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0)
+        self.backgroundColor = UIColor.clear
 
     }
 
@@ -44,7 +43,7 @@ public class WrappedImage: UIImageView {
 
         _url = url
 
-        if (String.IsNullOrEmpty(url)) {
+        if (String.isNullOrEmpty(url)) {
 
             self.animatedSetupImage(nil)
             return
@@ -110,7 +109,7 @@ public class WrappedImage: UIImageView {
     }
     private func animatedSetupImage(_ image: UIImage? = nil) {
 
-        let image = image ?? self._theme.defaultImage
+        let image = image ?? ThemeSettings.Images.default
 
         DispatchQueue.main.async {
 

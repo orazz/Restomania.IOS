@@ -28,9 +28,9 @@ public class Place: Account {
     public override init() {
         self.Status = .Processing
         self.TableCount = 0
-        self.LogoLink = String.Empty
-        self.BackgroundImageLink = String.Empty
-        self.Description = String.Empty
+        self.LogoLink = String.empty
+        self.BackgroundImageLink = String.empty
+        self.Description = String.empty
         self.Type = .Other
         self.KitchenType = .Russian
 
@@ -60,5 +60,8 @@ public class Place: Account {
         self.Loyalty = ("Loyalty" <~~ json)!
 
         super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
+        fatalError("Need complete DT")
     }
 }

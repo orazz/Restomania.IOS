@@ -12,11 +12,12 @@ import IOSLibrary
 
 public class SearchController: UIViewController, UISearchBarDelegate {
 
-    public let tag = "SearchController"
-
+    // MARK: UI elements
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var table: UITableView!
 
+    // MARK: Data & services
+    private let _tag = String.tag(SearchController.self)
     private var _loader: InterfaceLoader!
     private var _tableAdapter: TableAdapter!
     private var _searchAdapter: SearchAdapter<PlaceSummary>!
@@ -98,7 +99,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     //SearchBar delegate
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        let filtered = _searchAdapter.filter(phrase: searchBar.text ?? String.Empty, for: _data)
+        let filtered = _searchAdapter.filter(phrase: searchBar.text ?? String.empty, for: _data)
 
         _tableAdapter.Update(filtered)
     }

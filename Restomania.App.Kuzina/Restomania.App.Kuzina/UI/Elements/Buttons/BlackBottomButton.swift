@@ -11,7 +11,9 @@ import Foundation
 public class BlackBottomButton: BlackButton {
 
     override func stylize() {
-        super.stylize(textColor: theme.whiteColor, backgroundColor: theme.blackColor, borderColor: theme.borderColor)
+        super.stylize(textColor: ThemeSettings.Colors.additional,
+                      backgroundColor: ThemeSettings.Colors.main,
+                      borderColor: ThemeSettings.Colors.border)
 
         self.layer.cornerRadius = 0
         self.layer.borderWidth = 0

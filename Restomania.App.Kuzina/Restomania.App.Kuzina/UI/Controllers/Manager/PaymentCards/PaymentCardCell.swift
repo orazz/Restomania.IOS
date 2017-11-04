@@ -11,7 +11,7 @@ import IOSLibrary
 
 public class PaymentCardCell: UITableViewCell {
 
-    public static let identifier = "PaymentCardCell-\(Guid.New)"
+    public static let identifier = "PaymentCardCell-\(Guid.new)"
     public static let nibName = "PaymentCardCellView"
     public static let height: CGFloat = 50
 
@@ -53,9 +53,7 @@ public class PaymentCardCell: UITableViewCell {
             return
         }
 
-        let theme = AppSummary.current.theme
-
-        let font = UIFont(name: theme.susanBookFont, size: theme.headlineFontsize)
+        let font = ThemeSettings.Fonts.default(size: .head)
         NumberLabel.font = font
         TypeLabel.font = font
 

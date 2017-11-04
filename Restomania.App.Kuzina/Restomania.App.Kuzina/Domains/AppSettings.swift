@@ -8,45 +8,34 @@
 
 import Gloss
 
-public class AppSettings: Decodable {
+public class AppSettings: Gloss.Decodable {
+
+    public struct Keys {
+        public static let hostname = "HostName"
+        public static let apiHostname = "ApiHostName"
+        public static let debug = "Debug"
+        public static let paymentClient = "PaymentClient"
+    }
+
     public let HostName: String
     public let ApiHostName: String
-//    public let StatusPath: String
-//    public let ReportsPath: String
-//    public let UploadUrl: String
-//    public let SettingsPath: String
-
     public let Debug: Bool
-
-    public let DefaultSquareImage: String
-    public let DefaultHDImage: String
-
     public let PaymentClient: BankClientType
 
     public init() {
-        self.HostName = String.Empty
-        self.ApiHostName = String.Empty
 
+        self.HostName = String.empty
+        self.ApiHostName = String.empty
         self.Debug = false
-
-        self.DefaultHDImage = String.Empty
-        self.DefaultSquareImage = String.Empty
-
         self.PaymentClient = .TestClient
     }
+
+    // MARK: Decodable
     public required init(json: JSON) {
-        self.HostName = ("HostName" <~~ json)!
-        self.ApiHostName = ("ApiHostName" <~~ json)!
-//        self.StatusPath = "StatusPath" <~~ json
-//        self.ReportsPath = "ReportsPath" <~~ json
-//        self.UploadUrl = "UploadUrl" <~~ json
-//        self.SettingsPath = "SettingsPath" <~~ json
 
-        self.Debug = ("Debug" <~~ json)!
-
-        self.DefaultSquareImage = ("DefaultSquareImage" <~~ json)!
-        self.DefaultHDImage = ("DefaultHDImage" <~~ json)!
-
-        self.PaymentClient = ("PaymentClient" <~~ json)!
+        self.HostName = (Keys.hostname <~~ json)!
+        self.ApiHostName = (Keys.apiHostname <~~ json)!
+        self.Debug = (Keys.debug <~~ json)!
+        self.PaymentClient = (Keys.paymentClient <~~ json)!
     }
 }

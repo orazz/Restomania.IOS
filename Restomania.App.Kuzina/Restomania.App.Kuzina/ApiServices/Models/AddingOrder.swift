@@ -8,8 +8,19 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
-public class AddingOrder: Encodable {
+public class AddingOrder: Gloss.Encodable {
+
+    public struct Keys {
+        public static let placeId = "PlaceID"
+        public static let cardId = "CardID"
+        public static let completeDate = "CompleteDate"
+        public static let takeAway = "TakeAway"
+        public static let dishes = "Dishes"
+        public static let comment = "Comment"
+        public static let personCount = "PersonCount"
+    }
 
     public var PlaceID: Int64
     public var CardID: Int64
@@ -25,19 +36,20 @@ public class AddingOrder: Encodable {
         self.CompleteDate = Date()
         self.TakeAway = false
         self.Dishes = [OrderedDish]()
-        self.Comment = String.Empty
+        self.Comment = String.empty
         self.PersonCount = 0
     }
 
+    // MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-                "PlaceID" ~~> PlaceID,
-                "CardID" ~~> CardID,
-                "CompleteDate" ~~> CompleteDate,
-                "TakeAway" ~~> TakeAway,
-                "Dishes" ~~> Dishes,
-                "Comment" ~~> Comment,
-                "PersonCount" ~~> PersonCount
+                Keys.placeId ~~> PlaceID,
+                Keys.cardId ~~> CardID,
+                Keys.completeDate  ~~> CompleteDate.prepareForJson(),
+                Keys.takeAway ~~> TakeAway,
+                Keys.dishes ~~> Dishes,
+                Keys.comment ~~> Comment,
+                Keys.personCount ~~> PersonCount
             ])
     }
 }

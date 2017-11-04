@@ -28,7 +28,7 @@ public class BaseNotificationPreference: BaseDataType {
 
     public override init() {
         self.ConnectionMethod = .Email
-        self.Login = String.Empty
+        self.Login = String.empty
 
         self.CompletePayment = false
 

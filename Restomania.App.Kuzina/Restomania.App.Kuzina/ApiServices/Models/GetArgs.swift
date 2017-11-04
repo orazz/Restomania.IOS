@@ -8,8 +8,15 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
-public class GetArgs: Encodable {
+public class GetArgs {
+
+    public struct Keys {
+        public static let take = "Take"
+        public static let skip = "Skip"
+        public static let time = "Time"
+    }
 
     public var take: Int
     public var skip: Int
@@ -28,11 +35,16 @@ public class GetArgs: Encodable {
         self.time = time
     }
 
+}
+
+// MARK: Encodable
+extension GetArgs: Gloss.Encodable {
+
     public func toJSON() -> JSON? {
         return jsonify([
-            "Take" ~~> take,
-            "Skip" ~~> skip,
-            "Time" ~~> time
+            Keys.time ~~> take,
+            Keys.skip ~~> skip,
+            Keys.time ~~> time?.prepareForJson()
             ])
     }
 }

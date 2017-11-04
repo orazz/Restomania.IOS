@@ -12,9 +12,10 @@ import AsyncTask
 public class SystemSettingsApiService: BaseApiService {
 
     public init() {
-        super.init(area: "System/Settings", tag: "SystemSettingsApiService")
+        super.init(area: "System/Settings", tag: String.tag(SystemSettingsApiService.self))
     }
 
+    // MARK: Methods
     public func All() -> RequestResult<AppSettings> {
         return _client.Get(action: "All", type: AppSettings.self)
     }

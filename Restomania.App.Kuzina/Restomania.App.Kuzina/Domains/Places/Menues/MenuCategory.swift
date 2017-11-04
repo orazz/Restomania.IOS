@@ -35,7 +35,7 @@ public class MenuCategory: BaseDataType, IMenuDependent, ISortable {
         self.orderNumber = 0
 
         self.parentId = nil
-        self.name = String.Empty
+        self.name = String.empty
         self.isHidden = true
 
         super.init()

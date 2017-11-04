@@ -10,8 +10,6 @@ import UIKit
 
 public  class BaseButton: UIButton {
 
-    internal let theme = AppSummary.current.theme
-
     public override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -26,7 +24,7 @@ public  class BaseButton: UIButton {
 
     internal func stylize() {
 
-        stylize(textColor: theme.blackColor, backgroundColor: theme.backgroundColor)
+        stylize(textColor: ThemeSettings.Colors.main, backgroundColor: ThemeSettings.Colors.background)
     }
     internal func stylize(textColor: UIColor, backgroundColor: UIColor, borderColor: UIColor? = nil) {
 
@@ -34,7 +32,7 @@ public  class BaseButton: UIButton {
 //        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
 
         //Styles
-        self.titleLabel?.font = UIFont(name: theme.susanBookFont, size: theme.titleFontSize)!
+        self.titleLabel?.font = ThemeSettings.Fonts.default(size: .title)
         self.tintColor = textColor
         self.backgroundColor = backgroundColor
 

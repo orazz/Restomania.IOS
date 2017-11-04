@@ -12,25 +12,44 @@ import IOSLibrary
 
 public class PlaceContacts: BaseDataType {
 
+    public struct Keys {
+        public static let phoneNumber = "PhoneNumber"
+        public static let email = "Email"
+        public static let website = "Website"
+        public static let links = "Links"
+    }
+
     public var PhoneNumber: String
     public var Email: String
     public var Website: String
     public var Links: [Link]
 
     public override init() {
-        self.PhoneNumber = String.Empty
-        self.Email = String.Empty
-        self.Website = String.Empty
+        self.PhoneNumber = String.empty
+        self.Email = String.empty
+        self.Website = String.empty
         self.Links = [Link]()
 
         super.init()
     }
+
+    // MARK: Glossy
     public required init(json: JSON) {
-        self.PhoneNumber = ("PhoneNumber" <~~ json)!
-        self.Email = ("Email" <~~ json)!
-        self.Website = ("Website" <~~ json)!
-        self.Links = ("Links" <~~ json) ?? [Link]()
+        self.PhoneNumber = (Keys.phoneNumber <~~ json)!
+        self.Email = (Keys.email <~~ json)!
+        self.Website = (Keys.website <~~ json)!
+        self.Links = (Keys.links <~~ json) ?? [Link]()
 
         super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+            super.toJSON(),
+
+            Keys.phoneNumber ~~> self.PhoneNumber,
+            Keys.email ~~> self.Email,
+            Keys.website ~~> self.Website,
+            Keys.links ~~> self.Links
+            ])
     }
 }

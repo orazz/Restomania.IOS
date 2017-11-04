@@ -22,46 +22,13 @@ public class ShortSchedule: Glossy, ICopying {
 
     public init() {
 
-        self.Sunday = String.Empty
-        self.Monday = String.Empty
-        self.Tuesday = String.Empty
-        self.Wednesday = String.Empty
-        self.Thursday = String.Empty
-        self.Friday = String.Empty
-        self.Saturday = String.Empty
-    }
-    public required init(json: JSON) {
-
-        self.Sunday = ("Sunday" <~~ json)!
-        self.Monday = ("Monday" <~~ json)!
-        self.Tuesday = ("Tuesday" <~~ json)!
-        self.Wednesday = ("Wednesday" <~~ json)!
-        self.Thursday = ("Thursday" <~~ json)!
-        self.Friday = ("Friday" <~~ json)!
-        self.Saturday = ("Saturday" <~~ json)!
-    }
-    public required init(source: ShortSchedule) {
-
-        self.Sunday = source.Sunday
-        self.Monday = source.Monday
-        self.Tuesday = source.Tuesday
-        self.Wednesday = source.Wednesday
-        self.Thursday = source.Thursday
-        self.Friday = source.Friday
-        self.Saturday = source.Saturday
-    }
-
-    public func toJSON() -> JSON? {
-
-        return jsonify([
-            "Sunday" ~~> Sunday,
-            "Monday" ~~> Monday,
-            "Tuesday" ~~> Tuesday,
-            "Wednesday" ~~> Wednesday,
-            "Thursday" ~~> Thursday,
-            "Friday" ~~> Friday,
-            "Saturday" ~~> Saturday
-            ])
+        self.Sunday = String.empty
+        self.Monday = String.empty
+        self.Tuesday = String.empty
+        self.Wednesday = String.empty
+        self.Thursday = String.empty
+        self.Friday = String.empty
+        self.Saturday = String.empty
     }
 
     public func dayValue(_ weekDay: Int) -> String {
@@ -77,10 +44,45 @@ public class ShortSchedule: Glossy, ICopying {
 
         let value = dayValue(day)
 
-        if (String.IsNullOrEmpty(value)) {
+        if (String.isNullOrEmpty(value)) {
             return value
         }
 
         return value.replacingOccurrences(of: "-", with: " - ")
+    }
+
+    // MARK: ICopying
+    public required init(source: ShortSchedule) {
+
+        self.Sunday = source.Sunday
+        self.Monday = source.Monday
+        self.Tuesday = source.Tuesday
+        self.Wednesday = source.Wednesday
+        self.Thursday = source.Thursday
+        self.Friday = source.Friday
+        self.Saturday = source.Saturday
+    }
+    // MARK: Glossy
+    public required init(json: JSON) {
+
+        self.Sunday = ("Sunday" <~~ json)!
+        self.Monday = ("Monday" <~~ json)!
+        self.Tuesday = ("Tuesday" <~~ json)!
+        self.Wednesday = ("Wednesday" <~~ json)!
+        self.Thursday = ("Thursday" <~~ json)!
+        self.Friday = ("Friday" <~~ json)!
+        self.Saturday = ("Saturday" <~~ json)!
+    }
+    public func toJSON() -> JSON? {
+
+        return jsonify([
+            "Sunday" ~~> Sunday,
+            "Monday" ~~> Monday,
+            "Tuesday" ~~> Tuesday,
+            "Wednesday" ~~> Wednesday,
+            "Thursday" ~~> Thursday,
+            "Friday" ~~> Friday,
+            "Saturday" ~~> Saturday
+            ])
     }
 }

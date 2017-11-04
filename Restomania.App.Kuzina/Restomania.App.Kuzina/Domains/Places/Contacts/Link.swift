@@ -17,7 +17,7 @@ public class Link: BaseDataType {
 
     public override init() {
         self.Type = .Other
-        self.Url = String.Empty
+        self.Url = String.empty
 
         super.init()
     }

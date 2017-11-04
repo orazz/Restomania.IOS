@@ -9,7 +9,14 @@
 import Foundation
 import Gloss
 
-public class CountedLoyaltyDiscounts: Decodable {
+public class CountedLoyaltyDiscounts: Gloss.Decodable {
+
+    public struct Keys {
+        public static let bonuses = "Bonuses"
+        public static let fixedDiscount = "FixedDiscount"
+        public static let regularCustomerDiscount = "RegularCustomerDiscount"
+    }
+
     public var Bonuses: CountedLoyaltySystem
     public var FixedDiscount: CountedLoyaltySystem
     public var RegularCustomerDiscount: CountedLoyaltySystem
@@ -19,9 +26,11 @@ public class CountedLoyaltyDiscounts: Decodable {
         self.FixedDiscount = CountedLoyaltySystem()
         self.RegularCustomerDiscount = CountedLoyaltySystem()
     }
+
+    // MARK: Decodable
     public required init(json: JSON) {
-        self.Bonuses = ("Bonuses" <~~ json)!
-        self.FixedDiscount = ("FixedDiscount" <~~ json)!
-        self.RegularCustomerDiscount = ("RegularCustomerDiscount" <~~ json)!
+        self.Bonuses = (Keys.bonuses <~~ json)!
+        self.FixedDiscount = (Keys.fixedDiscount <~~ json)!
+        self.RegularCustomerDiscount = (Keys.regularCustomerDiscount <~~ json)!
     }
 }

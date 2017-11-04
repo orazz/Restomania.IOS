@@ -12,25 +12,44 @@ import IOSLibrary
 
 public class Account: BaseDataType {
 
+    public struct Keys {
+        public static let email = "Email"
+        public static let name = "Name"
+        public static let rights = "Rights"
+        public static let currency = "CurrencyType"
+    }
+
     public var Email: String
     public var Name: String
     public var Rights: AccessRights
     public var CurrencyType: CurrencyType
 
     public override init() {
-        self.Email = String.Empty
-        self.Name = String.Empty
+        self.Email = String.empty
+        self.Name = String.empty
         self.Rights = .User
         self.CurrencyType = .RUB
 
         super.init()
     }
+
+    // MARK: Glossy
     public required init(json: JSON) {
-        self.Email = ("Email" <~~ json) ?? String.Empty
-        self.Name = ("Name" <~~ json)!
-        self.Rights = ("Rights" <~~ json) ?? .User
-        self.CurrencyType = ("CurrencyType" <~~ json)!
+        self.Email = (Keys.email <~~ json) ?? String.empty
+        self.Name = (Keys.name <~~ json)!
+        self.Rights = (Keys.rights <~~ json) ?? .User
+        self.CurrencyType = (Keys.currency <~~ json)!
 
         super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+            super.toJSON(),
+
+            Keys.email ~~> self.Email,
+            Keys.name ~~> self.Name,
+            Keys.rights ~~> self.Rights,
+            Keys.currency ~~> self.CurrencyType
+            ])
     }
 }

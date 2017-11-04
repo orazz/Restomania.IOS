@@ -17,9 +17,7 @@ public protocol IKeysCRUDStorage: IKeysStorage {
 }
 public class KeysStorage: IKeysCRUDStorage, ILoggable {
 
-    public var tag: String {
-        return "KeysStorage"
-    }
+    public var tag = String.tag(KeysStorage.self)
 
     private var _data: [KeysContainer]
     private let _filename: String = "keys-storage.json"
@@ -106,25 +104,26 @@ public class KeysStorage: IKeysCRUDStorage, ILoggable {
 
         remove(for: rights)
     }
-}
-private class KeysContainer: Glossy {
 
-    public var keys: AccessKeys
-    public var rights: AccessRights
+    private class KeysContainer: Glossy {
 
-    public init() {
-        self.keys = AccessKeys()
-        self.rights = .User
-    }
-    public required init(json: JSON) {
-        self.keys = ("keys" <~~ json)!
-        self.rights = ("rights" <~~ json)!
-    }
+        public var keys: AccessKeys
+        public var rights: AccessRights
 
-    public func toJSON() -> JSON? {
-        return jsonify([
-            "keys" ~~> self.keys,
-            "rights" ~~> self.rights
-            ])
+        public init() {
+            self.keys = AccessKeys()
+            self.rights = .User
+        }
+        public required init(json: JSON) {
+            self.keys = ("keys" <~~ json)!
+            self.rights = ("rights" <~~ json)!
+        }
+
+        public func toJSON() -> JSON? {
+            return jsonify([
+                "keys" ~~> self.keys,
+                "rights" ~~> self.rights
+                ])
+        }
     }
 }

@@ -50,9 +50,6 @@ public class AppSummary: ILoggable {
         //ServerUrl
         self.serverUrl = configs.Get(.ServerUrl)
 
-        //Theme
-        self.theme = ThemeSettings()
-
         //Version
         self.version = "1.0.0"
         self.build = 1
@@ -67,15 +64,16 @@ public class AppSummary: ILoggable {
     }
     private func checkVersion() {
         let configs = ConfigsStorage(plistName: "Info")
-        self.version = configs.Get(forKey: "CFBundleShortVersionString").value as! String
-        self.build = Int(configs.Get(forKey: "CFBundleVersion").value as! String)!
+        self.version = configs.get(forKey: "CFBundleShortVersionString").value as! String
+        self.build = Int(configs.get(forKey: "CFBundleVersion").value as! String)!
 
-        let lastVersion = PropertiesStorage.getString(.AppVersion)
-        let lastBuild = PropertiesStorage.getInt(.AppBuild)
+        let storage = PropertiesStorage<PropertiesKey>()
+        let lastVersion = storage.getString(.AppVersion)
+        let lastBuild = storage.getInt(.AppBuild)
 
         //Update versions and build
-        PropertiesStorage.set(.AppVersion, value: version)
-        PropertiesStorage.set(.AppBuild, value: build)
+        storage.set(.AppVersion, value: version)
+        storage.set(.AppBuild, value: build)
 
         if (!lastVersion.hasValue || !lastBuild.hasValue) {
             return
@@ -104,7 +102,7 @@ public class AppSummary: ILoggable {
     }
     private func parseVersion(_ version: String) -> (Int, Int, Int) {
 
-        let range = version.characters.split(separator: ".").map(String.init)
+        let range = version.split(separator: ".").map(String.init)
 
         return (Int(range[0])!,
                 Int(range[1])!,

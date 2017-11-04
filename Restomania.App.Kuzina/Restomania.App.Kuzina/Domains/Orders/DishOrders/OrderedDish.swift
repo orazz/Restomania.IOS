@@ -13,7 +13,6 @@ import IOSLibrary
 public class OrderedDish: BaseDataType {
 
     public struct Keys {
-
         public static let dishId = "DishID"
         public static let name = "Name"
         public static let price = "Price"
@@ -34,7 +33,7 @@ public class OrderedDish: BaseDataType {
     public override init() {
 
         self.DishID = 0
-        self.Name = String.Empty
+        self.Name = String.empty
         self.Price = PriceType()
         self.Count = 0
 

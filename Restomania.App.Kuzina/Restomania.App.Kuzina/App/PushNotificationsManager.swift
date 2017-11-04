@@ -16,116 +16,118 @@ public class PushNotificationsManager {
 
     public static let current = PushNotificationsManager()
 
-    private let tag = "PushNotificationsManager"
-    private let _apiClient: OpenDevicesApiService
-    private let _keysStorage: IKeysStorage
-    private let _currentAppAccessRights: AccessRights
+    private let tag = String.tag(PushNotificationsManager.self)
+//    private let _apiClient: OpenDevicesApiService
+//    private let _keysStorage: IKeysStorage
+//    private let _currentAppAccessRights: AccessRights
 
     private init() {
 
-        _apiClient = OpenDevicesApiService()
-        _keysStorage = ServicesManager.current.keysStorage
-
-        switch(AppSummary.current.clientType) {
-            case .User:
-                _currentAppAccessRights = .User
-                break
-
-            case .Place:
-                _currentAppAccessRights = .Place
-                break
-
-            case .Admin:
-                _currentAppAccessRights = .Admin
-                break
-        }
-
-        let token = PropertiesStorage.getString(.PushDeviceToken)
-        if (token.hasValue) {
-            register(deviceToken: token.value)
-        }
+//        _apiClient = OpenDevicesApiService()
+//        _keysStorage = ServicesManager.current.keysStorage
+//
+//        switch(AppSummary.current.clientType) {
+//            case .User:
+//                _currentAppAccessRights = .User
+//                break
+//
+//            case .Place:
+//                _currentAppAccessRights = .Place
+//                break
+//
+//            case .Admin:
+//                _currentAppAccessRights = .Admin
+//                break
+//        }
+//
+//        let token = PropertiesStorage.getString(.PushDeviceToken)
+//        if (token.hasValue) {
+//            register(deviceToken: token.value)
+//        }
     }
     public func processMessage(push: [AnyHashable: Any]) {
 
-        let task = Task {
-
-//            let aps = push.index(forKey: "aps")
-//            let pair = push[aps!]
+//        let task = Task {
 //
-//            let alertContainer = pair.value
-//            let container = alertContainer as! [String:Any]
-//            let data = container["data"] as! [String: Any]
+////            let aps = push.index(forKey: "aps")
+////            let pair = push[aps!]
+////
+////            let alertContainer = pair.value
+////            let container = alertContainer as! [String:Any]
+////            let data = container["data"] as! [String: Any]
+////
+////            let event = NotificationEvents(rawValue: data["Event"] as! Int)
+////            let modelID = data["ID"] as! Long
+//        }
+//        task.async(.background, completion: {
 //
-//            let event = NotificationEvents(rawValue: data["Event"] as! Int)
-//            let modelID = data["ID"] as! Long
-        }
-        task.async(.background, completion: {
+//            Log.Debug(self.tag, "Complete process push-notification.")
+//        })
 
-            Log.Debug(self.tag, "Complete process push-notification.")
-        })
+        Log.Debug(self.tag, "Complete process push-notification.")
     }
 
-    public func requestPushNotifications() {
-
-        let application = UIApplication.shared
-
-        if #available(iOS 10.0, *) {
-
-            let current = UNUserNotificationCenter.current()
-            current.requestAuthorization(options: [.sound, .alert, .badge], completionHandler: {(result, error) in
-
-                if result {
-                    print("Granted")
-                    application.registerForRemoteNotifications()
-                }
-
-                if let error = error {
-                    print("Error: \(error)")
-                }
-            })
-        } else {
-
-            let settings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
-        }
-    }
-    public func completeRequestToPushNotifications(token: Data?, error: Error? = nil) {
-
-        if let error = error {
-
-            Log.Error(tag, "User not get permissions on send push notifications.")
-            Log.Error(tag, String(describing: error))
-        }
-
-        if let token = token {
-
-            Log.Info(tag, "Get device token for send push notifications.")
-            register(deviceToken: String(data: token, encoding: .utf8)!)
-        }
-    }
-
-    public func register(deviceToken token: String) {
-
-        Log.Debug(tag, "Register device with token: \(token)")
-
-        let keys = _keysStorage.keysFor(rights: _currentAppAccessRights)
-        if nil == keys {
-            return
-        }
-
-        let locale = Locale.preferredLanguages.first ?? "en"
-
-        let task = _apiClient.Register(keys: keys!, token: token, locale: locale)
-        task.async(.background, completion: { result in
-
-            if (result.statusCode == .OK) {
-                Log.Info(self.tag, "Complete success register device for push notification.")
-            }
-
-            PropertiesStorage.set(.PushDeviceToken, value: token)
-        })
-    }
+//    public func requestPushNotifications() {
+//
+//        let application = UIApplication.shared
+//
+//        if #available(iOS 10.0, *) {
+//
+//            let current = UNUserNotificationCenter.current()
+//            current.requestAuthorization(options: [.sound, .alert, .badge], completionHandler: {(result, error) in
+//
+//                if result {
+//                    print("Granted")
+//                    application.registerForRemoteNotifications()
+//                }
+//
+//                if let error = error {
+//                    print("Error: \(error)")
+//                }
+//            })
+//        } else {
+//
+//            let settings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
+//            application.registerUserNotificationSettings(settings)
+//            application.registerForRemoteNotifications()
+//        }
+//    }
+//    public func completeRequestToPushNotifications(token: Data?, error: Error? = nil) {
+//
+//        if let error = error {
+//
+//            Log.Error(tag, "User not get permissions on send push notifications.")
+//            Log.Error(tag, String(describing: error))
+//        }
+//
+//        if let token = token {
+//
+//            Log.Info(tag, "Get device token for send push notifications.")
+//            register(deviceToken: String(data: token, encoding: .utf8)!)
+//        }
+//    }
+//
+//    public func register(deviceToken token: String) {
+//
+//        Log.Debug(tag, "Register device with token: \(token)")
+//
+//        let keys = _keysStorage.keysFor(rights: _currentAppAccessRights)
+//        if nil == keys {
+//            return
+//        }
+//
+//        let locale = Locale.preferredLanguages.first ?? "en"
+//
+//        let task = _apiClient.Register(keys: keys!, token: token, locale: locale)
+//        task.async(.background, completion: { result in
+//
+//            if (result.statusCode == .OK) {
+//                Log.Info(self.tag, "Complete success register device for push notification.")
+//            }
+//
+//            PropertiesStorage.set(.PushDeviceToken, value: token)
+//        })
+//    }
 }
 private enum NotificationEvents: Int {
 

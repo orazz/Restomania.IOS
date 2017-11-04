@@ -12,7 +12,6 @@ import IOSLibrary
 public class GreetingController: UIViewController {
 
     private let _tag = "StartController"
-    private var _theme: ThemeSettings!
 
     @IBOutlet weak var DemoButton: UIButton!
 
@@ -34,13 +33,11 @@ public class GreetingController: UIViewController {
     }
     private func setupMarkup() {
 
-        _theme = AppSummary.current.theme
-
         navigationController?.hideNavigationBar()
 
         //Demo button
-        DemoButton.tintColor = _theme.blackColor
-        DemoButton.titleLabel?.font = UIFont(name: _theme.susanBookFont, size: _theme.captionFontSize)
+        DemoButton.tintColor = ThemeSettings.Colors.main
+        DemoButton.titleLabel?.font = ThemeSettings.Fonts.default(size: .caption)
     }
 
     // MARK: Auth navigation

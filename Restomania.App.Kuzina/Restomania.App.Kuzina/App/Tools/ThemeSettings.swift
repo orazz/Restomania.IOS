@@ -8,30 +8,31 @@
 
 import UIKit
 import IOSLibrary
+
 public class ThemeSettings {
 
-    public struct colors {
+    public class Colors {
 
         public static let main = UIColor(red: 34, green: 31, blue: 30)
-        public static let additional = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
-        public static let grey = UIColor(colorLiteralRed: 234/255, green: 234/255, blue: 234/255, alpha: 1)
-        public static let border = UIColor(colorLiteralRed: 165/255, green: 165/255, blue: 165/255, alpha: 1)
-        public static let background = UIColor(colorLiteralRed: 234/255, green: 234/255, blue: 234/255, alpha: 1)
+        public static let additional = UIColor(red: 255, green: 255, blue: 255)
+        public static let grey = UIColor(red: 234, green: 234, blue: 234)
+        public static let border = UIColor(red: 165, green: 165, blue: 165)
+        public static let background = UIColor(red: 234, green: 234, blue: 234)
     }
 
-    public struct images {
+    public class Images {
 
-        public static let bottomGradient = loadAsset(named: "bottom-gradient")
-        public static let darkFilter = loadAsset(named: "dark-filter")
-        public static let `default` = loadAsset(named: "default-image")
-        public static let logoDark = loadAsset(named: "logo-dark")
+        public static let bottomGradient = loadAssert(named: "bottom-gradient")
+        public static let darkFilter = loadAssert(named: "dark-filter")
+        public static let `default` = loadAssert(named: "default-image")
+        public static let logoDark = loadAssert(named: "logo-dark")
 
         private static func loadAssert(named: String) -> UIImage {
             return UIImage(named: named, in: Bundle.main, compatibleWith: nil)!
         }
     }
 
-    public struct fonts {
+    public class Fonts {
 
         public enum FontSize: Int {
             case title = 20
@@ -41,28 +42,36 @@ public class ThemeSettings {
             case subcaption = 10
         }
 
-        public static func `default`(size: FontSize) -> UIFont { }
-        public static func `default`(size: Int) -> UIFont { }
+        private static let defaultFont = "HelveticaNeue"
+        private static let boldFont = "HelveticaNeue-Bold"
+        private static let iconsFont = "FontAwesome"
 
-        public static func bold(size: FontSize) -> UIFont { }
-        public static func bold(size: Int) -> UIFont { }
+        public static func `default`(size: FontSize) -> UIFont {
+            return Fonts.default(size: size.rawValue)
+        }
+        public static func `default`(size: Int) -> UIFont {
+            return UIFont(name: defaultFont, size: CGFloat(size))!
+        }
 
-        public static func icons(size: FontSize) {
+        public static func bold(size: FontSize) -> UIFont {
+            return Fonts.bold(size: size.rawValue)
+        }
+        public static func bold(size: Int) -> UIFont {
+            return UIFont(name: boldFont, size: CGFloat(size))!
+        }
+
+        public static func icons(size: FontSize) -> UIFont {
             return icons(size: size.rawValue)
         }
-        public static func icons(size: Int){}
+        public static func icons(size: Int) -> UIFont {
+            return icons(size: CGFloat(size))
+        }
+        public static func icons(size: CGFloat) -> UIFont {
+            return UIFont(name: iconsFont, size: size)!
+        }
     }
 
-    public let fontAwesomeFont = "FontAwesome"
-    public let susanBookFont = "Susan Book"
-    public let susanBoldFont = "Susan Bold"
-
-    public let titleFontSize = CGFloat(20)
-    public let headlineFontsize = CGFloat(17)
-    public let subheadFontSize = CGFloat(15)
-    public let captionFontSize = CGFloat(12)
-
     public static func applyStyles() {
-        
+
     }
 }

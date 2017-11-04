@@ -12,7 +12,7 @@ import IOSLibrary
 public class PlaceCard: UITableViewCell {
 
     public static var nibName = "PlaceCard"
-    public static let identifier = "PlaceCard-\(Guid.New)"
+    public static let identifier = "PlaceCard-\(Guid.new)"
     public static let height = CGFloat(150)
 
     @IBOutlet weak var placeImage: WrappedImage!
@@ -20,7 +20,6 @@ public class PlaceCard: UITableViewCell {
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var workingHours: UILabel!
 
-    private let _theme: ThemeSettings = AppSummary.current.theme
     private var _summary: PlaceSummary!
     private var _isSetupedStyles: Bool = false
     private var _touchAction: ((Long) -> Void)!
@@ -39,21 +38,21 @@ public class PlaceCard: UITableViewCell {
             return
         }
 
-        name.font = UIFont(name: _theme.susanBoldFont, size: _theme.titleFontSize)
-        name.textColor = _theme.whiteColor
+        name.font = ThemeSettings.Fonts.bold(size: .title)
+        name.textColor = ThemeSettings.Colors.additional
 
-        workingHours.font = UIFont(name: _theme.susanBookFont, size: _theme.subheadFontSize)
-        workingHours.textColor = _theme.whiteColor
+        workingHours.font = ThemeSettings.Fonts.default(size: .subhead)
+        workingHours.textColor = ThemeSettings.Colors.additional
 
-        location.font = UIFont(name: _theme.susanBookFont, size: _theme.subheadFontSize)
-        location.textColor = _theme.whiteColor
+        location.font = ThemeSettings.Fonts.default(size: .subhead)
+        location.textColor = ThemeSettings.Colors.additional
 
         let handler = UITapGestureRecognizer(target: self, action: #selector(self.tapHandler))
         self.addGestureRecognizer(handler)
 
         _isSetupedStyles = true
     }
-    public func tapHandler() {
+    @objc public func tapHandler() {
 
         _touchAction(_summary.ID)
     }
@@ -67,15 +66,14 @@ public class PlaceCard: UITableViewCell {
     }
     private func format(_ location: PlaceLocation) -> String {
 
-        let parts = [location.Street, location.House].where({ !String.IsNullOrEmpty($0) })
-                                                     .map({ $0! })
+        let parts = [location.Street, location.House].where({ !String.isNullOrEmpty($0) }).map({ $0! })
 
         return parts.joined(separator: ", ")
     }
     private func take(_ workingHours: ShortSchedule) -> String {
 
         let value = workingHours.takeToday()
-        if (String.IsNullOrEmpty(value)) {
+        if (String.isNullOrEmpty(value)) {
             return NSLocalizedString("holiday", comment: "Schedule")
         }
 

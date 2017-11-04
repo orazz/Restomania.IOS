@@ -13,9 +13,10 @@ import AsyncTask
 public class UserCardsApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .User, area: "User/Cards", tag: "UserCardsApiService")
+        super.init(storage: storage, rights: .User, area: "User/Cards", tag: String.tag(UserCardsApiService.self))
     }
 
+    // MARK: Methods
     public func All(args: GetArgs? = nil) -> RequestResult<[PaymentCard]> {
         let parameters = CollectParameters([
                 "time": args?.time

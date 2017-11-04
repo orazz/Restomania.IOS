@@ -12,7 +12,7 @@ import IOSLibrary
 
 public class OrderCell: UITableViewCell {
 
-    public static let identifier = "OrderCell-\(Guid.New)"
+    public static let identifier = "OrderCell-\(Guid.new)"
     public static let nibName = "OrderCellView"
     public static let height: CGFloat = 70
 
@@ -59,8 +59,7 @@ public class OrderCell: UITableViewCell {
             return
         }
 
-        let theme = AppSummary.current.theme
-        let font = UIFont(name: theme.susanBookFont, size: theme.subheadFontSize)!
+        let font = ThemeSettings.Fonts.default(size: .subhead)
 
         IdLabel.font = font
         DateLabel.font = font

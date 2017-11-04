@@ -18,7 +18,7 @@ public class AddingBooking {
     public init() {
         self.PlaceID = 0
         self.CompleteDate = Date()
-        self.Comment = String.Empty
+        self.Comment = String.empty
         self.PersonCount = 1
     }
 }

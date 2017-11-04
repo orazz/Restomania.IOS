@@ -12,6 +12,13 @@ import Gloss
 
 internal class PlaceCartContainer: Glossy {
 
+    public struct Keys {
+        public static let placeId = "placeID"
+        public static let takeaway = "takeaway"
+        public static let dishes = "dishes"
+        public static let comment = "comment"
+    }
+
     public var placeID: Long
     public var takeaway: Bool
     public var dishes: [OrderedDish]
@@ -22,23 +29,24 @@ internal class PlaceCartContainer: Glossy {
         self.placeID = placeID
         self.takeaway = false
         self.dishes = [OrderedDish]()
-        self.comment = String.Empty
+        self.comment = String.empty
     }
+
+    //MARK: Glossy
     public required init(json: JSON) {
 
-        self.placeID = ("placeID" <~~ json)!
-        self.takeaway = ("takeaway" <~~ json)!
-        self.dishes = ("dishes" <~~ json)!
-        self.comment = ("comment" <~~ json)!
+        self.placeID = (Keys.placeId <~~ json)!
+        self.takeaway = (Keys.takeaway <~~ json)!
+        self.dishes = (Keys.dishes <~~ json)!
+        self.comment = (Keys.comment <~~ json)!
     }
-
     public func toJSON() -> JSON? {
 
         return jsonify([
-            "placeID" ~~> self.placeID,
-            "takeaway" ~~> self.takeaway,
-            "dishes" ~~> self.dishes,
-            "comment" ~~> self.comment
+            Keys.placeId ~~> self.placeID,
+            Keys.takeaway ~~> self.takeaway,
+            Keys.dishes ~~> self.dishes,
+            Keys.comment ~~> self.comment
             ])
     }
 }

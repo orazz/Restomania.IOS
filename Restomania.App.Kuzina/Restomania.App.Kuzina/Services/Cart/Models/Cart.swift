@@ -151,7 +151,7 @@ public class Cart: Reservation {
     public override func clear() {
 
         _place.takeaway = false
-        _place.comment = String.Empty
+        _place.comment = String.empty
         _place.dishes.removeAll()
 
         super.clear()

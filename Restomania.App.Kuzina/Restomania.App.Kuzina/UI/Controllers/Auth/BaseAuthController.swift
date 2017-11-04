@@ -16,8 +16,8 @@ public class BaseAuthController: UIViewController {
     internal var storage: IKeysCRUDStorage!
     internal var loader: InterfaceLoader!
 
-    private var login = String.Empty
-    private var password = String.Empty
+    private var login = String.empty
+    private var password = String.empty
     private var rights = AccessRights.User
 
     @IBOutlet weak var Navbar: UINavigationBar!

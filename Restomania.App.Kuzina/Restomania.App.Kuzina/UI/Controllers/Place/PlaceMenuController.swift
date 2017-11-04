@@ -38,7 +38,6 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
     @IBOutlet weak var categoriesStack: UICollectionView!
     @IBOutlet weak var dishesTable: UITableView!
 
-    private let _theme = AppSummary.current.theme
     private var _categoriesAdapter: CategoriesCollection!
     private var _dishesAdapter: DishesAdapter!
 

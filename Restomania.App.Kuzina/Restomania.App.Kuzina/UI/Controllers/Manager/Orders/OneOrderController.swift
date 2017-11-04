@@ -32,7 +32,8 @@ public class OneOrderController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var TotalTitleLabel: UILabel!
     @IBOutlet weak var TotalValueLabel: PriceLabel!
 
-    //Tools
+    // MARK: Data & services
+    private let _tag = String.tag(OneOrderController.self)
     private let _order: DishOrder?
     private let _orderId: Long
     private var _dateFormatter: DateFormatter {
@@ -82,7 +83,7 @@ public class OneOrderController: UIViewController, UITableViewDelegate, UITableV
 
         if (nil == _order) {
 
-            fatalError("<\(self.getTag())> Fuck, orderis  not setup.")
+            fatalError("<\(self._tag)> Fuck, orderis  not setup.")
         }
     }
     private func setupDataToInterface() {
@@ -117,14 +118,13 @@ public class OneOrderController: UIViewController, UITableViewDelegate, UITableV
     }
     private func setupStyles() {
 
-        let theme = AppSummary.current.theme
-        let boldFont = UIFont(name: theme.susanBoldFont, size: theme.headlineFontsize)!
-        let lightFont = UIFont(name: theme.susanBookFont, size: theme.headlineFontsize)!
+        let boldFont = ThemeSettings.Fonts.bold(size: .head)
+        let lightFont = ThemeSettings.Fonts.default(size: .head)
 
-        self.view.backgroundColor = theme.greyColor
+        self.view.backgroundColor = ThemeSettings.Colors.grey
 
         CompleteDateLabel.font = boldFont
-        CreateAtLabel.font = UIFont(name: theme.susanBookFont, size: theme.subheadFontSize)
+        CreateAtLabel.font = ThemeSettings.Fonts.default(size: .subhead)
 
         KeywordTitleLabel.font = lightFont
         KeywordValueLabel.font = boldFont

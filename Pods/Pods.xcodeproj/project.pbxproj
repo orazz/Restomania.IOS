@@ -755,6 +755,26 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0900;
+				TargetAttributes = {
+					389985B8154E56BA6867B16C3A26CC1D = {
+						LastSwiftMigration = 0910;
+					};
+					40E7477AD67135868F5FB08136602674 = {
+						LastSwiftMigration = 0910;
+					};
+					7CF49DE2ECABB3E242274EB45B786F15 = {
+						LastSwiftMigration = 0910;
+					};
+					A5F99FF3E2F86113513D8F653A684547 = {
+						LastSwiftMigration = 0910;
+					};
+					EEBD35E0CDA1C794C563DB34742C1E6D = {
+						LastSwiftMigration = 0910;
+					};
+					EF9B8EF8A62F164847C8BF23805659D2 = {
+						LastSwiftMigration = 0910;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";

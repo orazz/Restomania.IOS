@@ -29,7 +29,6 @@ public class PriceLabel: UILabel {
     private var _font: UIFont!
     private var _fontAwesome: UIFont!
     private var _price: Price?
-    private var _theme: ThemeSettings!
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,10 +42,8 @@ public class PriceLabel: UILabel {
     }
     private func initialize() {
 
-        _theme = AppSummary.current.theme
-
         _font = self.font
-        _fontAwesome = UIFont(name: _theme.fontAwesomeFont, size: UIFont.systemFontSize)
+        _fontAwesome = ThemeSettings.Fonts.icons(size: UIFont.systemFontSize)
 
         refreshText()
     }
@@ -60,7 +57,7 @@ public class PriceLabel: UILabel {
 
         guard let price = _price else {
 
-            self.text = String.Empty
+            self.text = String.empty
             return
         }
 
@@ -69,7 +66,7 @@ public class PriceLabel: UILabel {
         let text = "\(amount) \(symbol)"
 
         let attributed = NSMutableAttributedString(string: text)
-        attributed.addAttribute(NSFontAttributeName, value: _fontAwesome.withSize(_font.pointSize), range: NSRange(location:text.characters.count-1, length:1))
+        attributed.addAttribute(NSAttributedStringKey.font, value: _fontAwesome.withSize(_font.pointSize), range: NSRange(location:text.characters.count-1, length:1))
 
         self.attributedText = attributed
     }

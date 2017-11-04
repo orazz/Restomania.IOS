@@ -24,14 +24,16 @@ public class Review: BaseDataType {
         self.UserID = 0
         self.PlaceID = 0
         self.Rating = .Bad
-        self.Content = String.Empty
+        self.Content = String.empty
         self.Status = .Processing
-        self.UserName = String.Empty
-        self.PlaceName = String.Empty
+        self.UserName = String.empty
+        self.PlaceName = String.empty
 
         super.init()
     }
     public required init(json: JSON) {
+        fatalError("Need complete DT")
+
         self.UserID = ("UserID" <~~ json)!
         self.PlaceID = ("PlaceID" <~~ json)!
         self.Rating = ("Rating" <~~ json)!

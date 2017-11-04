@@ -17,7 +17,7 @@ public class NavigationController: UINavigationController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationBar.backgroundColor = AppSummary.current.theme.blackColor
+        self.navigationBar.backgroundColor = ThemeSettings.Colors.main
     }
 }
 internal extension UIViewController {
@@ -30,26 +30,24 @@ internal extension UIViewController {
     }
     internal func set(title: String, subtitle: String) {
 
-        let theme = AppSummary.current.theme
-
         let titleLabel = UILabel(frame: CGRect(x: 0, y: -2, width: 0, height:0))
         titleLabel.backgroundColor = UIColor.clear
-        titleLabel.textColor = theme.whiteColor
-        titleLabel.font = UIFont(name: theme.susanBoldFont, size: theme.subheadFontSize)
+        titleLabel.textColor = ThemeSettings.Colors.additional
+        titleLabel.font = ThemeSettings.Fonts.bold(size: .subhead)
         titleLabel.text = title
         titleLabel.sizeToFit()
 
-        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: theme.subheadFontSize, width: 0, height:0))
+        let subtitleLabel = UILabel(frame: CGRect(x: 0, y:  ThemeSettings.Fonts.FontSize.subhead.rawValue, width: 0, height:0))
         subtitleLabel.backgroundColor = UIColor.clear
-        subtitleLabel.textColor = theme.whiteColor
-        subtitleLabel.font = UIFont(name: theme.susanBookFont, size: theme.captionFontSize)
+        subtitleLabel.textColor = ThemeSettings.Colors.additional
+        subtitleLabel.font = ThemeSettings.Fonts.default(size: .caption)
         subtitleLabel.text = subtitle
         subtitleLabel.sizeToFit()
 
         let width = max(titleLabel.frame.size.width, subtitleLabel.frame.size.width)
-        let heigth = theme.subheadFontSize + theme.captionFontSize
-        let titleView = UIView(frame: CGRect(x:0, y:0, width: width, height:heigth))
-        titleView.backgroundColor = theme.blackColor
+        let heigth = ThemeSettings.Fonts.FontSize.subhead.rawValue + ThemeSettings.Fonts.FontSize.caption.rawValue
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: Int(width), height: heigth))
+        titleView.backgroundColor = ThemeSettings.Colors.main
         titleView.addSubview(titleLabel)
         titleView.addSubview(subtitleLabel)
 

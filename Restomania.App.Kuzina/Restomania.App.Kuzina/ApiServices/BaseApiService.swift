@@ -28,7 +28,7 @@ public class BaseApiService: ILoggable {
         if let values = values {
             for (key, value) in values {
 
-                if let object = value as? Encodable {
+                if let object = value as? Gloss.Encodable {
                     result[key] = object.toJSON()
                 } else {
                     result[key] = value

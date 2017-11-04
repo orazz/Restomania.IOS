@@ -12,7 +12,7 @@ import IOSLibrary
 
 public class OrderedDishCell: UITableViewCell {
 
-    public static let identifier = "OrderedDishCell-\(Guid.New)"
+    public static let identifier = "OrderedDishCell-\(Guid.new)"
     public static let nibname = "OrderedDishCellView"
     public static let height: CGFloat = 40
 
@@ -48,9 +48,7 @@ public class OrderedDishCell: UITableViewCell {
             return
         }
 
-        let theme = AppSummary.current.theme
-        let font = UIFont(name: theme.susanBookFont, size: theme.subheadFontSize)
-
+        let font =  ThemeSettings.Fonts.default(size: .subhead)
         NameAndCountLabel.font = font
         CostLabel.font = font
 
