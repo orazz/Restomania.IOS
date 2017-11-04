@@ -14,12 +14,18 @@ public class ServicesFactory {
     public static let shared = ServicesFactory()
 
     //MARK: Base services
-    public let configs: ConfigsStorage
+    public static let configs = ConfigsStorage(plistName: "Configs")
+    public var configs: ConfigsStorage {
+        return ServicesFactory.configs
+    }
     public let properties: PropertiesStorage<PropertiesKey>
     public let tasksService: BackgroundTasksService
 
     //MARk: Cache services
-    public let keys: IKeysStorage
+    public static let keys: IKeysStorage = KeysStorage()
+    public var keys: IKeysStorage {
+        return ServicesFactory.keys
+    }
     public let images: CacheImagesService
     public let searchCards: SearchPlaceCardsCacheService
     public let likes: LikesService
@@ -33,16 +39,14 @@ public class ServicesFactory {
 
     private init() {
 
-        configs = ConfigsStorage(plistName: "Configs")
         properties = PropertiesStorage<PropertiesKey>()
         tasksService = BackgroundTasksService.shared
 
-        keys = KeysStorage()
         images = CacheImagesService()
-        searchCards = SearchPlaceCardsCacheService(configs: configs,
+        searchCards = SearchPlaceCardsCacheService(configs: ServicesFactory.configs,
                                                     properties: properties)
         likes = LikesService()
-        places = PlacesCacheservice(configs: configs,
+        places = PlacesCacheservice(configs: ServicesFactory.configs,
                                     properties: properties)
 
         positions = PositionsService()
@@ -50,31 +54,7 @@ public class ServicesFactory {
         checkIns = CheckInService(positions: positions,
                                   backgroundPositions: backgroundPositions,
                                   searchCards: searchCards,
-                                  configs: configs,
-                                  keys: keys)
-    }
-
-
-    public struct ApiServices {
-
-        public struct Users {
-
-            public static var main: UsersMainApiService {
-                return UsersMainApiService(configs: shared.configs, keys: shared.keys)
-            }
-            public static var auth: UsersAuthApiService {
-                return UsersAuthApiService(shared.configs)
-            }
-        }
-
-        public struct Places {
-
-            public static var main: PlacesMainApiService {
-                return PlacesMainApiService(shared.configs)
-            }
-            public static var clients: PlacesClientsApiService {
-                return PlacesClientsApiService(shared.configs)
-            }
-        }
+                                  configs: ServicesFactory.configs,
+                                  keys: ServicesFactory.keys)
     }
 }

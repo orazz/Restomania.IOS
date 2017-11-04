@@ -20,8 +20,8 @@ public class EnteringController: UIViewController {
 
         instance.startController = parent
         instance.keysStorage = ServicesFactory.shared.keys
-        instance.authApiService = ServicesFactory.ApiServices.Users.auth
-        instance.usersApiService = ServicesFactory.ApiServices.Users.main
+        instance.authApiService = ApiServices.Users.auth
+        instance.usersApiService = ApiServices.Users.main
 
         return instance
     }

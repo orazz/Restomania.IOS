@@ -25,12 +25,4 @@ public class PlacesClientsApiService: BaseApiService {
 
         return _client.GetRange(action: "All", type: PlaceClient.self, parameters: parameters)
     }
-    public func find(client id: Long) -> RequestResult<User> {
-
-        let parameters = CollectParameters([
-            "clientId": id
-            ])
-
-        return _client.Get(action: "Find", type: User.self, parameters: parameters)
-    }
 }

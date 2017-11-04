@@ -10,11 +10,10 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class BackgroundPositionsServices: NSObject, IEventsEmitter, PositionServiceDelegate {
-    public typealias THandler = PositionServiceDelegate
+public class BackgroundPositionsServices: NSObject {
 
-    private static let _circlePeriod = 30.0
-    private static let _workPeriod = 10.0
+    private let _circlePeriod = 90.0
+    private let _workPeriod = 10.0
 
     private let _tag = String.tag(BackgroundPositionsServices.self)
     private let _guid = Guid.new
@@ -24,14 +23,20 @@ public class BackgroundPositionsServices: NSObject, IEventsEmitter, PositionServ
     private var _workTimer: Timer? = nil
 
     private let _tasksService: BackgroundTasksService
-    private let _sourceService: PositionsService
+    private var _sourceService: PositionsService
 
     public init(tasksService: BackgroundTasksService) {
 
         _tasksService = tasksService
         _sourceService = PositionsService()
+        _sourceService.requestPermission(always: true)
 
         super.init()
+
+        subscribe()
+        reset()
+    }
+    private func subscribe() {
 
         _sourceService.subscribe(guid: _guid, handler: self, tag: _tag)
 
@@ -43,81 +48,64 @@ public class BackgroundPositionsServices: NSObject, IEventsEmitter, PositionServ
                                                selector: #selector(enterToForeground),
                                                name: Notification.Name.UIApplicationWillEnterForeground,
                                                object: nil)
-
-        reset()
     }
 
-    private var isInForeground: Bool {
+    public var lastPosition: PositionsService.Position? {
+        return _sourceService.lastPosition
+    }
+    public var isInForeground: Bool {
         return _application.applicationState == .active
     }
-    private var isInBackground: Bool {
+    public var isInBackground: Bool {
         return _application.applicationState == .background
     }
 
 
 
-    //MARK:
-    @objc private func enterToBackground() {
-
-        Log.Info(_tag, "Turn on background location service.")
-
-        _task = _tasksService.beginNew()
-        _sourceService.startTracking()
-
-        //Process full work circle
-        _circleTimer = Timer.scheduledTimer(timeInterval: BackgroundPositionsServices._circlePeriod,
-                                            target: self,
-                                            selector: #selector(restartUpdates),
-                                            userInfo: nil,
-                                            repeats: false)
-
-        //Process work timer
-        _workTimer = Timer.scheduledTimer(timeInterval: BackgroundPositionsServices._workPeriod,
-                                          target: self,
-                                          selector: #selector(stopWork),
-                                          userInfo: nil,
-                                          repeats: false)
-    }
+    //MARK: UI Circle
     @objc private func enterToForeground() {
 
         Log.Info(_tag, "Turn off background location service.")
 
         reset()
     }
+    @objc private func enterToBackground() {
 
+        Log.Info(_tag, "Turn on background location service.")
 
-
-    //MARK: IEventsEmitter
-    public func subscribe(guid: String, handler: PositionServiceDelegate, tag: String) {
-        _sourceService.subscribe(guid: guid, handler: handler, tag: tag)
+        _task = _tasksService.new()
+        Timer.scheduledTimer(timeInterval: 10.0,
+                             target: self,
+                             selector: #selector(restartTracking),
+                             userInfo: nil, repeats: false)
     }
-    public func unsubscribe(guid: String) {
-        _sourceService.unsubscribe(guid: guid)
-    }
 
 
-
-    //MARK: PositionServiceDelegate
-    public func updateLocation(positions: [PositionsService.Position]) {
-
-        if (!isInBackground) {
-            return
-        }
-
-    }
-    @objc private func restartUpdates() {
+    @objc private func restartTracking() {
 
         Log.Debug(_tag, "Restart location updates.")
 
-        _circleTimer?.invalidate()
-        _circleTimer = nil
+        resetTimers()
+        _circleTimer = Timer.scheduledTimer(timeInterval: _circlePeriod,
+                                            target: self,
+                                            selector: #selector(restartTracking),
+                                            userInfo: nil,
+                                            repeats: false)
+        _workTimer = Timer.scheduledTimer(timeInterval: _workPeriod,
+                                          target: self,
+                                          selector: #selector(stopTracking),
+                                          userInfo: nil,
+                                          repeats: false)
 
+
+
+        let oldTask = _task
+        _task = _tasksService.new()
+        _tasksService.end(task: oldTask)
 
         _sourceService.startTracking()
-
-        _task = _tasksService.beginNew()
     }
-    @objc private func stopWork() {
+    @objc private func stopTracking() {
 
         Log.Debug(_tag, "Go to sleep updates of location.")
 
@@ -125,18 +113,45 @@ public class BackgroundPositionsServices: NSObject, IEventsEmitter, PositionServ
         _workTimer = nil
 
         _sourceService.stopTracking()
-
-        _task = _tasksService.beginNew()
     }
     private func reset() {
+
+        resetTimers()
+
+        _sourceService.stopTracking()
+        _tasksService.end(task: _task)
+    }
+    private func resetTimers() {
 
         _workTimer?.invalidate()
         _workTimer = nil
 
         _circleTimer?.invalidate()
         _circleTimer = nil
+    }
+}
 
-        _sourceService.stopTracking()
-        _tasksService.end(task: _task)
+
+
+//MARK: PositionServiceDelegate
+extension BackgroundPositionsServices: PositionServiceDelegate {
+    public func updateLocation(positions: [PositionsService.Position]) {
+//        if (!isInBackground) {
+//            return
+//        }
+    }
+}
+
+
+
+//MARK: IEventsEmitter
+extension BackgroundPositionsServices: IEventsEmitter {
+    public typealias THandler = PositionServiceDelegate
+
+    public func subscribe(guid: String, handler: THandler, tag: String) {
+        _sourceService.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        _sourceService.unsubscribe(guid: guid)
     }
 }

@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Log.Info(tag, "Launch app with options.")
 
         AppSummary.initialize()
+        ThemeSettings.applyStyles()
         ServicesManager.initialize()
 
         _pushManager = PushNotificationsManager.current

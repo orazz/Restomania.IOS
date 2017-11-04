@@ -23,7 +23,6 @@ public class AppSummary: ILoggable {
     public let type: AppType
     public let clientType: ClientAppType
     public let serverUrl: String
-    public let theme: ThemeSettings
 
     public var version: String
     public var build: Int

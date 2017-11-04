@@ -18,7 +18,7 @@ public class OnePlaceClientsController: UIViewController {
         let vc = OnePlaceClientsController(nibName: nibName, bundle: Bundle.main)
 
         vc._place = place
-        vc._apiClient = ServicesFactory.ApiServices.Places.clients
+        vc._apiClient = ApiServices.Places.clients
 
         return vc
     }

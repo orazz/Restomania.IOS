@@ -72,6 +72,7 @@
 		1F4DDE0B1F977646005CED0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4DDE0A1F977646005CED0B /* User.swift */; };
 		1F4E10FD1F970BFA00EB8391 /* FMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E10FC1F970BFA00EB8391 /* FMTextField.swift */; };
 		1F4E10FF1F970C4200EB8391 /* FMTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E10FE1F970C4200EB8391 /* FMTextField.xib */; };
+		1F61302D1FAA7948009D3AF1 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F61302C1FAA7948009D3AF1 /* ApiServices.swift */; };
 		1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B21B91F881DAD0068E29A /* MapPopupView.xib */; };
 		1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */; };
 		1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */; };
@@ -227,6 +228,7 @@
 		1F4DDE0A1F977646005CED0B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Domains/Users/User.swift; sourceTree = "<group>"; };
 		1F4E10FC1F970BFA00EB8391 /* FMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMTextField.swift; path = UI/Elements/Inputs/TextField/FMTextField.swift; sourceTree = "<group>"; };
 		1F4E10FE1F970C4200EB8391 /* FMTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMTextField.xib; path = UI/Elements/Inputs/TextField/FMTextField.xib; sourceTree = "<group>"; };
+		1F61302C1FAA7948009D3AF1 /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiServices.swift; path = Services/ApiServices.swift; sourceTree = "<group>"; };
 		1F6B21B91F881DAD0068E29A /* MapPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPopupView.xib; path = UI/Main/Map/MapPopupView.xib; sourceTree = "<group>"; };
 		1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListAdapter.swift; path = UI/Main/Adapters/PlacesListAdapter.swift; sourceTree = "<group>"; };
 		1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListTableAdapter.swift; path = UI/Main/Adapters/PlacesListTableAdapter.swift; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 			isa = PBXGroup;
 			children = (
 				1F1A0E421F77E99E00FDBA97 /* ServicesFactory.swift */,
+				1F61302C1FAA7948009D3AF1 /* ApiServices.swift */,
 				1FE7E3D31F7BAACB00D1745E /* Storage */,
 				1F1A0E5D1F79513F00FDBA97 /* Cache */,
 				1F49C4F91F7BD15C00051CAD /* PositionsService.swift */,
@@ -1260,6 +1263,7 @@
 				1F6B21C31F881E6D0068E29A /* MapPoputView.swift in Sources */,
 				1F0483861F83FCF000D00EED /* CheckInService.swift in Sources */,
 				1F2F4B211F81267C002FE39B /* SliderIndicator.swift in Sources */,
+				1F61302D1FAA7948009D3AF1 /* ApiServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

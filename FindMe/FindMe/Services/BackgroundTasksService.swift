@@ -15,37 +15,26 @@ public class BackgroundTasksService {
     public static let shared = BackgroundTasksService()
 
     private let _tag = String.tag(BackgroundTasksService.self)
-    private var _masterTaskId: UIBackgroundTaskIdentifier
-    private var _tasksRange: [UIBackgroundTaskIdentifier]
+    private let _application = UIApplication.shared
+    private var _tasksRange: [UIBackgroundTaskIdentifier] = []
 
 
-    public init() {
+    private init() {}
 
-        _masterTaskId = UIBackgroundTaskInvalid
-        _tasksRange = []
-    }
-
-    public func beginNew() -> UIBackgroundTaskIdentifier {
-
-        let application = UIApplication.shared
+    public func new() -> UIBackgroundTaskIdentifier {
 
         var result = UIBackgroundTaskInvalid
 
-        result = application.beginBackgroundTask(expirationHandler: {
+        result = _application.beginBackgroundTask(expirationHandler: {
 
             Log.Debug(self._tag, "Background task #\(result) expired.")
+
+            self.end(task: result)
         })
 
-        if (_masterTaskId == UIBackgroundTaskInvalid) {
-
-            self._masterTaskId = result
-            Log.Info(_tag, "Start master task #\(result).")
-        }
-        else {
-
+        if (result != UIBackgroundTaskInvalid) {
             self._tasksRange.append(result)
-            Log.Info(_tag, "Start background task.")
-            endBackgroundTasks()
+            Log.Info(_tag, "Start background task #\(result).")
         }
 
         return result
@@ -56,57 +45,20 @@ public class BackgroundTasksService {
             return
         }
 
-        if (_masterTaskId == task) {
-            endAllBackgroundTasks()
-        }
-        else {
-            UIApplication.shared.endBackgroundTask(task)
-        }
-    }
-    public func endBackgroundTasks() {
-        drainList(all: false)
+        _application.endBackgroundTask(task)
+        remove(task)
+
+        Log.Debug(_tag, "End background task #\(task).")
     }
     public func endAllBackgroundTasks() {
-        drainList(all: true)
+
+        while !_tasksRange.isEmpty {
+            end(task: _tasksRange.first!)
+        }
     }
-    private func drainList(all:Bool) {
+    private func remove(_ identifier: UIBackgroundTaskIdentifier) {
 
-        let application = UIApplication.shared
-
-        var count = _tasksRange.count
-        if (!all) {
-            count = count - 1
-        }
-
-        for _ in 0..<count {
-
-            let identifier = _tasksRange.first!
-            Log.Debug(_tag, "End background task #\(identifier).")
-            application.endBackgroundTask(identifier)
-            _tasksRange.removeFirst()
-        }
-
-        if (!_tasksRange.isEmpty) {
-
-            Log.Debug(_tag, "Keep task with id #\(_tasksRange.first!).")
-        }
-
-        if (all) {
-
-            Log.Debug(_tag, "Not more background tasks running.")
-            application.endBackgroundTask(_masterTaskId)
-            _masterTaskId = UIBackgroundTaskInvalid
-        }
-        else {
-
-            Log.Debug(_tag, "Kept master background task id #\(_masterTaskId)")
-        }
-
-    }
-
-    private func removeTask(_ identifier: UIBackgroundTaskIdentifier) {
-
-        for i in 0..._tasksRange.count {
+        for i in 0..<_tasksRange.count {
 
             let task = _tasksRange[i]
             if (identifier == task) {

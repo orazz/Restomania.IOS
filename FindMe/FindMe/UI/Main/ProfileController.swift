@@ -38,8 +38,8 @@ public class ProfileController: UIViewController {
 
         let factory = ServicesFactory.shared
         _keysStorage = factory.keys
-        _authApiService = ServicesFactory.ApiServices.Users.auth
-        _usersApiService = ServicesFactory.ApiServices.Users.main
+        _authApiService = ApiServices.Users.auth
+        _usersApiService = ApiServices.Users.main
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
