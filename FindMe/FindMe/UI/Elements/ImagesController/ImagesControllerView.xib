@@ -37,7 +37,7 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="1 из 20" id="5Ky-Jg-96b">
-                            <barButtonItem key="leftBarButtonItem" title="Закрыть" style="plain" id="OSa-kA-9yS">
+                            <barButtonItem key="leftBarButtonItem" title="Закрыть" style="done" id="OSa-kA-9yS">
                                 <color key="tintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="swipeTop" destination="-1" id="EVW-gM-EyA"/>
