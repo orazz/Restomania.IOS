@@ -12,7 +12,7 @@ import IOSLibrary
 
 public class CheckInService: NSObject, PositionServiceDelegate {
 
-    private let _checkinTolerance = 500.0
+    private let _checkinTolerance = 300.0
 
     private let _tag = String.tag(CheckInService.self)
     private let _guid = Guid.new
@@ -80,7 +80,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
 
             if (response.isFail) {
                 
-                Log.Warning(self._tag, "Problem woth checkin in #\(placeId).")
+                Log.Warning(self._tag, "Problem with checkin in #\(placeId).")
             }
         })
     }
@@ -89,8 +89,8 @@ public class CheckInService: NSObject, PositionServiceDelegate {
     //MARK: PositionServiceDelegate
     public func updateLocation(positions: [PositionsService.Position]) {
 
-        messageToSlack(positions.first!)
-//        tryCheckIn()
+//        messageToSlack(positions.first!)
+        tryCheckIn()
     }
     private func messageToSlack(_ position: PositionsService.Position) {
         SlackNotifier.notify("<\(_tag)>: lat: \(position.latitude) lng: \(position.longtitude) +-\(position.accuracy)m")

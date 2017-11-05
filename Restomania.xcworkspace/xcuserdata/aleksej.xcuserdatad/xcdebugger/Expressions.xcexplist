@@ -14,6 +14,14 @@
          contextName = "CacheImagesService.(download(url : String) -&gt; Task&lt;(Bool, Data?)&gt;).(closure #1):CacheImagesService.swift">
       </ContextState>
       <ContextState
+         contextName = "OnePlaceMainSliderCell.select(with:):OnePlaceMainSliderCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sliderView.current">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "VKAuthorizationController.completeAuth(url:):VKAuthorizationController.swift">
       </ContextState>
       <ContextState
@@ -135,10 +143,10 @@
          contextName = "SearchPlaceCard.init(json:):SearchPlaceCard.swift">
          <PersistentStrings>
             <PersistentString
-               value = "json[&quot;Name&quot;]">
+               value = "let b:String? = Keys.name &lt;~~ json">
             </PersistentString>
             <PersistentString
-               value = "let b:String? = Keys.name &lt;~~ json">
+               value = "json[&quot;Name&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -360,13 +368,13 @@
                value = "formatter.string(from: notUTC)">
             </PersistentString>
             <PersistentString
-               value = "notUTC!.toUTC()">
-            </PersistentString>
-            <PersistentString
                value = "TimeZone(identifier: &quot;America/Los_Angeles&quot;)!">
             </PersistentString>
             <PersistentString
                value = "formatter.date(from: value)">
+            </PersistentString>
+            <PersistentString
+               value = "notUTC!.toUTC()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -505,7 +513,7 @@
                value = "DescriptionLabel.superview.constraints.filter({ $0.firstAttribute == .bottom }).first!.constant">
             </PersistentString>
             <PersistentString
-               value = " DescriptionLabel.constraints">
+               value = "getConstant(.top, of: DescriptionLabel) + getConstant(.height, of: DescriptionLabel) + CGFloat(5)">
             </PersistentString>
             <PersistentString
                value = "DescriptionLabel.frame.height">
@@ -520,7 +528,7 @@
                value = "DescriptionLabel.frame.origin">
             </PersistentString>
             <PersistentString
-               value = "getConstant(.top, of: DescriptionLabel) + getConstant(.height, of: DescriptionLabel) + CGFloat(5)">
+               value = " DescriptionLabel.constraints">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

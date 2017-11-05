@@ -45,6 +45,9 @@ open class SliderControl: UIView {
     }
 
     //MARK: Public methods
+    public var current: Int {
+        return _current
+    }
     public func setup(slides: [UIView]) {
 
         _slides = slides
@@ -60,6 +63,23 @@ open class SliderControl: UIView {
         if let slide = _slides.first {
             slide.frame = _mainPosition
         }
+    }
+    public func focusOn(slide newIndex: Int) {
+
+        let newIndex = prepare(index: newIndex)
+        if (_current == newIndex) {
+            return
+        }
+
+        for slide in _slides {
+            slide.frame = _mainPosition
+            move(slide: slide, to: .left)
+        }
+
+        _current = newIndex
+        slide(number: newIndex)?.frame = _mainPosition
+
+        delegate?.move(slider: self, focusOn: newIndex)
     }
 
     //MARK: Handlers
@@ -111,7 +131,7 @@ open class SliderControl: UIView {
             result = result - 1
         }
 
-        return (result + _max) % _max
+        return prepare(index: result)
     }
     private func slide(number: Int) -> UIView? {
 
@@ -119,7 +139,10 @@ open class SliderControl: UIView {
             return nil
         }
 
-        return _slides[(number + _max)  % _max]
+        return _slides[prepare(index: number)]
+    }
+    private func prepare(index: Int) -> Int {
+        return (index + _max)  % _max
     }
     private func move(slide: UIView, to direction: UISwipeGestureRecognizerDirection) {
 
