@@ -56,7 +56,7 @@ public class AuthService {
 
         let controller = take(for: _currentPage)
         _navigator.pushViewController(controller, animated: true)
-        controller.authContainer = AuthContainer(login: String.Empty, password: String.Empty, rights: _rights)
+        controller.authContainer = AuthContainer(login: String.empty, password: String.empty, rights: _rights)
 
         Log.Info(_tag, "Open auth pages.")
     }

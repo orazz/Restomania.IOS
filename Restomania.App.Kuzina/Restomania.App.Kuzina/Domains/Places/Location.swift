@@ -12,6 +12,14 @@ import IOSLibrary
 
 public class PlaceLocation: BaseDataType, ICopying {
 
+    public struct Keys {
+        public static let latitude = "Latitude"
+        public static let longitude = "Longitude"
+        public static let city = "City"
+        public static let street = "Street"
+        public static let house = "House"
+    }
+
     public var Latitude: Double
     public var Longitude: Double
     public var City: String
@@ -22,22 +30,14 @@ public class PlaceLocation: BaseDataType, ICopying {
 
         self.Latitude = 0
         self.Longitude = 0
-        self.City = String.Empty
-        self.Street = String.Empty
-        self.House = String.Empty
+        self.City = String.empty
+        self.Street = String.empty
+        self.House = String.empty
 
         super.init()
     }
-    public required init(json: JSON) {
 
-        self.Latitude = ("Latitude" <~~ json)!
-        self.Longitude = ("Longitude" <~~ json)!
-        self.City = ("City" <~~ json)!
-        self.Street = ("Street" <~~ json)!
-        self.House = ("House" <~~ json)!
-
-        super.init(json: json)
-    }
+    // MARK: ICopying
     public required init(source: PlaceLocation) {
 
         self.Latitude = source.Latitude
@@ -49,14 +49,26 @@ public class PlaceLocation: BaseDataType, ICopying {
         super.init(source: source)
     }
 
+    // MARK: Glossy
+    public required init(json: JSON) {
+
+        self.Latitude = (Keys.latitude <~~ json)!
+        self.Longitude = (Keys.longitude <~~ json)!
+        self.City = (Keys.city <~~ json)!
+        self.Street = (Keys.street <~~ json)!
+        self.House = (Keys.house <~~ json)!
+
+        super.init(json: json)
+    }
     public override func toJSON() -> JSON? {
         return jsonify([
-            "Latitude" ~~> self.Latitude,
-            "Longitude" ~~> self.Longitude,
-            "City" ~~> self.City,
-            "Street" ~~> self.Street,
-            "House" ~~> self.House,
-            super.toJSON()
-            ])!
+            super.toJSON(),
+
+            Keys.latitude ~~> self.Latitude,
+            Keys.longitude ~~> self.Longitude,
+            Keys.city ~~> self.City,
+            Keys.street ~~> self.Street,
+            Keys.house ~~> self.House
+            ])
     }
 }

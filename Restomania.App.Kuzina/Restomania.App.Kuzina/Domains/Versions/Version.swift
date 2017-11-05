@@ -19,7 +19,7 @@ public class Version: BaseDataType {
     public override init() {
         self.Number = "1.0"
         self.Platform = .WP
-        self.Link = String.Empty
+        self.Link = String.empty
         self.Critical = false
 
         super.init()

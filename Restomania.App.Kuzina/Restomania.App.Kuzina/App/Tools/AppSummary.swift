@@ -43,12 +43,9 @@ public class AppSummary: ILoggable {
     private init() {
         let configs = ConfigsStorage(plistName: "Configs")
 
-        //Type
-        self.type = AppType(rawValue: configs.Get(.AppType)) ?? .Aggregator
-        //Client type
-        self.clientType = ClientAppType(rawValue: configs.Get(.ClientAppType)) ?? .User
-        //ServerUrl
-        self.serverUrl = configs.Get(.ServerUrl)
+        self.type = AppType(rawValue: configs.get(forKey: ConfigKeys.AppType).value as! String) ?? .Aggregator
+        self.clientType = ClientAppType(rawValue: configs.get(forKey: ConfigKeys.ClientAppType).value as! String) ?? .User
+        self.serverUrl = configs.get(forKey: ConfigKeys.ServerUrl).value as! String
 
         //Version
         self.version = "1.0.0"
@@ -110,7 +107,7 @@ public class AppSummary: ILoggable {
     }
     private func setupID(from configs: ConfigsStorage) {
         if (type == .Single) {
-            let value = configs.Get(.PlaceID)
+            let value = configs.get(forKey: ConfigKeys.PlaceID).value as! String
 
             self.placeID = Long(value)!
             self.placeIDs = nil
@@ -119,7 +116,7 @@ public class AppSummary: ILoggable {
             self.placeID = nil
 
             do {
-                let ids = configs.Get(.PlacesIDs)
+                let ids = configs.get(forKey: ConfigKeys.PlacesIDs).value as! String
                 let data = ids.data(using: .utf8)!
                 let range = try JSONSerialization.jsonObject(with: data, options: []) as! [Long]
 
@@ -129,11 +126,5 @@ public class AppSummary: ILoggable {
             }
 
         }
-    }
-}
-extension ConfigsStorage {
-
-    public func Get(_ key: ConfigKeys) -> String {
-        return self.Get(forKey: key.rawValue).value as! String
     }
 }

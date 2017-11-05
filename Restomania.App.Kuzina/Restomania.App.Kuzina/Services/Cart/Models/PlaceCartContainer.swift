@@ -32,7 +32,7 @@ internal class PlaceCartContainer: Glossy {
         self.comment = String.empty
     }
 
-    //MARK: Glossy
+    // MARK: Glossy
     public required init(json: JSON) {
 
         self.placeID = (Keys.placeId <~~ json)!

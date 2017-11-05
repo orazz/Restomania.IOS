@@ -81,7 +81,7 @@ public class CacheMenuSummariesService {
             return
         }
 
-        let task = Task { (handler: @escaping() -> Void) in
+        let task = Task<Any?> { handler in
 
             Log.Debug(self.tag, "Start refresh.")
 
@@ -89,7 +89,7 @@ public class CacheMenuSummariesService {
             let task = self.range(placeIDs: ids)
             _ = task.await()
 
-            handler()
+            handler(nil)
             Log.Info(self.tag, "Refresh cached data.")
         }
         task.async(.background)

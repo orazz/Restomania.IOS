@@ -14,7 +14,7 @@ public class RemoteBugReport: BaseBugReport {
     public var Log: String
 
     public override init() {
-        self.Log = String.Empty
+        self.Log = String.empty
 
         super.init()
     }

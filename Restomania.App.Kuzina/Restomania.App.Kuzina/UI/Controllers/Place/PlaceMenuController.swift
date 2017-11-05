@@ -22,8 +22,6 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
 
     public var placeID: Long = -1
 
-    private let _tag = "PlaceMenuController"
-
     //UI Elements
     private var _loader: InterfaceLoader!
     @IBOutlet weak var headerView: UIView!
@@ -42,6 +40,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
     private var _dishesAdapter: DishesAdapter!
 
     //Load data
+    private let _tag = String.tag(PlaceMenuController.self)
     private var _summary: PlaceSummary?
     private var _summaryCompleteRequest = false
     private var _menu: MenuSummary?
@@ -83,17 +82,17 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
     private func setupUIElements() {
 
         //View
-        view.backgroundColor = _theme.backgroundColor
-        dimmer.backgroundColor = _theme.backgroundColor
+        view.backgroundColor = ThemeSettings.Colors.background
+        dimmer.backgroundColor = ThemeSettings.Colors.background
 
         //Title view
         // - round borders
         titleView.layer.cornerRadius = 5
         titleView.layer.borderWidth = 1
-        titleView.layer.borderColor = _theme.whiteColor.cgColor
-        titleView.backgroundColor = _theme.whiteColor
+        titleView.layer.borderColor = ThemeSettings.Colors.additional.cgColor
+        titleView.backgroundColor = ThemeSettings.Colors.additional
         // - shadow
-        titleView.layer.shadowColor = _theme.blackColor.cgColor
+        titleView.layer.shadowColor = ThemeSettings.Colors.additional.cgColor
         titleView.layer.shadowOpacity = 0.13
         titleView.layer.shadowOffset = CGSize.init(width: 3, height: 3)
         titleView.layer.shadowRadius = 5
@@ -105,12 +104,12 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         backButton.isUserInteractionEnabled = true
 
         //Name
-        placeName.font = UIFont(name: _theme.susanBoldFont, size: _theme.titleFontSize)
-        placeName.textColor = _theme.blackColor
+        placeName.font = ThemeSettings.Fonts.bold(size: .title)
+        placeName.textColor = ThemeSettings.Colors.main
 
         //Wokings hours
-        placeWorkingHours.font = UIFont(name: _theme.susanBookFont, size: _theme.captionFontSize)
-        placeWorkingHours.textColor = _theme.blackColor
+        placeWorkingHours.font = ThemeSettings.Fonts.default(size: .caption)
+        placeWorkingHours.textColor = ThemeSettings.Colors.main
 
         //Menu
 
@@ -159,7 +158,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
             placeName.text = summary.Name
 
             var day = summary.Schedule.takeToday()
-            if (String.IsNullOrEmpty(day)) {
+            if (String.isNullOrEmpty(day)) {
                 day = NSLocalizedString("holiday", comment: "Schedule")
             }
 

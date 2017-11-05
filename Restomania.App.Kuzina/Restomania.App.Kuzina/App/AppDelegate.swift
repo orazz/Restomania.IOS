@@ -14,7 +14,8 @@ import IOSLibrary
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private let tag = "AppDelegate"
+
+    private let _tag = String.tag(AppDelegate.self)
     private var _pushManager: PushNotificationsManager!
     private let _minimalUpdateInterval: TimeInterval = 30 * 60
 

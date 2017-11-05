@@ -18,9 +18,8 @@ public class  ForgetPasswordController: BaseAuthController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        let theme = AppSummary.current.theme
-        ToAuthButton.tintColor = theme.blackColor
-        ToAuthButton.titleLabel?.font = UIFont(name: theme.susanBookFont, size: theme.subheadFontSize)!
+        ToAuthButton.tintColor = ThemeSettings.Colors.main
+        ToAuthButton.titleLabel?.font = ThemeSettings.Fonts.default(size: .subhead)
     }
 
     @IBAction public func resetPasswordAction() {

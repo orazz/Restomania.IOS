@@ -19,10 +19,10 @@ public class BaseBugReport: BaseDataType {
     public var `Type`: ReportType
 
     public override init() {
-        self.Tag = String.Empty
-        self.Description = String.Empty
-        self.ExceptionName = String.Empty
-        self.StackTrace = String.Empty
+        self.Tag = String.empty
+        self.Description = String.empty
+        self.ExceptionName = String.empty
+        self.StackTrace = String.empty
         self.Type = .App
 
         super.init()
@@ -35,5 +35,8 @@ public class BaseBugReport: BaseDataType {
         self.Type = ("Type" <~~ json)!
 
         super.init(json: json)
+    }
+   public override func toJSON() -> JSON? {
+        fatalError("Need complete DT")
     }
 }

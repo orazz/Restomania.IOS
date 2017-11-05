@@ -14,15 +14,15 @@ public class PlaceSummary: ICached {
 
     public struct Keys {
 
-        public static let ID = BaseDataType.Keys.ID
-        public static let Name = "Name"
-        public static let Description = "Description"
-        public static let `Type` = "Type"
-        public static let Kitchen = "Kitchen"
-        public static let Rating = "Rating"
-        public static let Image = "Image"
-        public static let Location = "Location"
-        public static let Schedule = "Schedule"
+        public static let id = BaseDataType.Keys.ID
+        public static let name = "Name"
+        public static let description = "Description"
+        public static let type = "Type"
+        public static let kitchen = "Kitchen"
+        public static let rating = "Rating"
+        public static let image = "Image"
+        public static let location = "Location"
+        public static let schedule = "Schedule"
     }
 
     public var ID: Long
@@ -37,12 +37,12 @@ public class PlaceSummary: ICached {
 
     public init() {
         self.ID = 0
-        self.Name = String.Empty
-        self.Description = String.Empty
+        self.Name = String.empty
+        self.Description = String.empty
         self.Type = .Restaurant
         self.Kitchen = .European
         self.Rating = 0
-        self.Image = String.Empty
+        self.Image = String.empty
         self.Location = PlaceLocation()
         self.Schedule = ShortSchedule()
     }
@@ -61,30 +61,30 @@ public class PlaceSummary: ICached {
     }
     public required init(json: JSON) {
 
-        self.ID = (Keys.ID <~~ json)!
-        self.Name = (Keys.Name <~~ json)!
-        self.Description = (Keys.Description <~~ json)!
-        self.Type = (PlaceSummary.Keys.Type <~~ json)!
-        self.Kitchen = (Keys.Kitchen <~~ json)!
-        self.Rating = (Keys.Rating <~~ json)!
-        self.Image = (Keys.Image <~~ json)!
+        self.ID = (Keys.id <~~ json)!
+        self.Name = (Keys.name <~~ json)!
+        self.Description = (Keys.description <~~ json)!
+        self.Type = (Keys.type <~~ json)!
+        self.Kitchen = (Keys.kitchen <~~ json)!
+        self.Rating = (Keys.rating <~~ json)!
+        self.Image = (Keys.image <~~ json)!
 
-        self.Location = (Keys.Location <~~ json) ?? PlaceLocation()
-        self.Schedule = (Keys.Schedule <~~ json) ?? ShortSchedule()
+        self.Location = (Keys.location <~~ json) ?? PlaceLocation()
+        self.Schedule = (Keys.schedule <~~ json) ?? ShortSchedule()
     }
 
     public func toJSON() -> JSON? {
         return jsonify([
-            Keys.ID ~~> self.ID,
-            Keys.Name ~~> self.Name,
-            Keys.Description ~~> self.Description,
-            PlaceSummary.Keys.Type ~~> self.Type,
-            Keys.Kitchen ~~> self.Kitchen,
-            Keys.Rating ~~> self.Rating,
-            Keys.Image ~~> self.Image,
+            Keys.id ~~> self.ID,
+            Keys.name ~~> self.Name,
+            Keys.description ~~> self.Description,
+            Keys.type ~~> self.Type,
+            Keys.kitchen ~~> self.Kitchen,
+            Keys.rating ~~> self.Rating,
+            Keys.image ~~> self.Image,
 
-            Keys.Location ~~> self.Location,
-            Keys.Schedule ~~> self.Schedule
+            Keys.location ~~> self.Location,
+            Keys.schedule ~~> self.Schedule
             ])
     }
 }

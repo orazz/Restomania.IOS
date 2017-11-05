@@ -10,6 +10,14 @@ import Foundation
 import Gloss
 
 public class User: Account {
+
+    public struct Keys {
+        public static let sex = "Sex"
+        public static let birthday = "BirthDay"
+        public static let phone = "PhoneNumber"
+        public static let avatar = "AvatarLink"
+    }
+
     public var Sex: UserSex
     public var BirthDay: Date
     public var PhoneNumber: String
@@ -18,17 +26,29 @@ public class User: Account {
     public override init() {
         self.Sex = .Male
         self.BirthDay = Date()
-        self.PhoneNumber = String.Empty
-        self.AvatarLink = String.Empty
+        self.PhoneNumber = String.empty
+        self.AvatarLink = String.empty
 
         super.init()
     }
+
+    // MARK: Glossy
     public required init(json: JSON) {
-        self.Sex = ("Sex" <~~ json)!
-        self.BirthDay = ("BirthDay" <~~ json)!
-        self.PhoneNumber = ("PhoneNumber" <~~ json)!
-        self.AvatarLink = ("AvatarLink" <~~ json)!
+        self.Sex = (Keys.sex <~~ json)!
+        self.BirthDay = (Keys.birthday <~~ json)!
+        self.PhoneNumber = (Keys.phone <~~ json)!
+        self.AvatarLink = (Keys.avatar <~~ json)!
 
         super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+            super.toJSON(),
+
+            Keys.sex ~~> self.Sex,
+            Keys.birthday ~~> self.BirthDay.prepareForJson(),
+            Keys.phone ~~> self.PhoneNumber,
+            Keys.avatar ~~> self.AvatarLink
+            ])
     }
 }

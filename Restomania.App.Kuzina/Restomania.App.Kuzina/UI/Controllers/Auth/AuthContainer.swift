@@ -8,12 +8,18 @@
 
 import Foundation
 
-public struct AuthContainer {
+public class AuthContainer {
 
     public let login: String
     public let password: String
     public let rights: AccessRights
 
+    public convenience init() {
+        self.init(login: String.empty, password: String.empty)
+    }
+    public convenience init(rights: AccessRights) {
+        self.init(login: String.empty, password: String.empty, rights: rights)
+    }
     public init(login: String, password: String, rights: AccessRights = AccessRights.User) {
 
         self.login = login

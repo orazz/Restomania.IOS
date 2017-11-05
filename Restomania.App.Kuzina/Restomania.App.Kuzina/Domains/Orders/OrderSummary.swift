@@ -37,11 +37,11 @@ public class OrderSummary: BaseDataType {
 
         self.UserID = 0
         self.PlaceID = 0
-        self.KeyWord = String.Empty
-        self.Comment = String.Empty
+        self.KeyWord = String.empty
+        self.Comment = String.empty
         self.CompleteDate = Date()
-        self.UserName = String.Empty
-        self.PlaceName = String.Empty
+        self.UserName = String.empty
+        self.PlaceName = String.empty
         self.Currency = .EUR
 
         super.init()

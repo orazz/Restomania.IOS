@@ -29,7 +29,6 @@ public class ManagerController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _theme = AppSummary.current.theme
         _authService = AuthService(open: .signup, with: self.navigationController!, rights: .User)
         _keysStorage = ServicesManager.current.keysStorage
     }
@@ -49,9 +48,7 @@ public class ManagerController: UIViewController {
     }
     private func setupStyles() {
 
-        let theme = AppSummary.current.theme
-
-        view.backgroundColor = theme.backgroundColor
+        view.backgroundColor = ThemeSettings.Colors.background
     }
 
     @IBAction public func Logout() {

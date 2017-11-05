@@ -12,12 +12,11 @@ import IOSLibrary
 public class DishCategoryCard: UICollectionViewCell {
 
     public static let nibName = "DishCategoryCard"
-    public static let identifier = "DishCategoryCard-\(Guid.New)"
+    public static let identifier = "DishCategoryCard-\(Guid.new)"
 
     @IBOutlet weak var name: UILabel!
 
-    private static let _nameFont = UIFont(name: AppSummary.current.theme.susanBookFont, size: AppSummary.current.theme.subheadFontSize)
-    private let _theme = AppSummary.current.theme
+    private static let _nameFont = ThemeSettings.Fonts.default(size: .subhead)
     private var _categoryID: Long!
     private var _handler: ((Long, DishCategoryCard) -> Void)?
 
@@ -48,19 +47,19 @@ public class DishCategoryCard: UICollectionViewCell {
 
     public func select() {
 
-        name.textColor = _theme.whiteColor
-        backgroundColor = _theme.blackColor
+        name.textColor = ThemeSettings.Colors.additional
+        backgroundColor = ThemeSettings.Colors.main
     }
     public func unSelect() {
 
-        name.textColor = _theme.blackColor
-        backgroundColor = _theme.whiteColor
+        name.textColor = ThemeSettings.Colors.main
+        backgroundColor = ThemeSettings.Colors.additional
     }
 
     public static func sizeOfCell(category: MenuCategory) -> CGSize {
 
         let text = category.name as NSString
-        let width = text.size(attributes: [NSFontAttributeName: DishCategoryCard._nameFont!]).width + 12 + 12 //12 is offset label from parent cell
+        let width = text.size(withAttributes: [NSAttributedStringKey.font: DishCategoryCard._nameFont]).width + 12 + 12 //12 is offset label from parent cell
 
         return CGSize(width: width, height: 36)
     }

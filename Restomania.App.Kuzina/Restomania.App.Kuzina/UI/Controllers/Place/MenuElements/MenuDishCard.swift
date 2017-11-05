@@ -12,7 +12,7 @@ import IOSLibrary
 public class MenuDishCard: UITableViewCell {
 
     public static let nibName = "MenuDishCard"
-    public static let identifier = "MenuDishCard-\(Guid.New)"
+    public static let identifier = "MenuDishCard-\(Guid.new)"
     public static let height = CGFloat(110)
     public static let nib = UINib(nibName: nibName, bundle: Bundle.main)
 
@@ -27,7 +27,6 @@ public class MenuDishCard: UITableViewCell {
     @IBOutlet weak var dishPrice: PriceLabel!
     @IBOutlet weak var addButton: UIImageView!
 
-    private let _theme = AppSummary.current.theme
     private var _dishID: Long!
     private var _dish: Dish!
     private var _currency: CurrencyType!
@@ -45,18 +44,18 @@ public class MenuDishCard: UITableViewCell {
     private func setupStyles() {
 
         //Name
-        dishName.font = UIFont(name: _theme.susanBoldFont, size: _theme.titleFontSize)
+        dishName.font = ThemeSettings.Fonts.bold(size: .title)
         dishName.text = _dish.name
-        dishName.textColor = _theme.blackColor
+        dishName.textColor = ThemeSettings.Colors.main
 
         //Description
-        dishDescription.font = UIFont(name: _theme.susanBookFont, size: _theme.captionFontSize)
+        dishDescription.font = ThemeSettings.Fonts.default(size: .caption)
         dishDescription.text = _dish.description
-        dishDescription.textColor = _theme.blackColor
+        dishDescription.textColor = ThemeSettings.Colors.main
 
         //Price
-        dishPrice.font = UIFont(name: _theme.susanBookFont, size: _theme.subheadFontSize)
-        dishPrice.textColor = _theme.blackColor
+        dishPrice.font = ThemeSettings.Fonts.default(size: .subhead)
+        dishPrice.textColor = ThemeSettings.Colors.main
         dishPrice.setup(amount: _dish.price.double, currency: _currency)
 
         //Image

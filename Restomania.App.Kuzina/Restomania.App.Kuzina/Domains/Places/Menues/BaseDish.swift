@@ -46,11 +46,11 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
         orderNumber = 0
 
         categoryId = nil
-        name = String.Empty
-        description = String.Empty
+        name = String.empty
+        description = String.empty
         type = .SimpleDish
         price = PriceType()
-        image = String.Empty
+        image = String.empty
         size = 0
         sizeUnits = .units
 

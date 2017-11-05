@@ -21,12 +21,12 @@ public class PaymentCardsController: UIViewController,
 
     public static let nibName = "PaymentCardsView"
 
-    //Elements
+    //UI elements
     @IBOutlet weak var TableView: UITableView!
 
-    //Tools
+    // MARK: Data & service
+    private let _tag = String.tag(PaymentCardsController.self)
     private var _loader: InterfaceLoader!
-
     private let _addCardService: AddPaymentCardService
     private let _apiService: UserCardsApiService
     private var _cards = [PaymentCard]()
@@ -78,7 +78,7 @@ public class PaymentCardsController: UIViewController,
 
                 if (!response.isSuccess) {
 
-                    Log.Warning(self.getTag(), "problem with getting payment cards.")
+                    Log.Warning(self._tag, "problem with getting payment cards.")
                 } else {
 
                     self._cards = response.data!
@@ -95,7 +95,7 @@ public class PaymentCardsController: UIViewController,
     // MARK: IPaymentCardsDelegate
     public func removeCard(id: Long) {
 
-        Log.Debug(getTag(), "Try remove #\(id) payment card.")
+        Log.Debug(_tag, "Try remove #\(id) payment card.")
 
         let card = _cards.find({ id == $0.ID })
         let index = _cards.index(where: { id == $0.ID })
@@ -125,12 +125,12 @@ public class PaymentCardsController: UIViewController,
     }
     @IBAction public func addCard() {
 
-        Log.Debug(getTag(), "Try add new payment card.")
+        Log.Debug(_tag, "Try add new payment card.")
         let currency = CurrencyType.RUB
 
         _addCardService.addCard(for: currency, on: self, complete: { success, _ in
 
-            Log.Debug(self.getTag(), "Adding new card is \(success)")
+            Log.Debug(self._tag, "Adding new card is \(success)")
 
             if (success) {
 

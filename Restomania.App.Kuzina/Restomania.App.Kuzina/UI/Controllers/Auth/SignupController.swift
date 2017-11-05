@@ -20,9 +20,8 @@ public class SignupController: BaseAuthController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        let theme = AppSummary.current.theme
-        ForgetPassword.tintColor = theme.blackColor
-        ForgetPassword.titleLabel?.font = UIFont(name: theme.susanBookFont, size: theme.subheadFontSize)!
+        ForgetPassword.tintColor = ThemeSettings.Colors.main
+        ForgetPassword.titleLabel?.font = ThemeSettings.Fonts.default(size: .subhead)
     }
 
     //Sign up

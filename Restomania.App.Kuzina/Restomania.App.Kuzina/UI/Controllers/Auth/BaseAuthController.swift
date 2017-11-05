@@ -58,10 +58,10 @@ public class BaseAuthController: UIViewController {
         stylize()
     }
     @objc private func updateLogin() {
-        login = LoginTextField?.text ?? String.Empty
+        login = LoginTextField?.text ?? String.empty
     }
     @objc private func updatePassword() {
-        password = PasswordTextField?.text ?? String.Empty
+        password = PasswordTextField?.text ?? String.empty
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -71,36 +71,34 @@ public class BaseAuthController: UIViewController {
     }
     private func stylize() {
 
-        let theme = AppSummary.current.theme
+        view.backgroundColor = ThemeSettings.Colors.background
 
-        view.backgroundColor = theme.backgroundColor
-
-        let labelFont = UIFont(name: theme.susanBookFont, size: theme.headlineFontsize)
-        let textFont = UIFont(name: theme.susanBookFont, size: theme.subheadFontSize)
+        let labelFont = ThemeSettings.Fonts.default(size: .head)
+        let textFont = ThemeSettings.Fonts.default(size: .subhead)
 
         //Labels
         for label in [LoginLabel, PasswordLabel] {
 
             label?.font = labelFont
-            label?.textColor = theme.blackColor
+            label?.textColor = ThemeSettings.Colors.main
         }
 
         //Text fields
         for field in [LoginTextField, PasswordTextField] {
 
             field?.font = textFont
-            field?.textColor = theme.blackColor
+            field?.textColor = ThemeSettings.Colors.main
             field?.borderStyle = .none
         }
 
         //Navbar
-        Navbar.backgroundColor = theme.whiteColor
+        Navbar.backgroundColor = ThemeSettings.Colors.additional
     }
 
     internal func isValidLogin() -> Bool {
 
-        let login = LoginTextField?.text ?? String.Empty
-        if (String.IsNullOrEmpty(login)) {
+        let login = LoginTextField?.text ?? String.empty
+        if (String.isNullOrEmpty(login)) {
 
             showAlert(about: NSLocalizedString("You should fill correct email.", comment: "Auth"),
                       title: NSLocalizedString("Error", comment: "Auth"))
@@ -111,8 +109,8 @@ public class BaseAuthController: UIViewController {
     }
     internal func isValidPassword() -> Bool {
 
-        let password = PasswordTextField?.text ?? String.Empty
-        if (String.IsNullOrEmpty(password)) {
+        let password = PasswordTextField?.text ?? String.empty
+        if (String.isNullOrEmpty(password)) {
 
             showAlert(about: NSLocalizedString("You should fill correct password.", comment: "Auth"),
                       title: NSLocalizedString("Error", comment: "Auth"))
