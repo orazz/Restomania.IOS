@@ -19,7 +19,8 @@ public class OnePlaceMainSliderCell: UITableViewCell {
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! OnePlaceMainSliderCell
 
         instance._images = []
-        instance.SliderView.delegate = instance
+        instance.sliderView.delegate = instance
+        instance._imagesModal = ImagesController.instance(images: [])
 
         return instance
     }
@@ -27,8 +28,9 @@ public class OnePlaceMainSliderCell: UITableViewCell {
 
 
     //MARK: UI elements
-    @IBOutlet public weak var SliderView: SliderControl!
-    @IBOutlet public weak var SliderIndicator: SliderIndicator!
+    @IBOutlet public weak var sliderView: SliderControl!
+    @IBOutlet public weak var sliderIndicator: SliderIndicator!
+    private var _imagesModal: ImagesController!
 
     //MARK: Data and service
     private var _images: [PlaceImage]? {
@@ -47,21 +49,24 @@ public class OnePlaceMainSliderCell: UITableViewCell {
 
         var slides = [ImageWrapper]()
         for image in images {
-            let wrapper = ImageWrapper(frame: SliderView.frame)
+            let wrapper = ImageWrapper(frame: sliderView.frame)
             wrapper.setup(url: image.link)
             wrapper.clipsToBounds = true
             wrapper.contentMode = .scaleAspectFill
 
             slides.append(wrapper)
         }
-        SliderView.setup(slides: slides)
-        SliderIndicator.setup(size: slides.count)
+        sliderView.setup(slides: slides)
+        sliderIndicator.setup(size: slides.count)
+
+        _imagesModal?.delegate = self
+        _imagesModal?.setup(images: images.map({ ImagesController.ImageContainer(link: $0.link, description: $0.comment) }))
     }
 }
 extension OnePlaceMainSliderCell: SliderControlDelegate {
 
     public func move(slider: SliderControl, focusOn: Int) {
-        SliderIndicator.focusTo(index: focusOn)
+        sliderIndicator.focusTo(index: focusOn)
     }
 }
 
@@ -80,5 +85,18 @@ extension OnePlaceMainSliderCell: InterfaceTableCellProtocol {
     }
     public func prepareView() -> UITableViewCell {
         return self
+    }
+    public func select(with vc: UINavigationController) {
+
+        _imagesModal.focusOn(slide: sliderView.current)
+        vc.present(_imagesModal, animated: false, completion: {
+
+        })
+    }
+}
+extension OnePlaceMainSliderCell: ImagesControllerDelegate {
+    public func close(vc: ImagesController) {
+
+        self.sliderView.focusOn(slide: vc.currentSlide)
     }
 }

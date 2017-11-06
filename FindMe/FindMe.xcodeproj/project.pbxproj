@@ -90,6 +90,10 @@
 		1FACBA781F965AA4004CEED0 /* OnePlaceMainLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */; };
 		1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */; };
 		1FACBA7E1F966BEF004CEED0 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACBA7D1F966BEF004CEED0 /* Map.swift */; };
+		1FB0EE4A1FAF9C2E00F64F1F /* ImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0EE491FAF9C2E00F64F1F /* ImagesController.swift */; };
+		1FB0EE4C1FAF9C4500F64F1F /* ImagesControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB0EE4B1FAF9C4500F64F1F /* ImagesControllerView.xib */; };
+		1FB0EE4E1FAFA0F700F64F1F /* ImageControllerSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB0EE4D1FAFA0F700F64F1F /* ImageControllerSlideView.xib */; };
+		1FB0EE501FAFA10E00F64F1F /* ImageControllerSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0EE4F1FAFA10E00F64F1F /* ImageControllerSlide.swift */; };
 		1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */; };
 		1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */; };
 		1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548081F6FF8A4007CE6AB /* IPlaceDependent.swift */; };
@@ -246,6 +250,10 @@
 		1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainLocationCell.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCell.xib; sourceTree = "<group>"; };
 		1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLocationCellOneLine.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.xib; sourceTree = "<group>"; };
 		1FACBA7D1F966BEF004CEED0 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Map.swift; path = UI/Elements/Map.swift; sourceTree = "<group>"; };
+		1FB0EE491FAF9C2E00F64F1F /* ImagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImagesController.swift; path = UI/Elements/ImagesController/ImagesController.swift; sourceTree = "<group>"; };
+		1FB0EE4B1FAF9C4500F64F1F /* ImagesControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImagesControllerView.xib; path = UI/Elements/ImagesController/ImagesControllerView.xib; sourceTree = "<group>"; };
+		1FB0EE4D1FAFA0F700F64F1F /* ImageControllerSlideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImageControllerSlideView.xib; path = UI/Elements/ImagesController/ImageControllerSlideView.xib; sourceTree = "<group>"; };
+		1FB0EE4F1FAFA10E00F64F1F /* ImageControllerSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageControllerSlide.swift; path = UI/Elements/ImagesController/ImageControllerSlide.swift; sourceTree = "<group>"; };
 		1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesMainApiService.swift; path = ApiServices/Places/PlacesMainApiService.swift; sourceTree = "<group>"; };
 		1FBB97CD1F79B10000FF4D1C /* SelectParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectParameters.swift; path = ApiServices/SelectParameters.swift; sourceTree = "<group>"; };
 		1FC547FA1F6FB52B007CE6AB /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
@@ -450,6 +458,7 @@
 		1F1A0E5E1F7951AF00FDBA97 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1FB0EE481FAF9C0300F64F1F /* ImagesController */,
 				1F4E10F91F97059700EB8391 /* Inputs */,
 				1F09EE4F1F862AAE00694D8D /* Authorization */,
 				1F2F4B1F1F81263F002FE39B /* Slider */,
@@ -620,6 +629,17 @@
 				1F6B892D1FA860F900B7A99A /* PlaceClient.swift */,
 			);
 			name = Clients;
+			sourceTree = "<group>";
+		};
+		1FB0EE481FAF9C0300F64F1F /* ImagesController */ = {
+			isa = PBXGroup;
+			children = (
+				1FB0EE491FAF9C2E00F64F1F /* ImagesController.swift */,
+				1FB0EE4B1FAF9C4500F64F1F /* ImagesControllerView.xib */,
+				1FB0EE4F1FAFA10E00F64F1F /* ImageControllerSlide.swift */,
+				1FB0EE4D1FAFA0F700F64F1F /* ImageControllerSlideView.xib */,
+			);
+			name = ImagesController;
 			sourceTree = "<group>";
 		};
 		1FC547FC1F6FB9F9007CE6AB /* Domains */ = {
@@ -1025,6 +1045,7 @@
 				1FC583921F8150EF0045941A /* Main.storyboard in Resources */,
 				1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */,
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
+				1FB0EE4E1FAFA0F700F64F1F /* ImageControllerSlideView.xib in Resources */,
 				1F6B89321FA8666F00B7A99A /* OnePlaceClientsView.xib in Resources */,
 				1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */,
 				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
@@ -1043,6 +1064,7 @@
 				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
 				1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */,
 				1F3382FE1F97DD5E00E43596 /* FMSegmentedControl.xib in Resources */,
+				1FB0EE4C1FAF9C4500F64F1F /* ImagesControllerView.xib in Resources */,
 				1F6B89381FA86DD300B7A99A /* OnePlaceClientsCellView.xib in Resources */,
 				1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */,
 				1F3382F71F97D45300E43596 /* FMSwitch.xib in Resources */,
@@ -1214,6 +1236,7 @@
 				1F1A0E381F77C12400FDBA97 /* AppSummary.swift in Sources */,
 				1FE7E3DB1F7BAB2600D1745E /* LikesService.swift in Sources */,
 				1F1A0E581F794FB600FDBA97 /* PushesManager.swift in Sources */,
+				1FB0EE501FAFA10E00F64F1F /* ImageControllerSlide.swift in Sources */,
 				1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */,
 				1F49C4FA1F7BD15C00051CAD /* PositionsService.swift in Sources */,
 				1FC548191F703FBB007CE6AB /* Contacts.swift in Sources */,
@@ -1264,6 +1287,7 @@
 				1F0483861F83FCF000D00EED /* CheckInService.swift in Sources */,
 				1F2F4B211F81267C002FE39B /* SliderIndicator.swift in Sources */,
 				1F61302D1FAA7948009D3AF1 /* ApiServices.swift in Sources */,
+				1FB0EE4A1FAF9C2E00F64F1F /* ImagesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

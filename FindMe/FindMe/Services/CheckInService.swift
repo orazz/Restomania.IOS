@@ -13,7 +13,7 @@ import AsyncTask
 
 public class CheckInService: NSObject, PositionServiceDelegate {
 
-    private let _checkinTolerance = 500.0
+    private let _checkinTolerance = 300.0
     private let _foregroundDelay = 10.0
     private let _backgroundDelay = 60.0
 
@@ -121,14 +121,14 @@ public class CheckInService: NSObject, PositionServiceDelegate {
         response.async(.background, completion: { response in
 
             if (response.isFail) {
-                Log.Warning(self._tag, "Problem woth checkin in #\(placeId).")
+                
+                Log.Warning(self._tag, "Problem with checkin in #\(placeId).")
             }
         })
     }
     private func messageToSlack(_ position: PositionsService.Position) {
         SlackNotifier.notify("<\(_tag)>: \n`\(Date())` \nlat: \(position.latitude) \nlng: \(position.longtitude) \n*+-\(position.accuracy)m*")
     }
-
 
     //MARK: PositionServiceDelegate
     public func updateLocation(positions: [PositionsService.Position]) {
@@ -137,6 +137,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
             tryCheckIn()
         }
     }
+
     //MARK: Events
     @objc private func enterToBackground() {
         relaunchTimer()
