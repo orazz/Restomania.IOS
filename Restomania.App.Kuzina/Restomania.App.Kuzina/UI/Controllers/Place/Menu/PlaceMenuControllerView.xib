@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceMenuController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <connections>
-                <outlet property="backButton" destination="Cdj-Us-Tda" id="1X5-qE-mdq"/>
                 <outlet property="categoriesStack" destination="uyu-GQ-MJt" id="YZ4-ce-zlG"/>
                 <outlet property="dimmer" destination="jan-7q-tzY" id="PMp-KU-z9D"/>
                 <outlet property="dishesTable" destination="cX6-7I-o3u" id="9VY-jO-yXb"/>
@@ -29,7 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwU-Qz-CEy">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwU-Qz-CEy">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eO1-k9-gsH">
@@ -38,26 +37,43 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0cI-eK-jSG" customClass="WrappedImage" customModule="RestomaniaAppKuzina" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="oxI-qm-wGM">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="oxI-qm-wGM" userLabel="gradient">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_back" translatesAutoresizingMaskIntoConstraints="NO" id="Cdj-Us-Tda">
-                                    <rect key="frame" x="10" y="20" width="30" height="30"/>
+                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav-back" translatesAutoresizingMaskIntoConstraints="NO" id="Cdj-Us-Tda" userLabel="back">
+                                    <rect key="frame" x="10" y="30" width="30" height="30"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="TB0-VH-vIV"/>
                                         <constraint firstAttribute="height" constant="30" id="hX3-RG-UDw"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="F2r-iy-XwA" appends="YES" id="QGl-qN-ugB"/>
+                                    </connections>
+                                </imageView>
+                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yOF-UG-vYI" userLabel="info">
+                                    <rect key="frame" x="335" y="30" width="30" height="30"/>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="Buu-If-8Sn"/>
+                                        <constraint firstAttribute="height" constant="30" id="Z38-IN-jOx"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="hcO-TD-teQ" appends="YES" id="uQr-hI-3MT"/>
+                                    </connections>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="0cI-eK-jSG" firstAttribute="centerY" secondItem="eO1-k9-gsH" secondAttribute="centerY" id="851-Tu-iNx"/>
                                 <constraint firstItem="0cI-eK-jSG" firstAttribute="top" secondItem="eO1-k9-gsH" secondAttribute="top" id="9p2-v3-xod"/>
-                                <constraint firstItem="Cdj-Us-Tda" firstAttribute="top" secondItem="eO1-k9-gsH" secondAttribute="top" constant="20" id="CQB-ht-81I"/>
+                                <constraint firstItem="Cdj-Us-Tda" firstAttribute="top" secondItem="eO1-k9-gsH" secondAttribute="top" constant="30" id="CQB-ht-81I"/>
                                 <constraint firstItem="0cI-eK-jSG" firstAttribute="leading" secondItem="eO1-k9-gsH" secondAttribute="leading" id="G3E-Fe-JLw"/>
                                 <constraint firstItem="Cdj-Us-Tda" firstAttribute="leading" secondItem="eO1-k9-gsH" secondAttribute="leading" constant="10" id="Pqf-IZ-hmO"/>
                                 <constraint firstAttribute="trailing" secondItem="oxI-qm-wGM" secondAttribute="trailing" id="U7e-v1-c23"/>
+                                <constraint firstItem="yOF-UG-vYI" firstAttribute="top" secondItem="eO1-k9-gsH" secondAttribute="top" constant="30" id="Usu-uN-YOw"/>
                                 <constraint firstItem="oxI-qm-wGM" firstAttribute="leading" secondItem="eO1-k9-gsH" secondAttribute="leading" id="erE-9c-12D"/>
+                                <constraint firstAttribute="trailing" secondItem="yOF-UG-vYI" secondAttribute="trailing" constant="10" id="fJV-do-cXE"/>
                                 <constraint firstItem="0cI-eK-jSG" firstAttribute="centerY" secondItem="eO1-k9-gsH" secondAttribute="centerY" id="sUD-Gt-IXa"/>
                                 <constraint firstAttribute="bottom" secondItem="oxI-qm-wGM" secondAttribute="bottom" id="tcg-SB-bsI"/>
                                 <constraint firstItem="oxI-qm-wGM" firstAttribute="top" secondItem="eO1-k9-gsH" secondAttribute="top" id="wnD-kD-DNF"/>
@@ -73,9 +89,9 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qkw-kb-Qlb">
                             <rect key="frame" x="20" y="100" width="335" height="60"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXx-QF-w4b">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="IXx-QF-w4b">
                                     <rect key="frame" x="5" y="10" width="325" height="40"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -110,14 +126,14 @@
                         <constraint firstItem="eO1-k9-gsH" firstAttribute="top" secondItem="uwU-Qz-CEy" secondAttribute="top" id="kxj-S5-b7D"/>
                         <constraint firstItem="jan-7q-tzY" firstAttribute="leading" secondItem="uwU-Qz-CEy" secondAttribute="leading" id="ncD-zN-3ng"/>
                         <constraint firstItem="eO1-k9-gsH" firstAttribute="leading" secondItem="uwU-Qz-CEy" secondAttribute="leading" id="nhb-XO-rmL"/>
-                        <constraint firstItem="Qkw-kb-Qlb" firstAttribute="top" secondItem="uwU-Qz-CEy" secondAttribute="top" constant="100" id="sKO-Ss-1F1"/>
+                        <constraint firstItem="Qkw-kb-Qlb" firstAttribute="top" secondItem="jan-7q-tzY" secondAttribute="top" constant="-30" id="sKO-Ss-1F1"/>
                         <constraint firstAttribute="trailing" secondItem="jan-7q-tzY" secondAttribute="trailing" id="wXv-Jl-ylS"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJn-g2-TZp">
                     <rect key="frame" x="0.0" y="210" width="375" height="457"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="uyu-GQ-MJt">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="uyu-GQ-MJt">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -131,34 +147,35 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cX6-7I-o3u">
-                            <rect key="frame" x="0.0" y="51" width="375" height="356"/>
+                            <rect key="frame" x="0.0" y="51" width="375" height="406"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frE-7D-lFj" customClass="BlackBottomButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="407" width="375" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="hgE-2H-dra"/>
-                            </constraints>
-                            <state key="normal" title="Корзина"/>
-                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="uyu-GQ-MJt" firstAttribute="top" secondItem="BJn-g2-TZp" secondAttribute="top" id="4HV-UR-50r"/>
-                        <constraint firstItem="frE-7D-lFj" firstAttribute="leading" secondItem="BJn-g2-TZp" secondAttribute="leading" id="4YR-LJ-L6O"/>
-                        <constraint firstItem="frE-7D-lFj" firstAttribute="top" secondItem="cX6-7I-o3u" secondAttribute="bottom" id="MMu-bX-xRM"/>
-                        <constraint firstAttribute="trailing" secondItem="frE-7D-lFj" secondAttribute="trailing" id="Nf0-IO-38H"/>
+                        <constraint firstAttribute="bottom" secondItem="cX6-7I-o3u" secondAttribute="bottom" id="Lb9-FW-5hU"/>
                         <constraint firstItem="cX6-7I-o3u" firstAttribute="top" secondItem="uyu-GQ-MJt" secondAttribute="bottom" constant="15" id="UIi-4K-G2k"/>
                         <constraint firstItem="uyu-GQ-MJt" firstAttribute="leading" secondItem="BJn-g2-TZp" secondAttribute="leading" id="iHI-zh-Xyq"/>
-                        <constraint firstAttribute="bottom" secondItem="frE-7D-lFj" secondAttribute="bottom" id="iUG-nM-KwO"/>
                         <constraint firstAttribute="trailing" secondItem="cX6-7I-o3u" secondAttribute="trailing" id="pSA-is-aNR"/>
                         <constraint firstItem="cX6-7I-o3u" firstAttribute="leading" secondItem="BJn-g2-TZp" secondAttribute="leading" id="rgc-tx-QSZ"/>
                         <constraint firstAttribute="trailing" secondItem="uyu-GQ-MJt" secondAttribute="trailing" id="yZs-YD-cF7"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frE-7D-lFj" customClass="BlackBottomButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="PRl-xW-HdG"/>
+                        <constraint firstAttribute="height" constant="50" id="hgE-2H-dra"/>
+                    </constraints>
+                    <state key="normal" title="Корзина"/>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="frE-7D-lFj" secondAttribute="bottom" id="1pZ-gE-6ON"/>
+                <constraint firstAttribute="trailing" secondItem="frE-7D-lFj" secondAttribute="trailing" id="FFr-qV-3xq"/>
                 <constraint firstAttribute="bottom" secondItem="BJn-g2-TZp" secondAttribute="bottom" id="I6j-KJ-5lG"/>
                 <constraint firstItem="BJn-g2-TZp" firstAttribute="top" secondItem="uwU-Qz-CEy" secondAttribute="bottom" id="Kdf-ui-yln"/>
+                <constraint firstItem="frE-7D-lFj" firstAttribute="leading" secondItem="JL5-6G-4pb" secondAttribute="leading" id="a8T-yC-i8d"/>
                 <constraint firstItem="BJn-g2-TZp" firstAttribute="leading" secondItem="JL5-6G-4pb" secondAttribute="leading" id="jfS-W0-YJA"/>
                 <constraint firstItem="uwU-Qz-CEy" firstAttribute="top" secondItem="JL5-6G-4pb" secondAttribute="top" id="mlz-zW-rJn"/>
                 <constraint firstAttribute="trailing" secondItem="uwU-Qz-CEy" secondAttribute="trailing" id="oHW-9F-QEq"/>
@@ -170,9 +187,19 @@
             <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-25.5" y="-336.5"/>
         </view>
+        <tapGestureRecognizer id="F2r-iy-XwA" userLabel="goBack">
+            <connections>
+                <action selector="goBack" destination="-1" id="p6k-Xm-At7"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="hcO-TD-teQ" userLabel="goPlaceInfo">
+            <connections>
+                <action selector="goPlaceInfo" destination="-1" id="hdS-5W-g4f"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="image-gradient" width="921" height="479"/>
-        <image name="nav_back" width="50" height="50"/>
+        <image name="nav-back" width="50" height="50"/>
     </resources>
 </document>

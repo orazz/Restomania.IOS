@@ -12,18 +12,19 @@ import IOSLibrary
 
 public protocol PlaceMenuControllerProtocol {
 
-    func select(category: Long)
     func add(dish: Long)
+    func select(category: Long)
+    func select(dish: Long)
     func scrollTo(offset: CGFloat)
 }
-public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol {
+public class PlaceMenuController: UIViewController {
 
     private static let nibName = "PlaceMenuControllerView"
     public static func create(for placeId: Long) -> PlaceMenuController {
 
         let vc = PlaceMenuController(nibName: nibName, bundle: Bundle.main)
 
-        vc.placeId = placeId
+        vc._placeId = placeId
 
         return vc
     }
@@ -31,12 +32,14 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
     //UI Elements
     private var _loader: InterfaceLoader!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var backButton: UIImageView!
     @IBOutlet weak var placeImage: WrappedImage!
     @IBOutlet weak var dimmer: UIView!
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var placeWorkingHours: UILabel!
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var categoriesStack: UICollectionView!
@@ -45,47 +48,60 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
     private var _categoriesAdapter: CategoriesCollection!
     private var _dishesAdapter: DishesAdapter!
 
+    //Actions
+    @IBAction private func goBack() {
+        navigationController?.popViewController(animated: true)
+    }
+    @IBAction private func goPlaceInfo() {
+
+        let vc = PlaceInfoController.create(for: _placeId)
+
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
     //Load data
     private let _tag = String.tag(PlaceMenuController.self)
-    private var placeId: Long!
+    private var _placeId: Long!
     private var _summary: PlaceSummary?
     private var _summaryCompleteRequest = false
     private var _menu: MenuSummary?
     private var _menuCompleteRequest = false
     private var _cart: Cart!
 
+    // MARK: View life circle
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupUIElements()
-        tryHideLoader()
+        completeLoad()
 
         _loader = InterfaceLoader(for: self.view)
 
-        Log.Info(_tag, "Load place's menu of #\(placeId).")
+        Log.Info(_tag, "Load place's menu of #\(_placeId).")
     }
-    override public func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         hideNavigationBar()
 
         _loader.show()
+        setupUIElements()
 
         _categoriesAdapter = CategoriesCollection(collection: categoriesStack, delegate: self)
         _dishesAdapter = DishesAdapter(table: dishesTable, delegate: self)
 
-        _cart = ServicesManager.current.cartsService.cart(placeID: placeId)
+        _cart = ServicesManager.current.cartsService.cart(placeID: _placeId)
         requestSummary()
         requestMenu()
     }
-
-    override public func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
 
+        _dishesAdapter.clear()
     }
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+
     private func setupUIElements() {
 
         //View
@@ -105,31 +121,91 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         titleView.layer.shadowRadius = 5
         titleView.layer.shouldRasterize = true
 
-        //Back button
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.goBack))
-        backButton.addGestureRecognizer(tap)
-        backButton.isUserInteractionEnabled = true
-
         //Name
-        placeName.font = ThemeSettings.Fonts.bold(size: .title)
+        placeName.font = ThemeSettings.Fonts.bold(size: .subhead)
         placeName.textColor = ThemeSettings.Colors.main
 
         //Wokings hours
         placeWorkingHours.font = ThemeSettings.Fonts.default(size: .caption)
         placeWorkingHours.textColor = ThemeSettings.Colors.main
-
-        //Menu
-
-    }
-    @objc private func goBack() {
-        navigationController?.popViewController(animated: true)
     }
 
-    //Load summary
+    private func completeLoad() {
+
+        if (nil != _summary && nil != _menu) {
+            _loader.hide()
+        }
+
+        if (nil == _summary && _summaryCompleteRequest ||
+            nil == _menu && _menuCompleteRequest) {
+            Log.Error(_tag, "Problem with load data for page.")
+
+            DispatchQueue.main.async {
+
+                let alert = UIAlertController(title: "Ошибка", message: "У нас возникла проблема с загрузкой данных.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+
+                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+// MARK: Load menu
+extension PlaceMenuController {
+    private func requestMenu() {
+
+        let service = ServicesManager.current.menuSummariesService
+        _menu = service.findInLocal(_placeId)
+
+        //Take local
+        if (nil != _menu) {
+            applyMenu()
+            return
+        }
+
+        //Take remote
+        let task = service.find(placeID: _placeId)
+        task.async(.background, completion: { result in
+
+            self._menuCompleteRequest = true
+            if (nil == result) {
+                Log.Warning(self._tag, "Problem with load place's menu.")
+                self.completeLoad()
+                return
+            }
+
+            self._menu = result
+            DispatchQueue.main.async {
+
+                self.applyMenu()
+            }
+        })
+    }
+    private func applyMenu() {
+
+        if let menu = _menu {
+
+            let allCategory = MenuCategory()
+            allCategory.name = "Всё"
+            allCategory.ID = -1
+            allCategory.orderNumber = -1
+
+            _categoriesAdapter.update(range: [allCategory] + menu.categories)
+            _dishesAdapter.update(range: menu.dishes, currency: menu.currency)
+        }
+
+        completeLoad()
+    }
+}
+
+// MARK: Load summary
+extension PlaceMenuController {
     private func requestSummary() {
 
         let service = ServicesManager.current.placeSummariesService
-        _summary = service.findInLocal(placeId)
+        _summary = service.findInLocal(_placeId)
 
         //Take local
         if (nil != _summary) {
@@ -138,13 +214,13 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         }
 
         //Take remote
-        let task = service.range([ placeId ])
+        let task = service.range([ _placeId ])
         task.async(.background, completion: { result in
 
             self._summaryCompleteRequest = true
             if (result.isEmpty) {
                 Log.Warning(self._tag, "Problem with load place summary.")
-                self.tryHideLoader()
+                self.completeLoad()
                 return
             }
 
@@ -175,85 +251,34 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
             navigationController?.set(title: summary.Name, subtitle: day)
         }
 
-        tryHideLoader()
+        completeLoad()
     }
+}
 
-    //Menu
-    private func requestMenu() {
+// MARK: PlaceMenuControllerProtocol
+extension PlaceMenuController: PlaceMenuControllerProtocol {
 
-        let service = ServicesManager.current.menuSummariesService
-        _menu = service.findInLocal(placeId)
+    public func add(dish: Long) {
+        Log.Debug(_tag, "Add dish #\(dish)")
 
-        //Take local
-        if (nil != _menu) {
-            applyMenu()
-            return
-        }
-
-        //Take remote
-        let task = service.find(placeID: placeId)
-        task.async(.background, completion: { result in
-
-            self._menuCompleteRequest = true
-            if (nil == result) {
-                Log.Warning(self._tag, "Problem with load place's menu.")
-                self.tryHideLoader()
-                return
-            }
-
-            self._menu = result
-            DispatchQueue.main.async {
-
-                self.applyMenu()
-            }
-        })
+        _cart.add(dish: _menu!.dishes.find({ dish == $0.ID })!)
     }
-    private func applyMenu() {
+    public func select(category: Long) {
+        Log.Debug(_tag, "Select category #\(category)")
 
-        if let menu = _menu {
-
-            _categoriesAdapter.update(range: menu.categories)
-            _dishesAdapter.update(range: menu.dishes, currency: menu.currency)
-        }
-
-        tryHideLoader()
-    }
-
-    private func tryHideLoader() {
-
-        if (nil != _summary && nil != _menu) {
-            _loader.hide()
-        }
-
-        if (nil == _summary && _summaryCompleteRequest ||
-            nil == _menu && _menuCompleteRequest) {
-            Log.Error(_tag, "Problem with load data for page.")
-
-            DispatchQueue.main.async {
-
-                let alert = UIAlertController(title: "Ошибка", message: "У нас возникла проблема с загрузкой данных.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-
-                self.navigationController?.popViewController(animated: true)
-                self.navigationController?.present(alert, animated: true, completion: nil)
-            }
-        }
-    }
-
-    // MARK: PlaceMenuControllerProtocol
-    public func select(category id: Long) {
-        Log.Debug(_tag, "Select category #\(id)")
-
-        if (-1 == id) {
-
-            _dishesAdapter.filter(category: nil)
+        if (-1 == category) {
+            _dishesAdapter.filter(by: nil)
         } else {
 
-            _dishesAdapter.filter(category: id)
+            _dishesAdapter.filter(by: category)
+        }
+
+        if (!dishesTable.visibleCells.isEmpty) {
+            dishesTable.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
         }
     }
-    public func add(dish id: Long) {
-        Log.Debug(_tag, "Add dish #\(id)")
+    public func select(dish: Long) {
+        Log.Debug(_tag, "Select dish #\(dish)")
     }
     public func scrollTo(offset: CGFloat) {
 
@@ -262,26 +287,28 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
 //        let bounds = self.view.bounds
 //        self.view.frame = CGRect(x: 0, y: -offset, width: bounds.width, height: bounds.height)
     }
-    private func moveViewToVerticaly() {
+//    private func moveViewToVerticaly() {
+//
+//    }
+}
 
-    }
-
+// MARK: Categories
+extension PlaceMenuController {
     private class CategoriesCollection: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
         private let _collection: UICollectionView
         private let _delegate: PlaceMenuControllerProtocol
-        private var _cateegories: [MenuCategory]
+        private var _categories: [MenuCategory]
 
         public init(collection: UICollectionView, delegate: PlaceMenuControllerProtocol) {
 
             _collection = collection
             _delegate = delegate
-            _cateegories = [MenuCategory]()
+            _categories = [MenuCategory]()
 
             super.init()
 
-            let nib = UINib(nibName: PlaceMenuCategoryCell.nibName, bundle: nil)
-            _collection.register(nib, forCellWithReuseIdentifier: PlaceMenuCategoryCell.identifier)
+            PlaceMenuCategoryCell.register(in: _collection)
             _collection.dataSource = self
             _collection.delegate = self
         }
@@ -289,55 +316,55 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         // MARK: Interface
         public func update(range: [MenuCategory]) {
 
-            let allCategory = MenuCategory()
-            allCategory.name = "Все"
-            allCategory.ID = -1
-
-            _cateegories = [allCategory] + range.sorted(by: { $0.orderNumber > $1.orderNumber })
+            _categories = range.sorted(by: { $0.orderNumber < $1.orderNumber })
             _collection.reloadData()
-
-            let cell = _collection.cellForItem(at: IndexPath(row: 0, section: 0)) as? PlaceMenuCategoryCell
-            cell?.select()
         }
 
         // MARK: UICollectionViewDataSource
         public func numberOfSections(in collectionView: UICollectionView) -> Int {
-
             return 1
         }
         public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-            return _cateegories.count
+            return _categories.count
         }
         public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-            let category = _cateegories[indexPath.row]
+            let category = _categories[indexPath.row]
             let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: PlaceMenuCategoryCell.identifier, for: indexPath) as! PlaceMenuCategoryCell
-            cell.setup(category: category, handler: { id, card in self.selectCategory(id, sender: card, index: indexPath) })
+            cell.update(by: category)
+
+            if (indexPath.row == 0 && indexPath.section == 0) {
+                cell.select()
+            }
 
             return cell
-        }
-
-        private func selectCategory(_ id: Long, sender: PlaceMenuCategoryCell, index: IndexPath) {
-
-            for cell in _collection.visibleCells {
-                if let cell = cell as? PlaceMenuCategoryCell {
-
-                    cell.unSelect()
-                }
-            }
-            sender.select()
-            _collection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-
-            _delegate.select(category: id)
         }
 
         // MARK: UICollectionViewDelegateFlowLayout
         public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-            return PlaceMenuCategoryCell.sizeOfCell(category: _cateegories[indexPath.row])
+            return PlaceMenuCategoryCell.sizeOfCell(category: _categories[indexPath.row])
+        }
+        public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+            for cell in _collection.visibleCells {
+                if let cell = cell as? PlaceMenuCategoryCell {
+                    cell.deselect()
+                }
+            }
+
+            _collection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            let cell = collectionView.cellForItem(at: indexPath) as! PlaceMenuCategoryCell
+            cell.select()
+
+            let category = _categories[indexPath.row]
+            _delegate.select(category: category.ID)
         }
     }
+}
+
+// MARK: Dishes
+extension PlaceMenuController {
     private class DishesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
 
         private let _table: UITableView
@@ -345,9 +372,9 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
 
         private var _dishes: [Dish]
         private var _filtered: [Dish]
-        private var _filterCategoryId: Long?
+        private var _categoryId: Long?
 
-        private var _cells: [Int:PlaceMenuDishCell]
+        private var _cells: [Long : PlaceMenuDishCell]
         private var _currency: CurrencyType
 
         public init(table: UITableView, delegate: PlaceMenuControllerProtocol) {
@@ -357,9 +384,9 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
 
             _dishes = [Dish]()
             _filtered = [Dish]()
-            _filterCategoryId = nil
+            _categoryId = nil
 
-            _cells = [Int: PlaceMenuDishCell]()
+            _cells = [Long: PlaceMenuDishCell]()
             _currency = .All
 
             super.init()
@@ -371,57 +398,60 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         // MARK: Interface
         public func update(range: [Dish], currency: CurrencyType) {
 
-            _dishes = range.sorted(by: { $0.orderNumber > $1.orderNumber  })
+            _dishes = range.sorted(by: { $0.orderNumber < $1.orderNumber  })
             _currency = currency
 
-            filter(category: _filterCategoryId)
+            reload()
         }
-        public func filter(category id: Long?) {
+        public func filter(by categoryId: Long?) {
 
-            _filterCategoryId = id
-            if let categoryId = _filterCategoryId {
+            _categoryId = categoryId
+            reload()
+        }
+        public func reload() {
 
-                _filtered = _dishes.where ({ categoryId == $0.categoryId })
+            if let categoryId = _categoryId {
+                _filtered = _dishes.filter({ categoryId == $0.categoryId })
             } else {
-
                 _filtered = _dishes
             }
 
             _table.reloadData()
         }
+        public func clear() {
+            _cells.removeAll()
+        }
 
         // MARK: UITableViewDataSource
         public func numberOfSections(in tableView: UITableView) -> Int {
-
             return 1
         }
         public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
             return _filtered.count
         }
-
-        // MARK: UITableViewDelegate
         public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
             return PlaceMenuDishCell.height
         }
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-            if let cell = _cells[indexPath.row] {
-
-                return cell
+            let dish = _filtered[indexPath.row]
+            if nil == _cells[dish.ID] {
+                _cells[dish.ID] = PlaceMenuDishCell.instance(for: dish, with: _currency, delegate: _delegate)
             }
 
-            let cell = PlaceMenuDishCell.newInstance
-            _cells[indexPath.row] = cell
-            let dish = _filtered[indexPath.row]
-
-            cell.setup(dish: dish, currency: _currency, handler: { self._delegate.add(dish: $0) })
-
-            return cell
+            return _cells[dish.ID]!
         }
-        func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
+        // MARK: UITableViewDelegate
+        public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+            tableView.deselectRow(at: indexPath, animated: true)
+
+            _delegate.select(dish: _filtered[indexPath.row].ID)
+        }
+
+        // MARK: UIScrroolViewDelegate
+        public func scrollViewDidScroll(_ scrollView: UIScrollView) {
             _delegate.scrollTo(offset: scrollView.contentOffset.y )
         }
     }

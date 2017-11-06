@@ -11,56 +11,56 @@ import IOSLibrary
 
 public class PlaceMenuCategoryCell: UICollectionViewCell {
 
-    public static let nibName = "DishCategoryCard"
     public static let identifier = "DishCategoryCard-\(Guid.new)"
+    private static let nibName = "PlaceMenuCategoryCellView"
+    public static func register(in collection: UICollectionView) {
 
-    @IBOutlet weak var name: UILabel!
+        let nib = UINib(nibName: nibName, bundle: Bundle.main)
 
-    private static let _nameFont = ThemeSettings.Fonts.default(size: .subhead)
-    private var _categoryID: Long!
-    private var _handler: ((Long, PlaceMenuCategoryCell) -> Void)?
+        collection.register(nib, forCellWithReuseIdentifier: identifier)
+    }
 
-    public func setup(category: MenuCategory, handler: @escaping (Long, PlaceMenuCategoryCell) -> Void ) {
+    private static let nameFont = ThemeSettings.Fonts.default(size: .subhead)
+    public static func sizeOfCell(category: MenuCategory) -> CGSize {
 
-        _categoryID = category.ID
-        _handler = handler
-        name.text = category.name.lowercased()
+        let text = category.name as NSString
+        let width = text.size(withAttributes: [NSAttributedStringKey.font: PlaceMenuCategoryCell.nameFont]).width + 12 + 12 //12 is offset label from parent cell
+
+        return CGSize(width: width, height: 36)
+    }
+
+    //UI elements
+    @IBOutlet private weak var name: UILabel!
+
+    //Data & services
+    private var _isInitedStyles: Bool = false
+
+    public func update(by category: MenuCategory) {
 
         setupStyles()
+
+        name.text = category.name.lowercased()
     }
     private func setupStyles() {
 
-        //label
-        name.font = PlaceMenuCategoryCell._nameFont
-        unSelect()
-
-        //self
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapAction))
-        addGestureRecognizer(tap)
-    }
-    @objc private func tapAction() {
-
-        if let handler = _handler {
-            handler(_categoryID, self)
+        if (_isInitedStyles) {
+            return
         }
+        _isInitedStyles = true
+
+        name.font = PlaceMenuCategoryCell.nameFont
+        deselect()
     }
 
+    // MARK: Methods
     public func select() {
 
         name.textColor = ThemeSettings.Colors.additional
         backgroundColor = ThemeSettings.Colors.main
     }
-    public func unSelect() {
+    public func deselect() {
 
         name.textColor = ThemeSettings.Colors.main
         backgroundColor = ThemeSettings.Colors.additional
-    }
-
-    public static func sizeOfCell(category: MenuCategory) -> CGSize {
-
-        let text = category.name as NSString
-        let width = text.size(withAttributes: [NSAttributedStringKey.font: PlaceMenuCategoryCell._nameFont]).width + 12 + 12 //12 is offset label from parent cell
-
-        return CGSize(width: width, height: 36)
     }
 }

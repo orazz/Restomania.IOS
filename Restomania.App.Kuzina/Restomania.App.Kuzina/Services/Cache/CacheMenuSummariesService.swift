@@ -44,20 +44,21 @@ public class CacheMenuSummariesService {
 
             Log.Debug(self.tag, "Start reqest for find.")
 
-            let task = self._client.find(placeID: placeID)
-            let result = task.await()
+            let request = self._client.find(placeID: placeID)
+            request.async(.custom(self._adapter.blockQueue), completion: { response in
 
-            if (result.statusCode != .OK) {
-                handler(nil)
-                Log.Warning(self.tag, "Problem with finc place's menu summary.")
-                return
-            }
+                if (response.isFail) {
+                    handler(nil)
+                    Log.Warning(self.tag, "Problem with finc place's menu summary.")
+                } else {
 
-            let data = result.data!
-            self._adapter.addOrUpdate(data)
-            handler(self.findInLocal(placeID))
+                    let data = response.data!
+                    self._adapter.addOrUpdate(data)
 
-            Log.Debug(self.tag, "Complete request for find.")
+                    handler(self.findInLocal(placeID))
+                    Log.Debug(self.tag, "Complete request for find.")
+                }
+            })
         }
     }
     public func updateCached(placeIDs: [Long]) -> Task<[MenuSummary]> {

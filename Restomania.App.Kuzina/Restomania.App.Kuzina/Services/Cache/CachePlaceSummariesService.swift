@@ -62,19 +62,21 @@ public class CachePlaceSummariesService {
             Log.Debug(self.tag, "Start request range.")
 
             let task = self._client.Range(placeIDs: filtered.notFound)
-            let result = task.await()
+            task.async(.custom(self._adapter.blockQueue), completion: { response in
 
-            if (result.statusCode != .OK) {
-                handler([PlaceSummary]())
-                Log.Warning(self.tag, "Problem with get data.")
-                return
-            }
+                if (response.isFail) {
 
-            let data = result.data!
-            self._adapter.addOrUpdate(with: data)
-            handler(self._adapter.range(ids))
+                    handler([PlaceSummary]())
+                    Log.Warning(self.tag, "Problem with get data.")
+                } else {
 
-            Log.Debug(self.tag, "Complete request range.")
+                    let data = response.data!
+                    self._adapter.addOrUpdate(with: data)
+
+                    handler(self._adapter.range(ids))
+                    Log.Debug(self.tag, "Complete request range.")
+                }
+            })
         }
     }
     public func refresh() {

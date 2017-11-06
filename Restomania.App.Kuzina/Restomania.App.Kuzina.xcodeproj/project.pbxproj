@@ -477,8 +477,8 @@
 		1F261C811F42C31D004BFFCB /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				1F62E46C1FAE465700D1C89D /* TabsController.swift */,
 				1F62E46B1FAE465700D1C89D /* Tabs.storyboard */,
+				1F62E46C1FAE465700D1C89D /* TabsController.swift */,
 				1F62E46D1FAE465700D1C89D /* SearchController.swift */,
 				1F62E46A1FAE465600D1C89D /* ManagerController.swift */,
 			);
