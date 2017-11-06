@@ -13,25 +13,24 @@ import IOSLibrary
 public protocol OrdersControllerProtocol {
 
 }
-public class OrdersController: UIViewController, OrdersControllerProtocol, UITableViewDelegate, UITableViewDataSource {
+public class ManagerOrdersController: UIViewController, OrdersControllerProtocol, UITableViewDelegate, UITableViewDataSource {
 
-    public static let nibName = "OrdersView"
+    private static let nibName = "ManagerOrdersControllerView"
+    public static func create() -> ManagerOrdersController {
+
+        let vc = ManagerOrdersController(nibName: nibName, bundle: Bundle.main)
+
+        return vc
+    }
 
     //UI Elements
     @IBOutlet weak var TableView: UITableView!
 
     //Tools
-    private let _tag = String.tag(OrdersController.self)
+    private let _tag = String.tag(ManagerOrdersController.self)
     private var _loader: InterfaceLoader!
     private var _apiService: UserOrdersApiService!
     private var _orders: [DishOrder] = [DishOrder]()
-
-    public init() {
-        super.init(nibName: OrdersController.nibName, bundle: Bundle.main)
-    }
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     // MARK: Life circle
     public override func viewDidLoad() {
@@ -42,8 +41,8 @@ public class OrdersController: UIViewController, OrdersControllerProtocol, UITab
         let keys = ServicesManager.current.keysStorage
         _apiService = UserOrdersApiService(storage: keys)
 
-        let nib = UINib(nibName: OrderCell.nibName, bundle: Bundle.main)
-        TableView.register(nib, forCellReuseIdentifier: OrderCell.identifier)
+        let nib = UINib(nibName: ManagerOrdersControllerViewOrderCell.nibName, bundle: Bundle.main)
+        TableView.register(nib, forCellReuseIdentifier: ManagerOrdersControllerViewOrderCell.identifier)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -89,9 +88,9 @@ public class OrdersController: UIViewController, OrdersControllerProtocol, UITab
     }
     private func goToOrder(id orderId: Long) {
 
-        let controller = OneOrderController(with: _orders.find({ orderId == $0.ID })!)
+        let vc = ManagerOneOrderController.create(with: _orders.find({ orderId == $0.ID })!)
 
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     // MARK: OrdersControllerProtocol
@@ -99,7 +98,7 @@ public class OrdersController: UIViewController, OrdersControllerProtocol, UITab
     // MARK: UITableViewDelegate
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: OrderCell.identifier, for: indexPath) as! OrderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOrdersControllerViewOrderCell.identifier, for: indexPath) as! ManagerOrdersControllerViewOrderCell
         cell.setup(order: _orders[indexPath.row], delegate: self)
 
         return cell
@@ -108,7 +107,7 @@ public class OrdersController: UIViewController, OrdersControllerProtocol, UITab
 
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let cell = tableView.cellForRow(at: indexPath) as! OrderCell
+        let cell = tableView.cellForRow(at: indexPath) as! ManagerOrdersControllerViewOrderCell
         let orderId = cell.OrderId
 
         goToOrder(id: orderId)

@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class OrderCell: UITableViewCell {
+public class ManagerOrdersControllerViewOrderCell: UITableViewCell {
 
     public static let identifier = "OrderCell-\(Guid.new)"
-    public static let nibName = "OrderCellView"
+    public static let nibName = "ManagerOrdersControllerViewOrderCellView"
     public static let height: CGFloat = 70
 
     //UIELements

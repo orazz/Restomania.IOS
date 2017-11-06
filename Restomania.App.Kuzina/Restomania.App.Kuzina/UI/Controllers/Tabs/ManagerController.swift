@@ -59,10 +59,10 @@ public class ManagerController: UIViewController {
 
     // MARK: Navigate to sub managers screens
     @IBAction public func goToEditProfile() {
-        presentSubmanager(controller: EditProfileController())
+        presentSubmanager(controller: ManagerEditProfileController())
     }
     @IBAction public func goToEditNotificationPreferences() {
-        presentSubmanager(controller: EditNotificationPreferencesController())
+        presentSubmanager(controller: ManagerEditNotificationPreferencesController())
     }
     @IBAction public func goToChangePassword() {
         presentSubmanager(controller: ChangePasswordController())
@@ -71,7 +71,7 @@ public class ManagerController: UIViewController {
         presentSubmanager(controller: PaymentCardsController())
     }
     @IBAction public func goToOrders() {
-        presentSubmanager(controller: OrdersController())
+        presentSubmanager(controller: ManagerOrdersController())
     }
     @IBAction public func goToTerms() {
         presentSubmanager(controller: TermsController(), needAuth: false)

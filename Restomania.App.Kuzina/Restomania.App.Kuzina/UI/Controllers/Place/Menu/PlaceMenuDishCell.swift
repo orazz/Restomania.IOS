@@ -9,16 +9,16 @@
 import UIKit
 import IOSLibrary
 
-public class MenuDishCard: UITableViewCell {
+public class PlaceMenuDishCell: UITableViewCell {
 
     public static let nibName = "MenuDishCard"
     public static let identifier = "MenuDishCard-\(Guid.new)"
     public static let height = CGFloat(110)
     public static let nib = UINib(nibName: nibName, bundle: Bundle.main)
 
-    public static var newInstance: MenuDishCard {
+    public static var newInstance: PlaceMenuDishCell {
 
-        return nib.instantiate(withOwner: nil, options: nil).first as! MenuDishCard
+        return nib.instantiate(withOwner: nil, options: nil).first as! PlaceMenuDishCell
     }
 
     @IBOutlet weak var dishImage: WrappedImage!

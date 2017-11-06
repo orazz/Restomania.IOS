@@ -10,9 +10,18 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class OneOrderController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public class ManagerOneOrderController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    public static let nibName = "OneOrderView"
+    private static let nibName = "ManagerOneOrderControllerView"
+    public static func create(with order: DishOrder) -> ManagerOneOrderController {
+
+        let vc = ManagerOneOrderController(nibName: nibName, bundle: Bundle.main)
+
+        vc._orderId = order.ID
+        vc._order = order
+
+        return vc
+    }
 
     //UI Elements
     @IBOutlet weak var CompleteDateLabel: UILabel!
@@ -33,9 +42,9 @@ public class OneOrderController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var TotalValueLabel: PriceLabel!
 
     // MARK: Data & services
-    private let _tag = String.tag(OneOrderController.self)
-    private let _order: DishOrder?
-    private let _orderId: Long
+    private let _tag = String.tag(ManagerOneOrderController.self)
+    private var _orderId: Long!
+    private var _order: DishOrder!
     private var _dateFormatter: DateFormatter {
 
         let result = DateFormatter()
@@ -46,21 +55,11 @@ public class OneOrderController: UIViewController, UITableViewDelegate, UITableV
         return result
     }
 
-    public init(with order: DishOrder) {
-        _orderId = order.ID
-        _order = order
-
-        super.init(nibName: OneOrderController.nibName, bundle: Bundle.main)
-    }
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     // MARK: Life circle
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        OrderedDishCell.register(for: TableView)
+        ManagerOneOrderDishCell.register(for: TableView)
 
         setupStyles()
         setupDataToInterface()
@@ -140,14 +139,14 @@ public class OneOrderController: UIViewController, UITableViewDelegate, UITableV
 
         if let constraint = (TableView.constraints.filter {$0.firstAttribute == .height}.first) {
 
-            constraint.constant = OrderedDishCell.height * CGFloat(_order!.Dishes.count)
+            constraint.constant = ManagerOneOrderDishCell.height * CGFloat(_order!.Dishes.count)
         }
     }
 
     // MARK: UITableViewDelegate
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: OrderedDishCell.identifier, for: indexPath) as! OrderedDishCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOneOrderDishCell.identifier, for: indexPath) as! ManagerOneOrderDishCell
         cell.setup(dish: _order!.Dishes[indexPath.row], currency: _order!.Summary.Currency)
 
         return cell
@@ -158,7 +157,7 @@ public class OneOrderController: UIViewController, UITableViewDelegate, UITableV
     }
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        return OrderedDishCell.height
+        return ManagerOneOrderDishCell.height
     }
 
     // MARK: UITableViewDataSource

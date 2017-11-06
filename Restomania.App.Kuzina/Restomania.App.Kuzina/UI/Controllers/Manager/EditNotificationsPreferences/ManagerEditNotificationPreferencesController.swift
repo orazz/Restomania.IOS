@@ -1,5 +1,5 @@
 //
-//  EditProfileController.swift
+//  EditNotificationPreferencesController.swift
 //  Restomania.App.Kuzina
 //
 //  Created by Алексей on 11.09.17.
@@ -9,16 +9,14 @@
 import Foundation
 import UIKit
 
-public class EditProfileController: UIViewController {
+public class ManagerEditNotificationPreferencesController: UIViewController {
 
-    public static let nibName = "EditProfileView"
+    private static let nibName = "ManagerEditNotificationPreferencesControllerView"
+    public static func create() -> ManagerEditNotificationPreferencesController {
 
-    public init() {
-        super.init(nibName: EditProfileController.nibName, bundle: Bundle.main)
+        let vc = ManagerEditNotificationPreferencesController(nibName: nibName, bundle: Bundle.main)
 
-    }
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return vc
     }
 
     // MARK: Life circle
@@ -30,7 +28,7 @@ public class EditProfileController: UIViewController {
         super.viewWillAppear(animated)
 
         showNavigationBar()
-        navigationItem.title = "Аккаунт"
+        navigationItem.title = "Настройки уведомлений"
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

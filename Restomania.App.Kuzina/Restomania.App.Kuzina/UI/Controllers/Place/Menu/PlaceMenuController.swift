@@ -18,9 +18,15 @@ public protocol PlaceMenuControllerProtocol {
 }
 public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol {
 
-    public static let nibName = "PlaceMenuController"
+    private static let nibName = "PlaceMenuControllerView"
+    public static func create(for placeId: Long) -> PlaceMenuController {
 
-    public var placeID: Long = -1
+        let vc = PlaceMenuController(nibName: nibName, bundle: Bundle.main)
+
+        vc.placeId = placeId
+
+        return vc
+    }
 
     //UI Elements
     private var _loader: InterfaceLoader!
@@ -41,6 +47,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
 
     //Load data
     private let _tag = String.tag(PlaceMenuController.self)
+    private var placeId: Long!
     private var _summary: PlaceSummary?
     private var _summaryCompleteRequest = false
     private var _menu: MenuSummary?
@@ -55,7 +62,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
 
         _loader = InterfaceLoader(for: self.view)
 
-        Log.Info(_tag, "Load place's menu of #\(placeID).")
+        Log.Info(_tag, "Load place's menu of #\(placeId).")
     }
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,7 +74,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         _categoriesAdapter = CategoriesCollection(collection: categoriesStack, delegate: self)
         _dishesAdapter = DishesAdapter(table: dishesTable, delegate: self)
 
-        _cart = ServicesManager.current.cartsService.cart(placeID: placeID)
+        _cart = ServicesManager.current.cartsService.cart(placeID: placeId)
         requestSummary()
         requestMenu()
     }
@@ -122,7 +129,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
     private func requestSummary() {
 
         let service = ServicesManager.current.placeSummariesService
-        _summary = service.findInLocal(placeID)
+        _summary = service.findInLocal(placeId)
 
         //Take local
         if (nil != _summary) {
@@ -131,7 +138,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         }
 
         //Take remote
-        let task = service.range([ placeID ])
+        let task = service.range([ placeId ])
         task.async(.background, completion: { result in
 
             self._summaryCompleteRequest = true
@@ -175,7 +182,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
     private func requestMenu() {
 
         let service = ServicesManager.current.menuSummariesService
-        _menu = service.findInLocal(placeID)
+        _menu = service.findInLocal(placeId)
 
         //Take local
         if (nil != _menu) {
@@ -184,7 +191,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         }
 
         //Take remote
-        let task = service.find(placeID: placeID)
+        let task = service.find(placeID: placeId)
         task.async(.background, completion: { result in
 
             self._menuCompleteRequest = true
@@ -273,8 +280,8 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
 
             super.init()
 
-            let nib = UINib(nibName: DishCategoryCard.nibName, bundle: nil)
-            _collection.register(nib, forCellWithReuseIdentifier: DishCategoryCard.identifier)
+            let nib = UINib(nibName: PlaceMenuCategoryCell.nibName, bundle: nil)
+            _collection.register(nib, forCellWithReuseIdentifier: PlaceMenuCategoryCell.identifier)
             _collection.dataSource = self
             _collection.delegate = self
         }
@@ -289,7 +296,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
             _cateegories = [allCategory] + range.sorted(by: { $0.orderNumber > $1.orderNumber })
             _collection.reloadData()
 
-            let cell = _collection.cellForItem(at: IndexPath(row: 0, section: 0)) as? DishCategoryCard
+            let cell = _collection.cellForItem(at: IndexPath(row: 0, section: 0)) as? PlaceMenuCategoryCell
             cell?.select()
         }
 
@@ -305,16 +312,16 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
             let category = _cateegories[indexPath.row]
-            let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: DishCategoryCard.identifier, for: indexPath) as! DishCategoryCard
+            let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: PlaceMenuCategoryCell.identifier, for: indexPath) as! PlaceMenuCategoryCell
             cell.setup(category: category, handler: { id, card in self.selectCategory(id, sender: card, index: indexPath) })
 
             return cell
         }
 
-        private func selectCategory(_ id: Long, sender: DishCategoryCard, index: IndexPath) {
+        private func selectCategory(_ id: Long, sender: PlaceMenuCategoryCell, index: IndexPath) {
 
             for cell in _collection.visibleCells {
-                if let cell = cell as? DishCategoryCard {
+                if let cell = cell as? PlaceMenuCategoryCell {
 
                     cell.unSelect()
                 }
@@ -328,7 +335,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         // MARK: UICollectionViewDelegateFlowLayout
         public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-            return DishCategoryCard.sizeOfCell(category: _cateegories[indexPath.row])
+            return PlaceMenuCategoryCell.sizeOfCell(category: _cateegories[indexPath.row])
         }
     }
     private class DishesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
@@ -340,7 +347,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         private var _filtered: [Dish]
         private var _filterCategoryId: Long?
 
-        private var _cells: [Int:MenuDishCard]
+        private var _cells: [Int:PlaceMenuDishCell]
         private var _currency: CurrencyType
 
         public init(table: UITableView, delegate: PlaceMenuControllerProtocol) {
@@ -352,7 +359,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
             _filtered = [Dish]()
             _filterCategoryId = nil
 
-            _cells = [Int: MenuDishCard]()
+            _cells = [Int: PlaceMenuDishCell]()
             _currency = .All
 
             super.init()
@@ -396,7 +403,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
         // MARK: UITableViewDelegate
         public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-            return MenuDishCard.height
+            return PlaceMenuDishCell.height
         }
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -405,7 +412,7 @@ public class PlaceMenuController: UIViewController, PlaceMenuControllerProtocol 
                 return cell
             }
 
-            let cell = MenuDishCard.newInstance
+            let cell = PlaceMenuDishCell.newInstance
             _cells[indexPath.row] = cell
             let dish = _filtered[indexPath.row]
 
