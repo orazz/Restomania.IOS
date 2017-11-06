@@ -925,6 +925,7 @@
 				DECD6648264972A754C54579 /* [CP] Embed Pods Frameworks */,
 				30BA2E0B52D696C29653F2BD /* [CP] Copy Pods Resources */,
 				1F9DDAAC1F8A7A7600F4618D /* Embed Frameworks */,
+				1F279F541FB06F02003A2B47 /* Increment Build */,
 			);
 			buildRules = (
 			);
@@ -1120,6 +1121,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-FindMe-Tests/Pods-FindMe-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1F279F541FB06F02003A2B47 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 		30BA2E0B52D696C29653F2BD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

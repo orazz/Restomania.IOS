@@ -15,7 +15,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
 
     private let _checkinTolerance = 300.0
     private let _foregroundDelay = 10.0
-    private let _backgroundDelay = 60.0
+    private let _backgroundDelay = 30.0
 
     private let _tag = String.tag(CheckInService.self)
     private let _guid = Guid.new
@@ -76,10 +76,11 @@ public class CheckInService: NSObject, PositionServiceDelegate {
 
             Task<Any?>(action: { done in
 
-                Log.Info(self._tag, "Process new location.")
-
 //                self.messageToSlack(position)
                 self.checkPlaces(on: position)
+
+                Log.Info(self._tag, "Process new location.")
+
                 done(nil)
             }).async(.background, completion: { _ in })
         }
