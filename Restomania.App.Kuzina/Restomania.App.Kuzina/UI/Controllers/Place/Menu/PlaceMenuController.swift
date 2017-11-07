@@ -316,6 +316,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
 
 // MARK: Scrolling
 extension PlaceMenuController: UITableViewDelegate {
+
     //Scroll dishes table
     public func scrollTo(offset: CGFloat) {
         if (offset < -1) {
@@ -374,13 +375,16 @@ extension PlaceMenuController: UITableViewDelegate {
             }
         }
 
+        let size = CGFloat(35)
+        let leftAction = fadeInPanel.topItem?.leftBarButtonItem?.customView as! UIButton
         let back = UIImageView(image: ThemeSettings.Images.navigationBackward)
-        back.frame = CGRect(x: -11, y: 0, width: 40, height: 40)
-        (fadeInPanel.topItem?.leftBarButtonItem?.customView as? UIButton)?.addSubview(back)
+        back.frame = CGRect(x: -11, y: leftAction.center.y - size/2, width: size, height: size)
+        leftAction.addSubview(back)
 
+        let rightAction = fadeInPanel.topItem?.rightBarButtonItem?.customView as! UIButton
         let info = UIImageView(image: ThemeSettings.Images.iconInfo)
-        info.frame = CGRect(x: 22, y: 0, width: 40, height: 40)
-        (fadeInPanel.topItem?.rightBarButtonItem?.customView as? UIButton)?.addSubview(info)
+        info.frame = CGRect(x: 22, y: rightAction.center.y - size/2, width: size, height: size)
+        rightAction.addSubview(info)
 
         NSLayoutConstraint.activate([top, left, right, height])
         updateFadeOutPanel()
