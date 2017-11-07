@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceMenuController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <connections>
                 <outlet property="contentTable" destination="uaE-hu-3IV" id="kSB-yX-d61"/>
+                <outlet property="fadeInPanel" destination="xaJ-Ms-SXz" id="zBy-xg-JXI"/>
                 <outlet property="view" destination="JL5-6G-4pb" id="czT-wx-xCv"/>
             </connections>
         </placeholder>
@@ -52,5 +53,51 @@
             </variation>
             <point key="canvasLocation" x="-25.5" y="-336.5"/>
         </view>
+        <navigationBar contentMode="scaleToFill" translucent="NO" id="xaJ-Ms-SXz">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <color key="barTintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+            <items>
+                <navigationItem id="bMO-bg-9fN">
+                    <barButtonItem key="leftBarButtonItem" style="plain" id="LNT-4I-2hb">
+                        <inset key="imageInsets" minX="11" minY="0.0" maxX="-16" maxY="0.0"/>
+                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="17a-Si-tyA">
+                            <rect key="frame" x="16" y="0.0" width="50" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                            <inset key="contentEdgeInsets" minX="-22" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="1Ru-Cc-43E" appends="YES" id="DBs-d7-WSO"/>
+                            </connections>
+                        </button>
+                    </barButtonItem>
+                    <barButtonItem key="rightBarButtonItem" style="plain" id="JNh-29-cuX">
+                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TBz-TG-Amg">
+                            <rect key="frame" x="306" y="0.0" width="53" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="-22" maxY="0.0"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="g2G-VX-P7v" appends="YES" id="WqF-Wz-E0T"/>
+                            </connections>
+                        </button>
+                        <connections>
+                            <action selector="goPlaceInfo" destination="-1" id="HV4-yJ-fTh"/>
+                        </connections>
+                    </barButtonItem>
+                </navigationItem>
+            </items>
+            <point key="canvasLocation" x="-450" y="-648"/>
+        </navigationBar>
+        <tapGestureRecognizer id="1Ru-Cc-43E" userLabel="goBack">
+            <connections>
+                <action selector="goBack" destination="-1" id="aQK-eu-nGQ"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="g2G-VX-P7v" userLabel="goPlaceInfo">
+            <connections>
+                <action selector="goPlaceInfo" destination="-1" id="pYW-rX-RCK"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

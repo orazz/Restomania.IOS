@@ -111,7 +111,7 @@ extension PlaceMenuTitleContainer: PlaceMenuCellsProtocol {
 extension PlaceMenuTitleContainer: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 300
+        return 265
     }
     public func prepareView() -> UITableViewCell {
         return self

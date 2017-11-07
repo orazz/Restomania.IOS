@@ -21,6 +21,7 @@ public protocol PlaceMenuDelegate {
 
     var summary: PlaceSummary? { get }
     var menu: MenuSummary? { get }
+    var cart: Cart { get }
 
     func add(dish: Long)
     func select(category: Long)
@@ -37,6 +38,7 @@ public class PlaceMenuController: UIViewController {
         vc._placeId = placeId
         vc._menuService = ServicesManager.current.menuSummariesService
         vc._placesService = ServicesManager.current.placeSummariesService
+        vc._cart = ServicesManager.current.cartsService.cart(placeID: placeId)
 
         return vc
     }
@@ -49,9 +51,23 @@ public class PlaceMenuController: UIViewController {
     private var _interfaceAdapter: InterfaceTable!
     private var _titleBlock: PlaceMenuTitleContainer!
     private var _menuBlock: PlaceMenuMenuContainer!
+    @IBOutlet private weak var fadeInPanel: UINavigationBar!
+    @IBAction private func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction private func goPlaceInfo() {
+
+        guard let summary = _summary else {
+            return
+        }
+
+        let vc = PlaceInfoController.create(for: summary.ID)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     //Load data
     private let _tag = String.tag(PlaceMenuController.self)
+    private let _guid = Guid.new
     private var _placeId: Long!
     private var _summary: PlaceSummary?
     private var _menu: MenuSummary?
@@ -103,13 +119,15 @@ public class PlaceMenuController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        _recheckOffset = contentTable.contentSize.height - CGFloat(_menuBlock.viewHeight) - CGFloat(64)
+        _recheckOffset = contentTable.contentSize.height - CGFloat(_menuBlock.viewHeight) - CGFloat(64) - CGFloat(20) //64 - MenuBlock, 20 - status bar offset
 
+        _cart.subscribe(guid: _guid, handler: self, tag: _tag)
         trigger({ $0.viewDidDisappear() })
     }
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
+        _cart.unsubscribe(guid: _guid)
         trigger({ $0.viewDidDisappear() })
     }
 
@@ -120,7 +138,39 @@ public class PlaceMenuController: UIViewController {
         view.backgroundColor = ThemeSettings.Colors.background
 
         _menuBlock.disableScroll()
+        setupFadeOutPanel()
     }
+    private func setupFadeOutPanel() {
+
+        fadeInPanel.translatesAutoresizingMaskIntoConstraints = false
+        fadeInPanel.backgroundColor = ThemeSettings.Colors.main
+        fadeInPanel.barTintColor = ThemeSettings.Colors.main
+        self.view.addSubview(fadeInPanel)
+
+        let top = NSLayoutConstraint(item: fadeInPanel, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0)
+        let left = NSLayoutConstraint(item: fadeInPanel, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
+        let right = NSLayoutConstraint(item: fadeInPanel, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+        let height = NSLayoutConstraint(item: fadeInPanel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 64)
+
+        for contraint in fadeInPanel.constraints {
+            if contraint.firstAttribute == .width {
+                NSLayoutConstraint.deactivate([contraint])
+                break
+            }
+        }
+
+        let back = UIImageView(image: ThemeSettings.Images.navigationBackward)
+        back.frame = CGRect(x: -11, y: 0, width: 40, height: 40)
+        (fadeInPanel.topItem?.leftBarButtonItem?.customView as? UIButton)?.addSubview(back)
+
+        let info = UIImageView(image: ThemeSettings.Images.iconInfo)
+        info.frame = CGRect(x: 22, y: 0, width: 40, height: 40)
+        (fadeInPanel.topItem?.rightBarButtonItem?.customView as? UIButton)?.addSubview(info)
+
+        NSLayoutConstraint.activate([top, left, right, height])
+        updateFadeOutPanel()
+    }
+
     private func loadRows() -> [PlaceMenuCellsProtocol] {
 
         var result = [PlaceMenuCellsProtocol]()
@@ -250,6 +300,9 @@ extension PlaceMenuController: PlaceMenuDelegate {
     public var menu: MenuSummary? {
         return _menu
     }
+    public var cart: Cart {
+        return _cart
+    }
 
     public func add(dish: Long) {
         Log.Debug(_tag, "Add dish #\(dish)")
@@ -263,38 +316,69 @@ extension PlaceMenuController: PlaceMenuDelegate {
     public func select(dish: Long) {
         Log.Debug(_tag, "Select dish #\(dish)")
     }
+}
+// MARK: Scrolling
+extension PlaceMenuController: UITableViewDelegate {
+    //Scroll dishes table
     public func scrollTo(offset: CGFloat) {
-        if (offset <= 0) {
+        if (offset < -1) {
+            _menuBlock.disableScroll()
 
             _lastOverOffset = min(offset, _lastOverOffset)
-            contentTable.bounces = true
-            contentTable.alwaysBounceVertical = true
-            contentTable.isScrollEnabled = true
-//            contentTable.setContentOffset(CGPoint(x: 0, y: _recheckOffset), animated: false)
             contentTable.setContentOffset(CGPoint(x: 0, y: _recheckOffset - count(offset: _lastOverOffset)), animated: true)
-
-            _menuBlock.disableScroll()
+            enableScrolling()
         }
     }
-}
-extension PlaceMenuController: UITableViewDelegate {
+    //Scroll content table
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let offset = scrollView.contentOffset.y
         if (offset > _recheckOffset) {
+            disableScrolling()
 
             _lastOverOffset = max(offset - _recheckOffset, _lastOverOffset)
-            contentTable.setContentOffset(CGPoint(x: 0, y: _recheckOffset), animated: false)
-            contentTable.bounces = false
-            contentTable.alwaysBounceVertical = false
-            contentTable.isScrollEnabled = false
-
-            _menuBlock.enableScroll()
-//            _menuBlock.setScroll(0)
             _menuBlock.setScroll(count(offset: _lastOverOffset), animated: true)
+            _menuBlock.enableScroll()
         }
+
+        updateFadeOutPanel()
+    }
+    private func enableScrolling() {
+        contentTable.bounces = true
+        contentTable.alwaysBounceVertical = true
+        contentTable.isScrollEnabled = true
+    }
+    private func disableScrolling() {
+        contentTable.setContentOffset(CGPoint(x: 0, y: _recheckOffset), animated: false)
+        contentTable.bounces = false
+        contentTable.alwaysBounceVertical = false
+        contentTable.isScrollEnabled = false
     }
     private func count(offset: CGFloat) -> CGFloat {
         return CGFloat(max(70, min(150, offset * offset)))
     }
+    private func updateFadeOutPanel() {
+
+        let offset = contentTable.contentOffset.y
+        let startFadeIn = CGFloat(50)
+        let endFadeIn = CGFloat(170)
+        let fadeInDistance = endFadeIn - startFadeIn
+
+        if (offset < startFadeIn) {
+            fadeInPanel.isHidden = true
+            return
+        } else {
+            fadeInPanel.isHidden = false
+        }
+
+        if (offset > endFadeIn) {
+            fadeInPanel.alpha = 1
+        } else {
+            fadeInPanel.alpha = (offset - startFadeIn) / fadeInDistance
+        }
+    }
+}
+extension PlaceMenuController: CartUpdateProtocol {
+    public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {}
+    public func cart(_ cart: Cart, removedDish: Long) {}
 }

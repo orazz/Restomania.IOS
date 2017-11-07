@@ -46,6 +46,7 @@
 		1F36C88E1F20C4DA00232B9A /* ShortSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88D1F20C4DA00232B9A /* ShortSchedule.swift */; };
 		1F36C8901F20C5E000232B9A /* PlaceSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88F1F20C5E000232B9A /* PlaceSummary.swift */; };
 		1F36C8931F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8921F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift */; };
+		1F3C5A0C1FB15D940038EB97 /* BottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */; };
 		1F62E4631FAE462900D1C89D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4621FAE462900D1C89D /* NavigationController.swift */; };
 		1F62E4671FAE464400D1C89D /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4641FAE464400D1C89D /* GreetingController.swift */; };
 		1F62E4681FAE464400D1C89D /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E4651FAE464400D1C89D /* Start.storyboard */; };
@@ -271,6 +272,7 @@
 		1F36C8921F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenPlaceSummariesApiService.swift; path = ApiServices/Open/OpenPlaceSummariesApiService.swift; sourceTree = "<group>"; };
 		1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorageTests.swift; path = Tools/ConfigsStorageTests.swift; sourceTree = "<group>"; };
 		1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorageTests.swift; path = Tools/PropertiesStorageTests.swift; sourceTree = "<group>"; };
+		1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BottomActions.swift; path = UI/Elements/BottomActions/BottomActions.swift; sourceTree = "<group>"; };
 		1F62E4621FAE462900D1C89D /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = UI/Controllers/NavigationController.swift; sourceTree = "<group>"; };
 		1F62E4641FAE464400D1C89D /* GreetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GreetingController.swift; path = UI/Controllers/Start/GreetingController.swift; sourceTree = "<group>"; };
 		1F62E4651FAE464400D1C89D /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Start.storyboard; path = UI/Controllers/Start/Start.storyboard; sourceTree = "<group>"; };
@@ -663,6 +665,14 @@
 				1FFA57F51F2264B800E83463 /* SearchAdapterTests.swift */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		1F3C5A0A1FB15D5E0038EB97 /* BottomActions */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */,
+			);
+			name = BottomActions;
 			sourceTree = "<group>";
 		};
 		1F68AF7E1F28CD97000614C9 /* Place */ = {
@@ -1201,6 +1211,7 @@
 		1FFA57C91F21EE0200E83463 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C5A0A1FB15D5E0038EB97 /* BottomActions */,
 				1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */,
 				1F261C781F42BC4B004BFFCB /* Buttons */,
 				1FBE83F91F25C9D00002F0B5 /* WrappedImage */,
@@ -1626,6 +1637,7 @@
 				1FB8F0331F1E621D0090045E /* TransactionStatus.swift in Sources */,
 				1FB8F0641F1ECE990090045E /* DishOrderType.swift in Sources */,
 				1F279F9B1FB0EC11003A2B47 /* PlaceMenuDishCell.swift in Sources */,
+				1F3C5A0C1FB15D940038EB97 /* BottomActions.swift in Sources */,
 				1FB8F0551F1EC5200090045E /* UserBookingsApiService.swift in Sources */,
 				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
 				1F62E4671FAE464400D1C89D /* GreetingController.swift in Sources */,

@@ -21,6 +21,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
         instance._menu = nil
         instance._delegate = controller
         instance._controller = controller
+        instance._cart = instance._delegate.cart
 
         instance._categoriesAdapter = CategoriesCollection(for: instance.categoriesStack, with: instance)
         instance._dishesAdapter = DishesAdapter(for: instance.dishesTable, with: instance)
@@ -44,8 +45,11 @@ public class PlaceMenuMenuContainer: UITableViewCell {
             }
         }
     }
+    private let _tag = String.tag(PlaceMenuMenuContainer.self)
+    private let _guid = Guid.new
     private var _delegate: PlaceMenuDelegate!
     private var _controller: UIViewController!
+    private var _cart: Cart!
 
     private func apply(_ menu: MenuSummary) {
 
@@ -87,6 +91,9 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
     public var menu: MenuSummary? {
         return _delegate.menu
     }
+    public var cart: Cart {
+        return _cart
+    }
 
     public func add(dish: Long) {
         _delegate.add(dish: dish)
@@ -111,9 +118,12 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
     }
 }
 extension PlaceMenuMenuContainer: PlaceMenuCellsProtocol {
-    public func viewDidAppear() {}
+    public func viewDidAppear() {
+        _cart.subscribe(guid: _guid, handler: self, tag: _tag)
+    }
     public func viewDidDisappear() {
         _dishesAdapter.clear()
+        _cart.unsubscribe(guid: _guid)
     }
     public func dataDidLoad(delegate: PlaceMenuDelegate) {
         _menu = delegate.menu
@@ -121,10 +131,28 @@ extension PlaceMenuMenuContainer: PlaceMenuCellsProtocol {
 }
 extension PlaceMenuMenuContainer: InterfaceTableCellProtocol {
     public var viewHeight: Int {
-        return Int(self._controller.view.frame.height) - 44 //44 - UINavigationBar.height
+        return Int(self._controller.view.frame.height) - 64 //44 - UINavigationBar.height, 20 - statusBarOffset
     }
     public func prepareView() -> UITableViewCell {
         return self
+    }
+}
+extension PlaceMenuMenuContainer: CartUpdateProtocol {
+    public func cart(_ cart: Cart, removedDish: Long) {
+        updateButtonOffset()
+    }
+    public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {
+        updateButtonOffset()
+    }
+    private func updateButtonOffset() {
+
+        var offset = BottomActions.height
+
+        if (0.0000 > abs(_cart.totalPrice)) {
+            offset = CGFloat(0)
+        }
+
+        dishesTable.setParentContraint(.bottom, to: offset)
     }
 }
 
@@ -216,8 +244,11 @@ extension PlaceMenuMenuContainer {
 
             _selectedCategory = category
             _delegate.select(category: category)
-            let index = _categories.index(where: { $0.ID == category }) ?? 0
-            _collection.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+
+            if (!_collection.visibleCells.isEmpty) {
+                let index = _categories.index(where: { $0.ID == category }) ?? 0
+                _collection.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+            }
         }
     }
 }

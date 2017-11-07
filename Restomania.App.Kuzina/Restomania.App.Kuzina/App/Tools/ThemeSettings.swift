@@ -26,6 +26,8 @@ public class ThemeSettings {
         public static let darkFilter = loadAssert(named: "dark-filter")
         public static let `default` = loadAssert(named: "default-image")
         public static let logoDark = loadAssert(named: "logo-dark")
+        public static let navigationBackward = loadAssert(named: "nav-back")
+        public static let iconInfo = loadAssert(named: "icon-info")
 
         private static func loadAssert(named: String) -> UIImage {
             return UIImage(named: named, in: Bundle.main, compatibleWith: nil)!

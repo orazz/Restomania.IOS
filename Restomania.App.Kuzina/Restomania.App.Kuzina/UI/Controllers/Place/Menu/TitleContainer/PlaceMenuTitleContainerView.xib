@@ -22,11 +22,11 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-image" translatesAutoresizingMaskIntoConstraints="NO" id="zEo-gU-bnX" customClass="WrappedImage" customModule="RestomaniaAppKuzina" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="lU3-WM-8sp">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="lU3-WM-8sp">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
                         </imageView>
                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav-back" translatesAutoresizingMaskIntoConstraints="NO" id="Wl9-Oj-Oqe">
-                            <rect key="frame" x="10" y="50" width="40" height="40"/>
+                            <rect key="frame" x="10" y="30" width="40" height="40"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="ZBo-Yi-cXY"/>
@@ -36,8 +36,8 @@
                                 <outletCollection property="gestureRecognizers" destination="Tc2-J6-3Uc" appends="YES" id="Wbt-3X-dtl"/>
                             </connections>
                         </imageView>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav-forward" translatesAutoresizingMaskIntoConstraints="NO" id="XUu-3q-MFm">
-                            <rect key="frame" x="325" y="50" width="40" height="40"/>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-info" translatesAutoresizingMaskIntoConstraints="NO" id="XUu-3q-MFm">
+                            <rect key="frame" x="325" y="30" width="40" height="40"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="6Pf-VQ-912"/>
@@ -50,13 +50,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="XUu-3q-MFm" firstAttribute="top" secondItem="0LJ-AX-ANh" secondAttribute="top" constant="50" id="0xa-z8-133"/>
+                        <constraint firstItem="XUu-3q-MFm" firstAttribute="top" secondItem="0LJ-AX-ANh" secondAttribute="top" constant="30" id="0xa-z8-133"/>
                         <constraint firstItem="lU3-WM-8sp" firstAttribute="leading" secondItem="0LJ-AX-ANh" secondAttribute="leading" id="3qh-Mr-wrY"/>
                         <constraint firstItem="lU3-WM-8sp" firstAttribute="top" secondItem="0LJ-AX-ANh" secondAttribute="top" id="71x-Na-923"/>
                         <constraint firstAttribute="trailing" secondItem="XUu-3q-MFm" secondAttribute="trailing" constant="10" id="Fjq-hM-2jx"/>
                         <constraint firstItem="Wl9-Oj-Oqe" firstAttribute="leading" secondItem="0LJ-AX-ANh" secondAttribute="leading" constant="10" id="amp-zL-AWb"/>
                         <constraint firstItem="zEo-gU-bnX" firstAttribute="leading" secondItem="0LJ-AX-ANh" secondAttribute="leading" id="caP-jL-9d1"/>
-                        <constraint firstItem="Wl9-Oj-Oqe" firstAttribute="top" secondItem="0LJ-AX-ANh" secondAttribute="top" constant="50" id="ci1-nn-zgc"/>
+                        <constraint firstItem="Wl9-Oj-Oqe" firstAttribute="top" secondItem="0LJ-AX-ANh" secondAttribute="top" constant="30" id="ci1-nn-zgc"/>
                         <constraint firstAttribute="trailing" secondItem="lU3-WM-8sp" secondAttribute="trailing" id="gRm-g7-awi"/>
                         <constraint firstAttribute="trailing" secondItem="zEo-gU-bnX" secondAttribute="trailing" id="hnf-yW-hFs"/>
                         <constraint firstItem="zEo-gU-bnX" firstAttribute="top" secondItem="0LJ-AX-ANh" secondAttribute="top" id="lQe-vZ-hYR"/>
@@ -137,9 +137,9 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
+        <image name="bottom-gradient" width="921" height="479"/>
         <image name="default-image" width="500" height="333"/>
-        <image name="image-gradient" width="921" height="479"/>
+        <image name="icon-info" width="50" height="50"/>
         <image name="nav-back" width="50" height="50"/>
-        <image name="nav-forward" width="50" height="50"/>
     </resources>
 </document>
