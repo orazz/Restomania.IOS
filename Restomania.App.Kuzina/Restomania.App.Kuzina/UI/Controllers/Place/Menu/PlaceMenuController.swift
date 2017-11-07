@@ -360,8 +360,8 @@ extension PlaceMenuController: UITableViewDelegate {
     private func updateFadeOutPanel() {
 
         let offset = contentTable.contentOffset.y
-        let startFadeIn = CGFloat(50)
-        let endFadeIn = CGFloat(170)
+        let startFadeIn = CGFloat(30)
+        let endFadeIn = CGFloat(90)
         let fadeInDistance = endFadeIn - startFadeIn
 
         if (offset < startFadeIn) {
