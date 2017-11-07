@@ -31,15 +31,17 @@ public class CacheMenuSummariesService {
     }
 
     //Remote
-    public func find(placeID: Long) -> Task<MenuSummary?> {
+    public func find(placeID: Long, ignoreCache: Bool = false) -> Task<MenuSummary?> {
 
         return Task { (handler: @escaping(MenuSummary?) -> Void) in
 
-            if let menu = self.findInLocal(placeID) {
+            if (!ignoreCache) {
+                if let menu = self.findInLocal(placeID) {
 
-                handler(menu)
-                Log.Debug(self.tag, "Take data from cache.")
-                return
+                    handler(menu)
+                    Log.Debug(self.tag, "Take data from cache.")
+                    return
+                }
             }
 
             Log.Debug(self.tag, "Start reqest for find.")

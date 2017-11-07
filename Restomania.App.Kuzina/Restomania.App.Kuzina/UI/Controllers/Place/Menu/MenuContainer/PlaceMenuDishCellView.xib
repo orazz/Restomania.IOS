@@ -19,17 +19,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbw-mG-wDH" customClass="WrappedImage" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                        <rect key="frame" x="10" y="10" width="90" height="89.5"/>
+                        <rect key="frame" x="0.0" y="10" width="90" height="89.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="90" id="89L-Vu-1lq"/>
                             <constraint firstAttribute="width" constant="90" id="QNw-cn-iZo"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gay-xo-6hW" userLabel="Info">
-                        <rect key="frame" x="110" y="10" width="171" height="89.5"/>
+                        <rect key="frame" x="100" y="10" width="181" height="89.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ5-lo-ZwD">
-                                <rect key="frame" x="0.0" y="0.0" width="171" height="37"/>
+                                <rect key="frame" x="0.0" y="0.0" width="181" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="34w-dJ-l4b"/>
                                 </constraints>
@@ -38,13 +38,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Description Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPX-hY-CGc">
-                                <rect key="frame" x="0.0" y="37" width="171" height="30.5"/>
+                                <rect key="frame" x="0.0" y="37" width="181" height="30.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7s0-Bb-jBF" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="69" width="171" height="21"/>
+                                <rect key="frame" x="0.0" y="69" width="181" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                     <constraint firstAttribute="bottom" secondItem="UpY-3e-q6k" secondAttribute="bottom" id="ROl-in-ZUZ"/>
                     <constraint firstItem="gay-xo-6hW" firstAttribute="top" secondItem="rur-PI-Ugz" secondAttribute="top" constant="10" id="Wxw-GF-PZU"/>
                     <constraint firstItem="gay-xo-6hW" firstAttribute="leading" secondItem="bbw-mG-wDH" secondAttribute="trailing" constant="10" id="ZpR-m2-VJA"/>
-                    <constraint firstItem="bbw-mG-wDH" firstAttribute="leading" secondItem="rur-PI-Ugz" secondAttribute="leading" constant="10" id="uoL-te-8bG"/>
+                    <constraint firstItem="bbw-mG-wDH" firstAttribute="leading" secondItem="rur-PI-Ugz" secondAttribute="leading" id="uoL-te-8bG"/>
                     <constraint firstAttribute="trailing" secondItem="UpY-3e-q6k" secondAttribute="trailing" id="wi4-j1-GeC"/>
                 </constraints>
             </tableViewCellContentView>

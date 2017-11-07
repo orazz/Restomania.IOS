@@ -18,6 +18,7 @@ public class InterfaceTable: NSObject {
     public var rows: [InterfaceTableCellProtocol] {
         return _rows.map { $0 }
     }
+    public var delegate: UITableViewDelegate?
 
     public init(source: UITableView, navigator: UINavigationController, rows: InterfaceTableCellProtocol ...) {
 
@@ -52,12 +53,17 @@ extension InterfaceTable: UITableViewDelegate {
         return nil != cell.select
     }
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.tableView?(tableView, didSelectRowAt: indexPath)
+
         tableView.deselectRow(at: indexPath, animated: true)
 
         if let cell = tableView.cellForRow(at: indexPath) as? InterfaceTableCellProtocol {
 
             cell.select?(with: _navigator)
         }
+    }
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.scrollViewDidScroll?(scrollView)
     }
 }
 

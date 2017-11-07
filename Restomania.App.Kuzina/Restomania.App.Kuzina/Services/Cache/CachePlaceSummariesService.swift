@@ -47,21 +47,26 @@ public class CachePlaceSummariesService {
     }
 
     //Remote
-    public func range(_ ids: [Long]) -> Task<[PlaceSummary]> {
+    public func range(_ ids: [Long], ignoreCache: Bool = false) -> Task<[PlaceSummary]> {
 
         return Task { (handler: @escaping([PlaceSummary]) -> Void) in
 
-            let filtered = self._adapter.checkCache(ids)
-            if (filtered.notFound.isEmpty) {
+            var needRequest = ids
+            if (!ignoreCache) {
+                let filtered = self._adapter.checkCache(ids)
+                if (filtered.notFound.isEmpty) {
 
-                handler(self._adapter.range(ids))
-                Log.Debug(self.tag, "Take data from cache.")
-                return
+                    handler(self._adapter.range(ids))
+                    Log.Debug(self.tag, "Take data from cache.")
+                    return
+                } else {
+                    needRequest = filtered.notFound
+                }
             }
 
             Log.Debug(self.tag, "Start request range.")
 
-            let task = self._client.Range(placeIDs: filtered.notFound)
+            let task = self._client.Range(placeIDs: needRequest)
             task.async(.custom(self._adapter.blockQueue), completion: { response in
 
                 if (response.isFail) {

@@ -28,14 +28,18 @@
 		1F279F7D1FB07CFC003A2B47 /* ManagerOrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F791FB07CFC003A2B47 /* ManagerOrdersController.swift */; };
 		1F279F7E1FB07CFC003A2B47 /* ManagerOrdersControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F7A1FB07CFC003A2B47 /* ManagerOrdersControllerView.xib */; };
 		1F279F7F1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F7B1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib */; };
-		1F279F8A1FB07D3C003A2B47 /* PlaceMenuCategoryCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F841FB07D3C003A2B47 /* PlaceMenuCategoryCellView.xib */; };
 		1F279F8B1FB07D3C003A2B47 /* PlaceMenuControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F851FB07D3C003A2B47 /* PlaceMenuControllerView.xib */; };
-		1F279F8C1FB07D3C003A2B47 /* PlaceMenuDishCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F861FB07D3C003A2B47 /* PlaceMenuDishCellView.xib */; };
-		1F279F8D1FB07D3C003A2B47 /* PlaceMenuCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F871FB07D3C003A2B47 /* PlaceMenuCategoryCell.swift */; };
 		1F279F8E1FB07D3C003A2B47 /* PlaceMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F881FB07D3C003A2B47 /* PlaceMenuController.swift */; };
-		1F279F8F1FB07D3C003A2B47 /* PlaceMenuDishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F891FB07D3C003A2B47 /* PlaceMenuDishCell.swift */; };
 		1F279F921FB07D51003A2B47 /* PlaceInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F901FB07D51003A2B47 /* PlaceInfoController.swift */; };
 		1F279F931FB07D51003A2B47 /* PlaceInfoControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F911FB07D51003A2B47 /* PlaceInfoControllerView.xib */; };
+		1F279F9B1FB0EC11003A2B47 /* PlaceMenuDishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F971FB0EC11003A2B47 /* PlaceMenuDishCell.swift */; };
+		1F279F9C1FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F981FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift */; };
+		1F279F9D1FB0EC11003A2B47 /* PlaceMenuDishCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F991FB0EC11003A2B47 /* PlaceMenuDishCellView.xib */; };
+		1F279F9E1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F9A1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib */; };
+		1F279FA01FB0EC35003A2B47 /* PlaceMenuMenuContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F9F1FB0EC35003A2B47 /* PlaceMenuMenuContainer.swift */; };
+		1F279FA21FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279FA11FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib */; };
+		1F279FA41FB0ECD7003A2B47 /* PlaceMenuTitleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279FA31FB0ECD7003A2B47 /* PlaceMenuTitleContainer.swift */; };
+		1F279FA61FB0ECEE003A2B47 /* PlaceMenuTitleContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279FA51FB0ECEE003A2B47 /* PlaceMenuTitleContainerView.xib */; };
 		1F36C8831F20823800232B9A /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36C8821F20823800232B9A /* IOSLibrary.framework */; };
 		1F36C8841F20823E00232B9A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36C87F1F207C8300232B9A /* XCTest.framework */; };
 		1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F36C88A1F20C1F900232B9A /* Configs.plist */; };
@@ -247,14 +251,18 @@
 		1F279F791FB07CFC003A2B47 /* ManagerOrdersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerOrdersController.swift; path = UI/Controllers/Manager/Orders/ManagerOrdersController.swift; sourceTree = "<group>"; };
 		1F279F7A1FB07CFC003A2B47 /* ManagerOrdersControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerOrdersControllerView.xib; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerView.xib; sourceTree = "<group>"; };
 		1F279F7B1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerOrdersControllerViewOrderCellView.xib; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerViewOrderCellView.xib; sourceTree = "<group>"; };
-		1F279F841FB07D3C003A2B47 /* PlaceMenuCategoryCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuCategoryCellView.xib; path = UI/Controllers/Place/Menu/PlaceMenuCategoryCellView.xib; sourceTree = "<group>"; };
 		1F279F851FB07D3C003A2B47 /* PlaceMenuControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuControllerView.xib; path = UI/Controllers/Place/Menu/PlaceMenuControllerView.xib; sourceTree = "<group>"; };
-		1F279F861FB07D3C003A2B47 /* PlaceMenuDishCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuDishCellView.xib; path = UI/Controllers/Place/Menu/PlaceMenuDishCellView.xib; sourceTree = "<group>"; };
-		1F279F871FB07D3C003A2B47 /* PlaceMenuCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuCategoryCell.swift; path = UI/Controllers/Place/Menu/PlaceMenuCategoryCell.swift; sourceTree = "<group>"; };
 		1F279F881FB07D3C003A2B47 /* PlaceMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuController.swift; path = UI/Controllers/Place/Menu/PlaceMenuController.swift; sourceTree = "<group>"; };
-		1F279F891FB07D3C003A2B47 /* PlaceMenuDishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuDishCell.swift; path = UI/Controllers/Place/Menu/PlaceMenuDishCell.swift; sourceTree = "<group>"; };
 		1F279F901FB07D51003A2B47 /* PlaceInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceInfoController.swift; path = UI/Controllers/Place/Info/PlaceInfoController.swift; sourceTree = "<group>"; };
 		1F279F911FB07D51003A2B47 /* PlaceInfoControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceInfoControllerView.xib; path = UI/Controllers/Place/Info/PlaceInfoControllerView.xib; sourceTree = "<group>"; };
+		1F279F971FB0EC11003A2B47 /* PlaceMenuDishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuDishCell.swift; path = UI/Controllers/Place/Menu/MenuContainer/PlaceMenuDishCell.swift; sourceTree = "<group>"; };
+		1F279F981FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuCategoryCell.swift; path = UI/Controllers/Place/Menu/MenuContainer/PlaceMenuCategoryCell.swift; sourceTree = "<group>"; };
+		1F279F991FB0EC11003A2B47 /* PlaceMenuDishCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuDishCellView.xib; path = UI/Controllers/Place/Menu/MenuContainer/PlaceMenuDishCellView.xib; sourceTree = "<group>"; };
+		1F279F9A1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuCategoryCellView.xib; path = UI/Controllers/Place/Menu/MenuContainer/PlaceMenuCategoryCellView.xib; sourceTree = "<group>"; };
+		1F279F9F1FB0EC35003A2B47 /* PlaceMenuMenuContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceMenuMenuContainer.swift; path = UI/Controllers/Place/Menu/MenuContainer/PlaceMenuMenuContainer.swift; sourceTree = "<group>"; };
+		1F279FA11FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceMenuMenuContainerView.xib; path = UI/Controllers/Place/Menu/MenuContainer/PlaceMenuMenuContainerView.xib; sourceTree = "<group>"; };
+		1F279FA31FB0ECD7003A2B47 /* PlaceMenuTitleContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceMenuTitleContainer.swift; path = UI/Controllers/Place/Menu/TitleContainer/PlaceMenuTitleContainer.swift; sourceTree = "<group>"; };
+		1F279FA51FB0ECEE003A2B47 /* PlaceMenuTitleContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceMenuTitleContainerView.xib; path = UI/Controllers/Place/Menu/TitleContainer/PlaceMenuTitleContainerView.xib; sourceTree = "<group>"; };
 		1F36C87F1F207C8300232B9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F36C8821F20823800232B9A /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-cvhlmrplyouccmdyzxkyoedulrun/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1F36C88A1F20C1F900232B9A /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
@@ -500,10 +508,8 @@
 			children = (
 				1F279F881FB07D3C003A2B47 /* PlaceMenuController.swift */,
 				1F279F851FB07D3C003A2B47 /* PlaceMenuControllerView.xib */,
-				1F279F871FB07D3C003A2B47 /* PlaceMenuCategoryCell.swift */,
-				1F279F841FB07D3C003A2B47 /* PlaceMenuCategoryCellView.xib */,
-				1F279F891FB07D3C003A2B47 /* PlaceMenuDishCell.swift */,
-				1F279F861FB07D3C003A2B47 /* PlaceMenuDishCellView.xib */,
+				1F279F951FB0EB92003A2B47 /* TitleContainer */,
+				1F279F961FB0EBA1003A2B47 /* MenuContainer */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -582,6 +588,28 @@
 				1F279F711FB07CEC003A2B47 /* ManagerOneOrderDishCellView.xib */,
 			);
 			name = OneOrder;
+			sourceTree = "<group>";
+		};
+		1F279F951FB0EB92003A2B47 /* TitleContainer */ = {
+			isa = PBXGroup;
+			children = (
+				1F279FA31FB0ECD7003A2B47 /* PlaceMenuTitleContainer.swift */,
+				1F279FA51FB0ECEE003A2B47 /* PlaceMenuTitleContainerView.xib */,
+			);
+			name = TitleContainer;
+			sourceTree = "<group>";
+		};
+		1F279F961FB0EBA1003A2B47 /* MenuContainer */ = {
+			isa = PBXGroup;
+			children = (
+				1F279F9F1FB0EC35003A2B47 /* PlaceMenuMenuContainer.swift */,
+				1F279FA11FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib */,
+				1F279F981FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift */,
+				1F279F9A1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib */,
+				1F279F971FB0EC11003A2B47 /* PlaceMenuDishCell.swift */,
+				1F279F991FB0EC11003A2B47 /* PlaceMenuDishCellView.xib */,
+			);
+			name = MenuContainer;
 			sourceTree = "<group>";
 		};
 		1F36C88C1F20C48500232B9A /* PlaceModels */ = {
@@ -1343,8 +1371,9 @@
 				1F279F611FB07C71003A2B47 /* ManagerEditProfileControllerView.xib in Resources */,
 				1F62E4681FAE464400D1C89D /* Start.storyboard in Resources */,
 				1F279F7F1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib in Resources */,
+				1F279FA21FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib in Resources */,
 				1F279F7E1FB07CFC003A2B47 /* ManagerOrdersControllerView.xib in Resources */,
-				1F279F8A1FB07D3C003A2B47 /* PlaceMenuCategoryCellView.xib in Resources */,
+				1F279F9D1FB0EC11003A2B47 /* PlaceMenuDishCellView.xib in Resources */,
 				1F279F661FB07C82003A2B47 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */,
 				1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */,
 				1F62E4A81FAE46D300D1C89D /* PaymentCardsView.xib in Resources */,
@@ -1353,14 +1382,15 @@
 				1F279F931FB07D51003A2B47 /* PlaceInfoControllerView.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
 				1F62E46F1FAE465700D1C89D /* Tabs.storyboard in Resources */,
+				1F279F9E1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib in Resources */,
 				1F62E47E1FAE466F00D1C89D /* SignupPage.xib in Resources */,
 				1F279F8B1FB07D3C003A2B47 /* PlaceMenuControllerView.xib in Resources */,
 				1F279F771FB07CEC003A2B47 /* ManagerOneOrderControllerView.xib in Resources */,
+				1F279FA61FB0ECEE003A2B47 /* PlaceMenuTitleContainerView.xib in Resources */,
 				1F62E47B1FAE466F00D1C89D /* ForgetPasswordPage.xib in Resources */,
 				1F62E47D1FAE466F00D1C89D /* LoginPage.xib in Resources */,
 				1F62E4A61FAE46D300D1C89D /* PaymentCardCellView.xib in Resources */,
 				1F62E4CB1FAE472E00D1C89D /* PlaceCard.xib in Resources */,
-				1F279F8C1FB07D3C003A2B47 /* PlaceMenuDishCellView.xib in Resources */,
 				1F279F691FB07CA6003A2B47 /* ManagerChangePasswordControllerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1591,14 +1621,15 @@
 				1FB8EFE81F1D4BF90090045E /* MenuCategory.swift in Sources */,
 				1FB8F0101F1E03470090045E /* OpenAccountsApiService.swift in Sources */,
 				1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */,
-				1F279F8D1FB07D3C003A2B47 /* PlaceMenuCategoryCell.swift in Sources */,
 				1FB8EFF01F1D4F7C0090045E /* PlaceType.swift in Sources */,
 				1F62E4C31FAE470800D1C89D /* GreyButton.swift in Sources */,
 				1FB8F0331F1E621D0090045E /* TransactionStatus.swift in Sources */,
 				1FB8F0641F1ECE990090045E /* DishOrderType.swift in Sources */,
+				1F279F9B1FB0EC11003A2B47 /* PlaceMenuDishCell.swift in Sources */,
 				1FB8F0551F1EC5200090045E /* UserBookingsApiService.swift in Sources */,
 				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
 				1F62E4671FAE464400D1C89D /* GreetingController.swift in Sources */,
+				1F279F9C1FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift in Sources */,
 				1FB8EFEC1F1D4EEC0090045E /* KitchenType.swift in Sources */,
 				1F62E4C71FAE471600D1C89D /* WrappedImage.swift in Sources */,
 				1FB8F0501F1EC28C0090045E /* UserUpdateAccountApiService.swift in Sources */,
@@ -1639,7 +1670,6 @@
 				1FB8F0601F1ECD140090045E /* BookingStatus.swift in Sources */,
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,
 				1FB8F0401F1EADFB0090045E /* PaymentCardType.swift in Sources */,
-				1F279F8F1FB07D3C003A2B47 /* PlaceMenuDishCell.swift in Sources */,
 				1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */,
 				1FBE840A1F2629850002F0B5 /* CartService.swift in Sources */,
 				1F62E4711FAE465700D1C89D /* SearchController.swift in Sources */,
@@ -1656,6 +1686,7 @@
 				1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */,
 				1F279F741FB07CEC003A2B47 /* ManagerOneOrderController.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
+				1F279FA41FB0ECD7003A2B47 /* PlaceMenuTitleContainer.swift in Sources */,
 				1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */,
 				1FB8F05E1F1ECD020090045E /* Booking.swift in Sources */,
 				1FD7E6A51F1D0E140023C033 /* CurrencyType.swift in Sources */,
@@ -1698,6 +1729,7 @@
 				1FB8F04E1F1EC28C0090045E /* UserLoyaltyApiService.swift in Sources */,
 				1FFA57C61F21EDBA00E83463 /* AppDelegate.swift in Sources */,
 				1F279F6A1FB07CA6003A2B47 /* ManagerChangePasswordController.swift in Sources */,
+				1F279FA01FB0EC35003A2B47 /* PlaceMenuMenuContainer.swift in Sources */,
 				1FB8F0261F1E5C5E0090045E /* Device.swift in Sources */,
 				1FD9A0A01F23261B0026BDF8 /* ServicesManager.swift in Sources */,
 				1FB8EFCD1F1D41420090045E /* User.swift in Sources */,
