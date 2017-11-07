@@ -13,12 +13,13 @@ import IOSLibrary
 public class PlaceMenuCartAction: UIView {
 
     private static let nibName = "PlaceMenuCartActionView"
-    public static func create(for cart: Cart, with navigationController: UINavigationController ) -> PlaceMenuCartAction {
+    public static func create(for cart: Cart, and menu: MenuSummary?, with navigationController: UINavigationController ) -> PlaceMenuCartAction {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceMenuCartAction
 
         instance._navigatior = navigationController
+        instance._menu = menu
         instance._cart = cart
         instance.setupMarkup()
 
@@ -35,8 +36,8 @@ public class PlaceMenuCartAction: UIView {
             return
         }
 
-//        let vc = PlaceCartController(for: cart.placeID)
-//        _navigatior?.popToViewController(vc, animated: true)
+        let vc = PlaceCartController.create(for: cart.placeID)
+        _navigatior?.popToViewController(vc, animated: true)
     }
 
     //Data & services
@@ -44,33 +45,37 @@ public class PlaceMenuCartAction: UIView {
     private let _guid = Guid.new
     private var _navigatior: UINavigationController?
     private var _currency = CurrencyType.All
-    private var _cart: Cart? {
+    private var _menu: MenuSummary?
+    private var _cart: Cart! {
         didSet {
-            if let cart = _cart {
-                apply(cart)
-            }
+            apply()
         }
     }
 
     public func viewDidAppear() {
-        _cart?.subscribe(guid: _guid, handler: self, tag: _tag)
+        _cart.subscribe(guid: _guid, handler: self, tag: _tag)
     }
     public func viewDidDisappear() {
-        _cart?.unsubscribe(guid: _guid)
+        _cart.unsubscribe(guid: _guid)
     }
-    public func update(currency: CurrencyType) {
+    public func update(new menu: MenuSummary) {
 
-        _currency = currency
-        if let cart = _cart {
-            apply(cart)
-        }
+        _menu = menu
+        _currency = menu.currency
+
+        apply()
     }
 
-    private func apply(_ cart: Cart) {
+    private func apply() {
+
+        let cart = _cart!
 
         DispatchQueue.main.async {
-            self.countLabel.text = "\(cart.dishes.sum({ $0.Count }))"
-            self.totalLabel.setup(amount: cart.totalPrice, currency: self._currency)
+            self.countLabel.text = "\(cart.dishes.sum({ $0.count }))"
+
+            if let menu = self._menu {
+                self.totalLabel.setup(amount: cart.totalPrice(with: menu), currency: self._currency)
+            }
         }
     }
     private func setupMarkup() {
@@ -90,9 +95,9 @@ public class PlaceMenuCartAction: UIView {
 
 extension PlaceMenuCartAction: CartUpdateProtocol {
     public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {
-        apply(cart)
+        apply()
     }
     public func cart(_ cart: Cart, removedDish: Long) {
-        apply(cart)
+        apply()
     }
 }

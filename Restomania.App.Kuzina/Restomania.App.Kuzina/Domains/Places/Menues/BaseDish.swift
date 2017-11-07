@@ -48,7 +48,7 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
         categoryId = nil
         name = String.empty
         description = String.empty
-        type = .SimpleDish
+        type = .simpleDish
         price = PriceType()
         image = String.empty
         size = 0

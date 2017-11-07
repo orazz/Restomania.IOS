@@ -65,7 +65,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
 
         _loader.show()
 
-        let request = _apiService.All()
+        let request = _apiService.all()
         request.async(.background, completion: { response in
 
             DispatchQueue.main.async {

@@ -71,7 +71,7 @@ public class PaymentCardsController: UIViewController,
 
         _loader.show()
 
-        let request = _apiService.All()
+        let request = _apiService.alll()
         request.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -107,7 +107,7 @@ public class PaymentCardsController: UIViewController,
         _cards.remove(at: index!)
         TableView.reloadData()
 
-        let request = _apiService.Remove(cardID: id)
+        let request = _apiService.remove(cardID: id)
         request.async(.background, completion: { response in
 
             if (!response.isSuccess) {

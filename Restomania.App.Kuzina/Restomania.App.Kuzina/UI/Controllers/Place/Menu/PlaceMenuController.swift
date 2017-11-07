@@ -106,7 +106,7 @@ public class PlaceMenuController: UIViewController {
         _cart = ServicesManager.current.cartsService.cart(placeID: _placeId)
 
         _bottomAction = BottomActions(for: self.view)
-        _cartAction = PlaceMenuCartAction.create(for: _cart, with: self.navigationController!)
+        _cartAction = PlaceMenuCartAction.create(for: _cart, and: _menu, with: self.navigationController!)
         _bottomAction.setup(content: _cartAction)
 
         reloadData()
@@ -222,7 +222,7 @@ extension PlaceMenuController {
     private func applyMenu() {
 
         if let menu = _menu {
-            _cartAction.update(currency: menu.currency)
+            _cartAction.update(new: menu)
         }
 
         completeLoad()

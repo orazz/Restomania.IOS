@@ -37,10 +37,16 @@ public class PriceType: Glossy {
         let diffent = value - Double(decimal)
         float = Int(round(diffent * 100))
     }
+    public convenience init(source: PriceType) {
+        self.init(decimal: source.decimal, float: source.float)
+    }
 
     public var double: Double {
 
         return Double(decimal) + Double(float)/100
+    }
+    public var isNullable: Bool {
+        return 0 == decimal && 0 == float
     }
 
     // MARK: Glossy

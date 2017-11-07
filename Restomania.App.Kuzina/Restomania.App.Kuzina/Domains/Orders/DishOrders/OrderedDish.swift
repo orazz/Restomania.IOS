@@ -1,8 +1,8 @@
 //
 //  OrderedDish.swift
-//  Restomania.App.Kuzina
+//  RestomaniaAppKuzina
 //
-//  Created by Алексей on 19.07.17.
+//  Created by Алексей on 07.11.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
@@ -13,67 +13,100 @@ import IOSLibrary
 public class OrderedDish: BaseDataType {
 
     public struct Keys {
-        public static let dishId = "DishID"
-        public static let name = "Name"
+        public static let dishId = "DishId"
+        public static let variationId = "VariationId"
+        public static let additions = "Additions"
+        public static let subdishes = "Subdishes"
+
         public static let price = "Price"
         public static let count = "Count"
-        public static let cost = "Cost"
+        public static let total = "Total"
+        public static let name = "Name"
+        public static let type = "Type"
     }
 
-    public var DishID: Int64
-    public var Name: String
-    public var Price: PriceType
-    public var Count: Int
+    public var dishId: Long
+    public var variationId: Long?
+    public var additions: [AdditionSummary]
+    public var subdishes: [SubdishSummary]
 
-    public var Cost: Double {
-
-        return Price.double * Double(Count)
-    }
+    public var price: PriceType
+    public var count: Int
+    public var total: PriceType
+    public var name: String
+    public var type: DishType
 
     public override init() {
 
-        self.DishID = 0
-        self.Name = String.empty
-        self.Price = PriceType()
-        self.Count = 0
+        self.dishId = 0
+        self.variationId = nil
+        self.additions = []
+        self.subdishes = []
+
+        self.price = PriceType()
+        self.count = 0
+        self.total = PriceType()
+        self.name = String.empty
+        self.type = .simpleDish
 
         super.init()
     }
-    public required init(json: JSON) {
-        self.DishID = (Keys.dishId <~~ json)!
-        self.Name = (Keys.name <~~ json)!
-        self.Price = (Keys.price <~~ json)!
-        self.Count = (Keys.count <~~ json)!
+    public convenience init(dish: Dish, count: Int) {
 
-        super.init(json: json)
+        self.init()
+
+        self.dishId = dish.ID
+        self.count = count
     }
-    public init(_ dish: Dish, count: Int) {
 
-        self.DishID = dish.ID
-        self.Name = dish.name
-        self.Price = dish.price
-        self.Count = count
+    // MARK: ICopyng
+    public required init(source: OrderedDish) {
 
-        super.init()
-    }
-    public init(source: OrderedDish) {
+        self.dishId = source.dishId
+        self.variationId = source.variationId
+        self.additions = source.additions.map { AdditionSummary(source: $0) }
+        self.subdishes = source.subdishes.map { SubdishSummary(source: $0) }
 
-        self.DishID = source.DishID
-        self.Name = source.Name
-        self.Price = source.Price
-        self.Count = source.Count
+        self.price = PriceType(source: source.price)
+        self.count = source.count
+        self.total = PriceType(source: source.total)
+        self.name = source.name
+        self.type = source.type
 
         super.init(source: source)
     }
 
-    public override func toJSON() -> JSON? {
+    // MARK: Glossy
+    public required init(json: JSON) {
 
+        self.dishId = (Keys.dishId <~~ json)!
+        self.variationId = Keys.variationId <~~ json
+        self.additions = (Keys.additions <~~ json)!
+        self.subdishes = (Keys.subdishes <~~ json)!
+
+        self.price = (Keys.price <~~ json)!
+        self.count = (Keys.count <~~ json)!
+        self.total = (Keys.total <~~ json)!
+        self.name = (Keys.name <~~ json)!
+        self.type = (Keys.type <~~ json)!
+
+        super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
         return jsonify([
-            Keys.dishId ~~> self.DishID,
-            Keys.name ~~> self.Name,
-            Keys.price ~~> self.Price,
-            Keys.count ~~> self.Count,
-            super.toJSON()!
+
+            Keys.dishId ~~> self.dishId,
+            Keys.variationId ~~> self.variationId,
+            Keys.additions ~~> self.additions,
+            Keys.subdishes ~~> self.subdishes,
+
+            Keys.price ~~> self.price,
+            Keys.count ~~> self.count,
+            Keys.total ~~> self.total,
+            Keys.name ~~> self.name,
+            Keys.type ~~> self.type,
+
+            super.toJSON()
             ])
     }
 }

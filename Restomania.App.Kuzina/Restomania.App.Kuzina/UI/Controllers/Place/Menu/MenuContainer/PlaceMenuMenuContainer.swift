@@ -154,7 +154,7 @@ extension PlaceMenuMenuContainer: CartUpdateProtocol {
 
         var offset = BottomActions.height
 
-        if (0.0000 > abs(_cart.totalPrice)) {
+        if (_cart.isEmpty) {
             offset = CGFloat(0)
         }
 

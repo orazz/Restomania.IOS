@@ -13,9 +13,10 @@ import AsyncTask
 public class UserAccountApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .User, area: "User/Account", tag: "UserAccountApiService")
+        super.init(storage: storage, rights: .User, area: "User/Account", tag: String.tag(UserAccountApiService.self))
     }
 
+    // MARK: Methods
     public func Info() -> RequestResult<User> {
         return _client.Get(action: "Info", type: User.self, parameters: CollectParameters())
     }

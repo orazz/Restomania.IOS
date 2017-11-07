@@ -63,7 +63,7 @@ public class AddPaymentCardService: NSObject, UIWebViewDelegate {
             complete(success, cardId)
         }
 
-        let request = _cardsService.Add(currency: currency)
+        let request = _cardsService.add(currency: currency)
         request.async(.background, completion: { response in
 
             if (!response.isSuccess) {

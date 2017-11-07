@@ -25,10 +25,10 @@ public class Cart: Reservation {
 
         super.init(cart: cart, saver: saver)
 
-        while( 0 != _place.dishes.filter({ 0 == $0.Count }).count) {
+        while( 0 != _place.dishes.filter({ 0 == $0.count }).count) {
 
             for (index, dish) in _place.dishes.enumerated() {
-                if (dish.Count == 0) {
+                if (dish.count == 0) {
 
                     _place.dishes.remove(at: index)
                     break
@@ -42,16 +42,16 @@ public class Cart: Reservation {
         return _place.placeID
     }
     public var isEmpty: Bool {
-        return _place.dishes.notAny({ $0.Count > 0 })
+        return _place.dishes.notAny({ $0.count > 0 })
     }
     public var hasDishes: Bool {
-        return _place.dishes.any({ $0.Count > 0 })
+        return _place.dishes.any({ $0.count > 0 })
     }
     public var dishesCount: Int {
-        return _place.dishes.count({ $0.Count > 0 })
+        return _place.dishes.count({ $0.count > 0 })
     }
-    public var dishes: [OrderedDish] {
-        return _place.dishes.where({$0.Count > 0}).map({ OrderedDish(source: $0) })
+    public var dishes: [AddedOrderDish] {
+        return _place.dishes.where({$0.count > 0}).map({ AddedOrderDish(source: $0) })
     }
     public var takeaway: Bool {
         get {
@@ -71,30 +71,30 @@ public class Cart: Reservation {
             save()
         }
     }
-    public var totalPrice: Double {
+    public func totalPrice(with menu: MenuSummary) -> Double {
 
         var result = Double(0)
 
-        for dish in dishes {
-
-            result += dish.Cost
+        for ordered in dishes {
+            if let dish = menu.dishes.find({ $0.ID == ordered.dishId }) {
+                result += dish.price.double * Double(ordered.count)
+            }
         }
 
         return result
     }
 
     //Build order for adding
-    public func build(cardID: Long) -> AddingOrder {
+    public func build(cardID: Long) -> AddedOrder {
 
-        let result = AddingOrder()
+        let result = AddedOrder()
 
-        result.PlaceID = placeID
-        result.Dishes = dishes
-        result.CompleteDate = dateTime
-        result.CardID = cardID
-        result.TakeAway = takeaway
-        result.Comment = comment
-        result.PersonCount = persons
+        result.placeId = placeID
+        result.cardId = cardID
+        result.dishes = dishes
+        result.completeDate = dateTime
+        result.comment = comment
+        result.takeaway = takeaway
 
         return result
     }
@@ -105,14 +105,14 @@ public class Cart: Reservation {
         var newCount = count
         if let ordered = find(dish) {
 
-            newCount += ordered.Count
+            newCount += ordered.count
         }
 
         //Set
         if let ordered = find(dish) {
-            ordered.Count = newCount
+            ordered.count = newCount
         } else {
-            _place.dishes.append(OrderedDish(dish, count: count))
+            _place.dishes.append(AddedOrderDish(dish: dish, count: count))
         }
 
         _queue.async {
@@ -124,7 +124,7 @@ public class Cart: Reservation {
     public func remove(dishID: Long) {
 
         for (index, ordered) in dishes.enumerated() {
-            if (dishID == ordered.DishID) {
+            if (dishID == ordered.dishId) {
 
                 _place.dishes.remove(at: index)
                 break
@@ -139,27 +139,18 @@ public class Cart: Reservation {
     }
     public func refresh(dishes menuDishes: Array<Dish>) {
 
-        //Update name and price
-        for dish in menuDishes {
-            if let ordered = find(dish) {
-
-                ordered.Price = dish.price
-                ordered.Name = dish.name
-            }
-        }
-
         //Prepare for remove
         var ids = [Long]()
         for ordered in dishes {
-            if (nil == menuDishes.find({ ordered.DishID == $0.ID })) {
+            if (nil == menuDishes.find({ ordered.dishId == $0.ID })) {
 
-                ids.append(ordered.DishID)
+                ids.append(ordered.dishId)
             }
         }
         //Remove
         for dishID in ids {
             for (index, dish) in dishes.enumerated() {
-                if dishID == dish.DishID {
+                if dishID == dish.dishId {
 
                     _place.dishes.remove(at: index)
                     break
@@ -178,11 +169,11 @@ public class Cart: Reservation {
         super.clear()
     }
 
-    private func find(_ dish: Dish) -> OrderedDish? {
+    private func find(_ dish: Dish) -> AddedOrderDish? {
         return find(dish.ID)
     }
-    private func find(_ dishID: Long) -> OrderedDish? {
-        return _place.dishes.find({ dishID == $0.DishID })
+    private func find(_ dishID: Long) -> AddedOrderDish? {
+        return _place.dishes.find({ dishID == $0.dishId })
     }
 }
 extension Cart: IEventsEmitter {

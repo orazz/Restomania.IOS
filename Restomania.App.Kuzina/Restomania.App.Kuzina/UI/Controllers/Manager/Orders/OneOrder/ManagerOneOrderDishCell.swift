@@ -37,8 +37,8 @@ public class ManagerOneOrderDishCell: UITableViewCell {
         _dish = dish
         _currency = currency
 
-        NameAndCountLabel.text = "\(_dish.Count) x \(_dish.Name)"
-        CostLabel.setup(amount: _dish.Cost, currency: _currency)
+        NameAndCountLabel.text = "\(dish.count) x \(dish.name)"
+        CostLabel.setup(amount: dish.total.double, currency: currency)
     }
     private func setupStyles() {
 

@@ -17,7 +17,7 @@ public class UserCardsApiService: BaseAuthApiService {
     }
 
     // MARK: Methods
-    public func All(args: GetArgs? = nil) -> RequestResult<[PaymentCard]> {
+    public func alll(args: GetArgs? = nil) -> RequestResult<[PaymentCard]> {
         let parameters = CollectParameters([
                 "time": args?.time
             ])
@@ -25,7 +25,7 @@ public class UserCardsApiService: BaseAuthApiService {
         return _client.GetRange(action: "All", type: PaymentCard.self, parameters: parameters)
     }
 
-    public func Add(currency: CurrencyType) -> RequestResult<AddingCard> {
+    public func add(currency: CurrencyType) -> RequestResult<AddingCard> {
         let parameters = CollectParameters([
                 "currency": currency.rawValue,
                 "mobile": true
@@ -33,7 +33,7 @@ public class UserCardsApiService: BaseAuthApiService {
 
         return _client.Post(action: "Add", type: AddingCard.self, parameters: parameters)
     }
-    public func Remove(cardID: Int64 ) -> RequestResult<Bool> {
+    public func remove(cardID: Int64) -> RequestResult<Bool> {
         let parameters = CollectParameters([
                 "elementID": cardID
             ])

@@ -9,8 +9,9 @@
 import Foundation
 
 public enum DishType: Int {
-    case SimpleDish = 1
-    case VariableDish = 2
-    case Variation = 3
-    case Set = 4
+
+    case simpleDish = 1
+    case variableDish = 2
+    case variation = 3
+    case set = 4
 }

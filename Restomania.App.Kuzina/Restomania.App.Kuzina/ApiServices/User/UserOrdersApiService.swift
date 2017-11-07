@@ -15,7 +15,7 @@ public class UserOrdersApiService: BaseAuthApiService {
         super.init(storage: storage, rights: .User, area: "User/DishOrders", tag: "UserOrdersApiService")
     }
 
-    public func All(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {
+    public func all(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {
 
         let parameters = CollectParameters([
                 "time": args?.time
@@ -24,7 +24,7 @@ public class UserOrdersApiService: BaseAuthApiService {
         return _client.GetRange(action: "All", type: DishOrder.self, parameters: parameters)
     }
 
-    public func Find(orderID: Int64) -> RequestResult<DishOrder> {
+    public func find(orderID: Int64) -> RequestResult<DishOrder> {
 
         let parameters = CollectParameters([
                 "elementID": orderID
@@ -32,27 +32,18 @@ public class UserOrdersApiService: BaseAuthApiService {
 
         return _client.Get(action: "Find", type: DishOrder.self, parameters: parameters)
     }
-    public func Add(order: AddingOrder) -> RequestResult<DishOrder> {
+    public func add(order: AddedOrder) -> RequestResult<DishOrder> {
         let parameters = CollectParameters([
                 "data": order
             ])
 
         return _client.Post(action: "Add", type: DishOrder.self, parameters: parameters)
     }
-    public func Cancel(orderID: Int64) -> RequestResult<DishOrder> {
+    public func cancel(orderID: Int64) -> RequestResult<DishOrder> {
         let parameters = CollectParameters([
                 "orderID": orderID
             ])
 
         return _client.Put(action: "Cancel", type: DishOrder.self, parameters: parameters)
-    }
-    public func Expand(bookingID: Int64, dishes: [OrderedDish], cardID: Int64) -> RequestResult<DishOrder> {
-        let parameters = CollectParameters([
-                "bookingID": bookingID,
-                "dishes": dishes,
-                "cardID": cardID
-            ])
-
-        return _client.Put(action: "Expand", type: DishOrder.self, parameters: parameters)
     }
 }
