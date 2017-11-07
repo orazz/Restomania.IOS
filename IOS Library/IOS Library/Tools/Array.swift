@@ -20,6 +20,18 @@ public extension Array {
 
         return nil
     }
+    public func count( _ predicate: (Element) -> Bool) -> Int {
+
+        var result = 0
+
+        for element in self {
+            if (predicate(element)) {
+                result += 1
+            }
+        }
+
+        return result
+    }
     public func `where`(_ predicate: (Element) -> Bool) -> [Element] {
 
         var result = [Element]()
@@ -28,6 +40,39 @@ public extension Array {
             if (predicate(element)) {
                 result.append(element)
             }
+        }
+
+        return result
+    }
+    public func all( _ predicate: (Element) -> Bool) -> Bool {
+
+        for element in self {
+            if (!predicate(element)) {
+                return false
+            }
+        }
+
+        return true
+    }
+    public func any( _ predicate: (Element) -> Bool) -> Bool {
+
+        for element in self {
+            if (predicate(element)) {
+                return true
+            }
+        }
+
+        return false
+    }
+    public func notAny( _ predicate: (Element) -> Bool) -> Bool {
+        return !self.any(predicate)
+    }
+    public func sum(_ predicate: (Element) -> Int) -> Int {
+
+        var result = 0
+
+        for element in self {
+            result += predicate(element)
         }
 
         return result

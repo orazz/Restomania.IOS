@@ -25,6 +25,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
 
         instance._categoriesAdapter = CategoriesCollection(for: instance.categoriesStack, with: instance)
         instance._dishesAdapter = DishesAdapter(for: instance.dishesTable, with: instance)
+
         instance.setupMarkup()
 
         return instance
@@ -33,7 +34,6 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     //UI elements
     @IBOutlet private weak var categoriesStack: UICollectionView!
     @IBOutlet private weak var dishesTable: UITableView!
-
     private var _categoriesAdapter: CategoriesCollection!
     private var _dishesAdapter: DishesAdapter!
 
@@ -63,6 +63,12 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     }
     private func setupMarkup() {
 
+        let contentInsets = UIEdgeInsets(top: 0.0,
+                                         left: 0.0,
+                                         bottom: BottomActions.height,
+                                         right: 0.0)
+        dishesTable.contentInset = contentInsets
+        dishesTable.scrollIndicatorInsets = contentInsets
     }
 
     // MARK: Methods

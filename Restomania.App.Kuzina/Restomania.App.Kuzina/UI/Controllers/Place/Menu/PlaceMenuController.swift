@@ -64,6 +64,8 @@ public class PlaceMenuController: UIViewController {
         let vc = PlaceInfoController.create(for: summary.ID)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    private var _bottomAction: BottomActions!
+    private var _cartAction: PlaceMenuCartAction!
 
     //Load data
     private let _tag = String.tag(PlaceMenuController.self)
@@ -103,6 +105,10 @@ public class PlaceMenuController: UIViewController {
 
         _cart = ServicesManager.current.cartsService.cart(placeID: _placeId)
 
+        _bottomAction = BottomActions(for: self.view)
+        _cartAction = PlaceMenuCartAction.create(for: _cart, with: self.navigationController!)
+        _bottomAction.setup(content: _cartAction)
+
         reloadData()
 
         Log.Info(_tag, "Load place's menu of #\(_placeId).")
@@ -123,12 +129,16 @@ public class PlaceMenuController: UIViewController {
 
         _cart.subscribe(guid: _guid, handler: self, tag: _tag)
         trigger({ $0.viewDidDisappear() })
+
+        _cartAction.viewDidAppear()
     }
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         _cart.unsubscribe(guid: _guid)
         trigger({ $0.viewDidDisappear() })
+
+        _cartAction.viewDidDisappear()
     }
 
     private func setupMarkup() {
@@ -139,36 +149,10 @@ public class PlaceMenuController: UIViewController {
 
         _menuBlock.disableScroll()
         setupFadeOutPanel()
-    }
-    private func setupFadeOutPanel() {
 
-        fadeInPanel.translatesAutoresizingMaskIntoConstraints = false
-        fadeInPanel.backgroundColor = ThemeSettings.Colors.main
-        fadeInPanel.barTintColor = ThemeSettings.Colors.main
-        self.view.addSubview(fadeInPanel)
-
-        let top = NSLayoutConstraint(item: fadeInPanel, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0)
-        let left = NSLayoutConstraint(item: fadeInPanel, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
-        let right = NSLayoutConstraint(item: fadeInPanel, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
-        let height = NSLayoutConstraint(item: fadeInPanel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 64)
-
-        for contraint in fadeInPanel.constraints {
-            if contraint.firstAttribute == .width {
-                NSLayoutConstraint.deactivate([contraint])
-                break
-            }
+        if (_cart.hasDishes) {
+            _bottomAction.show()
         }
-
-        let back = UIImageView(image: ThemeSettings.Images.navigationBackward)
-        back.frame = CGRect(x: -11, y: 0, width: 40, height: 40)
-        (fadeInPanel.topItem?.leftBarButtonItem?.customView as? UIButton)?.addSubview(back)
-
-        let info = UIImageView(image: ThemeSettings.Images.iconInfo)
-        info.frame = CGRect(x: 22, y: 0, width: 40, height: 40)
-        (fadeInPanel.topItem?.rightBarButtonItem?.customView as? UIButton)?.addSubview(info)
-
-        NSLayoutConstraint.activate([top, left, right, height])
-        updateFadeOutPanel()
     }
 
     private func loadRows() -> [PlaceMenuCellsProtocol] {
@@ -189,6 +173,10 @@ public class PlaceMenuController: UIViewController {
             handler(cell)
         }
     }
+}
+
+// MARK: Load data
+extension PlaceMenuController {
 
     @objc private func needReload() {
 
@@ -209,7 +197,7 @@ public class PlaceMenuController: UIViewController {
             if let menu = _menuService.findInLocal(_placeId) {
 
                 _menu = menu
-                completeLoad()
+                applyMenu()
                 return
             }
         }
@@ -227,9 +215,17 @@ public class PlaceMenuController: UIViewController {
             DispatchQueue.main.async {
 
                 self._menuCompleteRequest = true
-                self.completeLoad()
+                self.applyMenu()
             }
         })
+    }
+    private func applyMenu() {
+
+        if let menu = _menu {
+            _cartAction.update(currency: menu.currency)
+        }
+
+        completeLoad()
     }
     private func requestSummary(_ ignoreCache: Bool) {
 
@@ -317,6 +313,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
         Log.Debug(_tag, "Select dish #\(dish)")
     }
 }
+
 // MARK: Scrolling
 extension PlaceMenuController: UITableViewDelegate {
     //Scroll dishes table
@@ -357,6 +354,37 @@ extension PlaceMenuController: UITableViewDelegate {
     private func count(offset: CGFloat) -> CGFloat {
         return CGFloat(max(70, min(150, offset * offset)))
     }
+
+    private func setupFadeOutPanel() {
+
+        fadeInPanel.translatesAutoresizingMaskIntoConstraints = false
+        fadeInPanel.backgroundColor = ThemeSettings.Colors.main
+        fadeInPanel.barTintColor = ThemeSettings.Colors.main
+        self.view.addSubview(fadeInPanel)
+
+        let top = NSLayoutConstraint(item: fadeInPanel, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0)
+        let left = NSLayoutConstraint(item: fadeInPanel, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
+        let right = NSLayoutConstraint(item: fadeInPanel, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+        let height = NSLayoutConstraint(item: fadeInPanel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 64)
+
+        for contraint in fadeInPanel.constraints {
+            if contraint.firstAttribute == .width {
+                NSLayoutConstraint.deactivate([contraint])
+                break
+            }
+        }
+
+        let back = UIImageView(image: ThemeSettings.Images.navigationBackward)
+        back.frame = CGRect(x: -11, y: 0, width: 40, height: 40)
+        (fadeInPanel.topItem?.leftBarButtonItem?.customView as? UIButton)?.addSubview(back)
+
+        let info = UIImageView(image: ThemeSettings.Images.iconInfo)
+        info.frame = CGRect(x: 22, y: 0, width: 40, height: 40)
+        (fadeInPanel.topItem?.rightBarButtonItem?.customView as? UIButton)?.addSubview(info)
+
+        NSLayoutConstraint.activate([top, left, right, height])
+        updateFadeOutPanel()
+    }
     private func updateFadeOutPanel() {
 
         let offset = contentTable.contentOffset.y
@@ -378,7 +406,23 @@ extension PlaceMenuController: UITableViewDelegate {
         }
     }
 }
+
+// MARK: Cart
 extension PlaceMenuController: CartUpdateProtocol {
-    public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {}
-    public func cart(_ cart: Cart, removedDish: Long) {}
+
+    public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {
+
+        DispatchQueue.main.async {
+            self._bottomAction.show()
+        }
+    }
+
+    public func cart(_ cart: Cart, removedDish: Long) {
+
+        DispatchQueue.main.async {
+            if (cart.isEmpty) {
+                self._bottomAction.hide()
+            }
+        }
+    }
 }

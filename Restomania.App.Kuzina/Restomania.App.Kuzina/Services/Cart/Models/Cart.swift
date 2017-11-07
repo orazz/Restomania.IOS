@@ -41,6 +41,15 @@ public class Cart: Reservation {
     public var placeID: Long {
         return _place.placeID
     }
+    public var isEmpty: Bool {
+        return _place.dishes.notAny({ $0.Count > 0 })
+    }
+    public var hasDishes: Bool {
+        return _place.dishes.any({ $0.Count > 0 })
+    }
+    public var dishesCount: Int {
+        return _place.dishes.count({ $0.Count > 0 })
+    }
     public var dishes: [OrderedDish] {
         return _place.dishes.where({$0.Count > 0}).map({ OrderedDish(source: $0) })
     }
@@ -72,9 +81,6 @@ public class Cart: Reservation {
         }
 
         return result
-    }
-    public var hasDishes: Bool {
-        return !dishes.isEmpty
     }
 
     //Build order for adding
