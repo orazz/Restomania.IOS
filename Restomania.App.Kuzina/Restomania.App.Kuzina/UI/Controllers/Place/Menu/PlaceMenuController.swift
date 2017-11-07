@@ -36,9 +36,9 @@ public class PlaceMenuController: UIViewController {
         let vc = PlaceMenuController(nibName: nibName, bundle: Bundle.main)
 
         vc._placeId = placeId
-        vc._menuService = ServicesManager.current.menuSummariesService
-        vc._placesService = ServicesManager.current.placeSummariesService
-        vc._cart = ServicesManager.current.cartsService.cart(placeID: placeId)
+        vc._menuService = ServicesManager.shared.menuSummariesService
+        vc._placesService = ServicesManager.shared.placeSummariesService
+        vc._cart = ServicesManager.shared.cartsService.get(for: placeId)
 
         return vc
     }
@@ -103,7 +103,7 @@ public class PlaceMenuController: UIViewController {
             _interfaceAdapter.add(cell)
         }
 
-        _cart = ServicesManager.current.cartsService.cart(placeID: _placeId)
+        _cart = ServicesManager.shared.cartsService.get(for: _placeId)
 
         _bottomAction = BottomActions(for: self.view)
         _cartAction = PlaceMenuCartAction.create(for: _cart, and: _menu, with: self.navigationController!)
@@ -203,7 +203,7 @@ extension PlaceMenuController {
         }
 
         //Take remote
-        let task = _menuService.find(placeID: _placeId, ignoreCache: ignoreCache)
+        let task = _menuService.find(for: _placeId, ignoreCache: ignoreCache)
         task.async(.background, completion: { result in
 
             if (nil == result) {

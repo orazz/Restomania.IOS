@@ -35,7 +35,7 @@ public class AddPaymentCardService: NSObject, UIWebViewDelegate {
         _loader = InterfaceLoader(for: _controller.view)
 
         //Service
-        let keys = ServicesManager.current.keysStorage
+        let keys = ServicesManager.shared.keysStorage
         _cardsService = UserCardsApiService(storage: keys)
 
         super.init()

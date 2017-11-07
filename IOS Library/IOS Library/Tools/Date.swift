@@ -44,4 +44,11 @@ extension Date {
 
         return Date.ISOFormatter.string(from: self)
     }
+    public func dayOfWeek() -> Int {
+        
+        let calendar = NSCalendar.current
+        let component = calendar.component(.weekday, from: self)
+
+        return component
+    }
 }

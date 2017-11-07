@@ -44,7 +44,7 @@ public class AuthService {
         _rights = rights
         _currentPage = firstPage
 
-        _storage = ServicesManager.current.keysStorage
+        _storage = ServicesManager.shared.keysStorage
 
         for controller in _controllers {
             controller.root = self
@@ -99,7 +99,7 @@ public class AuthService {
 
         if let done = _complete {
 
-            done(nil != _storage.keysFor(rights: _rights))
+            done(nil != _storage.keys(for: _rights))
         }
 
         _navigator.popToViewController(_root, animated: true)

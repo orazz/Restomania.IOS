@@ -31,7 +31,7 @@ public class CacheMenuSummariesService {
     }
 
     //Remote
-    public func find(placeID: Long, ignoreCache: Bool = false) -> Task<MenuSummary?> {
+    public func find(for placeID: Long, ignoreCache: Bool = false) -> Task<MenuSummary?> {
 
         return Task { (handler: @escaping(MenuSummary?) -> Void) in
 

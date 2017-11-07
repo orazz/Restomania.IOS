@@ -12,7 +12,7 @@ import AsyncTask
 public class WrappedImage: UIImageView {
 
     private let _tag = String.tag(WrappedImage.self)
-    private let _images = ServicesManager.current.images
+    private let _images = ServicesManager.shared.images
     private var _url: String?
 
     public override init(frame: CGRect) {

@@ -194,6 +194,10 @@
 		1FD9A0A41F232FEC0026BDF8 /* KeysStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */; };
 		1FF703A11F6737E50028A9B8 /* AddPaymentCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A01F6737E50028A9B8 /* AddPaymentCardService.swift */; };
 		1FF703A71F6845C50028A9B8 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A61F6845C50028A9B8 /* Price.swift */; };
+		1FF79A571FB22D96008F3FCC /* ScheduleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF79A561FB22D96008F3FCC /* ScheduleDisplay.swift */; };
+		1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF79A581FB22DB8008F3FCC /* ScheduleDisplayView.xib */; };
+		1FF79A5B1FB22E2E008F3FCC /* ScheduleDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF79A5A1FB22E2E008F3FCC /* ScheduleDisplayCell.swift */; };
+		1FF79A5F1FB22E55008F3FCC /* ScheduleDisplayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF79A5E1FB22E55008F3FCC /* ScheduleDisplayCellView.xib */; };
 		1FFA57BE1F20CF8A00E83463 /* ConfigsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */; };
 		1FFA57BF1F20CF8D00E83463 /* PropertiesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */; };
 		1FFA57C11F20CFD100E83463 /* OpenPlaceSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA57C01F20CFD100E83463 /* OpenPlaceSummariesApiService.swift */; };
@@ -429,6 +433,10 @@
 		1FF4FE8C1F1CF21E00CC78B3 /* BaseNotificationPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseNotificationPreference.swift; path = Domains/NotificationPreferences/BaseNotificationPreference.swift; sourceTree = "<group>"; };
 		1FF703A01F6737E50028A9B8 /* AddPaymentCardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPaymentCardService.swift; path = Services/AddPaymentCardService.swift; sourceTree = "<group>"; };
 		1FF703A61F6845C50028A9B8 /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Domains/Places/Menues/Price.swift; sourceTree = "<group>"; };
+		1FF79A561FB22D96008F3FCC /* ScheduleDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleDisplay.swift; path = UI/Elements/ScheduleDisplay/ScheduleDisplay.swift; sourceTree = "<group>"; };
+		1FF79A581FB22DB8008F3FCC /* ScheduleDisplayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScheduleDisplayView.xib; path = UI/Elements/ScheduleDisplay/ScheduleDisplayView.xib; sourceTree = "<group>"; };
+		1FF79A5A1FB22E2E008F3FCC /* ScheduleDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleDisplayCell.swift; path = UI/Elements/ScheduleDisplay/ScheduleDisplayCell.swift; sourceTree = "<group>"; };
+		1FF79A5E1FB22E55008F3FCC /* ScheduleDisplayCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScheduleDisplayCellView.xib; path = UI/Elements/ScheduleDisplay/ScheduleDisplayCellView.xib; sourceTree = "<group>"; };
 		1FFA57C01F20CFD100E83463 /* OpenPlaceSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenPlaceSummariesApiService.swift; path = ApiServices/Open/OpenPlaceSummariesApiService.swift; sourceTree = "<group>"; };
 		1FFA57C51F21EDBA00E83463 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = "<group>"; };
 		1FFA57EE1F225FA000E83463 /* _markup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _markup; path = Restomania.App.Kuzina/_markup; sourceTree = "<group>"; };
@@ -538,6 +546,12 @@
 			children = (
 				1FC01CC71FB20F4100413ED7 /* PlaceCartController.swift */,
 				1FC01CC91FB2115000413ED7 /* PlaceCartControllerView.xib */,
+				1F7F069A1FB23FA6003B8F16 /* CompleteDateContainer */,
+				1F7F069B1FB23FFD003B8F16 /* DishesContainer */,
+				1F7F069C1FB2400D003B8F16 /* TotalContainer */,
+				1F7F069D1FB2404D003B8F16 /* PaymentCardContainer */,
+				1F7F069E1FB24057003B8F16 /* AdditionalContainer */,
+				1F7F069F1FB24092003B8F16 /* CompleteOrderContainer */,
 			);
 			name = Cart;
 			sourceTree = "<group>";
@@ -722,6 +736,17 @@
 			name = Orders;
 			sourceTree = "<group>";
 		};
+		1F6FE2BC1FB22CA70072D518 /* ScheduleDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				1FF79A561FB22D96008F3FCC /* ScheduleDisplay.swift */,
+				1FF79A581FB22DB8008F3FCC /* ScheduleDisplayView.xib */,
+				1FF79A5A1FB22E2E008F3FCC /* ScheduleDisplayCell.swift */,
+				1FF79A5E1FB22E55008F3FCC /* ScheduleDisplayCellView.xib */,
+			);
+			name = ScheduleDisplay;
+			sourceTree = "<group>";
+		};
 		1F77EFBC1F67189700C93DB0 /* PaymentCards */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +756,48 @@
 				1F62E4A41FAE46D200D1C89D /* PaymentCardsView.xib */,
 			);
 			name = PaymentCards;
+			sourceTree = "<group>";
+		};
+		1F7F069A1FB23FA6003B8F16 /* CompleteDateContainer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CompleteDateContainer;
+			sourceTree = "<group>";
+		};
+		1F7F069B1FB23FFD003B8F16 /* DishesContainer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DishesContainer;
+			sourceTree = "<group>";
+		};
+		1F7F069C1FB2400D003B8F16 /* TotalContainer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TotalContainer;
+			sourceTree = "<group>";
+		};
+		1F7F069D1FB2404D003B8F16 /* PaymentCardContainer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PaymentCardContainer;
+			sourceTree = "<group>";
+		};
+		1F7F069E1FB24057003B8F16 /* AdditionalContainer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AdditionalContainer;
+			sourceTree = "<group>";
+		};
+		1F7F069F1FB24092003B8F16 /* CompleteOrderContainer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CompleteOrderContainer;
 			sourceTree = "<group>";
 		};
 		1FA2607E1F14A02400C14886 /* Domains */ = {
@@ -1228,6 +1295,7 @@
 		1FFA57C91F21EE0200E83463 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1F6FE2BC1FB22CA70072D518 /* ScheduleDisplay */,
 				1F3C5A0A1FB15D5E0038EB97 /* BottomActions */,
 				1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */,
 				1F261C781F42BC4B004BFFCB /* Buttons */,
@@ -1411,6 +1479,7 @@
 				1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */,
 				1F279F931FB07D51003A2B47 /* PlaceInfoControllerView.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
+				1FF79A5F1FB22E55008F3FCC /* ScheduleDisplayCellView.xib in Resources */,
 				1F62E46F1FAE465700D1C89D /* Tabs.storyboard in Resources */,
 				1F279F9E1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib in Resources */,
 				1F62E47E1FAE466F00D1C89D /* SignupPage.xib in Resources */,
@@ -1421,6 +1490,7 @@
 				1F62E47D1FAE466F00D1C89D /* LoginPage.xib in Resources */,
 				1F62E4A61FAE46D300D1C89D /* PaymentCardCellView.xib in Resources */,
 				1F62E4CB1FAE472E00D1C89D /* PlaceCard.xib in Resources */,
+				1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */,
 				1F279F691FB07CA6003A2B47 /* ManagerChangePasswordControllerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1678,6 +1748,7 @@
 				1FB8EFE41F1D4A970090045E /* Contacts.swift in Sources */,
 				1F279F7C1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCell.swift in Sources */,
 				1F62E4C01FAE470800D1C89D /* BlackBottomButton.swift in Sources */,
+				1FF79A571FB22D96008F3FCC /* ScheduleDisplay.swift in Sources */,
 				1FD7E69E1F1D0E140023C033 /* Account.swift in Sources */,
 				1F62E4C21FAE470800D1C89D /* BlackButton.swift in Sources */,
 				1FB8EFC51F1D3C300090045E /* UserNotificationPreference.swift in Sources */,
@@ -1723,6 +1794,7 @@
 				1FB8F05E1F1ECD020090045E /* Booking.swift in Sources */,
 				1FD7E6A51F1D0E140023C033 /* CurrencyType.swift in Sources */,
 				1FB8F0621F1ECE5F0090045E /* DishOrderStatus.swift in Sources */,
+				1FF79A5B1FB22E2E008F3FCC /* ScheduleDisplayCell.swift in Sources */,
 				1FD7E6A61F1D0E140023C033 /* Platform.swift in Sources */,
 				1FB8F0041F1DF47B0090045E /* CountedLoyaltyDiscounts.swift in Sources */,
 				1F279F921FB07D51003A2B47 /* PlaceInfoController.swift in Sources */,

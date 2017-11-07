@@ -11,10 +11,10 @@ import IOSLibrary
 
 public class ServicesManager: ILoggable {
 
-    public static var current: ServicesManager!
+    public static var shared: ServicesManager!
     public class func initialize() {
-        current = ServicesManager()
-        Log.Info(current.tag, "Complete load manager.")
+        shared = ServicesManager()
+        Log.Info(shared.tag, "Complete load manager.")
     }
 
     public var tag: String {

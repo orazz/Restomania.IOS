@@ -24,7 +24,7 @@ public class BaseAuthApiService: BaseApiService {
     internal override func CollectParameters(_ values: Parameters? = nil) -> Parameters {
         var parameters = super.CollectParameters(values)
 
-        let keys = _keyStorage.keysFor(rights: _rights)
+        let keys = _keyStorage.keys(for: _rights)
         parameters["keys"] = keys?.toJSON()
 
         return parameters

@@ -15,7 +15,7 @@ public protocol IKeysCRUDStorage: IKeysStorage {
     func set(keys: AccessKeys, for rights: AccessRights)
     func remove(for rights: AccessRights)
 }
-public class KeysStorage: IKeysCRUDStorage, ILoggable {
+public class KeysStorage: ILoggable {
 
     public var tag = String.tag(KeysStorage.self)
 
@@ -50,6 +50,45 @@ public class KeysStorage: IKeysCRUDStorage, ILoggable {
 
         Log.Info(tag, "Complete load service.")
     }
+
+    private func save() {
+        do {
+            let builded = _data.map({ $0.toJSON()})
+            let data = try JSONSerialization.data(withJSONObject: builded, options: [])
+
+            _client.saveTo(_filename, data: data, toCache: false)
+        } catch {
+            Log.Error(tag, "Problem with save keys to storage")
+        }
+
+        Log.Debug(tag, "Save keys to storage.")
+    }
+
+
+
+    private class KeysContainer: Glossy {
+
+        public var keys: AccessKeys
+        public var rights: AccessRights
+
+        public init() {
+            self.keys = AccessKeys()
+            self.rights = .User
+        }
+        public required init(json: JSON) {
+            self.keys = ("keys" <~~ json)!
+            self.rights = ("rights" <~~ json)!
+        }
+
+        public func toJSON() -> JSON? {
+            return jsonify([
+                "keys" ~~> self.keys,
+                "rights" ~~> self.rights
+                ])
+        }
+    }
+}
+extension KeysStorage: IKeysCRUDStorage {
     public func set(keys: AccessKeys, for rights: AccessRights) {
 
         for container in _data {
@@ -77,20 +116,12 @@ public class KeysStorage: IKeysCRUDStorage, ILoggable {
 
         save()
     }
-    private func save() {
-        do {
-            let builded = _data.map({ $0.toJSON()})
-            let data = try JSONSerialization.data(withJSONObject: builded, options: [])
-
-            _client.saveTo(_filename, data: data, toCache: false)
-        } catch {
-            Log.Error(tag, "Problem with save keys to storage")
-        }
-
-        Log.Debug(tag, "Save keys to storage.")
+}
+extension KeysStorage: IKeysStorage {
+    public func isAuth(for rights: AccessRights) -> Bool {
+        return nil != keys(for: rights)
     }
-
-    public func keysFor(rights: AccessRights) -> AccessKeys? {
+    public func keys(for rights: AccessRights) -> AccessKeys? {
 
         for container in _data {
             if (rights == container.rights) {
@@ -103,27 +134,5 @@ public class KeysStorage: IKeysCRUDStorage, ILoggable {
     public func logout(for rights: AccessRights) {
 
         remove(for: rights)
-    }
-
-    private class KeysContainer: Glossy {
-
-        public var keys: AccessKeys
-        public var rights: AccessRights
-
-        public init() {
-            self.keys = AccessKeys()
-            self.rights = .User
-        }
-        public required init(json: JSON) {
-            self.keys = ("keys" <~~ json)!
-            self.rights = ("rights" <~~ json)!
-        }
-
-        public func toJSON() -> JSON? {
-            return jsonify([
-                "keys" ~~> self.keys,
-                "rights" ~~> self.rights
-                ])
-        }
     }
 }

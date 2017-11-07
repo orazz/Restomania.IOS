@@ -35,7 +35,7 @@ public class PaymentCardsController: UIViewController,
 
         _addCardService = AddPaymentCardService()
 
-        let keys = ServicesManager.current.keysStorage
+        let keys = ServicesManager.shared.keysStorage
         _apiService = UserCardsApiService(storage: keys)
 
         super.init(nibName: PaymentCardsController.nibName, bundle: Bundle.main)

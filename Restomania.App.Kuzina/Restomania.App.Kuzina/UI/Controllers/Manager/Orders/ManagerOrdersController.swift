@@ -38,7 +38,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
 
         _loader = InterfaceLoader(for: self.view)
 
-        let keys = ServicesManager.current.keysStorage
+        let keys = ServicesManager.shared.keysStorage
         _apiService = UserOrdersApiService(storage: keys)
 
         let nib = UINib(nibName: ManagerOrdersControllerViewOrderCell.nibName, bundle: Bundle.main)

@@ -9,11 +9,11 @@
 import Foundation
 
 public enum DayOfWeek: Int {
-    case Sunday = 0
-    case Monday = 1
-    case Tuesday = 2
-    case Wednesday = 3
-    case Thursday = 4
-    case Friday = 5
-    case Saturday = 6
+    case sunday = 0
+    case monday = 1
+    case tuesday = 2
+    case wednesday = 3
+    case thursday = 4
+    case friday = 5
+    case saturday = 6
 }

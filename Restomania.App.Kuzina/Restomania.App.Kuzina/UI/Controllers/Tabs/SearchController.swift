@@ -35,7 +35,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
         _loader = InterfaceLoader(for: self.view)
         _tableAdapter = TableAdapter(source: self)
         _searchAdapter = setupSearchAdapter()
-        _service = ServicesManager.current.placeSummariesService
+        _service = ServicesManager.shared.placeSummariesService
 
         searchBar.delegate = self
 

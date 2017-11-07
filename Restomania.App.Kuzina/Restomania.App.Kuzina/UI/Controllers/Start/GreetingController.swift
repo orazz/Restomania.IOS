@@ -23,8 +23,8 @@ public class GreetingController: UIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let storage = ServicesManager.current.keysStorage
-        if let _ = storage.keysFor(rights: .User) {
+        let storage = ServicesManager.shared.keysStorage
+        if let _ = storage.keys(for: .User) {
 
             goToSearch()
         }

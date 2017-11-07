@@ -12,27 +12,27 @@ import IOSLibrary
 
 public class ShortSchedule: Glossy, ICopying {
 
-    public var Sunday: String
-    public var Monday: String
-    public var Tuesday: String
-    public var Wednesday: String
-    public var Thursday: String
-    public var Friday: String
-    public var Saturday: String
+    public var sunday: String
+    public var monday: String
+    public var tuesday: String
+    public var wednesday: String
+    public var thursday: String
+    public var friday: String
+    public var saturday: String
 
     public init() {
 
-        self.Sunday = String.empty
-        self.Monday = String.empty
-        self.Tuesday = String.empty
-        self.Wednesday = String.empty
-        self.Thursday = String.empty
-        self.Friday = String.empty
-        self.Saturday = String.empty
+        self.sunday = String.empty
+        self.monday = String.empty
+        self.tuesday = String.empty
+        self.wednesday = String.empty
+        self.thursday = String.empty
+        self.friday = String.empty
+        self.saturday = String.empty
     }
 
     public func dayValue(_ weekDay: Int) -> String {
-        let days = [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+        let days = [sunday, monday, tuesday, wednesday, thursday, friday, saturday]
 
         return days[abs(weekDay) % 7]
     }
@@ -54,35 +54,35 @@ public class ShortSchedule: Glossy, ICopying {
     // MARK: ICopying
     public required init(source: ShortSchedule) {
 
-        self.Sunday = source.Sunday
-        self.Monday = source.Monday
-        self.Tuesday = source.Tuesday
-        self.Wednesday = source.Wednesday
-        self.Thursday = source.Thursday
-        self.Friday = source.Friday
-        self.Saturday = source.Saturday
+        self.sunday = source.sunday
+        self.monday = source.monday
+        self.tuesday = source.tuesday
+        self.wednesday = source.wednesday
+        self.thursday = source.thursday
+        self.friday = source.friday
+        self.saturday = source.saturday
     }
     // MARK: Glossy
     public required init(json: JSON) {
 
-        self.Sunday = ("Sunday" <~~ json)!
-        self.Monday = ("Monday" <~~ json)!
-        self.Tuesday = ("Tuesday" <~~ json)!
-        self.Wednesday = ("Wednesday" <~~ json)!
-        self.Thursday = ("Thursday" <~~ json)!
-        self.Friday = ("Friday" <~~ json)!
-        self.Saturday = ("Saturday" <~~ json)!
+        self.sunday = ("Sunday" <~~ json)!
+        self.monday = ("Monday" <~~ json)!
+        self.tuesday = ("Tuesday" <~~ json)!
+        self.wednesday = ("Wednesday" <~~ json)!
+        self.thursday = ("Thursday" <~~ json)!
+        self.friday = ("Friday" <~~ json)!
+        self.saturday = ("Saturday" <~~ json)!
     }
     public func toJSON() -> JSON? {
 
         return jsonify([
-            "Sunday" ~~> Sunday,
-            "Monday" ~~> Monday,
-            "Tuesday" ~~> Tuesday,
-            "Wednesday" ~~> Wednesday,
-            "Thursday" ~~> Thursday,
-            "Friday" ~~> Friday,
-            "Saturday" ~~> Saturday
+            "Sunday" ~~> sunday,
+            "Monday" ~~> monday,
+            "Tuesday" ~~> tuesday,
+            "Wednesday" ~~> wednesday,
+            "Thursday" ~~> thursday,
+            "Friday" ~~> friday,
+            "Saturday" ~~> saturday
             ])
     }
 }

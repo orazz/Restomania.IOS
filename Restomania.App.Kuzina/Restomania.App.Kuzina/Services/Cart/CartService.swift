@@ -38,13 +38,13 @@ public class CartService {
     public func reservation() -> Reservation {
         return Reservation(cart: _cartContainer, saver: _saver)
     }
-    public func cart(placeID: Long) -> Cart {
+    public func get(for place: Long) -> Cart {
 
-        if let cart = _carts.find({ placeID == $0.placeID }) {
+        if let cart = _carts.find({ place == $0.placeID }) {
             return cart
         }
 
-        let place = PlaceCartContainer(placeID: placeID)
+        let place = PlaceCartContainer(placeID: place)
         _cartContainer.places.append(place)
         let cart = Cart(place: place, cart: _cartContainer, saver: _saver)
         _carts.append(cart)

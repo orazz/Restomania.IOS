@@ -49,7 +49,7 @@ public class BaseAuthController: UIViewController {
         super.viewDidLoad()
 
         client = OpenAccountsApiService()
-        storage = ServicesManager.current.keysStorage as! IKeysCRUDStorage
+        storage = ServicesManager.shared.keysStorage as! IKeysCRUDStorage
         loader = InterfaceLoader(for: self.view)
 
         LoginTextField?.addTarget(self, action: #selector(updateLogin), for: .editingChanged)

@@ -23,14 +23,14 @@ public class ManagerController: UIViewController {
     //Properties
     private var _isAuth: Bool {
 
-        return nil != _keysStorage.keysFor(rights: .User)
+        return nil != _keysStorage.keys(for: .User)
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
         _authService = AuthService(open: .signup, with: self.navigationController!, rights: .User)
-        _keysStorage = ServicesManager.current.keysStorage
+        _keysStorage = ServicesManager.shared.keysStorage
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
