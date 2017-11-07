@@ -32,7 +32,7 @@ public  class BaseButton: UIButton {
 //        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
 
         //Styles
-        self.titleLabel?.font = ThemeSettings.Fonts.default(size: .title)
+        self.titleLabel?.font = ThemeSettings.Fonts.default(size: .subhead)
         self.tintColor = textColor
         self.backgroundColor = backgroundColor
 

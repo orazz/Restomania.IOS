@@ -87,7 +87,7 @@ public class CacheImagesService {
                 self._adapter.addOrUpdate(container)
 
                 handler(DownloadResult(data: data))
-                Log.Debug(self._tag, "Download aand cache image for url: \(url)")
+                Log.Debug(self._tag, "Download and cache image for url: \(url)")
             })
             request.resume()
         }

@@ -38,7 +38,7 @@ public class PlaceCard: UITableViewCell {
             return
         }
 
-        name.font = ThemeSettings.Fonts.bold(size: .title)
+        name.font = ThemeSettings.Fonts.bold(size: .head)
         name.textColor = ThemeSettings.Colors.additional
 
         workingHours.font = ThemeSettings.Fonts.default(size: .subhead)

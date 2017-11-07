@@ -9,12 +9,19 @@
 import Foundation
 import IOSLibrary
 
+public protocol CartUpdateProtocol {
+    func cart(_ cart: Cart, changedDish: Dish, newCount: Int)
+    func cart(_ cart: Cart, removedDish: Long)
+}
 public class Cart: Reservation {
 
     private let _place: PlaceCartContainer
+    private let _adapter: EventsAdapter<CartUpdateProtocol>
+    private let _queue = DispatchQueue(label: Guid.new)
 
     internal init(place: PlaceCartContainer, cart: CommonCartContainer, saver: @escaping () -> Void) {
         _place = place
+        _adapter = EventsAdapter(name: "\(String.tag(Cart.self))#\(_place.placeID)")
 
         super.init(cart: cart, saver: saver)
 
@@ -33,6 +40,15 @@ public class Cart: Reservation {
     //Properties
     public var placeID: Long {
         return _place.placeID
+    }
+    public var isEmpty: Bool {
+        return _place.dishes.notAny({ $0.Count > 0 })
+    }
+    public var hasDishes: Bool {
+        return _place.dishes.any({ $0.Count > 0 })
+    }
+    public var dishesCount: Int {
+        return _place.dishes.count({ $0.Count > 0 })
     }
     public var dishes: [OrderedDish] {
         return _place.dishes.where({$0.Count > 0}).map({ OrderedDish(source: $0) })
@@ -65,9 +81,6 @@ public class Cart: Reservation {
         }
 
         return result
-    }
-    public var hasDishes: Bool {
-        return !dishes.isEmpty
     }
 
     //Build order for adding
@@ -102,6 +115,10 @@ public class Cart: Reservation {
             _place.dishes.append(OrderedDish(dish, count: count))
         }
 
+        _queue.async {
+           self._adapter.Trigger(action: { $0.cart(self, changedDish: dish, newCount: newCount)})
+        }
+
         save()
     }
     public func remove(dishID: Long) {
@@ -112,6 +129,10 @@ public class Cart: Reservation {
                 _place.dishes.remove(at: index)
                 break
             }
+        }
+
+        _queue.async {
+            self._adapter.Trigger(action: { $0.cart(self, removedDish: dishID)})
         }
 
         save()
@@ -162,5 +183,15 @@ public class Cart: Reservation {
     }
     private func find(_ dishID: Long) -> OrderedDish? {
         return _place.dishes.find({ dishID == $0.DishID })
+    }
+}
+extension Cart: IEventsEmitter {
+    public typealias THandler = CartUpdateProtocol
+
+    public func subscribe(guid: String, handler: Cart.THandler, tag: String) {
+        _adapter.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        _adapter.unsubscribe(guid: guid)
     }
 }

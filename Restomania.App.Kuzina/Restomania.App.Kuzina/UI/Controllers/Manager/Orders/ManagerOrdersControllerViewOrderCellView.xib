@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManagerOrdersControllerViewOrderCell" customModule="RestomaniaAppKuzina" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ManagerOrdersControllerViewOrderCell" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#12312" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWg-SJ-U7J">
+                    <rect key="frame" x="10" y="26" width="50" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00 22/22" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AV8-2r-qba">
+                    <rect key="frame" x="75" y="17.5" width="41.5" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Кузина Новосибирск, Красный проспект 77б" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goj-XP-P0s">
+                    <rect key="frame" x="132" y="5" width="126.5" height="60"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="220 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTu-nl-LSu" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="273.5" y="26" width="40.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="NWg-SJ-U7J" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="3m8-or-U99"/>
+                <constraint firstItem="Goj-XP-P0s" firstAttribute="leading" secondItem="AV8-2r-qba" secondAttribute="trailing" constant="15" id="Hst-FB-lYb"/>
+                <constraint firstItem="AV8-2r-qba" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MWN-8f-ZrO"/>
+                <constraint firstItem="TTu-nl-LSu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="RsF-7M-i3a"/>
+                <constraint firstItem="TTu-nl-LSu" firstAttribute="leading" secondItem="Goj-XP-P0s" secondAttribute="trailing" constant="15" id="ZmR-P9-Tr3"/>
+                <constraint firstItem="Goj-XP-P0s" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="a7c-In-ii1"/>
+                <constraint firstAttribute="bottom" secondItem="Goj-XP-P0s" secondAttribute="bottom" constant="5" id="eK0-EB-gZu"/>
+                <constraint firstItem="AV8-2r-qba" firstAttribute="leading" secondItem="NWg-SJ-U7J" secondAttribute="trailing" constant="15" id="gdh-wL-tFp"/>
+                <constraint firstAttribute="trailing" secondItem="TTu-nl-LSu" secondAttribute="trailing" constant="10" id="hEe-2H-gMT"/>
+                <constraint firstItem="NWg-SJ-U7J" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ySA-tk-LHg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="DateLabel" destination="AV8-2r-qba" id="AbD-0p-1Un"/>
+                <outlet property="IdLabel" destination="NWg-SJ-U7J" id="02l-kI-zb3"/>
+                <outlet property="PlaceNameLabel" destination="Goj-XP-P0s" id="HLJ-fz-Ohk"/>
+                <outlet property="PriceLabel" destination="TTu-nl-LSu" id="5cY-TS-C3Q"/>
+            </connections>
+            <point key="canvasLocation" x="8" y="-244"/>
+        </view>
+    </objects>
+</document>

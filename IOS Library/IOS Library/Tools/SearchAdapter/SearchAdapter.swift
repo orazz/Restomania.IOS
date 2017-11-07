@@ -37,7 +37,6 @@ public class SearchAdapter<TElement> {
         return false
     }
     public func filter(phrase: String, for range: [TElement]) -> [TElement] {
-
         return range.where({ search(phrase: phrase, in: $0) })
     }
 }

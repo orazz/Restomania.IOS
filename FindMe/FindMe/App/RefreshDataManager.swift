@@ -48,6 +48,6 @@ public class RefreshDataManager {
         _cards.refresh()
 //        _places.refresh()
 
-        SlackNotifier.notify("<\(_tag)>: Refresh data.")
+//        SlackNotifier.notify("<\(_tag)>: Refresh data.")
     }
 }

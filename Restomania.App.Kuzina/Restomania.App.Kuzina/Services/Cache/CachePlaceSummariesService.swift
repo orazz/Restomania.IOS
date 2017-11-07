@@ -47,34 +47,41 @@ public class CachePlaceSummariesService {
     }
 
     //Remote
-    public func range(_ ids: [Long]) -> Task<[PlaceSummary]> {
+    public func range(_ ids: [Long], ignoreCache: Bool = false) -> Task<[PlaceSummary]> {
 
         return Task { (handler: @escaping([PlaceSummary]) -> Void) in
 
-            let filtered = self._adapter.checkCache(ids)
-            if (filtered.notFound.isEmpty) {
+            var needRequest = ids
+            if (!ignoreCache) {
+                let filtered = self._adapter.checkCache(ids)
+                if (filtered.notFound.isEmpty) {
 
-                handler(self._adapter.range(ids))
-                Log.Debug(self.tag, "Take data from cache.")
-                return
+                    handler(self._adapter.range(ids))
+                    Log.Debug(self.tag, "Take data from cache.")
+                    return
+                } else {
+                    needRequest = filtered.notFound
+                }
             }
 
             Log.Debug(self.tag, "Start request range.")
 
-            let task = self._client.Range(placeIDs: filtered.notFound)
-            let result = task.await()
+            let task = self._client.Range(placeIDs: needRequest)
+            task.async(.custom(self._adapter.blockQueue), completion: { response in
 
-            if (result.statusCode != .OK) {
-                handler([PlaceSummary]())
-                Log.Warning(self.tag, "Problem with get data.")
-                return
-            }
+                if (response.isFail) {
 
-            let data = result.data!
-            self._adapter.addOrUpdate(with: data)
-            handler(self._adapter.range(ids))
+                    handler([PlaceSummary]())
+                    Log.Warning(self.tag, "Problem with get data.")
+                } else {
 
-            Log.Debug(self.tag, "Complete request range.")
+                    let data = response.data!
+                    self._adapter.addOrUpdate(with: data)
+
+                    handler(self._adapter.range(ids))
+                    Log.Debug(self.tag, "Complete request range.")
+                }
+            })
         }
     }
     public func refresh() {

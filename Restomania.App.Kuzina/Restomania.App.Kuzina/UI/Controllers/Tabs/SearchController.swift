@@ -88,12 +88,11 @@ public class SearchController: UIViewController, UISearchBarDelegate {
             }
         })
     }
-    internal func goTo(placeID: Long) {
+    internal func goTo(placeId: Long) {
 
-        let controller = PlaceMenuController(nibName: PlaceMenuController.nibName, bundle: Bundle.main)
-        controller.placeID = placeID
+        let vc = PlaceMenuController.create(for: placeId)
 
-        self.navigationController!.pushViewController(controller, animated: true)
+        self.navigationController!.pushViewController(vc, animated: true)
     }
 
     //SearchBar delegate
@@ -141,7 +140,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
             let cell = tableView.dequeueReusableCell(withIdentifier: PlaceCard.identifier, for: indexPath) as! PlaceCard
-            cell.initialize(summary: _data[indexPath.row], touchAction: { self._source.goTo(placeID: $0) })
+            cell.initialize(summary: _data[indexPath.row], touchAction: { self._source.goTo(placeId: $0) })
 
             return cell
         }
