@@ -157,13 +157,12 @@ extension PlaceCartController {
                     self.reloadData()
                 }
                 else {
+                    Log.Warning(self._tag, "Not wuthorize user.")
 
-                    Log.Error(self._tag, "Problem with load data for page.")
+                    self.goBack()
 
                     let alert = UIAlertController(title: "Авторизация", message: "Для заказа через приложение необходима авторизация.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-
-                    self.navigationController?.popViewController(animated: true)
                     self.navigationController?.present(alert, animated: true, completion: nil)
                 }
             })
@@ -235,7 +234,7 @@ extension PlaceCartController {
 
             Log.Error(_tag, "Problem with load data for page.")
 
-            self.navigationController?.popViewController(animated: true)
+            self.goBack()
 
             let alert = UIAlertController(title: "Ошибка", message: "У нас возникла проблема с загрузкой данных.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
