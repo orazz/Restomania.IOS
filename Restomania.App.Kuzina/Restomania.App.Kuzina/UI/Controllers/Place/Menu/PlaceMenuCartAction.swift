@@ -13,14 +13,14 @@ import IOSLibrary
 public class PlaceMenuCartAction: UIView {
 
     private static let nibName = "PlaceMenuCartActionView"
-    public static func create(for cart: Cart, and menu: MenuSummary?, with navigationController: UINavigationController ) -> PlaceMenuCartAction {
+    public static func create(with delegate: PlaceMenuDelegate) -> PlaceMenuCartAction {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceMenuCartAction
 
-        instance._navigatior = navigationController
-        instance._menu = menu
-        instance._cart = cart
+        instance._delegate = delegate
+        instance._menu = delegate.menu
+        instance._cart = delegate.cart
         instance.setupMarkup()
 
         return instance
@@ -31,20 +31,14 @@ public class PlaceMenuCartAction: UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
     @IBAction private func goToCart() {
-
-        guard let cart = _cart else {
-            return
-        }
-
-        let vc = PlaceCartController.create(for: cart.placeID)
-        _navigatior?.popToViewController(vc, animated: true)
+        _delegate.goToCart()
     }
 
     //Data & services
     private let _tag = String.tag(PlaceMenuCartAction.self)
     private let _guid = Guid.new
-    private var _navigatior: UINavigationController?
     private var _currency = CurrencyType.All
+    private var _delegate: PlaceMenuDelegate!
     private var _menu: MenuSummary?
     private var _cart: Cart! {
         didSet {

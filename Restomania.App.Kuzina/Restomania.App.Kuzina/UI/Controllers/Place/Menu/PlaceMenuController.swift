@@ -27,6 +27,8 @@ public protocol PlaceMenuDelegate {
     func select(category: Long)
     func select(dish: Long)
     func scrollTo(offset: CGFloat)
+
+    func goToCart()
 }
 public class PlaceMenuController: UIViewController {
 
@@ -36,9 +38,11 @@ public class PlaceMenuController: UIViewController {
         let vc = PlaceMenuController(nibName: nibName, bundle: Bundle.main)
 
         vc._placeId = placeId
-        vc._menuService = ServicesManager.shared.menuSummariesService
-        vc._placesService = ServicesManager.shared.placeSummariesService
-        vc._cart = ServicesManager.shared.cartsService.get(for: placeId)
+        let factory = ServicesManager.shared!
+        vc._menuService = factory.menuSummariesService
+        vc._placesService = factory.placeSummariesService
+        vc._cart = factory.cartsService.get(for: placeId)
+        vc._keysService = factory.keysStorage
 
         return vc
     }
@@ -67,7 +71,14 @@ public class PlaceMenuController: UIViewController {
     private var _bottomAction: BottomActions!
     private var _cartAction: PlaceMenuCartAction!
 
-    //Load data
+    //MARK: Services
+    private var _cart: Cart!
+    private var _menuService: CacheMenuSummariesService!
+    private var _placesService: CachePlaceSummariesService!
+    private var _keysService: IKeysStorage!
+    private var _authService: AuthService!
+
+    //MARK: Data
     private let _tag = String.tag(PlaceMenuController.self)
     private let _guid = Guid.new
     private var _placeId: Long!
@@ -75,9 +86,6 @@ public class PlaceMenuController: UIViewController {
     private var _menu: MenuSummary?
     private var _summaryCompleteRequest = false
     private var _menuCompleteRequest = false
-    private var _cart: Cart!
-    private var _menuService: CacheMenuSummariesService!
-    private var _placesService: CachePlaceSummariesService!
     private var _recheckOffset = CGFloat(100)
     private var _lastOverOffset = CGFloat(0)
 
@@ -87,6 +95,8 @@ public class PlaceMenuController: UIViewController {
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
+
+        _authService = AuthService(open: .login, with: self.navigationController!, rights: .User)
 
         _loader = InterfaceLoader(for: self.view)
 
@@ -106,7 +116,7 @@ public class PlaceMenuController: UIViewController {
         _cart = ServicesManager.shared.cartsService.get(for: _placeId)
 
         _bottomAction = BottomActions(for: self.view)
-        _cartAction = PlaceMenuCartAction.create(for: _cart, and: _menu, with: self.navigationController!)
+        _cartAction = PlaceMenuCartAction.create(with: self)
         _bottomAction.setup(content: _cartAction)
 
         reloadData()
@@ -311,6 +321,35 @@ extension PlaceMenuController: PlaceMenuDelegate {
     }
     public func select(dish: Long) {
         Log.Debug(_tag, "Select dish #\(dish)")
+    }
+
+    public func goToCart() {
+
+        if (_keysService.isAuth(for: .User)) {
+            openCartPage()
+        }
+        else {
+             _authService.show(complete: { success in
+
+                if (success) {
+                    self.openCartPage()
+                }
+                else {
+                    Log.Warning(self._tag, "Not wuthorize user.")
+
+                    let alert = UIAlertController(title: "Авторизация", message: "Для заказа через приложение необходима авторизация.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+
+                self._authService.close()
+            })
+        }
+    }
+    private func openCartPage() {
+
+        let vc = PlaceCartController.create(for: _placeId)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

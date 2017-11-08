@@ -25,6 +25,7 @@ public protocol PlaceCartDelegate {
     func takeCart() -> Cart
     func takeController() -> UIViewController
 
+    func closePage()
     func tryAddOrder()
 }
 public class PlaceCartController: UIViewController {
@@ -58,7 +59,6 @@ public class PlaceCartController: UIViewController {
     private var menusService: CacheMenuSummariesService!
     private var addPaymentCardsService: AddPaymentCardService!
     private var keysService: IKeysStorage!
-    private var authService: AuthService!
 
     //Data
     private let _tag = String.tag(PlaceCartController.self)
@@ -83,13 +83,11 @@ extension PlaceCartController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        authService = AuthService(open: .login, with: self.navigationController!, rights: .User)
-
         loader = InterfaceLoader(for: self.view)
         contaier = CartContainer(for: placeId)
         rows = loadRows()
 
-        tryLoadData()
+        reloadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -145,32 +143,19 @@ extension PlaceCartController {
 //MARk: Load data
 extension PlaceCartController {
 
-    private func tryLoadData() {
+    private func reloadData() {
 
         if (keysService.isAuth(for: .User)) {
-            reloadData()
+
+            isCompleteLoadMenu = false
+            isCompleteLoadSummary = false
+            
+            requestMenu()
+            requestSummary()
         }
         else {
-            authService.show(complete: { success in
-
-                if (success) {
-                    self.reloadData()
-                }
-                else {
-                    Log.Warning(self._tag, "Not wuthorize user.")
-
-                    self.goBack()
-
-                    let alert = UIAlertController(title: "Авторизация", message: "Для заказа через приложение необходима авторизация.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                    self.navigationController?.present(alert, animated: true, completion: nil)
-                }
-            })
+            closePage()
         }
-    }
-    private func reloadData() {
-        requestMenu()
-        requestPlace()
     }
     private func requestMenu() {
 
@@ -198,7 +183,7 @@ extension PlaceCartController {
             }
         })
     }
-    private func requestPlace() {
+    private func requestSummary() {
 
         if let summary = placesService.findInLocal(placeId) {
 
@@ -281,6 +266,9 @@ extension PlaceCartController: PlaceCartDelegate {
         return self
     }
 
+    public func closePage() {
+        goBack()
+    }
     public func tryAddOrder() {
         Log.Info(_tag, "Try add order.")
     }
