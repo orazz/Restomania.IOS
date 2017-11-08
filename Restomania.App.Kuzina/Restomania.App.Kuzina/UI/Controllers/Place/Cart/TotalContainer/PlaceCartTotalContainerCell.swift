@@ -13,45 +13,61 @@ import IOSLibrary
 public class PlaceCartTotalContainerCell: UITableViewCell {
 
     private static let nibName = "PlaceCartTotalContainerCellView"
-    public static func create(for title: String, with delegate: PlaceCartDelegate) -> PlaceCartTotalContainerCell {
+    public static func create(for delegate: PlaceCartDelegate, title: String, _ action: @escaping ((Cart, MenuSummary) -> Double)) -> PlaceCartTotalContainerCell {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartTotalContainerCell
 
+        cell.title = title
+        cell.action = action
         cell.delegate = delegate
-        cell.cells =
         cell.setupMarkup()
+        cell.apply()
 
         return cell
     }
 
     //UI hooks
-
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var totalLabel: PriceLabel!
 
     //Data
     private let _tag = String.tag(PlaceCartTotalContainerCell.self)
     private let guid = Guid.new
     private var delegate: PlaceCartDelegate!
+    private var title: String!
+    private var action: ((Cart, MenuSummary) -> Double)!
     private var cart: Cart {
         return delegate.takeCart()
     }
 
     private func apply() {
 
-    }
-    private func tryUpdate() {
+        if let menu = delegate.takeMenu() {
 
+            let sum = action(cart, menu)
+            totalLabel.setup(amount: sum, currency: menu.currency)
+        }
     }
     private func setupMarkup() {
 
+        self.backgroundColor = ThemeSettings.Colors.additional
+
+        titleLabel.font = ThemeSettings.Fonts.default(size: .head)
+        titleLabel.textColor = ThemeSettings.Colors.main
+        titleLabel.text = title
+
+        totalLabel.font = ThemeSettings.Fonts.default(size: .subhead)
+        totalLabel.textColor = ThemeSettings.Colors.main
+        totalLabel.setup(amount: 0, currency: .RUB)
     }
 }
 extension PlaceCartTotalContainerCell: CartUpdateProtocol {
     public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {
-
+        apply()
     }
     public func cart(_ cart: Cart, removedDish: Long) {
-        tryUpdate()
+        apply()
     }
 }
 extension PlaceCartTotalContainerCell: PlaceCartContainerCell {
@@ -62,7 +78,7 @@ extension PlaceCartTotalContainerCell: PlaceCartContainerCell {
         cart.unsubscribe(guid: guid)
     }
     public func updateData(with: PlaceCartDelegate) {
-        tryUpdate()
+        apply()
     }
 }
 extension PlaceCartTotalContainerCell: InterfaceTableCellProtocol {

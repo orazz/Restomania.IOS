@@ -32,7 +32,6 @@ public class Review: BaseDataType {
         super.init()
     }
     public required init(json: JSON) {
-        fatalError("Need complete DT")
 
         self.UserID = ("UserID" <~~ json)!
         self.PlaceID = ("PlaceID" <~~ json)!
@@ -43,5 +42,6 @@ public class Review: BaseDataType {
         self.PlaceName = ("PlaceName" <~~ json)!
 
         super.init(json: json)
+        fatalError("Need complete DT")
     }
 }

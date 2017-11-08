@@ -13,7 +13,7 @@ import IOSLibrary
 public class PlaceCartTotalContainer: UITableViewCell {
 
     private static let nibName = "PlaceCartTotalContainerView"
-    public static func create(with delegate: PlaceCartDelegate) -> PlaceCartTotalContainer {
+    public static func create(for delegate: PlaceCartDelegate) -> PlaceCartTotalContainer {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartTotalContainer
@@ -26,10 +26,9 @@ public class PlaceCartTotalContainer: UITableViewCell {
     }
     private static func loadRows(_ delegate: PlaceCartDelegate) -> [PlaceCartContainerCell] {
 
-        var result = [InterfaceTableCellProtocol]()
+        var result = [PlaceCartContainerCell]()
 
-//        result.append()
-        result.append(PlaceCartTotalContainerCell.create(for: "Итого", with: delegate))
+        result.append(PlaceCartTotalContainerCell.create(for: delegate, title: "Итого", { $0.totalPrice(with: $1) }))
 
         return result
     }
@@ -43,7 +42,7 @@ public class PlaceCartTotalContainer: UITableViewCell {
     //Data
     private let _tag = String.tag(PlaceCartTotalContainer.self)
     private let guid = Guid.new
-    private var delegate: PlaceCartDelegate!  {
+    private var delegate: PlaceCartDelegate! {
         didSet {
             reload()
         }
@@ -71,18 +70,24 @@ extension PlaceCartTotalContainer: CartUpdateProtocol {
     public func cart(_ cart: Cart, removedDish: Long) {
         reload()
     }
-    
+
 }
 extension PlaceCartTotalContainer: PlaceCartContainerCell {
 
     public func viewDidAppear() {
+
         cart.subscribe(guid: guid, handler: self, tag: _tag)
+        trigger({ $0.viewDidAppear() })
     }
     public func viewDidDisappear() {
+
         cart.unsubscribe(guid: guid)
+        trigger({ $0.viewDidDisappear() })
     }
-    public func updateData(with: PlaceCartDelegate) {
+    public func updateData(with delegate: PlaceCartDelegate) {
+
         reload()
+        trigger({ $0.updateData(with: delegate) })
     }
 
     private func trigger(_ action: ((PlaceCartContainerCell) -> Void)) {
@@ -95,7 +100,7 @@ extension PlaceCartTotalContainer: PlaceCartContainerCell {
 extension PlaceCartTotalContainer: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 200
+        return Int(rowsTable.contentSize.height)
     }
     public func prepareView() -> UITableViewCell {
         return self
