@@ -24,6 +24,7 @@ public class PlaceCartCompleteDateContainer: UITableViewCell {
     }
 
     //UI elements
+    @IBOutlet private weak var scheduleView: ScheduleDisplay!
 
     //Data
     private var delegate: PlaceCartDelegate! {
@@ -37,6 +38,9 @@ public class PlaceCartCompleteDateContainer: UITableViewCell {
 
     private func update() {
 
+        if let schedule = delegate.takeSummary()?.Schedule {
+            scheduleView.update(by: schedule)
+        }
     }
     private func setupMarkup() {
 

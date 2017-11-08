@@ -328,16 +328,16 @@ extension PlaceCartController: PlaceCartDelegate {
                 let request = self.cardsService.find(result)
                 request.async(.background, completion: { result in
 
-                    if let card = result {
-                        if nil == self.cards {
-                            self.cards = []
+                        if let card = result {
+                            if nil == self.cards {
+                                self.cards = []
+                            }
+
+                            self.cards?.append(card)
+                            self.contaier.cardId = card.ID
+
+                            self.trigger({ $0.updateData(with: self) })
                         }
-
-                        self.cards?.append(card)
-                        self.contaier.cardId = card.ID
-
-                        self.trigger({ $0.updateData(with: self) })
-                    }
 
                     DispatchQueue.main.async {
                         self.loader.hide()

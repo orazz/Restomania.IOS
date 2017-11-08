@@ -13,16 +13,12 @@ import IOSLibrary
 public class ScheduleDisplayCell: UICollectionViewCell {
 
     public static let height = CGFloat(70)
-    public static let width = CGFloat(175)
+    public static let identifier = "\(String.tag(ScheduleDisplayCell.self))-\(Guid.new)"
     private static let nibName = "ScheduleDisplayCellView"
-    public static func create(for day: DayOfWeek, with value: String) -> ScheduleDisplayCell {
+    public static func register(in collectionView: UICollectionView) {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
-        let instance = nib.instantiate(withOwner: nil, options: nil).first! as! ScheduleDisplayCell
-
-        instance.apply(day, with: value)
-
-        return instance
+        collectionView.register(nib, forCellWithReuseIdentifier: identifier)
     }
 
     //UI elements
@@ -34,7 +30,7 @@ public class ScheduleDisplayCell: UICollectionViewCell {
     private var _day: DayOfWeek!
     private var _value: String!
 
-    private func apply(_ day: DayOfWeek, with value: String) {
+    public func update(for day: DayOfWeek, by value: String) {
 
         _day = day
         _value = value
@@ -44,15 +40,15 @@ public class ScheduleDisplayCell: UICollectionViewCell {
     private func setupMarkup() {
 
         if (String.isNullOrEmpty(_value)) {
-            valueLabel.text = _value
-        } else {
             valueLabel.text = NSLocalizedString("holiday", comment: "Schedule")
+        } else {
+            valueLabel.text = _value
         }
 
-        titleLabel.text = title(for: _day)
+        titleLabel.text = ScheduleDisplayCell.title(for: _day).uppercased()
 
         let weekday = Date().dayOfWeek()
-        let now = DayOfWeek(rawValue: weekday)
+        let now = DayOfWeek(rawValue: weekday - 1)
         if (now != _day) {
             titleLabel.font = ThemeSettings.Fonts.default(size: .title)
             valueLabel.font = ThemeSettings.Fonts.default(size: .subhead)
@@ -62,7 +58,7 @@ public class ScheduleDisplayCell: UICollectionViewCell {
             valueLabel.font = ThemeSettings.Fonts.bold(size: .subhead)
         }
     }
-    private func title(for day: DayOfWeek) -> String {
+    public static func title(for day: DayOfWeek) -> String {
 
         switch (day) {
             case .monday:
@@ -80,5 +76,11 @@ public class ScheduleDisplayCell: UICollectionViewCell {
             case .sunday:
                 return "Воскресенье"
         }
+    }
+    public static func titleWidth(for day: DayOfWeek) -> CGFloat {
+
+        let title = ScheduleDisplayCell.title(for: day).uppercased()
+
+        return title.width(containerHeight: ScheduleDisplayCell.height, font: ThemeSettings.Fonts.bold(size: .title)) + 5 + 5
     }
 }

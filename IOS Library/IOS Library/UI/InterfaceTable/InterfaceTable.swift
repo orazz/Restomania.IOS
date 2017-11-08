@@ -38,7 +38,7 @@ public class InterfaceTable: NSObject {
 
     public func add(_ cell: InterfaceTableCellProtocol, reload needReload: Bool = false) {
 
-
+        addAndConnect(cell)
 
         if (needReload) {
             reload()
@@ -48,7 +48,13 @@ public class InterfaceTable: NSObject {
 
         let newNumber = rows.count
         cell.addToContainer?(handler: {
-            self._tableView.reloadRows(at: [IndexPath.init(row: newNumber, section: 0)], with: .none)
+            let indexPath = IndexPath(row: newNumber, section: 0)
+            if let _ = self._tableView.cellForRow(at: indexPath) {
+                self._tableView.reloadRows(at: [indexPath], with: .none)
+            }
+            else {
+                self._tableView.reloadData()
+            }
         })
 
         _rows.append(cell)
