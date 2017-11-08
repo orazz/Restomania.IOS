@@ -24,22 +24,34 @@ public class InterfaceTable: NSObject {
 
         _tableView = source
         _navigator = navigator
-        _rows = rows
 
         super.init()
 
         _tableView.delegate = self
         _tableView.dataSource = self
         _tableView.separatorStyle = .none
+
+        for cell in rows {
+            addAndConnect(cell)
+        }
     }
 
     public func add(_ cell: InterfaceTableCellProtocol, reload needReload: Bool = false) {
 
-        _rows.append(cell)
+
 
         if (needReload) {
             reload()
         }
+    }
+    private func addAndConnect(_ cell: InterfaceTableCellProtocol) {
+
+        let newNumber = rows.count
+        cell.addToContainer?(handler: {
+            self._tableView.reloadRows(at: [IndexPath.init(row: newNumber, section: 0)], with: .none)
+        })
+
+        _rows.append(cell)
     }
     public func reload() {
         _tableView.reloadData()

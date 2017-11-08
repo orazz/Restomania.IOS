@@ -68,7 +68,7 @@ public class PriceLabel: UILabel {
         let characters = Array(text)
         let attributed = NSMutableAttributedString(string: text)
         attributed.addAttribute(NSAttributedStringKey.font,
-                                value: _fontAwesome.withSize( 0.8 * _font.pointSize),
+                                value: _fontAwesome.withSize(floor(0.8 * _font.pointSize)),
                                 range: NSRange(location: characters.count - 1, length: 1))
 
         self.attributedText = attributed

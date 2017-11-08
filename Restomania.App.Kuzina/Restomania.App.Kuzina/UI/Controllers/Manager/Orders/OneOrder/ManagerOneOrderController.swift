@@ -105,6 +105,8 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
                 return "Ожидание оплаты"
             case .Making:
                 return "Готовится"
+            case .Prepared:
+                return "Готов к выдаче"
             case .PaymentFail:
                 return "Платеж отклонён"
             case .Completed:

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlaceCartDishesContainerCell" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5P-yv-CPT" userLabel="Plus">
+                    <rect key="frame" x="335" y="0.0" width="40" height="50"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-plus" translatesAutoresizingMaskIntoConstraints="NO" id="mfb-gs-eY5">
+                            <rect key="frame" x="5" y="15" width="20" height="20"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="Bjl-83-YqG"/>
+                                <constraint firstAttribute="height" constant="20" id="I6W-Vc-swX"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mfb-gs-eY5" firstAttribute="leading" secondItem="k5P-yv-CPT" secondAttribute="leading" constant="5" id="5xd-CS-fAB"/>
+                        <constraint firstItem="mfb-gs-eY5" firstAttribute="centerY" secondItem="k5P-yv-CPT" secondAttribute="centerY" id="6Jo-7P-UY2"/>
+                        <constraint firstAttribute="width" constant="40" id="cLG-Xr-gd0"/>
+                        <constraint firstAttribute="height" constant="50" id="rfQ-Ts-nS3"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="eEu-lZ-89A" appends="YES" id="qoJ-9x-u2r"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hnh-cf-pcg" userLabel="Minus">
+                    <rect key="frame" x="290" y="0.0" width="40" height="50"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-minus" translatesAutoresizingMaskIntoConstraints="NO" id="lbj-Si-oSj">
+                            <rect key="frame" x="9.5" y="15.5" width="20" height="20"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="7f6-jB-qZb"/>
+                                <constraint firstAttribute="height" constant="20" id="hlM-De-99Q"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="6hb-1b-tSL"/>
+                        <constraint firstAttribute="height" constant="50" id="CPt-Vk-1st"/>
+                        <constraint firstItem="lbj-Si-oSj" firstAttribute="centerX" secondItem="Hnh-cf-pcg" secondAttribute="centerX" id="KLC-P3-6Tk"/>
+                        <constraint firstItem="lbj-Si-oSj" firstAttribute="centerY" secondItem="Hnh-cf-pcg" secondAttribute="centerY" id="LFL-xJ-8RL"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="qHP-go-9gv" appends="YES" id="Ada-t0-8BA"/>
+                    </connections>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="222.22 P" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhI-il-YZq" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="215" y="14.5" width="70" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="zlh-2T-MN8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlF-3C-y1c">
+                    <rect key="frame" x="10" y="5" width="200" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vhI-il-YZq" firstAttribute="leading" secondItem="xlF-3C-y1c" secondAttribute="trailing" constant="5" id="Hej-0X-Kp4"/>
+                <constraint firstItem="Hnh-cf-pcg" firstAttribute="leading" secondItem="vhI-il-YZq" secondAttribute="trailing" constant="5" id="QTd-Ie-HOy"/>
+                <constraint firstItem="k5P-yv-CPT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UVl-dx-gsd"/>
+                <constraint firstItem="xlF-3C-y1c" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="WVE-gN-vnb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="xlF-3C-y1c" secondAttribute="bottom" constant="5" id="dpr-TV-Aja"/>
+                <constraint firstItem="Hnh-cf-pcg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="fu6-Ef-g6F"/>
+                <constraint firstItem="k5P-yv-CPT" firstAttribute="leading" secondItem="Hnh-cf-pcg" secondAttribute="trailing" constant="5" id="lzf-kb-1Bl"/>
+                <constraint firstItem="vhI-il-YZq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qJN-7j-Flh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="k5P-yv-CPT" secondAttribute="trailing" id="vqy-dD-nC4"/>
+                <constraint firstItem="xlF-3C-y1c" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="x83-ag-eOI"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="titleLabel" destination="xlF-3C-y1c" id="hNy-Zr-bWx"/>
+                <outlet property="totalLabel" destination="vhI-il-YZq" id="viH-79-a44"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="-26"/>
+        </view>
+        <tapGestureRecognizer id="qHP-go-9gv" userLabel="decrement">
+            <connections>
+                <action selector="decrement" destination="iN0-l3-epB" id="Mqt-aO-t7u"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="eEu-lZ-89A" userLabel="increment">
+            <connections>
+                <action selector="increment" destination="iN0-l3-epB" id="Ymh-fh-5fs"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="icon-minus" width="50" height="50"/>
+        <image name="icon-plus" width="50" height="50"/>
+    </resources>
+</document>

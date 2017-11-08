@@ -37,11 +37,11 @@ public class AddedOrderDish: ICopying, Glossy {
 
         self.count = 0
     }
-    public convenience init(dish: Dish, count: Int) {
+    public convenience init(dishId: Long, count: Int) {
 
         self.init()
 
-        self.dishId = dish.ID
+        self.dishId = dishId
         self.count = count
     }
 

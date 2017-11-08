@@ -145,10 +145,10 @@ extension PlaceMenuMenuContainer: InterfaceTableCellProtocol {
     }
 }
 extension PlaceMenuMenuContainer: CartUpdateProtocol {
-    public func cart(_ cart: Cart, removedDish: Long) {
+    public func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int) {
         updateButtonOffset()
     }
-    public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {
+    public func cart(_ cart: Cart, removedDish dishId: Long) {
         updateButtonOffset()
     }
     private func updateButtonOffset() {

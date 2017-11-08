@@ -310,7 +310,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
     public func add(dish: Long) {
         Log.Debug(_tag, "Add dish #\(dish)")
 
-        _cart.add(dish: _menu!.dishes.find({ dish == $0.ID })!)
+        _cart.add(dishId: dish)
     }
     public func select(category: Long) {
         Log.Debug(_tag, "Select category #\(category)")
@@ -446,15 +446,12 @@ extension PlaceMenuController: UITableViewDelegate {
 // MARK: Cart
 extension PlaceMenuController: CartUpdateProtocol {
 
-    public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {
-
+    public func cart(_ cart: Cart, changedDish: Long, newCount: Int) {
         DispatchQueue.main.async {
             self._bottomAction.show()
         }
     }
-
     public func cart(_ cart: Cart, removedDish: Long) {
-
         DispatchQueue.main.async {
             if (cart.isEmpty) {
                 self._bottomAction.hide()

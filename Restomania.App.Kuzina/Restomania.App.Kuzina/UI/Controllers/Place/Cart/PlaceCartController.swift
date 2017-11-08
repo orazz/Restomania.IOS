@@ -243,6 +243,7 @@ extension PlaceCartController {
         }
 
         trigger({ $0.updateData(with: self) })
+        reloadInterface()
     }
     private var needLoader: Bool {
         return nil == menu || nil == summary
@@ -270,8 +271,6 @@ extension PlaceCartController: PlaceCartDelegate {
 
     public func reloadInterface() {
         sectionsAdapter?.reload()
-
-        trigger({ $0.updateData(with: self) })
     }
     public func closePage() {
         goBack()

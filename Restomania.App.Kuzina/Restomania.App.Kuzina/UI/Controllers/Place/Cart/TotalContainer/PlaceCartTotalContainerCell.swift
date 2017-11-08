@@ -22,7 +22,7 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
         cell.action = action
         cell.delegate = delegate
         cell.setupMarkup()
-        cell.apply()
+        cell.update()
 
         return cell
     }
@@ -41,7 +41,7 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
         return delegate.takeCart()
     }
 
-    private func apply() {
+    private func update() {
 
         if let menu = delegate.takeMenu() {
 
@@ -63,11 +63,17 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
     }
 }
 extension PlaceCartTotalContainerCell: CartUpdateProtocol {
-    public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {
-        apply()
+    public func cart(_ cart: Cart, changedDish: Long, newCount: Int) {
+        changeCart()
     }
     public func cart(_ cart: Cart, removedDish: Long) {
-        apply()
+        changeCart()
+    }
+    private func changeCart() {
+
+        DispatchQueue.main.async {
+            self.update()
+        }
     }
 }
 extension PlaceCartTotalContainerCell: PlaceCartContainerCell {
@@ -78,12 +84,12 @@ extension PlaceCartTotalContainerCell: PlaceCartContainerCell {
         cart.unsubscribe(guid: guid)
     }
     public func updateData(with: PlaceCartDelegate) {
-        apply()
+        update()
     }
 }
 extension PlaceCartTotalContainerCell: InterfaceTableCellProtocol {
     public var viewHeight: Int {
-        return 25
+        return 45
     }
     public func prepareView() -> UITableViewCell {
         return self

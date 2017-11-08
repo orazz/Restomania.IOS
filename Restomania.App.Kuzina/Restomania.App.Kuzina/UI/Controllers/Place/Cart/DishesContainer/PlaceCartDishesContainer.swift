@@ -19,32 +19,96 @@ public class PlaceCartDishesContainer: UITableViewCell {
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartDishesContainer
 
         cell.delegate = delegate
+        cell.setupMarkup()
 
         return cell
     }
 
     //UI elements
+    @IBOutlet private weak var dishesTable: UITableView!
+    private var cachedCells: [Long: PlaceCartDishesContainerCell] = [:]
+    private func setupMarkup() {
+
+        dishesTable.delegate = self
+        dishesTable.dataSource = self
+    }
 
     //Data
     private let _tag = String.tag(PlaceCartDishesContainer.self)
     private let guid = Guid.new
-    private var delegate: PlaceCartDelegate! {
-        didSet {
-            update()
-        }
+    private var delegate: PlaceCartDelegate!
+    private var reloadHandler: (() -> Void)?
+    private var menu: MenuSummary? {
+        return delegate.takeMenu()
     }
     private var cart: Cart {
         return delegate.takeCart()
     }
+    private var orderedDishes: [AddedOrderDish] = []
 
     private func update() {
 
-    }
-    private func setupMarkup() {
+        let newDishes = cart.dishes
+        let needReload = orderedDishes.count != newDishes.count
+         orderedDishes = newDishes
+        if let _ = menu {
+            dishesTable.reloadData()
+        }
 
+        if (needReload) {
+            reloadHandler?()
+        }
     }
 }
+// MARK: Table
+extension PlaceCartDishesContainer: UITableViewDelegate {
 
+}
+extension PlaceCartDishesContainer: UITableViewDataSource {
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orderedDishes.count
+    }
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let ordered = orderedDishes[indexPath.row]
+        guard let cached = cachedCells[ordered.dishId] else {
+
+            let cell = PlaceCartDishesContainerCell.create(for: ordered.dishId, with: self.cart, and: self.menu!)
+            cachedCells[ordered.dishId] = cell
+
+            return cell
+        }
+
+        return cached
+    }
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return PlaceCartDishesContainerCell.height
+    }
+}
+// MARK: Cart
+extension PlaceCartDishesContainer: CartUpdateProtocol {
+
+    public func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int) {
+
+        if nil == cachedCells[dishId] {
+            reload()
+        } else if (0 == newCount) {
+            reload()
+        }
+    }
+    public func cart(_ cart: Cart, removedDish dishId: Long) {
+        reload()
+    }
+    private func reload() {
+        DispatchQueue.main.async {
+            self.update()
+        }
+    }
+}
+// MARK: Main
 extension PlaceCartDishesContainer: PlaceCartContainerCell {
 
     public func viewDidAppear() {
@@ -52,26 +116,26 @@ extension PlaceCartDishesContainer: PlaceCartContainerCell {
     }
     public func viewDidDisappear() {
         cart.unsubscribe(guid: guid)
+        clearCache()
     }
     public func updateData(with delegate: PlaceCartDelegate) {
-        self.delegate = delegate
+        update()
     }
-}
-extension PlaceCartDishesContainer: CartUpdateProtocol {
+    private func clearCache() {
 
-    public func cart(_ cart: Cart, changedDish: Dish, newCount: Int) {
-        update()
-    }
-    public func cart(_ cart: Cart, removedDish: Long) {
-        update()
+        _ = cachedCells.map({ $1.dispose() })
+        cachedCells.removeAll()
     }
 }
 extension PlaceCartDishesContainer: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 400
+        return Int(dishesTable.contentSize.height)
     }
     public func prepareView() -> UITableViewCell {
         return self
+    }
+    public func addToContainer(handler: @escaping () -> Void) {
+        self.reloadHandler = handler
     }
 }

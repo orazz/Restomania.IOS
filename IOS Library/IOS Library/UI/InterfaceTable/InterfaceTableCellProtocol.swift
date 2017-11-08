@@ -14,5 +14,6 @@ import UIKit
     var viewHeight: Int { get }
     func prepareView() -> UITableViewCell
 
+    @objc optional func addToContainer(handler: @escaping (() -> Void))
     @objc optional func select(with: UINavigationController)
 }

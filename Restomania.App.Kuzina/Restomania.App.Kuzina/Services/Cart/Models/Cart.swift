@@ -10,8 +10,8 @@ import Foundation
 import IOSLibrary
 
 public protocol CartUpdateProtocol {
-    func cart(_ cart: Cart, changedDish: Dish, newCount: Int)
-    func cart(_ cart: Cart, removedDish: Long)
+    func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int)
+    func cart(_ cart: Cart, removedDish dishId: Long)
 }
 public class Cart: Reservation {
 
@@ -100,24 +100,17 @@ public class Cart: Reservation {
     }
 
     //Methods
-    public func add(dish: Dish, count: Int = 1) {
+    public func add(dishId: Long, count: Int = 1) {
 
         var newCount = count
-        if let ordered = find(dish) {
-
-            newCount += ordered.count
-        }
-
-        //Set
-        if let ordered = find(dish) {
-            ordered.count = newCount
+        if let ordered = find(dishId) {
+            ordered.count += count
+            newCount = ordered.count
         } else {
-            _place.dishes.append(AddedOrderDish(dish: dish, count: count))
+            _place.dishes.append(AddedOrderDish(dishId: dishId, count: count))
         }
 
-        _queue.async {
-           self._adapter.Trigger(action: { $0.cart(self, changedDish: dish, newCount: newCount)})
-        }
+        trigger({ $0.cart(self, changedDish: dishId, newCount: newCount)})
 
         save()
     }
@@ -131,35 +124,39 @@ public class Cart: Reservation {
             }
         }
 
+        trigger({ $0.cart(self, removedDish: dishID) })
+
+        save()
+    }
+    private func trigger(_ action: @escaping ((CartUpdateProtocol) -> Void)) {
+
         _queue.async {
-            self._adapter.Trigger(action: { $0.cart(self, removedDish: dishID)})
+            self._adapter.Trigger(action: action)
         }
-
-        save()
     }
-    public func refresh(dishes menuDishes: Array<Dish>) {
-
-        //Prepare for remove
-        var ids = [Long]()
-        for ordered in dishes {
-            if (nil == menuDishes.find({ ordered.dishId == $0.ID })) {
-
-                ids.append(ordered.dishId)
-            }
-        }
-        //Remove
-        for dishID in ids {
-            for (index, dish) in dishes.enumerated() {
-                if dishID == dish.dishId {
-
-                    _place.dishes.remove(at: index)
-                    break
-                }
-            }
-        }
-
-        save()
-    }
+//    public func refresh(dishes menuDishes: Array<Dish>) {
+//
+//        //Prepare for remove
+//        var ids = [Long]()
+//        for ordered in dishes {
+//            if (nil == menuDishes.find({ ordered.dishId == $0.ID })) {
+//
+//                ids.append(ordered.dishId)
+//            }
+//        }
+//        //Remove
+//        for dishID in ids {
+//            for (index, dish) in dishes.enumerated() {
+//                if dishID == dish.dishId {
+//
+//                    _place.dishes.remove(at: index)
+//                    break
+//                }
+//            }
+//        }
+//
+//        save()
+//    }
     public override func clear() {
 
         _place.takeaway = false
@@ -169,10 +166,10 @@ public class Cart: Reservation {
         super.clear()
     }
 
-    private func find(_ dish: Dish) -> AddedOrderDish? {
+    public func find(_ dish: Dish) -> AddedOrderDish? {
         return find(dish.ID)
     }
-    private func find(_ dishID: Long) -> AddedOrderDish? {
+    public func find(_ dishID: Long) -> AddedOrderDish? {
         return _place.dishes.find({ dishID == $0.dishId })
     }
 }
