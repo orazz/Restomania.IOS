@@ -76,7 +76,6 @@ extension UIViewController {
     private func prepareKeyboardHeight(for notification: NSNotification) -> CGFloat {
 
         var info = notification.userInfo!
-
         return (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue.size.height * 1.1
     }
     private func searchActiveSubview(in parent: UIView) -> UIView? {

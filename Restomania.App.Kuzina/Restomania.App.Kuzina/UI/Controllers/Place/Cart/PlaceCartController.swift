@@ -126,7 +126,7 @@ extension PlaceCartController {
         let backButton = backNavigationItem.customView as! UIButton
         let size = CGFloat(35)
         let back = UIImageView(image: ThemeSettings.Images.navigationBackward)
-        back.frame = CGRect(x: -11, y: backButton.center.y - size/2, width: size, height: size)
+        back.frame = CGRect(x: -11, y: 0 /*backButton.center.y - size/2*/, width: size, height: size)
         backButton.addSubview(back)
     }
 }
@@ -149,6 +149,7 @@ extension PlaceCartController {
         result.append(PlaceCartDivider.create())
         result.append(PlaceCartDivider.create())
         result.append(PlaceCartDivider.create())
+//        result.append(PlaceCartAdditionalContainer.create(for: self))
         result.append(PlaceCartCompleteOrderContainer.create(for: self))
 
         return result

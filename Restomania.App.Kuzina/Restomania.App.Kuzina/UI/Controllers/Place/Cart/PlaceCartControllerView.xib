@@ -44,6 +44,9 @@
                                     <rect key="frame" x="16" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <gestureRecognizers/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="zhV-DR-fLG" appends="YES" id="m2i-MG-YEp"/>
+                                    </connections>
                                 </button>
                                 <connections>
                                     <action selector="goBack" destination="-1" id="0Yw-rG-gu8"/>
@@ -74,5 +77,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
+        <tapGestureRecognizer id="zhV-DR-fLG" userLabel="goBack">
+            <connections>
+                <action selector="goBack" destination="-1" id="8P5-qG-lP6"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

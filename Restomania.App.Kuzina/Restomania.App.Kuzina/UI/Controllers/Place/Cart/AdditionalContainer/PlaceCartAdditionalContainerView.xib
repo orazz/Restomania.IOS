@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlaceCartAdditionalContainer" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комментарий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlc-jA-lah" userLabel="title">
+                    <rect key="frame" x="10" y="5" width="355" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="ftS-Ef-ljB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Комментарий" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D4b-bF-DIp" userLabel="text-field">
+                    <rect key="frame" x="10" y="30" width="355" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="KcU-Ed-Lcu"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PK9-sc-43N" userLabel="underline">
+                    <rect key="frame" x="10" y="90" width="355" height="1"/>
+                    <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="uBl-c6-2ex"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="D4b-bF-DIp" secondAttribute="trailing" constant="10" id="26o-5L-t6u"/>
+                <constraint firstItem="PK9-sc-43N" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="DZE-26-Z9i"/>
+                <constraint firstItem="PK9-sc-43N" firstAttribute="top" secondItem="D4b-bF-DIp" secondAttribute="bottom" id="J9c-Qj-iev"/>
+                <constraint firstItem="D4b-bF-DIp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="Sum-Qh-6Eo"/>
+                <constraint firstItem="D4b-bF-DIp" firstAttribute="top" secondItem="nlc-jA-lah" secondAttribute="bottom" constant="5" id="XbP-Sa-d6m"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nlc-jA-lah" secondAttribute="trailing" constant="10" id="blz-aR-70Y"/>
+                <constraint firstItem="nlc-jA-lah" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="hTZ-qS-geG"/>
+                <constraint firstAttribute="trailing" secondItem="PK9-sc-43N" secondAttribute="trailing" constant="10" id="j5F-AM-LPS"/>
+                <constraint firstItem="nlc-jA-lah" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="rYx-Gg-uuc"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="textField" destination="D4b-bF-DIp" id="OFe-iF-ppC"/>
+                <outlet property="titleLabel" destination="nlc-jA-lah" id="ueC-4y-rvs"/>
+                <outlet property="underlineView" destination="PK9-sc-43N" id="IBb-Bv-sZe"/>
+            </connections>
+            <point key="canvasLocation" x="-57.5" y="-261.5"/>
+        </view>
+    </objects>
+</document>
