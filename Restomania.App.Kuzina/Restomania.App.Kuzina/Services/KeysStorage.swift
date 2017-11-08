@@ -64,8 +64,6 @@ public class KeysStorage: ILoggable {
         Log.Debug(tag, "Save keys to storage.")
     }
 
-
-
     private class KeysContainer: Glossy {
 
         public var keys: AccessKeys

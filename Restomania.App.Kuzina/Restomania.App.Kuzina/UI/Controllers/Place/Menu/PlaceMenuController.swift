@@ -71,14 +71,14 @@ public class PlaceMenuController: UIViewController {
     private var _bottomAction: BottomActions!
     private var _cartAction: PlaceMenuCartAction!
 
-    //MARK: Services
+    // MARK: Services
     private var _cart: Cart!
     private var _menuService: CacheMenuSummariesService!
     private var _placesService: CachePlaceSummariesService!
     private var _keysService: IKeysStorage!
     private var _authService: AuthService!
 
-    //MARK: Data
+    // MARK: Data
     private let _tag = String.tag(PlaceMenuController.self)
     private let _guid = Guid.new
     private var _placeId: Long!
@@ -106,12 +106,9 @@ public class PlaceMenuController: UIViewController {
         _refreshControl.addTarget(self, action: #selector(needReload), for: .valueChanged)
         contentTable.addSubview(_refreshControl)
 
-        _interfaceAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!)
+        _contentRows = loadRows()
+        _interfaceAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!, rows: _contentRows)
         _interfaceAdapter.delegate = self
-        for cell in loadRows() {
-            _contentRows.append(cell)
-            _interfaceAdapter.add(cell)
-        }
 
         _cart = ServicesManager.shared.cartsService.get(for: _placeId)
 
@@ -327,22 +324,18 @@ extension PlaceMenuController: PlaceMenuDelegate {
 
         if (_keysService.isAuth(for: .User)) {
             openCartPage()
-        }
-        else {
+        } else {
              _authService.show(complete: { success in
 
                 if (success) {
                     self.openCartPage()
-                }
-                else {
+                } else {
                     Log.Warning(self._tag, "Not wuthorize user.")
 
                     let alert = UIAlertController(title: "Авторизация", message: "Для заказа через приложение необходима авторизация.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
-
-                self._authService.close()
             })
         }
     }

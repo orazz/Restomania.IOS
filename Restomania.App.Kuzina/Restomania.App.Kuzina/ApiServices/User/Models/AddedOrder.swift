@@ -16,7 +16,7 @@ public class AddedOrder {
     public var placeId: Long
     public var cardId: Long
     public var loyaltyId: Long?
-    public var completeDate: Date
+    public var completeAt: Date
     public var comment: String
     public var takeaway: Bool
     public var dishes: [AddedOrderDish]
@@ -27,7 +27,7 @@ public class AddedOrder {
         self.cardId = 0
         self.loyaltyId = nil
 
-        self.completeDate = Date()
+        self.completeAt = Date()
         self.comment = String.empty
         self.takeaway = false
         self.dishes = []
@@ -52,7 +52,7 @@ extension AddedOrder: Gloss.Encodable {
             Keys.placeId ~~> self.placeId,
             Keys.cardId ~~> self.cardId,
             Keys.loyaltyId ~~> self.loyaltyId,
-            Keys.completeDate  ~~> self.completeDate.prepareForJson(),
+            Keys.completeDate  ~~> self.completeAt.prepareForJson(),
             Keys.comment ~~> self.comment,
             Keys.takeaway ~~> self.takeaway,
             Keys.dishes ~~> self.dishes

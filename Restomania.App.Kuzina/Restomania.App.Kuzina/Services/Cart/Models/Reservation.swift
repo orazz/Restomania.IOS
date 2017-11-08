@@ -19,7 +19,7 @@ public class Reservation {
         self._saver = saver
     }
 
-    public var dateTime: Date {
+    public func buildCompleteDateTime() -> Date {
 
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(identifier: "UTC")!

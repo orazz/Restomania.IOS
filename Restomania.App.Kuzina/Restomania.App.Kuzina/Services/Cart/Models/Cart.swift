@@ -85,14 +85,14 @@ public class Cart: Reservation {
     }
 
     //Build order for adding
-    public func build(cardID: Long) -> AddedOrder {
+    public func build(cardId: Long) -> AddedOrder {
 
         let result = AddedOrder()
 
         result.placeId = placeID
-        result.cardId = cardID
+        result.cardId = cardId
         result.dishes = dishes
-        result.completeDate = dateTime
+        result.completeAt = buildCompleteDateTime()
         result.comment = comment
         result.takeaway = takeaway
 

@@ -20,7 +20,7 @@ public class InterfaceTable: NSObject {
     }
     public var delegate: UITableViewDelegate?
 
-    public init(source: UITableView, navigator: UINavigationController, rows: InterfaceTableCellProtocol ...) {
+    public init(source: UITableView, navigator: UINavigationController, rows: [InterfaceTableCellProtocol]) {
 
         _tableView = source
         _navigator = navigator

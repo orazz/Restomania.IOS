@@ -11,7 +11,7 @@ import UIKit
 import AsyncTask
 import IOSLibrary
 
-public protocol PlaceCartContainerCell {
+public protocol PlaceCartContainerCell: InterfaceTableCellProtocol {
 
     func viewDidAppear()
     func viewDidDisappear()
@@ -25,6 +25,7 @@ public protocol PlaceCartDelegate {
     func takeCart() -> Cart
     func takeController() -> UIViewController
 
+    func reloadInterface()
     func closePage()
     func tryAddOrder()
 }
@@ -46,13 +47,17 @@ public class PlaceCartController: UIViewController {
     }
 
     //UI elements
+    @IBOutlet private weak var navigationBarStubDimmer: UIView!
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var backNavigationItem: UIBarButtonItem!
-    @IBOutlet private weak var contentView: UITableView!
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    @IBOutlet private weak var contentTable: UITableView!
     private var loader: InterfaceLoader!
 
     //Services
-    private var sectionsAdapter: InterfaceTable!
+    private var sectionsAdapter: InterfaceTable?
     private var rows: [PlaceCartContainerCell] = []
     private var cart: Cart!
     private var placesService: CachePlaceSummariesService!
@@ -84,15 +89,18 @@ extension PlaceCartController {
         super.viewDidLoad()
 
         loader = InterfaceLoader(for: self.view)
-        contaier = CartContainer(for: placeId)
+        contaier = CartContainer(for: placeId, with: cart)
+
         rows = loadRows()
+        sectionsAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!, rows: rows.map { $0 as InterfaceTableCellProtocol })
+//        for row in rows {
+//            sectionsAdapter?.add(row)
+//        }
 
         reloadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-
 
         if (needLoader) {
             loader.show()
@@ -112,7 +120,8 @@ extension PlaceCartController {
     }
     private func setupStyles() {
 
-        navigationBar.barTintColor = ThemeSettings.Colors.additional
+        navigationBarStubDimmer.backgroundColor = ThemeSettings.Colors.main
+        navigationBar.barTintColor = ThemeSettings.Colors.main
 
         let backButton = backNavigationItem.customView as! UIButton
         let size = CGFloat(35)
@@ -134,7 +143,13 @@ extension PlaceCartController {
 
         var result = [PlaceCartContainerCell]()
 
-//        result.append(PlaceCartContainerCell())
+        result.append(PlaceCartCompleteDateContainer.create(for: self))
+        result.append(PlaceCartDivider.create())
+        result.append(PlaceCartDishesContainer.create(for: self))
+        result.append(PlaceCartDivider.create())
+        result.append(PlaceCartDivider.create())
+        result.append(PlaceCartDivider.create())
+        result.append(PlaceCartCompleteOrderContainer.create(for: self))
 
         return result
     }
@@ -149,11 +164,10 @@ extension PlaceCartController {
 
             isCompleteLoadMenu = false
             isCompleteLoadSummary = false
-            
+
             requestMenu()
             requestSummary()
-        }
-        else {
+        } else {
             closePage()
         }
     }
@@ -236,20 +250,6 @@ extension PlaceCartController {
 // MARK: PlaceCartDelegate
 extension PlaceCartController: PlaceCartDelegate {
 
-    public class CartContainer {
-
-        public let placeId: Long
-        public var cardId: Long?
-        public var completeDate: Date = Date()
-        public var comment: String = String.empty
-        public var takeaway: Bool = false
-
-        public init(for placeId: Long) {
-
-            self.placeId = placeId
-        }
-    }
-
     public func takeContainer() -> PlaceCartController.CartContainer {
         return contaier
     }
@@ -266,10 +266,62 @@ extension PlaceCartController: PlaceCartDelegate {
         return self
     }
 
+    public func reloadInterface() {
+        sectionsAdapter?.reload()
+
+        trigger({ $0.updateData(with: self) })
+    }
     public func closePage() {
         goBack()
     }
     public func tryAddOrder() {
         Log.Info(_tag, "Try add order.")
+    }
+
+    public class CartContainer {
+
+        public let placeId: Long
+        public var cardId: Long?
+        public var isValidDateTime: Bool = false
+        public var date: Date {
+            get {
+                return cart.date
+            }
+            set {
+                cart.date = newValue
+            }
+        }
+        public var time: Date {
+            get {
+                return cart.time
+            }
+            set {
+                cart.time = newValue
+            }
+        }
+        public var comment: String {
+            get {
+                return cart.comment
+            }
+            set {
+                cart.comment = newValue
+            }
+        }
+        public var takeaway: Bool {
+            get {
+                return cart.takeaway
+            }
+            set {
+                cart.takeaway = newValue
+            }
+        }
+
+        private let cart: Cart
+
+        public init(for placeId: Long, with cart: Cart) {
+
+            self.placeId = placeId
+            self.cart = cart
+        }
     }
 }

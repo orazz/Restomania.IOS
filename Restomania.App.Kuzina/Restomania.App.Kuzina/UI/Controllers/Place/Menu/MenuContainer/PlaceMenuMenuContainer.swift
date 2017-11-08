@@ -63,10 +63,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     }
     private func setupMarkup() {
 
-        let contentInsets = UIEdgeInsets(top: 0.0,
-                                         left: 0.0,
-                                         bottom: BottomActions.height,
-                                         right: 0.0)
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: BottomActions.height, right: 0.0)
         dishesTable.contentInset = contentInsets
         dishesTable.scrollIndicatorInsets = contentInsets
     }
@@ -121,6 +118,10 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
     public func select(dish: Long) {}
     public func scrollTo(offset: CGFloat) {
         _delegate.scrollTo(offset: offset)
+    }
+
+    public func goToCart() {
+        _delegate.goToCart()
     }
 }
 extension PlaceMenuMenuContainer: PlaceMenuCellsProtocol {
