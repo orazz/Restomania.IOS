@@ -24,6 +24,13 @@ public class UserCardsApiService: BaseAuthApiService {
 
         return _client.GetRange(action: "All", type: PaymentCard.self, parameters: parameters)
     }
+    public func find(by cardId: Long) -> RequestResult<PaymentCard> {
+        let parameters = CollectParameters([
+            "cardId": cardId
+            ])
+
+        return _client.Get(action: "Find", type: PaymentCard.self, parameters: parameters)
+    }
 
     public func add(currency: CurrencyType) -> RequestResult<AddingCard> {
         let parameters = CollectParameters([

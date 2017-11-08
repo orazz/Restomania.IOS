@@ -49,6 +49,11 @@
 		1F3C5A0C1FB15D940038EB97 /* BottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */; };
 		1F5CF82F1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */; };
 		1F5CF8331FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */; };
+		1F5CF8371FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF8361FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift */; };
+		1F5CF8391FB3758F00DDDC3F /* CachePaymentCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF8381FB3758F00DDDC3F /* CachePaymentCardsService.swift */; };
+		1F5CF83B1FB3793800DDDC3F /* PlaceCartPaymentCardsContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CF83A1FB3793800DDDC3F /* PlaceCartPaymentCardsContainerView.xib */; };
+		1F5CF83D1FB37BA900DDDC3F /* PlaceCartPaymentCardsContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF83C1FB37BA900DDDC3F /* PlaceCartPaymentCardsContainerCell.swift */; };
+		1F5CF83F1FB386A700DDDC3F /* PlaceCartPaymentCardsContainerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CF83E1FB386A700DDDC3F /* PlaceCartPaymentCardsContainerCellView.xib */; };
 		1F62E4631FAE462900D1C89D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4621FAE462900D1C89D /* NavigationController.swift */; };
 		1F62E4671FAE464400D1C89D /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4641FAE464400D1C89D /* GreetingController.swift */; };
 		1F62E4681FAE464400D1C89D /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E4651FAE464400D1C89D /* Start.storyboard */; };
@@ -298,6 +303,11 @@
 		1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BottomActions.swift; path = UI/Elements/BottomActions/BottomActions.swift; sourceTree = "<group>"; };
 		1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartDishesContainerCell.swift; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCell.swift; sourceTree = "<group>"; };
 		1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartDishesContainerCellView.xib; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCellView.xib; sourceTree = "<group>"; };
+		1F5CF8361FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartPaymentCardsContainer.swift; path = UI/Controllers/Place/Cart/PaymentCardContainer/PlaceCartPaymentCardsContainer.swift; sourceTree = "<group>"; };
+		1F5CF8381FB3758F00DDDC3F /* CachePaymentCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CachePaymentCardsService.swift; path = Services/Cache/CachePaymentCardsService.swift; sourceTree = "<group>"; };
+		1F5CF83A1FB3793800DDDC3F /* PlaceCartPaymentCardsContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartPaymentCardsContainerView.xib; path = UI/Controllers/Place/Cart/PaymentCardContainer/PlaceCartPaymentCardsContainerView.xib; sourceTree = "<group>"; };
+		1F5CF83C1FB37BA900DDDC3F /* PlaceCartPaymentCardsContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartPaymentCardsContainerCell.swift; path = UI/Controllers/Place/Cart/PaymentCardContainer/PlaceCartPaymentCardsContainerCell.swift; sourceTree = "<group>"; };
+		1F5CF83E1FB386A700DDDC3F /* PlaceCartPaymentCardsContainerCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartPaymentCardsContainerCellView.xib; path = UI/Controllers/Place/Cart/PaymentCardContainer/PlaceCartPaymentCardsContainerCellView.xib; sourceTree = "<group>"; };
 		1F62E4621FAE462900D1C89D /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = UI/Controllers/NavigationController.swift; sourceTree = "<group>"; };
 		1F62E4641FAE464400D1C89D /* GreetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GreetingController.swift; path = UI/Controllers/Start/GreetingController.swift; sourceTree = "<group>"; };
 		1F62E4651FAE464400D1C89D /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Start.storyboard; path = UI/Controllers/Start/Start.storyboard; sourceTree = "<group>"; };
@@ -581,7 +591,7 @@
 				1F7F069A1FB23FA6003B8F16 /* DateContainer */,
 				1F7F069B1FB23FFD003B8F16 /* DishesContainer */,
 				1F7F069C1FB2400D003B8F16 /* TotalContainer */,
-				1F7F069D1FB2404D003B8F16 /* PaymentCardContainer */,
+				1F7F069D1FB2404D003B8F16 /* PaymentCardsContainer */,
 				1F7F069E1FB24057003B8F16 /* AdditionalContainer */,
 				1F7F069F1FB24092003B8F16 /* CompleteOrderContainer */,
 				1FE3C75D1FB2F00D009CE542 /* Divider */,
@@ -822,11 +832,15 @@
 			name = TotalContainer;
 			sourceTree = "<group>";
 		};
-		1F7F069D1FB2404D003B8F16 /* PaymentCardContainer */ = {
+		1F7F069D1FB2404D003B8F16 /* PaymentCardsContainer */ = {
 			isa = PBXGroup;
 			children = (
+				1F5CF8361FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift */,
+				1F5CF83A1FB3793800DDDC3F /* PlaceCartPaymentCardsContainerView.xib */,
+				1F5CF83C1FB37BA900DDDC3F /* PlaceCartPaymentCardsContainerCell.swift */,
+				1F5CF83E1FB386A700DDDC3F /* PlaceCartPaymentCardsContainerCellView.xib */,
 			);
-			name = PaymentCardContainer;
+			name = PaymentCardsContainer;
 			sourceTree = "<group>";
 		};
 		1F7F069E1FB24057003B8F16 /* AdditionalContainer */ = {
@@ -1188,6 +1202,7 @@
 			children = (
 				1FD9A09D1F2323FF0026BDF8 /* CachePlaceSummariesService.swift */,
 				1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */,
+				1F5CF8381FB3758F00DDDC3F /* CachePaymentCardsService.swift */,
 			);
 			name = Cache;
 			sourceTree = "<group>";
@@ -1520,6 +1535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F279F751FB07CEC003A2B47 /* ManagerOneOrderDishCellView.xib in Resources */,
+				1F5CF83B1FB3793800DDDC3F /* PlaceCartPaymentCardsContainerView.xib in Resources */,
 				1F279F611FB07C71003A2B47 /* ManagerEditProfileControllerView.xib in Resources */,
 				1F62E4681FAE464400D1C89D /* Start.storyboard in Resources */,
 				1F279F7F1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib in Resources */,
@@ -1554,6 +1570,7 @@
 				1F62E4A61FAE46D300D1C89D /* PaymentCardCellView.xib in Resources */,
 				1F62E4CB1FAE472E00D1C89D /* PlaceCard.xib in Resources */,
 				1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */,
+				1F5CF83F1FB386A700DDDC3F /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
 				1F279F691FB07CA6003A2B47 /* ManagerChangePasswordControllerView.xib in Resources */,
 				1FE3C7691FB31171009CE542 /* PlaceCartAdditionalContainerView.xib in Resources */,
 			);
@@ -1876,9 +1893,11 @@
 				1F279F8E1FB07D3C003A2B47 /* PlaceMenuController.swift in Sources */,
 				1FB8EFEA1F1D4C0C0090045E /* Menu.swift in Sources */,
 				1FB8EFF91F1DE8F10090045E /* LoyaltyType.swift in Sources */,
+				1F5CF8391FB3758F00DDDC3F /* CachePaymentCardsService.swift in Sources */,
 				1FF703A11F6737E50028A9B8 /* AddPaymentCardService.swift in Sources */,
 				1FB8F0531F1EC45D0090045E /* UserOrdersApiService.swift in Sources */,
 				1FB8EFD11F1D429D0090045E /* Rate.swift in Sources */,
+				1F5CF8371FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift in Sources */,
 				1FB6B92C1FAE19A400CD0B17 /* AppSummary.swift in Sources */,
 				1FB6B92D1FAE19A400CD0B17 /* ThemeSettings.swift in Sources */,
 				1FB8F01B1F1E190F0090045E /* IKeysStorage.swift in Sources */,
@@ -1887,6 +1906,7 @@
 				1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */,
 				1F62E4A91FAE46D300D1C89D /* PaymentCardsController.swift in Sources */,
 				1FB8F05A1F1EC5C90090045E /* OrderSummary.swift in Sources */,
+				1F5CF83D1FB37BA900DDDC3F /* PlaceCartPaymentCardsContainerCell.swift in Sources */,
 				1FD7E6A71F1D0E140023C033 /* Version.swift in Sources */,
 				1FB8EFE01F1D49AF0090045E /* LinkType.swift in Sources */,
 				1FB8EFF41F1D50960090045E /* Location.swift in Sources */,

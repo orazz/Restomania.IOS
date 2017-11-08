@@ -56,6 +56,7 @@ public class PlaceMenuController: UIViewController {
     private var _titleBlock: PlaceMenuTitleContainer!
     private var _menuBlock: PlaceMenuMenuContainer!
     @IBOutlet private weak var fadeInPanel: UINavigationBar!
+    private var _isInitFadeInPanel: Bool = false
     @IBAction private func goBack() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -146,6 +147,10 @@ public class PlaceMenuController: UIViewController {
         trigger({ $0.viewDidDisappear() })
 
         _cartAction.viewDidDisappear()
+
+        contentTable.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        enableScrolling()
+        _menuBlock.disableScroll()
     }
 
     private func setupMarkup() {
@@ -389,6 +394,12 @@ extension PlaceMenuController: UITableViewDelegate {
     }
 
     private func setupFadeOutPanel() {
+
+        if (_isInitFadeInPanel) {
+            updateFadeOutPanel()
+            return
+        }
+        _isInitFadeInPanel = true
 
         fadeInPanel.translatesAutoresizingMaskIntoConstraints = false
         fadeInPanel.backgroundColor = ThemeSettings.Colors.main

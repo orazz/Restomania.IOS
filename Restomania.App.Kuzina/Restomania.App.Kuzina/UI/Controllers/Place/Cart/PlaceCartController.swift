@@ -23,10 +23,12 @@ public protocol PlaceCartDelegate {
     func takeMenu() -> MenuSummary?
     func takeSummary() -> PlaceSummary?
     func takeCart() -> Cart
+    func takeCards() -> [PaymentCard]?
     func takeController() -> UIViewController
 
     func reloadInterface()
     func closePage()
+    func addPaymentCard()
     func tryAddOrder()
 }
 public class PlaceCartController: UIViewController {
@@ -40,6 +42,7 @@ public class PlaceCartController: UIViewController {
         instance.cart = ServicesManager.shared.cartsService.get(for: placeId)
         instance.placesService = ServicesManager.shared.placeSummariesService
         instance.menusService = ServicesManager.shared.menuSummariesService
+        instance.cardsService = ServicesManager.shared.paymentCards
         instance.addPaymentCardsService = AddPaymentCardService()
         instance.keysService = ServicesManager.shared.keysStorage
 
@@ -62,6 +65,7 @@ public class PlaceCartController: UIViewController {
     private var cart: Cart!
     private var placesService: CachePlaceSummariesService!
     private var menusService: CacheMenuSummariesService!
+    private var cardsService: CachePaymentCardsService!
     private var addPaymentCardsService: AddPaymentCardService!
     private var keysService: IKeysStorage!
 
@@ -71,8 +75,10 @@ public class PlaceCartController: UIViewController {
     private var contaier: CartContainer!
     private var menu: MenuSummary?
     private var summary: PlaceSummary?
+    private var cards: [PaymentCard]?
     private var isCompleteLoadSummary: Bool = false
     private var isCompleteLoadMenu: Bool = false
+    private var isCompleteLoadCards: Bool = false
 
 }
 
@@ -93,9 +99,6 @@ extension PlaceCartController {
 
         rows = loadRows()
         sectionsAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!, rows: rows.map { $0 as InterfaceTableCellProtocol })
-//        for row in rows {
-//            sectionsAdapter?.add(row)
-//        }
 
         reloadData()
     }
@@ -133,10 +136,12 @@ extension PlaceCartController {
 
 // MARK: InterfaceTable
 extension PlaceCartController {
-    private func trigger(_ action: ((PlaceCartContainerCell) -> Void)) {
+    private func trigger(_ action: @escaping ((PlaceCartContainerCell) -> Void)) {
 
-        for cell in rows {
-            action(cell)
+        DispatchQueue.main.async {
+            for cell in self.rows {
+                action(cell)
+            }
         }
     }
     private func loadRows() -> [PlaceCartContainerCell] {
@@ -147,10 +152,13 @@ extension PlaceCartController {
         result.append(PlaceCartDivider.create())
         result.append(PlaceCartDishesContainer.create(for: self))
         result.append(PlaceCartDivider.create())
-        result.append(PlaceCartDivider.create())
         result.append(PlaceCartTotalContainer.create(for: self))
         result.append(PlaceCartDivider.create())
+        result.append(PlaceCartPaymentCardsContainer.create(with: self))
+//        result.append(PlaceCartDivider.create())
 //        result.append(PlaceCartAdditionalContainer.create(for: self))
+        result.append(PlaceCartDivider.create())
+        result.append(PlaceCartDivider.create())
         result.append(PlaceCartCompleteOrderContainer.create(for: self))
 
         return result
@@ -166,9 +174,11 @@ extension PlaceCartController {
 
             isCompleteLoadMenu = false
             isCompleteLoadSummary = false
+            isCompleteLoadCards = false
 
             requestMenu()
             requestSummary()
+            requestCards()
         } else {
             closePage()
         }
@@ -225,13 +235,33 @@ extension PlaceCartController {
             }
         })
     }
+    private func requestCards() {
+
+        let request = cardsService.all()
+        request.async(.background, completion: { result in
+
+            if let cards = result {
+                self.cards = cards
+            } else {
+                Log.Error(self._tag, "Problem with load user's payment cards.")
+            }
+
+            DispatchQueue.main.async {
+
+                self.isCompleteLoadCards = true
+                self.completeLoad()
+            }
+        })
+    }
     private func completeLoad() {
 
         if (!needLoader) {
             loader.hide()
         }
 
-        if ( nil == menu && isCompleteLoadMenu) || (nil == summary && isCompleteLoadSummary) {
+        if ( nil == menu && isCompleteLoadMenu) ||
+            (nil == summary && isCompleteLoadSummary) ||
+            (nil == cards && isCompleteLoadCards) {
 
             Log.Error(_tag, "Problem with load data for page.")
 
@@ -246,7 +276,7 @@ extension PlaceCartController {
         reloadInterface()
     }
     private var needLoader: Bool {
-        return nil == menu || nil == summary
+        return nil == menu || nil == summary || nil == cards
     }
 }
 
@@ -265,6 +295,9 @@ extension PlaceCartController: PlaceCartDelegate {
     public func takeCart() -> Cart {
         return cart
     }
+    public func takeCards() -> [PaymentCard]? {
+        return cards
+    }
     public func takeController() -> UIViewController {
         return self
     }
@@ -274,6 +307,46 @@ extension PlaceCartController: PlaceCartDelegate {
     }
     public func closePage() {
         goBack()
+    }
+    public func addPaymentCard() {
+
+        guard let menu = menu else {
+            return
+        }
+
+        addPaymentCardsService.addCard(for: menu.currency, on: self, complete: { success, result in
+
+            DispatchQueue.main.async {
+
+                if (!success) {
+                    let alert = UIAlertController(title: "Ошибка", message: "Проблемы с добавление платежной карты", preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+
+                self.loader.show()
+                let request = self.cardsService.find(result)
+                request.async(.background, completion: { result in
+
+                    if let card = result {
+                        if nil == self.cards {
+                            self.cards = []
+                        }
+
+                        self.cards?.append(card)
+                        self.contaier.cardId = card.ID
+
+                        self.trigger({ $0.updateData(with: self) })
+                    }
+
+                    DispatchQueue.main.async {
+                        self.loader.hide()
+                    }
+                })
+
+            }
+
+        })
     }
     public func tryAddOrder() {
         Log.Info(_tag, "Try add order.")
