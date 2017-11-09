@@ -45,6 +45,7 @@ public class PlaceCartController: UIViewController {
         instance.cardsService = ServicesManager.shared.paymentCards
         instance.addPaymentCardsService = AddPaymentCardService()
         instance.keysService = ServicesManager.shared.keysStorage
+        instance.ordersApiService = UserOrdersApiService(storage:instance.keysService)
 
         return instance
     }
@@ -68,6 +69,7 @@ public class PlaceCartController: UIViewController {
     private var cardsService: CachePaymentCardsService!
     private var addPaymentCardsService: AddPaymentCardService!
     private var keysService: IKeysStorage!
+    private var ordersApiService: UserOrdersApiService!
 
     //Data
     private let _tag = String.tag(PlaceCartController.self)
@@ -350,6 +352,28 @@ extension PlaceCartController: PlaceCartDelegate {
     }
     public func tryAddOrder() {
         Log.Info(_tag, "Try add order.")
+
+        loader.show()
+
+        let builded = contaier.prepareOrder()
+        let request = ordersApiService.add(order: builded)
+        request.async(.background, completion: { response in
+
+            DispatchQueue.main.async {
+
+                if (response.isFail) {
+                    let alert = UIAlertController(title: "Ошибка", message: "Проблемы с добавление платежной карты", preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+
+                    self.loader.hide()
+                }
+                else {
+                    let order = response.data!
+                    let vc = PlaceCompleteOrderController.create(for: order)
+                    navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        })
     }
 
     public class CartContainer {
@@ -357,22 +381,7 @@ extension PlaceCartController: PlaceCartDelegate {
         public let placeId: Long
         public var cardId: Long?
         public var isValidDateTime: Bool = false
-        public var date: Date {
-            get {
-                return cart.date
-            }
-            set {
-                cart.date = newValue
-            }
-        }
-        public var time: Date {
-            get {
-                return cart.time
-            }
-            set {
-                cart.time = newValue
-            }
-        }
+
         public var comment: String {
             get {
                 return cart.comment
@@ -388,6 +397,10 @@ extension PlaceCartController: PlaceCartDelegate {
             set {
                 cart.takeaway = newValue
             }
+        }
+
+        public func prepareOrder() -> AddedOrder {
+            return cart.build(cardId: cardId!)
         }
 
         private let cart: Cart
