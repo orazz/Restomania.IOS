@@ -33,7 +33,7 @@ public class AppSummary: ILoggable {
     public struct DataTimeFormat {
 
         public static let dateWithTime = "HH:mm dd/MM/yyyy"
-        public static let shortTime = "HH:MM"
+        public static let shortTime = "HH:mm"
         public static let shortDate = "dd/MM"
     }
 

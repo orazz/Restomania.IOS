@@ -59,7 +59,7 @@ public class ScheduleDisplay: UIView {
     public func focus(on day: Date) {
         //-1 - start from zero
         //-1 - return weekdat from 1 and from sunday
-        focus(on: DayOfWeek(rawValue: day.dayOfWeek() - 1 - 1)!)
+        focus(on: DayOfWeek(rawValue: (day.dayOfWeek() - 1 - 1 + 7) % 7)!)
     }
     public func focus(on day: DayOfWeek) {
         contentView.scrollToItem(at: IndexPath(item: day.rawValue, section: 0), at: .centeredHorizontally, animated: true)
