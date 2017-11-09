@@ -54,10 +54,15 @@ public class ScheduleDisplay: UIView {
         _schedule = schedule
         contentView.reloadData()
 
+        focus(on: Date())
+    }
+    public func focus(on day: Date) {
         //-1 - start from zero
         //-1 - return weekdat from 1 and from sunday
-        let day = Date().dayOfWeek() - 1 - 1
-        contentView.scrollToItem(at: IndexPath(item: day, section: 0), at: .centeredHorizontally, animated: true)
+        focus(on: DayOfWeek(rawValue: day.dayOfWeek() - 1 - 1)!)
+    }
+    public func focus(on day: DayOfWeek) {
+        contentView.scrollToItem(at: IndexPath(item: day.rawValue, section: 0), at: .centeredHorizontally, animated: true)
     }
 }
 extension ScheduleDisplay: UICollectionViewDelegateFlowLayout {

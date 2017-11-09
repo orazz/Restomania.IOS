@@ -148,7 +148,7 @@ extension PlaceCartController {
 
         var result = [PlaceCartContainerCell]()
 
-        result.append(PlaceCartCompleteDateContainer.create(for: self))
+        result.append(PlaceCartDateContainer.create(for: self))
         result.append(PlaceCartDivider.create())
         result.append(PlaceCartDishesContainer.create(for: self))
         result.append(PlaceCartDivider.create())

@@ -44,11 +44,37 @@ extension Date {
 
         return Date.ISOFormatter.string(from: self)
     }
+
+    public func hours() -> Int {
+        return component(.hour)
+    }
+    public func minutes() ->  Int {
+        return component(.minute)
+    }
     public func dayOfWeek() -> Int {
-        
+       return component(.weekday)
+    }
+    private func component(_ part: Calendar.Component) -> Int {
+
         let calendar = NSCalendar.current
-        let component = calendar.component(.weekday, from: self)
+        let component = calendar.component(part, from: self)
 
         return component
+    }
+
+    public var yesterday: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    public var tomorrow: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    public var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    public var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    public var isLastDayOfMonth: Bool {
+        return tomorrow.month != month
     }
 }
