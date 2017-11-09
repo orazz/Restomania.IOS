@@ -33,6 +33,14 @@ public class DishOrder: BaseOrder {
     public var TakeAway: Bool
     public var IsPaid: Bool
 
+    public var isCompleted: Bool {
+
+        return self.Status == .CanceledByPlace ||
+            self.Status == .CanceledByUser ||
+            self.Status == .PaymentFail ||
+            self.Status == .Completed
+    }
+
     public override init() {
         self.Dishes = [OrderedDish]()
         self.SubTotal = 0

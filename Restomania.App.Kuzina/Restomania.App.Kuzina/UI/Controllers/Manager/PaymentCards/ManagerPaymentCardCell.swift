@@ -12,7 +12,7 @@ import IOSLibrary
 public class PaymentCardCell: UITableViewCell {
 
     public static let identifier = "PaymentCardCell-\(Guid.new)"
-    public static let nibName = "PaymentCardCellView"
+    public static let nibName = "ManagerPaymentCardCellView"
     public static let height: CGFloat = 50
 
     @IBOutlet weak var NumberLabel: UILabel!

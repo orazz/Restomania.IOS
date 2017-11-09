@@ -26,9 +26,6 @@ public class PlaceCartCompleteOrderContainer: UITableViewCell {
 
     //UI hooks
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBAction private func addOrder() {
-        delegate.tryAddOrder()
-    }
 
     //Data
     private var delegate: PlaceCartDelegate!
@@ -52,5 +49,8 @@ extension PlaceCartCompleteOrderContainer: InterfaceTableCellProtocol {
     }
     public func prepareView() -> UITableViewCell {
         return self
+    }
+    public func select(with: UINavigationController) {
+        delegate.tryAddOrder()
     }
 }

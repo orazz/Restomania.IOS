@@ -22,9 +22,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="gxg-4o-kKY" appends="YES" id="zsj-fp-m7u"/>
-                    </connections>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,10 +39,5 @@
                 <outlet property="titleLabel" destination="6Zy-oP-bzD" id="FKx-22-M9J"/>
             </connections>
         </view>
-        <tapGestureRecognizer id="gxg-4o-kKY">
-            <connections>
-                <action selector="addOrder" destination="iN0-l3-epB" id="KNA-Gf-YMC"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>

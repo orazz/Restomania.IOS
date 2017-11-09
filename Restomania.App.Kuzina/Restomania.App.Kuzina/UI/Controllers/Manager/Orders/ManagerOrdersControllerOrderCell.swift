@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class ManagerOrdersControllerViewOrderCell: UITableViewCell {
+public class ManagerOrdersControllerOrderCell: UITableViewCell {
 
     public static let identifier = "OrderCell-\(Guid.new)"
-    public static let nibName = "ManagerOrdersControllerViewOrderCellView"
     public static let height: CGFloat = 70
+    private static let nibName = "ManagerOrdersControllerOrderCellView"
+    public static func register(in tableView: UITableView) {
+
+        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        tableView.register(nib, forCellReuseIdentifier: identifier)
+    }
 
     //UIELements
     @IBOutlet weak var IdLabel: UILabel!
@@ -51,6 +56,14 @@ public class ManagerOrdersControllerViewOrderCell: UITableViewCell {
         DateLabel.text = _dateFormatter.string(from: order.Summary.CompleteDate)
         PlaceNameLabel.text = order.Summary.PlaceName
         PriceLabel.setup(amount: order.TotalPrice, currency: order.Summary.Currency)
+
+        var alpha = 1.0
+        if (_order.isCompleted) {
+            alpha = 0.5
+        }
+        for view in subviews {
+            view.alpha = CGFloat(alpha)
+        }
     }
     private func setupStyles() {
 

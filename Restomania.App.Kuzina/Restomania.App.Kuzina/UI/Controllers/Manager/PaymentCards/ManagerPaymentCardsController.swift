@@ -19,7 +19,16 @@ public class PaymentCardsController: UIViewController,
                                       UITableViewDelegate,
                                       UITableViewDataSource {
 
-    public static let nibName = "PaymentCardsView"
+    private static let nibName = "ManagerPaymentCardsControllerView"
+    public static func create() -> PaymentCardsController {
+
+        let vc = PaymentCardsController(nibName: nibName, bundle: Bundle.main)
+
+        vc._addCardService = AddPaymentCardService()
+        vc._apiService = UserCardsApiService(storage: ServicesManager.shared.keysStorage)
+
+        return vc
+    }
 
     //UI elements
     @IBOutlet weak var TableView: UITableView!
@@ -27,22 +36,9 @@ public class PaymentCardsController: UIViewController,
     // MARK: Data & service
     private let _tag = String.tag(PaymentCardsController.self)
     private var _loader: InterfaceLoader!
-    private let _addCardService: AddPaymentCardService
-    private let _apiService: UserCardsApiService
+    private var _addCardService: AddPaymentCardService!
+    private var _apiService: UserCardsApiService!
     private var _cards = [PaymentCard]()
-
-    public init() {
-
-        _addCardService = AddPaymentCardService()
-
-        let keys = ServicesManager.shared.keysStorage
-        _apiService = UserCardsApiService(storage: keys)
-
-        super.init(nibName: PaymentCardsController.nibName, bundle: Bundle.main)
-    }
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     // MARK: Life circle
     public override func viewDidLoad() {

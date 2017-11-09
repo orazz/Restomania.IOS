@@ -20,11 +20,13 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
 
         let vc = ManagerOrdersController(nibName: nibName, bundle: Bundle.main)
 
+        vc._apiService = UserOrdersApiService(storage: ServicesManager.shared.keysStorage)
+
         return vc
     }
 
     //UI Elements
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet private weak var ordersTable: UITableView!
 
     //Tools
     private let _tag = String.tag(ManagerOrdersController.self)
@@ -38,11 +40,9 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
 
         _loader = InterfaceLoader(for: self.view)
 
-        let keys = ServicesManager.shared.keysStorage
-        _apiService = UserOrdersApiService(storage: keys)
-
-        let nib = UINib(nibName: ManagerOrdersControllerViewOrderCell.nibName, bundle: Bundle.main)
-        TableView.register(nib, forCellReuseIdentifier: ManagerOrdersControllerViewOrderCell.identifier)
+        ordersTable.dataSource = self
+        ordersTable.delegate = self
+        ManagerOrdersControllerOrderCell.register(in: ordersTable)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -78,7 +78,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
                     let orders = response.data?.filter({ placeIds.contains($0.Summary.PlaceID)  })
 
                     self._orders = orders!
-                    self.TableView.reloadData()
+                    self.ordersTable.reloadData()
                 }
 
                 self._loader.hide()
@@ -98,7 +98,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
     // MARK: UITableViewDelegate
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOrdersControllerViewOrderCell.identifier, for: indexPath) as! ManagerOrdersControllerViewOrderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOrdersControllerOrderCell.identifier, for: indexPath) as! ManagerOrdersControllerOrderCell
         cell.setup(order: _orders[indexPath.row], delegate: self)
 
         return cell
@@ -107,7 +107,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
 
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let cell = tableView.cellForRow(at: indexPath) as! ManagerOrdersControllerViewOrderCell
+        let cell = tableView.cellForRow(at: indexPath) as! ManagerOrdersControllerOrderCell
         let orderId = cell.OrderId
 
         goToOrder(id: orderId)

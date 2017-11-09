@@ -18,6 +18,8 @@ public class PlaceCompleteOrderController: UIViewController {
         let instance = PlaceCompleteOrderController(nibName: nibName, bundle: Bundle.main)
 
         instance.order = order
+        let cart = ServicesManager.shared.cartsService.get(for: order.Summary.PlaceID)
+        cart.clear()
 
         return instance
     }
@@ -26,38 +28,38 @@ public class PlaceCompleteOrderController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var dataLabel: UILabel!
 
-
     //Data
     private var order: DishOrder!
 
-
-
 }
 
-//MARK: Actions
+// MARK: Actions
 extension PlaceCompleteOrderController {
     @IBAction private func goToOrder() {
 
-        if let search = navigationController?.viewControllers.first(where: { $0 is SearchController }) {
+        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
 
-            navigationController?.popToViewController(search, animated: true)
+            navigationController?.popToViewController(tabs, animated: true)
 
-            search.tabBarController?.selectedIndex = 1 //Manager controller
-            navigationController?.pushViewController( ManagerOneOrderController.create(with: order), animated: true)
+            (tabs as! TabsController).selectedIndex = 1 //Manager controller
+
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(ManagerOrdersController.create(), animated: true)
+                self.navigationController?.pushViewController(ManagerOneOrderController.create(with: self.order), animated: true)
+            }
         }
-
 
     }
     @IBAction private func goToSearch() {
 
-        if let search = navigationController?.viewControllers.first(where: { $0 is SearchController }) {
+        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
 
-            navigationController?.popToViewController(search, animated: true)
+            navigationController?.popToViewController(tabs, animated: true)
         }
     }
 }
 
-//MARK: View circle
+// MARK: View circle
 extension PlaceCompleteOrderController {
 
     public override func viewDidLoad() {

@@ -155,6 +155,7 @@ public class ApiClient {
 
                 Log.Debug(self._tag, "Response from \(url)")
                 do {
+                    let stringContent = String(data: data!, encoding: .utf8)!
                     let data =  try JSONSerialization.jsonObject(with: data!, options: [])
                     let json = data as! JSON
 

@@ -10,6 +10,7 @@
 		1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */; };
 		1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */; };
 		1F12EB541FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F12EB531FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib */; };
+		1F12EB561FB4166100EF9BEA /* ManagerOrdersControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F12EB551FB4166100EF9BEA /* ManagerOrdersControllerView.xib */; };
 		1F1DA2C91F6889FB00EFE5CE /* DishType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2C81F6889FB00EFE5CE /* DishType.swift */; };
 		1F1DA2CB1F688A4400EFE5CE /* IMenuDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CA1F688A4400EFE5CE /* IMenuDependent.swift */; };
 		1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CC1F688AAE00EFE5CE /* UnitsOfSize.swift */; };
@@ -26,10 +27,9 @@
 		1F279F751FB07CEC003A2B47 /* ManagerOneOrderDishCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F711FB07CEC003A2B47 /* ManagerOneOrderDishCellView.xib */; };
 		1F279F761FB07CEC003A2B47 /* ManagerOneOrderDishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F721FB07CEC003A2B47 /* ManagerOneOrderDishCell.swift */; };
 		1F279F771FB07CEC003A2B47 /* ManagerOneOrderControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F731FB07CEC003A2B47 /* ManagerOneOrderControllerView.xib */; };
-		1F279F7C1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F781FB07CFB003A2B47 /* ManagerOrdersControllerViewOrderCell.swift */; };
+		1F279F7C1FB07CFC003A2B47 /* ManagerOrdersControllerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F781FB07CFB003A2B47 /* ManagerOrdersControllerOrderCell.swift */; };
 		1F279F7D1FB07CFC003A2B47 /* ManagerOrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F791FB07CFC003A2B47 /* ManagerOrdersController.swift */; };
-		1F279F7E1FB07CFC003A2B47 /* ManagerOrdersControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F7A1FB07CFC003A2B47 /* ManagerOrdersControllerView.xib */; };
-		1F279F7F1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F7B1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib */; };
+		1F279F7F1FB07CFC003A2B47 /* ManagerOrdersControllerOrderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F7B1FB07CFC003A2B47 /* ManagerOrdersControllerOrderCellView.xib */; };
 		1F279F8B1FB07D3C003A2B47 /* PlaceMenuControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F279F851FB07D3C003A2B47 /* PlaceMenuControllerView.xib */; };
 		1F279F8E1FB07D3C003A2B47 /* PlaceMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F881FB07D3C003A2B47 /* PlaceMenuController.swift */; };
 		1F279F921FB07D51003A2B47 /* PlaceInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F279F901FB07D51003A2B47 /* PlaceInfoController.swift */; };
@@ -73,10 +73,10 @@
 		1F62E4811FAE466F00D1C89D /* BaseAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4781FAE466F00D1C89D /* BaseAuthController.swift */; };
 		1F62E4821FAE466F00D1C89D /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4791FAE466F00D1C89D /* ForgetPasswordController.swift */; };
 		1F62E4831FAE466F00D1C89D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E47A1FAE466F00D1C89D /* LoginController.swift */; };
-		1F62E4A61FAE46D300D1C89D /* PaymentCardCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E4A21FAE46D200D1C89D /* PaymentCardCellView.xib */; };
-		1F62E4A71FAE46D300D1C89D /* PaymentCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4A31FAE46D200D1C89D /* PaymentCardCell.swift */; };
-		1F62E4A81FAE46D300D1C89D /* PaymentCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E4A41FAE46D200D1C89D /* PaymentCardsView.xib */; };
-		1F62E4A91FAE46D300D1C89D /* PaymentCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4A51FAE46D300D1C89D /* PaymentCardsController.swift */; };
+		1F62E4A61FAE46D300D1C89D /* ManagerPaymentCardCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E4A21FAE46D200D1C89D /* ManagerPaymentCardCellView.xib */; };
+		1F62E4A71FAE46D300D1C89D /* ManagerPaymentCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4A31FAE46D200D1C89D /* ManagerPaymentCardCell.swift */; };
+		1F62E4A81FAE46D300D1C89D /* ManagerPaymentCardsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E4A41FAE46D200D1C89D /* ManagerPaymentCardsControllerView.xib */; };
+		1F62E4A91FAE46D300D1C89D /* ManagerPaymentCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4A51FAE46D300D1C89D /* ManagerPaymentCardsController.swift */; };
 		1F62E4BF1FAE470800D1C89D /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4BA1FAE470700D1C89D /* WhiteButton.swift */; };
 		1F62E4C01FAE470800D1C89D /* BlackBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4BB1FAE470700D1C89D /* BlackBottomButton.swift */; };
 		1F62E4C11FAE470800D1C89D /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4BC1FAE470700D1C89D /* BaseButton.swift */; };
@@ -264,6 +264,7 @@
 		0A71E4697424BB89A1AA9DFA /* Pods-RestomaniaAppKuzina-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina-Tests/Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCompleteOrderController.swift; path = UI/Controllers/Place/CompleteOrder/PlaceCompleteOrderController.swift; sourceTree = "<group>"; };
 		1F12EB531FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCompleteOrderControllerView.xib; path = UI/Controllers/Place/CompleteOrder/PlaceCompleteOrderControllerView.xib; sourceTree = "<group>"; };
+		1F12EB551FB4166100EF9BEA /* ManagerOrdersControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ManagerOrdersControllerView.xib; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerView.xib; sourceTree = "<group>"; };
 		1F1DA2C81F6889FB00EFE5CE /* DishType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishType.swift; path = Domains/Places/Menues/DishType.swift; sourceTree = "<group>"; };
 		1F1DA2CA1F688A4400EFE5CE /* IMenuDependent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMenuDependent.swift; path = Domains/Places/Menues/IMenuDependent.swift; sourceTree = "<group>"; };
 		1F1DA2CC1F688AAE00EFE5CE /* UnitsOfSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitsOfSize.swift; path = Domains/Places/Menues/UnitsOfSize.swift; sourceTree = "<group>"; };
@@ -280,10 +281,9 @@
 		1F279F711FB07CEC003A2B47 /* ManagerOneOrderDishCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerOneOrderDishCellView.xib; path = UI/Controllers/Manager/Orders/OneOrder/ManagerOneOrderDishCellView.xib; sourceTree = "<group>"; };
 		1F279F721FB07CEC003A2B47 /* ManagerOneOrderDishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerOneOrderDishCell.swift; path = UI/Controllers/Manager/Orders/OneOrder/ManagerOneOrderDishCell.swift; sourceTree = "<group>"; };
 		1F279F731FB07CEC003A2B47 /* ManagerOneOrderControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerOneOrderControllerView.xib; path = UI/Controllers/Manager/Orders/OneOrder/ManagerOneOrderControllerView.xib; sourceTree = "<group>"; };
-		1F279F781FB07CFB003A2B47 /* ManagerOrdersControllerViewOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerOrdersControllerViewOrderCell.swift; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerViewOrderCell.swift; sourceTree = "<group>"; };
+		1F279F781FB07CFB003A2B47 /* ManagerOrdersControllerOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerOrdersControllerOrderCell.swift; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerOrderCell.swift; sourceTree = "<group>"; };
 		1F279F791FB07CFC003A2B47 /* ManagerOrdersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerOrdersController.swift; path = UI/Controllers/Manager/Orders/ManagerOrdersController.swift; sourceTree = "<group>"; };
-		1F279F7A1FB07CFC003A2B47 /* ManagerOrdersControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerOrdersControllerView.xib; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerView.xib; sourceTree = "<group>"; };
-		1F279F7B1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerOrdersControllerViewOrderCellView.xib; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerViewOrderCellView.xib; sourceTree = "<group>"; };
+		1F279F7B1FB07CFC003A2B47 /* ManagerOrdersControllerOrderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerOrdersControllerOrderCellView.xib; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerOrderCellView.xib; sourceTree = "<group>"; };
 		1F279F851FB07D3C003A2B47 /* PlaceMenuControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuControllerView.xib; path = UI/Controllers/Place/Menu/PlaceMenuControllerView.xib; sourceTree = "<group>"; };
 		1F279F881FB07D3C003A2B47 /* PlaceMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuController.swift; path = UI/Controllers/Place/Menu/PlaceMenuController.swift; sourceTree = "<group>"; };
 		1F279F901FB07D51003A2B47 /* PlaceInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceInfoController.swift; path = UI/Controllers/Place/Info/PlaceInfoController.swift; sourceTree = "<group>"; };
@@ -329,10 +329,10 @@
 		1F62E4781FAE466F00D1C89D /* BaseAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAuthController.swift; path = UI/Controllers/Auth/BaseAuthController.swift; sourceTree = "<group>"; };
 		1F62E4791FAE466F00D1C89D /* ForgetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgetPasswordController.swift; path = UI/Controllers/Auth/ForgetPasswordController.swift; sourceTree = "<group>"; };
 		1F62E47A1FAE466F00D1C89D /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = UI/Controllers/Auth/LoginController.swift; sourceTree = "<group>"; };
-		1F62E4A21FAE46D200D1C89D /* PaymentCardCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PaymentCardCellView.xib; path = UI/Controllers/Manager/PaymentCards/PaymentCardCellView.xib; sourceTree = "<group>"; };
-		1F62E4A31FAE46D200D1C89D /* PaymentCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentCardCell.swift; path = UI/Controllers/Manager/PaymentCards/PaymentCardCell.swift; sourceTree = "<group>"; };
-		1F62E4A41FAE46D200D1C89D /* PaymentCardsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PaymentCardsView.xib; path = UI/Controllers/Manager/PaymentCards/PaymentCardsView.xib; sourceTree = "<group>"; };
-		1F62E4A51FAE46D300D1C89D /* PaymentCardsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentCardsController.swift; path = UI/Controllers/Manager/PaymentCards/PaymentCardsController.swift; sourceTree = "<group>"; };
+		1F62E4A21FAE46D200D1C89D /* ManagerPaymentCardCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerPaymentCardCellView.xib; path = UI/Controllers/Manager/PaymentCards/ManagerPaymentCardCellView.xib; sourceTree = "<group>"; };
+		1F62E4A31FAE46D200D1C89D /* ManagerPaymentCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerPaymentCardCell.swift; path = UI/Controllers/Manager/PaymentCards/ManagerPaymentCardCell.swift; sourceTree = "<group>"; };
+		1F62E4A41FAE46D200D1C89D /* ManagerPaymentCardsControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerPaymentCardsControllerView.xib; path = UI/Controllers/Manager/PaymentCards/ManagerPaymentCardsControllerView.xib; sourceTree = "<group>"; };
+		1F62E4A51FAE46D300D1C89D /* ManagerPaymentCardsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerPaymentCardsController.swift; path = UI/Controllers/Manager/PaymentCards/ManagerPaymentCardsController.swift; sourceTree = "<group>"; };
 		1F62E4BA1FAE470700D1C89D /* WhiteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteButton.swift; path = UI/Elements/Buttons/WhiteButton.swift; sourceTree = "<group>"; };
 		1F62E4BB1FAE470700D1C89D /* BlackBottomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlackBottomButton.swift; path = UI/Elements/Buttons/BlackBottomButton.swift; sourceTree = "<group>"; };
 		1F62E4BC1FAE470700D1C89D /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseButton.swift; path = UI/Elements/Buttons/BaseButton.swift; sourceTree = "<group>"; };
@@ -777,9 +777,9 @@
 			isa = PBXGroup;
 			children = (
 				1F279F791FB07CFC003A2B47 /* ManagerOrdersController.swift */,
-				1F279F7A1FB07CFC003A2B47 /* ManagerOrdersControllerView.xib */,
-				1F279F781FB07CFB003A2B47 /* ManagerOrdersControllerViewOrderCell.swift */,
-				1F279F7B1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib */,
+				1F12EB551FB4166100EF9BEA /* ManagerOrdersControllerView.xib */,
+				1F279F781FB07CFB003A2B47 /* ManagerOrdersControllerOrderCell.swift */,
+				1F279F7B1FB07CFC003A2B47 /* ManagerOrdersControllerOrderCellView.xib */,
 				1F279F6B1FB07CB9003A2B47 /* OneOrder */,
 			);
 			name = Orders;
@@ -799,10 +799,10 @@
 		1F77EFBC1F67189700C93DB0 /* PaymentCards */ = {
 			isa = PBXGroup;
 			children = (
-				1F62E4A31FAE46D200D1C89D /* PaymentCardCell.swift */,
-				1F62E4A21FAE46D200D1C89D /* PaymentCardCellView.xib */,
-				1F62E4A51FAE46D300D1C89D /* PaymentCardsController.swift */,
-				1F62E4A41FAE46D200D1C89D /* PaymentCardsView.xib */,
+				1F62E4A51FAE46D300D1C89D /* ManagerPaymentCardsController.swift */,
+				1F62E4A41FAE46D200D1C89D /* ManagerPaymentCardsControllerView.xib */,
+				1F62E4A31FAE46D200D1C89D /* ManagerPaymentCardCell.swift */,
+				1F62E4A21FAE46D200D1C89D /* ManagerPaymentCardCellView.xib */,
 			);
 			name = PaymentCards;
 			sourceTree = "<group>";
@@ -1541,20 +1541,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F279F751FB07CEC003A2B47 /* ManagerOneOrderDishCellView.xib in Resources */,
+				1F12EB561FB4166100EF9BEA /* ManagerOrdersControllerView.xib in Resources */,
 				1F5CF83B1FB3793800DDDC3F /* PlaceCartPaymentCardsContainerView.xib in Resources */,
 				1F279F611FB07C71003A2B47 /* ManagerEditProfileControllerView.xib in Resources */,
 				1F62E4681FAE464400D1C89D /* Start.storyboard in Resources */,
-				1F279F7F1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCellView.xib in Resources */,
+				1F279F7F1FB07CFC003A2B47 /* ManagerOrdersControllerOrderCellView.xib in Resources */,
 				1F279FA21FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib in Resources */,
 				1FC01CCD1FB211EC00413ED7 /* PlaceMenuCartActionView.xib in Resources */,
-				1F279F7E1FB07CFC003A2B47 /* ManagerOrdersControllerView.xib in Resources */,
 				1F279F9D1FB0EC11003A2B47 /* PlaceMenuDishCellView.xib in Resources */,
 				1F279F661FB07C82003A2B47 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */,
 				1FE3C7731FB31C2B009CE542 /* PlaceCartTotalContainerCellView.xib in Resources */,
 				1FE3C7651FB303E3009CE542 /* PlaceCartCompleteOrderContainerView.xib in Resources */,
 				1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */,
 				1F5CF8331FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib in Resources */,
-				1F62E4A81FAE46D300D1C89D /* PaymentCardsView.xib in Resources */,
+				1F62E4A81FAE46D300D1C89D /* ManagerPaymentCardsControllerView.xib in Resources */,
 				1FC01CCA1FB2115000413ED7 /* PlaceCartControllerView.xib in Resources */,
 				1FE3C76D1FB318E8009CE542 /* PlaceCartTotalContainerView.xib in Resources */,
 				1F62E4691FAE464400D1C89D /* LaunchScreen.storyboard in Resources */,
@@ -1574,7 +1574,7 @@
 				1F62E47B1FAE466F00D1C89D /* ForgetPasswordPage.xib in Resources */,
 				1FE3C7611FB2F41E009CE542 /* PlaceCartDividerView.xib in Resources */,
 				1F62E47D1FAE466F00D1C89D /* LoginPage.xib in Resources */,
-				1F62E4A61FAE46D300D1C89D /* PaymentCardCellView.xib in Resources */,
+				1F62E4A61FAE46D300D1C89D /* ManagerPaymentCardCellView.xib in Resources */,
 				1F62E4CB1FAE472E00D1C89D /* PlaceCard.xib in Resources */,
 				1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */,
 				1F5CF83F1FB386A700DDDC3F /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
@@ -1835,7 +1835,7 @@
 				1FB8F0061F1DF64E0090045E /* Bonuses.swift in Sources */,
 				1FB8EFDC1F1D48290090045E /* Day.swift in Sources */,
 				1FB8EFE41F1D4A970090045E /* Contacts.swift in Sources */,
-				1F279F7C1FB07CFC003A2B47 /* ManagerOrdersControllerViewOrderCell.swift in Sources */,
+				1F279F7C1FB07CFC003A2B47 /* ManagerOrdersControllerOrderCell.swift in Sources */,
 				1F62E4C01FAE470800D1C89D /* BlackBottomButton.swift in Sources */,
 				1FF79A571FB22D96008F3FCC /* ScheduleDisplay.swift in Sources */,
 				1FD7E69E1F1D0E140023C033 /* Account.swift in Sources */,
@@ -1873,7 +1873,7 @@
 				1FD9A09E1F2323FF0026BDF8 /* CachePlaceSummariesService.swift in Sources */,
 				1FD7E6A11F1D0E140023C033 /* ReportType.swift in Sources */,
 				1F62E47C1FAE466F00D1C89D /* AuthContainer.swift in Sources */,
-				1F62E4A71FAE46D300D1C89D /* PaymentCardCell.swift in Sources */,
+				1F62E4A71FAE46D300D1C89D /* ManagerPaymentCardCell.swift in Sources */,
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
 				1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */,
@@ -1912,7 +1912,7 @@
 				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
 				1F1DA2CF1F688AFD00EFE5CE /* PlaceDependentProtocol.swift in Sources */,
 				1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */,
-				1F62E4A91FAE46D300D1C89D /* PaymentCardsController.swift in Sources */,
+				1F62E4A91FAE46D300D1C89D /* ManagerPaymentCardsController.swift in Sources */,
 				1FB8F05A1F1EC5C90090045E /* OrderSummary.swift in Sources */,
 				1F5CF83D1FB37BA900DDDC3F /* PlaceCartPaymentCardsContainerCell.swift in Sources */,
 				1FD7E6A71F1D0E140023C033 /* Version.swift in Sources */,

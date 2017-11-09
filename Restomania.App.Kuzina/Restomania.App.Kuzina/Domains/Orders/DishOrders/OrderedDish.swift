@@ -13,7 +13,7 @@ import IOSLibrary
 public class OrderedDish: BaseDataType {
 
     public struct Keys {
-        public static let dishId = "DishId"
+        public static let dishId = "DishID"
         public static let variationId = "VariationId"
         public static let additions = "Additions"
         public static let subdishes = "Subdishes"
@@ -81,16 +81,20 @@ public class OrderedDish: BaseDataType {
 
         self.dishId = (Keys.dishId <~~ json)!
         self.variationId = Keys.variationId <~~ json
-        self.additions = (Keys.additions <~~ json)!
-        self.subdishes = (Keys.subdishes <~~ json)!
+        self.additions = Keys.additions <~~ json ?? []
+        self.subdishes = Keys.subdishes <~~ json ?? []
 
         self.price = (Keys.price <~~ json)!
         self.count = (Keys.count <~~ json)!
-        self.total = (Keys.total <~~ json)!
+        self.total = Keys.total <~~ json ?? PriceType()
         self.name = (Keys.name <~~ json)!
-        self.type = (Keys.type <~~ json)!
+        self.type = Keys.type <~~ json ?? .simpleDish
 
         super.init(json: json)
+
+        if (nil == json[Keys.total]) {
+            self.total = PriceType(double: price.double * count)
+        }
     }
     public override func toJSON() -> JSON? {
         return jsonify([

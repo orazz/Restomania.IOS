@@ -9,16 +9,14 @@
 import Foundation
 import UIKit
 
-public class ChangePasswordController: UIViewController {
+public class ManagerChangePasswordController: UIViewController {
 
-    public static let nibName = "ChangePasswordView"
+    private static let nibName = "ManagerChangePasswordControllerView"
+    public static func create() -> ManagerChangePasswordController {
 
-    public init() {
-        super.init(nibName: ChangePasswordController.nibName, bundle: Bundle.main)
+        let vc = ManagerChangePasswordController(nibName: ManagerChangePasswordController.nibName, bundle: Bundle.main)
 
-    }
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return vc
     }
 
     // MARK: Life circle

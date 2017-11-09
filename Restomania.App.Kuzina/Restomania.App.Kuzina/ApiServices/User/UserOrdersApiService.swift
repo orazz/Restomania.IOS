@@ -34,7 +34,7 @@ public class UserOrdersApiService: BaseAuthApiService {
     }
     public func add(order: AddedOrder) -> RequestResult<DishOrder> {
         let parameters = CollectParameters([
-                "data": order
+                "order": order
             ])
 
         return _client.Post(action: "Add", type: DishOrder.self, parameters: parameters)

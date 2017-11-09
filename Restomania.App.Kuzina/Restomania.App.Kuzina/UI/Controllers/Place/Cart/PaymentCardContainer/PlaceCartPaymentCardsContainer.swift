@@ -81,6 +81,8 @@ public class PlaceCartPaymentCardsContainer: UITableViewCell {
                 }
             }
         }
+
+        container.cardId = cardId
     }
 }
 extension PlaceCartPaymentCardsContainer: UITableViewDelegate {
@@ -89,7 +91,6 @@ extension PlaceCartPaymentCardsContainer: UITableViewDelegate {
 
         if let cell = tableView.cellForRow(at: indexPath) as? PlaceCartPaymentCardsContainerCell {
             select(cell.cardId)
-            container.cardId = cell.cardId
         }
     }
 }
