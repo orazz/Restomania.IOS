@@ -85,7 +85,7 @@ public class OnePlaceMainContactsCell: UITableViewCell {
     public class ContactLine {
 
         public let name: String
-        public let link: String
+        public var link: String
         public var displayValue: String
 
         public var isCorrect: Bool {
@@ -103,6 +103,19 @@ public class OnePlaceMainContactsCell: UITableViewCell {
                                           .components(separatedBy: "www.").last!
                                           .components(separatedBy: ".com/").last!
                                           .components(separatedBy: "/").first!
+            }
+
+            //Phone
+            if let link = link,
+                !String.isNullOrEmpty(link),
+                !link.starts(with: "http") {
+
+                self.link = link.components(separatedBy: "-").joined()
+                                .components(separatedBy: "‒").joined()
+                                .components(separatedBy: "(").joined()
+                                .components(separatedBy: ")").joined()
+                                .components(separatedBy: " ").joined()
+                self.link = "tel://\(self.link)"
             }
         }
     }

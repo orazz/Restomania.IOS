@@ -61,9 +61,10 @@ public class OnePlaceMainContactsCellOneLine: UITableViewCell {
 
     @objc private func openLink() {
 
-        if  let link = _contact?.link,
-            let url = URL(string: link) {
-            UIApplication.shared.openURL(url)
+        if let link = _contact?.link {
+            if  let url = URL(string: link) {
+                UIApplication.shared.openURL(url)
+            }
         }
     }
 }

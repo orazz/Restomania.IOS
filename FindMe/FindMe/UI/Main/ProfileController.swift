@@ -74,8 +74,8 @@ public class ProfileController: UIViewController {
         nameField.title = "Ваше имя"
         sexSegment.title = "Кто вы?"
         sexSegment.values = [
-            "Парень": UserSex.male,
-            "Девушка": UserSex.female
+            ("Девушка", UserSex.female),
+            ("Парень", UserSex.male)
         ]
         ageField.title = "Сколько вам лет"
         ageField.valueType = .number

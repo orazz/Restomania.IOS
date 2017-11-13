@@ -58,12 +58,9 @@ public class OnePlaceClientsController: UIViewController {
         _loader.show()
 
         navigationBar.topItem?.title = _place.name
-        segmentControl.values = [
-            "Девушки": UserSex.female,
-            "Парни": UserSex.male
-        ]
+
+        updateSegmentControl()
         segmentControl.onChangeEvent = changeSex(_:index:value:)
-        segmentControl.select(_sex)
 
         OnePlaceClientsCell.register(in: tableView)
     }
@@ -78,6 +75,7 @@ public class OnePlaceClientsController: UIViewController {
                 if (response.isSuccess) {
 
                     self._clients = response.data!
+                    self.updateSegmentControl()
                     self.reload()
                 }
                 else {
@@ -103,6 +101,26 @@ public class OnePlaceClientsController: UIViewController {
         _filtered = _clients.where({ $0.needShow }).where({ $0.sex == sex })
 
         tableView.reloadData()
+    }
+    private func updateSegmentControl() {
+
+        let females = prepareSegmentTitle("Девушки", with: _clients.count({ $0.sex == UserSex.female }))
+        let males =  prepareSegmentTitle("Парни", with: _clients.count({ $0.sex == UserSex.male }))
+
+        segmentControl.values = [
+             (females, UserSex.female),
+             (males, UserSex.male)
+        ]
+        segmentControl.select(_sex)
+    }
+    private func prepareSegmentTitle(_ title: String, with count: Int) -> String {
+
+        if (0 == count) {
+            return title
+        }
+        else {
+            return "\(title) \(count)"
+        }
     }
 
     //MARK: Actions and handlers

@@ -439,9 +439,9 @@
 		1F1A0E521F78EA4600FDBA97 /* Place */ = {
 			isa = PBXGroup;
 			children = (
-				1FF8E6271FA7A2D2001852CE /* OnePlaceClients */,
 				1FE033C21F896120000349F7 /* OnePlaceMain */,
 				1F10F8E71F87259900D85903 /* OnePlaceLocation */,
+				1FF8E6271FA7A2D2001852CE /* OnePlaceClients */,
 			);
 			name = Place;
 			sourceTree = "<group>";

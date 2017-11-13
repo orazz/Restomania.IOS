@@ -79,8 +79,8 @@ public class EnteringController: UIViewController {
         nameTextField.title = "Ваше имя"
         sexSegmentControl.title = "Кто вы?"
         sexSegmentControl.values = [
-            "Парень": UserSex.male,
-            "Девушка": UserSex.female
+            ("Девушка", UserSex.female),
+            ("Парень", UserSex.male)
         ]
         ageTextField.title = "Сколько вам лет"
         ageTextField.text = "21"

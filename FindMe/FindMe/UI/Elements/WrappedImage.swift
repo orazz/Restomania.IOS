@@ -81,15 +81,14 @@ public class ImageWrapper: BaseImageWrapper, ImageWrapperDelegate {
                 handler(nil)
                 return
             }
-
             task.async(.background, completion: { result in
 
                 if let data = result.data {
-
                     handler(UIImage(data: data))
                 }
-
-                handler(nil)
+                else {
+                    handler(nil)
+                }
             })
 
         })
