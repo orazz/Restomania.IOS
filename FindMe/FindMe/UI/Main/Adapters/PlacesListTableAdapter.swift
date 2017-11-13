@@ -36,7 +36,15 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
 
     public func update(places: [SearchPlaceCard]) {
 
-        self._sourcePlaces = places.sorted(by: { $0.name < $1.name })
+        self._sourcePlaces = places.sorted(by: { left, right in
+
+            if (left.peopleCount == right.peopleCount) {
+                return left.name < right.name
+            }
+            else {
+                return left.peopleCount > right.peopleCount
+            }
+        })
 
         reload()
 

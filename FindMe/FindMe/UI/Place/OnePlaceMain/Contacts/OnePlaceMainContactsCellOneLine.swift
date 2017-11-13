@@ -25,12 +25,17 @@ public class OnePlaceMainContactsCellOneLine: UITableViewCell {
     @IBOutlet public weak var Name: UILabel!
     @IBOutlet public weak var Value: UILabel!
 
+    //MARK: Data
+    private var _contact: OnePlaceMainContactsCell.ContactLine? = nil
+
     private var _isSetupMarkup: Bool = false
 
 
     public func setup(data: OnePlaceMainContactsCell.ContactLine) {
 
         setupStyles()
+
+        _contact = data
 
         Name.text = data.name
         Value.text = data.displayValue
@@ -47,5 +52,18 @@ public class OnePlaceMainContactsCellOneLine: UITableViewCell {
 
         Value.textColor = ThemeSettings.Colors.main
         Value.font = ThemeSettings.Fonts.default(size: .caption)
+
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(openLink))
+        self.addGestureRecognizer(tap)
+        self.isUserInteractionEnabled = true
+    }
+
+    @objc private func openLink() {
+
+        if  let link = _contact?.link,
+            let url = URL(string: link) {
+            UIApplication.shared.openURL(url)
+        }
     }
 }

@@ -100,9 +100,6 @@
                         <constraint firstAttribute="bottom" secondItem="SGg-pi-VhI" secondAttribute="bottom" constant="2" id="Yps-Lg-PHy"/>
                         <constraint firstAttribute="trailing" secondItem="SGg-pi-VhI" secondAttribute="trailing" constant="5" id="yi8-D5-CnK"/>
                     </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="rFO-2s-DZJ" appends="YES" id="QHG-At-tzr"/>
-                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hi-1t-5pv">
                     <rect key="frame" x="175.5" y="95" width="114.5" height="40"/>
@@ -141,7 +138,7 @@
                         <constraint firstAttribute="bottom" secondItem="eSz-uw-GA0" secondAttribute="bottom" constant="2" id="y3e-fX-aEH"/>
                     </constraints>
                     <connections>
-                        <outletCollection property="gestureRecognizers" destination="KgW-Ni-reW" appends="YES" id="yir-JM-3ZR"/>
+                        <outletCollection property="gestureRecognizers" destination="YIg-o7-lEo" appends="YES" id="MP8-Xj-yAM"/>
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVJ-0y-3KB">
@@ -207,7 +204,7 @@
                         <constraint firstItem="9k9-AT-JKy" firstAttribute="leading" secondItem="rNs-Yd-qcu" secondAttribute="leading" id="yTD-Ds-ine"/>
                     </constraints>
                     <connections>
-                        <outletCollection property="gestureRecognizers" destination="KgW-Ni-reW" appends="YES" id="p2N-ds-0KR"/>
+                        <outletCollection property="gestureRecognizers" destination="KgW-Ni-reW" appends="YES" id="rU8-Um-xVH"/>
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jk0-M6-tf1">
@@ -245,9 +242,6 @@
                         <constraint firstItem="lkP-by-BgL" firstAttribute="leading" secondItem="ofI-QC-ZHO" secondAttribute="trailing" constant="5" id="vhB-Fh-OUy"/>
                         <constraint firstItem="8ue-rt-mMU" firstAttribute="top" secondItem="lkP-by-BgL" secondAttribute="bottom" id="yeD-HB-RQU"/>
                     </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="rFO-2s-DZJ" appends="YES" id="9Gn-Q0-vaQ"/>
-                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8R-5m-3fH" customClass="OnePlaceMainDivider" customModule="FindMe" customModuleProvider="target">
                     <rect key="frame" x="213" y="0.0" width="1" height="50"/>
@@ -267,6 +261,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aUW-bn-bS0" secondAttribute="bottom" constant="50" id="2oQ-dR-GKY"/>
                 <constraint firstItem="b8R-5m-3fH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2yY-2K-U6d"/>
@@ -318,7 +313,8 @@
                 <outlet property="MenLabel" destination="ai2-WT-NAg" id="VpX-FO-hCB"/>
                 <outlet property="WomenAcquaintanceLabel" destination="HbA-tV-026" id="zhp-y3-My4"/>
                 <outlet property="WomenLabel" destination="lkP-by-BgL" id="6ao-jT-MyY"/>
-                <outletCollection property="gestureRecognizers" destination="rFO-2s-DZJ" appends="YES" id="1wH-0R-dlk"/>
+                <outletCollection property="gestureRecognizers" destination="rFO-2s-DZJ" appends="YES" id="Z0t-WF-Tsy"/>
+                <outletCollection property="gestureRecognizers" destination="nAI-HD-X2Z" appends="YES" id="vc1-qa-enL"/>
             </connections>
             <point key="canvasLocation" x="26" y="-217"/>
         </view>
@@ -327,9 +323,19 @@
                 <action selector="selectFemales" destination="iN0-l3-epB" id="PIB-ot-HNO"/>
             </connections>
         </tapGestureRecognizer>
+        <tapGestureRecognizer id="nAI-HD-X2Z" userLabel="selectFemalesForAcquaintance">
+            <connections>
+                <action selector="selectFemales" destination="iN0-l3-epB" id="NC5-41-u9h"/>
+            </connections>
+        </tapGestureRecognizer>
         <tapGestureRecognizer id="KgW-Ni-reW" userLabel="selectMales">
             <connections>
                 <action selector="selectMales" destination="iN0-l3-epB" id="jcF-Ev-SXs"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="YIg-o7-lEo" userLabel="selectMalesForAcquaintance">
+            <connections>
+                <action selector="selectMales" destination="iN0-l3-epB" id="Xte-4U-Ifw"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
