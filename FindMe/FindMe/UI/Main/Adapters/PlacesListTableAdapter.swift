@@ -19,6 +19,9 @@ public class PlacesListTableAdapter: NSObject {
     private var _filtered: [SearchPlaceCard]
     private var _filter: (([SearchPlaceCard]) -> [SearchPlaceCard])?
 
+    public convenience init(source: UITableView, with controller: UIViewController) {
+        self.init(source: source, delegate:  PlacesListAdapter(source: controller))
+    }
     public init(source: UITableView, delegate: PlacesListDelegate) {
 
         _table = source

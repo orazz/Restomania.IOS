@@ -17,101 +17,120 @@ public class OnePlaceClientsController: UIViewController {
 
         let vc = OnePlaceClientsController(nibName: nibName, bundle: Bundle.main)
 
-        vc._sex = sex
-        vc._place = place
-        vc._apiClient = ApiServices.Places.clients
+        vc.place = place
+        vc.selectedSex = sex
+        vc.apiClient = ApiServices.Places.clients
 
         return vc
     }
 
     //MARK: UI elements
     @IBOutlet private weak var navigationBar: UINavigationBar!
-    @IBOutlet private weak var segmentControl: FMSegmentedControl!
-    @IBOutlet private weak var tableView: UITableView!
-    private var _loader: InterfaceLoader!
+    @IBOutlet private weak var sexSegment: FMSegmentedControl!
+    @IBOutlet private weak var clientsTable: UITableView!
+    private var loader: InterfaceLoader!
+    private var refreshControl: UIRefreshControl!
 
     //MARK: Data & services
     private var _tag = String.tag(OnePlaceClientsController.self)
-    private var _clients: [PlaceClient] = []
-    private var _filtered: [PlaceClient] = []
-    private var _sex: UserSex!
-    private var _place: Place!
-    private var _apiClient: PlacesClientsApiService!
+    private var apiClient: PlacesClientsApiService!
+    private var place: Place!
+    private var selectedSex: UserSex! {
+        didSet {
+            updateFiltered()
+        }
+    }
+    private var clients: [PlaceClient] = []{
+        didSet {
+            updateFiltered()
+        }
+    }
+    private var filtered: [PlaceClient] = []
 
     //MARK: Life circle
     public override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
         setupMarkup()
-    }
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
 
-        loadData()
+        loadData(refresh: false)
     }
     private func setupMarkup() {
 
-        _loader = InterfaceLoader(for: self.view)
-        _loader.show()
+        loader = InterfaceLoader(for: self.view)
 
-        navigationBar.topItem?.title = _place.name
+        navigationBar.topItem?.title = place.name
+
+        refreshControl = UIRefreshControl()
+        refreshControl.backgroundColor = ThemeSettings.Colors.background
+        refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        clientsTable.addSubview(refreshControl)
 
         updateSegmentControl()
-        segmentControl.onChangeEvent = changeSex(_:index:value:)
+        sexSegment.onChangeEvent = changeSex(_:index:value:)
 
-        OnePlaceClientsCell.register(in: tableView)
+        OnePlaceClientsCell.register(in: clientsTable)
     }
-    private func loadData() {
+    @objc private func refreshData() {
+        loadData(refresh: true)
+    }
+    private func loadData(refresh: Bool) {
 
-        _loader?.show()
+        if (!refresh) {
+            loader.show()
+        }
 
-        let request = _apiClient.all(in: _place.ID)
+        let request = apiClient.all(in: place.ID)
         request.async(.background, completion: { response in
 
             DispatchQueue.main.async {
                 if (response.isSuccess) {
 
-                    self._clients = response.data!
-                    self.updateSegmentControl()
-                    self.reload()
+                    self.clients = response.data!
                 }
                 else {
                     Log.Warning(self._tag, "Problem with getting clients data.")
 
                     if (response.statusCode == .ConnectionError) {
 
-                        let alert = UIAlertController(title: "Ошибка соединения", message: "Нет содинения с интрнетом. Попробуйте позднее.", preferredStyle: .actionSheet)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-
-                        self.show(alert, sender: nil)
+                        self.show(ProblemAlerts.NotConnection, sender: nil)
                     }
                 }
 
-                self._loader?.hide()
+                self.completeLoad()
             }
         })
     }
+    private func completeLoad() {
 
-    private func reload() {
+        updateSegmentControl()
+        updateInterface()
 
-        let sex = segmentControl.value as! UserSex
-        _filtered = _clients.where({ $0.needShow }).where({ $0.sex == sex })
+        loader.hide()
 
-        tableView.reloadData()
+        if (refreshControl.isRefreshing) {
+            refreshControl.endRefreshing()
+        }
+    }
+
+    private func updateFiltered() {
+        filtered = clients.where({ $0.needShow }).where({ $0.sex == selectedSex })
+    }
+    private func updateInterface() {
+
+        clientsTable.reloadData()
     }
     private func updateSegmentControl() {
 
-        let females = prepareSegmentTitle("Девушки", with: _clients.count({ $0.sex == UserSex.female }))
-        let males =  prepareSegmentTitle("Парни", with: _clients.count({ $0.sex == UserSex.male }))
+        let females = prepareSegmentTitle("Девушки", with: clients.count({ $0.sex == UserSex.female }))
+        let males =  prepareSegmentTitle("Парни", with: clients.count({ $0.sex == UserSex.male }))
 
-        segmentControl.values = [
+        sexSegment.values = [
              (females, UserSex.female),
              (males, UserSex.male)
         ]
-        segmentControl.select(_sex)
+        sexSegment.select(selectedSex)
     }
     private func prepareSegmentTitle(_ title: String, with count: Int) -> String {
 
@@ -122,14 +141,17 @@ public class OnePlaceClientsController: UIViewController {
             return "\(title) \(count)"
         }
     }
-
-    //MARK: Actions and handlers
+}
+//MARK: Actions
+extension OnePlaceClientsController {
     @IBAction private func goBack() {
-        
+
         self.navigationController?.popViewController(animated: true)
     }
     private func changeSex(_ segment: UISegmentedControl, index: Int, value: Any ) {
-        reload()
+
+        selectedSex = value as! UserSex
+        updateInterface()
     }
 }
 
@@ -141,18 +163,19 @@ extension OnePlaceClientsController: UITableViewDelegate {
     }
 }
 
+//MARK: UITableViewDataSource
 extension OnePlaceClientsController: UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _filtered.count
+        return filtered.count
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: OnePlaceClientsCell.identifier, for: indexPath) as! OnePlaceClientsCell
-        cell.update(data: _filtered[indexPath.row])
+        cell.update(data: filtered[indexPath.row])
 
         return cell
     }

@@ -50,7 +50,7 @@ public class SearchPlaceCardsCacheService {
 
     //MARK: Remote
     
-    public func all() -> Task<[SearchPlaceCard]?> {
+    public func allRemote() -> Task<[SearchPlaceCard]?> {
 
         return Task { (handler: @escaping (([SearchPlaceCard]?) -> Void)) in
 

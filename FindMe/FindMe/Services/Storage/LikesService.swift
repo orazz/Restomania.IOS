@@ -61,6 +61,12 @@ public class LikesService: NSObject {
     public func all() -> [Long] {
         return _data.map({ $0.placeId })
     }
+    public func onlyLiked(_ range: [SearchPlaceCard]) -> [SearchPlaceCard] {
+
+        let liked = all()
+
+        return range.where({ liked.contains($0.ID) })
+    }
     public func isLiked(place: Long) -> Bool {
         return nil != find(by: place)
     }

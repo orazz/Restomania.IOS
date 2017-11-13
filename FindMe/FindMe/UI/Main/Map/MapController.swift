@@ -96,7 +96,7 @@ public class MapController: UIViewController {
             _places = local
         }
 
-        let task = _cache.all()
+        let task = _cache.allRemote()
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
