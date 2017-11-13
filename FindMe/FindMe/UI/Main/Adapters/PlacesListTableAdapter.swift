@@ -82,7 +82,7 @@ extension PlacesListTableAdapter: UITableViewDataSource {
         }
 
         let cell = _cells[card.ID]!
-        cell.setup(card: card, delegate: _delegate)
+        cell.update(card: card, delegate: _delegate)
 
         return cell
     }
