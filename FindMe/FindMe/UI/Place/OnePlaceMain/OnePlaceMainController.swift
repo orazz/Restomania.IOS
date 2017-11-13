@@ -68,7 +68,7 @@ public class OnePlaceMainController: UIViewController {
         _interfaceAdapter.add(OnePlaceMainTitleCell.instance)
         _interfaceAdapter.add(OnePlaceMainSliderCell.instance)
         _interfaceAdapter.add(OnePlaceMainAddressCell.instance)
-        _interfaceAdapter.add(OnePlaceMainStatisticCell.instance)
+        _interfaceAdapter.add(OnePlaceMainStatisticCell.create(with: self.navigationController!))
 
         let description = OnePlaceMainDescriptionCell.instance
         _interfaceAdapter.add(description)

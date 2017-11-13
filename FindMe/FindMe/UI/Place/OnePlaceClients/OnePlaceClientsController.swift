@@ -13,10 +13,11 @@ import IOSLibrary
 public class OnePlaceClientsController: UIViewController {
 
     private static let nibName = "OnePlaceClientsView"
-    public static func build(for place: Place) -> OnePlaceClientsController {
+    public static func build(for sex: UserSex, in place: Place) -> OnePlaceClientsController {
 
         let vc = OnePlaceClientsController(nibName: nibName, bundle: Bundle.main)
 
+        vc._sex = sex
         vc._place = place
         vc._apiClient = ApiServices.Places.clients
 
@@ -33,13 +34,13 @@ public class OnePlaceClientsController: UIViewController {
     private var _tag = String.tag(OnePlaceClientsController.self)
     private var _clients: [PlaceClient] = []
     private var _filtered: [PlaceClient] = []
+    private var _sex: UserSex!
     private var _place: Place!
     private var _apiClient: PlacesClientsApiService!
 
     //MARK: Life circle
     public override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,6 +63,7 @@ public class OnePlaceClientsController: UIViewController {
             "Парни": UserSex.male
         ]
         segmentControl.onChangeEvent = changeSex(_:index:value:)
+        segmentControl.select(_sex)
 
         OnePlaceClientsCell.register(in: tableView)
     }

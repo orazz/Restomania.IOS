@@ -13,13 +13,14 @@ import IOSLibrary
 public class OnePlaceMainStatisticCell: UITableViewCell {
 
     private static let nibName = "OnePlaceMainStatisticCell"
-    public static var instance: OnePlaceMainStatisticCell {
+    public static func create(with navigator: UINavigationController) -> OnePlaceMainStatisticCell {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! OnePlaceMainStatisticCell
 
         instance._place = nil
         instance._statistic = nil
+        instance._navigator = navigator;
         instance.initMarkup()
 
         return instance
@@ -36,12 +37,14 @@ public class OnePlaceMainStatisticCell: UITableViewCell {
     @IBOutlet public weak var MenAcquaintanceLabel: FMHeadlineLabel!
 
     //MARK: Data & Services
+    private let _tag = String.tag(OnePlaceMainStatisticCell.self)
     private var _place: Place?
     private var _statistic: ClientsData? {
         didSet {
             updateStatistic()
         }
     }
+    private var _navigator: UINavigationController!
 
     private func initMarkup() {
 
@@ -50,15 +53,30 @@ public class OnePlaceMainStatisticCell: UITableViewCell {
     private func updateStatistic() {
 
         AverageAgeLabel?.text = "\(_statistic?.averageAge ?? 0)"
-        WomenLabel?.text = "\(_statistic?.women ?? 0)"
-        MenLabel?.text = "\(_statistic?.men ?? 0)"
-        WomenAcquaintanceLabel?.text = "\(_statistic?.womenForAcquaintance ?? 0)"
-        MenAcquaintanceLabel?.text = "\(_statistic?.menForAcquaintance ?? 0)"
+        WomenLabel?.text = "\(_statistic?.females ?? 0)"
+        MenLabel?.text = "\(_statistic?.males ?? 0)"
+        WomenAcquaintanceLabel?.text = "\(_statistic?.femalesForAcquaintance ?? 0)"
+        MenAcquaintanceLabel?.text = "\(_statistic?.malesForAcquaintance ?? 0)"
+    }
+
+    //MARK: Actions
+    @IBAction private func selectMales() {
+        Log.Debug(_tag, "Select males statistic.")
+
+        let vc = OnePlaceClientsController.build(for: .male, in: _place!)
+        _navigator.pushViewController(vc, animated: true)
+    }
+    @IBAction private func selectFemales() {
+        Log.Debug(_tag, "Select females statistic.")
+
+        let vc = OnePlaceClientsController.build(for: .female, in: _place!)
+        _navigator.pushViewController(vc, animated: true)
     }
 }
 extension OnePlaceMainStatisticCell: OnePlaceMainCellProtocol {
 
-    public func update(by place: Place){
+    public func update(by place: Place) {
+        
         self._place = place
         self._statistic = place.clientsData
     }
@@ -70,12 +88,6 @@ extension OnePlaceMainStatisticCell: InterfaceTableCellProtocol {
     }
     public func prepareView() -> UITableViewCell {
         return self
-    }
-    public func select(with navigationController: UINavigationController) {
-
-        let vc = OnePlaceClientsController.build(for: _place!)
-
-        navigationController.pushViewController(vc, animated: true)
     }
 }
 public class OnePlaceMainDivider: UIView {

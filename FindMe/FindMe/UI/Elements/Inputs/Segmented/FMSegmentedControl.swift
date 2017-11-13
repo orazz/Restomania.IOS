@@ -100,7 +100,7 @@ public class FMSegmentedControl: UIView {
     public func select(_ newValue: Any) {
 
         var index = 0
-        for (_, value) in values.reversed() {
+        for (_, value) in values {
             if ((value as AnyObject).isEqual(newValue)) {
 
                 segmentedControl.selectedSegmentIndex = index
