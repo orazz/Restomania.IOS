@@ -30,7 +30,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.40</string>
 	<key>CFBundleVersion</key>
-	<string>84</string>
+	<string>131</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -72,6 +72,8 @@
 	<string>Нам необходимо отслеживать ваше местоположения, для автоматического определения количества человек в заведении.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Нам необходимо отслеживать ваше местоположения, для автоматического определения количества человек в заведении.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Мы хотим, чтобы вы загружали свои аватары, чтобы другие пользоватлеи могли найти вас вокруг себя</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

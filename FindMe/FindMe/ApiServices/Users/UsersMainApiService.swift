@@ -34,6 +34,14 @@ public class UsersMainApiService: BaseApiService {
 
         return self._client.PutBool(action: "Change", parameters: parameters)
     }
+    public func changeAvatar(dataUrl: String) -> RequestResult<Bool> {
+
+        let parameters = self.CollectParameters(rights: .user, [
+            "dataUrl": dataUrl
+            ])
+
+        return self._client.PutBool(action: "ChangeAvatar", parameters: parameters)
+    }
     public func checkIn(placeId: Long) -> RequestResult<Bool> {
 
         let parameters = CollectParameters(rights: .user, [
