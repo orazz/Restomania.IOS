@@ -15,16 +15,15 @@ public class DataUrl {
 
         if let data = UIImageJPEGRepresentation(image, 0.5) {
 
-            if var dataUrl = data.base64EncodedString(options: .lineLength76Characters)
-                                 .percentEncoding()?
-                                 .replacingOccurrences(of: " ", with: "+") {
+            var dataUrl = data.base64EncodedString(options: .init(rawValue: 0))
+                              .replacingOccurrences(of: " ", with: "+")
 
                 while (0 != dataUrl.lengthOfBytes(using: .utf8) % 4) {
                     dataUrl.append("=")
                 }
 
                 return "data:image/jpeg;base64,\(dataUrl)"
-            }
+            //}
         }
 
         return nil

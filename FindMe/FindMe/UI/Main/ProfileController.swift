@@ -174,9 +174,9 @@ public class ProfileController: UIViewController {
     }
     private func changeAvatar(by image: UIImage) {
 
-        if let dataUrl = DataUrl.convert(image) {
 
-//            SlackNotifier.notify(dataUrl)
+        if  let normalized = image.normalizeOrientation(),
+            let dataUrl = DataUrl.convert(normalized) {
 
             let request = _usersApiService.changeAvatar(dataUrl: dataUrl)
             request.async(.background, completion: { response in
