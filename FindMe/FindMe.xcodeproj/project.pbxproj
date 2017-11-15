@@ -993,7 +993,7 @@
 				TargetAttributes = {
 					1FC5A70F1F138B5100ABE1A6 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 686FXGC24W;
+						DevelopmentTeam = GBJHK8UHBG;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1456,11 +1456,11 @@
 			baseConfigurationReference = 4935918CCC89441A21172DB7 /* Pods-FindMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 686FXGC24W;
+				DEVELOPMENT_TEAM = GBJHK8UHBG;
 				INFOPLIST_FILE = FindMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fps.findme;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medvedstudio.mobile.vmeste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -1471,11 +1471,11 @@
 			baseConfigurationReference = 23F9923EAE9F6E536D1D5BDD /* Pods-FindMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 686FXGC24W;
+				DEVELOPMENT_TEAM = GBJHK8UHBG;
 				INFOPLIST_FILE = FindMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fps.findme;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medvedstudio.mobile.vmeste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};

@@ -143,8 +143,10 @@ extension SearchController: LikesServiceDelegate {
 
     public func change(placeId: Long, isLiked: Bool) {
         DispatchQueue.main.async {
-            //Analog of update all
-            self.updateSegment()
+
+            if (self.displayFlag == .onlyLiked) {
+                self.applyUpdates()
+            }
         }
     }
 }

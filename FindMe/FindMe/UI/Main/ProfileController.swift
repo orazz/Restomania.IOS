@@ -200,7 +200,7 @@ extension ProfileController {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
 
-        //self.present(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: true, completion: nil)
     }
 }
 

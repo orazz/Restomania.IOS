@@ -15,27 +15,32 @@ public class DataUrl {
 
         if let data = UIImageJPEGRepresentation(image, 0.5) {
 
-            var dataUrl = data.base64EncodedString(options: .lineLength76Characters)
-                              .replacingOccurrences(of: " ", with: "+")
+            if var dataUrl = data.base64EncodedString(options: .lineLength76Characters)
+                                 .percentEncoding()?
+                                 .replacingOccurrences(of: " ", with: "+") {
 
-            while (0 != dataUrl.lengthOfBytes(using: .utf8) % 4) {
-                dataUrl.append("=")
+                while (0 != dataUrl.lengthOfBytes(using: .utf8) % 4) {
+                    dataUrl.append("=")
+                }
+
+                return "data:image/jpeg;base64,\(dataUrl)"
             }
-
-//            return dataUrl
-            return "data:image/jpeg;base64,\(dataUrl)"
         }
 
         return nil
     }
-    private static func encode(_ dataUrl: String) -> String? {
-        let allowedCharacters = URLQueryParameterAllowedCharacterSet()
-//        let allowedCharacters = NSCharacterSet.urlFragmentAllowed
 
-        return dataUrl.addingPercentEncoding(withAllowedCharacters: allowedCharacters)?.replacingOccurrences(of: " ", with: "+")
-//        return dataUrl
+
+}
+extension String {
+    internal func percentEncoding() -> String? {
+        let allowedCharacters = URLQueryParameterAllowedCharacterSet()
+        //        let allowedCharacters = NSCharacterSet.urlFragmentAllowed
+
+        return self.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
+        //        return dataUrl
     }
-    private static func URLQueryParameterAllowedCharacterSet() -> CharacterSet {
-        return CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~/? ")
+    private func URLQueryParameterAllowedCharacterSet() -> CharacterSet {
+        return CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~/?")
     }
 }
