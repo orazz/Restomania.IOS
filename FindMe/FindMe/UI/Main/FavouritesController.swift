@@ -86,7 +86,7 @@ public class FavouritesController: UIViewController {
 
         //WTF: Change on range API
         self._isLoadData = true
-        let task = _cache.all()
+        let task = _cache.allRemote()
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {

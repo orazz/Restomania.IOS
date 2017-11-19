@@ -10,14 +10,18 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+public class PlacesListTableAdapter: NSObject {
 
     private let _table: UITableView
     private let _delegate: PlacesListDelegate
     private var _sourcePlaces: [SearchPlaceCard]
+    private var _cells: [Long: SearchPlaceCardCell]
     private var _filtered: [SearchPlaceCard]
     private var _filter: (([SearchPlaceCard]) -> [SearchPlaceCard])?
 
+    public convenience init(source: UITableView, with controller: UIViewController) {
+        self.init(source: source, delegate:  PlacesListAdapter(source: controller))
+    }
     public init(source: UITableView, delegate: PlacesListDelegate) {
 
         _table = source
@@ -25,6 +29,7 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
 
         _delegate = delegate
         _sourcePlaces = []
+        _cells = [:]
         _filtered = []
         _filter = nil
 
@@ -36,7 +41,15 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
 
     public func update(places: [SearchPlaceCard]) {
 
-        self._sourcePlaces = places.sorted(by: { $0.name < $1.name })
+        self._sourcePlaces = places.sorted(by: { left, right in
+
+            if (left.peopleCount == right.peopleCount) {
+                return left.name < right.name
+            }
+            else {
+                return left.peopleCount > right.peopleCount
+            }
+        })
 
         reload()
 
@@ -50,26 +63,36 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
 
         self._table.reloadData()
     }
+}
 
-    //MARK: UITableViewDataSource
+extension PlacesListTableAdapter: UITableViewDataSource {
+
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return _filtered.count
     }
-
-    //MARK: UITableViewDelegate
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCardCell.identifier) as! SearchPlaceCardCell
-        cell.setup(card: _filtered[indexPath.row], delegate: _delegate)
+        let card = _filtered[indexPath.row]
+
+        if (nil == _cells[card.ID]) {
+            _cells[card.ID] = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCardCell.identifier) as? SearchPlaceCardCell
+        }
+
+        let cell = _cells[card.ID]!
+        cell.update(card: card, delegate: _delegate)
 
         return cell
     }
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return SearchPlaceCardCell.height
     }
+}
+
+extension PlacesListTableAdapter: UITableViewDelegate {
+
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
@@ -77,8 +100,11 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
         let place = _filtered[indexPath.row]
         _delegate.goTo(place: place.ID)
     }
+}
 
-    //MARK: UISearchBarDelegate
+extension PlacesListTableAdapter: UISearchBarDelegate {
+
+
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         if (String.isNullOrEmpty(searchText)) {
@@ -97,3 +123,6 @@ public class PlacesListTableAdapter: NSObject, UITableViewDataSource, UITableVie
         searchBar.endEditing(true)
     }
 }
+
+
+

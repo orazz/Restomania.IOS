@@ -12,7 +12,7 @@ import IOSLibrary
 
 public class BackgroundPositionsServices: NSObject {
 
-    private let _circlePeriod = 90.0
+    private let _circlePeriod = 120.0
     private let _workPeriod = 10.0
 
     private let _tag = String.tag(BackgroundPositionsServices.self)
@@ -103,6 +103,7 @@ public class BackgroundPositionsServices: NSObject {
         _task = _tasksService.new()
         _tasksService.end(task: oldTask)
 
+        _sourceService.requestPermission(always: true)
         _sourceService.startTracking()
     }
     @objc private func stopTracking() {
@@ -135,10 +136,10 @@ public class BackgroundPositionsServices: NSObject {
 
 //MARK: PositionServiceDelegate
 extension BackgroundPositionsServices: PositionServiceDelegate {
+
     public func updateLocation(positions: [PositionsService.Position]) {
-//        if (!isInBackground) {
-//            return
-//        }
+
+        Log.Debug(_tag, "Update location.")
     }
 }
 

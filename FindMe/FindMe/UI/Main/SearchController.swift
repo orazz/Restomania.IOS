@@ -14,22 +14,23 @@ import IOSLibrary
 public class SearchController: UIViewController {
 
     //MARK: UI Elements
-    @IBOutlet public weak var SegmentControl: UISegmentedControl!
-    @IBOutlet public weak var Searchbar: UISearchBar!
-    @IBOutlet public weak var TableView: UITableView!
-    private var _loader: InterfaceLoader!
+    @IBOutlet public weak var placeTypeSegment: UISegmentedControl!
+    @IBOutlet public weak var searchbar: UISearchBar!
+    @IBOutlet public weak var placesTable: UITableView!
+    private var placesAdapter: PlacesListTableAdapter!
+    private var loader: InterfaceLoader!
+    private var refreshControl: UIRefreshControl!
 
 
     //MARK: Data & Services
     private let _tag = String.tag(SearchController.self)
-    private let _guid = Guid.new
-    private var _listAdapter: PlacesListAdapter!
-    private var _tableAdapter: PlacesListTableAdapter!
-    private var _cache: SearchPlaceCardsCacheService!
-    private var _likesService: LikesService!
-    private var _stored: [SearchPlaceCard]! {
+    private let guid = Guid.new
+    private var displayFlag: DisplayPlacesFlag!
+    private var cache: SearchPlaceCardsCacheService!
+    private var likes: LikesService!
+    private var places: [SearchPlaceCard]! {
         didSet {
-            _tableAdapter.update(places: _stored)
+            placesAdapter.update(places: places)
         }
     }
 
@@ -38,73 +39,102 @@ public class SearchController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _loader = InterfaceLoader(for: self.view)
-        SegmentControl.addTarget(self, action: #selector(updateSegment), for: .valueChanged)
+        displayFlag = .all
+        cache = ServicesFactory.shared.searchCards
+        likes = ServicesFactory.shared.likes
 
-        _listAdapter = PlacesListAdapter(source: self)
-        _tableAdapter = PlacesListTableAdapter(source: TableView, delegate: _listAdapter)
-        Searchbar.delegate = _tableAdapter
-        _cache = ServicesFactory.shared.searchCards
-        _likesService = ServicesFactory.shared.likes
+        likes.subscribe(guid: guid, handler: self, tag: _tag)
 
-        _likesService.subscribe(guid: _guid, handler: self, tag: _tag)
-
-        loadData()
+        setupMarkup()
+        loadData(refresh: false)
     }
     deinit {
-        _likesService.unsubscribe(guid: _guid)
+        likes.unsubscribe(guid: guid)
     }
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func setupMarkup() {
 
-        self.navigationController?.setToolbarHidden(true, animated: false)
+        loader = InterfaceLoader(for: self.view)
+        placesAdapter = PlacesListTableAdapter(source: placesTable, with: self)
+
+        refreshControl = UIRefreshControl()
+        refreshControl.backgroundColor = ThemeSettings.Colors.background
+        refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        placesTable.addSubview(refreshControl)
+
+        placeTypeSegment.addTarget(self, action: #selector(updateSegment), for: .valueChanged)
+        searchbar.delegate = placesAdapter
+
+        navigationController?.setToolbarHidden(true, animated: false)
     }
+
 
     //MARK: Load data
-    private func loadData() {
+    @objc private func refreshData() {
+        loadData(refresh: true)
+    }
+    private func loadData(refresh: Bool) {
 
-        let local = _cache.allLocal
-        if (local.isEmpty) {
-            _loader.show()
+        if (!refresh) {
+            let local = cache.allLocal
+            if (local.isEmpty) {
+                loader.show()
+            }
 
-            _stored = []
+            places = local
         }
-        else {
-            _stored = local
-        }
 
-        let task = _cache.all()
+
+        let task = cache.allRemote()
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
 
-                self._loader.hide()
-
-                if let response = response {
-                    
-                    self._stored = response
+                if (nil == response) {
+                    self.present(ProblemAlerts.NotConnection, animated: false, completion: nil)
                 }
-                else if (self._stored.isEmpty) {
 
-                    let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: false, completion: nil)
-                }
+                self.completeLoad(with: response ?? [])
             }
         })
     }
+    private func completeLoad(with places: [SearchPlaceCard]) {
 
-    //MARK: UISegmentedControl
+        self.loader.hide()
+
+        if (refreshControl.isRefreshing){
+            refreshControl.endRefreshing()
+        }
+
+        self.places = places
+
+        applyUpdates()
+    }
+    private func applyUpdates() {
+
+        if (displayFlag == .all) {
+            placesAdapter.update(places: places)
+        }
+        else if (displayFlag == .onlyLiked) {
+            placesAdapter.update(places: likes.onlyLiked(places))
+        }
+    }
+}
+
+//MARK: UISegmentedControl
+extension SearchController {
     @objc private func updateSegment() {
 
-        switch SegmentControl.selectedSegmentIndex {
+        switch placeTypeSegment.selectedSegmentIndex {
+            case 0:
+                displayFlag = .all
             case 1:
-                let liked = _likesService.all()
-                _tableAdapter.update(places: _stored.where({ liked.contains($0.ID) }))
-
+                displayFlag = .onlyLiked
             default:
-                return _tableAdapter.update(places: _stored)
+                return
         }
+
+        applyUpdates()
     }
 }
 
@@ -113,8 +143,10 @@ extension SearchController: LikesServiceDelegate {
 
     public func change(placeId: Long, isLiked: Bool) {
         DispatchQueue.main.async {
-            //Analog of update all
-            self.updateSegment()
+
+            if (self.displayFlag == .onlyLiked) {
+                self.applyUpdates()
+            }
         }
     }
 }

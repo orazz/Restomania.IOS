@@ -20,13 +20,12 @@ public class ProfileController: UIViewController {
     @IBOutlet public weak var acquaintancesStatusSwitch: FMSwitch!
     private var _loader: InterfaceLoader!
     private var _fieldsStorage: UIViewController.TextFieldsStorage?
-
+    private var imagePicker: UIImagePickerController!
 
 
     //MARK: Data & services
     private let _tag = String.tag(ProfileController.self)
-    private var _keysStorage: IKeysStorage!
-    private var _authApiService: UsersAuthApiService!
+    private var _account: User? = nil
     private var _usersApiService: UsersMainApiService!
     private var _isInitUI: Bool = false
 
@@ -36,35 +35,12 @@ public class ProfileController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        let factory = ServicesFactory.shared
-        _keysStorage = factory.keys
-        _authApiService = ApiServices.Users.auth
         _usersApiService = ApiServices.Users.main
-    }
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
-        self.view.backgroundColor = ThemeSettings.Colors.background
-        self.subscribeToScrollWhenKeyboardShow()
+        setupMarkup()
+        loadData(refresh: false)
     }
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        _fieldsStorage = self.closeKeyboardWhenTapOnRootView()
-        setup()
-        loadData()
-    }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        self.unsubscribefromScrollWhenKeyboardShow()
-    }
-    private func setup() {
-
-        if (_isInitUI) {
-            return
-        }
-        _isInitUI = true
+    private func setupMarkup() {
 
         avatarImage.clipsToBounds = true
         avatarImage.layer.cornerRadius = avatarImage.frame.width / 2
@@ -72,49 +48,78 @@ public class ProfileController: UIViewController {
         avatarImage.layer.borderWidth = 3.0
 
         nameField.title = "Ваше имя"
+        nameField.onCompleteChangeEvent = changeName(_:value:)
+
         sexSegment.title = "Кто вы?"
         sexSegment.values = [
-            "Парень": UserSex.male,
-            "Девушка": UserSex.female
+            ("Девушка", UserSex.female),
+            ("Парень", UserSex.male)
         ]
+        sexSegment.onChangeEvent = changeSex(_:index:value:)
+
         ageField.title = "Сколько вам лет"
         ageField.valueType = .number
+        ageField.onCompleteChangeEvent = changeAge(_:value:)
+
         acquaintancesStatusSwitch.title = "Заинтересованы во встречах?"
+        acquaintancesStatusSwitch.onChangeEvent = changeStatus(_:value:)
+
 
         _loader = InterfaceLoader(for: self.view)
 
+        self.view.backgroundColor = ThemeSettings.Colors.background
+        self._fieldsStorage = self.closeKeyboardWhenTapOnRootView()
 
-
-        //Changes
-        nameField.onCompleteChangeEvent = changeName(_:value:)
-        sexSegment.onChangeEvent = changeSex(_:index:value:)
-        ageField.onCompleteChangeEvent = changeAge(_:value:)
-        acquaintancesStatusSwitch.onChangeEvent = changeStatus(_:value:)
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
     }
-    private func loadData() {
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
-        _loader.show()
+        self.subscribeToScrollWhenKeyboardShow()
+
+        if let _ = _account {
+            refreshData()
+        }
+    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        self.unsubscribefromScrollWhenKeyboardShow()
+    }
+
+
+
+    @objc private func refreshData() {
+        loadData(refresh: true)
+    }
+    private func loadData(refresh: Bool) {
+
+        if (!refresh) {
+            _loader.show()
+        }
 
         let request = _usersApiService.find()
         request.async(.background, completion: { response in
 
             DispatchQueue.main.async {
 
-                self._loader.hide()
-
                 if (response.isFail) {
-
-                    let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: false, completion: nil)
+                    self.present(ProblemAlerts.NotConnection, animated: false, completion: nil)
                 }
-                else {
 
-                    let account = response.data!
-                    self.apply(account: account)
-                }
+                self._account = response.data
+                self.completeLoad()
             }
         })
+    }
+    private func completeLoad() {
+
+        self._loader.hide()
+
+        if let account = _account {
+            apply(account: account)
+        }
     }
     private func apply(account: User) {
 
@@ -157,13 +162,67 @@ public class ProfileController: UIViewController {
 
         let request = _usersApiService.change(updates: [update])
         request.async(.background, completion: { response in
+            DispatchQueue.main.async {
+                if (response.isFail) {
 
-            if (response.isFail) {
+                    Log.Warning(self._tag, "Problem with update profile. Try update 'User.\(update.property)' on '\(update.update)'")
 
-                Log.Warning(self._tag, "Problem with update profile. Try update 'User.\(update.property)' on '\(update.update)'")
+                    self.present(ProblemAlerts.NotConnection, animated: true, completion: nil)
+                }
             }
         })
     }
+    private func changeAvatar(by image: UIImage) {
+
+
+        if  let normalized = image.normalizeOrientation(),
+            let dataUrl = DataUrl.convert(normalized) {
+
+            let request = _usersApiService.changeAvatar(dataUrl: dataUrl)
+            request.async(.background, completion: { response in
+                DispatchQueue.main.async {
+                    if (response.isFail) {
+
+                        Log.Warning(self._tag, "Problem with chage avatar.")
+
+                        self.present(ProblemAlerts.Error(for: response.statusCode), animated: true, completion: nil)
+                    }
+                }
+            })
+        }
+    }
+}
+//MARK: Actions
+extension ProfileController {
+
+    @IBAction private func changeAvatar() {
+
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+
+        self.present(imagePicker, animated: true, completion: nil)
+    }
 }
 
+extension ProfileController: UIImagePickerControllerDelegate {
+
+
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            avatarImage.contentMode = .scaleAspectFill
+            avatarImage.image = pickedImage
+
+            changeAvatar(by: pickedImage)
+        }
+
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+extension ProfileController: UINavigationControllerDelegate {
+
+}
 

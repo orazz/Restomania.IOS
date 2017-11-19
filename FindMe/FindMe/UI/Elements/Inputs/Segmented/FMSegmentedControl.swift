@@ -43,16 +43,16 @@ public class FMSegmentedControl: UIView {
             titleLabel.text = newValue
         }
     }
-    public var values: [String: Any]! {
+    public var values: [(title: String, value: Any)]! {
         didSet {
-            updateSegments(range: values)
+            updateSegments()
         }
     }
     public var value: Any {
 
         let index = segmentedControl.selectedSegmentIndex
-        let title = segmentedControl.titleForSegment(at: index)!
-        return values[title]!
+
+        return values[index].value
     }
 
 
@@ -81,15 +81,17 @@ public class FMSegmentedControl: UIView {
 
         segmentedControl.addTarget(self, action: #selector(changeValue), for: .valueChanged)
     }
-    private func updateSegments(range: [String: Any?]) {
+    private func updateSegments() {
 
         segmentedControl.removeAllSegments()
 
-        for (key, _) in range.reversed() {
-            segmentedControl.insertSegment(withTitle: key, at: 0, animated: false)
+        var position = 0
+        for (key, _) in values {
+            segmentedControl.insertSegment(withTitle: key, at: position, animated: false)
+            position += 1
         }
 
-        if (range.count > 0) {
+        if (!values.isEmpty) {
             segmentedControl.selectedSegmentIndex = 0
         }
     }
@@ -100,7 +102,7 @@ public class FMSegmentedControl: UIView {
     public func select(_ newValue: Any) {
 
         var index = 0
-        for (_, value) in values.reversed() {
+        for (_, value) in values {
             if ((value as AnyObject).isEqual(newValue)) {
 
                 segmentedControl.selectedSegmentIndex = index

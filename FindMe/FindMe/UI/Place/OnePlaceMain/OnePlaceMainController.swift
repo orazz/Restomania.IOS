@@ -21,88 +21,103 @@ public class OnePlaceMainController: UIViewController {
 
         let instance = OnePlaceMainController(nibName: nibName, bundle: Bundle.main)
 
-        instance._placeId = placeId
-        instance._cache = ServicesFactory.shared.places
-        instance._likes = ServicesFactory.shared.likes
+        instance.placeId = placeId
+        instance.cache = ServicesFactory.shared.places
+        instance.likes = ServicesFactory.shared.likes
 
         return instance
     }
 
 
     //MARK: UIElements
-    @IBOutlet weak var ContentView: UITableView!
-    @IBOutlet weak var LikeButton: UIBarButtonItem!
-    private var _loader: InterfaceLoader!
+    @IBOutlet weak var contentTable: UITableView!
+    private var contentAdapter: InterfaceTable!
+    @IBOutlet weak var likeButton: UIBarButtonItem!
+    private var loader: InterfaceLoader!
+    private var refreshControl: UIRefreshControl!
 
     //MARK: Data
-    private var _placeId: Long!
-    private var _cache: PlacesCacheservice!
-    private var _likes: LikesService!
-    private var _source: Place? = nil
-    private var _interfaceAdapter: InterfaceTable!
+    private var placeId: Long!
+    private var place: Place? = nil
+    private var cache: PlacesCacheservice!
+    private var likes: LikesService!
 
 
     //View controller circle
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _loader = InterfaceLoader(for: self.view)
-        _interfaceAdapter = InterfaceTable(source: ContentView, navigator: self.navigationController!)
+        loader = InterfaceLoader(for: self.view)
+
+        refreshControl = UIRefreshControl()
+        refreshControl.backgroundColor = ThemeSettings.Colors.background
+        refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        contentTable.addSubview(refreshControl)
 
         setupLikeButton()
+
+        contentAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!)
         buildRows()
-        loadData()
+
+        loadData(manual: false)
     }
     private func setupLikeButton() {
 
         var image = ThemeSettings.Images.heartInactive
-        if (_likes.isLiked(place: _placeId)){
+        if (likes.isLiked(place: placeId)){
 
             image = ThemeSettings.Images.heartActive
         }
 
-        LikeButton.image = image.withRenderingMode(.alwaysOriginal)
+        likeButton.image = image.withRenderingMode(.alwaysOriginal)
     }
     private func buildRows() {
 
-        _interfaceAdapter.add(OnePlaceMainTitleCell.instance)
-        _interfaceAdapter.add(OnePlaceMainSliderCell.instance)
-        _interfaceAdapter.add(OnePlaceMainAddressCell.instance)
-        _interfaceAdapter.add(OnePlaceMainStatisticCell.instance)
+        contentAdapter.add(OnePlaceMainTitleCell.instance)
+        contentAdapter.add(OnePlaceMainSliderCell.instance)
+        contentAdapter.add(OnePlaceMainAddressCell.instance)
+        contentAdapter.add(OnePlaceMainStatisticCell.create(with: self.navigationController!))
 
         let description = OnePlaceMainDescriptionCell.instance
-        _interfaceAdapter.add(description)
-        _interfaceAdapter.add(OnePlaceMainDividerCell.instance(for: description))
+        contentAdapter.add(description)
+        contentAdapter.add(OnePlaceMainDividerCell.instance(for: description))
 
 //        let actions = OnePlaceMainContactsCell.instance
 //        _interfaceAdapter.add(actions)
 //        _interfaceAdapter.add(OnePlaceMainDividerCell.instance(for: actions))
 
         let contacts = OnePlaceMainContactsCell.instance
-        _interfaceAdapter.add(contacts)
-        _interfaceAdapter.add(OnePlaceMainDividerCell.instance(for: contacts))
+        contentAdapter.add(contacts)
+        contentAdapter.add(OnePlaceMainDividerCell.instance(for: contacts))
 
-        _interfaceAdapter.add(OnePlaceMainLocationCell.instance)
-
-        _interfaceAdapter.add(OnePlaceMainSpaceCell.instance)
+        contentAdapter.add(OnePlaceMainLocationCell.instance)
+        contentAdapter.add(OnePlaceMainSpaceCell.instance)
     }
-    private func loadData() {
 
-        if let place = _cache.findLocal(id: _placeId){
-            _source = place
-            update(by: place)
+    @objc private func refreshData() {
+        loadData(manual: true)
+    }
+    private func loadData(manual: Bool) {
+
+        if  !manual, let place = cache.findLocal(id: placeId) {
+
+            completeLoad(place)
+            return
         }
-        else {
-            _loader.show()
+
+        if (isNeedLoad) {
+            loader.show()
         }
 
-
-        let task = _cache.findRemote(id: _placeId)
+        let task = cache.findRemote(id: placeId)
         task.async(.background, completion: { response in
             DispatchQueue.main.async {
 
-                guard let place = response else {
-
+                if let place = response {
+                    self.completeLoad(place)
+                }
+                else if (!manual) {
                     self.goBack()
 
                     let alert = UIAlertController(title: "Ошибка", message: "Проблемы с получение данных заведения. Проверьте подключение к интернету и попробуйте позже.", preferredStyle: .alert)
@@ -112,23 +127,31 @@ public class OnePlaceMainController: UIViewController {
                     return
                 }
 
-
-                self._source = place
-                self.update(by: place)
-
-                self._loader.hide()
             }
         })
     }
-    private func update(by place: Place) {
+    private func completeLoad(_ place: Place) {
 
-        for it in _interfaceAdapter.rows {
+        self.place = place
+
+        for it in contentAdapter.rows {
             if let cell = it as? OnePlaceMainCellProtocol {
                 cell.update(by: place)
             }
         }
 
-        _interfaceAdapter.reload()
+        contentAdapter.reload()
+
+        if (refreshControl.isEnabled) {
+            refreshControl.endRefreshing()
+        }
+
+        if (!isNeedLoad) {
+            loader.hide()
+        }
+    }
+    private var isNeedLoad: Bool {
+        return nil == place
     }
 
 
@@ -139,11 +162,11 @@ public class OnePlaceMainController: UIViewController {
     }
     @IBAction public func likePlace() {
 
-        if (_likes.isLiked(place: _placeId)){
-            _likes.unlike(place: _placeId)
+        if (likes.isLiked(place: placeId)){
+            likes.unlike(place: placeId)
         }
         else {
-            _likes.like(place: _placeId)
+            likes.like(place: placeId)
         }
 
         setupLikeButton()

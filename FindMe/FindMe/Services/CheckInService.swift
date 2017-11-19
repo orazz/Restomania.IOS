@@ -13,9 +13,9 @@ import AsyncTask
 
 public class CheckInService: NSObject, PositionServiceDelegate {
 
-    private let _checkinTolerance = 300.0
+    private let _checkinTolerance = 200.0
     private let _foregroundDelay = 10.0
-    private let _backgroundDelay = 30.0
+    private let _backgroundDelay = 60.0
 
     private let _tag = String.tag(CheckInService.self)
     private let _guid = Guid.new

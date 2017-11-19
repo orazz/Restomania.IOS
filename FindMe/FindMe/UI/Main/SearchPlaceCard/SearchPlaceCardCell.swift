@@ -30,6 +30,7 @@ public class SearchPlaceCardCell: UITableViewCell {
     @IBOutlet public weak var PlacePeopleCountLabel: FMSubstringLabel!
     @IBOutlet public weak var DistanceToPlaceImage: UIImageView!
     @IBOutlet public weak var DistanceToPlaceLabel: FMSubstringLabel!
+    @IBOutlet public weak var LikeImageWrapper: UIView!
     @IBOutlet public weak var LikeImage: UIImageView!
 
     
@@ -63,7 +64,7 @@ public class SearchPlaceCardCell: UITableViewCell {
 
 
 
-    public func setup(card: SearchPlaceCard, delegate: PlacesListDelegate) {
+    public func update(card: SearchPlaceCard, delegate: PlacesListDelegate) {
 
         setupMarkup()
 
@@ -90,7 +91,7 @@ public class SearchPlaceCardCell: UITableViewCell {
         PlaceImage.useAnimation = false
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnLike))
-        LikeImage.addGestureRecognizer(tap)
+        LikeImageWrapper.addGestureRecognizer(tap)
     }
     private func setupDistance() {
 

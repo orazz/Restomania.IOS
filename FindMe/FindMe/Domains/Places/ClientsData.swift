@@ -17,10 +17,15 @@ public class ClientsData: BaseDataType, IPlaceDependent, ICopying {
         public static let placeId = "PlaceID"
         
         public static let people = "People"
-        public static let men = "Men"
-        public static let women = "Women"
+        public static let males = "Males"
+        public static let females = "Females"
         
         public static let averageAge = "AverageAge"
+        public static let malesForAcquaintance = "MalesForAcquaintance"
+        public static let femalesForAcquaintance = "FemalesForAcquaintance"
+
+        public static let men = "Men"
+        public static let women = "Women"
         public static let menForAcquaintance = "MenForAcquaintance"
         public static let womenForAcquaintance = "WomenForAcquaintance"
     }
@@ -29,22 +34,22 @@ public class ClientsData: BaseDataType, IPlaceDependent, ICopying {
     public var placeId: Long
     
     public var people: Long
-    public var men: Long
-    public var women: Long
+    public var males: Long
+    public var females: Long
     public var averageAge: Double
-    public var menForAcquaintance: Int
-    public var womenForAcquaintance: Int
+    public var malesForAcquaintance: Int
+    public var femalesForAcquaintance: Int
     
     public override init() {
         
         self.placeId = 0
         
         self.people = 0
-        self.men = 0
-        self.women = 0
+        self.males = 0
+        self.females = 0
         self.averageAge = 0
-        self.menForAcquaintance = 0
-        self.womenForAcquaintance = 0
+        self.malesForAcquaintance = 0
+        self.femalesForAcquaintance = 0
         
         super.init()
     }
@@ -55,11 +60,11 @@ public class ClientsData: BaseDataType, IPlaceDependent, ICopying {
         self.placeId = source.placeId
         
         self.people = source.people
-        self.men = source.men
-        self.women = source.women
+        self.males = source.males
+        self.females = source.females
         self.averageAge = source.averageAge
-        self.menForAcquaintance = source.menForAcquaintance
-        self.womenForAcquaintance = source.womenForAcquaintance
+        self.malesForAcquaintance = source.malesForAcquaintance
+        self.femalesForAcquaintance = source.femalesForAcquaintance
         
         super.init(source: source)
     }
@@ -70,11 +75,13 @@ public class ClientsData: BaseDataType, IPlaceDependent, ICopying {
         self.placeId = (Keys.placeId <~~ json)!
         
         self.people = (Keys.people <~~ json)!
-        self.men = (Keys.men <~~ json)!
-        self.women = (Keys.women <~~ json)!
         self.averageAge = (Keys.averageAge <~~ json)!
-        self.menForAcquaintance = (Keys.menForAcquaintance <~~ json)!
-        self.womenForAcquaintance = (Keys.womenForAcquaintance <~~ json)!
+
+        //Migration
+        self.males = (Keys.males <~~ json) ?? (Keys.men <~~ json)!
+        self.females = (Keys.females <~~ json) ?? (Keys.women <~~ json)!
+        self.malesForAcquaintance = (Keys.malesForAcquaintance <~~ json) ?? (Keys.menForAcquaintance <~~ json)!
+        self.femalesForAcquaintance = (Keys.femalesForAcquaintance <~~ json) ?? (Keys.womenForAcquaintance <~~ json)!
         
         super.init(json: json)
     }
@@ -83,12 +90,12 @@ public class ClientsData: BaseDataType, IPlaceDependent, ICopying {
             Keys.placeId ~~> self.placeId,
 
             Keys.people ~~> self.people,
-            Keys.men ~~> self.men,
-            Keys.women ~~> self.women,
+            Keys.males ~~> self.males,
+            Keys.females ~~> self.females,
 
             Keys.averageAge ~~> self.averageAge,
-            Keys.menForAcquaintance ~~> self.menForAcquaintance,
-            Keys.womenForAcquaintance ~~> self.womenForAcquaintance,
+            Keys.malesForAcquaintance ~~> self.malesForAcquaintance,
+            Keys.femalesForAcquaintance ~~> self.femalesForAcquaintance,
 
             super.toJSON()
             ])

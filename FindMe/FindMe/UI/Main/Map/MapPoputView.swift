@@ -116,7 +116,7 @@ extension MapPopupView: UITableViewDataSource {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCardCell.identifier, for: indexPath) as! SearchPlaceCardCell
 
-        cell.setup(card: _card!, delegate: _delegate)
+        cell.update(card: _card!, delegate: _delegate)
 
         return cell
     }

@@ -104,7 +104,7 @@ public class PlaceMenuController: UIViewController {
         _refreshControl = UIRefreshControl()
         _refreshControl.backgroundColor = ThemeSettings.Colors.background
         _refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
-        _refreshControl.addTarget(self, action: #selector(needReload), for: .valueChanged)
+        _refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         contentTable.addSubview(_refreshControl)
 
         _contentRows = loadRows()

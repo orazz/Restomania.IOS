@@ -48,15 +48,14 @@ public class OnePlaceMainDescriptionCell: UITableViewCell {
         }
 
         let labelHeight = _description!.height(containerWidth: DescriptionLabel.frame.width, font: DescriptionLabel.font)
-        DescriptionLabel.setContraint(height: labelHeight)
+//        DescriptionLabel.setContraint(height: labelHeight)
 
         var contentHeight = CGFloat(0)
         contentHeight = contentHeight + TitleLabel.getParentConstant(.top)! + TitleLabel.frame.height
-        contentHeight = contentHeight +  DescriptionLabel.getParentConstant(.top)! + DescriptionLabel.getConstant(.height)! + CGFloat(5)//bottom offset
+        contentHeight = contentHeight +  DescriptionLabel.getParentConstant(.top)! + CGFloat(10)//bottom offset
 
-        ContentView.setContraint(height: contentHeight)
+        ContentView.setContraint(height: contentHeight + labelHeight)
     }
-    
 }
 extension OnePlaceMainDescriptionCell: OnePlaceShowDividerDelegate {
 

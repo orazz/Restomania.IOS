@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="leR-fo-Dhm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="leR-fo-Dhm">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -169,18 +169,22 @@
                                     <constraint firstAttribute="width" constant="240" id="gSB-vs-O8l"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jHj-42-EJ0" customClass="ImageWrapper" customModule="FindMe" customModuleProvider="target">
-                                <rect key="frame" x="120" y="60" width="80" height="80"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jHj-42-EJ0" customClass="ImageWrapper" customModule="FindMe" customModuleProvider="target">
+                                <rect key="frame" x="110" y="40" width="100" height="100"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Spw-nd-TMK"/>
-                                    <constraint firstAttribute="height" constant="80" id="VG4-wc-GbF"/>
+                                    <constraint firstAttribute="width" constant="100" id="Spw-nd-TMK"/>
+                                    <constraint firstAttribute="height" constant="100" id="VG4-wc-GbF"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="onn-B0-oKn" appends="YES" id="WCz-kM-R7X"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.4504916312407985" green="0.68661222934238375" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jHj-42-EJ0" firstAttribute="centerX" secondItem="FAQ-aB-QSl" secondAttribute="centerX" id="K2b-1C-6ue"/>
-                            <constraint firstItem="jHj-42-EJ0" firstAttribute="top" secondItem="lUS-4b-YnU" secondAttribute="bottom" constant="40" id="L2i-1f-VTJ"/>
+                            <constraint firstItem="jHj-42-EJ0" firstAttribute="top" secondItem="lUS-4b-YnU" secondAttribute="bottom" constant="20" id="L2i-1f-VTJ"/>
                             <constraint firstItem="W8g-Dx-WKE" firstAttribute="top" secondItem="OkJ-yZ-Hpa" secondAttribute="bottom" constant="30" id="XW4-JF-KY4"/>
                             <constraint firstItem="OkJ-yZ-Hpa" firstAttribute="top" secondItem="SqP-0t-KTP" secondAttribute="bottom" constant="30" id="c1i-Zj-VhE"/>
                             <constraint firstItem="W8g-Dx-WKE" firstAttribute="centerX" secondItem="FAQ-aB-QSl" secondAttribute="centerX" id="cCh-l0-feb"/>
@@ -201,6 +205,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cRc-93-t0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="onn-B0-oKn" userLabel="editAvatar">
+                    <connections>
+                        <action selector="changeAvatar" destination="WGY-Wt-2al" id="bPm-NN-pQn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1113" y="1773"/>
         </scene>
@@ -251,9 +260,9 @@
                     </tabBarItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="Searchbar" destination="JVn-iB-JnE" id="ZjD-wg-x5c"/>
-                        <outlet property="SegmentControl" destination="KLF-2c-qBp" id="nRr-dQ-iDW"/>
-                        <outlet property="TableView" destination="JZA-87-iof" id="ruW-y4-GAU"/>
+                        <outlet property="placeTypeSegment" destination="KLF-2c-qBp" id="nRr-dQ-iDW"/>
+                        <outlet property="placesTable" destination="JZA-87-iof" id="ruW-y4-GAU"/>
+                        <outlet property="searchbar" destination="JVn-iB-JnE" id="ZjD-wg-x5c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ueb-RB-c6q" userLabel="First Responder" sceneMemberID="firstResponder"/>

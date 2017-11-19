@@ -16,7 +16,7 @@ public enum LogMessageType {
 }
 public class LogMessage: CustomStringConvertible {
     public let Time: Date
-    public let `Type`:LogMessageType
+    public let type:LogMessageType
     public let Tag: String
     public let Message: String
 
@@ -30,14 +30,14 @@ public class LogMessage: CustomStringConvertible {
 
     public var description: String {
         let time = LogMessage._formatter.string(from: Time)
-        let type = "\(Type)".characters.first!
+        let stringType = "\(type)"
 
-        return "[\(time)] [\(type)] <\(Tag)> \(Message)"
+        return "[\(time)] [\(Array(stringType).first!)] <\(Tag)> \(Message)"
     }
 
     public init(_ time: Date, _ type: LogMessageType, _ tag: String, _ message: String) {
         Time = time
-        Type = type
+        self.type = type
         Tag = tag
         Message = message
     }
