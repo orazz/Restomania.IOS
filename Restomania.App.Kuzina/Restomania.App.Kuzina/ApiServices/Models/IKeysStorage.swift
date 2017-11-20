@@ -10,7 +10,7 @@ import Foundation
 
 public protocol IKeysStorage {
 
-    func isAuth(for rights: AccessRights) -> Bool
-    func keys(for: AccessRights) -> AccessKeys?
-    func logout(for: AccessRights)
+    func isAuth(for rights: ApiRole) -> Bool
+    func keys(for: ApiRole) -> ApiKeys?
+    func logout(for: ApiRole)
 }

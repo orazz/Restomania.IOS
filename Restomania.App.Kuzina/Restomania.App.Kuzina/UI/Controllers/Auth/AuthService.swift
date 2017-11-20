@@ -25,13 +25,13 @@ public class AuthService {
     private var _navigator: UINavigationController
     private var _root: UIViewController
 
-    private var _rights: AccessRights!
+    private var _rights: ApiRole!
     private var _currentPage: AuthPage!
 
     private var _storage: IKeysStorage!
     private var _complete: ((Bool) -> Void)?
 
-    public init(open firstPage: AuthPage, with navigator: UINavigationController, rights: AccessRights) {
+    public init(open firstPage: AuthPage, with navigator: UINavigationController, rights: ApiRole) {
 
         _login = LoginController(nibName: LoginController.nibName, bundle: Bundle.main)
         _signup = SignupController(nibName: SignupController.nibName, bundle: Bundle.main)
@@ -44,7 +44,7 @@ public class AuthService {
         _rights = rights
         _currentPage = firstPage
 
-        _storage = ServicesManager.shared.keysStorage
+        _storage = ServicesManager.shared.keys
 
         for controller in _controllers {
             controller.root = self

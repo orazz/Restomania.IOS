@@ -9,8 +9,9 @@
 import Foundation
 
 public enum NotificationPlatformType: Int {
-    case Apple = 1
-    case Google = 2
-    case Windows = 3
-    case WindowsPhone = 4
+
+    case apple = 1
+    case google = 2
+    case windows = 3
+    case windowsPhone = 4
 }

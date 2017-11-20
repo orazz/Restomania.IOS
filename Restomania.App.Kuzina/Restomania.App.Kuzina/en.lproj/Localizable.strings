@@ -1,0 +1,14 @@
+/* 
+  Localized.strings
+  Restomania.App.Kuzina
+
+  Created by Алексей on 20.11.17.
+  Copyright © 2017 Medved-Studio. All rights reserved.
+*/
+
+"Pushes.DishOrders.Add.ForUser" = "Add new order #%@";
+"Pushes.DishOrders.ChangeStatus.ForUser" = "Order #%@ change status";
+
+"Pushes.DishOrders.IsPrepared.ForUser" = "Order #%@ is ready to delivery";
+"Pushes.DishOrders.PaymentComplete.ForUser" = "Order #%@ is paid";
+"Pushes.DishOrders.PaymentFail.ForUser" = "Problem with payment for order #@%";

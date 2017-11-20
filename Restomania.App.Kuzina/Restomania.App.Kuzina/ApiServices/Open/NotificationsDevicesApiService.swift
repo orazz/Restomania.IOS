@@ -10,17 +10,17 @@ import Foundation
 import IOSLibrary
 import AsyncTask
 
-public class OpenDevicesApiService: BaseApiService {
+public class NotificationsDevicesApiService: BaseApiService {
 
     public init() {
-        super.init(area: "Open/Devices", tag: "OpenDevicesApiService")
+        super.init(area: "Notifications/Devices", tag: String.tag(NotificationsDevicesApiService.self))
     }
 
-    public func Register(keys: AccessKeys, token: String, locale: String) -> RequestResult<Device> {
+    public func Register(keys: ApiKeys, token: String, locale: String) -> RequestResult<Device> {
         let parameters = CollectParameters([
             "keys": keys,
             "token": token,
-            "platform": NotificationPlatformType.Apple,
+            "platform": NotificationPlatformType.apple.rawValue,
             "locale": locale
             ])
 

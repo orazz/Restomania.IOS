@@ -7,7 +7,7 @@
 	<key>ClientAppType</key>
 	<string>User</string>
 	<key>PlacesIDs</key>
-	<string>[21,22,23]</string>
+	<string>[4,5,6]</string>
 	<key>ServerUrl</key>
 	<string>http://restomania-test.azurewebsites.net</string>
 </dict>

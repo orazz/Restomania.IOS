@@ -12,8 +12,8 @@ import IOSLibrary
 
 public protocol IKeysCRUDStorage: IKeysStorage {
 
-    func set(keys: AccessKeys, for rights: AccessRights)
-    func remove(for rights: AccessRights)
+    func set(keys: ApiKeys, for rights: ApiRole)
+    func remove(for rights: ApiRole)
 }
 public class KeysStorage: ILoggable {
 
@@ -66,12 +66,12 @@ public class KeysStorage: ILoggable {
 
     private class KeysContainer: Glossy {
 
-        public var keys: AccessKeys
-        public var rights: AccessRights
+        public var keys: ApiKeys
+        public var rights: ApiRole
 
         public init() {
-            self.keys = AccessKeys()
-            self.rights = .User
+            self.keys = ApiKeys()
+            self.rights = .user
         }
         public required init(json: JSON) {
             self.keys = ("keys" <~~ json)!
@@ -87,7 +87,7 @@ public class KeysStorage: ILoggable {
     }
 }
 extension KeysStorage: IKeysCRUDStorage {
-    public func set(keys: AccessKeys, for rights: AccessRights) {
+    public func set(keys: ApiKeys, for rights: ApiRole) {
 
         for container in _data {
             if (rights == container.rights) {
@@ -104,7 +104,7 @@ extension KeysStorage: IKeysCRUDStorage {
         _data.append(container)
         save()
     }
-    public func remove(for rights: AccessRights) {
+    public func remove(for rights: ApiRole) {
         for (index, container) in _data.enumerated() {
             if (rights == container.rights) {
                 _data.remove(at: index)
@@ -116,10 +116,10 @@ extension KeysStorage: IKeysCRUDStorage {
     }
 }
 extension KeysStorage: IKeysStorage {
-    public func isAuth(for rights: AccessRights) -> Bool {
+    public func isAuth(for rights: ApiRole) -> Bool {
         return nil != keys(for: rights)
     }
-    public func keys(for rights: AccessRights) -> AccessKeys? {
+    public func keys(for rights: ApiRole) -> ApiKeys? {
 
         for container in _data {
             if (rights == container.rights) {
@@ -129,7 +129,7 @@ extension KeysStorage: IKeysStorage {
 
         return nil
     }
-    public func logout(for rights: AccessRights) {
+    public func logout(for rights: ApiRole) {
 
         remove(for: rights)
     }

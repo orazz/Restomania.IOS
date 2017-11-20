@@ -13,24 +13,24 @@ import IOSLibrary
 public class Device: BaseDataType {
 
     public struct Keys {
-        public static let accountId = "AccountID"
+        public static let accountId = "AccountId"
         public static let deviceToken = "DeviceToken"
         public static let platform = "Platform"
-        public static let registrationId = "RegistrationID"
+        public static let registrationId = "RegistrationId"
         public static let locale = "Locale"
     }
 
-    public let AccountID: Int64
+    public let AccountId: Int64
     public let DeviceToken: String
     public let Platform: NotificationPlatformType
-    public let RegistrationID: String
+    public let RegistrationId: String
     public let Locale: String
 
     public override init() {
-        self.AccountID = 0
+        self.AccountId = 0
         self.DeviceToken = String.empty
-        self.Platform = .Apple
-        self.RegistrationID = String.empty
+        self.Platform = .apple
+        self.RegistrationId = String.empty
         self.Locale = "en-US"
 
         super.init()
@@ -38,10 +38,10 @@ public class Device: BaseDataType {
 
     // MARK: Glossy
     public required init(json: JSON) {
-        self.AccountID = (Keys.accountId <~~ json)!
+        self.AccountId = (Keys.accountId <~~ json)!
         self.DeviceToken = (Keys.deviceToken <~~ json)!
         self.Platform = (Keys.platform <~~ json)!
-        self.RegistrationID = (Keys.registrationId <~~ json)!
+        self.RegistrationId = (Keys.registrationId <~~ json)!
         self.Locale = (Keys.locale <~~ json)!
 
         super.init(json: json)
@@ -50,10 +50,10 @@ public class Device: BaseDataType {
         return jsonify([
             super.toJSON(),
 
-            Keys.accountId ~~> self.AccountID,
+            Keys.accountId ~~> self.AccountId,
             Keys.deviceToken ~~> self.DeviceToken,
             Keys.platform ~~> self.Platform,
-            Keys.registrationId ~~> self.RegistrationID,
+            Keys.registrationId ~~> self.RegistrationId,
             Keys.locale ~~> self.Locale
             ])
     }

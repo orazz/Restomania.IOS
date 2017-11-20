@@ -12,7 +12,7 @@ import IOSLibrary
 public class UserOrdersApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .User, area: "User/DishOrders", tag: "UserOrdersApiService")
+        super.init(storage: storage, rights: .user, area: "User/DishOrders", tag: "UserOrdersApiService")
     }
 
     public func all(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {

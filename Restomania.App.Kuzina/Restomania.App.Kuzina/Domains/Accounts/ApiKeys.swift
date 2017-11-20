@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class AccessKeys: Glossy {
+public class ApiKeys: Glossy {
 
     public struct Keys {
         public static let id = "ID"

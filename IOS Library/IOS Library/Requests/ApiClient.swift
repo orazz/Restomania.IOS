@@ -168,7 +168,7 @@ public class ApiClient {
                     }
 
                 } catch {
-                    Log.Error(self._tag, "Problem with parse response result.")
+                    Log.Error(self._tag, "Problem with parse response from \(url).")
 
                     handler(ApiResponse(statusCode: .InternalServerError))
                 }

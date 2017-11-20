@@ -25,7 +25,7 @@ public class PaymentCardsController: UIViewController,
         let vc = PaymentCardsController(nibName: nibName, bundle: Bundle.main)
 
         vc._addCardService = AddPaymentCardService()
-        vc._apiService = UserCardsApiService(storage: ServicesManager.shared.keysStorage)
+        vc._apiService = UserCardsApiService(storage: ServicesManager.shared.keys)
 
         return vc
     }
@@ -67,7 +67,7 @@ public class PaymentCardsController: UIViewController,
 
         _loader.show()
 
-        let request = _apiService.alll()
+        let request = _apiService.all()
         request.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -103,7 +103,7 @@ public class PaymentCardsController: UIViewController,
         _cards.remove(at: index!)
         TableView.reloadData()
 
-        let request = _apiService.remove(cardID: id)
+        let request = _apiService.remove(cardId: id)
         request.async(.background, completion: { response in
 
             if (!response.isSuccess) {

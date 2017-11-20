@@ -28,7 +28,7 @@ public class CachePaymentCardsService {
                 return
             }
 
-            let request = self.apiClient.alll()
+            let request = self.apiClient.all()
             request.async(.background, completion: { response in
 
                 if (response.isSuccess) {

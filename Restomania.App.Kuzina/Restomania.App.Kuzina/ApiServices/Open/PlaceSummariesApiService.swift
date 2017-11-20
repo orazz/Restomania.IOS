@@ -9,10 +9,10 @@
 import Foundation
 import IOSLibrary
 
-public class OpenPlaceSummariesApiService: BaseApiService {
+public class PlaceSummariesApiService: BaseApiService {
 
     public init() {
-        super.init(area: "Open/PlaceSummaries", tag: "OpenPlaceSummariesApiService")
+        super.init(area: "Place/Summaries", tag: String.tag(PlaceSummariesApiService.self))
     }
 
     public func Range(placeIDs: [Long]) -> RequestResult<[PlaceSummary]> {

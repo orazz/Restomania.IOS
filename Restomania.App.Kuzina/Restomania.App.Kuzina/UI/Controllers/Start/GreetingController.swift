@@ -23,8 +23,8 @@ public class GreetingController: UIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let storage = ServicesManager.shared.keysStorage
-        if let _ = storage.keys(for: .User) {
+        let storage = ServicesManager.shared.keys
+        if let _ = storage.keys(for: .user) {
 
             goToSearch()
         }
@@ -51,7 +51,7 @@ public class GreetingController: UIViewController {
         goToAuth(page: .signup)
     }
     private func goToAuth(page: AuthPage) {
-        let auth = AuthService(open: .signup, with: self.navigationController!, rights: .User)
+        let auth = AuthService(open: .signup, with: self.navigationController!, rights: .user)
         auth.show(complete: { success in
 
                 if (success) {

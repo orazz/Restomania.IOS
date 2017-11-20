@@ -21,13 +21,13 @@ public class Account: BaseDataType {
 
     public var Email: String
     public var Name: String
-    public var Rights: AccessRights
+    public var Rights: ApiRole
     public var CurrencyType: CurrencyType
 
     public override init() {
         self.Email = String.empty
         self.Name = String.empty
-        self.Rights = .User
+        self.Rights = .user
         self.CurrencyType = .RUB
 
         super.init()
@@ -37,7 +37,7 @@ public class Account: BaseDataType {
     public required init(json: JSON) {
         self.Email = (Keys.email <~~ json) ?? String.empty
         self.Name = (Keys.name <~~ json)!
-        self.Rights = (Keys.rights <~~ json) ?? .User
+        self.Rights = (Keys.rights <~~ json) ?? .user
         self.CurrencyType = (Keys.currency <~~ json)!
 
         super.init(json: json)

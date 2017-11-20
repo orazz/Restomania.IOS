@@ -21,7 +21,7 @@ public class ServicesManager: ILoggable {
         return "ServicesManager"
     }
 
-    public let keysStorage: IKeysStorage
+    public let keys: IKeysStorage
     public let placeSummariesService: CachePlaceSummariesService
     public let menuSummariesService: CacheMenuSummariesService
     public let paymentCards: CachePaymentCardsService
@@ -30,10 +30,10 @@ public class ServicesManager: ILoggable {
 
     public init() {
 
-        keysStorage = KeysStorage()
+        keys = KeysStorage()
         placeSummariesService = CachePlaceSummariesService()
         menuSummariesService = CacheMenuSummariesService()
-        paymentCards = CachePaymentCardsService(keys: keysStorage)
+        paymentCards = CachePaymentCardsService(keys: keys)
         images = CacheImagesService()
         cartsService = CartService()
     }

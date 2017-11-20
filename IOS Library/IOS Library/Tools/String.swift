@@ -23,6 +23,12 @@ extension String {
 
         return type.components(separatedBy: ".").first!
     }
+    public var localized: String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
+    }
+    public func localized(with comment: String) -> String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: comment)
+    }
 }
 
 //UI Elements

@@ -34,7 +34,7 @@ public class SignupController: BaseAuthController {
         loader.show()
 
         let container = authContainer
-        let task = client.SignUp(email: container.login, password: container.password, rights: container.rights)
+        let task = client.SignUp(email: container.login, password: container.password, role: container.role)
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -44,7 +44,7 @@ public class SignupController: BaseAuthController {
                 //Success result
                 if (response.isSuccess) {
 
-                    self.storage.set(keys: response.data!, for: container.rights)
+                    self.storage.set(keys: response.data!, for: container.role)
                     self.root!.close()
 
                     return
@@ -78,7 +78,7 @@ public class SignupController: BaseAuthController {
         loader.show()
 
         let container = authContainer
-        let task = client.Login(email: container.login, password: container.password, rights: container.rights)
+        let task = client.Login(email: container.login, password: container.password, role: container.role)
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -88,7 +88,7 @@ public class SignupController: BaseAuthController {
                 //Success result
                 if (response.isSuccess) {
 
-                    self.storage.set(keys: response.data!, for: container.rights)
+                    self.storage.set(keys: response.data!, for: container.role)
                     self.root!.close()
 
                     return
@@ -99,7 +99,7 @@ public class SignupController: BaseAuthController {
                 if (response.statusCode == .ConnectionError) {
 
                     self.showAlert(about: NSLocalizedString("No internet connection.", comment: "Network"), title: title)
-                } else if (response.statusCode == .BadRequest) {
+                } else if (response.statusCode == .Forbidden) {
 
                     self.showAlert(about: NSLocalizedString("Not valid login or password.", comment: "Auth"), title: title)
                 } else {

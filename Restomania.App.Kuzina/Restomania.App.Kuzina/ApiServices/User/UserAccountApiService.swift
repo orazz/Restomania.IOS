@@ -13,7 +13,7 @@ import AsyncTask
 public class UserAccountApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .User, area: "User/Account", tag: String.tag(UserAccountApiService.self))
+        super.init(storage: storage, rights: .user, area: "User/Account", tag: String.tag(UserAccountApiService.self))
     }
 
     // MARK: Methods

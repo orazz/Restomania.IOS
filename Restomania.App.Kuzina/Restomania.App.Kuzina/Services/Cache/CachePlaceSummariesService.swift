@@ -15,12 +15,12 @@ public class CachePlaceSummariesService {
 
     public let tag = "CachePlaceSummariesService"
 
-    private let _client: OpenPlaceSummariesApiService
+    private let _client: PlaceSummariesApiService
     private let _adapter: CacheRangeAdapter<PlaceSummary>
 
     public init() {
 
-        _client = OpenPlaceSummariesApiService()
+        _client = PlaceSummariesApiService()
         _adapter = CacheRangeAdapter<PlaceSummary>(tag: tag, filename: "places-summaries.json", livetime: 24 * 60 * 60)
 
         Log.Info(tag, "Complete load service.")

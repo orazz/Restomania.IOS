@@ -42,7 +42,7 @@ public class PlaceMenuController: UIViewController {
         vc._menuService = factory.menuSummariesService
         vc._placesService = factory.placeSummariesService
         vc._cart = factory.cartsService.get(for: placeId)
-        vc._keysService = factory.keysStorage
+        vc._keysService = factory.keys
 
         return vc
     }
@@ -97,14 +97,14 @@ public class PlaceMenuController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _authService = AuthService(open: .login, with: self.navigationController!, rights: .User)
+        _authService = AuthService(open: .login, with: self.navigationController!, rights: .user)
 
         _loader = InterfaceLoader(for: self.view)
 
         _refreshControl = UIRefreshControl()
         _refreshControl.backgroundColor = ThemeSettings.Colors.background
         _refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
-        _refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        _refreshControl.addTarget(self, action: #selector(needReload), for: .valueChanged)
         contentTable.addSubview(_refreshControl)
 
         _contentRows = loadRows()
@@ -327,7 +327,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
 
     public func goToCart() {
 
-        if (_keysService.isAuth(for: .User)) {
+        if (_keysService.isAuth(for: .user)) {
             openCartPage()
         } else {
              _authService.show(complete: { success in

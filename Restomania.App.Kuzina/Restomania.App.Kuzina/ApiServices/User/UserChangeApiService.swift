@@ -13,7 +13,7 @@ import IOSLibrary
 public class UserChangeApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .User, area: "User/Change", tag: String.tag(UserChangeApiService.self))
+        super.init(storage: storage, rights: .user, area: "User/Change", tag: String.tag(UserChangeApiService.self))
     }
 
 }

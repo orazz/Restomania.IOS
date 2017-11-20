@@ -27,24 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ThemeSettings.applyStyles()
         ServicesManager.initialize()
 
-        _pushManager = PushNotificationsManager.current
-
-//       _pushManager = PushNotificationsManager()
-//       _pushManager.requestPushNotifications()
-
-//        application.setMinimumBackgroundFetchInterval(_minimalUpdateInterval)
+        PushNotificationsManager.shared.requestPermissions()
+        RefreshManager.shared.checkApiKeys()
 
         return true
     }
 
     //Push notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-
-        //_pushManager.completeRequestToPushNotifications(token: deviceToken)
+        PushNotificationsManager.shared.completeRequestToPushNotifications(token: deviceToken)
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-
-        //_pushManager.completeRequestToPushNotifications(token: nil, error: error)
+        PushNotificationsManager.shared.completeRequestToPushNotifications(token: nil, error: error)
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 

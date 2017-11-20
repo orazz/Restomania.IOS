@@ -12,9 +12,9 @@ import Gloss
 
 public class BaseAuthApiService: BaseApiService {
     private let _keyStorage: IKeysStorage
-    private let _rights: AccessRights
+    private let _rights: ApiRole
 
-    public init(storage: IKeysStorage, rights: AccessRights, area: String, tag: String) {
+    public init(storage: IKeysStorage, rights: ApiRole, area: String, tag: String) {
         self._keyStorage = storage
         self._rights = rights
 

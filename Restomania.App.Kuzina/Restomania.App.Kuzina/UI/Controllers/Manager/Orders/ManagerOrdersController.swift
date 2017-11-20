@@ -20,7 +20,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
 
         let vc = ManagerOrdersController(nibName: nibName, bundle: Bundle.main)
 
-        vc._apiService = UserOrdersApiService(storage: ServicesManager.shared.keysStorage)
+        vc._apiService = UserOrdersApiService(storage: ServicesManager.shared.keys)
 
         return vc
     }

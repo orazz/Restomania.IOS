@@ -76,7 +76,7 @@ public class WrappedImage: UIImageView {
         if let suffix = suffix {
 
             let lastDotRange = url.range(of: ".", options: .backwards, range: nil, locale: nil)
-            return url.replacingCharacters(in: lastDotRange!, with: "_\(suffix).")
+            return url.replacingCharacters(in: lastDotRange!, with: "-\(suffix).")
         } else {
 
             return url
@@ -85,25 +85,27 @@ public class WrappedImage: UIImageView {
     private func buildSuffix(size: CGFloat) -> String? {
 
         if (size <= ImageSize.ExtraExtraSmall.rawValue) {
-
             return "xss"
+
         } else if (size <= ImageSize.ExtraSmall.rawValue) {
-
             return "xs"
+
         } else if (size <= ImageSize.Small.rawValue) {
-
             return "s"
+
         } else if (size <= ImageSize.Middle.rawValue) {
-
             return "m"
+
         } else if (size <= ImageSize.Large.rawValue) {
-
             return "l"
+
         } else if (size <= ImageSize.ExtraLarge.rawValue) {
-
             return "xl"
-        } else {
 
+        } else if (size <= ImageSize.Full.rawValue) {
+            return "xxl"
+
+        } else {
             return nil
         }
     }

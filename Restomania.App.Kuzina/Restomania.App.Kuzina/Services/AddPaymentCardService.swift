@@ -35,7 +35,7 @@ public class AddPaymentCardService: NSObject, UIWebViewDelegate {
         _loader = InterfaceLoader(for: _controller.view)
 
         //Service
-        let keys = ServicesManager.shared.keysStorage
+        let keys = ServicesManager.shared.keys
         _cardsService = UserCardsApiService(storage: keys)
 
         super.init()
@@ -72,9 +72,9 @@ public class AddPaymentCardService: NSObject, UIWebViewDelegate {
                 return
             }
 
-            let summary = response.data!
-            self._cardId = summary.CardID
-            let link = summary.Summary.PaymentLink
+            let addingCard = response.data!
+            self._cardId = addingCard.ID
+            let link = addingCard.link
 
             DispatchQueue.main.async {
 

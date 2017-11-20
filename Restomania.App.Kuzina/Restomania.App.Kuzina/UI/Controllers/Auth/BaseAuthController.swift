@@ -12,13 +12,13 @@ import IOSLibrary
 public class BaseAuthController: UIViewController {
 
     internal var root: AuthService!
-    internal var client: OpenAccountsApiService!
+    internal var client: AuthMainApiService!
     internal var storage: IKeysCRUDStorage!
     internal var loader: InterfaceLoader!
 
     private var login = String.empty
     private var password = String.empty
-    private var rights = AccessRights.User
+    private var rights = ApiRole.user
 
     @IBOutlet weak var Navbar: UINavigationBar!
 
@@ -41,15 +41,15 @@ public class BaseAuthController: UIViewController {
 
             login = update.login
             password = update.password
-            rights = update.rights
+            rights = update.role
         }
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        client = OpenAccountsApiService()
-        storage = ServicesManager.shared.keysStorage as! IKeysCRUDStorage
+        client = AuthMainApiService()
+        storage = ServicesManager.shared.keys as! IKeysCRUDStorage
         loader = InterfaceLoader(for: self.view)
 
         LoginTextField?.addTarget(self, action: #selector(updateLogin), for: .editingChanged)

@@ -44,7 +44,7 @@ public class PlaceCartController: UIViewController {
         instance.menusService = ServicesManager.shared.menuSummariesService
         instance.cardsService = ServicesManager.shared.paymentCards
         instance.addPaymentCardsService = AddPaymentCardService()
-        instance.keysService = ServicesManager.shared.keysStorage
+        instance.keysService = ServicesManager.shared.keys
         instance.ordersApiService = UserOrdersApiService(storage:instance.keysService)
 
         return instance
@@ -172,7 +172,7 @@ extension PlaceCartController {
 
     private func reloadData() {
 
-        if (keysService.isAuth(for: .User)) {
+        if (keysService.isAuth(for: .user)) {
 
             isCompleteLoadMenu = false
             isCompleteLoadSummary = false

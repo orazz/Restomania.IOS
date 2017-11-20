@@ -13,14 +13,12 @@ import AsyncTask
 public class UserCardsApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .User, area: "User/Cards", tag: String.tag(UserCardsApiService.self))
+        super.init(storage: storage, rights: .user, area: "User/Cards", tag: String.tag(UserCardsApiService.self))
     }
 
     // MARK: Methods
-    public func alll(args: GetArgs? = nil) -> RequestResult<[PaymentCard]> {
-        let parameters = CollectParameters([
-                "time": args?.time
-            ])
+    public func all(args: GetArgs? = nil) -> RequestResult<[PaymentCard]> {
+        let parameters = CollectParameters()
 
         return _client.GetRange(action: "All", type: PaymentCard.self, parameters: parameters)
     }
@@ -40,9 +38,9 @@ public class UserCardsApiService: BaseAuthApiService {
 
         return _client.Post(action: "Add", type: AddingCard.self, parameters: parameters)
     }
-    public func remove(cardID: Int64) -> RequestResult<Bool> {
+    public func remove(cardId: Long) -> RequestResult<Bool> {
         let parameters = CollectParameters([
-                "elementID": cardID
+                "cardId": cardId
             ])
 
         return _client.DeleteBool(action: "Remove", parameters: parameters)

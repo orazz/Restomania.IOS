@@ -23,14 +23,14 @@ public class ManagerController: UIViewController {
     //Properties
     private var _isAuth: Bool {
 
-        return nil != _keysStorage.keys(for: .User)
+        return nil != _keysStorage.keys(for: .user)
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _authService = AuthService(open: .signup, with: self.navigationController!, rights: .User)
-        _keysStorage = ServicesManager.shared.keysStorage
+        _authService = AuthService(open: .signup, with: self.navigationController!, rights: .user)
+        _keysStorage = ServicesManager.shared.keys
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -53,7 +53,7 @@ public class ManagerController: UIViewController {
 
     @IBAction public func Logout() {
 
-        _keysStorage.logout(for: .User)
+        _keysStorage.logout(for: .user)
         LogoutButton.isHidden = true
     }
 

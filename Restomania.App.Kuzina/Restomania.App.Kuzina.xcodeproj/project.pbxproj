@@ -47,7 +47,7 @@
 		1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F36C88A1F20C1F900232B9A /* Configs.plist */; };
 		1F36C88E1F20C4DA00232B9A /* ShortSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88D1F20C4DA00232B9A /* ShortSchedule.swift */; };
 		1F36C8901F20C5E000232B9A /* PlaceSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88F1F20C5E000232B9A /* PlaceSummary.swift */; };
-		1F36C8931F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8921F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift */; };
+		1F36C8931F20CCBF00232B9A /* PlaceSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8921F20CCBF00232B9A /* PlaceSummariesApiService.swift */; };
 		1F3C5A0C1FB15D940038EB97 /* BottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */; };
 		1F5CF82F1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */; };
 		1F5CF8331FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */; };
@@ -91,6 +91,7 @@
 		1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */; };
 		1F68AF6D1F285ABB000614C9 /* MenuSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */; };
 		1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */; };
+		1FAA9F741FC2466F00BB105D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FAA9F761FC2466F00BB105D /* Localizable.strings */; };
 		1FB6B92B1FAE19A400CD0B17 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */; };
 		1FB6B92C1FAE19A400CD0B17 /* AppSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */; };
 		1FB6B92D1FAE19A400CD0B17 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */; };
@@ -129,15 +130,13 @@
 		1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0091F1DF7090090045E /* FixedDiscount.swift */; };
 		1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00B1F1DF7500090045E /* RegularCustomerDiscount.swift */; };
 		1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00D1F1DFABF0090045E /* Loyalty.swift */; };
-		1FB8F0101F1E03470090045E /* OpenAccountsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00F1F1E03470090045E /* OpenAccountsApiService.swift */; };
-		1FB8F0121F1E0B520090045E /* OpenPlacesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0111F1E0B520090045E /* OpenPlacesApiService.swift */; };
-		1FB8F0141F1E12AE0090045E /* OpenReviewsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0131F1E12AE0090045E /* OpenReviewsApiService.swift */; };
+		1FB8F0101F1E03470090045E /* AuthMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00F1F1E03470090045E /* AuthMainApiService.swift */; };
 		1FB8F0171F1E14B30090045E /* GetArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0161F1E14B30090045E /* GetArgs.swift */; };
 		1FB8F01B1F1E190F0090045E /* IKeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F01A1F1E190F0090045E /* IKeysStorage.swift */; };
 		1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */; };
 		1FB8F0241F1E5C2D0090045E /* NotificationPlatformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0231F1E5C2D0090045E /* NotificationPlatformType.swift */; };
 		1FB8F0261F1E5C5E0090045E /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0251F1E5C5E0090045E /* Device.swift */; };
-		1FB8F0281F1E5D510090045E /* OpenDevicesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0271F1E5D510090045E /* OpenDevicesApiService.swift */; };
+		1FB8F0281F1E5D510090045E /* NotificationsDevicesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0271F1E5D510090045E /* NotificationsDevicesApiService.swift */; };
 		1FB8F02C1F1E610B0090045E /* AddingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F02B1F1E610B0090045E /* AddingCard.swift */; };
 		1FB8F0311F1E61E70090045E /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0301F1E61E70090045E /* TransactionType.swift */; };
 		1FB8F0331F1E621D0090045E /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0321F1E621D0090045E /* TransactionStatus.swift */; };
@@ -160,7 +159,7 @@
 		1FBE83EC1F2521780002F0B5 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; };
 		1FBE83ED1F2521780002F0B5 /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1FBE83F01F2554BB0002F0B5 /* _fonts */; };
-		1FBE83F31F2556B40002F0B5 /* RefreshDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE83F21F2556B40002F0B5 /* RefreshDataManager.swift */; };
+		1FBE83F31F2556B40002F0B5 /* RefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE83F21F2556B40002F0B5 /* RefreshManager.swift */; };
 		1FBE84061F26167E0002F0B5 /* PlaceCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84051F26167E0002F0B5 /* PlaceCartContainer.swift */; };
 		1FBE84081F2617FE0002F0B5 /* CommonCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84071F2617FE0002F0B5 /* CommonCartContainer.swift */; };
 		1FBE840A1F2629850002F0B5 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE84091F2629850002F0B5 /* CartService.swift */; };
@@ -184,8 +183,8 @@
 		1FD7E6991F1D0E140023C033 /* SystemVersionsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE6C1F1BF9E900CC78B3 /* SystemVersionsApiService.swift */; };
 		1FD7E69A1F1D0E140023C033 /* SystemSettingsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE6E1F1BFB5A00CC78B3 /* SystemSettingsApiService.swift */; };
 		1FD7E69B1F1D0E140023C033 /* SystemReportsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE761F1CC31700CC78B3 /* SystemReportsApiService.swift */; };
-		1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE801F1CE8C800CC78B3 /* AccessKeys.swift */; };
-		1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE821F1CEA0A00CC78B3 /* AccessRights.swift */; };
+		1FD7E69C1F1D0E140023C033 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE801F1CE8C800CC78B3 /* ApiKeys.swift */; };
+		1FD7E69D1F1D0E140023C033 /* ApiRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE821F1CEA0A00CC78B3 /* ApiRole.swift */; };
 		1FD7E69E1F1D0E140023C033 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE841F1CEA7100CC78B3 /* Account.swift */; };
 		1FD7E69F1F1D0E140023C033 /* MethodConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE8A1F1CF1D200CC78B3 /* MethodConnection.swift */; };
 		1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE8C1F1CF21E00CC78B3 /* BaseNotificationPreference.swift */; };
@@ -301,7 +300,7 @@
 		1F36C88A1F20C1F900232B9A /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		1F36C88D1F20C4DA00232B9A /* ShortSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortSchedule.swift; path = Domains/PlaceModels/ShortSchedule.swift; sourceTree = "<group>"; };
 		1F36C88F1F20C5E000232B9A /* PlaceSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceSummary.swift; path = Domains/PlaceModels/PlaceSummary.swift; sourceTree = "<group>"; };
-		1F36C8921F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenPlaceSummariesApiService.swift; path = ApiServices/Open/OpenPlaceSummariesApiService.swift; sourceTree = "<group>"; };
+		1F36C8921F20CCBF00232B9A /* PlaceSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceSummariesApiService.swift; path = ApiServices/Open/PlaceSummariesApiService.swift; sourceTree = "<group>"; };
 		1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorageTests.swift; path = Tools/ConfigsStorageTests.swift; sourceTree = "<group>"; };
 		1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorageTests.swift; path = Tools/PropertiesStorageTests.swift; sourceTree = "<group>"; };
 		1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BottomActions.swift; path = UI/Elements/BottomActions/BottomActions.swift; sourceTree = "<group>"; };
@@ -347,6 +346,9 @@
 		1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheMenuSummariesService.swift; path = Services/Cache/CacheMenuSummariesService.swift; sourceTree = "<group>"; };
 		1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummariesApiService.swift; path = ApiServices/Open/MenuSummariesApiService.swift; sourceTree = "<group>"; };
 		1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationsManager.swift; path = App/PushNotificationsManager.swift; sourceTree = "<group>"; };
+		1FAA9F711FC245F700BB105D /* RestomaniaAppKuzina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestomaniaAppKuzina.entitlements; sourceTree = "<group>"; };
+		1FAA9F751FC2466F00BB105D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1FAA9F771FC2468E00BB105D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigKeys.swift; path = App/Tools/ConfigKeys.swift; sourceTree = "<group>"; };
 		1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSummary.swift; path = App/Tools/AppSummary.swift; sourceTree = "<group>"; };
 		1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeSettings.swift; path = App/Tools/ThemeSettings.swift; sourceTree = "<group>"; };
@@ -385,15 +387,13 @@
 		1FB8F0091F1DF7090090045E /* FixedDiscount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedDiscount.swift; path = Domains/Places/Loyalties/FixedDiscount.swift; sourceTree = "<group>"; };
 		1FB8F00B1F1DF7500090045E /* RegularCustomerDiscount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegularCustomerDiscount.swift; path = Domains/Places/Loyalties/RegularCustomerDiscount.swift; sourceTree = "<group>"; };
 		1FB8F00D1F1DFABF0090045E /* Loyalty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Loyalty.swift; path = Domains/Places/Loyalties/Loyalty.swift; sourceTree = "<group>"; };
-		1FB8F00F1F1E03470090045E /* OpenAccountsApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenAccountsApiService.swift; path = ApiServices/Open/OpenAccountsApiService.swift; sourceTree = "<group>"; };
-		1FB8F0111F1E0B520090045E /* OpenPlacesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenPlacesApiService.swift; path = ApiServices/Open/OpenPlacesApiService.swift; sourceTree = "<group>"; };
-		1FB8F0131F1E12AE0090045E /* OpenReviewsApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenReviewsApiService.swift; path = ApiServices/Open/OpenReviewsApiService.swift; sourceTree = "<group>"; };
+		1FB8F00F1F1E03470090045E /* AuthMainApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthMainApiService.swift; path = ApiServices/Open/AuthMainApiService.swift; sourceTree = "<group>"; };
 		1FB8F0161F1E14B30090045E /* GetArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetArgs.swift; path = ApiServices/Models/GetArgs.swift; sourceTree = "<group>"; };
 		1FB8F01A1F1E190F0090045E /* IKeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IKeysStorage.swift; path = ApiServices/Models/IKeysStorage.swift; sourceTree = "<group>"; };
 		1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAuthApiService.swift; path = ApiServices/BaseAuthApiService.swift; sourceTree = "<group>"; };
 		1FB8F0231F1E5C2D0090045E /* NotificationPlatformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationPlatformType.swift; path = Domains/Communication/NotificationPlatformType.swift; sourceTree = "<group>"; };
 		1FB8F0251F1E5C5E0090045E /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Domains/Communication/Device.swift; sourceTree = "<group>"; };
-		1FB8F0271F1E5D510090045E /* OpenDevicesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenDevicesApiService.swift; path = ApiServices/Open/OpenDevicesApiService.swift; sourceTree = "<group>"; };
+		1FB8F0271F1E5D510090045E /* NotificationsDevicesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsDevicesApiService.swift; path = ApiServices/Open/NotificationsDevicesApiService.swift; sourceTree = "<group>"; };
 		1FB8F02B1F1E610B0090045E /* AddingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingCard.swift; path = ApiServices/Models/AddingCard.swift; sourceTree = "<group>"; };
 		1FB8F0301F1E61E70090045E /* TransactionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionType.swift; path = Domains/Payments/Transactions/TransactionType.swift; sourceTree = "<group>"; };
 		1FB8F0321F1E621D0090045E /* TransactionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionStatus.swift; path = Domains/Payments/Transactions/TransactionStatus.swift; sourceTree = "<group>"; };
@@ -415,7 +415,7 @@
 		1FB8F06D1F1EE04D0090045E /* AddingBooking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingBooking.swift; path = ApiServices/Models/AddingBooking.swift; sourceTree = "<group>"; };
 		1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBE83F01F2554BB0002F0B5 /* _fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _fonts; path = Restomania.App.Kuzina/_fonts; sourceTree = "<group>"; };
-		1FBE83F21F2556B40002F0B5 /* RefreshDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshDataManager.swift; path = App/RefreshDataManager.swift; sourceTree = "<group>"; };
+		1FBE83F21F2556B40002F0B5 /* RefreshManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshManager.swift; path = App/RefreshManager.swift; sourceTree = "<group>"; };
 		1FBE84051F26167E0002F0B5 /* PlaceCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceCartContainer.swift; path = Services/Cart/Models/PlaceCartContainer.swift; sourceTree = "<group>"; };
 		1FBE84071F2617FE0002F0B5 /* CommonCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonCartContainer.swift; path = Services/Cart/Models/CommonCartContainer.swift; sourceTree = "<group>"; };
 		1FBE84091F2629850002F0B5 /* CartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartService.swift; path = Services/Cart/CartService.swift; sourceTree = "<group>"; };
@@ -471,8 +471,8 @@
 		1FF4FE791F1CC50700CC78B3 /* ReportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportType.swift; path = Domains/Log/ReportType.swift; sourceTree = "<group>"; };
 		1FF4FE7B1F1CC55F00CC78B3 /* BaseBugReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseBugReport.swift; path = Domains/Log/BaseBugReport.swift; sourceTree = "<group>"; };
 		1FF4FE7D1F1CCA8700CC78B3 /* RemoteBugReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteBugReport.swift; path = Domains/Log/RemoteBugReport.swift; sourceTree = "<group>"; };
-		1FF4FE801F1CE8C800CC78B3 /* AccessKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessKeys.swift; path = Domains/Accounts/AccessKeys.swift; sourceTree = "<group>"; };
-		1FF4FE821F1CEA0A00CC78B3 /* AccessRights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessRights.swift; path = Domains/Accounts/AccessRights.swift; sourceTree = "<group>"; };
+		1FF4FE801F1CE8C800CC78B3 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiKeys.swift; path = Domains/Accounts/ApiKeys.swift; sourceTree = "<group>"; };
+		1FF4FE821F1CEA0A00CC78B3 /* ApiRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiRole.swift; path = Domains/Accounts/ApiRole.swift; sourceTree = "<group>"; };
 		1FF4FE841F1CEA7100CC78B3 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Domains/Accounts/Account.swift; sourceTree = "<group>"; };
 		1FF4FE861F1CEAD800CC78B3 /* CurrencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyType.swift; path = Domains/Payments/CurrencyType.swift; sourceTree = "<group>"; };
 		1FF4FE8A1F1CF1D200CC78B3 /* MethodConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MethodConnection.swift; path = Domains/NotificationPreferences/MethodConnection.swift; sourceTree = "<group>"; };
@@ -887,6 +887,44 @@
 			name = Domains;
 			sourceTree = "<group>";
 		};
+		1FAA9F6D1FC23F4700BB105D /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				1FB8F0271F1E5D510090045E /* NotificationsDevicesApiService.swift */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		1FAA9F6E1FC23F5F00BB105D /* Attachments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Attachments;
+			sourceTree = "<group>";
+		};
+		1FAA9F6F1FC23F6700BB105D /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Admin;
+			sourceTree = "<group>";
+		};
+		1FAA9F701FC23F7300BB105D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				1FB8F00F1F1E03470090045E /* AuthMainApiService.swift */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		1FAA9F781FC24A4100BB105D /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				1F36C8921F20CCBF00232B9A /* PlaceSummariesApiService.swift */,
+			);
+			name = Places;
+			sourceTree = "<group>";
+		};
 		1FB6B9231FAE189C00CD0B17 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1132,6 +1170,7 @@
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
+				1FAA9F711FC245F700BB105D /* RestomaniaAppKuzina.entitlements */,
 				1FBE83F01F2554BB0002F0B5 /* _fonts */,
 				1FFA57EE1F225FA000E83463 /* _markup */,
 				1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */,
@@ -1156,6 +1195,7 @@
 		1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */ = {
 			isa = PBXGroup;
 			children = (
+				1FAA9F761FC2466F00BB105D /* Localizable.strings */,
 				1FC5A6AB1F138A8600ABE1A6 /* Info.plist */,
 				1F36C88A1F20C1F900232B9A /* Configs.plist */,
 				1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */,
@@ -1249,10 +1289,15 @@
 		1FF4FE571F1BE47300CC78B3 /* ApiServices */ = {
 			isa = PBXGroup;
 			children = (
+				1FAA9F701FC23F7300BB105D /* Auth */,
+				1FAA9F6F1FC23F6700BB105D /* Admin */,
+				1FAA9F6E1FC23F5F00BB105D /* Attachments */,
+				1FAA9F6D1FC23F4700BB105D /* Notifications */,
 				1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */,
 				1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */,
 				1FB8F0151F1E14710090045E /* Models */,
 				1F1DA2C71F687E1800EFE5CE /* Menu */,
+				1FAA9F781FC24A4100BB105D /* Places */,
 				1FB8F0451F1EC27F0090045E /* User */,
 				1FF4FE5B1F1BE68800CC78B3 /* System */,
 				1FF4FE5A1F1BE68200CC78B3 /* Open */,
@@ -1288,11 +1333,6 @@
 		1FF4FE5A1F1BE68200CC78B3 /* Open */ = {
 			isa = PBXGroup;
 			children = (
-				1FB8F00F1F1E03470090045E /* OpenAccountsApiService.swift */,
-				1FB8F0111F1E0B520090045E /* OpenPlacesApiService.swift */,
-				1FB8F0131F1E12AE0090045E /* OpenReviewsApiService.swift */,
-				1FB8F0271F1E5D510090045E /* OpenDevicesApiService.swift */,
-				1F36C8921F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift */,
 			);
 			name = Open;
 			sourceTree = "<group>";
@@ -1341,8 +1381,8 @@
 		1FF4FE7F1F1CE8B600CC78B3 /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
-				1FF4FE801F1CE8C800CC78B3 /* AccessKeys.swift */,
-				1FF4FE821F1CEA0A00CC78B3 /* AccessRights.swift */,
+				1FF4FE801F1CE8C800CC78B3 /* ApiKeys.swift */,
+				1FF4FE821F1CEA0A00CC78B3 /* ApiRole.swift */,
 				1FF4FE841F1CEA7100CC78B3 /* Account.swift */,
 			);
 			name = Accounts;
@@ -1364,7 +1404,7 @@
 				1FB6B9241FAE18F900CD0B17 /* Tools */,
 				1FFA57C51F21EDBA00E83463 /* AppDelegate.swift */,
 				1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */,
-				1FBE83F21F2556B40002F0B5 /* RefreshDataManager.swift */,
+				1FBE83F21F2556B40002F0B5 /* RefreshManager.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -1496,7 +1536,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1522,6 +1562,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 1FC5A6931F138A8600ABE1A6;
 			productRefGroup = 1FC5A69D1F138A8600ABE1A6 /* Products */;
@@ -1556,6 +1597,7 @@
 				1F5CF8331FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib in Resources */,
 				1F62E4A81FAE46D300D1C89D /* ManagerPaymentCardsControllerView.xib in Resources */,
 				1FC01CCA1FB2115000413ED7 /* PlaceCartControllerView.xib in Resources */,
+				1FAA9F741FC2466F00BB105D /* Localizable.strings in Resources */,
 				1FE3C76D1FB318E8009CE542 /* PlaceCartTotalContainerView.xib in Resources */,
 				1F62E4691FAE464400D1C89D /* LaunchScreen.storyboard in Resources */,
 				1FE3C75C1FB2EE48009CE542 /* PlaceCartDishesContainerView.xib in Resources */,
@@ -1786,7 +1828,7 @@
 				1FD7E6971F1D0E140023C033 /* BaseApiService.swift in Sources */,
 				1FB8F02C1F1E610B0090045E /* AddingCard.swift in Sources */,
 				1FB8F04D1F1EC28C0090045E /* UserCardsApiService.swift in Sources */,
-				1FBE83F31F2556B40002F0B5 /* RefreshDataManager.swift in Sources */,
+				1FBE83F31F2556B40002F0B5 /* RefreshManager.swift in Sources */,
 				1FC01CE01FB21D6600413ED7 /* AdditionSummary.swift in Sources */,
 				1FD7E6981F1D0E140023C033 /* SystemStatusApiService.swift in Sources */,
 				1FD7E6991F1D0E140023C033 /* SystemVersionsApiService.swift in Sources */,
@@ -1805,11 +1847,11 @@
 				1FB6B92B1FAE19A400CD0B17 /* ConfigKeys.swift in Sources */,
 				1F1DA2C91F6889FB00EFE5CE /* DishType.swift in Sources */,
 				1FD7E69B1F1D0E140023C033 /* SystemReportsApiService.swift in Sources */,
-				1F36C8931F20CCBF00232B9A /* OpenPlaceSummariesApiService.swift in Sources */,
+				1F36C8931F20CCBF00232B9A /* PlaceSummariesApiService.swift in Sources */,
 				1F62E4BF1FAE470800D1C89D /* WhiteButton.swift in Sources */,
 				1FB8EFE81F1D4BF90090045E /* MenuCategory.swift in Sources */,
-				1FB8F0101F1E03470090045E /* OpenAccountsApiService.swift in Sources */,
-				1FD7E69C1F1D0E140023C033 /* AccessKeys.swift in Sources */,
+				1FB8F0101F1E03470090045E /* AuthMainApiService.swift in Sources */,
+				1FD7E69C1F1D0E140023C033 /* ApiKeys.swift in Sources */,
 				1FB8EFF01F1D4F7C0090045E /* PlaceType.swift in Sources */,
 				1F62E4C31FAE470800D1C89D /* GreyButton.swift in Sources */,
 				1FB8F0331F1E621D0090045E /* TransactionStatus.swift in Sources */,
@@ -1818,7 +1860,7 @@
 				1FE3C75F1FB2F03A009CE542 /* PlaceCartDivider.swift in Sources */,
 				1F3C5A0C1FB15D940038EB97 /* BottomActions.swift in Sources */,
 				1FC01CDF1FB21D6600413ED7 /* SubdishSummary.swift in Sources */,
-				1FD7E69D1F1D0E140023C033 /* AccessRights.swift in Sources */,
+				1FD7E69D1F1D0E140023C033 /* ApiRole.swift in Sources */,
 				1F62E4671FAE464400D1C89D /* GreetingController.swift in Sources */,
 				1F279F9C1FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift in Sources */,
 				1FB8EFEC1F1D4EEC0090045E /* KitchenType.swift in Sources */,
@@ -1831,7 +1873,6 @@
 				1F62E4CA1FAE472E00D1C89D /* PlaceCard.swift in Sources */,
 				1FB8EFF21F1D4FC20090045E /* Properties.swift in Sources */,
 				1FB6B92E1FAE19A400CD0B17 /* AppType.swift in Sources */,
-				1FB8F0141F1E12AE0090045E /* OpenReviewsApiService.swift in Sources */,
 				1FB8F0061F1DF64E0090045E /* Bonuses.swift in Sources */,
 				1FB8EFDC1F1D48290090045E /* Day.swift in Sources */,
 				1FB8EFE41F1D4A970090045E /* Contacts.swift in Sources */,
@@ -1852,7 +1893,7 @@
 				1FB8F06E1F1EE04D0090045E /* AddingBooking.swift in Sources */,
 				1F62E4631FAE462900D1C89D /* NavigationController.swift in Sources */,
 				1F62E4701FAE465700D1C89D /* TabsController.swift in Sources */,
-				1FB8F0281F1E5D510090045E /* OpenDevicesApiService.swift in Sources */,
+				1FB8F0281F1E5D510090045E /* NotificationsDevicesApiService.swift in Sources */,
 				1F62E4C11FAE470800D1C89D /* BaseButton.swift in Sources */,
 				1FBE84081F2617FE0002F0B5 /* CommonCartContainer.swift in Sources */,
 				1F279F651FB07C82003A2B47 /* ManagerEditNotificationPreferencesController.swift in Sources */,
@@ -1939,7 +1980,6 @@
 				1FB8EFEE1F1D4F480090045E /* RegistrationStatus.swift in Sources */,
 				1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */,
 				1FBE840C1F2640990002F0B5 /* Reservation.swift in Sources */,
-				1FB8F0121F1E0B520090045E /* OpenPlacesApiService.swift in Sources */,
 				1FB8F03F1F1EADFB0090045E /* PaymentCardStatus.swift in Sources */,
 				1FC01CCE1FB211EC00413ED7 /* PlaceMenuCartAction.swift in Sources */,
 				1F62E46E1FAE465700D1C89D /* ManagerController.swift in Sources */,
@@ -1989,12 +2029,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		1FAA9F761FC2466F00BB105D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FAA9F751FC2466F00BB105D /* en */,
+				1FAA9F771FC2468E00BB105D /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		1FC5A6C21F138A8600ABE1A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2052,6 +2105,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2102,6 +2156,7 @@
 			baseConfigurationReference = 6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RestomaniaAppKuzina.entitlements;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -2119,6 +2174,7 @@
 			baseConfigurationReference = 32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RestomaniaAppKuzina.entitlements;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;

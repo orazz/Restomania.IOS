@@ -31,7 +31,7 @@ public class  ForgetPasswordController: BaseAuthController {
         loader.show()
 
         let container = authContainer
-        let task = client.RecoverPassword(email: container.login, rights: container.rights)
+        let task = client.RecoverPassword(email: container.login, role: container.role)
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -51,13 +51,12 @@ public class  ForgetPasswordController: BaseAuthController {
                 //Process errors
                 let title = NSLocalizedString("Reset password error", comment: "Auth")
                 if (response.statusCode == .ConnectionError) {
-
                     self.showAlert(about: NSLocalizedString("No internet connection.", comment: "Network"), title: title)
-                } else if (response.statusCode == .BadRequest) {
 
+                } else if (response.statusCode == .NotFound) {
                     self.showAlert(about: NSLocalizedString("User with same email not found.", comment: "Auth"), title: title)
-                } else {
 
+                } else {
                     self.showAlert(about: NSLocalizedString("Try recovery password later.", comment: "Auth"), title: title)
                 }
             }
