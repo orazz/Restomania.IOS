@@ -11,5 +11,5 @@ import IOSLibrary
 
 public protocol PlaceDependentProtocol {
 
-    var placeId: Long { get set }
+    var placeId: Long { get }
 }

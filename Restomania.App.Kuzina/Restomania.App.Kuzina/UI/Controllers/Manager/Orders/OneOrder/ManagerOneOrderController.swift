@@ -87,13 +87,15 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     }
     private func setupDataToInterface() {
 
-        CompleteDateLabel.text = "на \(_dateFormatter.string(from: _order!.Summary.CompleteDate))"
-        CreateAtLabel.text = "добавлено \(_dateFormatter.string(from: _order!.Summary.CreateAt))"
+        if let order = _order {
+            CompleteDateLabel.text = "на \(_dateFormatter.string(from: order.summary.completeAt))"
+            CreateAtLabel.text = "добавлено \(_dateFormatter.string(from: order.summary.CreateAt))"
 
-        KeywordValueLabel.text = _order!.Summary.KeyWord
-        PlaceNameValueLabel.text = _order!.Summary.PlaceName
-        StatusValueLabel.text = prepare(status: _order!.Status)
-        TotalValueLabel.setup(amount: _order!.TotalPrice, currency: _order!.Summary.Currency)
+            KeywordValueLabel.text = order.summary.codeword
+            PlaceNameValueLabel.text = order.summary.placeName
+            StatusValueLabel.text = prepare(status: order.status)
+            TotalValueLabel.setup(amount: order.total.double, currency: order.currency)
+        }
     }
     private func prepare(status: DishOrderStatus) -> String {
 
@@ -141,7 +143,7 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
 
         if let constraint = (TableView.constraints.filter {$0.firstAttribute == .height}.first) {
 
-            constraint.constant = ManagerOneOrderDishCell.height * CGFloat(_order!.Dishes.count)
+            constraint.constant = ManagerOneOrderDishCell.height * CGFloat(_order!.dishes.count)
         }
     }
 
@@ -149,7 +151,7 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOneOrderDishCell.identifier, for: indexPath) as! ManagerOneOrderDishCell
-        cell.setup(dish: _order!.Dishes[indexPath.row], currency: _order!.Summary.Currency)
+        cell.setup(dish: _order!.dishes[indexPath.row], currency: _order!.currency)
 
         return cell
     }
@@ -158,17 +160,14 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
         tableView.deselectRow(at: indexPath, animated: false)
     }
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
         return ManagerOneOrderDishCell.height
     }
 
     // MARK: UITableViewDataSource
     public func numberOfSections(in tableView: UITableView) -> Int {
-
         return 1
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return _order?.Dishes.count ?? 0
+        return _order?.dishes.count ?? 0
     }
 }

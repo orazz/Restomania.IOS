@@ -363,7 +363,7 @@ extension PlaceCartController: PlaceCartDelegate {
             DispatchQueue.main.async {
 
                 if (response.isFail) {
-                    let alert = UIAlertController(title: "Ошибка", message: "Проблемы с добавление заказа карты", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Ошибка", message: "Проблемы с добавление заказа", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
 

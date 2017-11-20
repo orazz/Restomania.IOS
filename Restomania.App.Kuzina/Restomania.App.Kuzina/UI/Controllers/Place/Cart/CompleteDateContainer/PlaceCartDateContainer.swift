@@ -114,7 +114,7 @@ extension PlaceCartDateContainer {
         setup(hours: hours, minutes: cart.time.minutes())
     }
     private func setup(hours: Int, minutes: Int) {
-        cart.time = timeFormatter.date(from: "\(String(format: "%02d", hours)):\(String(format: "%02d", minutes))")!
+        cart.time = timeFormatter.date(from: "\(String(format: "%02d", hours % 24)):\(String(format: "%02d", minutes % 60))")!
 
         updateDateTimeLabel()
     }
@@ -140,9 +140,9 @@ extension PlaceCartDateContainer {
 extension PlaceCartDateContainer: UIPickerViewDelegate {
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (0 == component) {
-            return "\(row)"
+            return String(format: "%02d", row)
         } else if (1 == component) {
-            return "\(row * 5)"
+            return String(format: "%02d", row * 5)
         } else {
             return "0"
         }

@@ -18,7 +18,7 @@ public class PlaceCompleteOrderController: UIViewController {
         let instance = PlaceCompleteOrderController(nibName: nibName, bundle: Bundle.main)
 
         instance.order = order
-        let cart = ServicesManager.shared.cartsService.get(for: order.Summary.PlaceID)
+        let cart = ServicesManager.shared.cartsService.get(for: order.placeId)
         cart.clear()
 
         return instance
@@ -84,7 +84,7 @@ extension PlaceCompleteOrderController {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(identifier: "UTC")
         formatter.dateFormat = "HH:mm dd/MM"
-        dataLabel.text = "#\(order.ID) на \(formatter.string(from: order.Summary.CompleteDate))"
+        dataLabel.text = "#\(order.ID) на \(formatter.string(from: order.summary.completeAt))"
         dataLabel.font = ThemeSettings.Fonts.bold(size: .head)
         dataLabel.textColor = ThemeSettings.Colors.main
     }

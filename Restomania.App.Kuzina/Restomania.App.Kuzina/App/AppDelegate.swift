@@ -42,7 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
-        //  _pushManager.processMessage(push: userInfo)
+        Log.Info(_tag, "Recive new notification.")
+
         completionHandler(.newData)
     }
 

@@ -18,6 +18,10 @@ public class PriceType: Glossy {
         public static let float = "Float"
     }
 
+    public static var Zero: PriceType {
+        return PriceType(decimal: 0, float: 0)
+    }
+
     public var decimal: Int
     public var float: Int
 

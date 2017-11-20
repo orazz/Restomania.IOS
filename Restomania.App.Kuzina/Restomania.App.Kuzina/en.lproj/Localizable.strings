@@ -6,8 +6,8 @@
   Copyright © 2017 Medved-Studio. All rights reserved.
 */
 
-"Pushes.DishOrders.Add.ForUser" = "Add new order #%@";
-"Pushes.DishOrders.ChangeStatus.ForUser" = "Order #%@ change status";
+"Pushes.DishOrders.Add.ForUser" = "Add new order #%@ on %@";
+"Pushes.DishOrders.ChangeStatus.ForUser" = "Order #%@ on %@ change status";
 
 "Pushes.DishOrders.IsPrepared.ForUser" = "Order #%@ is ready to delivery";
 "Pushes.DishOrders.PaymentComplete.ForUser" = "Order #%@ is paid";

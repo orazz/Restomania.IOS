@@ -53,9 +53,9 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
         _delegate = delegate
 
         IdLabel.text = "# \(OrderId)"
-        DateLabel.text = _dateFormatter.string(from: order.Summary.CompleteDate)
-        PlaceNameLabel.text = order.Summary.PlaceName
-        PriceLabel.setup(amount: order.TotalPrice, currency: order.Summary.Currency)
+        DateLabel.text = _dateFormatter.string(from: order.summary.completeAt)
+        PlaceNameLabel.text = order.summary.placeName
+        PriceLabel.setup(amount: order.total.double, currency: order.currency)
 
         var alpha = 1.0
         if (_order.isCompleted) {

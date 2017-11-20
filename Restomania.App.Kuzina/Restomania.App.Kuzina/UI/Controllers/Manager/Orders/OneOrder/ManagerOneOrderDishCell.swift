@@ -26,11 +26,11 @@ public class ManagerOneOrderDishCell: UITableViewCell {
     @IBOutlet weak var CostLabel: PriceLabel!
 
     //Data
-    private var _dish: OrderedDish!
+    private var _dish: DishOrderDish!
     private var _currency: CurrencyType!
     private var _IsSetupMarkup: Bool = false
 
-    public func setup(dish: OrderedDish, currency: CurrencyType) {
+    public func setup(dish: DishOrderDish, currency: CurrencyType) {
 
         setupStyles()
 

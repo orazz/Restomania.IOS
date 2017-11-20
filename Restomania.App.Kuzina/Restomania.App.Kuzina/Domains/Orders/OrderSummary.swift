@@ -10,54 +10,57 @@ import Foundation
 import Gloss
 import IOSLibrary
 
-public class OrderSummary: BaseDataType {
+public class OrderSummary: BaseDataType, UserDependentProtocol, PlaceDependentProtocol {
 
     public struct Keys {
 
-        public static let userId = "UserID"
-        public static let userName = "UserName"
-        public static let placeId = "PlaceID"
-        public static let placeName = "PlaceName"
-        public static let keyword = "KeyWord"
+        public static let userId = "UserId"
+        public static let placeId = "PlaceId"
+
+        public static let codeword = "Codeword"
         public static let comment = "Comment"
-        public static let completeDate = "CompleteDate"
-        public static let currency = "Currency"
+        public static let completeAt = "CompleteAt"
+
+        public static let userName = "UserName"
+        public static let placeName = "PlaceName"
     }
 
-    public var UserID: Int64?
-    public var UserName: String
-    public var PlaceID: Int64
-    public var PlaceName: String
-    public var KeyWord: String
-    public var Comment: String
-    public var CompleteDate: Date
-    public var Currency: CurrencyType
+    public let userId: Long
+    public let placeId: Long
+
+    public let codeword: String
+    public let comment: String
+    public let completeAt: Date
+
+    public let userName: String
+    public let placeName: String
 
     public override init() {
 
-        self.UserID = 0
-        self.PlaceID = 0
-        self.KeyWord = String.empty
-        self.Comment = String.empty
-        self.CompleteDate = Date()
-        self.UserName = String.empty
-        self.PlaceName = String.empty
-        self.Currency = .EUR
+        self.userId = 0
+        self.placeId = 0
+
+        self.codeword = String.empty
+        self.comment = String.empty
+        self.completeAt = Date()
+
+        self.userName = String.empty
+        self.placeName = String.empty
 
         super.init()
     }
     public required init(json: JSON) {
 
-        self.UserID = Keys.userId <~~ json
-        self.UserName = (Keys.userName <~~ json)!
-        self.PlaceID = (Keys.placeId <~~ json)!
-        self.PlaceName = (Keys.placeName <~~ json)!
-        self.KeyWord = (Keys.keyword <~~ json)!
-        self.Comment = (Keys.comment <~~ json)!
+        self.userId = (Keys.userId <~~ json)!
+        self.placeId = (Keys.placeId <~~ json)!
 
-        let completeDate: String = (Keys.completeDate <~~ json)!
-        self.CompleteDate = (Date.parseJson(value: completeDate))
-        self.Currency = (Keys.currency <~~ json)!
+        self.codeword = (Keys.codeword <~~ json)!
+        self.comment = (Keys.comment <~~ json)!
+        let completeDate: String = (Keys.completeAt <~~ json)!
+        self.completeAt = (Date.parseJson(value: completeDate))
+
+        self.userName = (Keys.userName <~~ json)!
+        self.placeName = (Keys.placeName <~~ json)!
 
         super.init(json: json)
     }

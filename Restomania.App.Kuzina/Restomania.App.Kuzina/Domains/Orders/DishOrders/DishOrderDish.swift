@@ -10,11 +10,12 @@ import Foundation
 import Gloss
 import IOSLibrary
 
-public class OrderedDish: BaseDataType {
+public class DishOrderDish: BaseDataType {
 
     public struct Keys {
-        public static let dishId = "DishID"
+        public static let dishId = "DishId"
         public static let variationId = "VariationId"
+
         public static let additions = "Additions"
         public static let subdishes = "Subdishes"
 
@@ -27,14 +28,15 @@ public class OrderedDish: BaseDataType {
 
     public var dishId: Long
     public var variationId: Long?
-    public var additions: [AdditionSummary]
-    public var subdishes: [SubdishSummary]
 
-    public var price: PriceType
     public var count: Int
-    public var total: PriceType
     public var name: String
     public var type: DishType
+    public var price: PriceType
+    public var total: PriceType
+
+    public var additions: [AdditionSummary]
+    public var subdishes: [SubdishSummary]
 
     public override init() {
 
@@ -60,7 +62,7 @@ public class OrderedDish: BaseDataType {
     }
 
     // MARK: ICopyng
-    public required init(source: OrderedDish) {
+    public required init(source: DishOrderDish) {
 
         self.dishId = source.dishId
         self.variationId = source.variationId

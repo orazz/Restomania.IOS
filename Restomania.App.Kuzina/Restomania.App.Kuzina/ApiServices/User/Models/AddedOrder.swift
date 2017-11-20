@@ -40,7 +40,7 @@ extension AddedOrder: Gloss.Encodable {
         public static let placeId = "PlaceId"
         public static let cardId = "CardId"
         public static let loyaltyId = "LoyaltyId"
-        public static let completeDate = "CompleteDate"
+        public static let completeDate = "CompleteAt"
         public static let comment = "Comment"
         public static let takeaway = "Takeaway"
         public static let dishes = "Dishes"

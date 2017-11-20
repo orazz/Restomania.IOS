@@ -7,63 +7,99 @@
 //
 
 import Foundation
+import IOSLibrary
 import Gloss
 
-public class DishOrder: BaseOrder {
+public class DishOrder: BaseDataType, UserDependentProtocol, PlaceDependentProtocol {
 
     public struct Keys {
 
-        public static let dishes = "Dishes"
-        public static let subtotal = "SubTotal"
-        public static let discount = "Discount"
-        public static let totalPrice = "TotalPrice"
+        public static let userId = "UserId"
+        public static let placeId = "PlaceId"
+
+        public static let cardId = "CardId"
+
         public static let status = "Status"
         public static let type = "Type"
-        public static let takeaway = "TakeAway"
+        public static let currency = "Currency"
         public static let isPaid = "IsPaid"
+        public static let takeaway = "Takeaway"
+        public static let customData = "CustomData"
+
+        public static let dishes = "Dishes"
+        public static let summary = "Summary"
+
+        public static let isCompleted = "IsCompleted"
+        public static let subtotal = "Subtotal"
+        public static let discount = "Discount"
+        public static let total = "Total"
     }
 
-    public var Dishes: [OrderedDish]
-    public var SubTotal: Double
-    public var Discount: Double
-    public var TotalPrice: Double
-//    public var Booking: Booking?
-    public var Status: DishOrderStatus
-    public var `Type`: DishOrderType
-    public var TakeAway: Bool
-    public var IsPaid: Bool
+    public let userId: Long
+    public let placeId: Long
 
-    public var isCompleted: Bool {
+    public let cardId: Long?
 
-        return self.Status == .CanceledByPlace ||
-            self.Status == .CanceledByUser ||
-            self.Status == .PaymentFail ||
-            self.Status == .Completed
-    }
+    public let status: DishOrderStatus
+    public let type: DishOrderType
+    public let currency: CurrencyType
+    public let isPaid: Bool
+    public let takeaway: Bool
+    public let customData: String?
+
+    public let dishes: [DishOrderDish]
+    public let summary: OrderSummary
+
+    public let isCompleted: Bool
+    public let subtotal: PriceType
+    public let discount: PriceType
+    public let total: PriceType
 
     public override init() {
-        self.Dishes = [OrderedDish]()
-        self.SubTotal = 0
-        self.Discount = 0
-        self.TotalPrice = 0
-//        self.Booking = nil
-        self.Status = .Processing
-        self.Type = .Remote
-        self.TakeAway = false
-        self.IsPaid = false
+
+        self.userId = 0
+        self.placeId = 0
+
+        self.cardId = nil
+
+        self.status = .Processing
+        self.type = .Remote
+        self.currency = .RUB
+        self.isPaid = false
+        self.takeaway = false
+        self.customData = "{}"
+
+        self.dishes = [DishOrderDish]()
+        self.summary = OrderSummary()
+
+        self.isCompleted = false
+        self.subtotal = PriceType.Zero
+        self.discount = PriceType.Zero
+        self.total = PriceType.Zero
 
         super.init()
     }
     public required init(json: JSON) {
-        self.Dishes = (Keys.dishes <~~ json)!
-        self.SubTotal = (Keys.subtotal <~~ json)!
-        self.Discount = (Keys.discount <~~ json)!
-        self.TotalPrice = (Keys.totalPrice <~~ json)!
-//        self.Booking = ("Booking" <~~ json)!
-        self.Status = (Keys.status <~~ json)!
-        self.Type = (Keys.type <~~ json)!
-        self.TakeAway = (Keys.takeaway <~~ json)!
-        self.IsPaid = (Keys.isPaid <~~ json)!
+
+        self.userId = (Keys.userId <~~ json)!
+        self.placeId = (Keys.placeId <~~ json)!
+
+        self.cardId = Keys.cardId <~~ json
+
+        self.status = (Keys.status <~~ json)!
+        self.type = (Keys.type <~~ json)!
+        self.currency = (Keys.currency <~~ json)!
+        self.isPaid = (Keys.isPaid <~~ json)!
+        self.takeaway = (Keys.takeaway <~~ json)!
+        self.customData = Keys.customData <~~ json
+
+        self.dishes = (Keys.dishes <~~ json)!
+        self.summary = (Keys.summary <~~ json)!
+
+        self.isCompleted = (Keys.isCompleted <~~ json)!
+        self.subtotal = (Keys.subtotal <~~ json)!
+        self.discount = (Keys.discount <~~ json)!
+        self.total = (Keys.total <~~ json)!
 
         super.init(json: json)
     }

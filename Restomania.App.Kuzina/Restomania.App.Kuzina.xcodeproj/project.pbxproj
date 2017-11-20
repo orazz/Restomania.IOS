@@ -92,6 +92,7 @@
 		1F68AF6D1F285ABB000614C9 /* MenuSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */; };
 		1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */; };
 		1FAA9F741FC2466F00BB105D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FAA9F761FC2466F00BB105D /* Localizable.strings */; };
+		1FAA9F7A1FC2F8A600BB105D /* UserDependentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA9F791FC2F8A600BB105D /* UserDependentProtocol.swift */; };
 		1FB6B92B1FAE19A400CD0B17 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */; };
 		1FB6B92C1FAE19A400CD0B17 /* AppSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */; };
 		1FB6B92D1FAE19A400CD0B17 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */; };
@@ -149,9 +150,6 @@
 		1FB8F0501F1EC28C0090045E /* UserChangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F04A1F1EC28C0090045E /* UserChangeApiService.swift */; };
 		1FB8F0531F1EC45D0090045E /* UserOrdersApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0521F1EC45D0090045E /* UserOrdersApiService.swift */; };
 		1FB8F05A1F1EC5C90090045E /* OrderSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0591F1EC5C90090045E /* OrderSummary.swift */; };
-		1FB8F05C1F1ECBFD0090045E /* BaseOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F05B1F1ECBFD0090045E /* BaseOrder.swift */; };
-		1FB8F05E1F1ECD020090045E /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F05D1F1ECD020090045E /* Booking.swift */; };
-		1FB8F0601F1ECD140090045E /* BookingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F05F1F1ECD140090045E /* BookingStatus.swift */; };
 		1FB8F0621F1ECE5F0090045E /* DishOrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0611F1ECE5F0090045E /* DishOrderStatus.swift */; };
 		1FB8F0641F1ECE990090045E /* DishOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0631F1ECE990090045E /* DishOrderType.swift */; };
 		1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0691F1ECF980090045E /* DishOrder.swift */; };
@@ -173,7 +171,7 @@
 		1FC01CDB1FB21D5200413ED7 /* AddedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDA1FB21D5200413ED7 /* AddedOrder.swift */; };
 		1FC01CDF1FB21D6600413ED7 /* SubdishSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDC1FB21D6600413ED7 /* SubdishSummary.swift */; };
 		1FC01CE01FB21D6600413ED7 /* AdditionSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDD1FB21D6600413ED7 /* AdditionSummary.swift */; };
-		1FC01CE11FB21D6600413ED7 /* OrderedDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDE1FB21D6600413ED7 /* OrderedDish.swift */; };
+		1FC01CE11FB21D6600413ED7 /* DishOrderDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDE1FB21D6600413ED7 /* DishOrderDish.swift */; };
 		1FC01CE31FB21ED000413ED7 /* AddedOrderDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CE21FB21ED000413ED7 /* AddedOrderDish.swift */; };
 		1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */; };
 		1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */; };
@@ -349,6 +347,7 @@
 		1FAA9F711FC245F700BB105D /* RestomaniaAppKuzina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestomaniaAppKuzina.entitlements; sourceTree = "<group>"; };
 		1FAA9F751FC2466F00BB105D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FAA9F771FC2468E00BB105D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1FAA9F791FC2F8A600BB105D /* UserDependentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDependentProtocol.swift; path = Domains/Users/UserDependentProtocol.swift; sourceTree = "<group>"; };
 		1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigKeys.swift; path = App/Tools/ConfigKeys.swift; sourceTree = "<group>"; };
 		1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSummary.swift; path = App/Tools/AppSummary.swift; sourceTree = "<group>"; };
 		1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeSettings.swift; path = App/Tools/ThemeSettings.swift; sourceTree = "<group>"; };
@@ -406,9 +405,6 @@
 		1FB8F04A1F1EC28C0090045E /* UserChangeApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserChangeApiService.swift; path = ApiServices/User/UserChangeApiService.swift; sourceTree = "<group>"; };
 		1FB8F0521F1EC45D0090045E /* UserOrdersApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserOrdersApiService.swift; path = ApiServices/User/UserOrdersApiService.swift; sourceTree = "<group>"; };
 		1FB8F0591F1EC5C90090045E /* OrderSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderSummary.swift; path = Domains/Orders/OrderSummary.swift; sourceTree = "<group>"; };
-		1FB8F05B1F1ECBFD0090045E /* BaseOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseOrder.swift; path = Domains/Orders/BaseOrder.swift; sourceTree = "<group>"; };
-		1FB8F05D1F1ECD020090045E /* Booking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Booking.swift; path = Domains/Orders/Bookings/Booking.swift; sourceTree = "<group>"; };
-		1FB8F05F1F1ECD140090045E /* BookingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookingStatus.swift; path = Domains/Orders/Bookings/BookingStatus.swift; sourceTree = "<group>"; };
 		1FB8F0611F1ECE5F0090045E /* DishOrderStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderStatus.swift; path = Domains/Orders/DishOrders/DishOrderStatus.swift; sourceTree = "<group>"; };
 		1FB8F0631F1ECE990090045E /* DishOrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderType.swift; path = Domains/Orders/DishOrders/DishOrderType.swift; sourceTree = "<group>"; };
 		1FB8F0691F1ECF980090045E /* DishOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrder.swift; path = Domains/Orders/DishOrders/DishOrder.swift; sourceTree = "<group>"; };
@@ -429,7 +425,7 @@
 		1FC01CDA1FB21D5200413ED7 /* AddedOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddedOrder.swift; path = ApiServices/User/Models/AddedOrder.swift; sourceTree = "<group>"; };
 		1FC01CDC1FB21D6600413ED7 /* SubdishSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubdishSummary.swift; path = Domains/Orders/DishOrders/SubdishSummary.swift; sourceTree = "<group>"; };
 		1FC01CDD1FB21D6600413ED7 /* AdditionSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdditionSummary.swift; path = Domains/Orders/DishOrders/AdditionSummary.swift; sourceTree = "<group>"; };
-		1FC01CDE1FB21D6600413ED7 /* OrderedDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderedDish.swift; path = Domains/Orders/DishOrders/OrderedDish.swift; sourceTree = "<group>"; };
+		1FC01CDE1FB21D6600413ED7 /* DishOrderDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderDish.swift; path = Domains/Orders/DishOrders/DishOrderDish.swift; sourceTree = "<group>"; };
 		1FC01CE21FB21ED000413ED7 /* AddedOrderDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddedOrderDish.swift; path = ApiServices/User/Models/AddedOrderDish.swift; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -953,6 +949,7 @@
 				1FB8EFCA1F1D41050090045E /* UserParts.swift */,
 				1FB8EFCE1F1D41590090045E /* UserSex.swift */,
 				1FB8EFCC1F1D41420090045E /* User.swift */,
+				1FAA9F791FC2F8A600BB105D /* UserDependentProtocol.swift */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -961,9 +958,7 @@
 			isa = PBXGroup;
 			children = (
 				1FB8F0571F1EC5A50090045E /* DishOrders */,
-				1FB8F0561F1EC59C0090045E /* Bookings */,
 				1FB8F0591F1EC5C90090045E /* OrderSummary.swift */,
-				1FB8F05B1F1ECBFD0090045E /* BaseOrder.swift */,
 			);
 			name = Orders;
 			sourceTree = "<group>";
@@ -1107,22 +1102,13 @@
 			name = User;
 			sourceTree = "<group>";
 		};
-		1FB8F0561F1EC59C0090045E /* Bookings */ = {
-			isa = PBXGroup;
-			children = (
-				1FB8F05D1F1ECD020090045E /* Booking.swift */,
-				1FB8F05F1F1ECD140090045E /* BookingStatus.swift */,
-			);
-			name = Bookings;
-			sourceTree = "<group>";
-		};
 		1FB8F0571F1EC5A50090045E /* DishOrders */ = {
 			isa = PBXGroup;
 			children = (
 				1FB8F0691F1ECF980090045E /* DishOrder.swift */,
 				1FB8F0611F1ECE5F0090045E /* DishOrderStatus.swift */,
 				1FB8F0631F1ECE990090045E /* DishOrderType.swift */,
-				1FC01CDE1FB21D6600413ED7 /* OrderedDish.swift */,
+				1FC01CDE1FB21D6600413ED7 /* DishOrderDish.swift */,
 				1FC01CDD1FB21D6600413ED7 /* AdditionSummary.swift */,
 				1FC01CDC1FB21D6600413ED7 /* SubdishSummary.swift */,
 			);
@@ -1195,7 +1181,7 @@
 		1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */ = {
 			isa = PBXGroup;
 			children = (
-				1FAA9F761FC2466F00BB105D /* Localizable.strings */,
+				1FD165821FC309B700DBDD9A /* Localization */,
 				1FC5A6AB1F138A8600ABE1A6 /* Info.plist */,
 				1F36C88A1F20C1F900232B9A /* Configs.plist */,
 				1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */,
@@ -1241,6 +1227,14 @@
 				DA5639C328334066FBAEF2E8 /* Pods_RestomaniaAppKuzina_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1FD165821FC309B700DBDD9A /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				1FAA9F761FC2466F00BB105D /* Localizable.strings */,
+			);
+			name = Localization;
 			sourceTree = "<group>";
 		};
 		1FD9A09C1F2323C30026BDF8 /* Cache */ = {
@@ -1883,6 +1877,7 @@
 				1F62E4C21FAE470800D1C89D /* BlackButton.swift in Sources */,
 				1FB8EFC51F1D3C300090045E /* UserNotificationPreference.swift in Sources */,
 				1F62E4CD1FAE476E00D1C89D /* PriceLabel.swift in Sources */,
+				1FAA9F7A1FC2F8A600BB105D /* UserDependentProtocol.swift in Sources */,
 				1FB8EFF61F1D516F0090045E /* Place.swift in Sources */,
 				1FE3C75A1FB2EB63009CE542 /* PlaceCartDishesContainer.swift in Sources */,
 				1F279F761FB07CEC003A2B47 /* ManagerOneOrderDishCell.swift in Sources */,
@@ -1902,7 +1897,6 @@
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
 				1FB6B9301FAE19A400CD0B17 /* PropertiesKey.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
-				1FB8F0601F1ECD140090045E /* BookingStatus.swift in Sources */,
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,
 				1FB8F0401F1EADFB0090045E /* PaymentCardType.swift in Sources */,
 				1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */,
@@ -1924,7 +1918,6 @@
 				1F279FA41FB0ECD7003A2B47 /* PlaceMenuTitleContainer.swift in Sources */,
 				1FE3C7631FB3024F009CE542 /* PlaceCartCompleteOrderContainer.swift in Sources */,
 				1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */,
-				1FB8F05E1F1ECD020090045E /* Booking.swift in Sources */,
 				1FD7E6A51F1D0E140023C033 /* CurrencyType.swift in Sources */,
 				1FB8F0621F1ECE5F0090045E /* DishOrderStatus.swift in Sources */,
 				1FF79A5B1FB22E2E008F3FCC /* ScheduleDisplayCell.swift in Sources */,
@@ -1932,7 +1925,7 @@
 				1FB8F0041F1DF47B0090045E /* CountedLoyaltyDiscounts.swift in Sources */,
 				1F279F921FB07D51003A2B47 /* PlaceInfoController.swift in Sources */,
 				1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */,
-				1FC01CE11FB21D6600413ED7 /* OrderedDish.swift in Sources */,
+				1FC01CE11FB21D6600413ED7 /* DishOrderDish.swift in Sources */,
 				1F62E4811FAE466F00D1C89D /* BaseAuthController.swift in Sources */,
 				1FB8EFCF1F1D41590090045E /* UserSex.swift in Sources */,
 				1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */,
@@ -1962,7 +1955,6 @@
 				1F62E4821FAE466F00D1C89D /* ForgetPasswordController.swift in Sources */,
 				1FB8EFD31F1D42DF0090045E /* ReviewStatus.swift in Sources */,
 				1FC01CE31FB21ED000413ED7 /* AddedOrderDish.swift in Sources */,
-				1FB8F05C1F1ECBFD0090045E /* BaseOrder.swift in Sources */,
 				1FE3C7561FB2E88A009CE542 /* PlaceCartDateContainer.swift in Sources */,
 				1FB8F04C1F1EC28C0090045E /* UserAccountApiService.swift in Sources */,
 				1F62E47F1FAE466F00D1C89D /* SignupController.swift in Sources */,

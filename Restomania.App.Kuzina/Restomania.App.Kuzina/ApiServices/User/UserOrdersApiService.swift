@@ -12,7 +12,7 @@ import IOSLibrary
 public class UserOrdersApiService: BaseAuthApiService {
 
     public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .user, area: "User/DishOrders", tag: "UserOrdersApiService")
+        super.init(storage: storage, rights: .user, area: "User/DishOrders", tag: String.tag(UserOrdersApiService.self))
     }
 
     public func all(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {
@@ -34,7 +34,7 @@ public class UserOrdersApiService: BaseAuthApiService {
     }
     public func add(order: AddedOrder) -> RequestResult<DishOrder> {
         let parameters = CollectParameters([
-                "order": order
+                "container": order
             ])
 
         return _client.Post(action: "Add", type: DishOrder.self, parameters: parameters)
