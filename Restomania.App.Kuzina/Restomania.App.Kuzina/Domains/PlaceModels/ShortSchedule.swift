@@ -31,10 +31,11 @@ public class ShortSchedule: Glossy, ICopying {
         self.saturday = String.empty
     }
 
-    public func dayValue(_ weekDay: Int) -> String {
+    public func dayValue(_ weekDay: Int) -> Day {
         let days = [sunday, monday, tuesday, wednesday, thursday, friday, saturday]
 
-        return days[abs(weekDay) % 7]
+        let number = abs(weekDay) % 7
+        return Day(value: days[number], number: number)
     }
     public func takeToday() -> String {
 
@@ -42,13 +43,7 @@ public class ShortSchedule: Glossy, ICopying {
         let calendar = Calendar.current
         let day = calendar.component(.weekday, from: date)
 
-        let value = dayValue(day)
-
-        if (String.isNullOrEmpty(value)) {
-            return value
-        }
-
-        return value.replacingOccurrences(of: "-", with: " - ")
+        return dayValue(day).toString()
     }
 
     // MARK: ICopying
@@ -84,5 +79,36 @@ public class ShortSchedule: Glossy, ICopying {
             "Friday" ~~> friday,
             "Saturday" ~~> saturday
             ])
+    }
+
+    public class Day {
+
+        private let _value: String
+        private let _number: Int
+
+        public init(value: String, number: Int) {
+
+            _value = value
+            _number = number
+        }
+
+        public func toString() -> String {
+
+            if (String.isNullOrEmpty(_value)) {
+                return String.empty
+            }
+
+            let minutesInDay = 60 * 24
+            let minutesInWeek = 7 * minutesInDay
+
+            let components = _value.components(separatedBy: "-")
+            let open = Int(components.first!)! - _number * minutesInDay
+            let close = Int(components.last!)! - _number * minutesInDay
+
+            return "\(format(open)) - \(format(close))"
+        }
+        private func format(_ minutes: Int) -> String {
+            return "\(minutes / 60):\(minutes % 60)"
+        }
     }
 }

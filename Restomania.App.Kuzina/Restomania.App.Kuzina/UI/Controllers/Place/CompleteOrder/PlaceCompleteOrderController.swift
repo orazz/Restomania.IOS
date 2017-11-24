@@ -39,13 +39,13 @@ extension PlaceCompleteOrderController {
 
         if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
 
-            navigationController?.popToViewController(tabs, animated: true)
-
-            (tabs as! TabsController).selectedIndex = 1 //Manager controller
-
             DispatchQueue.main.async {
-                self.navigationController?.pushViewController(ManagerOrdersController.create(), animated: true)
-                self.navigationController?.pushViewController(ManagerOneOrderController.create(with: self.order), animated: true)
+                self.navigationController?.popToViewController(tabs, animated: false)
+                let navigator = tabs.navigationController
+//                self.navigationController?.pushViewController(ManagerOrdersController.create(), animated: true)
+                DispatchQueue.main.async {
+                    navigator?.pushViewController(ManagerOneOrderController.create(with: self.order), animated: true)
+                }
             }
         }
 

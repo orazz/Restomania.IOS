@@ -27,7 +27,7 @@ public class UserOrdersApiService: BaseAuthApiService {
     public func find(orderID: Int64) -> RequestResult<DishOrder> {
 
         let parameters = CollectParameters([
-                "elementID": orderID
+                "orderId": orderID
             ])
 
         return _client.Get(action: "Find", type: DishOrder.self, parameters: parameters)
@@ -41,7 +41,7 @@ public class UserOrdersApiService: BaseAuthApiService {
     }
     public func cancel(orderID: Int64) -> RequestResult<DishOrder> {
         let parameters = CollectParameters([
-                "orderID": orderID
+                "orderId": orderID
             ])
 
         return _client.Put(action: "Cancel", type: DishOrder.self, parameters: parameters)

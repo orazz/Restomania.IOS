@@ -19,6 +19,7 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
 
         vc._orderId = order.ID
         vc._order = order
+        vc._ordersApiService = UserOrdersApiService(storage: ServicesManager.shared.keys)
 
         return vc
     }
@@ -27,8 +28,8 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var CompleteDateLabel: UILabel!
     @IBOutlet weak var CreateAtLabel: UILabel!
 
-    @IBOutlet weak var KeywordTitleLabel: UILabel!
-    @IBOutlet weak var KeywordValueLabel: UILabel!
+    @IBOutlet weak var CodewordTitleLabel: UILabel!
+    @IBOutlet weak var CodeworddValueLabel: UILabel!
 
     @IBOutlet weak var PlaceNameTitleLabel: UILabel!
     @IBOutlet weak var PlaceNameValueLabel: UILabel!
@@ -41,10 +42,13 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var TotalTitleLabel: UILabel!
     @IBOutlet weak var TotalValueLabel: PriceLabel!
 
+    @IBOutlet weak var CancelButton: BlackBottomButton!
+
     // MARK: Data & services
     private let _tag = String.tag(ManagerOneOrderController.self)
     private var _orderId: Long!
     private var _order: DishOrder!
+    private var _ordersApiService: UserOrdersApiService!
     private var _dateFormatter: DateFormatter {
 
         let result = DateFormatter()
@@ -91,10 +95,15 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
             CompleteDateLabel.text = "на \(_dateFormatter.string(from: order.summary.completeAt))"
             CreateAtLabel.text = "добавлено \(_dateFormatter.string(from: order.summary.CreateAt))"
 
-            KeywordValueLabel.text = order.summary.codeword
+            CodeworddValueLabel.text = order.summary.codeword
+            CodewordTitleLabel.isHidden = true
+            CodeworddValueLabel.isHidden = true
+
             PlaceNameValueLabel.text = order.summary.placeName
             StatusValueLabel.text = prepare(status: order.status)
             TotalValueLabel.setup(amount: order.total.double, currency: order.currency)
+
+            CancelButton.isHidden = order.isCompleted
         }
     }
     private func prepare(status: DishOrderStatus) -> String {
@@ -129,8 +138,8 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
         CompleteDateLabel.font = boldFont
         CreateAtLabel.font = ThemeSettings.Fonts.default(size: .subhead)
 
-        KeywordTitleLabel.font = lightFont
-        KeywordValueLabel.font = boldFont
+        CodewordTitleLabel.font = lightFont
+        CodeworddValueLabel.font = boldFont
 
         PlaceNameTitleLabel.font = lightFont
         PlaceNameValueLabel.font = boldFont
@@ -145,6 +154,31 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
 
             constraint.constant = ManagerOneOrderDishCell.height * CGFloat(_order!.dishes.count)
         }
+    }
+
+    //Actions
+    @IBAction private func cancelOrder() {
+
+        StatusValueLabel.text = prepare(status: DishOrderStatus.CanceledByUser)
+        CancelButton.isHidden = true
+
+        let request = _ordersApiService.cancel(orderID: _orderId)
+        request.async(.background, completion: { response in
+
+            DispatchQueue.main.async {
+                if (response.isFail) {
+
+                    self.StatusValueLabel.text = self.prepare(status: self._order.status)
+                    self.CancelButton.isHidden = false
+
+                    let alert = UIAlertController()
+                    alert.message = "Проблемы с отменой заказа, попробуйте позднее"
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        })
     }
 
     // MARK: UITableViewDelegate

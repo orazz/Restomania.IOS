@@ -93,22 +93,7 @@ extension ScheduleDisplay: UICollectionViewDataSource {
     }
     private func valueOf(day: Int, of schedule: ShortSchedule) -> String {
 
-        switch (day) {
-            case 1:
-                return schedule.monday
-            case 2:
-                return schedule.tuesday
-            case 3:
-                return schedule.wednesday
-            case 4:
-                return schedule.thursday
-            case 5:
-                return schedule.friday
-            case 6:
-                return schedule.saturday
-            default:
-                return schedule.sunday
-        }
+        return schedule.dayValue(day + 1).toString()
     }
     private func dayIndex(for day: Int) -> Int {
         return (day + 1 + 7) % 7

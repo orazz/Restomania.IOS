@@ -11,4 +11,4 @@
 
 "Pushes.DishOrders.IsPrepared.ForUser" = "Order #%@ is ready to delivery";
 "Pushes.DishOrders.PaymentComplete.ForUser" = "Order #%@ is paid";
-"Pushes.DishOrders.PaymentFail.ForUser" = "Problem with payment for order #@%";
+"Pushes.DishOrders.PaymentFail.ForUser" = "Problem with payment for order #%@";

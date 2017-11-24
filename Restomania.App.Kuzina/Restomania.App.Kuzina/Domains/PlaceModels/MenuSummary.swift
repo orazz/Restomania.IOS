@@ -15,6 +15,7 @@ public class MenuSummary: ICached {
     public struct Keys {
 
         public static let ID = BaseDataType.Keys.ID
+
         public static let placeID = "PlaceID"
         public static let currency = "Currency"
         public static let categories = "Categories"

@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManagerOneOrderController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <connections>
+                <outlet property="CancelButton" destination="XbW-9M-ZMl" id="APM-dO-9eW"/>
+                <outlet property="CodewordTitleLabel" destination="fqv-OI-nKv" id="J9R-ux-Fy3"/>
+                <outlet property="CodeworddValueLabel" destination="P45-yd-xD5" id="omR-tv-uNS"/>
                 <outlet property="CompleteDateLabel" destination="p5V-is-qZ5" id="T1G-Bs-ArP"/>
                 <outlet property="CreateAtLabel" destination="ZIs-ga-KC2" id="vmh-er-gGv"/>
-                <outlet property="KeywordTitleLabel" destination="fqv-OI-nKv" id="J9R-ux-Fy3"/>
-                <outlet property="KeywordValueLabel" destination="P45-yd-xD5" id="omR-tv-uNS"/>
                 <outlet property="PlaceNameTitleLabel" destination="ixy-xU-KnY" id="Rwp-fn-SNr"/>
                 <outlet property="PlaceNameValueLabel" destination="4qi-sa-Apo" id="tDn-Z0-txr"/>
                 <outlet property="StatusTitleLabel" destination="HVj-nI-Vvc" id="9Vf-9u-wui"/>
@@ -93,10 +98,10 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eiz-YQ-kAj">
-                    <rect key="frame" x="0.0" y="170" width="375" height="400"/>
+                    <rect key="frame" x="0.0" y="170" width="375" height="300"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="400" id="Qus-5M-fRG"/>
+                        <constraint firstAttribute="height" constant="300" id="Qus-5M-fRG"/>
                     </constraints>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="dhn-29-fPO"/>
@@ -104,7 +109,7 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ld-AG-033">
-                    <rect key="frame" x="0.0" y="585" width="375" height="30"/>
+                    <rect key="frame" x="0.0" y="485" width="375" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaS-aJ-frI">
                             <rect key="frame" x="8" y="5" width="48" height="21"/>
@@ -129,15 +134,26 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="добавлено 12:00 20/07/2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIs-ga-KC2">
-                    <rect key="frame" x="8" y="630" width="359" height="18"/>
+                    <rect key="frame" x="8" y="530" width="359" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbW-9M-ZMl" customClass="BlackBottomButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="0lc-lH-E49"/>
+                    </constraints>
+                    <state key="normal" title="Отменить заказ"/>
+                    <connections>
+                        <action selector="cancelOrder" destination="-1" eventType="touchUpInside" id="2FN-oa-SkV"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.82473429568527923" green="0.82473429568527923" blue="0.82473429568527923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="3Ld-AG-033" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2J2-nT-BUK"/>
+                <constraint firstAttribute="trailing" secondItem="XbW-9M-ZMl" secondAttribute="trailing" id="4ga-ir-2IT"/>
                 <constraint firstItem="eiz-YQ-kAj" firstAttribute="top" secondItem="W79-OJ-MUN" secondAttribute="bottom" constant="15" id="4sS-MY-8iJ"/>
                 <constraint firstItem="W79-OJ-MUN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="GNE-j5-4KS"/>
                 <constraint firstAttribute="trailing" secondItem="W79-OJ-MUN" secondAttribute="trailing" id="I2X-0t-fHq"/>
@@ -146,6 +162,8 @@
                 <constraint firstItem="ZIs-ga-KC2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="idm-J2-X7m"/>
                 <constraint firstAttribute="trailing" secondItem="ZIs-ga-KC2" secondAttribute="trailing" constant="8" id="jtR-cy-vUJ"/>
                 <constraint firstAttribute="trailing" secondItem="3Ld-AG-033" secondAttribute="trailing" id="nYY-xg-y93"/>
+                <constraint firstAttribute="bottom" secondItem="XbW-9M-ZMl" secondAttribute="bottom" id="oaI-2k-OKD"/>
+                <constraint firstItem="XbW-9M-ZMl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pSn-yG-HpI"/>
                 <constraint firstItem="eiz-YQ-kAj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vHg-31-Kvt"/>
                 <constraint firstItem="ZIs-ga-KC2" firstAttribute="top" secondItem="3Ld-AG-033" secondAttribute="bottom" constant="15" id="xw0-Ds-FHf"/>
                 <constraint firstItem="3Ld-AG-033" firstAttribute="top" secondItem="eiz-YQ-kAj" secondAttribute="bottom" constant="15" id="zFF-L0-nRD"/>

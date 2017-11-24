@@ -75,7 +75,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
                     Log.Warning(self._tag, "Problem with getting orders.")
                 } else {
 
-                    let orders = response.data?.filter({ placeIds.contains($0.placeId)  })
+                    let orders = response.data?.filter({ placeIds.contains($0.placeId)  }).sorted(by: { $0.ID > $1.ID })
 
                     self._orders = orders!
                     self.ordersTable.reloadData()

@@ -15,6 +15,8 @@ public class PlaceSummary: ICached {
     public struct Keys {
 
         public static let id = BaseDataType.Keys.ID
+        public static let menuId = "MenuId"
+
         public static let name = "Name"
         public static let description = "Description"
         public static let type = "Type"
@@ -26,6 +28,8 @@ public class PlaceSummary: ICached {
     }
 
     public var ID: Long
+    public var menuId: Long
+
     public var Name: String
     public var Description: String
     public var `Type`: PlaceType
@@ -37,6 +41,8 @@ public class PlaceSummary: ICached {
 
     public init() {
         self.ID = 0
+        self.menuId = 0
+
         self.Name = String.empty
         self.Description = String.empty
         self.Type = .Restaurant
@@ -49,6 +55,8 @@ public class PlaceSummary: ICached {
     public required init(source: PlaceSummary) {
 
         self.ID = source.ID
+        self.menuId = source.menuId
+
         self.Name = source.Name
         self.Description = source.Description
         self.Type = source.Type
@@ -62,6 +70,8 @@ public class PlaceSummary: ICached {
     public required init(json: JSON) {
 
         self.ID = (Keys.id <~~ json)!
+        self.menuId = (Keys.menuId <~~ json)!
+
         self.Name = (Keys.name <~~ json)!
         self.Description = (Keys.description <~~ json)!
         self.Type = (Keys.type <~~ json)!
@@ -76,6 +86,8 @@ public class PlaceSummary: ICached {
     public func toJSON() -> JSON? {
         return jsonify([
             Keys.id ~~> self.ID,
+            Keys.menuId ~~> self.menuId,
+
             Keys.name ~~> self.Name,
             Keys.description ~~> self.Description,
             Keys.type ~~> self.Type,

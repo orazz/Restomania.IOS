@@ -6,9 +6,9 @@
   Copyright © 2017 Medved-Studio. All rights reserved.
 */
 
-"Pushes.DishOrders.Add.ForUser" = "Добавлен новый заказ #%@";
-"Pushes.DishOrders.ChangeStatus.ForUser" = "Заказ #%@ изменил статус";
+"Pushes.DishOrders.Add.ForUser" = "Добавлен новый заказ #%@ на %@";
+"Pushes.DishOrders.ChangeStatus.ForUser" = "Заказ #%@ на %@ изменил статус";
 
 "Pushes.DishOrders.IsPrepared.ForUser" = "Заказ #%@ готов к выдаче";
 "Pushes.DishOrders.PaymentComplete.ForUser" = "Заказ #%@ успешно оплачен";
-"Pushes.DishOrders.PaymentFail.ForUser" = "Проблемы с оплатой заказа #@%";
+"Pushes.DishOrders.PaymentFail.ForUser" = "Проблемы с оплатой заказа #%@";
