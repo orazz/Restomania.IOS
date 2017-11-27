@@ -23,7 +23,11 @@ public class Migrations {
             return
         }
 
-        let migrations = [178: migrateToV024100]
+        let migrations = [
+            178: migrateToV024100,
+            ]
+
+
 
         for (build, migration) in migrations {
 
@@ -31,7 +35,6 @@ public class Migrations {
                 migration()
             }
         }
-
     }
     private static func migrateToV024100() {
 

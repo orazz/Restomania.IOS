@@ -31,7 +31,7 @@
 		1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE5F1F13BEA1000B92E1 /* Log.swift */; };
 		1F41CE621F13BEA1000B92E1 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE601F13BEA1000B92E1 /* LogMessage.swift */; };
 		1F41CE651F13BEB7000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE641F13BEB7000B92E1 /* Log.swift */; };
-		1F451FA51FCCB8820080C103 /* CachedProcessAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451FA41FCCB8820080C103 /* CachedProcessAdapter.swift */; };
+		1F451FA51FCCB8820080C103 /* CacheAdapterExtender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451FA41FCCB8820080C103 /* CacheAdapterExtender.swift */; };
 		1F49E1F21F7B996F00F384B3 /* FSOneFileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49E1F11F7B996C00F384B3 /* FSOneFileClient.swift */; };
 		1F4C82CF1F953D16004B294C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82CE1F953D16004B294C /* View.swift */; };
 		1F5CF8351FB3509600DDDC3F /* MathOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF8341FB3509600DDDC3F /* MathOperators.swift */; };
@@ -51,7 +51,7 @@
 		1FA2606C1F13D3A500C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606B1F13D3A500C14886 /* FileSystem.swift */; };
 		1FA2606E1F13E98A00C14886 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2606D1F13E98A00C14886 /* FileSystem.swift */; };
 		1FBB97CA1F79985F00FF4D1C /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB97C91F79985F00FF4D1C /* ImageWrapper.swift */; };
-		1FC547EB1F6FA293007CE6AB /* CacheRangeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547EA1F6FA293007CE6AB /* CacheRangeAdapter.swift */; };
+		1FC547EB1F6FA293007CE6AB /* CacheAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547EA1F6FA293007CE6AB /* CacheAdapter.swift */; };
 		1FC547EF1F6FA2E1007CE6AB /* IIdentified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547EE1F6FA2E1007CE6AB /* IIdentified.swift */; };
 		1FC547F11F6FA305007CE6AB /* ISortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F01F6FA305007CE6AB /* ISortable.swift */; };
 		1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC547F21F6FA322007CE6AB /* ICopying.swift */; };
@@ -114,7 +114,7 @@
 		1F41CE5F1F13BEA1000B92E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Tools/Log/Log.swift; sourceTree = "<group>"; };
 		1F41CE601F13BEA1000B92E1 /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogMessage.swift; path = Tools/Log/LogMessage.swift; sourceTree = "<group>"; };
 		1F41CE641F13BEB7000B92E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Tools/Log.swift; sourceTree = "<group>"; };
-		1F451FA41FCCB8820080C103 /* CachedProcessAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CachedProcessAdapter.swift; path = Services/Cache/CachedProcessAdapter.swift; sourceTree = "<group>"; };
+		1F451FA41FCCB8820080C103 /* CacheAdapterExtender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheAdapterExtender.swift; path = Services/Cache/CacheAdapterExtender.swift; sourceTree = "<group>"; };
 		1F49E1F11F7B996C00F384B3 /* FSOneFileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FSOneFileClient.swift; path = Tools/FileSystem/FSOneFileClient.swift; sourceTree = "<group>"; };
 		1F4C82CE1F953D16004B294C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = View.swift; path = Tools/View.swift; sourceTree = "<group>"; };
 		1F5CF8341FB3509600DDDC3F /* MathOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MathOperators.swift; path = Tools/MathOperators.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		1FA260721F13FEC900C14886 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1FA2607C1F149CC600C14886 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = ../_frameworks/Gloss.framework; sourceTree = "<group>"; };
 		1FBB97C91F79985F00FF4D1C /* ImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageWrapper.swift; path = UI/ImageWrapper/ImageWrapper.swift; sourceTree = "<group>"; };
-		1FC547EA1F6FA293007CE6AB /* CacheRangeAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheRangeAdapter.swift; path = Services/Cache/CacheRangeAdapter.swift; sourceTree = "<group>"; };
+		1FC547EA1F6FA293007CE6AB /* CacheAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheAdapter.swift; path = Services/Cache/CacheAdapter.swift; sourceTree = "<group>"; };
 		1FC547EE1F6FA2E1007CE6AB /* IIdentified.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IIdentified.swift; path = Services/IIdentified.swift; sourceTree = "<group>"; };
 		1FC547F01F6FA305007CE6AB /* ISortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISortable.swift; path = Services/ISortable.swift; sourceTree = "<group>"; };
 		1FC547F21F6FA322007CE6AB /* ICopying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICopying.swift; path = Services/ICopying.swift; sourceTree = "<group>"; };
@@ -372,10 +372,10 @@
 			isa = PBXGroup;
 			children = (
 				1FC547F41F6FA342007CE6AB /* ICached.swift */,
+				1FC547EA1F6FA293007CE6AB /* CacheAdapter.swift */,
+				1F451FA41FCCB8820080C103 /* CacheAdapterExtender.swift */,
 				1FC547F61F6FA3F5007CE6AB /* CacheContainer.swift */,
-				1FC547EA1F6FA293007CE6AB /* CacheRangeAdapter.swift */,
 				1F3705801F7B694F00E6CB0D /* CacheSearchResult.swift */,
-				1F451FA41FCCB8820080C103 /* CachedProcessAdapter.swift */,
 			);
 			name = Cache;
 			sourceTree = "<group>";
@@ -636,8 +636,8 @@
 				1F24A90F1F8964BC000BD8F1 /* InterfaceTable.swift in Sources */,
 				1F49E1F21F7B996F00F384B3 /* FSOneFileClient.swift in Sources */,
 				1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */,
-				1FC547EB1F6FA293007CE6AB /* CacheRangeAdapter.swift in Sources */,
-				1F451FA51FCCB8820080C103 /* CachedProcessAdapter.swift in Sources */,
+				1FC547EB1F6FA293007CE6AB /* CacheAdapter.swift in Sources */,
+				1F451FA51FCCB8820080C103 /* CacheAdapterExtender.swift in Sources */,
 				1F3D71CF1F72CAC40010818A /* ConfigsStorage.swift in Sources */,
 				1F3382F91F97D56700E43596 /* Switch.swift in Sources */,
 				1FA20BBC1F226D2A00215C4A /* SearchAdapter.swift in Sources */,

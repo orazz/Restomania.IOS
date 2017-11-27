@@ -9,10 +9,9 @@
 import Foundation
 import IOSLibrary
 
-public class ServicesFactory {
+public class LogicServices {
     
-    public static let shared = ServicesFactory()
-
+    public static let shared = LogicServices()
 
     public let likes: LikesService
     public let positions: PositionsService

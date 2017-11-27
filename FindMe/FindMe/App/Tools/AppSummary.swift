@@ -20,26 +20,23 @@ public class AppSummary {
     public var build: Int
     public var prevVersion: String?
     public var prevBuild: Int?
-    public var isNewVersion: Bool
-    public var isCriticalUpdate: Bool
+    public var isUpdate: Bool
+    public var isImportantUpdate: Bool
+
     public var isFirstLaunch: Bool {
         return nil == prevVersion
     }
-    
-
 
     private init() {
         
         let configs = ToolsServices.shared.configs
-        
         self.serverUrl = configs.get(forKey: ConfigsKey.serverUrl).value as! String
-        
         
         //Version
         self.version = "1.0.0"
         self.build = 1
-        self.isNewVersion = false
-        self.isCriticalUpdate = false
+        self.isUpdate = false
+        self.isImportantUpdate = false
         checkVersion()
     }
     private func checkVersion() {
@@ -51,7 +48,6 @@ public class AppSummary {
         
         
         let storage = PropertiesStorage<PropertiesKey>();
-        
         let prevVersion = storage.getString(.appVersion)
         let prevBuild = storage.getInt(.appBuild)
         
@@ -70,10 +66,10 @@ public class AppSummary {
         // Check on new version
         if (build > prevBuild.value) {
             
-            self.isNewVersion = true
+            self.isUpdate = true
         } else {
             
-            self.isNewVersion = false
+            self.isUpdate = false
             return
         }
         
@@ -84,10 +80,10 @@ public class AppSummary {
         if ((parsedCurrent.0 > parsedLast.0) ||
             (parsedCurrent.1 > parsedLast.1)) {
             
-            self.isCriticalUpdate = true
+            self.isImportantUpdate = true
         } else {
             
-            self.isCriticalUpdate = false
+            self.isImportantUpdate = false
         }
 
         self.prevVersion = prevVersion.value

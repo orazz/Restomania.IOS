@@ -24,24 +24,26 @@ public class CacheImagesService {
     }
 
 
-    private let _tag = String.tag(CacheImagesService.self)
-    private let _adapter: CacheRangeAdapter<CacheImageContainer>
-    private let _queue: DispatchQueue
-    private let _fileClient: FileSystem
-    private let _directoryName = "images-cache"
-    private var _lastID: Long
-    private let _cacheTime = Double(7 * 24 * 60 * 60)
+    private let tag = String.tag(CacheImagesService.self)
+    private let adapter: CacheAdapter<CacheImageContainer>
+    private let clearQueue: DispatchQueue
+    private let fileSystem: FileSystem
+    private var lastID: Long
+    private let directoryName = "images-cache"
+    private let cacheTime = Double(7 * 24 * 60 * 60)
 
     public init() {
 
-        _adapter = CacheRangeAdapter<CacheImageContainer>(tag: _tag, filename: "image-cache.json")
-        _queue  = DispatchQueue(label: _tag)
-        _fileClient = FileSystem()
-        _lastID = _adapter.localData.max(by: {(left, right) in left.ID > right.ID })?.ID ?? 0
+        adapter = CacheAdapter<CacheImageContainer>(tag: tag, filename: "image-cache.json")
+        clearQueue = DispatchQueue(label: "\(tag)-clear-queue")
+        fileSystem = FileSystem()
+        lastID = adapter.extender.all.max(by: {(left, right) in left.ID > right.ID })?.ID ?? 0
 
-        Log.Info(_tag, "Complete load service.")
-
-        checkDirectories()
+        Log.Info(tag, "Complete load service.")
+    }
+    public func load() {
+        adapter.loadCached()
+        launchService()
     }
 
     public func download(url: String) -> Task<DownloadResult> {
@@ -49,20 +51,18 @@ public class CacheImagesService {
         return Task { (handler:@escaping (_:DownloadResult) -> Void) in
 
             //Take from cache
-            for image in self._adapter.localData {
-                if (url == image.url) {
+            if let image = self.adapter.extender.find({ $0.url == url }) {
+                if let content = self.fileSystem.loadData(image.filename, fromCache: true) {
 
-                    let content = self._fileClient.loadData(image.filename, fromCache: true)
-                    if nil == content {
+                    handler(DownloadResult(data: content))
 
-                        self._adapter.remove(image)
-                        break
-                    }
+                    image.lastUseDate = Date()
+                    self.adapter.addOrUpdate(image)
 
-                    handler(DownloadResult(data: content!))
-                    Log.Debug(self._tag, "Take image from cache: \(url)")
-
-                    return
+                    Log.Debug(self.tag, "Take image from cache: \(url)")
+                }
+                else {
+                    self.adapter.remove(image)
                 }
             }
 
@@ -72,32 +72,31 @@ public class CacheImagesService {
 
                 guard let data = data, error == nil else {
                     handler(DownloadResult(data:nil))
-                    Log.Warning(self._tag, "Problem with download image from url: \(url).")
+                    Log.Warning(self.tag, "Problem with download image from url: \(url).")
 
                     return
                 }
 
                 let container = CacheImageContainer()
-                container.ID = self._lastID
+                container.ID = self.lastID
                 container.url = url
-                container.filename = "\(self._directoryName)/\(Guid.new).image"
-                self._lastID += 1
+                container.filename = "\(self.directoryName)/\(Guid.new).image"
+                self.lastID += 1
 
-                self._fileClient.saveTo(container.filename, data: data, toCache: true)
-                self._adapter.addOrUpdate(container)
+                self.fileSystem.saveTo(container.filename, data: data, toCache: true)
+                self.adapter.addOrUpdate(container)
 
                 handler(DownloadResult(data: data))
-                Log.Debug(self._tag, "Download and cache image for url: \(url)")
+                Log.Debug(self.tag, "Download and cache image for url: \(url)")
             })
             request.resume()
         }
     }
 
-    private func checkDirectories() {
+    private func launchService() {
 
-        if (!_fileClient.isExist(_directoryName, inCache: true)) {
-
-            _fileClient.createDirectory(_directoryName, inCache: true)
+        if (!fileSystem.isExist(directoryName, inCache: true)) {
+            fileSystem.createDirectory(directoryName, inCache: true)
         }
 
         checkCachedImages()
@@ -105,30 +104,29 @@ public class CacheImagesService {
     }
     private func checkCachedImages() {
 
-        for image in _adapter.localData {
-            if (!_fileClient.isExist(image.filename, inCache: true)) {
-
-                _adapter.remove(image.ID)
+        var needRemove = [Long]()
+        for image in adapter.extender.all {
+            if (!fileSystem.isExist(image.filename, inCache: true)) {
+                needRemove.append(image.ID)
             }
         }
+        adapter.remove(needRemove)
 
-        Log.Debug(_tag, "Check cached images.")
+        Log.Debug(tag, "Check cached images.")
     }
     private func removeOldImages() {
 
-        _queue.async {
+        clearQueue.async {
 
             let date = Date()
-
-            let images = self._adapter.localData
-            let old = images.where({ self._cacheTime < abs($0.lastUseDate.timeIntervalSince(date)) })
-            self._adapter.remove(old)
+            let old = self.adapter.extender.where({ self.cacheTime < abs($0.lastUseDate.timeIntervalSince(date)) })
+            self.adapter.remove(old)
 
             for image in old {
-                self._fileClient.remove(image.filename, fromCache: true)
+                self.fileSystem.remove(image.filename, fromCache: true)
             }
 
-            Log.Debug(self._tag, "Remove old cached images.")
+            Log.Debug(self.tag, "Remove old cached images.")
         }
     }
 

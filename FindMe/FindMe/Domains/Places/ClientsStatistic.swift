@@ -23,11 +23,6 @@ public class ClientsStatistic: BaseDataType, IPlaceDependent, ICopying {
         public static let averageAge = "AverageAge"
         public static let malesForAcquaintance = "MalesForAcquaintance"
         public static let femalesForAcquaintance = "FemalesForAcquaintance"
-
-        public static let men = "Men"
-        public static let women = "Women"
-        public static let menForAcquaintance = "MenForAcquaintance"
-        public static let womenForAcquaintance = "WomenForAcquaintance"
     }
     
     //MARK: IPlaceDependent
@@ -78,10 +73,10 @@ public class ClientsStatistic: BaseDataType, IPlaceDependent, ICopying {
         self.averageAge = (Keys.averageAge <~~ json)!
 
         //Migration
-        self.males = (Keys.males <~~ json) ?? (Keys.men <~~ json)!
-        self.females = (Keys.females <~~ json) ?? (Keys.women <~~ json)!
-        self.malesForAcquaintance = (Keys.malesForAcquaintance <~~ json) ?? (Keys.menForAcquaintance <~~ json)!
-        self.femalesForAcquaintance = (Keys.femalesForAcquaintance <~~ json) ?? (Keys.womenForAcquaintance <~~ json)!
+        self.males = (Keys.males <~~ json)!
+        self.females = (Keys.females <~~ json)!
+        self.malesForAcquaintance = (Keys.malesForAcquaintance <~~ json)!
+        self.femalesForAcquaintance = (Keys.femalesForAcquaintance <~~ json)!
         
         super.init(json: json)
     }

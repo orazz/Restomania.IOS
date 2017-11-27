@@ -34,6 +34,13 @@ public class CacheServices {
         return service
     }
 
+    public static func load() {
+
+        searchCards.load()
+        places.load()
+        images.load()
+    }
+
     private static var configs: ConfigsStorage {
         return ToolsServices.shared.configs
     }

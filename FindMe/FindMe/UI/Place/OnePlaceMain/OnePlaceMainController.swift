@@ -23,7 +23,7 @@ public class OnePlaceMainController: UIViewController {
 
         vc.placeId = placeId
         vc.cache = CacheServices.places
-        vc.likes = ServicesFactory.shared.likes
+        vc.likes = LogicServices.shared.likes
 
         return vc
     }

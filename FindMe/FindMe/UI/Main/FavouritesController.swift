@@ -25,7 +25,7 @@ public class FavouritesController: UIViewController {
     private var _listAdapter: PlacesListAdapter!
     private var _tableAdapter: PlacesListTableAdapter!
     private var cacheService: SearchPlaceCardsCacheService!
-    private var _likesService: LikesService!
+    private var _likesService = LogicServices.shared.likes
     private var _stored: [SearchPlaceCard]! {
         didSet {
             _tableAdapter.update(places: _stored)
@@ -44,7 +44,6 @@ public class FavouritesController: UIViewController {
         _tableAdapter = PlacesListTableAdapter(source: TableView, delegate: _listAdapter)
         Searchbar.delegate = _tableAdapter
         cacheService = CacheServices.searchCards
-        _likesService = ServicesFactory.shared.likes
 
         _likesService.subscribe(guid: _guid, handler: self, tag: _tag)
 
@@ -86,7 +85,7 @@ public class FavouritesController: UIViewController {
 
         //WTF: Change on range API
         self._isLoadData = true
-        let task = cacheService.allRemote(with: SelectParameters())
+        let task = cacheService.all(with: SelectParameters())
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {

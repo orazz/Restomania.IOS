@@ -10,70 +10,53 @@ import Foundation
 import Gloss
 import AsyncTask
 
-open class CacheRangeAdapter<TElement> where TElement: ICached {
+open class CacheAdapter<TElement> where TElement: ICached {
 
     public let blockQueue: DispatchQueue
     public var queue: AsyncTask.AsyncQueue {
         return .custom(blockQueue)
     }
-    private let _tag: String
-    private let _filename: String
-    private let _file: FSOneFileClient
+    public var extender: CacheAdapterExtender<TElement>!
+    private let tag: String
+    private let filename: String
+    private let file: FSOneFileClient
 
-    private var _data = [CacheContainer<TElement>]()
-    private var _livetime: TimeInterval
+    internal var data = [CacheContainer<TElement>]()
+    private var livetime: TimeInterval
 
     public init(tag: String, filename: String) {
 
-        _tag = tag
-        _filename = filename
-        _file = FSOneFileClient(filename: _filename, inCache: false, tag: tag)
-        blockQueue = DispatchQueue(label: "\(tag)-\(Guid.new)")
+        self.tag = tag
+        self.filename = filename
+        self.file = FSOneFileClient(filename: filename, inCache: false, tag: tag)
+        self.livetime = 0
 
-        _livetime = 0
-
-        blockQueue.sync {
-            if let loaded = self.load() {
-                self._data = loaded
-            }
-        }
+        self.blockQueue = DispatchQueue(label: "\(tag)-\(Guid.new)")
+        self.extender = CacheAdapterExtender(for: self)
     }
     public convenience init(tag: String, filename: String, livetime: TimeInterval) {
         self.init(tag: tag, filename: filename)
 
-        _livetime = livetime
+        self.livetime = livetime
+    }
+    public func loadCached() {
+
+        blockQueue.sync {
+            if let loaded = self.load() {
+                self.data = loaded
+            }
+        }
     }
 
     // MARK: Local work
     public var hasData: Bool {
-        return 0 != _data.count
+        return 0 != data.count
     }
     public var isEmpty: Bool {
         return !hasData
     }
 
     // MARK: Search
-    public var localData: [TElement] {
-        return _data.map({ $0.data })
-    }
-    public func find(_ id: Long) -> TElement? {
-        return _data.find({ $0.ID == id })?.data
-    }
-    public func find(_ predicate:@escaping ((TElement) -> Bool)) -> TElement? {
-
-        if let result = _data.find({ predicate($0.data) }) {
-            return TElement(source: result.data)
-        }
-        else {
-            return nil
-        }
-    }
-    public func range(_ ids: [Long]) -> [TElement] {
-        return localData.where({ ids.contains($0.ID) })
-    }
-    public func range(_ predicate: @escaping ((TElement) -> Bool)) -> [TElement] {
-        return localData.where(predicate)
-    }
     public func checkCache(_ range: [Long]) -> CacheSearchResult<Long> {
 
         var cached = [Long]()
@@ -81,7 +64,7 @@ open class CacheRangeAdapter<TElement> where TElement: ICached {
 
         for id in range {
 
-            if let _ = self._data.index(where: { $0.ID == id}) {
+            if let _ = self.data.index(where: { $0.ID == id}) {
                 cached.append(id)
             }
             else {
@@ -102,12 +85,12 @@ open class CacheRangeAdapter<TElement> where TElement: ICached {
 
             for update in range {
 
-                let container = CacheContainer<TElement>(data: update, livetime: _livetime)
-                if let index = self._data.index(where: { $0.ID == update.ID }) {
-                    self._data[index] = container
+                let container = CacheContainer<TElement>(data: update, livetime: livetime)
+                if let index = self.data.index(where: { $0.ID == update.ID }) {
+                    self.data[index] = container
                 }
                 else {
-                    self._data.append(container)
+                    self.data.append(container)
                 }
             }
         }
@@ -126,11 +109,15 @@ open class CacheRangeAdapter<TElement> where TElement: ICached {
     }
     public func remove(_ ids: [Long]) {
 
+        if (ids.isEmpty) {
+            return
+        }
+        
         blockQueue.sync {
 
             for id in ids {
-                if let index = _data.index(where: { $0.ID == id }) {
-                    _data.remove(at: index)
+                if let index = data.index(where: { $0.ID == id }) {
+                    data.remove(at: index)
                 }
             }
         }
@@ -144,9 +131,8 @@ open class CacheRangeAdapter<TElement> where TElement: ICached {
         var ids = [Long]()
         blockQueue.sync {
             let date = Date()
-            for element in _data {
+            for element in data {
                 if ( 0 > element.relevanceDate.timeIntervalSince(date)) {
-
                     ids.append(element.ID)
                 }
             }
@@ -158,7 +144,7 @@ open class CacheRangeAdapter<TElement> where TElement: ICached {
     public func clear() {
 
         blockQueue.sync {
-            self._data = []
+            self.data = []
         }
         save()
     }
@@ -168,25 +154,25 @@ open class CacheRangeAdapter<TElement> where TElement: ICached {
 
         blockQueue.async {
             do {
-                let data = try JSONSerialization.serialize(data: self._data)
-                self._file.save(data: data)
+                let data = try JSONSerialization.serialize(data: self.data)
+                self.file.save(data: data)
 
-                Log.Debug(self._tag, "Save cached data.")
+                Log.Debug(self.tag, "Save cached data.")
             } catch {
-                Log.Warning(self._tag, "Problem with save data.")
+                Log.Warning(self.tag, "Problem with save data.")
             }
         }
     }
     private func load() -> [CacheContainer<TElement>]? {
 
         do {
-            if let data = _file.loadData() {
+            if let data = file.loadData() {
                 return try JSONSerialization.parseRange(data: data) as [CacheContainer<TElement>]
             }
         }
         catch {
-            Log.Warning(_tag, "Problem with load data.")
-            Log.Warning(_tag, "\(error)")
+            Log.Warning(tag, "Problem with load data.")
+            Log.Warning(tag, "\(error)")
         }
 
         return nil

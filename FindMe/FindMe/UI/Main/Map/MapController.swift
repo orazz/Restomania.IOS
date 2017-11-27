@@ -27,8 +27,8 @@ public class MapController: UIViewController {
     private let _guid = Guid.new
     private var _listAdapter: PlacesListAdapter!
     private var cacheService: SearchPlaceCardsCacheService!
-    private var _likesService: LikesService!
-    private var _positions: PositionsService!
+    private var likesService = LogicServices.shared.likes
+    private var positionsService = LogicServices.shared.positions
 
     private var _places: [SearchPlaceCard]! {
         didSet {
@@ -57,15 +57,13 @@ public class MapController: UIViewController {
         _loader = InterfaceLoader(for: self.view)
 
         cacheService = CacheServices.searchCards
-        _likesService = ServicesFactory.shared.likes
-        _positions = ServicesFactory.shared.positions
 
-        _likesService.subscribe(guid: _guid, handler: self, tag: _tag)
+        likesService.subscribe(guid: _guid, handler: self, tag: _tag)
 
         loadData()
     }
     deinit {
-        _likesService.unsubscribe(guid: _guid)
+        likesService.unsubscribe(guid: _guid)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -96,7 +94,7 @@ public class MapController: UIViewController {
             _places = cached
         }
 
-        let task = cacheService.allRemote(with: SelectParameters())
+        let task = cacheService.all(with: SelectParameters())
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -138,7 +136,7 @@ public class MapController: UIViewController {
 
         //Filter liked
         if (_onlyLiked) {
-            _filtered = _filtered.where({ _likesService.isLiked(place: $0.card.ID) })
+            _filtered = _filtered.where({ likesService.isLiked(place: $0.card.ID) })
         }
 
         MapView.addAnnotations(_filtered)

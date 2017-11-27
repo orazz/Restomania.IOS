@@ -16,19 +16,22 @@ public class PlacesCacheService {
     private let tag = String.tag(PlacesCacheService.self)
     private let client: PlacesMainApiService
     private let properties: PropertiesStorage<PropertiesKey>
-    private let adapter: CacheRangeAdapter<DisplayPlaceInfo>
+    private let adapter: CacheAdapter<DisplayPlaceInfo>
 
     //MARK: Cached
-    public let cache: CachedProcessAdapter<DisplayPlaceInfo>
+    public var cache: CacheAdapterExtender<DisplayPlaceInfo> {
+        return adapter.extender
+    }
 
 
     public init(configs: ConfigsStorage, properties: PropertiesStorage<PropertiesKey>) {
 
         self.client = PlacesMainApiService(configs)
         self.properties = properties
-        self.adapter = CacheRangeAdapter(tag: tag, filename: "places.json", livetime: 24 * 60 * 60)
-
-        self.cache = CachedProcessAdapter<DisplayPlaceInfo>(for: self.adapter)
+        self.adapter = CacheAdapter(tag: tag, filename: "places.json", livetime: 24 * 60 * 60)
+    }
+    public func load() {
+        adapter.loadCached()
     }
 
 

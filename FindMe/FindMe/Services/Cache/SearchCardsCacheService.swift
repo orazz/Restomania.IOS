@@ -15,26 +15,30 @@ public class SearchPlaceCardsCacheService {
     private let tag = String.tag(SearchPlaceCardsCacheService.self)
     private let client: PlacesMainApiService
     private let properties: PropertiesStorage<PropertiesKey>
-    private let adapter: CacheRangeAdapter<SearchPlaceCard>
+    private let adapter: CacheAdapter<SearchPlaceCard>
 
     //MARK: Cached processing
-    public let cache: CachedProcessAdapter<SearchPlaceCard>
+    public var cache: CacheAdapterExtender<SearchPlaceCard> {
+        return adapter.extender
+    }
 
 
     public init(configs: ConfigsStorage, properties: PropertiesStorage<PropertiesKey>) {
 
         self.properties = properties
         self.client = PlacesMainApiService(configs)
-        self.adapter = CacheRangeAdapter<SearchPlaceCard>(tag: tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
-
-        self.cache = CachedProcessAdapter<SearchPlaceCard>(for: self.adapter)
+        self.adapter = CacheAdapter<SearchPlaceCard>(tag: tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
 
         Log.Debug(tag, "Complete load service.")
     }
 
+    public func load() {
+        adapter.loadCached()
+    }
+
 
     //MARK: Remote
-    public func allRemote(with parameters: SelectParameters) -> Task<[SearchPlaceCard]?> {
+    public func all(with parameters: SelectParameters) -> Task<[SearchPlaceCard]?> {
 
         return Task { (handler: @escaping (([SearchPlaceCard]?) -> Void)) in
 
@@ -52,7 +56,7 @@ public class SearchPlaceCardsCacheService {
 
                     self.adapter.addOrUpdate(update)
                     self.adapter.clearOldCached()
-                    handler(self.adapter.localData)
+                    handler(update)
                     Log.Debug(self.tag, "Complete request all.")
                 }
             })

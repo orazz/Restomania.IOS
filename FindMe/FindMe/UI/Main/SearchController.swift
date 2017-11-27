@@ -27,7 +27,7 @@ public class SearchController: UIViewController {
     private let guid = Guid.new
     private var displayFlag: DisplayPlacesFlag!
     private var cacheService: SearchPlaceCardsCacheService!
-    private var likes: LikesService!
+    private var likes = LogicServices.shared.likes
     private var places: [SearchPlaceCard]! {
         didSet {
             placesAdapter.update(places: places)
@@ -41,7 +41,6 @@ public class SearchController: UIViewController {
 
         displayFlag = .all
         cacheService = CacheServices.searchCards
-        likes = ServicesFactory.shared.likes
 
         likes.subscribe(guid: guid, handler: self, tag: _tag)
 
@@ -85,7 +84,7 @@ public class SearchController: UIViewController {
         }
 
 
-        let task = cacheService.allRemote(with: SelectParameters())
+        let task = cacheService.all(with: SelectParameters())
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
