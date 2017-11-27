@@ -24,7 +24,7 @@ public class AppSummary {
 
     private init() {
         
-        let configs = ServicesFactory.shared.configs
+        let configs = ToolsServices.shared.configs
         
         self.serverUrl = configs.get(forKey: ConfigsKey.serverUrl).value as! String
         

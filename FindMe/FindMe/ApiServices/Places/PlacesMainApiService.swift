@@ -17,37 +17,38 @@ public class PlacesMainApiService: BaseApiService {
     }
 
     //MARK: Methods
-    public func All(args: SelectParameters) -> RequestResult<[Place]> {
+    public func All(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[DisplayPlaceInfo]> {
 
         let parameters = CollectParameters([
-                "time": args.time?.prepareForJson()
+                "arguments": arguments,
+                "towns": towns
             ])
 
-        return _client.GetRange(action: "All", type: Place.self, parameters: parameters)
+        return _client.GetRange(action: "All", type: DisplayPlaceInfo.self, parameters: parameters)
     }
-    public func Find(placeId: Long) -> RequestResult<Place> {
+    public func Find(placeId: Long) -> RequestResult<DisplayPlaceInfo> {
 
         let parameters = CollectParameters([
-                "placeID": placeId
+                "placeId": placeId
             ])
 
-        return _client.Get(action: "Find", type: Place.self, parameters: parameters)
+        return _client.Get(action: "Find", type: DisplayPlaceInfo.self, parameters: parameters)
     }
-    public func range(ids: [Long]) -> RequestResult<[Place]> {
+    public func range(ids: [Long]) -> RequestResult<[DisplayPlaceInfo]> {
 
         let parameters = CollectParameters([
             "placeIds": ids
             ])
 
-        return _client.GetRange(action: "Range", type: Place.self, parameters: parameters)
+        return _client.GetRange(action: "Range", type: DisplayPlaceInfo.self, parameters: parameters)
     }
-    public func SearchCards(args: SelectParameters) -> RequestResult<[SearchPlaceCard]> {
+    public func SearchCards(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[SearchPlaceCard]> {
 
         let parameters = CollectParameters([
-                "time": args.time?.prepareForJson()
+                "arguments": arguments,
+                "towns": towns
             ])
 
         return _client.GetRange(action: "SearchCards", type: SearchPlaceCard.self, parameters: parameters)
     }
-
 }

@@ -12,20 +12,20 @@ import IOSLibrary
 
 internal protocol OnePlaceMainCellProtocol: InterfaceTableCellProtocol {
 
-    func update(by: Place)
+    func update(by: DisplayPlaceInfo)
 }
 public class OnePlaceMainController: UIViewController {
 
     private static let nibName = "OnePlaceMainView"
     public static func build(placeId: Long) -> OnePlaceMainController {
 
-        let instance = OnePlaceMainController(nibName: nibName, bundle: Bundle.main)
+        let vc = OnePlaceMainController(nibName: nibName, bundle: Bundle.main)
 
-        instance.placeId = placeId
-        instance.cache = ServicesFactory.shared.places
-        instance.likes = ServicesFactory.shared.likes
+        vc.placeId = placeId
+        vc.cache = CacheServices.places
+        vc.likes = ServicesFactory.shared.likes
 
-        return instance
+        return vc
     }
 
 
@@ -38,7 +38,7 @@ public class OnePlaceMainController: UIViewController {
 
     //MARK: Data
     private var placeId: Long!
-    private var place: Place? = nil
+    private var place: DisplayPlaceInfo? = nil
     private var cache: PlacesCacheservice!
     private var likes: LikesService!
 
@@ -57,8 +57,8 @@ public class OnePlaceMainController: UIViewController {
 
         setupLikeButton()
 
-        contentAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!)
-        buildRows()
+        let rows = buildRows()
+        contentAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!, rows: rows)
 
         loadData(manual: false)
     }
@@ -72,27 +72,31 @@ public class OnePlaceMainController: UIViewController {
 
         likeButton.image = image.withRenderingMode(.alwaysOriginal)
     }
-    private func buildRows() {
+    private func buildRows() -> [OnePlaceMainCellProtocol] {
 
-        contentAdapter.add(OnePlaceMainTitleCell.instance)
-        contentAdapter.add(OnePlaceMainSliderCell.instance)
-        contentAdapter.add(OnePlaceMainAddressCell.instance)
-        contentAdapter.add(OnePlaceMainStatisticCell.create(with: self.navigationController!))
+        var result = [OnePlaceMainCellProtocol]()
+
+        result.append(OnePlaceMainTitleCell.instance)
+        result.append(OnePlaceMainSliderCell.instance)
+        result.append(OnePlaceMainAddressCell.instance)
+        result.append(OnePlaceMainStatisticCell.create(with: self.navigationController!))
 
         let description = OnePlaceMainDescriptionCell.instance
-        contentAdapter.add(description)
-        contentAdapter.add(OnePlaceMainDividerCell.instance(for: description))
+        result.append(description)
+        result.append(OnePlaceMainDividerCell.instance(for: description))
 
 //        let actions = OnePlaceMainContactsCell.instance
-//        _interfaceAdapter.add(actions)
-//        _interfaceAdapter.add(OnePlaceMainDividerCell.instance(for: actions))
+//        result(actions)
+//        result.add(OnePlaceMainDividerCell.instance(for: actions))
 
         let contacts = OnePlaceMainContactsCell.instance
-        contentAdapter.add(contacts)
-        contentAdapter.add(OnePlaceMainDividerCell.instance(for: contacts))
+        result.append(contacts)
+        result.append(OnePlaceMainDividerCell.instance(for: contacts))
 
-        contentAdapter.add(OnePlaceMainLocationCell.instance)
-        contentAdapter.add(OnePlaceMainSpaceCell.instance)
+        result.append(OnePlaceMainLocationCell.instance)
+        result.append(OnePlaceMainSpaceCell.instance)
+
+        return result
     }
 
     @objc private func refreshData() {
@@ -130,7 +134,7 @@ public class OnePlaceMainController: UIViewController {
             }
         })
     }
-    private func completeLoad(_ place: Place) {
+    private func completeLoad(_ place: DisplayPlaceInfo) {
 
         self.place = place
 

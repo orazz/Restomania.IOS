@@ -40,7 +40,7 @@ public class SearchController: UIViewController {
         super.viewDidLoad()
 
         displayFlag = .all
-        cache = ServicesFactory.shared.searchCards
+        cache = CacheServices.searchCards
         likes = ServicesFactory.shared.likes
 
         likes.subscribe(guid: guid, handler: self, tag: _tag)
@@ -85,7 +85,7 @@ public class SearchController: UIViewController {
         }
 
 
-        let task = cache.allRemote()
+        let task = cache.allRemote(with: SelectParameters())
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {

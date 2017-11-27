@@ -29,7 +29,7 @@ public class OnePlaceMainTitleCell: UITableViewCell {
     @IBOutlet public weak var NameTitle: FMTitleLabel!
 
     //MARK: Data & Services
-    public var _place: Place? {
+    public var _place: DisplayPlaceInfo? {
         didSet {
 
             NameTitle?.text = _place?.name ?? String.empty
@@ -38,7 +38,7 @@ public class OnePlaceMainTitleCell: UITableViewCell {
 }
 extension OnePlaceMainTitleCell: OnePlaceMainCellProtocol {
     
-    public func update(by place: Place){
+    public func update(by place: DisplayPlaceInfo){
         _place = place
     }
 }

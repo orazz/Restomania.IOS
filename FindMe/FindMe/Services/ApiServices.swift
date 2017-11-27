@@ -12,19 +12,22 @@ public struct ApiServices {
 
     public struct Users {
         public static var main: UsersMainApiService {
-            return UsersMainApiService(configs: ServicesFactory.configs, keys: ServicesFactory.keys)
+            return UsersMainApiService(configs: ToolsServices.shared.configs, keys: ToolsServices.shared.keys)
         }
         public static var auth: UsersAuthApiService {
-            return UsersAuthApiService(ServicesFactory.configs)
+            return UsersAuthApiService(ToolsServices.shared.configs)
         }
     }
 
     public struct Places {
         public static var main: PlacesMainApiService {
-            return PlacesMainApiService(ServicesFactory.configs)
+            return PlacesMainApiService(ToolsServices.shared.configs)
         }
         public static var clients: PlacesClientsApiService {
-            return PlacesClientsApiService(ServicesFactory.configs)
+            return PlacesClientsApiService(ToolsServices.shared.configs)
+        }
+        public static var actions: PlacesActionsApiService {
+            return PlacesActionsApiService(ToolsServices.shared.configs)
         }
     }
 }

@@ -19,7 +19,7 @@ public class EnteringController: UIViewController {
         let instance = EnteringController(nibName: nibName, bundle: Bundle.main)
 
         instance.startController = parent
-        instance.keysStorage = ServicesFactory.shared.keys
+        instance.keysStorage = ToolsServices.shared.keys
         instance.authApiService = ApiServices.Users.auth
         instance.usersApiService = ApiServices.Users.main
 

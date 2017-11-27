@@ -34,7 +34,7 @@ public class GreetingController: UIViewController, SliderControlDelegate {
 
         setupHandlers()
 
-        let properties = ServicesFactory.shared.properties
+        let properties = ToolsServices.shared.properties
         properties.set(.isShowExplainer, value: true)
     }
     public override func viewWillAppear(_ animated: Bool) {

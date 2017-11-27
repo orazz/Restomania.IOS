@@ -56,7 +56,7 @@ public class MapController: UIViewController {
         _popup = MapPopupView.build(parent: self.view, delegate: _listAdapter)
         _loader = InterfaceLoader(for: self.view)
 
-        _cache = ServicesFactory.shared.searchCards
+        _cache = CacheServices.searchCards
         _likesService = ServicesFactory.shared.likes
         _positions = ServicesFactory.shared.positions
 
@@ -96,7 +96,7 @@ public class MapController: UIViewController {
             _places = local
         }
 
-        let task = _cache.allRemote()
+        let task = _cache.allRemote(with: SelectParameters())
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -222,7 +222,7 @@ extension MapController: MKMapViewDelegate {
 
             super.init()
         }
-        public convenience init(place: Place) {
+        public convenience init(place: DisplayPlaceInfo) {
             self.init(card: SearchPlaceCard(source: place))
         }
 

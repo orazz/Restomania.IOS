@@ -42,7 +42,7 @@ public class SearchPlaceCard: ICached {
         location = Location()
         peopleCount = 0
     }
-    public init(source: Place) {
+    public init(source: DisplayPlaceInfo) {
 
         ID = source.ID
         name = source.name
@@ -50,7 +50,7 @@ public class SearchPlaceCard: ICached {
         description = source.description
         image = source.images.first?.link ?? String.empty
         location = source.location
-        peopleCount = source.clientsData.people
+        peopleCount = source.statistic.people
     }
     
     //MARK: ICopyng

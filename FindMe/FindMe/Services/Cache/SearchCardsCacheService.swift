@@ -50,13 +50,13 @@ public class SearchPlaceCardsCacheService {
 
     //MARK: Remote
     
-    public func allRemote() -> Task<[SearchPlaceCard]?> {
+    public func allRemote(with parameters: SelectParameters) -> Task<[SearchPlaceCard]?> {
 
         return Task { (handler: @escaping (([SearchPlaceCard]?) -> Void)) in
 
             Log.Debug(self._tag, "Request all places' cards.")
 
-            let request = self._client.SearchCards(args: SelectParameters(time: nil))
+            let request = self._client.SearchCards(with: parameters)
             request.async(.custom(self._adapter.blockQueue), completion: { response in
 
                 guard response.isSuccess,
@@ -84,7 +84,7 @@ public class SearchPlaceCardsCacheService {
             Log.Debug(self._tag, "Start refresh data.")
 
 //            let time = self._properties.getDate(.lastUpdateSearchCards)
-            let request = self._client.SearchCards(args: SelectParameters(time: nil))
+            let request = self._client.SearchCards(with: SelectParameters())
 //            let request = self._client.SearchCards(args: SelectParameters(time: time.unwrapped))
             request.async(.custom(self._adapter.blockQueue), completion: { response in
 

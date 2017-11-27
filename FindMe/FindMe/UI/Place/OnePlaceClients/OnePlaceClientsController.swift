@@ -13,7 +13,7 @@ import IOSLibrary
 public class OnePlaceClientsController: UIViewController {
 
     private static let nibName = "OnePlaceClientsView"
-    public static func build(for sex: UserSex, in place: Place) -> OnePlaceClientsController {
+    public static func build(for sex: UserSex, in place: DisplayPlaceInfo) -> OnePlaceClientsController {
 
         let vc = OnePlaceClientsController(nibName: nibName, bundle: Bundle.main)
 
@@ -34,7 +34,7 @@ public class OnePlaceClientsController: UIViewController {
     //MARK: Data & services
     private var _tag = String.tag(OnePlaceClientsController.self)
     private var apiClient: PlacesClientsApiService!
-    private var place: Place!
+    private var place: DisplayPlaceInfo!
     private var selectedSex: UserSex! {
         didSet {
             updateFiltered()

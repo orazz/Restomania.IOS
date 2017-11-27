@@ -26,9 +26,6 @@
 		1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1A0E4E1F78EA0300FDBA97 /* Assets.xcassets */; };
 		1F1A0E541F78ED3800FDBA97 /* GreetingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1A0E531F78ED3800FDBA97 /* GreetingController.xib */; };
 		1F1A0E561F78ED4900FDBA97 /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E551F78ED4900FDBA97 /* GreetingController.swift */; };
-		1F1A0E581F794FB600FDBA97 /* PushesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E571F794FB600FDBA97 /* PushesManager.swift */; };
-		1F1A0E5A1F79504000FDBA97 /* RefreshDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E591F79504000FDBA97 /* RefreshDataManager.swift */; };
-		1F1A0E5C1F7950AB00FDBA97 /* ClientsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E5B1F7950AB00FDBA97 /* ClientsDataManager.swift */; };
 		1F1A0E671F79568900FDBA97 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E661F79568900FDBA97 /* Buttons.swift */; };
 		1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */; };
 		1F2223341FBA4817003ABD23 /* ProblemAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2223331FBA4817003ABD23 /* ProblemAlerts.swift */; };
@@ -43,6 +40,13 @@
 		1F24A91E1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A91D1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib */; };
 		1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A91F1F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib */; };
 		1F24A9221F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9211F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift */; };
+		1F2E37531FCC78FD003D24C1 /* PlacesActionsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37521FCC78FD003D24C1 /* PlacesActionsApiService.swift */; };
+		1F2E37581FCC7A2B003D24C1 /* RefreshDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37551FCC7A2B003D24C1 /* RefreshDataManager.swift */; };
+		1F2E37591FCC7A2B003D24C1 /* PushesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37561FCC7A2B003D24C1 /* PushesManager.swift */; };
+		1F2E375A1FCC7A2B003D24C1 /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37571FCC7A2B003D24C1 /* Migrations.swift */; };
+		1F2E375E1FCC7AC1003D24C1 /* DisplayPlaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E375D1FCC7AC1003D24C1 /* DisplayPlaceInfo.swift */; };
+		1F2E37601FCC82A2003D24C1 /* CacheServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E375F1FCC82A2003D24C1 /* CacheServices.swift */; };
+		1F2E37621FCC8569003D24C1 /* ToolsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37611FCC8569003D24C1 /* ToolsServices.swift */; };
 		1F2F4B211F81267C002FE39B /* SliderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F4B201F81267C002FE39B /* SliderIndicator.swift */; };
 		1F3382F31F97D1C700E43596 /* FMSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3382F21F97D1C700E43596 /* FMSwitch.swift */; };
 		1F3382F71F97D45300E43596 /* FMSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3382F61F97D45300E43596 /* FMSwitch.xib */; };
@@ -87,7 +91,6 @@
 		1F6B89361FA86D7100B7A99A /* OnePlaceClientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B89351FA86D7100B7A99A /* OnePlaceClientsCell.swift */; };
 		1F6B89381FA86DD300B7A99A /* OnePlaceClientsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B89371FA86DD300B7A99A /* OnePlaceClientsCellView.xib */; };
 		1F9DDAAB1F8A7A7600F4618D /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F9DDAB01F8FF09A00F4618D /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */; };
 		1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */; };
 		1FACBA781F965AA4004CEED0 /* OnePlaceMainLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */; };
 		1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */; };
@@ -109,7 +112,7 @@
 		1FC5481B1F70443B007CE6AB /* PlaceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5481A1F70443B007CE6AB /* PlaceStatus.swift */; };
 		1FC5481D1F7047F7007CE6AB /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5481C1F7047F7007CE6AB /* Action.swift */; };
 		1FC5481F1F7048EF007CE6AB /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5481E1F7048EF007CE6AB /* Attachment.swift */; };
-		1FC548211F704E62007CE6AB /* ClientsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548201F704E62007CE6AB /* ClientsData.swift */; };
+		1FC548211F704E62007CE6AB /* ClientsStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548201F704E62007CE6AB /* ClientsStatistic.swift */; };
 		1FC548231F705822007CE6AB /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548221F705822007CE6AB /* Place.swift */; };
 		1FC548251F7095B4007CE6AB /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548241F7095B4007CE6AB /* BaseApiService.swift */; };
 		1FC5838A1F814C0F0045941A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC583891F814C0F0045941A /* NavigationController.swift */; };
@@ -188,9 +191,6 @@
 		1F1A0E4E1F78EA0300FDBA97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F1A0E531F78ED3800FDBA97 /* GreetingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GreetingController.xib; path = UI/Start/GreetingController.xib; sourceTree = "<group>"; };
 		1F1A0E551F78ED4900FDBA97 /* GreetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GreetingController.swift; path = UI/Start/GreetingController.swift; sourceTree = "<group>"; };
-		1F1A0E571F794FB600FDBA97 /* PushesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushesManager.swift; path = App/PushesManager.swift; sourceTree = "<group>"; };
-		1F1A0E591F79504000FDBA97 /* RefreshDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshDataManager.swift; path = App/RefreshDataManager.swift; sourceTree = "<group>"; };
-		1F1A0E5B1F7950AB00FDBA97 /* ClientsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientsDataManager.swift; path = App/ClientsDataManager.swift; sourceTree = "<group>"; };
 		1F1A0E661F79568900FDBA97 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buttons.swift; path = UI/Elements/Buttons.swift; sourceTree = "<group>"; };
 		1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WrappedImage.swift; path = UI/Elements/WrappedImage.swift; sourceTree = "<group>"; };
 		1F2223331FBA4817003ABD23 /* ProblemAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProblemAlerts.swift; path = Services/ProblemAlerts.swift; sourceTree = "<group>"; };
@@ -205,6 +205,13 @@
 		1F24A91D1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainAddressCell.xib; path = UI/Place/OnePlaceMain/Address/OnePlaceMainAddressCell.xib; sourceTree = "<group>"; };
 		1F24A91F1F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainStatisticCell.xib; path = UI/Place/OnePlaceMain/Statistic/OnePlaceMainStatisticCell.xib; sourceTree = "<group>"; };
 		1F24A9211F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainStatisticCell.swift; path = UI/Place/OnePlaceMain/Statistic/OnePlaceMainStatisticCell.swift; sourceTree = "<group>"; };
+		1F2E37521FCC78FD003D24C1 /* PlacesActionsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesActionsApiService.swift; path = ApiServices/Places/PlacesActionsApiService.swift; sourceTree = "<group>"; };
+		1F2E37551FCC7A2B003D24C1 /* RefreshDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshDataManager.swift; path = App/Launch/RefreshDataManager.swift; sourceTree = "<group>"; };
+		1F2E37561FCC7A2B003D24C1 /* PushesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushesManager.swift; path = App/Launch/PushesManager.swift; sourceTree = "<group>"; };
+		1F2E37571FCC7A2B003D24C1 /* Migrations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Migrations.swift; path = App/Launch/Migrations.swift; sourceTree = "<group>"; };
+		1F2E375D1FCC7AC1003D24C1 /* DisplayPlaceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DisplayPlaceInfo.swift; path = ApiServices/Places/Models/DisplayPlaceInfo.swift; sourceTree = "<group>"; };
+		1F2E375F1FCC82A2003D24C1 /* CacheServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheServices.swift; path = Services/CacheServices.swift; sourceTree = "<group>"; };
+		1F2E37611FCC8569003D24C1 /* ToolsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolsServices.swift; path = Services/ToolsServices.swift; sourceTree = "<group>"; };
 		1F2F4B201F81267C002FE39B /* SliderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SliderIndicator.swift; path = UI/Elements/Slider/SliderIndicator.swift; sourceTree = "<group>"; };
 		1F3382F21F97D1C700E43596 /* FMSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMSwitch.swift; path = UI/Elements/Inputs/Switch/FMSwitch.swift; sourceTree = "<group>"; };
 		1F3382F61F97D45300E43596 /* FMSwitch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSwitch.xib; path = UI/Elements/Inputs/Switch/FMSwitch.xib; sourceTree = "<group>"; };
@@ -249,7 +256,6 @@
 		1F6B89351FA86D7100B7A99A /* OnePlaceClientsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceClientsCell.swift; path = UI/Place/OnePlaceClients/OnePlaceClientsCell.swift; sourceTree = "<group>"; };
 		1F6B89371FA86DD300B7A99A /* OnePlaceClientsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceClientsCellView.xib; path = UI/Place/OnePlaceClients/OnePlaceClientsCellView.xib; sourceTree = "<group>"; };
 		1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Migrations.swift; path = App/Migrations.swift; sourceTree = "<group>"; };
 		1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLocationCellOneLine.swift; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.swift; sourceTree = "<group>"; };
 		1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainLocationCell.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCell.xib; sourceTree = "<group>"; };
 		1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLocationCellOneLine.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.xib; sourceTree = "<group>"; };
@@ -272,7 +278,7 @@
 		1FC5481A1F70443B007CE6AB /* PlaceStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceStatus.swift; path = Domains/Places/PlaceStatus.swift; sourceTree = "<group>"; };
 		1FC5481C1F7047F7007CE6AB /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Domains/Places/Action.swift; sourceTree = "<group>"; };
 		1FC5481E1F7048EF007CE6AB /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Attachment.swift; path = Domains/Tools/Attachment.swift; sourceTree = "<group>"; };
-		1FC548201F704E62007CE6AB /* ClientsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientsData.swift; path = Domains/Places/ClientsData.swift; sourceTree = "<group>"; };
+		1FC548201F704E62007CE6AB /* ClientsStatistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientsStatistic.swift; path = Domains/Places/ClientsStatistic.swift; sourceTree = "<group>"; };
 		1FC548221F705822007CE6AB /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Domains/Places/Place.swift; sourceTree = "<group>"; };
 		1FC548241F7095B4007CE6AB /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiService.swift; path = ApiServices/BaseApiService.swift; sourceTree = "<group>"; };
 		1FC583891F814C0F0045941A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = UI/Main/NavigationController.swift; sourceTree = "<group>"; };
@@ -377,12 +383,9 @@
 		1F1A0E271F77BFC700FDBA97 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				1F1A0E321F77C09A00FDBA97 /* Tools */,
 				1F1A0E2A1F77C05C00FDBA97 /* AppDelegate.swift */,
-				1F1A0E591F79504000FDBA97 /* RefreshDataManager.swift */,
-				1F1A0E571F794FB600FDBA97 /* PushesManager.swift */,
-				1F1A0E5B1F7950AB00FDBA97 /* ClientsDataManager.swift */,
-				1F9DDAAF1F8FF09A00F4618D /* Migrations.swift */,
+				1F2E37541FCC79D1003D24C1 /* Launch */,
+				1F1A0E321F77C09A00FDBA97 /* Tools */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				1F1A0E451F78CE8B00FDBA97 /* Models */,
 				1FBB97CB1F79AFEF00FF4D1C /* PlacesMainApiService.swift */,
 				1F6B89331FA867CC00B7A99A /* PlacesClientsApiService.swift */,
+				1F2E37521FCC78FD003D24C1 /* PlacesActionsApiService.swift */,
 			);
 			name = Places;
 			sourceTree = "<group>";
@@ -420,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				1F1A0E461F78CEB100FDBA97 /* SearchPlaceCard.swift */,
+				1F2E375D1FCC7AC1003D24C1 /* DisplayPlaceInfo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -489,6 +494,16 @@
 				1F24A91D1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib */,
 			);
 			name = Address;
+			sourceTree = "<group>";
+		};
+		1F2E37541FCC79D1003D24C1 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				1F2E37571FCC7A2B003D24C1 /* Migrations.swift */,
+				1F2E37561FCC7A2B003D24C1 /* PushesManager.swift */,
+				1F2E37551FCC7A2B003D24C1 /* RefreshDataManager.swift */,
+			);
+			name = Launch;
 			sourceTree = "<group>";
 		};
 		1F2F4B1F1F81263F002FE39B /* Slider */ = {
@@ -674,7 +689,9 @@
 			isa = PBXGroup;
 			children = (
 				1F1A0E421F77E99E00FDBA97 /* ServicesFactory.swift */,
+				1F2E375F1FCC82A2003D24C1 /* CacheServices.swift */,
 				1F61302C1FAA7948009D3AF1 /* ApiServices.swift */,
+				1F2E37611FCC8569003D24C1 /* ToolsServices.swift */,
 				1FE7E3D31F7BAACB00D1745E /* Storage */,
 				1F1A0E5D1F79513F00FDBA97 /* Cache */,
 				1F49C4F91F7BD15C00051CAD /* PositionsService.swift */,
@@ -713,7 +730,7 @@
 				1FC5481C1F7047F7007CE6AB /* Action.swift */,
 				1FC548161F703442007CE6AB /* Location.swift */,
 				1FC548181F703FBB007CE6AB /* Contacts.swift */,
-				1FC548201F704E62007CE6AB /* ClientsData.swift */,
+				1FC548201F704E62007CE6AB /* ClientsStatistic.swift */,
 				1FC5481A1F70443B007CE6AB /* PlaceStatus.swift */,
 				1FC548221F705822007CE6AB /* Place.swift */,
 			);
@@ -1222,7 +1239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FC548211F704E62007CE6AB /* ClientsData.swift in Sources */,
+				1FC548211F704E62007CE6AB /* ClientsStatistic.swift in Sources */,
 				1F4690711F869CCC0056F9B0 /* SearchController.swift in Sources */,
 				1FC5481B1F70443B007CE6AB /* PlaceStatus.swift in Sources */,
 				1FACBA7E1F966BEF004CEED0 /* Map.swift in Sources */,
@@ -1232,6 +1249,7 @@
 				1FC5839E1F827C5D0045941A /* SliderControl.swift in Sources */,
 				1F2223361FBA4EE8003ABD23 /* DisplayPlacesFlag.swift in Sources */,
 				1F24A9221F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift in Sources */,
+				1F2E37601FCC82A2003D24C1 /* CacheServices.swift in Sources */,
 				1FC5481D1F7047F7007CE6AB /* Action.swift in Sources */,
 				1F24A9171F89722E000BD8F1 /* OnePlaceMainSliderCell.swift in Sources */,
 				1F3382FC1F97DAD400E43596 /* FMSegmentedControl.swift in Sources */,
@@ -1239,8 +1257,10 @@
 				1F09EE521F862E9000694D8D /* VKAuthorizationController.swift in Sources */,
 				1FBB97CE1F79B10000FF4D1C /* SelectParameters.swift in Sources */,
 				1FF8E6291FA7A331001852CE /* OnePlaceLocationController.swift in Sources */,
+				1F2E37591FCC7A2B003D24C1 /* PushesManager.swift in Sources */,
 				1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */,
 				1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */,
+				1F2E375E1FCC7AC1003D24C1 /* DisplayPlaceInfo.swift in Sources */,
 				1F4C82CD1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift in Sources */,
 				1FE7E3DA1F7BAB2600D1745E /* KeysStorage.swift in Sources */,
 				1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */,
@@ -1254,10 +1274,10 @@
 				1F24A90B1F896366000BD8F1 /* OnePlaceMainController.swift in Sources */,
 				1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */,
 				1FC5481F1F7048EF007CE6AB /* Attachment.swift in Sources */,
+				1F2E37581FCC7A2B003D24C1 /* RefreshDataManager.swift in Sources */,
 				1F24A9131F896927000BD8F1 /* OnePlaceMainTitleCell.swift in Sources */,
 				1F1A0E381F77C12400FDBA97 /* AppSummary.swift in Sources */,
 				1FE7E3DB1F7BAB2600D1745E /* LikesService.swift in Sources */,
-				1F1A0E581F794FB600FDBA97 /* PushesManager.swift in Sources */,
 				1FB0EE501FAFA10E00F64F1F /* ImageControllerSlide.swift in Sources */,
 				1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */,
 				1F49C4FA1F7BD15C00051CAD /* PositionsService.swift in Sources */,
@@ -1265,12 +1285,11 @@
 				1F4E10FD1F970BFA00EB8391 /* FMTextField.swift in Sources */,
 				1FC548231F705822007CE6AB /* Place.swift in Sources */,
 				1F0E2B4B1FA62295006C707E /* BackgroundPositionsServices.swift in Sources */,
-				1F1A0E5A1F79504000FDBA97 /* RefreshDataManager.swift in Sources */,
 				1FC583901F8150050045941A /* StartContoller.swift in Sources */,
 				1FD0754B1F893F3000F34A26 /* PlacesCacheService.swift in Sources */,
+				1F2E37531FCC78FD003D24C1 /* PlacesActionsApiService.swift in Sources */,
 				1FC548171F703442007CE6AB /* Location.swift in Sources */,
 				1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */,
-				1F9DDAB01F8FF09A00F4618D /* Migrations.swift in Sources */,
 				1F46770B1F910003007E426D /* OnePlaceMainDescriptionCell.swift in Sources */,
 				1F4677131F950F21007E426D /* OnePlaceMainSpaceCell.swift in Sources */,
 				1F6B89361FA86D7100B7A99A /* OnePlaceClientsCell.swift in Sources */,
@@ -1287,6 +1306,7 @@
 				1F4677171F95161D007E426D /* OnePlaceMainDividerCell.swift in Sources */,
 				1FC548151F7033FF007CE6AB /* ApiRights.swift in Sources */,
 				1F4DDE0B1F977646005CED0B /* User.swift in Sources */,
+				1F2E37621FCC8569003D24C1 /* ToolsServices.swift in Sources */,
 				1FC5480B1F6FF8B4007CE6AB /* PlaceImage.swift in Sources */,
 				1FC5838C1F814CDB0045941A /* TabBarController.swift in Sources */,
 				1FC583A01F827F360045941A /* SliderControlDelegate.swift in Sources */,
@@ -1295,10 +1315,10 @@
 				1F1A0E471F78CEB100FDBA97 /* SearchPlaceCard.swift in Sources */,
 				1F4DDE071F977573005CED0B /* UserSex.swift in Sources */,
 				1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */,
+				1F2E375A1FCC7A2B003D24C1 /* Migrations.swift in Sources */,
 				1FC548131F70325A007CE6AB /* Account.swift in Sources */,
 				1F6B21C11F881E310068E29A /* MapController.swift in Sources */,
 				1F1A0E561F78ED4900FDBA97 /* GreetingController.swift in Sources */,
-				1F1A0E5C1F7950AB00FDBA97 /* ClientsDataManager.swift in Sources */,
 				1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */,
 				1FBB97CC1F79AFEF00FF4D1C /* PlacesMainApiService.swift in Sources */,
 				1F09EE591F8655D700694D8D /* UsersMainApiService.swift in Sources */,

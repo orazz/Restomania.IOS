@@ -32,9 +32,8 @@ public class RefreshDataManager {
 
     private init() {
 
-        let factory = ServicesFactory.shared
-        self._cards = factory.searchCards
-        self._places = factory.places
+        self._cards = CacheServices.searchCards
+        self._places = CacheServices.places
     }
 
 

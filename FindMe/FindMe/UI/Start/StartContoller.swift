@@ -17,8 +17,8 @@ public class StartController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let properties = ServicesFactory.shared.properties
-        let keys = ServicesFactory.shared.keys
+        let properties = ToolsServices.shared.properties
+        let keys = ToolsServices.shared.keys
 
         if (!(properties.getBool(.isShowExplainer).unwrapped ?? false)) {
             toGreetingPage()

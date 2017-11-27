@@ -47,7 +47,7 @@ public class Place: BaseDataType, ICached {
     public var contactsId: Long
     public var contacts: Contacts
     public var clientsDataId: Long
-    public var clientsData: ClientsData
+    public var clientsData: ClientsStatistic
     
     //MARK: ICopyng
     public required init(source: Place) {
@@ -66,7 +66,7 @@ public class Place: BaseDataType, ICached {
         self.contactsId = source.contactsId
         self.contacts = Contacts(source: source.contacts)
         self.clientsDataId = source.clientsDataId
-        self.clientsData = ClientsData(source: source.clientsData)
+        self.clientsData = ClientsStatistic(source: source.clientsData)
         
         super.init(source: source)
     }

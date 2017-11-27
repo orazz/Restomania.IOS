@@ -14,7 +14,7 @@ import Gloss
 public class PlacesCacheservice {
 
     private let _tag = String.tag(PlacesCacheservice.self)
-    private let _adapter: CacheRangeAdapter<Place>
+    private let _adapter: CacheRangeAdapter<DisplayPlaceInfo>
     private let _client: PlacesMainApiService
     private let _properties: PropertiesStorage<PropertiesKey>
 
@@ -28,16 +28,16 @@ public class PlacesCacheservice {
 
 
     //MARK: Local
-    public func findLocal(id place:Long) -> Place? {
+    public func findLocal(id place:Long) -> DisplayPlaceInfo? {
         return _adapter.find(place)
     }
 
 
 
     //MARK: Remote
-    public func findRemote(id placeId: Long) -> Task<Place?> {
+    public func findRemote(id placeId: Long) -> Task<DisplayPlaceInfo?> {
 
-        return Task<Place?>(action: { handler in
+        return Task<DisplayPlaceInfo?>(action: { handler in
 
             let request = self._client.Find(placeId: placeId)
             request.async(.custom(self._adapter.blockQueue), completion: { response in

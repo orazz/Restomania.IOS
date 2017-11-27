@@ -14,7 +14,7 @@ import MapKit
 public class OnePlaceLocationController: UIViewController {
 
     private static let nibName = "OnePlaceLocationView"
-    public static func instance(place: Place) -> OnePlaceLocationController {
+    public static func instance(place: DisplayPlaceInfo) -> OnePlaceLocationController {
 
         let instance = OnePlaceLocationController(nibName: nibName, bundle: Bundle.main)
 
@@ -32,7 +32,7 @@ public class OnePlaceLocationController: UIViewController {
 
     //MARK: Data & services
     private let _tag = String.tag(OnePlaceLocationController.self)
-    private var _place: Place!
+    private var _place: DisplayPlaceInfo!
 
 
 

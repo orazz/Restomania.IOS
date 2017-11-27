@@ -13,46 +13,30 @@ public class SelectParameters: Glossy {
 
     public struct Keys {
 
-        public static let time = "Time"
         public static let take = "Take"
         public static let skip = "Skip"
-        public static let orderBy = "OrderBy"
     }
 
-    public var time: Date?
-    public var take: Int
-    public var skip: Int
-    public var orderBy: String
+    public let take: Int
+    public let skip: Int
 
-    public init(time: Date? = nil) {
+    public init(take: Int = Int.max, skip: Int = 0) {
 
-        self.time = time
-        self.take = 0
-        self.skip = 0
-        self.orderBy = String.empty
+        self.take = take
+        self.skip = skip
     }
 
     //MARK: Glossy
     public required init(json: JSON) {
 
-        if let time: String = Keys.time <~~ json {
-            self.time = Date.parseJson(value: time)
-        }
-        else {
-            self.time = nil
-        }
         self.take = (Keys.take <~~ json)!
         self.skip = (Keys.skip <~~ json)!
-        self.orderBy = (Keys.orderBy <~~ json)!
     }
     public func toJSON() -> JSON? {
 
         return jsonify([
-
-            Keys.time ~~> self.time?.prepareForJson(),
             Keys.take ~~> self.take,
-            Keys.skip ~~> self.skip,
-            Keys.orderBy ~~> self.orderBy
+            Keys.skip ~~> self.skip
             ])
     }
 }

@@ -133,7 +133,7 @@ extension OnePlaceMainLocationCell: OnePlaceShowDividerDelegate {
 }
 extension OnePlaceMainLocationCell: OnePlaceMainCellProtocol {
 
-    public func update(by place: Place) {
+    public func update(by place: DisplayPlaceInfo) {
         _location = place.location
     }
 }

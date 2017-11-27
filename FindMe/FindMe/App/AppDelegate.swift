@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     private func stubForTesting() {
 
-        let factory = ServicesFactory.shared
+        let factory = ToolsServices.shared
         let properties = factory.properties
         properties.set(.isShowExplainer, value: false)
 

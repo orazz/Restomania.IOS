@@ -38,8 +38,8 @@ public class OnePlaceMainStatisticCell: UITableViewCell {
 
     //MARK: Data & Services
     private let _tag = String.tag(OnePlaceMainStatisticCell.self)
-    private var _place: Place?
-    private var _statistic: ClientsData? {
+    private var _place: DisplayPlaceInfo?
+    private var _statistic: ClientsStatistic? {
         didSet {
             updateStatistic()
         }
@@ -75,10 +75,10 @@ public class OnePlaceMainStatisticCell: UITableViewCell {
 }
 extension OnePlaceMainStatisticCell: OnePlaceMainCellProtocol {
 
-    public func update(by place: Place) {
+    public func update(by place: DisplayPlaceInfo) {
         
         self._place = place
-        self._statistic = place.clientsData
+        self._statistic = place.statistic
     }
 }
 extension OnePlaceMainStatisticCell: InterfaceTableCellProtocol {
