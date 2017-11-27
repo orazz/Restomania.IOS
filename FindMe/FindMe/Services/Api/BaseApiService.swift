@@ -13,7 +13,7 @@ import Gloss
 
 public class BaseApiService: NSObject {
     
-    internal var _client: ApiClient!
+    internal var client: ApiClient!
     internal var _keys: IKeysStorage? = nil
     
     private var _url: String
@@ -21,7 +21,7 @@ public class BaseApiService: NSObject {
     public init(area: String, configs: ConfigsStorage, tag: String, keys:IKeysStorage? = nil) {
 
         self._url = configs.get(forKey: ConfigsKey.serverUrl).value as! String
-        self._client = ApiClient(url: "\(_url)/api/\(area)", tag: tag)
+        self.client = ApiClient(url: "\(_url)/api/\(area)", tag: tag)
         self._keys = keys
 
         super.init()

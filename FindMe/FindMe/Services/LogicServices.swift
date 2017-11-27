@@ -19,7 +19,6 @@ public class ServicesFactory {
     public let backgroundPositions: BackgroundPositionsServices
     public let checkIns: CheckInService
 
-
     private init() {
 
         likes = LikesService()

@@ -66,20 +66,23 @@ public class ApiClient {
     }
 
     //Long
-    public func GetLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
+    public func GetLong(action: String, parameters: Parameters? = nil) -> RequestResult<Long> {
         return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitLong())
     }
-    public func PostLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
+    public func GetLongRange(action: String, parameters: Parameters? = nil) -> RequestResult<[Long]> {
+        return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: { $0 as! [Long] })
+    }
+    public func PostLong(action: String, parameters: Parameters? = nil) -> RequestResult<Long> {
         return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitLong())
     }
-    public func PutLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
+    public func PutLong(action: String, parameters: Parameters? = nil) -> RequestResult<Long> {
         return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitLong())
     }
-    public func DeleteLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
+    public func DeleteLong(action: String, parameters: Parameters? = nil) -> RequestResult<Long> {
         return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitLong())
     }
-    private func InitLong() -> (_:Any?) -> Int64 {
-        return { json in json as! Int64 }
+    private func InitLong() -> (_:Any?) -> Long {
+        return { json in json as! Long }
     }
 
     //Bool

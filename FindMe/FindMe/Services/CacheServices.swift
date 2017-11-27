@@ -12,7 +12,7 @@ import IOSLibrary
 public class CacheServices {
 
     private static var _searchCards: SearchPlaceCardsCacheService?
-    private static var _places: PlacesCacheservice?
+    private static var _places: PlacesCacheService?
     private static var _images: CacheImagesService?
 
     public static var searchCards: SearchPlaceCardsCacheService {
@@ -21,8 +21,8 @@ public class CacheServices {
 
         return service
     }
-    public static var places: PlacesCacheservice {
-        let service = _places ?? PlacesCacheservice(configs: configs, properties: properties)
+    public static var places: PlacesCacheService {
+        let service = _places ?? PlacesCacheService(configs: configs, properties: properties)
         _places = service
 
         return service

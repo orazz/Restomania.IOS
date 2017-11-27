@@ -28,7 +28,7 @@ public class RefreshDataManager {
     private let _application = UIApplication.shared
 
     private let _cards: SearchPlaceCardsCacheService
-    private let _places: PlacesCacheservice
+    private let _places: PlacesCacheService
 
     private init() {
 
@@ -44,7 +44,7 @@ public class RefreshDataManager {
     }
     public func refreshData() {
 
-        _cards.refresh()
+//        _cards.refresh()
 //        _places.refresh()
 
 //        SlackNotifier.notify("<\(_tag)>: Refresh data.")

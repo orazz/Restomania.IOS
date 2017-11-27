@@ -17,22 +17,21 @@ public class PlacesMainApiService: BaseApiService {
     }
 
     //MARK: Methods
-    public func All(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[DisplayPlaceInfo]> {
-
+    public func all(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[DisplayPlaceInfo]> {
         let parameters = CollectParameters([
                 "arguments": arguments,
                 "towns": towns
             ])
 
-        return _client.GetRange(action: "All", type: DisplayPlaceInfo.self, parameters: parameters)
+        return client.GetRange(action: "All", type: DisplayPlaceInfo.self, parameters: parameters)
     }
-    public func Find(placeId: Long) -> RequestResult<DisplayPlaceInfo> {
+    public func find(placeId: Long) -> RequestResult<DisplayPlaceInfo> {
 
         let parameters = CollectParameters([
                 "placeId": placeId
             ])
 
-        return _client.Get(action: "Find", type: DisplayPlaceInfo.self, parameters: parameters)
+        return client.Get(action: "Find", type: DisplayPlaceInfo.self, parameters: parameters)
     }
     public func range(ids: [Long]) -> RequestResult<[DisplayPlaceInfo]> {
 
@@ -40,15 +39,14 @@ public class PlacesMainApiService: BaseApiService {
             "placeIds": ids
             ])
 
-        return _client.GetRange(action: "Range", type: DisplayPlaceInfo.self, parameters: parameters)
+        return client.GetRange(action: "Range", type: DisplayPlaceInfo.self, parameters: parameters)
     }
-    public func SearchCards(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[SearchPlaceCard]> {
-
+    public func searchCards(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[SearchPlaceCard]> {
         let parameters = CollectParameters([
                 "arguments": arguments,
                 "towns": towns
             ])
 
-        return _client.GetRange(action: "SearchCards", type: SearchPlaceCard.self, parameters: parameters)
+        return client.GetRange(action: "SearchCards", type: SearchPlaceCard.self, parameters: parameters)
     }
 }

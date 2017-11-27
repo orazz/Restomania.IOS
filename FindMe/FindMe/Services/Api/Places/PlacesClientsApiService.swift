@@ -23,6 +23,6 @@ public class PlacesClientsApiService: BaseApiService {
             "placeId": placeId
             ])
 
-        return _client.GetRange(action: "All", type: PlaceClient.self, parameters: parameters)
+        return client.GetRange(action: "All", type: PlaceClient.self, parameters: parameters)
     }
 }

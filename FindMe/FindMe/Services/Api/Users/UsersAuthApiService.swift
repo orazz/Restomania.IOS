@@ -23,7 +23,7 @@ public class UsersAuthApiService: BaseApiService {
 
         let parameters = CollectParameters()
 
-        return _client.Post(action: "Anonymous", type: ApiKeys.self, parameters: parameters)
+        return client.Post(action: "Anonymous", type: ApiKeys.self, parameters: parameters)
     }
     public func vk(userId: Long, token: String, email: String) -> RequestResult<ApiKeys> {
 
@@ -33,7 +33,7 @@ public class UsersAuthApiService: BaseApiService {
             "email": email
             ])
 
-        return _client.Post(action: "Vk", type: ApiKeys.self, parameters: parameters)
+        return client.Post(action: "Vk", type: ApiKeys.self, parameters: parameters)
     }
 
 }

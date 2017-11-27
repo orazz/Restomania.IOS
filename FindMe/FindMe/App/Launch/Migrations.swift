@@ -11,6 +11,11 @@ import Foundation
 public class Migrations {
 
     public static func apply() {
-        
+
+        let summary = AppSummary.shared
+
+        if (summary.isFirstLaunch) {
+            return
+        }
     }
 }

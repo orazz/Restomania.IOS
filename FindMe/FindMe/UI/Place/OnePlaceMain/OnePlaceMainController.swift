@@ -39,7 +39,7 @@ public class OnePlaceMainController: UIViewController {
     //MARK: Data
     private var placeId: Long!
     private var place: DisplayPlaceInfo? = nil
-    private var cache: PlacesCacheservice!
+    private var cache: PlacesCacheService!
     private var likes: LikesService!
 
 

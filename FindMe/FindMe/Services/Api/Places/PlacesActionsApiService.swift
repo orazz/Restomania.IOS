@@ -18,12 +18,18 @@ public class PlacesActionsApiService: BaseApiService {
 
     //MARK: Methods
     public func all(with args: SelectParameters) -> RequestResult<[Action]> {
-
         let parameters = CollectParameters([
             "args": args
             ])
 
-        return _client.GetRange(action: "All", type: Action.self, parameters: parameters)
+        return client.GetRange(action: "All", type: Action.self, parameters: parameters)
+    }
+    public func find(_ actionId: Long) -> RequestResult<Action> {
+        let parameters = CollectParameters([
+            "actionId": actionId
+            ])
+
+        return client.Get(action: "Find", type: Action.self, parameters: parameters)
     }
 }
 

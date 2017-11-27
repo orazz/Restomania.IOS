@@ -16,14 +16,13 @@ public class UsersMainApiService: BaseApiService {
         super.init(area: "Users", configs: configs, tag: String.tag(UsersMainApiService.self), keys: keys)
     }
 
-
     
     //MARK: Methods
     public func find() -> RequestResult<User> {
 
         let parameters = CollectParameters(rights: .user)
 
-        return _client.Get(action: "Find", type: User.self, parameters: parameters)
+        return client.Get(action: "Find", type: User.self, parameters: parameters)
     }
 
     public func change(updates: [PartialUpdateContainer]) -> RequestResult<Bool> {
@@ -32,7 +31,7 @@ public class UsersMainApiService: BaseApiService {
             "updates": updates
             ])
 
-        return self._client.PutBool(action: "Change", parameters: parameters)
+        return self.client.PutBool(action: "Change", parameters: parameters)
     }
     public func changeAvatar(dataUrl: String) -> RequestResult<Bool> {
 
@@ -40,7 +39,7 @@ public class UsersMainApiService: BaseApiService {
             "dataUrl": dataUrl
             ])
 
-        return self._client.PutBool(action: "ChangeAvatar", parameters: parameters)
+        return self.client.PutBool(action: "ChangeAvatar", parameters: parameters)
     }
     public func checkIn(placeId: Long) -> RequestResult<Bool> {
 
@@ -48,6 +47,6 @@ public class UsersMainApiService: BaseApiService {
             "placeID": placeId
         ])
 
-        return _client.PostBool(action: "CheckIn", parameters: parameters)
+        return client.PostBool(action: "CheckIn", parameters: parameters)
     }
 }

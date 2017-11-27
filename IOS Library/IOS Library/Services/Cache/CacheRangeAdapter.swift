@@ -8,42 +8,40 @@
 
 import Foundation
 import Gloss
+import AsyncTask
 
 open class CacheRangeAdapter<TElement>  where TElement: ICached {
 
     public let blockQueue: DispatchQueue
+    public var queue: AsyncTask.AsyncQueue {
+        return .custom(blockQueue)
+    }
     private let _tag: String
     private let _filename: String
-    private let _fileClient: FileSystem
+    private let _file: FSOneFileClient
 
-    private var _data: [CacheContainer<TElement>]
-
-    private var _clearCache: Bool
+    private var _data = [CacheContainer<TElement>]()
     private var _livetime: TimeInterval
 
     public init(tag: String, filename: String) {
 
         _tag = tag
         _filename = filename
-        _fileClient = FileSystem()
+        _file = FSOneFileClient(filename: _filename, inCache: false, tag: tag)
         blockQueue = DispatchQueue(label: "\(tag)-\(Guid.new)")
 
-        _data = [CacheContainer<TElement>]()
-
-        _clearCache = false
         _livetime = 0
 
         blockQueue.sync {
-            self._data = self.load()
+            if let loaded = self.load() {
+                self._data = loaded
+            }
         }
     }
     public convenience init(tag: String, filename: String, livetime: TimeInterval) {
         self.init(tag: tag, filename: filename)
 
-        _clearCache = true
         _livetime = livetime
-
-        self.clearCached()
     }
 
     // MARK: Local work
@@ -64,13 +62,11 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
     public func find(_ predicate:@escaping ((TElement) -> Bool)) -> TElement? {
 
         if let result = _data.find({ predicate($0.data) }) {
-
             return TElement(source: result.data)
-        } else {
-
+        }
+        else {
             return nil
         }
-
     }
     public func range(_ ids: [Long]) -> [TElement] {
         return localData.where({ ids.contains($0.ID) })
@@ -85,17 +81,10 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
 
         for id in range {
 
-            var found = false
-            for element in _data {
-
-                if (id == element.ID) {
-                    cached.append(id)
-                    found = true
-                    break
-                }
+            if let _ = self._data.index(where: { $0.ID == id}) {
+                cached.append(id)
             }
-
-            if (!found) {
+            else {
                 notFound.append(id)
             }
         }
@@ -105,45 +94,20 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
 
     // MARK: Adding
     public func addOrUpdate(_ element: TElement) {
-
-        blockQueue.sync {
-
-            let container = CacheContainer<TElement>(data: element, livetime: _livetime)
-            var updated = false
-            for (index, cached) in _data.enumerated() {
-
-                if (cached.ID == element.ID) {
-                    _data[index] = container
-                    updated = true
-                    break
-                }
-            }
-
-            if (!updated) {
-                _data.append(container)
-            }
-        }
-        save()
+        addOrUpdate([element])
     }
-    public func addOrUpdate(with range: [TElement]) {
+    public func addOrUpdate(_ range: [TElement]) {
 
         blockQueue.sync {
 
             for update in range {
 
                 let container = CacheContainer<TElement>(data: update, livetime: _livetime)
-                var updated = false
-                for (index, cached) in self._data.enumerated() {
-
-                    if (update.ID == cached.ID) {
-                        self._data[index] = container
-                        updated = true
-                        break
-                    }
+                if let index = self._data.index(where: { $0.ID == update.ID }) {
+                    self._data[index] = container
                 }
-
-                if (!updated) {
-                    _data.append(container)
+                else {
+                    self._data.append(container)
                 }
             }
         }
@@ -155,75 +119,31 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
         remove(element.ID)
     }
     public func remove(_ id: Long) {
-
-        blockQueue.sync {
-
-            for (index, element) in _data.enumerated() {
-                if (element.ID == id) {
-
-                    _data.remove(at: index)
-                    break
-                }
-            }
-        }
-        save()
+        remove([id])
     }
     public func remove(_ range: [TElement]) {
         remove(range.map({ $0.ID }))
     }
     public func remove(_ ids: [Long]) {
+
         blockQueue.sync {
 
             for id in ids {
-
                 if let index = _data.index(where: { $0.ID == id }) {
                     _data.remove(at: index)
                 }
             }
         }
+
         save()
     }
 
-    // MARK: Save & Load
-    private func save() {
-
-        blockQueue.async {
-
-            do {
-                let data = try JSONSerialization.data(withJSONObject: self._data.map({ $0.toJSON() }), options: [])
-                let content = String(data: data, encoding: .utf8)!
-                self._fileClient.saveTo(self._filename, data: content, toCache: false)
-
-                Log.Debug(self._tag, "Save data to storage.")
-            } catch {
-                Log.Warning(self._tag, "Problem with save data.")
-            }
-        }
-    }
-    private func load() -> [CacheContainer<TElement>] {
-
-        do {
-            if (!_fileClient.isExist(_filename, inCache: false)) {
-                return [CacheContainer<TElement>]()
-            }
-
-            let data = _fileClient.loadData(_filename, fromCache: false)
-            let range = try JSONSerialization.jsonObject(with: data!, options: []) as! [JSON]
-
-            return range.map({ CacheContainer<TElement>(json: $0) })
-        } catch {
-            Log.Warning(_tag, "Problem with load data.")
-
-            return [CacheContainer<TElement>]()
-        }
-    }
-    private func clearCached() {
+    //MARK: Cleaning
+    public func clearOldCached() {
 
         var ids = [Long]()
         blockQueue.sync {
-
             let date = Date()
-
             for element in _data {
                 if ( 0 > element.relevanceDate.timeIntervalSince(date)) {
 
@@ -231,6 +151,44 @@ open class CacheRangeAdapter<TElement>  where TElement: ICached {
                 }
             }
         }
-        remove(ids)
+        if (ids.isFilled) {
+            remove(ids)
+        }
+    }
+    public func clear() {
+
+        blockQueue.sync {
+            self._data = []
+        }
+        save()
+    }
+
+    //MARK: Save & Load
+    private func save() {
+
+        blockQueue.async {
+            do {
+                let data = try JSONSerialization.serialize(data: self._data)
+                self._file.save(data: data)
+
+                Log.Debug(self._tag, "Save cached data.")
+            } catch {
+                Log.Warning(self._tag, "Problem with save data.")
+            }
+        }
+    }
+    private func load() -> [CacheContainer<TElement>]? {
+
+        do {
+            if let data = _file.loadData() {
+                return try JSONSerialization.parseRange(data: data) as [CacheContainer<TElement>]
+            }
+        }
+        catch {
+            Log.Warning(_tag, "Problem with load data.")
+            Log.Warning(_tag, "\(error)")
+        }
+
+        return nil
     }
 }

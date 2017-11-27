@@ -17,6 +17,12 @@ public struct ApiServices {
         public static var auth: UsersAuthApiService {
             return UsersAuthApiService(ToolsServices.shared.configs)
         }
+        public static var towns: UsersTownsApiService {
+            return UsersTownsApiService(configs: ToolsServices.shared.configs, keys: ToolsServices.shared.keys)
+        }
+        public static var pleasantPlaces: UsersPleasantPlacesApiService {
+            return UsersPleasantPlacesApiService(configs: ToolsServices.shared.configs, keys: ToolsServices.shared.keys)
+        }
     }
 
     public struct Places {
@@ -28,6 +34,9 @@ public struct ApiServices {
         }
         public static var actions: PlacesActionsApiService {
             return PlacesActionsApiService(ToolsServices.shared.configs)
+        }
+        public static var towns: PlacesTownsApiService {
+            return PlacesTownsApiService(ToolsServices.shared.configs)
         }
     }
 }
