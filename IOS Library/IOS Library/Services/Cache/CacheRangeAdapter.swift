@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 import AsyncTask
 
-open class CacheRangeAdapter<TElement>  where TElement: ICached {
+open class CacheRangeAdapter<TElement> where TElement: ICached {
 
     public let blockQueue: DispatchQueue
     public var queue: AsyncTask.AsyncQueue {

@@ -23,7 +23,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
 
     private let _positionsService: PositionsService
     private let _backgroundPositions: BackgroundPositionsServices
-    private let _searchCardsService: SearchPlaceCardsCacheService
+    private let searchCardsCache: SearchPlaceCardsCacheService
     private let _apiService: UsersMainApiService
 
     public init(positions: PositionsService,
@@ -34,7 +34,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
 
         self._positionsService = positions
         self._backgroundPositions = backgroundPositions
-        self._searchCardsService = searchCards
+        self.searchCardsCache = searchCards
         self._apiService = ApiServices.Users.main
 
         super.init()
@@ -88,7 +88,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
     private func checkPlaces(on currentLocation: PositionsService.Position) {
 
         var places = [(place: SearchPlaceCard, distance: Double)]()
-        for place in _searchCardsService.allLocal {
+        for place in searchCardsCache.cache.all {
             if isIn(place: place, by: currentLocation) {
 
                 let placeLocation = PositionsService.Position(lat: place.location.latitude, lng: place.location.longitude).toLocation()

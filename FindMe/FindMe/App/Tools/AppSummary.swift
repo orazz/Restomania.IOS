@@ -12,7 +12,8 @@ import IOSLibrary
 public class AppSummary {
     
     public static let shared = AppSummary()
-    
+
+    private let tag = String.tag(AppSummary.self)
     public let serverUrl: String
     
     public var version: String
@@ -105,6 +106,15 @@ public class AppSummary {
 
     public func launchApp() {
 
-        Log.Info(String.tag(AppSummary.self), "Init AppSummary.")
+        Log.Info(tag, "Init AppSummary.")
+        Log.Info(tag, "App version: \(version)")
+        Log.Info(tag, "App build: \(build)")
+
+        if let prevVersion = prevVersion {
+            Log.Info(tag, "App previous version: \(prevVersion)")
+        }
+        if let prevBuild = prevBuild {
+            Log.Info(tag, "App previous build: \(prevBuild)")
+        }
     }
 }

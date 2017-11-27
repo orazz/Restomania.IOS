@@ -17,6 +17,9 @@ public class SearchPlaceCardsCacheService {
     private let properties: PropertiesStorage<PropertiesKey>
     private let adapter: CacheRangeAdapter<SearchPlaceCard>
 
+    //MARK: Cached processing
+    public let cache: CachedProcessAdapter<SearchPlaceCard>
+
 
     public init(configs: ConfigsStorage, properties: PropertiesStorage<PropertiesKey>) {
 
@@ -24,22 +27,9 @@ public class SearchPlaceCardsCacheService {
         self.client = PlacesMainApiService(configs)
         self.adapter = CacheRangeAdapter<SearchPlaceCard>(tag: tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
 
+        self.cache = CachedProcessAdapter<SearchPlaceCard>(for: self.adapter)
+
         Log.Debug(tag, "Complete load service.")
-    }
-
-
-    //MARK: Local
-    public var allLocal: [SearchPlaceCard] {
-        return adapter.localData
-    }
-    public func checkLocal(_ range: [Long]) -> CacheSearchResult<Long>{
-        return adapter.checkCache(range)
-    }
-    public func findInLocal(_ placeId: Long) -> SearchPlaceCard? {
-        return adapter.find(placeId)
-    }
-    public func rangeInLocal(_ range: [Long]) -> [SearchPlaceCard] {
-        return adapter.range(range)
     }
 
 

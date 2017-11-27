@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func start() {
 
         ThemeSettings.initializeStyles()
+        AppSummary.shared.launchApp()
+
+        Migrations.apply()
 
         ServicesFactory.shared.positions.requestPermission(always: true)
         RefreshDataManager.shared.register()

@@ -104,7 +104,7 @@ public class OnePlaceMainController: UIViewController {
     }
     private func loadData(manual: Bool) {
 
-        if  !manual, let place = cache.findLocal(id: placeId) {
+        if  !manual, let place = cache.cache.find(placeId) {
 
             completeLoad(place)
             return

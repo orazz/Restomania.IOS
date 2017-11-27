@@ -18,19 +18,18 @@ public class PlacesCacheService {
     private let properties: PropertiesStorage<PropertiesKey>
     private let adapter: CacheRangeAdapter<DisplayPlaceInfo>
 
+    //MARK: Cached
+    public let cache: CachedProcessAdapter<DisplayPlaceInfo>
+
+
     public init(configs: ConfigsStorage, properties: PropertiesStorage<PropertiesKey>) {
 
         self.client = PlacesMainApiService(configs)
         self.properties = properties
         self.adapter = CacheRangeAdapter(tag: tag, filename: "places.json", livetime: 24 * 60 * 60)
+
+        self.cache = CachedProcessAdapter<DisplayPlaceInfo>(for: self.adapter)
     }
-
-
-    //MARK: Local
-    public func findLocal(id place:Long) -> DisplayPlaceInfo? {
-        return adapter.find(place)
-    }
-
 
 
     //MARK: Remote

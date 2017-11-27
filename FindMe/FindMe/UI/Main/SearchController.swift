@@ -26,7 +26,7 @@ public class SearchController: UIViewController {
     private let _tag = String.tag(SearchController.self)
     private let guid = Guid.new
     private var displayFlag: DisplayPlacesFlag!
-    private var cache: SearchPlaceCardsCacheService!
+    private var cacheService: SearchPlaceCardsCacheService!
     private var likes: LikesService!
     private var places: [SearchPlaceCard]! {
         didSet {
@@ -40,7 +40,7 @@ public class SearchController: UIViewController {
         super.viewDidLoad()
 
         displayFlag = .all
-        cache = CacheServices.searchCards
+        cacheService = CacheServices.searchCards
         likes = ServicesFactory.shared.likes
 
         likes.subscribe(guid: guid, handler: self, tag: _tag)
@@ -76,16 +76,16 @@ public class SearchController: UIViewController {
     private func loadData(refresh: Bool) {
 
         if (!refresh) {
-            let local = cache.allLocal
-            if (local.isEmpty) {
+            let cached = cacheService.cache.all
+            if (cached.isEmpty) {
                 loader.show()
             }
 
-            places = local
+            places = cached
         }
 
 
-        let task = cache.allRemote(with: SelectParameters())
+        let task = cacheService.allRemote(with: SelectParameters())
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {

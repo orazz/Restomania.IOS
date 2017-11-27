@@ -7,15 +7,37 @@
 //
 
 import Foundation
+import IOSLibrary
 
 public class Migrations {
+
+    private static let tag = String.tag(Migrations.self)
 
     public static func apply() {
 
         let summary = AppSummary.shared
-
         if (summary.isFirstLaunch) {
             return
         }
+        guard let prevBuild = summary.prevBuild else {
+            return
+        }
+
+        let migrations = [178: migrateToV024100]
+
+        for (build, migration) in migrations {
+
+            if (prevBuild < build) {
+                migration()
+            }
+        }
+
+    }
+    private static func migrateToV024100() {
+
+        Log.Info(tag, "Apply migration for version 2.41.00")
+
+        CacheServices.places.cache.clear()
+        CacheServices.searchCards.cache.clear()
     }
 }

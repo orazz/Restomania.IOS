@@ -26,7 +26,7 @@ public class MapController: UIViewController {
     private let _tag = String.tag(MapController.self)
     private let _guid = Guid.new
     private var _listAdapter: PlacesListAdapter!
-    private var _cache: SearchPlaceCardsCacheService!
+    private var cacheService: SearchPlaceCardsCacheService!
     private var _likesService: LikesService!
     private var _positions: PositionsService!
 
@@ -56,7 +56,7 @@ public class MapController: UIViewController {
         _popup = MapPopupView.build(parent: self.view, delegate: _listAdapter)
         _loader = InterfaceLoader(for: self.view)
 
-        _cache = CacheServices.searchCards
+        cacheService = CacheServices.searchCards
         _likesService = ServicesFactory.shared.likes
         _positions = ServicesFactory.shared.positions
 
@@ -85,18 +85,18 @@ public class MapController: UIViewController {
     //MARK: Load data
     private func loadData() {
 
-        let local = _cache.allLocal
-        if (local.isEmpty) {
+        let cached = cacheService.cache.all
+        if (cached.isEmpty) {
             _loader.show()
 
             _places = []
         }
         else {
 
-            _places = local
+            _places = cached
         }
 
-        let task = _cache.allRemote(with: SelectParameters())
+        let task = cacheService.allRemote(with: SelectParameters())
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
