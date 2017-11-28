@@ -103,8 +103,7 @@ extension PlacesListTableAdapter: UITableViewDelegate {
 }
 
 extension PlacesListTableAdapter: UISearchBarDelegate {
-
-
+    
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         if (String.isNullOrEmpty(searchText)) {

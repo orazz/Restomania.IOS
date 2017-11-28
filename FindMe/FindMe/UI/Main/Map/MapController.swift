@@ -101,15 +101,11 @@ public class MapController: UIViewController {
 
                 self._loader.hide()
 
-                if let response = response {
-
+                if let response = response.data {
                     self._places = response
                 }
                 else if (self._places.isEmpty) {
-
-                    let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: false, completion: nil)
+                    self.present(ProblemAlerts.Error(for: response.statusCode), animated: false, completion: nil)
                 }
             }
         })

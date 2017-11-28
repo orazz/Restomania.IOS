@@ -41,12 +41,4 @@ public class PlacesMainApiService: BaseApiService {
 
         return client.GetRange(action: "Range", type: DisplayPlaceInfo.self, parameters: parameters)
     }
-    public func searchCards(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[SearchPlaceCard]> {
-        let parameters = CollectParameters([
-                "arguments": arguments,
-                "towns": towns
-            ])
-
-        return client.GetRange(action: "SearchCards", type: SearchPlaceCard.self, parameters: parameters)
-    }
 }

@@ -16,7 +16,7 @@ public class CacheServices {
     private static var _images: CacheImagesService?
 
     public static var searchCards: SearchPlaceCardsCacheService {
-        let service = _searchCards ?? SearchPlaceCardsCacheService(configs: configs, properties: properties)
+        let service = _searchCards ?? SearchPlaceCardsCacheService(properties: properties)
         _searchCards = service
 
         return service

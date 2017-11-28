@@ -52,7 +52,7 @@ public class OnePlaceMainController: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.backgroundColor = ThemeSettings.Colors.background
         refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(needRefreshData), for: .valueChanged)
         contentTable.addSubview(refreshControl)
 
         setupLikeButton()
@@ -99,7 +99,7 @@ public class OnePlaceMainController: UIViewController {
         return result
     }
 
-    @objc private func refreshData() {
+    @objc private func needRefreshData() {
         loadData(manual: true)
     }
     private func loadData(manual: Bool) {

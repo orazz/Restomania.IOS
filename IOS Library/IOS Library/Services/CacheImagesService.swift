@@ -60,6 +60,7 @@ public class CacheImagesService {
                     self.adapter.addOrUpdate(image)
 
                     Log.Debug(self.tag, "Take image from cache: \(url)")
+                    return
                 }
                 else {
                     self.adapter.remove(image)

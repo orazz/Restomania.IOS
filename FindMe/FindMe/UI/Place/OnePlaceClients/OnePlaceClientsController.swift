@@ -64,7 +64,7 @@ public class OnePlaceClientsController: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.backgroundColor = ThemeSettings.Colors.background
         refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(needRefreshData), for: .valueChanged)
         clientsTable.addSubview(refreshControl)
 
         updateSegmentControl()
@@ -72,7 +72,7 @@ public class OnePlaceClientsController: UIViewController {
 
         OnePlaceClientsCell.register(in: clientsTable)
     }
-    @objc private func refreshData() {
+    @objc private func needRefreshData() {
         loadData(refresh: true)
     }
     private func loadData(refresh: Bool) {

@@ -13,7 +13,7 @@ import AsyncTask
 public class SearchPlaceCardsCacheService {
 
     private let tag = String.tag(SearchPlaceCardsCacheService.self)
-    private let client: PlacesMainApiService
+    private let client = ApiServices.Places.searchCards
     private let properties: PropertiesStorage<PropertiesKey>
     private let adapter: CacheAdapter<SearchPlaceCard>
 
@@ -23,10 +23,9 @@ public class SearchPlaceCardsCacheService {
     }
 
 
-    public init(configs: ConfigsStorage, properties: PropertiesStorage<PropertiesKey>) {
+    public init(properties: PropertiesStorage<PropertiesKey>) {
 
         self.properties = properties
-        self.client = PlacesMainApiService(configs)
         self.adapter = CacheAdapter<SearchPlaceCard>(tag: tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
 
         Log.Debug(tag, "Complete load service.")
@@ -38,9 +37,9 @@ public class SearchPlaceCardsCacheService {
 
 
     //MARK: Remote
-    public func all(with parameters: SelectParameters) -> Task<[SearchPlaceCard]?> {
+    public func all(with parameters: SelectParameters) -> Task<ApiResponse<[SearchPlaceCard]>> {
 
-        return Task { (handler: @escaping (([SearchPlaceCard]?) -> Void)) in
+        return Task { (handler: @escaping (ApiResponse<[SearchPlaceCard]>) -> Void) in
 
             Log.Debug(self.tag, "Request all places' cards.")
 
@@ -48,7 +47,7 @@ public class SearchPlaceCardsCacheService {
             request.async(.custom(self.adapter.blockQueue), completion: { response in
 
                 if response.isFail {
-                    handler(nil)
+                    handler(response)
                     Log.Warning(self.tag, "Problem with request all search cards.")
 
                 }
@@ -56,7 +55,7 @@ public class SearchPlaceCardsCacheService {
 
                     self.adapter.addOrUpdate(update)
                     self.adapter.clearOldCached()
-                    handler(update)
+                    handler(response)
                     Log.Debug(self.tag, "Complete request all.")
                 }
             })

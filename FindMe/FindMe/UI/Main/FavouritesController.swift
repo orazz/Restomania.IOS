@@ -92,15 +92,13 @@ public class FavouritesController: UIViewController {
 
                 self._loader.hide()
 
-                if let response = response {
+                if let response = response.data {
 
                     self._stored = response
                 }
                 else if(!liked.isEmpty && self._stored.isEmpty) {
 
-                    let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: false, completion: nil)
+                    self.present(ProblemAlerts.Error(for: response.statusCode), animated: true, completion: nil)
                 }
 
                 self._isLoadData = false

@@ -17,20 +17,19 @@ public class SearchController: UIViewController {
     @IBOutlet public weak var placeTypeSegment: UISegmentedControl!
     @IBOutlet public weak var searchbar: UISearchBar!
     @IBOutlet public weak var placesTable: UITableView!
-    private var placesAdapter: PlacesListTableAdapter!
+    private var tableAdapter: PlacesListTableAdapter!
     private var loader: InterfaceLoader!
     private var refreshControl: UIRefreshControl!
-
 
     //MARK: Data & Services
     private let _tag = String.tag(SearchController.self)
     private let guid = Guid.new
-    private var displayFlag: DisplayPlacesFlag!
-    private var cacheService: SearchPlaceCardsCacheService!
+    private var displayFlag = DisplayPlacesFlag.all
+    private var cacheService = CacheServices.searchCards
     private var likes = LogicServices.shared.likes
-    private var places: [SearchPlaceCard]! {
+    private var places = [SearchPlaceCard]() {
         didSet {
-            placesAdapter.update(places: places)
+            refreshList()
         }
     }
 
@@ -39,83 +38,73 @@ public class SearchController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        displayFlag = .all
-        cacheService = CacheServices.searchCards
-
         likes.subscribe(guid: guid, handler: self, tag: _tag)
 
-        setupMarkup()
-        loadData(refresh: false)
+        loadMarkup()
+        startLoadData()
     }
     deinit {
         likes.unsubscribe(guid: guid)
     }
-    private func setupMarkup() {
+    private func loadMarkup() {
 
         loader = InterfaceLoader(for: self.view)
-        placesAdapter = PlacesListTableAdapter(source: placesTable, with: self)
+        tableAdapter = PlacesListTableAdapter(source: placesTable, with: self)
 
         refreshControl = UIRefreshControl()
         refreshControl.backgroundColor = ThemeSettings.Colors.background
         refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(needRefreshData), for: .valueChanged)
         placesTable.addSubview(refreshControl)
 
         placeTypeSegment.addTarget(self, action: #selector(updateSegment), for: .valueChanged)
-        searchbar.delegate = placesAdapter
+        searchbar.delegate = tableAdapter
 
         navigationController?.setToolbarHidden(true, animated: false)
     }
 
 
     //MARK: Load data
-    @objc private func refreshData() {
-        loadData(refresh: true)
+    private func startLoadData() {
+
+        places = cacheService.cache.all
+
+        requestPlaces()
     }
-    private func loadData(refresh: Bool) {
-
-        if (!refresh) {
-            let cached = cacheService.cache.all
-            if (cached.isEmpty) {
-                loader.show()
-            }
-
-            places = cached
-        }
-
+    @objc private func needRefreshData() {
+        requestPlaces()
+    }
+    private func requestPlaces() {
 
         let task = cacheService.all(with: SelectParameters())
-        task.async(.background, completion: { response in
+        task.async(.background, completion: { result in
 
             DispatchQueue.main.async {
 
-                if (nil == response) {
-                    self.present(ProblemAlerts.NotConnection, animated: false, completion: nil)
+                if result.isFail {
+                    self.present(ProblemAlerts.Error(for: result.statusCode), animated: true, completion: { self.completeLoad(with: result.data) })
                 }
-
-                self.completeLoad(with: response ?? [])
+                else if result.isSuccess {
+                    self.completeLoad(with: result.data)
+                }
             }
         })
     }
-    private func completeLoad(with places: [SearchPlaceCard]) {
-
-        self.loader.hide()
+    private func completeLoad(with places: [SearchPlaceCard]?) {
 
         if (refreshControl.isRefreshing){
             refreshControl.endRefreshing()
         }
 
-        self.places = places
-
-        applyUpdates()
+        self.places = places ?? cacheService.cache.all
     }
-    private func applyUpdates() {
+    private func refreshList() {
 
         if (displayFlag == .all) {
-            placesAdapter.update(places: places)
+            tableAdapter?.update(places: places)
         }
         else if (displayFlag == .onlyLiked) {
-            placesAdapter.update(places: likes.onlyLiked(places))
+            tableAdapter?.update(places: likes.onlyLiked(places))
         }
     }
 }
@@ -133,7 +122,7 @@ extension SearchController {
                 return
         }
 
-        applyUpdates()
+        refreshList()
     }
 }
 
@@ -144,7 +133,7 @@ extension SearchController: LikesServiceDelegate {
         DispatchQueue.main.async {
 
             if (self.displayFlag == .onlyLiked) {
-                self.applyUpdates()
+                self.refreshList()
             }
         }
     }
