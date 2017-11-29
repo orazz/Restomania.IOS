@@ -52,7 +52,7 @@ public class BaseApiService: NSObject {
         
         return result
     }
-    internal func CollectParameters(rights: ApiRights, _ values: Parameters? = nil) -> Parameters {
+    internal func CollectParameters(rights: ApiRole, _ values: Parameters? = nil) -> Parameters {
         
         var parameters = CollectParameters(values)
         

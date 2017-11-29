@@ -24,21 +24,20 @@ public class Migrations {
         }
 
         let migrations = [
-            231: migrateToV024100,
+            231: to231
             ]
 
 
-
-        for (build, migration) in migrations {
+        for (build, migration) in migrations.sorted(by: { $0.key < $1.key }) {
 
             if (prevBuild < build) {
                 migration()
             }
         }
     }
-    private static func migrateToV024100() {
+    private static func to231() {
 
-        Log.Info(tag, "Apply migration for version 2.41.00")
+        Log.Info(tag, "Apply migration for 231 build.")
 
         CacheServices.places.cache.clear()
         CacheServices.searchCards.cache.clear()

@@ -1,5 +1,5 @@
 //
-//  ApiRights.swift
+//  ApiRole.swift
 //  FindMe
 //
 //  Created by Алексей on 19.09.17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ApiRights: Int
+public enum ApiRole: Int
 {
     case user = 1
     case place = 2

@@ -52,11 +52,11 @@ internal class KeysStorage: IKeysStorage {
     
     
     //MARK: IKeysStorage
-    public func keys(for rights: ApiRights) -> ApiKeys? {
+    public func keys(for rights: ApiRole) -> ApiKeys? {
 
         return _keys.find({ rights == $0.rights })?.keys
     }
-    public func set(for rights: ApiRights, keys: ApiKeys) {
+    public func set(for rights: ApiRole, keys: ApiKeys) {
 
         logout(rights)
 
@@ -64,14 +64,14 @@ internal class KeysStorage: IKeysStorage {
 
         save()
     }
-    public func logout(_ rights: ApiRights) {
+    public func logout(_ rights: ApiRole) {
         if let index = _keys.index(where: { rights == $0.rights }) {
             _keys.remove(at: index)
         }
 
         save()
     }
-    public func isAuth(rights: ApiRights) -> Bool {
+    public func isAuth(rights: ApiRole) -> Bool {
         return nil != keys(for: rights)
     }
 
@@ -86,13 +86,13 @@ internal class KeysStorage: IKeysStorage {
 
         public let id: Long
         public let token: String
-        public let rights: ApiRights
+        public let rights: ApiRole
 
         public var keys: ApiKeys {
             return ApiKeys(id: id, token: token)
         }
 
-        public init(keys: ApiKeys, rights: ApiRights){
+        public init(keys: ApiKeys, rights: ApiRole){
 
             self.id = keys.id
             self.token = keys.token

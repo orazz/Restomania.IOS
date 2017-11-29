@@ -10,6 +10,12 @@ import Foundation
 
 public struct ApiServices {
 
+    public struct Auth {
+        public static var main: AuthMainApiService {
+            return AuthMainApiService(configs: ToolsServices.shared.configs, keys: ToolsServices.shared.keys)
+        }
+    }
+
     public struct Users {
         public static var main: UsersMainApiService {
             return UsersMainApiService(configs: ToolsServices.shared.configs, keys: ToolsServices.shared.keys)

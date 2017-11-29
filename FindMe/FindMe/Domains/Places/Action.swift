@@ -30,7 +30,7 @@ public class Action: BaseDataType, IPlaceDependent, ISortable, ICopying {
     
     public var name: String
     public var details: String
-    public var image: Attachment
+    public var image: String
     public var isHide: Bool
     
     public override init() {
@@ -40,7 +40,7 @@ public class Action: BaseDataType, IPlaceDependent, ISortable, ICopying {
         
         self.name = String.empty
         self.details = String.empty
-        self.image = Attachment()
+        self.image = String.empty
         self.isHide = true
         
         super.init()
@@ -54,7 +54,7 @@ public class Action: BaseDataType, IPlaceDependent, ISortable, ICopying {
         
         self.name = source.name
         self.details = source.details
-        self.image = Attachment(source: source.image)
+        self.image = source.image
         self.isHide = source.isHide
         
         super.init(source: source)

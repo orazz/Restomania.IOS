@@ -22,6 +22,7 @@
 		1F1A0E671F79568900FDBA97 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E661F79568900FDBA97 /* Buttons.swift */; };
 		1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */; };
 		1F1CA9071FCE78840006BE0B /* OnePlaceMainLastActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */; };
+		1F1CA90C1FCEE5A20006BE0B /* AuthMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */; };
 		1F2223361FBA4EE8003ABD23 /* DisplayPlacesFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2223351FBA4EE8003ABD23 /* DisplayPlacesFlag.swift */; };
 		1F24A90B1F896366000BD8F1 /* OnePlaceMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9091F896365000BD8F1 /* OnePlaceMainController.swift */; };
 		1F24A90C1F896366000BD8F1 /* OnePlaceMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A90A1F896366000BD8F1 /* OnePlaceMainView.xib */; };
@@ -115,7 +116,7 @@
 		1FC5480F1F702CFD007CE6AB /* CheckInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5480E1F702CFD007CE6AB /* CheckInData.swift */; };
 		1FC548111F702FC5007CE6AB /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548101F702FC5007CE6AB /* ApiKeys.swift */; };
 		1FC548131F70325A007CE6AB /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548121F70325A007CE6AB /* Account.swift */; };
-		1FC548151F7033FF007CE6AB /* ApiRights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548141F7033FF007CE6AB /* ApiRights.swift */; };
+		1FC548151F7033FF007CE6AB /* ApiRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548141F7033FF007CE6AB /* ApiRole.swift */; };
 		1FC548171F703442007CE6AB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548161F703442007CE6AB /* Location.swift */; };
 		1FC548191F703FBB007CE6AB /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC548181F703FBB007CE6AB /* Contacts.swift */; };
 		1FC5481B1F70443B007CE6AB /* PlaceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5481A1F70443B007CE6AB /* PlaceStatus.swift */; };
@@ -194,6 +195,7 @@
 		1F1A0E661F79568900FDBA97 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buttons.swift; path = UI/Elements/Buttons.swift; sourceTree = "<group>"; };
 		1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WrappedImage.swift; path = UI/Elements/WrappedImage.swift; sourceTree = "<group>"; };
 		1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLastActionCell.xib; path = UI/Place/OnePlaceMain/Actions/OnePlaceMainLastActionCell.xib; sourceTree = "<group>"; };
+		1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthMainApiService.swift; path = Services/Api/Auth/AuthMainApiService.swift; sourceTree = "<group>"; };
 		1F2223351FBA4EE8003ABD23 /* DisplayPlacesFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DisplayPlacesFlag.swift; path = UI/Main/DisplayPlacesFlag.swift; sourceTree = "<group>"; };
 		1F24A9091F896365000BD8F1 /* OnePlaceMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnePlaceMainController.swift; path = UI/Place/OnePlaceMain/OnePlaceMainController.swift; sourceTree = "<group>"; };
 		1F24A90A1F896366000BD8F1 /* OnePlaceMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainView.xib; path = UI/Place/OnePlaceMain/OnePlaceMainView.xib; sourceTree = "<group>"; };
@@ -288,7 +290,7 @@
 		1FC5480E1F702CFD007CE6AB /* CheckInData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInData.swift; path = Domains/Tools/CheckInData.swift; sourceTree = "<group>"; };
 		1FC548101F702FC5007CE6AB /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiKeys.swift; path = Domains/Accounts/ApiKeys.swift; sourceTree = "<group>"; };
 		1FC548121F70325A007CE6AB /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Domains/Accounts/Account.swift; sourceTree = "<group>"; };
-		1FC548141F7033FF007CE6AB /* ApiRights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiRights.swift; path = Domains/Accounts/ApiRights.swift; sourceTree = "<group>"; };
+		1FC548141F7033FF007CE6AB /* ApiRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiRole.swift; path = Domains/Accounts/ApiRole.swift; sourceTree = "<group>"; };
 		1FC548161F703442007CE6AB /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Domains/Places/Location.swift; sourceTree = "<group>"; };
 		1FC548181F703FBB007CE6AB /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contacts.swift; path = Domains/Places/Contacts.swift; sourceTree = "<group>"; };
 		1FC5481A1F70443B007CE6AB /* PlaceStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceStatus.swift; path = Domains/Places/PlaceStatus.swift; sourceTree = "<group>"; };
@@ -497,6 +499,14 @@
 			children = (
 			);
 			name = Cards;
+			sourceTree = "<group>";
+		};
+		1F1CA90A1FCEE5810006BE0B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */,
+			);
+			name = Auth;
 			sourceTree = "<group>";
 		};
 		1F24A91A1F89768E000BD8F1 /* Address */ = {
@@ -725,6 +735,7 @@
 		1FC547FD1F6FBA01007CE6AB /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				1F1CA90A1FCEE5810006BE0B /* Auth */,
 				1F09EE551F86334F00694D8D /* Users */,
 				1F1A0E441F77EE9200FDBA97 /* Places */,
 				1F2E37741FCC9192003D24C1 /* SelectParameters.swift */,
@@ -764,7 +775,7 @@
 			isa = PBXGroup;
 			children = (
 				1FC548101F702FC5007CE6AB /* ApiKeys.swift */,
-				1FC548141F7033FF007CE6AB /* ApiRights.swift */,
+				1FC548141F7033FF007CE6AB /* ApiRole.swift */,
 				1FC548121F70325A007CE6AB /* Account.swift */,
 			);
 			name = Accounts;
@@ -1326,6 +1337,7 @@
 				1FC548231F705822007CE6AB /* Place.swift in Sources */,
 				1F2E37761FCC9193003D24C1 /* SelectParameters.swift in Sources */,
 				1F2E377B1FCC91B1003D24C1 /* SlackNotifier.swift in Sources */,
+				1F1CA90C1FCEE5A20006BE0B /* AuthMainApiService.swift in Sources */,
 				1FC583901F8150050045941A /* StartContoller.swift in Sources */,
 				1FD0754B1F893F3000F34A26 /* PlacesCacheService.swift in Sources */,
 				1FC548171F703442007CE6AB /* Location.swift in Sources */,
@@ -1347,7 +1359,7 @@
 				1F4677171F95161D007E426D /* OnePlaceMainDividerCell.swift in Sources */,
 				1F2E37681FCC9159003D24C1 /* UsersAuthApiService.swift in Sources */,
 				1F2E37731FCC9178003D24C1 /* PlacesClientsApiService.swift in Sources */,
-				1FC548151F7033FF007CE6AB /* ApiRights.swift in Sources */,
+				1FC548151F7033FF007CE6AB /* ApiRole.swift in Sources */,
 				1F4DDE0B1F977646005CED0B /* User.swift in Sources */,
 				1F2E37621FCC8569003D24C1 /* ToolsServices.swift in Sources */,
 				1F2E37861FCC91D2003D24C1 /* LikesService.swift in Sources */,
