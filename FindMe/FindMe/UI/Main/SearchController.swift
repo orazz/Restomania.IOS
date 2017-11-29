@@ -43,6 +43,11 @@ public class SearchController: UIViewController {
         loadMarkup()
         startLoadData()
     }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     deinit {
         likes.unsubscribe(guid: guid)
     }

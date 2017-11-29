@@ -13,6 +13,7 @@ public class CacheServices {
 
     private static var _searchCards: SearchPlaceCardsCacheService?
     private static var _places: PlacesCacheService?
+    private static var _actions: ActionsCacheService?
     private static var _images: CacheImagesService?
 
     public static var searchCards: SearchPlaceCardsCacheService {
@@ -22,8 +23,14 @@ public class CacheServices {
         return service
     }
     public static var places: PlacesCacheService {
-        let service = _places ?? PlacesCacheService(configs: configs, properties: properties)
+        let service = _places ?? PlacesCacheService(properties: properties)
         _places = service
+
+        return service
+    }
+    public static var actions: ActionsCacheService {
+        let service = _actions ?? ActionsCacheService()
+        _actions = service
 
         return service
     }

@@ -62,6 +62,11 @@ public class OnePlaceMainController: UIViewController {
 
         loadData(manual: false)
     }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     private func setupLikeButton() {
 
         var image = ThemeSettings.Images.heartInactive
@@ -137,12 +142,14 @@ public class OnePlaceMainController: UIViewController {
     private func completeLoad(_ place: DisplayPlaceInfo) {
 
         self.place = place
+        self.title = place.name
 
         for it in contentAdapter.rows {
             if let cell = it as? OnePlaceMainCellProtocol {
                 cell.update(by: place)
             }
         }
+
 
         contentAdapter.reload()
 

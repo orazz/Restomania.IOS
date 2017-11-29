@@ -40,6 +40,25 @@ public class ProfileController: UIViewController {
         setupMarkup()
         loadData(refresh: false)
     }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.subscribeToScrollWhenKeyboardShow()
+
+        if let _ = _account {
+            refreshData()
+        }
+    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        self.unsubscribefromScrollWhenKeyboardShow()
+    }
     private func setupMarkup() {
 
         avatarImage.clipsToBounds = true
@@ -72,20 +91,6 @@ public class ProfileController: UIViewController {
 
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-    }
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        self.subscribeToScrollWhenKeyboardShow()
-
-        if let _ = _account {
-            refreshData()
-        }
-    }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        self.unsubscribefromScrollWhenKeyboardShow()
     }
 
 

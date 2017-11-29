@@ -24,9 +24,9 @@ public class PlacesCacheService {
     }
 
 
-    public init(configs: ConfigsStorage, properties: PropertiesStorage<PropertiesKey>) {
+    public init(properties: PropertiesStorage<PropertiesKey>) {
 
-        self.client = PlacesMainApiService(configs)
+        self.client = ApiServices.Places.main
         self.properties = properties
         self.adapter = CacheAdapter(tag: tag, filename: "places.json", livetime: 24 * 60 * 60)
     }

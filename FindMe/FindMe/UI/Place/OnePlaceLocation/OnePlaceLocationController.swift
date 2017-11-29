@@ -18,7 +18,7 @@ public class OnePlaceLocationController: UIViewController {
 
         let instance = OnePlaceLocationController(nibName: nibName, bundle: Bundle.main)
 
-        instance._place = place
+        instance.place = place
 
         return instance
     }
@@ -32,7 +32,7 @@ public class OnePlaceLocationController: UIViewController {
 
     //MARK: Data & services
     private let _tag = String.tag(OnePlaceLocationController.self)
-    private var _place: DisplayPlaceInfo!
+    private var place: DisplayPlaceInfo!
 
 
 
@@ -42,13 +42,16 @@ public class OnePlaceLocationController: UIViewController {
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.edgesForExtendedLayout = []
     }
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         mapView.showsControls = true
 
-        let pin = MapController.SearchAnnotation(place: _place)
+        let pin = MapController.SearchAnnotation(place: place)
         mapView.addAnnotation(pin)
         mapView.setCenter(pin.coordinate, animated: false)
         mapView.selectAnnotation(pin, animated: true)

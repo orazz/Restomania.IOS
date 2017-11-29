@@ -25,7 +25,6 @@ public class OnePlaceClientsController: UIViewController {
     }
 
     //MARK: UI elements
-    @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var sexSegment: FMSegmentedControl!
     @IBOutlet private weak var clientsTable: UITableView!
     private var loader: InterfaceLoader!
@@ -55,11 +54,20 @@ public class OnePlaceClientsController: UIViewController {
 
         loadData(refresh: false)
     }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.edgesForExtendedLayout = []
+    }
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
     private func setupMarkup() {
 
         loader = InterfaceLoader(for: self.view)
 
-        navigationBar.topItem?.title = place.name
+        self.title = place.name
 
         refreshControl = UIRefreshControl()
         refreshControl.backgroundColor = ThemeSettings.Colors.background
@@ -69,6 +77,8 @@ public class OnePlaceClientsController: UIViewController {
 
         updateSegmentControl()
         sexSegment.onChangeEvent = changeSex(_:index:value:)
+
+        self.navigationController?.navigationBar.backgroundColor = ThemeSettings.Colors.background
 
         OnePlaceClientsCell.register(in: clientsTable)
     }

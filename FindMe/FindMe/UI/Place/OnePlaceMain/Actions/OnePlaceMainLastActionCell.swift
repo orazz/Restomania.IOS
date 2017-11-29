@@ -29,6 +29,7 @@ public class OnePlaceMainLastActionCell: UITableViewCell {
 
 
     //MARK: Data & services
+    private var place: DisplayPlaceInfo?
     private var lastAction: String? {
         didSet{
             updateDescription()
@@ -50,7 +51,8 @@ extension OnePlaceMainLastActionCell: OnePlaceShowDividerDelegate {
 extension OnePlaceMainLastActionCell: OnePlaceMainCellProtocol {
 
     public func update(by place: DisplayPlaceInfo) {
-        lastAction = place.lastAction
+        self.place = place
+        self.lastAction = place.lastAction
     }
 }
 extension OnePlaceMainLastActionCell: InterfaceTableCellProtocol {
@@ -60,8 +62,13 @@ extension OnePlaceMainLastActionCell: InterfaceTableCellProtocol {
             return 0
         }
         else {
-            return 95
+            return 100
         }
+    }
+    public func select(with controller: UINavigationController) {
+
+        let vc = OnePlaceActionsController.create(for: place!)
+        controller.pushViewController(vc, animated: true)
     }
     public func prepareView() -> UITableViewCell {
         return self

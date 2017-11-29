@@ -24,6 +24,10 @@
 		1F1CA9071FCE78840006BE0B /* OnePlaceMainLastActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */; };
 		1F1CA90C1FCEE5A20006BE0B /* AuthMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */; };
 		1F1CA90E1FCEEDE60006BE0B /* ActionsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA90D1FCEEDE60006BE0B /* ActionsCacheService.swift */; };
+		1F1CA9111FCEF71A0006BE0B /* OnePlaceActionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA9101FCEF71A0006BE0B /* OnePlaceActionsController.swift */; };
+		1F1CA9131FCF018F0006BE0B /* OnePlaceActionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CA9121FCF018F0006BE0B /* OnePlaceActionsView.xib */; };
+		1F1CA9151FCF29F30006BE0B /* OnePlaceActionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA9141FCF29F30006BE0B /* OnePlaceActionsCell.swift */; };
+		1F1CA9171FCF2A9F0006BE0B /* OnePlaceActionsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CA9161FCF2A9F0006BE0B /* OnePlaceActionsCellView.xib */; };
 		1F2223361FBA4EE8003ABD23 /* DisplayPlacesFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2223351FBA4EE8003ABD23 /* DisplayPlacesFlag.swift */; };
 		1F24A90B1F896366000BD8F1 /* OnePlaceMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9091F896365000BD8F1 /* OnePlaceMainController.swift */; };
 		1F24A90C1F896366000BD8F1 /* OnePlaceMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A90A1F896366000BD8F1 /* OnePlaceMainView.xib */; };
@@ -198,6 +202,10 @@
 		1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLastActionCell.xib; path = UI/Place/OnePlaceMain/Actions/OnePlaceMainLastActionCell.xib; sourceTree = "<group>"; };
 		1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthMainApiService.swift; path = Services/Api/Auth/AuthMainApiService.swift; sourceTree = "<group>"; };
 		1F1CA90D1FCEEDE60006BE0B /* ActionsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActionsCacheService.swift; path = Services/Cache/ActionsCacheService.swift; sourceTree = "<group>"; };
+		1F1CA9101FCEF71A0006BE0B /* OnePlaceActionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceActionsController.swift; path = UI/Place/OnePlaceActions/OnePlaceActionsController.swift; sourceTree = "<group>"; };
+		1F1CA9121FCF018F0006BE0B /* OnePlaceActionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceActionsView.xib; path = UI/Place/OnePlaceActions/OnePlaceActionsView.xib; sourceTree = "<group>"; };
+		1F1CA9141FCF29F30006BE0B /* OnePlaceActionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceActionsCell.swift; path = UI/Place/OnePlaceActions/OnePlaceActionsCell.swift; sourceTree = "<group>"; };
+		1F1CA9161FCF2A9F0006BE0B /* OnePlaceActionsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceActionsCellView.xib; path = UI/Place/OnePlaceActions/OnePlaceActionsCellView.xib; sourceTree = "<group>"; };
 		1F2223351FBA4EE8003ABD23 /* DisplayPlacesFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DisplayPlacesFlag.swift; path = UI/Main/DisplayPlacesFlag.swift; sourceTree = "<group>"; };
 		1F24A9091F896365000BD8F1 /* OnePlaceMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnePlaceMainController.swift; path = UI/Place/OnePlaceMain/OnePlaceMainController.swift; sourceTree = "<group>"; };
 		1F24A90A1F896366000BD8F1 /* OnePlaceMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainView.xib; path = UI/Place/OnePlaceMain/OnePlaceMainView.xib; sourceTree = "<group>"; };
@@ -467,6 +475,7 @@
 				1FE033C21F896120000349F7 /* OnePlaceMain */,
 				1F10F8E71F87259900D85903 /* OnePlaceLocation */,
 				1FF8E6271FA7A2D2001852CE /* OnePlaceClients */,
+				1F1CA90F1FCEF6E00006BE0B /* OnePlaceActions */,
 			);
 			name = Place;
 			sourceTree = "<group>";
@@ -510,6 +519,17 @@
 				1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */,
 			);
 			name = Auth;
+			sourceTree = "<group>";
+		};
+		1F1CA90F1FCEF6E00006BE0B /* OnePlaceActions */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CA9101FCEF71A0006BE0B /* OnePlaceActionsController.swift */,
+				1F1CA9121FCF018F0006BE0B /* OnePlaceActionsView.xib */,
+				1F1CA9141FCF29F30006BE0B /* OnePlaceActionsCell.swift */,
+				1F1CA9161FCF2A9F0006BE0B /* OnePlaceActionsCellView.xib */,
+			);
+			name = OnePlaceActions;
 			sourceTree = "<group>";
 		};
 		1F24A91A1F89768E000BD8F1 /* Address */ = {
@@ -1094,6 +1114,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 1FC5A7071F138B5100ABE1A6;
 			productRefGroup = 1FC5A7111F138B5100ABE1A6 /* Products */;
@@ -1117,9 +1138,11 @@
 				1F24A91E1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib in Resources */,
 				1FF8E62B1FA7A387001852CE /* OnePlaceLocationView.xib in Resources */,
 				1FC5839A1F824BEA0045941A /* ExplainerBlock.xib in Resources */,
+				1F1CA9171FCF2A9F0006BE0B /* OnePlaceActionsCellView.xib in Resources */,
 				1FC583921F8150EF0045941A /* Main.storyboard in Resources */,
 				1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */,
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
+				1F1CA9131FCF018F0006BE0B /* OnePlaceActionsView.xib in Resources */,
 				1FB0EE4E1FAFA0F700F64F1F /* ImageControllerSlideView.xib in Resources */,
 				1F6B89321FA8666F00B7A99A /* OnePlaceClientsView.xib in Resources */,
 				1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */,
@@ -1377,7 +1400,9 @@
 				1F2E37721FCC9178003D24C1 /* PlacesMainApiService.swift in Sources */,
 				1F4DDE071F977573005CED0B /* UserSex.swift in Sources */,
 				1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */,
+				1F1CA9151FCF29F30006BE0B /* OnePlaceActionsCell.swift in Sources */,
 				1F2E375A1FCC7A2B003D24C1 /* Migrations.swift in Sources */,
+				1F1CA9111FCEF71A0006BE0B /* OnePlaceActionsController.swift in Sources */,
 				1FC548131F70325A007CE6AB /* Account.swift in Sources */,
 				1F6B21C11F881E310068E29A /* MapController.swift in Sources */,
 				1F1A0E561F78ED4900FDBA97 /* GreetingController.swift in Sources */,
@@ -1430,6 +1455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1486,6 +1512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

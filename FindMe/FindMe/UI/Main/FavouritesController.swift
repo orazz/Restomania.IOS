@@ -56,6 +56,8 @@ public class FavouritesController: UIViewController {
         super.viewWillAppear(animated)
 
         loadData()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     //MARK: Load data
