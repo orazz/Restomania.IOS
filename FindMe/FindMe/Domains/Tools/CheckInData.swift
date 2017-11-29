@@ -19,9 +19,9 @@ public class CheckInData: BaseDataType {
         public static let expirationTime = "ExpirationTime"
     }
     
-    public var placeId: Long
-    public var userId: Long
-    public var expirationTime: Date
+    public let placeId: Long
+    public let userId: Long
+    public let expirationTime: Date
     
     public override init() {
         

@@ -10,7 +10,7 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-public class Action: BaseDataType, IPlaceDependent, ISortable, ICopying {
+public class Action: BaseDataType, IPlaceDependent, ISortable, ICached {
     
     public struct Keys {
         
@@ -24,14 +24,14 @@ public class Action: BaseDataType, IPlaceDependent, ISortable, ICopying {
     }
     
     //MARK: IPlaceDependent
-    public var placeId: Long
+    public let placeId: Long
     //MARK: ISortable
-    public var orderNumber: Int
+    public let orderNumber: Int
     
-    public var name: String
-    public var details: String
-    public var image: String
-    public var isHide: Bool
+    public let name: String
+    public let details: String
+    public let image: String
+    public let isHide: Bool
     
     public override init() {
         

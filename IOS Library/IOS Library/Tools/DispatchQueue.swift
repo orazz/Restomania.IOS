@@ -7,7 +7,14 @@
 //
 
 import Foundation
+import AsyncTask
 
+extension AsyncQueue {
+
+    public static func createApi(for tag: String) -> AsyncQueue {
+        return AsyncQueue.custom(DispatchQueue.createApiQueue(for: tag))
+    }
+}
 extension DispatchQueue {
 
     public static func createApiQueue(for tag:String) -> DispatchQueue {

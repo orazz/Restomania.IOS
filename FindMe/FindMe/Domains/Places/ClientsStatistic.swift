@@ -26,14 +26,14 @@ public class ClientsStatistic: BaseDataType, IPlaceDependent, ICopying {
     }
     
     //MARK: IPlaceDependent
-    public var placeId: Long
+    public let placeId: Long
     
-    public var people: Long
-    public var males: Long
-    public var females: Long
-    public var averageAge: Double
-    public var malesForAcquaintance: Int
-    public var femalesForAcquaintance: Int
+    public let people: Long
+    public let males: Long
+    public let females: Long
+    public let averageAge: Double
+    public let malesForAcquaintance: Int
+    public let femalesForAcquaintance: Int
     
     public override init() {
         

@@ -24,14 +24,14 @@ public class Location: BaseDataType, IPlaceDependent, ICopying {
         public static let borough = "Borough"
     }
     
-    public var placeId: Long
+    public let placeId: Long
     
-    public var latitude: Double
-    public var longitude: Double
-    public var address: String
-    public var city: String
-    public var metro: String
-    public var borough: String
+    public let latitude: Double
+    public let longitude: Double
+    public let address: String
+    public let city: String
+    public let metro: String
+    public let borough: String
     
     public override init() {
         

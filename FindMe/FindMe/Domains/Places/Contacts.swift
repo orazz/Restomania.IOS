@@ -28,17 +28,17 @@ public class Contacts: BaseDataType, IPlaceDependent, ICopying {
     }
     
     //MARK: IPlaceDependent
-    public var placeId: Long
+    public let placeId: Long
 
-    public var email: String
-    public var phone: String
-    public var secondPhone: String
-    public var website: String
-    public var instagram: String
-    public var whatsapp: String
-    public var viber: String
-    public var vk: String
-    public var facebook: String
+    public let email: String
+    public let phone: String
+    public let secondPhone: String
+    public let website: String
+    public let instagram: String
+    public let whatsapp: String
+    public let viber: String
+    public let vk: String
+    public let facebook: String
     
     public override init() {
         

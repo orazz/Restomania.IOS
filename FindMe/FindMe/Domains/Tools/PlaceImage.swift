@@ -19,9 +19,9 @@ public class PlaceImage: Attachment, IPlaceDependent, ICached, ISortable  {
     }
     
     //MARK: IPlaceDependent
-    public var placeId: Long
+    public let placeId: Long
     //MARK: ISortable
-    public var orderNumber: Int
+    public let orderNumber: Int
 
     public override init() {
 
