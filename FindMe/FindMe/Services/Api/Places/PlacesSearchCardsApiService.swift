@@ -10,13 +10,14 @@ import Foundation
 import IOSLibrary
 import AsyncTask
 
-public class PlaceSearchCardsApiService: BaseApiService {
+public class PlacesSearchCardsApiService: BaseApiService {
 
     public init(_ configs: ConfigsStorage) {
-        super.init(area: "Places/SearchCards", configs: configs, tag: String.tag(PlaceSearchCardsApiService.self))
+        super.init(area: "Places/SearchCards", configs: configs, tag: String.tag(PlacesSearchCardsApiService.self))
     }
 
 
+    //MARK: Methods
     public func all(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[SearchPlaceCard]> {
         let parameters = CollectParameters([
             "arguments": arguments,
@@ -24,5 +25,12 @@ public class PlaceSearchCardsApiService: BaseApiService {
             ])
 
         return client.GetRange(action: "All", type: SearchPlaceCard.self, parameters: parameters)
+    }
+    public func range(for places:[Long]) -> RequestResult<[SearchPlaceCard]> {
+        let parameters = CollectParameters([
+            "placeIds": places,
+            ])
+
+        return client.GetRange(action: "Range", type: SearchPlaceCard.self, parameters: parameters)
     }
 }

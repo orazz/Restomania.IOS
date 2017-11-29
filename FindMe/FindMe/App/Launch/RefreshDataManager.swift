@@ -53,11 +53,53 @@ public class RefreshDataManager {
     }
 
 
-    public func refreshData() {
+    public func refreshData(with completeHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
-//        _cards.refresh()
-//        _places.refresh()
+        let completer = Completer.init(limit: 1, complete: { results in
 
-//        SlackNotifier.notify("<\(_tag)>: Refresh data.")
+            var success = false
+
+            for (_, result) in results {
+                success = success || result
+            }
+
+            if (success) {
+                completeHandler(.newData)
+            }
+            else {
+                completeHandler(.failed)
+            }
+        });
+
+        let cards = _cards.refresh()
+        cards.async(.background, completion: completer.ender())
+
+    }
+}
+private class Completer {
+
+    private let limit: Int
+    private var completeCount: Int
+    private var results: [Int: Bool]
+    private let complete: (([Int: Bool]) -> Void)
+
+    public init(limit: Int, complete: @escaping (([Int: Bool]) -> Void)) {
+
+        self.limit = limit
+        self.completeCount = 0
+        self.results = [:]
+        self.complete = complete
+    }
+
+    public func ender() -> ((Bool) -> Void) {
+        return { result in
+
+            self.completeCount += 1
+            self.results[self.completeCount] = result
+
+            if (self.completeCount == self.limit) {
+                self.complete(self.results)
+            }
+        }
     }
 }

@@ -29,8 +29,8 @@ public struct ApiServices {
         public static var main: PlacesMainApiService {
             return PlacesMainApiService(ToolsServices.shared.configs)
         }
-        public static var searchCards: PlaceSearchCardsApiService {
-            return PlaceSearchCardsApiService(ToolsServices.shared.configs)
+        public static var searchCards: PlacesSearchCardsApiService {
+            return PlacesSearchCardsApiService(ToolsServices.shared.configs)
         }
         public static var clients: PlacesClientsApiService {
             return PlacesClientsApiService(ToolsServices.shared.configs)

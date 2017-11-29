@@ -16,6 +16,7 @@ public class SearchPlaceCardsCacheService {
     private let client = ApiServices.Places.searchCards
     private let properties: PropertiesStorage<PropertiesKey>
     private let adapter: CacheAdapter<SearchPlaceCard>
+    private let apiQueue: AsyncQueue
 
     //MARK: Cached processing
     public var cache: CacheAdapterExtender<SearchPlaceCard> {
@@ -27,6 +28,7 @@ public class SearchPlaceCardsCacheService {
 
         self.properties = properties
         self.adapter = CacheAdapter<SearchPlaceCard>(tag: tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
+        self.apiQueue = AsyncQueue.custom(DispatchQueue.createApiQueue(for: tag))
 
         Log.Debug(tag, "Complete load service.")
     }
@@ -44,7 +46,7 @@ public class SearchPlaceCardsCacheService {
             Log.Debug(self.tag, "Request all places' cards.")
 
             let request = self.client.all(with: parameters)
-            request.async(.custom(self.adapter.blockQueue), completion: { response in
+            request.async(self.apiQueue, completion: { response in
 
                 if response.isFail {
                     handler(response)
@@ -61,19 +63,40 @@ public class SearchPlaceCardsCacheService {
             })
         }
     }
-    public func refresh() {
+    public func refresh() -> Task<Bool> {
 
-        Log.Debug(self.tag, "Start refresh data.")
+        return Task<Bool>.init(action: { handler in
 
-        let request = self.all(with: SelectParameters(take: Int.max))
-        request.async(.custom(self.adapter.blockQueue), completion: { response in
+            Log.Debug(self.tag, "Try refresh data.")
 
-            if (response.isFail) {
-                Log.Warning(self.tag, "Problem with refresh data.")
+            let places = self.cache.all.map{ $0.ID }
+            if (places.isEmpty) {
+                handler(true)
+                return
             }
-            else if (response.isSuccess) {
-                Log.Info(self.tag, "Complete refresh data.")
-            }
+
+            let request = self.client.range(for: places)
+            request.async(self.apiQueue, completion: { response in
+
+                if (response.isFail) {
+                    if (response.statusCode != .ConnectionError) {
+
+                        Log.Warning(self.tag, "Problem with refresh data.")
+                        handler(false)
+                    }
+
+                }
+                else if let update = response.data {
+                    
+                    Log.Info(self.tag, "Complete refresh data.")
+
+                    self.adapter.clear()
+                    self.adapter.addOrUpdate(update)
+                }
+
+                handler(true)
+            })
+
         })
     }
 }

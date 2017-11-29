@@ -53,9 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Log.Info(_tag, "App perform fetch active.")
 
-        RefreshDataManager.shared.refreshData()
-
-        completionHandler(.newData)
+        RefreshDataManager.shared.refreshData(with: completionHandler)
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
