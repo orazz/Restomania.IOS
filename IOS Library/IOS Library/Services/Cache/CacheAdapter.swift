@@ -26,7 +26,7 @@ open class CacheAdapter<TElement> where TElement: ICached {
 
     public init(tag: String, filename: String) {
 
-        self.tag = tag
+        self.tag = "\(tag):CacheAdapter"
         self.filename = filename
         self.file = FSOneFileClient(filename: filename, inCache: false, tag: tag)
         self.livetime = 0

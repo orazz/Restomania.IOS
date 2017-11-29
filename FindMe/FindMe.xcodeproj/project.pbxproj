@@ -21,6 +21,7 @@
 		1F1A0E561F78ED4900FDBA97 /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E551F78ED4900FDBA97 /* GreetingController.swift */; };
 		1F1A0E671F79568900FDBA97 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E661F79568900FDBA97 /* Buttons.swift */; };
 		1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */; };
+		1F1CA9071FCE78840006BE0B /* OnePlaceMainLastActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */; };
 		1F2223361FBA4EE8003ABD23 /* DisplayPlacesFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2223351FBA4EE8003ABD23 /* DisplayPlacesFlag.swift */; };
 		1F24A90B1F896366000BD8F1 /* OnePlaceMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9091F896365000BD8F1 /* OnePlaceMainController.swift */; };
 		1F24A90C1F896366000BD8F1 /* OnePlaceMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A90A1F896366000BD8F1 /* OnePlaceMainView.xib */; };
@@ -138,6 +139,7 @@
 		1FC5A7341F138B5100ABE1A6 /* FindMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A7331F138B5100ABE1A6 /* FindMeUITests.swift */; };
 		1FD0754B1F893F3000F34A26 /* PlacesCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0754A1F893F3000F34A26 /* PlacesCacheService.swift */; };
 		1FEF08471FCCDF0F00FFD9FD /* PlaceSearchCardsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF08461FCCDF0F00FFD9FD /* PlaceSearchCardsApiService.swift */; };
+		1FEF08491FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF08481FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift */; };
 		1FF6D57A1F86F71100309ED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6D5791F86F71100309ED3 /* MapKit.framework */; };
 		1FF8E6291FA7A331001852CE /* OnePlaceLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8E6281FA7A331001852CE /* OnePlaceLocationController.swift */; };
 		1FF8E62B1FA7A387001852CE /* OnePlaceLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF8E62A1FA7A387001852CE /* OnePlaceLocationView.xib */; };
@@ -191,6 +193,7 @@
 		1F1A0E551F78ED4900FDBA97 /* GreetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GreetingController.swift; path = UI/Start/GreetingController.swift; sourceTree = "<group>"; };
 		1F1A0E661F79568900FDBA97 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buttons.swift; path = UI/Elements/Buttons.swift; sourceTree = "<group>"; };
 		1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WrappedImage.swift; path = UI/Elements/WrappedImage.swift; sourceTree = "<group>"; };
+		1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLastActionCell.xib; path = UI/Place/OnePlaceMain/Actions/OnePlaceMainLastActionCell.xib; sourceTree = "<group>"; };
 		1F2223351FBA4EE8003ABD23 /* DisplayPlacesFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DisplayPlacesFlag.swift; path = UI/Main/DisplayPlacesFlag.swift; sourceTree = "<group>"; };
 		1F24A9091F896365000BD8F1 /* OnePlaceMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnePlaceMainController.swift; path = UI/Place/OnePlaceMain/OnePlaceMainController.swift; sourceTree = "<group>"; };
 		1F24A90A1F896366000BD8F1 /* OnePlaceMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainView.xib; path = UI/Place/OnePlaceMain/OnePlaceMainView.xib; sourceTree = "<group>"; };
@@ -316,6 +319,7 @@
 		1FC5A7451F138CA100ABE1A6 /* IOS library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS library.framework"; path = "../IOS library/build/Debug-iphoneos/IOS library.framework"; sourceTree = "<group>"; };
 		1FD0754A1F893F3000F34A26 /* PlacesCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesCacheService.swift; path = Services/Cache/PlacesCacheService.swift; sourceTree = "<group>"; };
 		1FEF08461FCCDF0F00FFD9FD /* PlaceSearchCardsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceSearchCardsApiService.swift; path = Services/Api/Places/PlaceSearchCardsApiService.swift; sourceTree = "<group>"; };
+		1FEF08481FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLastActionCell.swift; path = UI/Place/OnePlaceMain/Actions/OnePlaceMainLastActionCell.swift; sourceTree = "<group>"; };
 		1FF6D5791F86F71100309ED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1FF8E6281FA7A331001852CE /* OnePlaceLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceLocationController.swift; path = UI/Place/OnePlaceLocation/OnePlaceLocationController.swift; sourceTree = "<group>"; };
 		1FF8E62A1FA7A387001852CE /* OnePlaceLocationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceLocationView.xib; path = UI/Place/OnePlaceLocation/OnePlaceLocationView.xib; sourceTree = "<group>"; };
@@ -928,6 +932,8 @@
 		1FE033C81F89617D000349F7 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				1FEF08481FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift */,
+				1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -1105,6 +1111,7 @@
 				1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */,
 				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
 				1F1A0E541F78ED3800FDBA97 /* GreetingController.xib in Resources */,
+				1F1CA9071FCE78840006BE0B /* OnePlaceMainLastActionCell.xib in Resources */,
 				1FC583981F816CB30045941A /* EnteringController.xib in Resources */,
 				1F4677111F950F0C007E426D /* OnePlaceMainSpaceCell.xib in Resources */,
 				1F4690801F86A6340056F9B0 /* SearchPlaceCardView.xib in Resources */,
@@ -1350,6 +1357,7 @@
 				1F4DDE091F977613005CED0B /* UserStatus.swift in Sources */,
 				1F451F9E1FCCAAA60080C103 /* UsersTownsApiService.swift in Sources */,
 				1F24A91C1F8976B1000BD8F1 /* OnePlaceMainAddressCell.swift in Sources */,
+				1FEF08491FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift in Sources */,
 				1F2E37721FCC9178003D24C1 /* PlacesMainApiService.swift in Sources */,
 				1F4DDE071F977573005CED0B /* UserSex.swift in Sources */,
 				1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */,

@@ -33,8 +33,7 @@ public class Log {
 
         _queue.async {
             Messages.append(logMessage)
+            print(logMessage.description, terminator: "\n")
         }
-        
-        print("\(logMessage)")
     }
 }

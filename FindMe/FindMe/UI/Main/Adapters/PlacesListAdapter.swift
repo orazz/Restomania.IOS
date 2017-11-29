@@ -56,13 +56,13 @@ public class PlacesListAdapter: PlacesListDelegate {
     }
 
     public func isLiked(place: Long) -> Bool {
-        return _likes.isLiked(place: place)
+        return _likes.isLiked(place)
     }
     public func like(place: Long) {
-        _likes.like(place: place)
+        _likes.like(place)
     }
     public func unlike(place: Long) {
-        _likes.unlike(place: place)
+        _likes.unlike(place)
     }
 
     public func distanceTo(position: PositionsService.Position) -> Double? {

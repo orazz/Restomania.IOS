@@ -44,7 +44,7 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
 
     public override init() {
 
-        self._eventsAdapter = EventsAdapter(name: _tag)
+        self._eventsAdapter = EventsAdapter(tag: _tag)
         self._lastPosition = nil
 
 

@@ -151,6 +151,7 @@ public class EnteringController: UIViewController {
 
             if (success) {
                 self.startController.toSearch()
+                LogicServices.shared.likes.takeFromRemote()
             }
             else {
                 self.showAlertProblemWithAuth()

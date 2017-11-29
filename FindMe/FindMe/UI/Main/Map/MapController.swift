@@ -132,7 +132,7 @@ public class MapController: UIViewController {
 
         //Filter liked
         if (_onlyLiked) {
-            _filtered = _filtered.where({ likesService.isLiked(place: $0.card.ID) })
+            _filtered = _filtered.where({ likesService.isLiked( $0.card.ID) })
         }
 
         MapView.addAnnotations(_filtered)

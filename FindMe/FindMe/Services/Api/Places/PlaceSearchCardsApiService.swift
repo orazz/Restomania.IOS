@@ -17,7 +17,7 @@ public class PlaceSearchCardsApiService: BaseApiService {
     }
 
 
-    public func searchCards(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[SearchPlaceCard]> {
+    public func all(with arguments: SelectParameters, towns: [Long]? = nil) -> RequestResult<[SearchPlaceCard]> {
         let parameters = CollectParameters([
             "arguments": arguments,
             "towns": towns

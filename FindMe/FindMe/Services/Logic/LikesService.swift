@@ -19,132 +19,110 @@ import Gloss
 public class LikesService: NSObject {
     public typealias THandler = LikesServiceDelegate
 
-    private let _tag: String
-    private let _queue: DispatchQueue
-    private let _fileClient: FSOneFileClient
-    private let _eventsAdapter: EventsAdapter<THandler>
-    private var _data: [LikeContainer] = []
+    private let _tag = String.tag(LikesService.self)
+    private let client = ApiServices.Users.pleasantPlaces
+    private let adapter: CacheAdapter<LikeContainer>
+    private let eventsAdapter: EventsAdapter<THandler>
+    private var extender: CacheAdapterExtender<LikeContainer> {
+        return adapter.extender
+    }
 
     //MARK: Initialization
     public override init() {
 
-        _tag = String.tag(LikesService.self)
-        _queue = DispatchQueue(label: "\(_tag)-\(Guid.new)")
-        _fileClient = FSOneFileClient(filename: "favourites-places.json", inCache: false, tag: _tag)
-        _eventsAdapter = EventsAdapter<THandler>(name: _tag)
+        adapter =  CacheAdapter<LikeContainer>(tag: _tag, filename: "favourites-places.json")
+        eventsAdapter = EventsAdapter<THandler>(tag: _tag)
 
         super.init()
 
-        _data = loadCached()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(enterToBackground),
+                                               name: Notification.Name.UIApplicationDidEnterBackground,
+                                               object: nil)
     }
-    private func loadCached() -> [LikeContainer] {
-
-        do {
-            if let content = _fileClient.load(),
-                let data = content.data(using: .utf8) {
-
-                return try JSONSerialization.parseRange(data: data)
-            }
-        }
-        catch {
-
-            if (_fileClient.isExist) {
-                _fileClient.remove()
-                Log.Warning(_tag, "Problem with load data. Remove storage file. Error: \(error)")
-            }
-        }
-
-        return [LikeContainer]()
+    public func clear() {
+        adapter.clear()
     }
+    public func load() {
+        adapter.loadCached()
+    }
+
 
     //MARK: Methods
     public func all() -> [Long] {
-        return _data.map({ $0.placeId })
+        return extender.all.map({ $0.placeId })
     }
-    public func onlyLiked(_ range: [SearchPlaceCard]) -> [SearchPlaceCard] {
+    public func filterLiked(_ range: [SearchPlaceCard]) -> [SearchPlaceCard] {
 
         let liked = all()
 
-        return range.where({ liked.contains($0.ID) })
+        return range.filter({ liked.contains($0.ID) })
     }
-    public func isLiked(place: Long) -> Bool {
-        return nil != find(by: place)
+    public func isLiked(_ placeId: Long) -> Bool {
+        return nil != extender.find(placeId)
     }
-    public func like(place: Long) {
+    public func like(_ placeId: Long) {
 
-        Log.Debug(_tag, "Like place #\(place).")
+        Log.Debug(_tag, "Like place #\(placeId).")
 
-        if nil == find(by: place) {
+        adapter.addOrUpdate(LikeContainer(for: placeId))
 
-            _data.append(LikeContainer(placeId: place))
-            save()
-        }
-
-        _eventsAdapter.Trigger(action: { handler in
-            handler.like?(placeId: place)
-            handler.change?(placeId: place, isLiked: true)
+        eventsAdapter.Trigger(action: { handler in
+            handler.like?(placeId: placeId)
+            handler.change?(placeId: placeId, isLiked: true)
         })
     }
-    public func unlike(place: Long) {
+    public func unlike(_ placeId: Long) {
 
-        Log.Debug(_tag, "Unlike place #\(place).")
+        Log.Debug(_tag, "Unlike place #\(placeId).")
 
-        if let _ = find(by: place) {
-            
-            _data.remove(at: _data.index(where: { $0.placeId == place })!)
-            save()
-        }
+        adapter.remove(placeId)
 
-        _eventsAdapter.Trigger(action: { handler in
-            handler.unlike?(placeId: place)
-            handler.change?(placeId: place, isLiked: false)
+        eventsAdapter.Trigger(action: { handler in
+            handler.unlike?(placeId: placeId)
+            handler.change?(placeId: placeId, isLiked: false)
         })
     }
-    private func find(by placeId: Long) -> LikeContainer? {
-        return _data.find({ $0.placeId == placeId })
+
+    @objc private func enterToBackground() {
+        saveToRemote()
     }
 
+    //MARK: Send'n'Update
+    public func saveToRemote() {
 
-    private func save() {
+        let request = client.update(places: self.all())
+        request.async(.background, completion: { response in
 
-        do {
-
-            let data = try JSONSerialization.serialize(data: self._data)
-            self._fileClient.save(data: String(data: data, encoding: .utf8)!)
-        }
-        catch {
-
-            Log.Warning(self._tag, "Problem with saving likes to file.")
-        }
+            if response.isFail {
+                if (response.statusCode != .Forbidden && response.statusCode != .ConnectionError) {
+                    Log.Warning(self._tag, "Problem with update pleasant places.")
+                }
+            }
+            else if response.isSuccess {
+                Log.Info(self._tag, "Update plesant places.")
+            }
+        })
     }
+    public func takeFromRemote() {
 
+        let request = client.take()
+        request.async(.background, completion: { response in
 
-    private class LikeContainer: Glossy {
+            if response.isFail {
+                if (response.statusCode != .Forbidden && response.statusCode != .ConnectionError) {
+                    Log.Warning(self._tag, "Problem with take pleasant places.")
+                }
+            }
+            else if response.isSuccess {
+                Log.Info(self._tag, "Request pleasant places.")
 
-        private struct Keys {
-
-            public static let placeId = "PlaceID"
-        }
-
-        public let placeId: Long
-
-        public init(placeId: Long){
-
-            self.placeId = placeId
-        }
-
-        //MARK: Glossy
-        public required init(json: JSON) {
-
-            self.placeId = (Keys.placeId <~~ json)!
-        }
-        public func toJSON() -> JSON? {
-
-            return jsonify([
-
-                Keys.placeId ~~> self.placeId
-                ])
-        }
+                let likes = response.data!
+                for placeId in likes {
+                    self.like(placeId)
+                }
+            }
+        })
     }
 }
 
@@ -152,9 +130,46 @@ public class LikesService: NSObject {
 extension LikesService: IEventsEmitter {
 
     public func subscribe(guid: String, handler: LikesServiceDelegate, tag: String) {
-        _eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
+        eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
     }
     public func unsubscribe(guid: String) {
-        _eventsAdapter.unsubscribe(guid: guid)
+        eventsAdapter.unsubscribe(guid: guid)
+    }
+}
+
+private class LikeContainer: ICached {
+
+    private struct Keys {
+
+        public static let placeId = "PlaceID"
+    }
+
+    public var ID: Long {
+        return placeId
+    }
+    public let placeId: Long
+
+    public init(for placeId: Long){
+
+        self.placeId = placeId
+    }
+
+    //MARK: ICopying
+    public required init(source: LikeContainer) {
+
+        self.placeId = source.placeId
+    }
+
+    //MARK: Glossy
+    public required init(json: JSON) {
+
+        self.placeId = (Keys.placeId <~~ json)!
+    }
+    public func toJSON() -> JSON? {
+
+        return jsonify([
+
+            Keys.placeId ~~> self.placeId
+            ])
     }
 }

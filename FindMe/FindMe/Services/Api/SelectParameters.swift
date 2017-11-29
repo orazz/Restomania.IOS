@@ -20,7 +20,7 @@ public class SelectParameters: Glossy {
     public let take: Int
     public let skip: Int
 
-    public init(take: Int = Int.max, skip: Int = 0) {
+    public init(take: Int = 2147483647, skip: Int = 0) {
 
         self.take = take
         self.skip = skip

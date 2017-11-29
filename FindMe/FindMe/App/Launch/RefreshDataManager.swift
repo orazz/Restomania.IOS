@@ -38,10 +38,21 @@ public class RefreshDataManager {
 
 
     //#MARK: Methods
-    public func register() {
+    public func launch() {
+
+        registerHooks()
+        refreshUserData()
+    }
+    private func registerHooks() {
 
         _application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     }
+    private func refreshUserData() {
+
+        LogicServices.shared.likes.takeFromRemote()
+    }
+
+
     public func refreshData() {
 
 //        _cards.refresh()

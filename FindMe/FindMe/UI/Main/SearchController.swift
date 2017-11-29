@@ -104,7 +104,7 @@ public class SearchController: UIViewController {
             tableAdapter?.update(places: places)
         }
         else if (displayFlag == .onlyLiked) {
-            tableAdapter?.update(places: likes.onlyLiked(places))
+            tableAdapter?.update(places: likes.filterLiked(places))
         }
     }
 }

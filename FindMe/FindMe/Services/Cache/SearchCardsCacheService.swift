@@ -43,7 +43,7 @@ public class SearchPlaceCardsCacheService {
 
             Log.Debug(self.tag, "Request all places' cards.")
 
-            let request = self.client.searchCards(with: parameters)
+            let request = self.client.all(with: parameters)
             request.async(.custom(self.adapter.blockQueue), completion: { response in
 
                 if response.isFail {
@@ -61,32 +61,19 @@ public class SearchPlaceCardsCacheService {
             })
         }
     }
-//    public func refresh() {
-//
-//        if (adapter.isEmpty) {
-//            return
-//        }
-//
-//        adapter.blockQueue.async {
-//
-//            Log.Debug(self.tag, "Start refresh data.")
-//
-////            let time = self._properties.getDate(.lastUpdateSearchCards)
-//            let request = self.client.SearchCards(with: SelectParameters())
-////            let request = self._client.SearchCards(args: SelectParameters(time: time.unwrapped))
-//            request.async(.custom(self.adapter.blockQueue), completion: { response in
-//
-//                guard response.isSuccess,
-//                    let update = response.data else {
-//
-//                    Log.Warning(self.tag, "Problem with refresh data.")
-//                    return
-//                }
-//
-//                self.adapter.addOrUpdate(update)
-//                self.properties.set(.lastUpdateSearchCards, value: Date())
-//                Log.Info(self.tag, "Complete refresh data.")
-//            })
-//        }
-//    }
+    public func refresh() {
+
+        Log.Debug(self.tag, "Start refresh data.")
+
+        let request = self.all(with: SelectParameters(take: Int.max))
+        request.async(.custom(self.adapter.blockQueue), completion: { response in
+
+            if (response.isFail) {
+                Log.Warning(self.tag, "Problem with refresh data.")
+            }
+            else if (response.isSuccess) {
+                Log.Info(self.tag, "Complete refresh data.")
+            }
+        })
+    }
 }

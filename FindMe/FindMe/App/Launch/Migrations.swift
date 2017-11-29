@@ -24,7 +24,7 @@ public class Migrations {
         }
 
         let migrations = [
-            178: migrateToV024100,
+            231: migrateToV024100,
             ]
 
 
@@ -42,5 +42,7 @@ public class Migrations {
 
         CacheServices.places.cache.clear()
         CacheServices.searchCards.cache.clear()
+
+        LogicServices.shared.likes.clear()
     }
 }

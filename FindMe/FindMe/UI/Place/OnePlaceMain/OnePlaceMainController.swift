@@ -65,7 +65,7 @@ public class OnePlaceMainController: UIViewController {
     private func setupLikeButton() {
 
         var image = ThemeSettings.Images.heartInactive
-        if (likes.isLiked(place: placeId)){
+        if (likes.isLiked(placeId)){
 
             image = ThemeSettings.Images.heartActive
         }
@@ -81,13 +81,13 @@ public class OnePlaceMainController: UIViewController {
         result.append(OnePlaceMainAddressCell.instance)
         result.append(OnePlaceMainStatisticCell.create(with: self.navigationController!))
 
+        let actions = OnePlaceMainLastActionCell.instance
+        result.append(actions)
+        result.append(OnePlaceMainDividerCell.instance(for: actions))
+
         let description = OnePlaceMainDescriptionCell.instance
         result.append(description)
         result.append(OnePlaceMainDividerCell.instance(for: description))
-
-//        let actions = OnePlaceMainContactsCell.instance
-//        result(actions)
-//        result.add(OnePlaceMainDividerCell.instance(for: actions))
 
         let contacts = OnePlaceMainContactsCell.instance
         result.append(contacts)
@@ -166,11 +166,11 @@ public class OnePlaceMainController: UIViewController {
     }
     @IBAction public func likePlace() {
 
-        if (likes.isLiked(place: placeId)){
-            likes.unlike(place: placeId)
+        if (likes.isLiked(placeId)){
+            likes.unlike(placeId)
         }
         else {
-            likes.like(place: placeId)
+            likes.like(placeId)
         }
 
         setupLikeButton()

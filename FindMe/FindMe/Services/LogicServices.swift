@@ -30,4 +30,8 @@ public class LogicServices {
                                   configs: ToolsServices.shared.configs,
                                   keys: ToolsServices.shared.keys)
     }
+    public func load() {
+
+        likes.load()
+    }
 }
