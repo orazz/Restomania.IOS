@@ -24,7 +24,7 @@ public class Migrations {
         }
 
         let migrations = [
-            231: to231
+            305: to305
             ]
 
 
@@ -35,9 +35,9 @@ public class Migrations {
             }
         }
     }
-    private static func to231() {
+    private static func to305() {
 
-        Log.Info(tag, "Apply migration for 231 build.")
+        Log.Info(tag, "Apply migration for 305 build.")
 
         CacheServices.places.cache.clear()
         CacheServices.searchCards.cache.clear()
