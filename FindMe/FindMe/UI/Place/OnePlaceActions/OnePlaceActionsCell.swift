@@ -38,11 +38,13 @@ public class OnePlaceActionsCell: UITableViewCell {
 
     public var height: CGFloat {
 
-        var result = CGFloat(15) + NameLabel.frame.height
+        var result = CGFloat(10) + NameLabel.frame.height
 
         if (!String.isNullOrEmpty(action.image)) {
             result += CGFloat(5) + ImageView.frame.height + CGFloat(5)
         }
+
+        result += CGFloat(10)
 
         return result
     }
