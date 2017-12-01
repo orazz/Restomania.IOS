@@ -39,6 +39,14 @@
 		1F24A91E1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A91D1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib */; };
 		1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F24A91F1F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib */; };
 		1F24A9221F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9211F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift */; };
+		1F2D6CFD1FD1585E00BF9E63 /* OnePlaceOneActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D6CFC1FD1585E00BF9E63 /* OnePlaceOneActionController.swift */; };
+		1F2D6CFF1FD1595B00BF9E63 /* OnePlaceOneActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D6CFE1FD1595B00BF9E63 /* OnePlaceOneActionView.xib */; };
+		1F2D6D041FD1693C00BF9E63 /* OnePlaceOneActionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D6D031FD1693C00BF9E63 /* OnePlaceOneActionNameCell.swift */; };
+		1F2D6D061FD1697900BF9E63 /* OnePlaceOneActionImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D6D051FD1697900BF9E63 /* OnePlaceOneActionImageCell.swift */; };
+		1F2D6D081FD169AA00BF9E63 /* OnePlaceOneActionDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D6D071FD169AA00BF9E63 /* OnePlaceOneActionDetailsCell.swift */; };
+		1F2D6D0A1FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D6D091FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib */; };
+		1F2D6D0C1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D6D0B1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib */; };
+		1F2D6D0E1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D6D0D1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib */; };
 		1F2E37581FCC7A2B003D24C1 /* RefreshDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37551FCC7A2B003D24C1 /* RefreshDataManager.swift */; };
 		1F2E37591FCC7A2B003D24C1 /* PushesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37561FCC7A2B003D24C1 /* PushesManager.swift */; };
 		1F2E375A1FCC7A2B003D24C1 /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37571FCC7A2B003D24C1 /* Migrations.swift */; };
@@ -217,6 +225,14 @@
 		1F24A91D1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainAddressCell.xib; path = UI/Place/OnePlaceMain/Address/OnePlaceMainAddressCell.xib; sourceTree = "<group>"; };
 		1F24A91F1F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainStatisticCell.xib; path = UI/Place/OnePlaceMain/Statistic/OnePlaceMainStatisticCell.xib; sourceTree = "<group>"; };
 		1F24A9211F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainStatisticCell.swift; path = UI/Place/OnePlaceMain/Statistic/OnePlaceMainStatisticCell.swift; sourceTree = "<group>"; };
+		1F2D6CFC1FD1585E00BF9E63 /* OnePlaceOneActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceOneActionController.swift; path = UI/Place/OnePlaceActions/OnePlaceOneAction/OnePlaceOneActionController.swift; sourceTree = "<group>"; };
+		1F2D6CFE1FD1595B00BF9E63 /* OnePlaceOneActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceOneActionView.xib; path = UI/Place/OnePlaceActions/OnePlaceOneAction/OnePlaceOneActionView.xib; sourceTree = "<group>"; };
+		1F2D6D031FD1693C00BF9E63 /* OnePlaceOneActionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceOneActionNameCell.swift; path = UI/Place/OnePlaceActions/OnePlaceOneAction/Name/OnePlaceOneActionNameCell.swift; sourceTree = "<group>"; };
+		1F2D6D051FD1697900BF9E63 /* OnePlaceOneActionImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceOneActionImageCell.swift; path = UI/Place/OnePlaceActions/OnePlaceOneAction/Image/OnePlaceOneActionImageCell.swift; sourceTree = "<group>"; };
+		1F2D6D071FD169AA00BF9E63 /* OnePlaceOneActionDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceOneActionDetailsCell.swift; path = UI/Place/OnePlaceActions/OnePlaceOneAction/Details/OnePlaceOneActionDetailsCell.swift; sourceTree = "<group>"; };
+		1F2D6D091FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceOneActionDetailsCell.xib; path = UI/Place/OnePlaceActions/OnePlaceOneAction/Details/OnePlaceOneActionDetailsCell.xib; sourceTree = "<group>"; };
+		1F2D6D0B1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceOneActionNameCell.xib; path = UI/Place/OnePlaceActions/OnePlaceOneAction/Name/OnePlaceOneActionNameCell.xib; sourceTree = "<group>"; };
+		1F2D6D0D1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceOneActionImageCell.xib; path = UI/Place/OnePlaceActions/OnePlaceOneAction/Image/OnePlaceOneActionImageCell.xib; sourceTree = "<group>"; };
 		1F2E37551FCC7A2B003D24C1 /* RefreshDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshDataManager.swift; path = App/Launch/RefreshDataManager.swift; sourceTree = "<group>"; };
 		1F2E37561FCC7A2B003D24C1 /* PushesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushesManager.swift; path = App/Launch/PushesManager.swift; sourceTree = "<group>"; };
 		1F2E37571FCC7A2B003D24C1 /* Migrations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Migrations.swift; path = App/Launch/Migrations.swift; sourceTree = "<group>"; };
@@ -524,6 +540,7 @@
 		1F1CA90F1FCEF6E00006BE0B /* OnePlaceActions */ = {
 			isa = PBXGroup;
 			children = (
+				1F2D6CFB1FD1583C00BF9E63 /* OnePlaceOneAction */,
 				1F1CA9101FCEF71A0006BE0B /* OnePlaceActionsController.swift */,
 				1F1CA9121FCF018F0006BE0B /* OnePlaceActionsView.xib */,
 				1F1CA9141FCF29F30006BE0B /* OnePlaceActionsCell.swift */,
@@ -539,6 +556,45 @@
 				1F24A91D1F89789C000BD8F1 /* OnePlaceMainAddressCell.xib */,
 			);
 			name = Address;
+			sourceTree = "<group>";
+		};
+		1F2D6CFB1FD1583C00BF9E63 /* OnePlaceOneAction */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D6CFC1FD1585E00BF9E63 /* OnePlaceOneActionController.swift */,
+				1F2D6CFE1FD1595B00BF9E63 /* OnePlaceOneActionView.xib */,
+				1F2D6D001FD165C500BF9E63 /* Name */,
+				1F2D6D011FD165CC00BF9E63 /* Image */,
+				1F2D6D021FD165D300BF9E63 /* Details */,
+			);
+			name = OnePlaceOneAction;
+			sourceTree = "<group>";
+		};
+		1F2D6D001FD165C500BF9E63 /* Name */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D6D031FD1693C00BF9E63 /* OnePlaceOneActionNameCell.swift */,
+				1F2D6D0B1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib */,
+			);
+			name = Name;
+			sourceTree = "<group>";
+		};
+		1F2D6D011FD165CC00BF9E63 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D6D051FD1697900BF9E63 /* OnePlaceOneActionImageCell.swift */,
+				1F2D6D0D1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		1F2D6D021FD165D300BF9E63 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D6D071FD169AA00BF9E63 /* OnePlaceOneActionDetailsCell.swift */,
+				1F2D6D091FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib */,
+			);
+			name = Details;
 			sourceTree = "<group>";
 		};
 		1F2E37541FCC79D1003D24C1 /* Launch */ = {
@@ -1142,9 +1198,12 @@
 				1FC583921F8150EF0045941A /* Main.storyboard in Resources */,
 				1FC583941F8150F80045941A /* LaunchScreen.storyboard in Resources */,
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
+				1F2D6D0E1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib in Resources */,
 				1F1CA9131FCF018F0006BE0B /* OnePlaceActionsView.xib in Resources */,
 				1FB0EE4E1FAFA0F700F64F1F /* ImageControllerSlideView.xib in Resources */,
+				1F2D6D0C1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib in Resources */,
 				1F6B89321FA8666F00B7A99A /* OnePlaceClientsView.xib in Resources */,
+				1F2D6D0A1FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib in Resources */,
 				1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */,
 				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
 				1F1A0E541F78ED3800FDBA97 /* GreetingController.xib in Resources */,
@@ -1152,6 +1211,7 @@
 				1FC583981F816CB30045941A /* EnteringController.xib in Resources */,
 				1F4677111F950F0C007E426D /* OnePlaceMainSpaceCell.xib in Resources */,
 				1F4690801F86A6340056F9B0 /* SearchPlaceCardView.xib in Resources */,
+				1F2D6CFF1FD1595B00BF9E63 /* OnePlaceOneActionView.xib in Resources */,
 				1F24A90C1F896366000BD8F1 /* OnePlaceMainView.xib in Resources */,
 				1F46770D1F9100E6007E426D /* OnePlaceMainDescriptionCell.xib in Resources */,
 				1F24A9151F896DCF000BD8F1 /* OnePlaceMainTitleCell.xib in Resources */,
@@ -1342,6 +1402,7 @@
 				1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */,
 				1F4C82D11F95C894004B294C /* OnePlaceMainLocationCell.swift in Sources */,
 				1F1A0E431F77E99E00FDBA97 /* LogicServices.swift in Sources */,
+				1F2D6D061FD1697900BF9E63 /* OnePlaceOneActionImageCell.swift in Sources */,
 				1F1A0E341F77C0D900FDBA97 /* PropertiesKey.swift in Sources */,
 				1FC548111F702FC5007CE6AB /* ApiKeys.swift in Sources */,
 				1F6B89301FA865D800B7A99A /* OnePlaceClientsController.swift in Sources */,
@@ -1349,6 +1410,7 @@
 				1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */,
 				1FC5481F1F7048EF007CE6AB /* Attachment.swift in Sources */,
 				1F2E37581FCC7A2B003D24C1 /* RefreshDataManager.swift in Sources */,
+				1F2D6CFD1FD1585E00BF9E63 /* OnePlaceOneActionController.swift in Sources */,
 				1F451FA31FCCB0F20080C103 /* UsersPleasantPlacesApiService.swift in Sources */,
 				1F2E37851FCC91D2003D24C1 /* PositionsService.swift in Sources */,
 				1F24A9131F896927000BD8F1 /* OnePlaceMainTitleCell.swift in Sources */,
@@ -1408,9 +1470,11 @@
 				1F1A0E561F78ED4900FDBA97 /* GreetingController.swift in Sources */,
 				1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */,
 				1F2E37711FCC9178003D24C1 /* PlacesActionsApiService.swift in Sources */,
+				1F2D6D081FD169AA00BF9E63 /* OnePlaceOneActionDetailsCell.swift in Sources */,
 				1F4C82C71F952932004B294C /* OnePlaceMainContactsCell.swift in Sources */,
 				1F6B21C31F881E6D0068E29A /* MapPoputView.swift in Sources */,
 				1F451F9A1FCCA4070080C103 /* PlacesTownsApiService.swift in Sources */,
+				1F2D6D041FD1693C00BF9E63 /* OnePlaceOneActionNameCell.swift in Sources */,
 				1F2F4B211F81267C002FE39B /* SliderIndicator.swift in Sources */,
 				1F2E37801FCC91C5003D24C1 /* IKeysStorage.swift in Sources */,
 				1F61302D1FAA7948009D3AF1 /* ApiServices.swift in Sources */,

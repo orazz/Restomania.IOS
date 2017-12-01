@@ -24,16 +24,22 @@ public class OnePlaceActionsController: UIViewController {
     }
     //MARK: UI
     @IBOutlet private weak var ActionsTable: UITableView!
+    private var refreshControl: UIRefreshControl!
+    private var loader: InterfaceLoader!
 
     //MARK: Data & services
+    private let _tag = String.tag(OnePlaceActionsController.self)
     private var actionsCache = CacheServices.actions
-    private var place: DisplayPlaceInfo!
+    private var place: DisplayPlaceInfo! 
     private var actions: [Action] = []
     private var cache: [Long:OnePlaceActionsCell] = [:]
 
     //MARK: Life circle
     public override func viewDidLoad() {
         super.viewDidLoad()
+
+        loadMarkup()
+        loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,18 +55,77 @@ public class OnePlaceActionsController: UIViewController {
 
         cache.removeAll()
     }
+    private func loadMarkup() {
 
-    //MARK: Actions
-    @IBAction public func close() {
+        refreshControl = UIRefreshControl()
+        refreshControl.backgroundColor = ThemeSettings.Colors.background
+        refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
+        refreshControl.addTarget(self, action: #selector(needRefreshData), for: .valueChanged)
+        ActionsTable.addSubview(refreshControl)
 
-        navigationController?.popViewController(animated: true)
+        loader = InterfaceLoader(for: self.view)
+
+        self.navigationController?.navigationBar.backgroundColor = ThemeSettings.Colors.background
     }
 
-    //MARK: Processing
+    //MARK: Load data
+    private func loadData() {
 
+        let cached = actionsCache.cache.all.filter({ $0.placeId == place.ID })
+        if (cached.isFilled) {
+            completeLoadData(with: cached)
+        }
+        else {
+            loader.show()
+        }
+
+        requestData()
+    }
+    @objc private func needRefreshData() {
+        requestData()
+    }
+    private func requestData() {
+
+        let request = actionsCache.find(place: place.ID, with: SelectParameters())
+        request.async(.background, completion: { response in
+
+            DispatchQueue.main.async {
+
+                if (response.isFail) {
+
+                    self.present(ProblemAlerts.Error(for: response.statusCode), animated: true, completion: {
+                        self.completeLoadData(with: response.data)
+                    })
+                }
+
+                self.completeLoadData(with: response.data )
+            }
+        })
+    }
+    private func completeLoadData(with actions: [Action]?) {
+
+        if (refreshControl.isRefreshing) {
+            refreshControl.endRefreshing()
+        }
+        loader.hide()
+
+        let filtered = (actions ?? []).sorted(by: { $0.orderNumber < $1.orderNumber } )
+                                      .filter({ !$0.isHide })
+
+        self.actions = filtered
+        ActionsTable.reloadData()
+    }
 }
 //MARK:
-extension OnePlaceActionsController: UITableViewDelegate {}
+extension OnePlaceActionsController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let action = actions[indexPath.row]
+        let vc = OnePlaceOneActionController.create(for: place, with: action)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
 extension OnePlaceActionsController: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
