@@ -47,6 +47,7 @@
 		1F2D6D0A1FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D6D091FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib */; };
 		1F2D6D0C1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D6D0B1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib */; };
 		1F2D6D0E1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D6D0D1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib */; };
+		1F2D6D121FD1E09B00BF9E63 /* SelectedTownsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D6D111FD1E09A00BF9E63 /* SelectedTownsService.swift */; };
 		1F2E37581FCC7A2B003D24C1 /* RefreshDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37551FCC7A2B003D24C1 /* RefreshDataManager.swift */; };
 		1F2E37591FCC7A2B003D24C1 /* PushesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37561FCC7A2B003D24C1 /* PushesManager.swift */; };
 		1F2E375A1FCC7A2B003D24C1 /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E37571FCC7A2B003D24C1 /* Migrations.swift */; };
@@ -233,6 +234,7 @@
 		1F2D6D091FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceOneActionDetailsCell.xib; path = UI/Place/OnePlaceActions/OnePlaceOneAction/Details/OnePlaceOneActionDetailsCell.xib; sourceTree = "<group>"; };
 		1F2D6D0B1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceOneActionNameCell.xib; path = UI/Place/OnePlaceActions/OnePlaceOneAction/Name/OnePlaceOneActionNameCell.xib; sourceTree = "<group>"; };
 		1F2D6D0D1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceOneActionImageCell.xib; path = UI/Place/OnePlaceActions/OnePlaceOneAction/Image/OnePlaceOneActionImageCell.xib; sourceTree = "<group>"; };
+		1F2D6D111FD1E09A00BF9E63 /* SelectedTownsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectedTownsService.swift; path = Services/Logic/SelectedTownsService.swift; sourceTree = "<group>"; };
 		1F2E37551FCC7A2B003D24C1 /* RefreshDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshDataManager.swift; path = App/Launch/RefreshDataManager.swift; sourceTree = "<group>"; };
 		1F2E37561FCC7A2B003D24C1 /* PushesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushesManager.swift; path = App/Launch/PushesManager.swift; sourceTree = "<group>"; };
 		1F2E37571FCC7A2B003D24C1 /* Migrations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Migrations.swift; path = App/Launch/Migrations.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 			isa = PBXGroup;
 			children = (
 				1F2E37821FCC91D2003D24C1 /* LikesService.swift */,
+				1F2D6D111FD1E09A00BF9E63 /* SelectedTownsService.swift */,
 				1F2E37841FCC91D2003D24C1 /* CheckInService.swift */,
 				1F2E37811FCC91D2003D24C1 /* PositionsService.swift */,
 				1F2E37831FCC91D2003D24C1 /* BackgroundPositionsServices.swift */,
@@ -826,14 +829,14 @@
 		1FC547FE1F6FBA0A007CE6AB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F2E37641FCC9119003D24C1 /* UI */,
 				1F1A0E421F77E99E00FDBA97 /* LogicServices.swift */,
-				1F2E37631FCC910E003D24C1 /* Logic */,
 				1F2E375F1FCC82A2003D24C1 /* CacheServices.swift */,
-				1F1A0E5D1F79513F00FDBA97 /* Cache */,
 				1F61302C1FAA7948009D3AF1 /* ApiServices.swift */,
-				1FC547FD1F6FBA01007CE6AB /* Api */,
 				1F2E37611FCC8569003D24C1 /* ToolsServices.swift */,
+				1F2E37641FCC9119003D24C1 /* UI */,
+				1F2E37631FCC910E003D24C1 /* Logic */,
+				1F1A0E5D1F79513F00FDBA97 /* Cache */,
+				1FC547FD1F6FBA01007CE6AB /* Api */,
 				1F2E37651FCC9126003D24C1 /* Tools */,
 			);
 			name = Services;
@@ -1385,6 +1388,7 @@
 				1F2E376C1FCC9169003D24C1 /* DisplayPlaceInfo.swift in Sources */,
 				1F2223361FBA4EE8003ABD23 /* DisplayPlacesFlag.swift in Sources */,
 				1F24A9221F897CE2000BD8F1 /* OnePlaceMainStatisticCell.swift in Sources */,
+				1F2D6D121FD1E09B00BF9E63 /* SelectedTownsService.swift in Sources */,
 				1F2E37601FCC82A2003D24C1 /* CacheServices.swift in Sources */,
 				1FC5481D1F7047F7007CE6AB /* Action.swift in Sources */,
 				1F24A9171F89722E000BD8F1 /* OnePlaceMainSliderCell.swift in Sources */,

@@ -50,6 +50,7 @@ public class RefreshDataManager {
     private func refreshUserData() {
 
         LogicServices.shared.likes.takeFromRemote()
+        LogicServices.shared.towns.takeFromRemote()
     }
 
 

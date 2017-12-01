@@ -14,6 +14,7 @@ public class LogicServices {
     public static let shared = LogicServices()
 
     public let likes: LikesService
+    public let towns: SelectedTownsService
     public let positions: PositionsService
     public let backgroundPositions: BackgroundPositionsServices
     public let checkIns: CheckInService
@@ -21,6 +22,7 @@ public class LogicServices {
     private init() {
 
         likes = LikesService()
+        towns = SelectedTownsService()
 
         positions = PositionsService()
         backgroundPositions = BackgroundPositionsServices(tasksService: ToolsServices.shared.backgroundTasks)

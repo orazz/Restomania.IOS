@@ -10,7 +10,7 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-public class Town: Glossy {
+public class Town: Glossy, ICached {
 
     public struct Keys {
         public static let id = BaseDataType.Keys.ID
@@ -19,22 +19,31 @@ public class Town: Glossy {
         public static let longtitude = "Longtitude"
     }
 
-    public let id: Long
+    public let ID: Long
     public let name: String
     public let latitude: Double
     public let longtitude: Double
 
+    //MARK: ICopying
+    public required init(source: Town) {
+
+        self.ID = source.ID
+        self.name = source.name
+        self.latitude = source.latitude
+        self.longtitude = source.longtitude
+    }
+
     //MARK: Glossy
     public required init?(json: JSON) {
 
-        self.id = (Keys.id <~~ json)!
+        self.ID = (Keys.id <~~ json)!
         self.name = (Keys.name <~~ json)!
         self.latitude = (Keys.latitude <~~ json)!
         self.longtitude = (Keys.longtitude <~~ json)!
     }
     public func toJSON() -> JSON? {
         return jsonify([
-            Keys.id ~~> self.id,
+            Keys.id ~~> self.ID,
             Keys.name ~~> self.name,
             Keys.latitude ~~> self.latitude,
             Keys.longtitude ~~> self.longtitude
