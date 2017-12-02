@@ -21,7 +21,7 @@ public class SelectedTownsService {
     public init() {
 
         adapter = CacheAdapter<TownContainer>(tag: tag, filename: "selected-towns.json")
-        apiQueue = AsyncQueue.createApi(for: tag)
+        apiQueue = AsyncQueue.createForApi(for: tag)
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(enterToBackground),

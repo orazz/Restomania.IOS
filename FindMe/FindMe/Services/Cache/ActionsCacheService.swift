@@ -24,7 +24,7 @@ public class ActionsCacheService {
     public init() {
 
         adapter = CacheAdapter<Action>(tag: tag, filename: "places-actions.json")
-        apiQueue = AsyncQueue.createApi(for: tag)
+        apiQueue = AsyncQueue.createForApi(for: tag)
     }
     public func load() {
         adapter.loadCached()

@@ -28,7 +28,7 @@ public class SearchPlaceCardsCacheService {
 
         self.properties = properties
         self.adapter = CacheAdapter<SearchPlaceCard>(tag: tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
-        self.apiQueue = AsyncQueue.createApi(for: tag)
+        self.apiQueue = AsyncQueue.createForApi(for: tag)
 
         Log.Debug(tag, "Complete load service.")
     }

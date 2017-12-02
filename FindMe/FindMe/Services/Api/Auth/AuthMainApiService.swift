@@ -17,10 +17,10 @@ public class AuthMainApiService: BaseApiService {
 
 
     //MARK: Methods
-    public func check(for rights: ApiRole) -> RequestResult<Bool> {
+    public func refresh(for rights: ApiRole) -> RequestResult<ApiKeys> {
         
         let parameters = self.CollectParameters(rights: rights)
 
-        return self.client.GetBool(action: "Check", parameters: parameters)
+        return self.client.Get(action: "Refresh", type: ApiKeys.self, parameters: parameters)
     }
 }

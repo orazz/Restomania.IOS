@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import IOSLibrary
+import AsyncTask
 
 
 public class SearchController: UIViewController {
@@ -24,6 +25,7 @@ public class SearchController: UIViewController {
     //MARK: Data & Services
     private let _tag = String.tag(SearchController.self)
     private let guid = Guid.new
+    private var loadQueue: AsyncQueue!
     private var displayFlag = DisplayPlacesFlag.all
     private var cacheService = CacheServices.searchCards
     private var likes = LogicServices.shared.likes
@@ -38,6 +40,7 @@ public class SearchController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
         likes.subscribe(guid: guid, handler: self, tag: _tag)
 
         loadMarkup()
@@ -82,8 +85,7 @@ public class SearchController: UIViewController {
     private func requestPlaces() {
 
         let task = cacheService.all(with: SelectParameters())
-        task.async(.background, completion: { result in
-
+        task.async(loadQueue, completion: { result in
             DispatchQueue.main.async {
 
                 if result.isFail {
@@ -135,8 +137,8 @@ extension SearchController {
 extension SearchController: LikesServiceDelegate {
 
     public func change(placeId: Long, isLiked: Bool) {
-        DispatchQueue.main.async {
 
+        DispatchQueue.main.async {
             if (self.displayFlag == .onlyLiked) {
                 self.refreshList()
             }

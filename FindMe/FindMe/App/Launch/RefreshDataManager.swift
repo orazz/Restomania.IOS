@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import IOSLibrary
+import AsyncTask
 
 public class RefreshDataManager {
 
@@ -25,12 +26,15 @@ public class RefreshDataManager {
 
 
     private let _tag = String.tag(RefreshDataManager.self)
+    private var apiQueue: AsyncQueue
     private let _application = UIApplication.shared
 
     private let _cards: SearchPlaceCardsCacheService
     private let _places: PlacesCacheService
 
     private init() {
+
+        self.apiQueue = AsyncQueue.createForApi(for: _tag)
 
         self._cards = CacheServices.searchCards
         self._places = CacheServices.places
@@ -42,15 +46,6 @@ public class RefreshDataManager {
 
         registerHooks()
         refreshUserData()
-    }
-    private func registerHooks() {
-
-        _application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-    }
-    private func refreshUserData() {
-
-        LogicServices.shared.likes.takeFromRemote()
-        LogicServices.shared.towns.takeFromRemote()
     }
 
 
@@ -73,8 +68,41 @@ public class RefreshDataManager {
         });
 
         let cards = _cards.refresh()
-        cards.async(.background, completion: completer.ender())
+        cards.async(apiQueue, completion: completer.ender())
+    }
 
+
+
+    private func registerHooks() {
+
+        _application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+    }
+    private func refreshUserData() {
+
+        refreshApiKeys()
+
+        LogicServices.shared.likes.takeFromRemote()
+        LogicServices.shared.towns.takeFromRemote()
+    }
+    private func refreshApiKeys() {
+
+        let auth = ApiServices.Auth.main
+        let keys = ToolsServices.shared.keys
+        let request = auth.refresh(for: .user)
+        request.async(apiQueue, completion: { response in
+
+            if (response.isSuccess) {
+                keys.set(for: .user, keys: response.data!)
+                Log.Debug(self._tag, "Refresh api keys.")
+            }
+            else if (response.isFail) {
+
+                if (response.statusCode == .Forbidden) {
+                    keys.logout(.user)
+                    Log.Warning(self._tag, "Remove old api keys.")
+                }
+            }
+        })
     }
 }
 private class Completer {
