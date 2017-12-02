@@ -19,6 +19,7 @@ public class StartController: UIViewController {
 
         let properties = ToolsServices.shared.properties
         let keys = ToolsServices.shared.keys
+        let towns = LogicServices.shared.towns
 
         if (!(properties.getBool(.isShowExplainer).unwrapped ?? false)) {
             toGreetingPage()
@@ -26,22 +27,30 @@ public class StartController: UIViewController {
         else if (!keys.isAuth(rights: .user)){
             toEnteringPage()
         }
+        else if (towns.all().isEmpty) {
+            toSelectTownsPage()
+        }
         else {
             toSearch()
         }
     }
 
-    public func toGreetingPage() {
+    private func toGreetingPage() {
 
-        let greeting = GreetingController.build(parent: self)
-        self.navigationController?.pushViewController(greeting, animated: false)
+        let greeting = GreetingController.instance
+        self.navigationController?.pushViewController(greeting, animated: true)
     }
-    public func toEnteringPage() {
+    private func toEnteringPage() {
 
-        let entering = EnteringController.build(parent: self)
-        self.navigationController?.pushViewController(entering, animated: false)
+        let entering = FirstLoginController.instance
+        self.navigationController?.pushViewController(entering, animated: true)
     }
-    public func toSearch() {
+    private func toSelectTownsPage() {
+
+        let selectTowns = SelectTownsUIService.initialController
+        self.navigationController?.pushViewController(selectTowns, animated: true)
+    }
+    private func toSearch() {
 
         let board = UIStoryboard(name: "Main", bundle: Bundle.main)
         if let vc = board.instantiateInitialViewController() as? UINavigationController {

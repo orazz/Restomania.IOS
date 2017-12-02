@@ -36,6 +36,9 @@ public class SelectedTownsService {
     }
 
     //MARK: Local
+    public func isSelected(_ town: Town) -> Bool {
+        return nil != adapter.extender.find(town.ID)
+    }
     public func select(_ town: Town) {
         select(TownContainer(for: town))
     }

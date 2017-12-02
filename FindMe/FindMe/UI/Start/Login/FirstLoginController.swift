@@ -1,5 +1,5 @@
 //
-//  EnteringController.swift
+//  FirstLoginController.swift
 //  FindMe
 //
 //  Created by Алексей on 02.10.17.
@@ -11,14 +11,13 @@ import UIKit
 import AsyncTask
 import IOSLibrary
 
-public class EnteringController: UIViewController {
+public class FirstLoginController: UIViewController {
 
-    private static let nibName = "EnteringController"
-    public static func build(parent: StartController) -> EnteringController {
+    private static let nibName = "FirstLoginController"
+    public static var instance: FirstLoginController {
 
-        let instance = EnteringController(nibName: nibName, bundle: Bundle.main)
+        let instance = FirstLoginController(nibName: nibName, bundle: Bundle.main)
 
-        instance.startController = parent
         instance.keysStorage = ToolsServices.shared.keys
         instance.authApiService = ApiServices.Users.auth
         instance.usersApiService = ApiServices.Users.main
@@ -41,8 +40,7 @@ public class EnteringController: UIViewController {
 
 
     //MARK: Data & Services
-    private let _tag = String.tag(EnteringController.self)
-    private var startController: StartController!
+    private let _tag = String.tag(FirstLoginController.self)
     private var keysStorage: IKeysStorage!
     private var authApiService: UsersAuthApiService!
     private var usersApiService: UsersMainApiService!
@@ -139,7 +137,7 @@ public class EnteringController: UIViewController {
                     self.showAlertProblemWithAuth()
                 }
                 else {
-                    self.startController.toSearch()
+                    self.goBack()
                 }
             }
         })
@@ -150,7 +148,7 @@ public class EnteringController: UIViewController {
         let service = VKAuthorizationController.build(callback: { success, result in
 
             if (success) {
-                self.startController.toSearch()
+                self.goBack()
                 LogicServices.shared.likes.takeFromRemote()
             }
             else {
@@ -158,6 +156,9 @@ public class EnteringController: UIViewController {
             }
         })
         self.navigationController?.present(service, animated: true, completion: nil)
+    }
+    private func goBack() {
+        self.navigationController?.popViewController(animated: true)
     }
     private func showAlertProblemWithAuth() {
 

@@ -12,10 +12,9 @@ import UIKit
 public class GreetingController: UIViewController, SliderControlDelegate {
     
      private static let nibName = "GreetingController"
-    public static func build(parent: StartController) -> GreetingController {
+    public static var instance: GreetingController {
 
         let instance = GreetingController(nibName: nibName, bundle: Bundle.main)
-
 
         return instance
     }
