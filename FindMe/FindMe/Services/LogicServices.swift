@@ -34,6 +34,8 @@ public class LogicServices {
     }
     
     public func load() {
+        
         likes.load()
+        towns.load()
     }
 }

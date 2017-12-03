@@ -18,6 +18,6 @@ public class PlacesTownsApiService: BaseApiService {
 
     //MARK: Methods
     public func all() -> RequestResult<[Town]> {
-        return client.GetRange(action: "All", type: Town.self)
+        return client.GetRange(action: "Index", type: Town.self)
     }
 }

@@ -183,18 +183,31 @@
                                     <outletCollection property="gestureRecognizers" destination="onn-B0-oKn" appends="YES" id="WCz-kM-R7X"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71v-B8-9di" customClass="BorderedButton" customModule="FindMe" customModuleProvider="target">
+                                <rect key="frame" x="70" y="439" width="180" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="hvc-ML-CWc"/>
+                                    <constraint firstAttribute="height" constant="50" id="yR6-PX-n44"/>
+                                </constraints>
+                                <state key="normal" title="Выбрать города"/>
+                                <connections>
+                                    <action selector="selectTowns" destination="WGY-Wt-2al" eventType="touchUpInside" id="aJA-bc-CRY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.4504916312407985" green="0.68661222934238375" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jHj-42-EJ0" firstAttribute="centerX" secondItem="FAQ-aB-QSl" secondAttribute="centerX" id="K2b-1C-6ue"/>
                             <constraint firstItem="jHj-42-EJ0" firstAttribute="top" secondItem="lUS-4b-YnU" secondAttribute="bottom" constant="20" id="L2i-1f-VTJ"/>
                             <constraint firstItem="W8g-Dx-WKE" firstAttribute="top" secondItem="OkJ-yZ-Hpa" secondAttribute="bottom" constant="30" id="XW4-JF-KY4"/>
+                            <constraint firstItem="71v-B8-9di" firstAttribute="centerX" secondItem="FAQ-aB-QSl" secondAttribute="centerX" id="aox-Fx-PJm"/>
                             <constraint firstItem="OkJ-yZ-Hpa" firstAttribute="top" secondItem="SqP-0t-KTP" secondAttribute="bottom" constant="30" id="c1i-Zj-VhE"/>
                             <constraint firstItem="W8g-Dx-WKE" firstAttribute="centerX" secondItem="FAQ-aB-QSl" secondAttribute="centerX" id="cCh-l0-feb"/>
                             <constraint firstItem="SqP-0t-KTP" firstAttribute="top" secondItem="TQU-iF-6QZ" secondAttribute="bottom" constant="30" id="cnu-yN-CPQ"/>
                             <constraint firstItem="SqP-0t-KTP" firstAttribute="centerX" secondItem="FAQ-aB-QSl" secondAttribute="centerX" id="cvd-m0-JNr"/>
                             <constraint firstItem="OkJ-yZ-Hpa" firstAttribute="centerX" secondItem="FAQ-aB-QSl" secondAttribute="centerX" id="dng-6X-0mJ"/>
                             <constraint firstItem="TQU-iF-6QZ" firstAttribute="top" secondItem="jHj-42-EJ0" secondAttribute="bottom" constant="20" id="ikQ-cU-XQg"/>
+                            <constraint firstItem="Ljs-h4-VR4" firstAttribute="top" secondItem="71v-B8-9di" secondAttribute="bottom" constant="30" id="prS-U4-U3y"/>
                             <constraint firstItem="TQU-iF-6QZ" firstAttribute="centerX" secondItem="FAQ-aB-QSl" secondAttribute="centerX" id="xIN-rd-4l9"/>
                         </constraints>
                     </view>

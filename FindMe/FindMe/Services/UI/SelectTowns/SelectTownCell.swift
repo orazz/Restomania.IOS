@@ -13,7 +13,7 @@ import IOSLibrary
 public class SelectTownCell: UITableViewCell {
 
     public static let identifier = "\(String.tag(SelectTownCell.self))-\(Guid.new)"
-    public static let height = CGFloat(35)
+    public static let height = CGFloat(45)
     private static let nibName = "SelectTownCell"
     public static func register(in table: UITableView) {
 
@@ -38,7 +38,7 @@ public class SelectTownCell: UITableViewCell {
         self.town = town
         self.isSelectCurrentTown = service.isSelected(town)
 
-        updateMark()
+        updateUI()
     }
     private func loadMarkup() {
 
@@ -47,7 +47,7 @@ public class SelectTownCell: UITableViewCell {
         }
         isInitMarkup = true
 
-        
+
     }
 
     public override func setSelected(_ selected: Bool, animated: Bool) {
@@ -60,7 +60,7 @@ public class SelectTownCell: UITableViewCell {
         isSelectCurrentTown = !isSelectCurrentTown
 
         notifyService()
-        updateMark()
+        updateUI()
     }
     private func notifyService() {
 
@@ -75,7 +75,11 @@ public class SelectTownCell: UITableViewCell {
             service.unselect(town)
         }
     }
-    private func updateMark() {
+    private func updateUI() {
+
+        if let town = self.town {
+            self.NameLabel.text = town.name
+        }
 
         MarkImage.isHidden = !isSelectCurrentTown
     }

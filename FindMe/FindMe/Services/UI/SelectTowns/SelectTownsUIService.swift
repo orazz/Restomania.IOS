@@ -13,7 +13,7 @@ import IOSLibrary
 public class SelectTownsUIService {
 
     public static var initialController: UIViewController {
-        return UIViewController()
+        return SelectTownsUIServiceController.instance
     }
 
 

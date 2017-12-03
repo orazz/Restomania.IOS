@@ -27,8 +27,10 @@ public class SearchController: UIViewController {
     private let guid = Guid.new
     private var loadQueue: AsyncQueue!
     private var displayFlag = DisplayPlacesFlag.all
-    private var cacheService = CacheServices.searchCards
+    private var searchCardsCache = CacheServices.searchCards
+    private var towns = LogicServices.shared.towns
     private var likes = LogicServices.shared.likes
+    private var isNeedReload: Bool = false
     private var places = [SearchPlaceCard]() {
         didSet {
             refreshList()
@@ -42,6 +44,7 @@ public class SearchController: UIViewController {
 
         loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
         likes.subscribe(guid: guid, handler: self, tag: _tag)
+        towns.subscribe(guid: guid, handler: self, tag: _tag)
 
         loadMarkup()
         startLoadData()
@@ -49,10 +52,16 @@ public class SearchController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        if (isNeedReload) {
+            startLoadData()
+            isNeedReload = false
+        }
+
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     deinit {
         likes.unsubscribe(guid: guid)
+        towns.unsubscribe(guid: guid)
     }
     private func loadMarkup() {
 
@@ -75,7 +84,13 @@ public class SearchController: UIViewController {
     //MARK: Load data
     private func startLoadData() {
 
-        places = cacheService.cache.all
+        if let towns = takeSelectedTowns() {
+            let filtered = searchCardsCache.cache.all.filter{  nil != $0.townId }
+            places = filtered.filter{ towns.contains($0.townId!) }
+        }
+        else {
+            places = searchCardsCache.cache.all
+        }
 
         requestPlaces()
     }
@@ -84,7 +99,9 @@ public class SearchController: UIViewController {
     }
     private func requestPlaces() {
 
-        let task = cacheService.all(with: SelectParameters())
+
+        let towns = takeSelectedTowns()
+        let task = searchCardsCache.all(with: SelectParameters(), in: towns)
         task.async(loadQueue, completion: { result in
             DispatchQueue.main.async {
 
@@ -103,7 +120,7 @@ public class SearchController: UIViewController {
             refreshControl.endRefreshing()
         }
 
-        self.places = places ?? cacheService.cache.all
+        self.places = places ?? searchCardsCache.cache.all
     }
     private func refreshList() {
 
@@ -113,6 +130,15 @@ public class SearchController: UIViewController {
         else if (displayFlag == .onlyLiked) {
             tableAdapter?.update(places: likes.filterLiked(places))
         }
+    }
+    private func takeSelectedTowns() -> [Long]? {
+
+        let towns = self.towns.all()
+        if (towns.isEmpty) {
+            return nil
+        }
+
+        return towns
     }
 }
 
@@ -130,6 +156,28 @@ extension SearchController {
         }
 
         refreshList()
+    }
+}
+
+//MARK:
+extension SearchController: SelectedTownsServiceDelegate {
+
+    public func selectedTownsService(_: SelectedTownsService, select: Long) {
+        changeSelectedTowns()
+    }
+    public func selectedTownsService(_: SelectedTownsService, unselect: Long) {
+        changeSelectedTowns()
+    }
+    private func changeSelectedTowns() {
+
+        if (self.isBeingPresented) {
+            DispatchQueue.main.async {
+                self.startLoadData()
+            }
+        }
+        else {
+            isNeedReload = true
+        }
     }
 }
 

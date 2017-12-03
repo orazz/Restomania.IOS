@@ -18,19 +18,22 @@ public class SearchPlaceCard: ICached {
         public static let name = "Name"
         public static let type = "Type"
         public static let description = "Description"
+        public static let townId = "TownId"
+        public static let peopleCount = "PeopleCount"
         
         public static let image = "Image"
         public static let location = "Location"
-        public static let peopleCount = "PeopleCount"
     }
     
-    public var ID: Long
-    public var name: String
-    public var type: String
-    public var description: String
-    public var image: String
-    public var location: Location
-    public var peopleCount: Long
+    public let ID: Long
+    public let name: String
+    public let type: String
+    public let description: String
+    public let townId: Long?
+    public let peopleCount: Long
+
+    public let image: String
+    public let location: Location
     
     public init() {
         
@@ -38,9 +41,11 @@ public class SearchPlaceCard: ICached {
         name = String.empty
         type = String.empty
         description = String.empty
+        townId = nil
+        peopleCount = 0
+
         image = String.empty
         location = Location()
-        peopleCount = 0
     }
     public init(source: DisplayPlaceInfo) {
 
@@ -48,9 +53,11 @@ public class SearchPlaceCard: ICached {
         name = source.name
         type = source.type
         description = source.description
+        townId = source.townId
+        peopleCount = source.statistic.people
+
         image = source.images.first?.link ?? String.empty
         location = source.location
-        peopleCount = source.statistic.people
     }
     
     //MARK: ICopyng
@@ -60,9 +67,11 @@ public class SearchPlaceCard: ICached {
         name = source.name
         type = source.type
         description = source.description
+        townId = source.townId
+        peopleCount = source.peopleCount
+
         image = source.image
         location = Location(source: source.location)
-        peopleCount = source.peopleCount
     }
     
     //MARK: Glossy
@@ -72,9 +81,11 @@ public class SearchPlaceCard: ICached {
         self.name = (Keys.name <~~ json)!
         self.type = (Keys.type <~~ json)!
         self.description = (Keys.description <~~ json)!
+        self.townId = Keys.townId <~~ json
+        self.peopleCount = (Keys.peopleCount <~~ json)!
+
         self.image = (Keys.image <~~ json)!
         self.location = (Keys.location <~~ json)!
-        self.peopleCount = (Keys.peopleCount <~~ json)!
     }
     public func toJSON() -> JSON? {
     
@@ -84,9 +95,11 @@ public class SearchPlaceCard: ICached {
             Keys.name ~~> self.name,
             Keys.type ~~> self.type,
             Keys.description ~~> self.description,
-            Keys.image ~~> self.image,
-            Keys.location ~~> self.location,
+            Keys.townId ~~> self.townId,
             Keys.peopleCount ~~> self.peopleCount,
+
+            Keys.image ~~> self.image,
+            Keys.location ~~> self.location
             ])
     }
 }

@@ -100,10 +100,10 @@
 		1F4AD07C1FD343B100E6ADCC /* SelectTownsUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AD07B1FD343B100E6ADCC /* SelectTownsUIService.swift */; };
 		1F4AD0801FD3447900E6ADCC /* FirstLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AD07E1FD3447800E6ADCC /* FirstLoginController.swift */; };
 		1F4AD0811FD3447900E6ADCC /* FirstLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AD07F1FD3447900E6ADCC /* FirstLoginController.xib */; };
-		1F4AD0831FD34AAF00E6ADCC /* SelectTownsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AD0821FD34AAF00E6ADCC /* SelectTownsViewController.swift */; };
-		1F4AD0851FD34ACE00E6ADCC /* SelectTownsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AD0841FD34ACE00E6ADCC /* SelectTownsViewController.xib */; };
+		1F4AD0851FD34ACE00E6ADCC /* SelectTownsUIServiceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AD0841FD34ACE00E6ADCC /* SelectTownsUIServiceController.xib */; };
 		1F4AD0871FD34AEE00E6ADCC /* SelectTownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AD0861FD34AEE00E6ADCC /* SelectTownCell.swift */; };
 		1F4AD0891FD34AFE00E6ADCC /* SelectTownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AD0881FD34AFE00E6ADCC /* SelectTownCell.xib */; };
+		1F4AD08B1FD354FA00E6ADCC /* SelectTownsUIServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AD08A1FD354FA00E6ADCC /* SelectTownsUIServiceController.swift */; };
 		1F4C82C71F952932004B294C /* OnePlaceMainContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82C61F952932004B294C /* OnePlaceMainContactsCell.swift */; };
 		1F4C82C91F952B29004B294C /* OnePlaceMainContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4C82C81F952B29004B294C /* OnePlaceMainContactsCell.xib */; };
 		1F4C82CB1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4C82CA1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib */; };
@@ -292,10 +292,10 @@
 		1F4AD07B1FD343B100E6ADCC /* SelectTownsUIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectTownsUIService.swift; path = Services/UI/SelectTowns/SelectTownsUIService.swift; sourceTree = "<group>"; };
 		1F4AD07E1FD3447800E6ADCC /* FirstLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstLoginController.swift; path = UI/Start/Login/FirstLoginController.swift; sourceTree = "<group>"; };
 		1F4AD07F1FD3447900E6ADCC /* FirstLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FirstLoginController.xib; path = UI/Start/Login/FirstLoginController.xib; sourceTree = "<group>"; };
-		1F4AD0821FD34AAF00E6ADCC /* SelectTownsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectTownsViewController.swift; path = Services/UI/SelectTowns/SelectTownsViewController.swift; sourceTree = "<group>"; };
-		1F4AD0841FD34ACE00E6ADCC /* SelectTownsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SelectTownsViewController.xib; path = Services/UI/SelectTowns/SelectTownsViewController.xib; sourceTree = "<group>"; };
+		1F4AD0841FD34ACE00E6ADCC /* SelectTownsUIServiceController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SelectTownsUIServiceController.xib; path = Services/UI/SelectTowns/SelectTownsUIServiceController.xib; sourceTree = "<group>"; };
 		1F4AD0861FD34AEE00E6ADCC /* SelectTownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectTownCell.swift; path = Services/UI/SelectTowns/SelectTownCell.swift; sourceTree = "<group>"; };
 		1F4AD0881FD34AFE00E6ADCC /* SelectTownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SelectTownCell.xib; path = Services/UI/SelectTowns/SelectTownCell.xib; sourceTree = "<group>"; };
+		1F4AD08A1FD354FA00E6ADCC /* SelectTownsUIServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectTownsUIServiceController.swift; path = Services/UI/SelectTowns/SelectTownsUIServiceController.swift; sourceTree = "<group>"; };
 		1F4C82C61F952932004B294C /* OnePlaceMainContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainContactsCell.swift; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCell.swift; sourceTree = "<group>"; };
 		1F4C82C81F952B29004B294C /* OnePlaceMainContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainContactsCell.xib; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCell.xib; sourceTree = "<group>"; };
 		1F4C82CA1F952D38004B294C /* OnePlaceMainContactsCellOneLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainContactsCellOneLine.xib; path = UI/Place/OnePlaceMain/Contacts/OnePlaceMainContactsCellOneLine.xib; sourceTree = "<group>"; };
@@ -749,8 +749,8 @@
 			isa = PBXGroup;
 			children = (
 				1F4AD07B1FD343B100E6ADCC /* SelectTownsUIService.swift */,
-				1F4AD0821FD34AAF00E6ADCC /* SelectTownsViewController.swift */,
-				1F4AD0841FD34ACE00E6ADCC /* SelectTownsViewController.xib */,
+				1F4AD08A1FD354FA00E6ADCC /* SelectTownsUIServiceController.swift */,
+				1F4AD0841FD34ACE00E6ADCC /* SelectTownsUIServiceController.xib */,
 				1F4AD0861FD34AEE00E6ADCC /* SelectTownCell.swift */,
 				1F4AD0881FD34AFE00E6ADCC /* SelectTownCell.xib */,
 			);
@@ -1250,7 +1250,7 @@
 				1F1CA9071FCE78840006BE0B /* OnePlaceMainLastActionCell.xib in Resources */,
 				1F4677111F950F0C007E426D /* OnePlaceMainSpaceCell.xib in Resources */,
 				1F4690801F86A6340056F9B0 /* SearchPlaceCardView.xib in Resources */,
-				1F4AD0851FD34ACE00E6ADCC /* SelectTownsViewController.xib in Resources */,
+				1F4AD0851FD34ACE00E6ADCC /* SelectTownsUIServiceController.xib in Resources */,
 				1F2D6CFF1FD1595B00BF9E63 /* OnePlaceOneActionView.xib in Resources */,
 				1F4AD0811FD3447900E6ADCC /* FirstLoginController.xib in Resources */,
 				1F24A90C1F896366000BD8F1 /* OnePlaceMainView.xib in Resources */,
@@ -1440,7 +1440,6 @@
 				1F2E37591FCC7A2B003D24C1 /* PushesManager.swift in Sources */,
 				1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */,
 				1FC548091F6FF8A4007CE6AB /* IPlaceDependent.swift in Sources */,
-				1F4AD0831FD34AAF00E6ADCC /* SelectTownsViewController.swift in Sources */,
 				1F2E37691FCC9159003D24C1 /* UsersMainApiService.swift in Sources */,
 				1F451F9C1FCCA6E60080C103 /* Town.swift in Sources */,
 				1F4C82CD1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift in Sources */,
@@ -1500,6 +1499,7 @@
 				1F2E37861FCC91D2003D24C1 /* LikesService.swift in Sources */,
 				1FC5480B1F6FF8B4007CE6AB /* PlaceImage.swift in Sources */,
 				1FC5838C1F814CDB0045941A /* TabBarController.swift in Sources */,
+				1F4AD08B1FD354FA00E6ADCC /* SelectTownsUIServiceController.swift in Sources */,
 				1FC583A01F827F360045941A /* SliderControlDelegate.swift in Sources */,
 				1F4DDE091F977613005CED0B /* UserStatus.swift in Sources */,
 				1F4AD0801FD3447900E6ADCC /* FirstLoginController.swift in Sources */,

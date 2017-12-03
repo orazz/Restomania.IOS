@@ -39,13 +39,13 @@ public class SearchPlaceCardsCacheService {
 
 
     //MARK: Remote
-    public func all(with parameters: SelectParameters) -> Task<ApiResponse<[SearchPlaceCard]>> {
+    public func all(with parameters: SelectParameters, in towns: [Long]? = nil) -> Task<ApiResponse<[SearchPlaceCard]>> {
 
         return Task { (handler: @escaping (ApiResponse<[SearchPlaceCard]>) -> Void) in
 
             Log.Debug(self.tag, "Request all places' cards.")
 
-            let request = self.client.all(with: parameters)
+            let request = self.client.all(with: parameters, towns: towns)
             request.async(self.apiQueue, completion: { response in
 
                 if response.isFail {

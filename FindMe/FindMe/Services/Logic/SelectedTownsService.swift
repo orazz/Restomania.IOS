@@ -11,17 +11,25 @@ import IOSLibrary
 import AsyncTask
 import Gloss
 
+public protocol SelectedTownsServiceDelegate: class {
+
+    func selectedTownsService(_ :SelectedTownsService, select: Long)
+    func selectedTownsService(_ :SelectedTownsService, unselect: Long)
+}
 public class SelectedTownsService {
+    public typealias THandler = SelectedTownsServiceDelegate
 
     private let tag = String.tag(SelectedTownsService.self)
     private let client = ApiServices.Users.towns
     private let adapter: CacheAdapter<TownContainer>
     private let apiQueue: AsyncQueue
+    private let eventsAdapter: EventsAdapter<THandler>
 
     public init() {
 
         adapter = CacheAdapter<TownContainer>(tag: tag, filename: "selected-towns.json")
         apiQueue = AsyncQueue.createForApi(for: tag)
+        eventsAdapter = EventsAdapter<THandler>(tag: tag)
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(enterToBackground),
@@ -44,9 +52,15 @@ public class SelectedTownsService {
     }
     private func select(_ town: TownContainer) {
         adapter.addOrUpdate(town)
+
+        eventsAdapter.Trigger(action: { $0.selectedTownsService(self, select: town.ID) })
+        Log.Debug(tag, "Select town #\(town.ID)")
     }
     public func unselect(_ town: Town) {
         adapter.remove(TownContainer(for: town))
+
+        eventsAdapter.Trigger(action: { $0.selectedTownsService(self, unselect: town.ID) })
+        Log.Debug(tag, "Unselect town #\(town.ID)")
     }
     public func all() -> [Long] {
         return adapter.extender.all.map{ $0.ID }
@@ -91,6 +105,20 @@ public class SelectedTownsService {
     @objc private func enterToBackground() {
         saveToRemote()
     }
+}
+extension SelectedTownsService: IEventsEmitter {
+
+    public func subscribe(guid: String, handler: SelectedTownsServiceDelegate, tag: String) {
+        eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        eventsAdapter.unsubscribe(guid: guid)
+    }
+}
+extension SelectedTownsServiceDelegate {
+
+    func selectedTownsService(_ :SelectedTownsService, select: Long) { }
+    func selectedTownsService(_ :SelectedTownsService, unselect: Long) { }
 }
 private class TownContainer: ICached {
 
