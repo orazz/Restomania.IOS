@@ -99,7 +99,6 @@ public class SearchController: UIViewController {
     }
     private func requestPlaces() {
 
-
         let towns = takeSelectedTowns()
         let task = searchCardsCache.all(with: SelectParameters(), in: towns)
         task.async(loadQueue, completion: { result in
