@@ -15,7 +15,7 @@ public class CachePaymentCardsService {
     private let apiClient: UserCardsApiService
     private var cached: [PaymentCard]?
 
-    public init(keys: IKeysStorage) {
+    public init(keys: KeysStorage) {
         apiClient = UserCardsApiService(storage: keys)
     }
 

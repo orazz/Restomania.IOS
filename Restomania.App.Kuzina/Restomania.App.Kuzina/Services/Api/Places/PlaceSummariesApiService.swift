@@ -11,13 +11,13 @@ import IOSLibrary
 
 public class PlaceSummariesApiService: BaseApiService {
 
-    public init() {
-        super.init(area: "Place/Summaries", tag: String.tag(PlaceSummariesApiService.self))
+    public init(configs: ConfigsStorage) {
+        super.init(area: "Place/Summaries", tag: String.tag(PlaceSummariesApiService.self), configs: configs)
     }
 
     public func Range(placeIDs: [Long]) -> RequestResult<[PlaceSummary]> {
         let parameters = CollectParameters([
-            "placeIDs": placeIDs
+                "placeIDs": placeIDs
             ])
 
         return _client.GetRange(action: "Range", type: PlaceSummary.self, parameters: parameters)

@@ -80,7 +80,7 @@ public class KeysStorage {
         }
     }
 }
-extension KeysStorage: IKeysCRUDStorage {
+extension KeysStorage {
     public func set(keys: ApiKeys, for rights: ApiRole) {
 
         for container in _data {
@@ -109,7 +109,7 @@ extension KeysStorage: IKeysCRUDStorage {
         save()
     }
 }
-extension KeysStorage: IKeysStorage {
+extension KeysStorage {
     public func isAuth(for rights: ApiRole) -> Bool {
         return nil != keys(for: rights)
     }

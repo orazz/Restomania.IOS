@@ -47,7 +47,6 @@
 		1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F36C88A1F20C1F900232B9A /* Configs.plist */; };
 		1F36C88E1F20C4DA00232B9A /* ShortSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88D1F20C4DA00232B9A /* ShortSchedule.swift */; };
 		1F36C8901F20C5E000232B9A /* PlaceSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88F1F20C5E000232B9A /* PlaceSummary.swift */; };
-		1F36C8931F20CCBF00232B9A /* PlaceSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C8921F20CCBF00232B9A /* PlaceSummariesApiService.swift */; };
 		1F3C5A0C1FB15D940038EB97 /* BottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */; };
 		1F5CF82F1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */; };
 		1F5CF8331FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */; };
@@ -89,7 +88,6 @@
 		1F62E4CD1FAE476E00D1C89D /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */; };
 		1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF681F285866000614C9 /* MenuSummary.swift */; };
 		1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */; };
-		1F68AF6D1F285ABB000614C9 /* MenuSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */; };
 		1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */; };
 		1FAA9F7A1FC2F8A600BB105D /* UserDependentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA9F791FC2F8A600BB105D /* UserDependentProtocol.swift */; };
 		1FB3F24C1FD5712A0073640B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FB3F24A1FD5712A0073640B /* Localizable.strings */; };
@@ -114,6 +112,7 @@
 		1FB3F2821FD574A00073640B /* UserOrdersApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F27E1FD574A00073640B /* UserOrdersApiService.swift */; };
 		1FB3F2861FD574B20073640B /* AddedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2841FD574B20073640B /* AddedOrder.swift */; };
 		1FB3F2871FD574B20073640B /* AddedOrderDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2851FD574B20073640B /* AddedOrderDish.swift */; };
+		1FB3F2891FD5793D0073640B /* ServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2881FD5793D0073640B /* ServicesManager.swift */; };
 		1FB6B92B1FAE19A400CD0B17 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */; };
 		1FB6B92C1FAE19A400CD0B17 /* AppSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */; };
 		1FB6B92D1FAE19A400CD0B17 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */; };
@@ -152,29 +151,18 @@
 		1FB8F00A1F1DF7090090045E /* FixedDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0091F1DF7090090045E /* FixedDiscount.swift */; };
 		1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00B1F1DF7500090045E /* RegularCustomerDiscount.swift */; };
 		1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00D1F1DFABF0090045E /* Loyalty.swift */; };
-		1FB8F0101F1E03470090045E /* AuthMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F00F1F1E03470090045E /* AuthMainApiService.swift */; };
-		1FB8F0171F1E14B30090045E /* GetArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0161F1E14B30090045E /* GetArgs.swift */; };
-		1FB8F01B1F1E190F0090045E /* IKeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F01A1F1E190F0090045E /* IKeysStorage.swift */; };
-		1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */; };
 		1FB8F0241F1E5C2D0090045E /* NotificationPlatformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0231F1E5C2D0090045E /* NotificationPlatformType.swift */; };
 		1FB8F0261F1E5C5E0090045E /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0251F1E5C5E0090045E /* Device.swift */; };
-		1FB8F0281F1E5D510090045E /* NotificationsDevicesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0271F1E5D510090045E /* NotificationsDevicesApiService.swift */; };
-		1FB8F02C1F1E610B0090045E /* AddingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F02B1F1E610B0090045E /* AddingCard.swift */; };
 		1FB8F0311F1E61E70090045E /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0301F1E61E70090045E /* TransactionType.swift */; };
 		1FB8F0331F1E621D0090045E /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0321F1E621D0090045E /* TransactionStatus.swift */; };
 		1FB8F0351F1E628F0090045E /* TransactionSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0341F1E628F0090045E /* TransactionSummary.swift */; };
 		1FB8F03C1F1EADB90090045E /* PaymentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F03B1F1EADB90090045E /* PaymentCard.swift */; };
 		1FB8F03F1F1EADFB0090045E /* PaymentCardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F03D1F1EADFB0090045E /* PaymentCardStatus.swift */; };
 		1FB8F0401F1EADFB0090045E /* PaymentCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F03E1F1EADFB0090045E /* PaymentCardType.swift */; };
-		1FB8F04C1F1EC28C0090045E /* UserAccountApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0461F1EC28C0090045E /* UserAccountApiService.swift */; };
-		1FB8F04D1F1EC28C0090045E /* UserCardsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0471F1EC28C0090045E /* UserCardsApiService.swift */; };
-		1FB8F0501F1EC28C0090045E /* UserChangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F04A1F1EC28C0090045E /* UserChangeApiService.swift */; };
-		1FB8F0531F1EC45D0090045E /* UserOrdersApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0521F1EC45D0090045E /* UserOrdersApiService.swift */; };
 		1FB8F05A1F1EC5C90090045E /* OrderSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0591F1EC5C90090045E /* OrderSummary.swift */; };
 		1FB8F0621F1ECE5F0090045E /* DishOrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0611F1ECE5F0090045E /* DishOrderStatus.swift */; };
 		1FB8F0641F1ECE990090045E /* DishOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0631F1ECE990090045E /* DishOrderType.swift */; };
 		1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0691F1ECF980090045E /* DishOrder.swift */; };
-		1FB8F06E1F1EE04D0090045E /* AddingBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F06D1F1EE04D0090045E /* AddingBooking.swift */; };
 		1FBE83EC1F2521780002F0B5 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; };
 		1FBE83ED1F2521780002F0B5 /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1FBE83F01F2554BB0002F0B5 /* _fonts */; };
@@ -184,19 +172,12 @@
 		1FC01CCA1FB2115000413ED7 /* PlaceCartControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC01CC91FB2115000413ED7 /* PlaceCartControllerView.xib */; };
 		1FC01CCD1FB211EC00413ED7 /* PlaceMenuCartActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC01CCB1FB211EC00413ED7 /* PlaceMenuCartActionView.xib */; };
 		1FC01CCE1FB211EC00413ED7 /* PlaceMenuCartAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CCC1FB211EC00413ED7 /* PlaceMenuCartAction.swift */; };
-		1FC01CDB1FB21D5200413ED7 /* AddedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDA1FB21D5200413ED7 /* AddedOrder.swift */; };
 		1FC01CDF1FB21D6600413ED7 /* SubdishSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDC1FB21D6600413ED7 /* SubdishSummary.swift */; };
 		1FC01CE01FB21D6600413ED7 /* AdditionSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDD1FB21D6600413ED7 /* AdditionSummary.swift */; };
 		1FC01CE11FB21D6600413ED7 /* DishOrderDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDE1FB21D6600413ED7 /* DishOrderDish.swift */; };
-		1FC01CE31FB21ED000413ED7 /* AddedOrderDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CE21FB21ED000413ED7 /* AddedOrderDish.swift */; };
 		1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */; };
 		1FC5A6B51F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6B41F138A8600ABE1A6 /* Restomania_App_KuzinaTests.swift */; };
 		1FC5A6C01F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */; };
-		1FD7E6971F1D0E140023C033 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */; };
-		1FD7E6981F1D0E140023C033 /* SystemStatusApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE5D1F1BE74C00CC78B3 /* SystemStatusApiService.swift */; };
-		1FD7E6991F1D0E140023C033 /* SystemVersionsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE6C1F1BF9E900CC78B3 /* SystemVersionsApiService.swift */; };
-		1FD7E69A1F1D0E140023C033 /* SystemSettingsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE6E1F1BFB5A00CC78B3 /* SystemSettingsApiService.swift */; };
-		1FD7E69B1F1D0E140023C033 /* SystemReportsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE761F1CC31700CC78B3 /* SystemReportsApiService.swift */; };
 		1FD7E69C1F1D0E140023C033 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE801F1CE8C800CC78B3 /* ApiKeys.swift */; };
 		1FD7E69D1F1D0E140023C033 /* ApiRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE821F1CEA0A00CC78B3 /* ApiRole.swift */; };
 		1FD7E69E1F1D0E140023C033 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4FE841F1CEA7100CC78B3 /* Account.swift */; };
@@ -311,7 +292,6 @@
 		1F36C88A1F20C1F900232B9A /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		1F36C88D1F20C4DA00232B9A /* ShortSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortSchedule.swift; path = Domains/PlaceModels/ShortSchedule.swift; sourceTree = "<group>"; };
 		1F36C88F1F20C5E000232B9A /* PlaceSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceSummary.swift; path = Domains/PlaceModels/PlaceSummary.swift; sourceTree = "<group>"; };
-		1F36C8921F20CCBF00232B9A /* PlaceSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceSummariesApiService.swift; path = ApiServices/Open/PlaceSummariesApiService.swift; sourceTree = "<group>"; };
 		1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorageTests.swift; path = Tools/ConfigsStorageTests.swift; sourceTree = "<group>"; };
 		1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorageTests.swift; path = Tools/PropertiesStorageTests.swift; sourceTree = "<group>"; };
 		1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BottomActions.swift; path = UI/Elements/BottomActions/BottomActions.swift; sourceTree = "<group>"; };
@@ -355,7 +335,6 @@
 		1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceLabel.swift; path = UI/Elements/Labels/PriceLabel.swift; sourceTree = "<group>"; };
 		1F68AF681F285866000614C9 /* MenuSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummary.swift; path = Domains/PlaceModels/MenuSummary.swift; sourceTree = "<group>"; };
 		1F68AF6A1F285A32000614C9 /* CacheMenuSummariesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheMenuSummariesService.swift; path = Services/Cache/CacheMenuSummariesService.swift; sourceTree = "<group>"; };
-		1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummariesApiService.swift; path = ApiServices/Open/MenuSummariesApiService.swift; sourceTree = "<group>"; };
 		1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationsManager.swift; path = App/PushNotificationsManager.swift; sourceTree = "<group>"; };
 		1FAA9F711FC245F700BB105D /* RestomaniaAppKuzina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestomaniaAppKuzina.entitlements; sourceTree = "<group>"; };
 		1FAA9F791FC2F8A600BB105D /* UserDependentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDependentProtocol.swift; path = Domains/Users/UserDependentProtocol.swift; sourceTree = "<group>"; };
@@ -382,6 +361,7 @@
 		1FB3F27E1FD574A00073640B /* UserOrdersApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserOrdersApiService.swift; path = Services/Api/User/UserOrdersApiService.swift; sourceTree = "<group>"; };
 		1FB3F2841FD574B20073640B /* AddedOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddedOrder.swift; path = Services/Api/User/Models/AddedOrder.swift; sourceTree = "<group>"; };
 		1FB3F2851FD574B20073640B /* AddedOrderDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddedOrderDish.swift; path = Services/Api/User/Models/AddedOrderDish.swift; sourceTree = "<group>"; };
+		1FB3F2881FD5793D0073640B /* ServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServicesManager.swift; path = Services/ServicesManager.swift; sourceTree = "<group>"; };
 		1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigKeys.swift; path = App/Tools/ConfigKeys.swift; sourceTree = "<group>"; };
 		1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSummary.swift; path = App/Tools/AppSummary.swift; sourceTree = "<group>"; };
 		1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeSettings.swift; path = App/Tools/ThemeSettings.swift; sourceTree = "<group>"; };
@@ -420,29 +400,18 @@
 		1FB8F0091F1DF7090090045E /* FixedDiscount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedDiscount.swift; path = Domains/Places/Loyalties/FixedDiscount.swift; sourceTree = "<group>"; };
 		1FB8F00B1F1DF7500090045E /* RegularCustomerDiscount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegularCustomerDiscount.swift; path = Domains/Places/Loyalties/RegularCustomerDiscount.swift; sourceTree = "<group>"; };
 		1FB8F00D1F1DFABF0090045E /* Loyalty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Loyalty.swift; path = Domains/Places/Loyalties/Loyalty.swift; sourceTree = "<group>"; };
-		1FB8F00F1F1E03470090045E /* AuthMainApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthMainApiService.swift; path = ApiServices/Open/AuthMainApiService.swift; sourceTree = "<group>"; };
-		1FB8F0161F1E14B30090045E /* GetArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetArgs.swift; path = ApiServices/Models/GetArgs.swift; sourceTree = "<group>"; };
-		1FB8F01A1F1E190F0090045E /* IKeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IKeysStorage.swift; path = ApiServices/Models/IKeysStorage.swift; sourceTree = "<group>"; };
-		1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAuthApiService.swift; path = ApiServices/BaseAuthApiService.swift; sourceTree = "<group>"; };
 		1FB8F0231F1E5C2D0090045E /* NotificationPlatformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationPlatformType.swift; path = Domains/Communication/NotificationPlatformType.swift; sourceTree = "<group>"; };
 		1FB8F0251F1E5C5E0090045E /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Domains/Communication/Device.swift; sourceTree = "<group>"; };
-		1FB8F0271F1E5D510090045E /* NotificationsDevicesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsDevicesApiService.swift; path = ApiServices/Open/NotificationsDevicesApiService.swift; sourceTree = "<group>"; };
-		1FB8F02B1F1E610B0090045E /* AddingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingCard.swift; path = ApiServices/Models/AddingCard.swift; sourceTree = "<group>"; };
 		1FB8F0301F1E61E70090045E /* TransactionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionType.swift; path = Domains/Payments/Transactions/TransactionType.swift; sourceTree = "<group>"; };
 		1FB8F0321F1E621D0090045E /* TransactionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionStatus.swift; path = Domains/Payments/Transactions/TransactionStatus.swift; sourceTree = "<group>"; };
 		1FB8F0341F1E628F0090045E /* TransactionSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionSummary.swift; path = Domains/Payments/Transactions/TransactionSummary.swift; sourceTree = "<group>"; };
 		1FB8F03B1F1EADB90090045E /* PaymentCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentCard.swift; path = Domains/Payments/Cards/PaymentCard.swift; sourceTree = "<group>"; };
 		1FB8F03D1F1EADFB0090045E /* PaymentCardStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentCardStatus.swift; path = Domains/Payments/Cards/PaymentCardStatus.swift; sourceTree = "<group>"; };
 		1FB8F03E1F1EADFB0090045E /* PaymentCardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentCardType.swift; path = Domains/Payments/Cards/PaymentCardType.swift; sourceTree = "<group>"; };
-		1FB8F0461F1EC28C0090045E /* UserAccountApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAccountApiService.swift; path = ApiServices/User/UserAccountApiService.swift; sourceTree = "<group>"; };
-		1FB8F0471F1EC28C0090045E /* UserCardsApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCardsApiService.swift; path = ApiServices/User/UserCardsApiService.swift; sourceTree = "<group>"; };
-		1FB8F04A1F1EC28C0090045E /* UserChangeApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserChangeApiService.swift; path = ApiServices/User/UserChangeApiService.swift; sourceTree = "<group>"; };
-		1FB8F0521F1EC45D0090045E /* UserOrdersApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserOrdersApiService.swift; path = ApiServices/User/UserOrdersApiService.swift; sourceTree = "<group>"; };
 		1FB8F0591F1EC5C90090045E /* OrderSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderSummary.swift; path = Domains/Orders/OrderSummary.swift; sourceTree = "<group>"; };
 		1FB8F0611F1ECE5F0090045E /* DishOrderStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderStatus.swift; path = Domains/Orders/DishOrders/DishOrderStatus.swift; sourceTree = "<group>"; };
 		1FB8F0631F1ECE990090045E /* DishOrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderType.swift; path = Domains/Orders/DishOrders/DishOrderType.swift; sourceTree = "<group>"; };
 		1FB8F0691F1ECF980090045E /* DishOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrder.swift; path = Domains/Orders/DishOrders/DishOrder.swift; sourceTree = "<group>"; };
-		1FB8F06D1F1EE04D0090045E /* AddingBooking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingBooking.swift; path = ApiServices/Models/AddingBooking.swift; sourceTree = "<group>"; };
 		1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBE83F01F2554BB0002F0B5 /* _fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _fonts; path = Restomania.App.Kuzina/_fonts; sourceTree = "<group>"; };
 		1FBE83F21F2556B40002F0B5 /* RefreshManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshManager.swift; path = App/RefreshManager.swift; sourceTree = "<group>"; };
@@ -451,11 +420,9 @@
 		1FC01CC91FB2115000413ED7 /* PlaceCartControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartControllerView.xib; path = UI/Controllers/Place/Cart/PlaceCartControllerView.xib; sourceTree = "<group>"; };
 		1FC01CCB1FB211EC00413ED7 /* PlaceMenuCartActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuCartActionView.xib; path = UI/Controllers/Place/Menu/PlaceMenuCartActionView.xib; sourceTree = "<group>"; };
 		1FC01CCC1FB211EC00413ED7 /* PlaceMenuCartAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuCartAction.swift; path = UI/Controllers/Place/Menu/PlaceMenuCartAction.swift; sourceTree = "<group>"; };
-		1FC01CDA1FB21D5200413ED7 /* AddedOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddedOrder.swift; path = ApiServices/User/Models/AddedOrder.swift; sourceTree = "<group>"; };
 		1FC01CDC1FB21D6600413ED7 /* SubdishSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubdishSummary.swift; path = Domains/Orders/DishOrders/SubdishSummary.swift; sourceTree = "<group>"; };
 		1FC01CDD1FB21D6600413ED7 /* AdditionSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdditionSummary.swift; path = Domains/Orders/DishOrders/AdditionSummary.swift; sourceTree = "<group>"; };
 		1FC01CDE1FB21D6600413ED7 /* DishOrderDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderDish.swift; path = Domains/Orders/DishOrders/DishOrderDish.swift; sourceTree = "<group>"; };
-		1FC01CE21FB21ED000413ED7 /* AddedOrderDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddedOrderDish.swift; path = ApiServices/User/Models/AddedOrderDish.swift; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FC5A6AB1F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -465,7 +432,6 @@
 		1FC5A6BB1F138A8600ABE1A6 /* RestomaniaAppKuzina-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RestomaniaAppKuzina-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6BF1F138A8600ABE1A6 /* Restomania_App_KuzinaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restomania_App_KuzinaUITests.swift; sourceTree = "<group>"; };
 		1FC5A6C11F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiService.swift; path = ApiServices/BaseApiService.swift; sourceTree = "<group>"; };
 		1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-ddestcygydqsikdncgqzzaesfjnm/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1FD9A09D1F2323FF0026BDF8 /* CachePlaceSummariesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CachePlaceSummariesService.swift; path = Services/Cache/CachePlaceSummariesService.swift; sourceTree = "<group>"; };
 		1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorageTests.swift; path = Services/KeysStorageTests.swift; sourceTree = "<group>"; };
@@ -483,14 +449,10 @@
 		1FE3C76C1FB318E8009CE542 /* PlaceCartTotalContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartTotalContainerView.xib; path = UI/Controllers/Place/Cart/TotalContainer/PlaceCartTotalContainerView.xib; sourceTree = "<group>"; };
 		1FE3C7701FB31B6A009CE542 /* PlaceCartTotalContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartTotalContainerCell.swift; path = UI/Controllers/Place/Cart/TotalContainer/PlaceCartTotalContainerCell.swift; sourceTree = "<group>"; };
 		1FE3C7721FB31C2B009CE542 /* PlaceCartTotalContainerCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartTotalContainerCellView.xib; path = UI/Controllers/Place/Cart/TotalContainer/PlaceCartTotalContainerCellView.xib; sourceTree = "<group>"; };
-		1FF4FE5D1F1BE74C00CC78B3 /* SystemStatusApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemStatusApiService.swift; path = ApiServices/System/SystemStatusApiService.swift; sourceTree = "<group>"; };
 		1FF4FE641F1BF43C00CC78B3 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Domains/Versions/Platform.swift; sourceTree = "<group>"; };
 		1FF4FE661F1BF4B600CC78B3 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Domains/Versions/Version.swift; sourceTree = "<group>"; };
-		1FF4FE6C1F1BF9E900CC78B3 /* SystemVersionsApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemVersionsApiService.swift; path = ApiServices/System/SystemVersionsApiService.swift; sourceTree = "<group>"; };
-		1FF4FE6E1F1BFB5A00CC78B3 /* SystemSettingsApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemSettingsApiService.swift; path = ApiServices/System/SystemSettingsApiService.swift; sourceTree = "<group>"; };
 		1FF4FE701F1BFC0F00CC78B3 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSettings.swift; path = Domains/AppSettings.swift; sourceTree = "<group>"; };
 		1FF4FE741F1BFD3000CC78B3 /* BankClientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BankClientType.swift; path = Domains/Payments/BankClientType.swift; sourceTree = "<group>"; };
-		1FF4FE761F1CC31700CC78B3 /* SystemReportsApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemReportsApiService.swift; path = ApiServices/System/SystemReportsApiService.swift; sourceTree = "<group>"; };
 		1FF4FE791F1CC50700CC78B3 /* ReportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportType.swift; path = Domains/Log/ReportType.swift; sourceTree = "<group>"; };
 		1FF4FE7B1F1CC55F00CC78B3 /* BaseBugReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseBugReport.swift; path = Domains/Log/BaseBugReport.swift; sourceTree = "<group>"; };
 		1FF4FE7D1F1CCA8700CC78B3 /* RemoteBugReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteBugReport.swift; path = Domains/Log/RemoteBugReport.swift; sourceTree = "<group>"; };
@@ -546,14 +508,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F1DA2C71F687E1800EFE5CE /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				1F68AF6C1F285ABB000614C9 /* MenuSummariesApiService.swift */,
-			);
-			name = Menu;
-			sourceTree = "<group>";
-		};
 		1F261C781F42BC4B004BFFCB /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,44 +863,6 @@
 			name = Domains;
 			sourceTree = "<group>";
 		};
-		1FAA9F6D1FC23F4700BB105D /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				1FB8F0271F1E5D510090045E /* NotificationsDevicesApiService.swift */,
-			);
-			name = Notifications;
-			sourceTree = "<group>";
-		};
-		1FAA9F6E1FC23F5F00BB105D /* Attachments */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Attachments;
-			sourceTree = "<group>";
-		};
-		1FAA9F6F1FC23F6700BB105D /* Admin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Admin;
-			sourceTree = "<group>";
-		};
-		1FAA9F701FC23F7300BB105D /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				1FB8F00F1F1E03470090045E /* AuthMainApiService.swift */,
-			);
-			name = Auth;
-			sourceTree = "<group>";
-		};
-		1FAA9F781FC24A4100BB105D /* Places */ = {
-			isa = PBXGroup;
-			children = (
-				1F36C8921F20CCBF00232B9A /* PlaceSummariesApiService.swift */,
-			);
-			name = Places;
-			sourceTree = "<group>";
-		};
 		1FB3F24E1FD571C00073640B /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -967,9 +883,9 @@
 		1FB3F2501FD571D90073640B /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				1FB3F2661FD573DD0073640B /* Models */,
 				1FB3F2681FD573ED0073640B /* Auth */,
 				1FB3F2671FD573E40073640B /* Menu */,
-				1FB3F2661FD573DD0073640B /* Models */,
 				1FB3F2651FD573D40073640B /* Notifications */,
 				1FB3F2641FD573CB0073640B /* Places */,
 				1FB3F2631FD573BF0073640B /* User */,
@@ -1190,17 +1106,6 @@
 			name = Loyalties;
 			sourceTree = "<group>";
 		};
-		1FB8F0151F1E14710090045E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1FB8F0161F1E14B30090045E /* GetArgs.swift */,
-				1FB8F01A1F1E190F0090045E /* IKeysStorage.swift */,
-				1FB8F02B1F1E610B0090045E /* AddingCard.swift */,
-				1FB8F06D1F1EE04D0090045E /* AddingBooking.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		1FB8F0221F1E5BB10090045E /* Communication */ = {
 			isa = PBXGroup;
 			children = (
@@ -1230,18 +1135,6 @@
 			name = Cards;
 			sourceTree = "<group>";
 		};
-		1FB8F0451F1EC27F0090045E /* User */ = {
-			isa = PBXGroup;
-			children = (
-				1FC01CC41FB20C6400413ED7 /* Models */,
-				1FB8F0461F1EC28C0090045E /* UserAccountApiService.swift */,
-				1FB8F04A1F1EC28C0090045E /* UserChangeApiService.swift */,
-				1FB8F0471F1EC28C0090045E /* UserCardsApiService.swift */,
-				1FB8F0521F1EC45D0090045E /* UserOrdersApiService.swift */,
-			);
-			name = User;
-			sourceTree = "<group>";
-		};
 		1FB8F0571F1EC5A50090045E /* DishOrders */ = {
 			isa = PBXGroup;
 			children = (
@@ -1262,15 +1155,6 @@
 				1F62E4C51FAE471600D1C89D /* WrappedImage.swift */,
 			);
 			name = WrappedImage;
-			sourceTree = "<group>";
-		};
-		1FC01CC41FB20C6400413ED7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1FC01CDA1FB21D5200413ED7 /* AddedOrder.swift */,
-				1FC01CE21FB21ED000413ED7 /* AddedOrderDish.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		1FC5A6931F138A8600ABE1A6 = {
@@ -1308,7 +1192,6 @@
 				1FFA57C41F21ED8A00E83463 /* App */,
 				1FB6B9231FAE189C00CD0B17 /* UI */,
 				1FF4FE581F1BE48100CC78B3 /* Services */,
-				1FF4FE571F1BE47300CC78B3 /* ApiServices */,
 				1F36C8951F20CE0A00232B9A /* Tools */,
 				1FA2607E1F14A02400C14886 /* Domains */,
 			);
@@ -1400,28 +1283,10 @@
 			name = Divider;
 			sourceTree = "<group>";
 		};
-		1FF4FE571F1BE47300CC78B3 /* ApiServices */ = {
-			isa = PBXGroup;
-			children = (
-				1FAA9F701FC23F7300BB105D /* Auth */,
-				1FAA9F6F1FC23F6700BB105D /* Admin */,
-				1FAA9F6E1FC23F5F00BB105D /* Attachments */,
-				1FAA9F6D1FC23F4700BB105D /* Notifications */,
-				1FD7E6951F1D0D5C0023C033 /* BaseApiService.swift */,
-				1FB8F01C1F1E31C40090045E /* BaseAuthApiService.swift */,
-				1FB8F0151F1E14710090045E /* Models */,
-				1F1DA2C71F687E1800EFE5CE /* Menu */,
-				1FAA9F781FC24A4100BB105D /* Places */,
-				1FB8F0451F1EC27F0090045E /* User */,
-				1FF4FE5B1F1BE68800CC78B3 /* System */,
-				1FF4FE5A1F1BE68200CC78B3 /* Open */,
-			);
-			name = ApiServices;
-			sourceTree = "<group>";
-		};
 		1FF4FE581F1BE48100CC78B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1FB3F2881FD5793D0073640B /* ServicesManager.swift */,
 				1FB3F24E1FD571C00073640B /* UI */,
 				1FD9A09C1F2323C30026BDF8 /* Cache */,
 				1FB3F2501FD571D90073640B /* Api */,
@@ -1441,24 +1306,6 @@
 				1F68AF7F1F28CD9E000614C9 /* Manager */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		1FF4FE5A1F1BE68200CC78B3 /* Open */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Open;
-			sourceTree = "<group>";
-		};
-		1FF4FE5B1F1BE68800CC78B3 /* System */ = {
-			isa = PBXGroup;
-			children = (
-				1FF4FE5D1F1BE74C00CC78B3 /* SystemStatusApiService.swift */,
-				1FF4FE6C1F1BF9E900CC78B3 /* SystemVersionsApiService.swift */,
-				1FF4FE6E1F1BFB5A00CC78B3 /* SystemSettingsApiService.swift */,
-				1FF4FE761F1CC31700CC78B3 /* SystemReportsApiService.swift */,
-			);
-			name = System;
 			sourceTree = "<group>";
 		};
 		1FF4FE631F1BF41400CC78B3 /* Versions */ = {
@@ -1938,19 +1785,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FD7E6971F1D0E140023C033 /* BaseApiService.swift in Sources */,
-				1FB8F02C1F1E610B0090045E /* AddingCard.swift in Sources */,
-				1FB8F04D1F1EC28C0090045E /* UserCardsApiService.swift in Sources */,
 				1FBE83F31F2556B40002F0B5 /* RefreshManager.swift in Sources */,
 				1FB3F2871FD574B20073640B /* AddedOrderDish.swift in Sources */,
 				1FC01CE01FB21D6600413ED7 /* AdditionSummary.swift in Sources */,
-				1FD7E6981F1D0E140023C033 /* SystemStatusApiService.swift in Sources */,
-				1FD7E6991F1D0E140023C033 /* SystemVersionsApiService.swift in Sources */,
 				1FB3F2781FD5748A0073640B /* NotificationsDevicesApiService.swift in Sources */,
 				1FB8F0311F1E61E70090045E /* TransactionType.swift in Sources */,
 				1FB8F0351F1E628F0090045E /* TransactionSummary.swift in Sources */,
 				1FB8EFDA1F1D47F80090045E /* DayOfWeek.swift in Sources */,
-				1FD7E69A1F1D0E140023C033 /* SystemSettingsApiService.swift in Sources */,
 				1F62E4C61FAE471600D1C89D /* ImageSize.swift in Sources */,
 				1FB3F2811FD574A00073640B /* UserChangeApiService.swift in Sources */,
 				1FC01CC81FB20F4100413ED7 /* PlaceCartController.swift in Sources */,
@@ -1959,13 +1800,11 @@
 				1FB8F0001F1DF2930090045E /* LoyaltyAccount.swift in Sources */,
 				1FB8F0081F1DF68E0090045E /* Step.swift in Sources */,
 				1FB6B92B1FAE19A400CD0B17 /* ConfigKeys.swift in Sources */,
+				1FB3F2891FD5793D0073640B /* ServicesManager.swift in Sources */,
 				1F1DA2C91F6889FB00EFE5CE /* DishType.swift in Sources */,
-				1FD7E69B1F1D0E140023C033 /* SystemReportsApiService.swift in Sources */,
-				1F36C8931F20CCBF00232B9A /* PlaceSummariesApiService.swift in Sources */,
 				1FB3F2621FD573B10073640B /* BaseApiService.swift in Sources */,
 				1F62E4BF1FAE470800D1C89D /* WhiteButton.swift in Sources */,
 				1FB8EFE81F1D4BF90090045E /* MenuCategory.swift in Sources */,
-				1FB8F0101F1E03470090045E /* AuthMainApiService.swift in Sources */,
 				1FD7E69C1F1D0E140023C033 /* ApiKeys.swift in Sources */,
 				1FB8EFF01F1D4F7C0090045E /* PlaceType.swift in Sources */,
 				1F62E4C31FAE470800D1C89D /* GreyButton.swift in Sources */,
@@ -1980,8 +1819,6 @@
 				1F279F9C1FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift in Sources */,
 				1FB8EFEC1F1D4EEC0090045E /* KitchenType.swift in Sources */,
 				1F62E4C71FAE471600D1C89D /* WrappedImage.swift in Sources */,
-				1FC01CDB1FB21D5200413ED7 /* AddedOrder.swift in Sources */,
-				1FB8F0501F1EC28C0090045E /* UserChangeApiService.swift in Sources */,
 				1F279F7D1FB07CFC003A2B47 /* ManagerOrdersController.swift in Sources */,
 				1F36C88E1F20C4DA00232B9A /* ShortSchedule.swift in Sources */,
 				1FB8F0241F1E5C2D0090045E /* NotificationPlatformType.swift in Sources */,
@@ -2009,13 +1846,10 @@
 				1FD7E69F1F1D0E140023C033 /* MethodConnection.swift in Sources */,
 				1FB3F2821FD574A00073640B /* UserOrdersApiService.swift in Sources */,
 				1FB3F26C1FD574320073640B /* MenuSummariesApiService.swift in Sources */,
-				1FB8F06E1F1EE04D0090045E /* AddingBooking.swift in Sources */,
 				1F62E4631FAE462900D1C89D /* NavigationController.swift in Sources */,
 				1F62E4701FAE465700D1C89D /* TabsController.swift in Sources */,
-				1FB8F0281F1E5D510090045E /* NotificationsDevicesApiService.swift in Sources */,
 				1F62E4C11FAE470800D1C89D /* BaseButton.swift in Sources */,
 				1F279F651FB07C82003A2B47 /* ManagerEditNotificationPreferencesController.swift in Sources */,
-				1F68AF6D1F285ABB000614C9 /* MenuSummariesApiService.swift in Sources */,
 				1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */,
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
 				1FB6B9301FAE19A400CD0B17 /* PropertiesKey.swift in Sources */,
@@ -2035,7 +1869,6 @@
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
 				1F68AF6B1F285A32000614C9 /* CacheMenuSummariesService.swift in Sources */,
-				1FB8F01D1F1E31C40090045E /* BaseAuthApiService.swift in Sources */,
 				1F279F741FB07CEC003A2B47 /* ManagerOneOrderController.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
 				1F279FA41FB0ECD7003A2B47 /* PlaceMenuTitleContainer.swift in Sources */,
@@ -2062,13 +1895,11 @@
 				1FB8EFEA1F1D4C0C0090045E /* Menu.swift in Sources */,
 				1FB8EFF91F1DE8F10090045E /* LoyaltyType.swift in Sources */,
 				1F5CF8391FB3758F00DDDC3F /* CachePaymentCardsService.swift in Sources */,
-				1FB8F0531F1EC45D0090045E /* UserOrdersApiService.swift in Sources */,
 				1FB8EFD11F1D429D0090045E /* Rate.swift in Sources */,
 				1F5CF8371FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift in Sources */,
 				1FB6B92C1FAE19A400CD0B17 /* AppSummary.swift in Sources */,
 				1FB6B92D1FAE19A400CD0B17 /* ThemeSettings.swift in Sources */,
 				1FB3F2541FD572D60073640B /* KeysStorage.swift in Sources */,
-				1FB8F01B1F1E190F0090045E /* IKeysStorage.swift in Sources */,
 				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
 				1F1DA2CF1F688AFD00EFE5CE /* PlaceDependentProtocol.swift in Sources */,
 				1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */,
@@ -2080,12 +1911,10 @@
 				1FB8EFF41F1D50960090045E /* Location.swift in Sources */,
 				1F62E4821FAE466F00D1C89D /* ForgetPasswordController.swift in Sources */,
 				1FB8EFD31F1D42DF0090045E /* ReviewStatus.swift in Sources */,
-				1FC01CE31FB21ED000413ED7 /* AddedOrderDish.swift in Sources */,
 				1FB3F27F1FD574A00073640B /* UserAccountApiService.swift in Sources */,
 				1FB3F2521FD572BE0073640B /* AddPaymentCardService.swift in Sources */,
 				1FB3F2801FD574A00073640B /* UserCardsApiService.swift in Sources */,
 				1FE3C7561FB2E88A009CE542 /* PlaceCartDateContainer.swift in Sources */,
-				1FB8F04C1F1EC28C0090045E /* UserAccountApiService.swift in Sources */,
 				1F62E47F1FAE466F00D1C89D /* SignupController.swift in Sources */,
 				1FB3F2731FD5745F0073640B /* GetArgs.swift in Sources */,
 				1FB6B92F1FAE19A400CD0B17 /* ClientAppType.swift in Sources */,
@@ -2112,7 +1941,6 @@
 				1F279F6D1FB07CCA003A2B47 /* TermsController.swift in Sources */,
 				1FF703A71F6845C50028A9B8 /* Price.swift in Sources */,
 				1F62E4831FAE466F00D1C89D /* LoginController.swift in Sources */,
-				1FB8F0171F1E14B30090045E /* GetArgs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

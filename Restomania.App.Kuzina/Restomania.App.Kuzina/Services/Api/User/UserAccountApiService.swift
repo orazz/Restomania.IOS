@@ -10,14 +10,17 @@ import Foundation
 import IOSLibrary
 import AsyncTask
 
-public class UserAccountApiService: AuthApiService {
+public class UserAccountApiService: BaseApiService {
 
-    public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .user, area: "User/Account", tag: String.tag(UserAccountApiService.self))
+    public init(configs: ConfigsStorage, keys: KeysStorage) {
+        super.init(area: "User/Account", tag: String.tag(UserAccountApiService.self), configs: configs, keys: keys)
     }
 
     // MARK: Methods
     public func Info() -> RequestResult<User> {
-        return _client.Get(action: "Info", type: User.self, parameters: CollectParameters())
+
+        let parameters = CollectParameters(for: .user)
+
+        return _client.Get(action: "Info", type: User.self, parameters: parameters)
     }
 }

@@ -21,7 +21,7 @@ public class ServicesManager: ILoggable {
         return "ServicesManager"
     }
 
-    public let keys: IKeysStorage
+    public let keys: KeysStorage
     public let placeSummariesService: CachePlaceSummariesService
     public let menuSummariesService: CacheMenuSummariesService
     public let paymentCards: CachePaymentCardsService

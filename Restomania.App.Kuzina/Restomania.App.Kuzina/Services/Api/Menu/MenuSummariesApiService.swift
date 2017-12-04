@@ -11,8 +11,8 @@ import IOSLibrary
 
 public class MenuSummariesApiService: BaseApiService {
 
-    public init() {
-        super.init(area: "Menu/Summaries", tag: "MenuSummariesApiService")
+    public init(configs: ConfigsStorage) {
+        super.init(area: "Menu/Summaries", tag: "MenuSummariesApiService", configs: configs)
     }
 
     public func find(placeID: Long) -> RequestResult<MenuSummary> {
@@ -21,7 +21,7 @@ public class MenuSummariesApiService: BaseApiService {
                 "placeId": placeID
             ])
 
-        return _client.Get(action: "Find", type: MenuSummary.self, parameters: parameters)
+        return client.Get(action: "Find", type: MenuSummary.self, parameters: parameters)
     }
     public func range(placeIDs: [Long]) -> RequestResult<[MenuSummary]> {
 
@@ -29,6 +29,6 @@ public class MenuSummariesApiService: BaseApiService {
                 "placeIds": placeIDs
             ])
 
-        return _client.GetRange(action: "Range", type: MenuSummary.self, parameters: parameters)
+        return client.GetRange(action: "Range", type: MenuSummary.self, parameters: parameters)
     }
 }

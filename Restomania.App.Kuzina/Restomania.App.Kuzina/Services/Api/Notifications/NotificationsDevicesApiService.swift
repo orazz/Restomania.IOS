@@ -12,18 +12,17 @@ import AsyncTask
 
 public class NotificationsDevicesApiService: BaseApiService {
 
-    public init() {
-        super.init(area: "Notifications/Devices", tag: String.tag(NotificationsDevicesApiService.self))
+    public init(configs: ConfigsStorage, keys: KeysStorage) {
+        super.init(area: "Notifications/Devices", tag: String.tag(NotificationsDevicesApiService.self), configs: configs, keys: keys)
     }
 
-    public func Register(keys: ApiKeys, token: String, locale: String) -> RequestResult<Device> {
-        let parameters = CollectParameters([
-            "keys": keys,
-            "token": token,
-            "platform": NotificationPlatformType.apple.rawValue,
-            "locale": locale
+    public func Register(role: ApiRole, token: String, locale: String) -> RequestResult<Device> {
+        let parameters = CollectParameters(for: role, [
+                "token": token,
+                "platform": NotificationPlatformType.apple.rawValue,
+                "locale": locale
             ])
 
-        return _client.Post(action: "Register", type: Device.self, parameters: parameters)
+        return client.Post(action: "Register", type: Device.self, parameters: parameters)
     }
 }

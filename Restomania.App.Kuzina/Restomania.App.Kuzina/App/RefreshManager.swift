@@ -15,10 +15,10 @@ public class RefreshManager {
 
     private let tag = String.tag(RefreshManager.self)
     private let authApiClient = AuthMainApiService()
-    private let keysService: IKeysCRUDStorage
+    private let keysService: KeysStorage
 
     private init() {
-        keysService = ServicesManager.shared.keys as! IKeysCRUDStorage
+        keysService = ServicesManager.shared.keys
     }
 
     public func checkApiKeys() {

@@ -11,13 +11,13 @@ import IOSLibrary
 
 public class UserOrdersApiService: BaseAuthApiService {
 
-    public init(storage: IKeysStorage) {
-        super.init(storage: storage, rights: .user, area: "User/DishOrders", tag: String.tag(UserOrdersApiService.self))
+    public init(configs: ConfigsStorage, keys: KeysStorage) {
+        super.init(area: "User/DishOrders", tag: String.tag(UserOrdersApiService.self), configs: configs, keys: keys)
     }
 
     public func all(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {
 
-        let parameters = CollectParameters([
+        let parameters = CollectParameters(for: .user, [
                 "time": args?.time
             ])
 
@@ -26,21 +26,21 @@ public class UserOrdersApiService: BaseAuthApiService {
 
     public func find(orderID: Int64) -> RequestResult<DishOrder> {
 
-        let parameters = CollectParameters([
+        let parameters = CollectParameters(for: .user, [
                 "orderId": orderID
             ])
 
         return _client.Get(action: "Find", type: DishOrder.self, parameters: parameters)
     }
     public func add(order: AddedOrder) -> RequestResult<DishOrder> {
-        let parameters = CollectParameters([
+        let parameters = CollectParameters(for: .user, [
                 "container": order
             ])
 
         return _client.Post(action: "Add", type: DishOrder.self, parameters: parameters)
     }
     public func cancel(orderID: Int64) -> RequestResult<DishOrder> {
-        let parameters = CollectParameters([
+        let parameters = CollectParameters(for: .user, [
                 "orderId": orderID
             ])
 
