@@ -19,8 +19,8 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
     {
         let instance = VKAuthorizationController.init(nibName: nibName, bundle: Bundle.main)
 
-        let configs = ServicesFactory.shared.configs
-        instance._keys = ServicesFactory.shared.keys
+        let configs = ToolsServices.shared.configs
+        instance._keys = ToolsServices.shared.keys
         instance._auth = UsersAuthApiService(configs)
         instance._callback = callback
         instance._appID = configs.get(forKey: ConfigsKey.vkAppID).value as! Int

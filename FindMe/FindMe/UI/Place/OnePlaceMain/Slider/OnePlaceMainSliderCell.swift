@@ -74,7 +74,7 @@ extension OnePlaceMainSliderCell: SliderControlDelegate {
 
 extension OnePlaceMainSliderCell: OnePlaceMainCellProtocol {
 
-    public func update(by place: Place) {
+    public func update(by place: DisplayPlaceInfo) {
         _images = place.images
     }
 }
@@ -89,9 +89,7 @@ extension OnePlaceMainSliderCell: InterfaceTableCellProtocol {
     public func select(with vc: UINavigationController) {
 
         _imagesModal.focusOn(slide: sliderView.current)
-        vc.present(_imagesModal, animated: false, completion: {
-
-        })
+        vc.present(_imagesModal, animated: false, completion: {})
     }
 }
 extension OnePlaceMainSliderCell: ImagesControllerDelegate {

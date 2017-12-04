@@ -18,8 +18,8 @@ public class ApiKeys: Glossy {
         public static let token = "Token"
     }
     
-    public var id: Long
-    public var token: String
+    public let id: Long
+    public let token: String
 
     public init(id: Long, token: String) {
         self.id = id

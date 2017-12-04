@@ -66,20 +66,23 @@ public class ApiClient {
     }
 
     //Long
-    public func GetLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
+    public func GetLong(action: String, parameters: Parameters? = nil) -> RequestResult<Long> {
         return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitLong())
     }
-    public func PostLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
+    public func GetLongRange(action: String, parameters: Parameters? = nil) -> RequestResult<[Long]> {
+        return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: { $0 as! [Long] })
+    }
+    public func PostLong(action: String, parameters: Parameters? = nil) -> RequestResult<Long> {
         return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitLong())
     }
-    public func PutLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
+    public func PutLong(action: String, parameters: Parameters? = nil) -> RequestResult<Long> {
         return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitLong())
     }
-    public func DeleteLong(action: String, parameters: Parameters? = nil) -> RequestResult<Int64> {
+    public func DeleteLong(action: String, parameters: Parameters? = nil) -> RequestResult<Long> {
         return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitLong())
     }
-    private func InitLong() -> (_:Any?) -> Int64 {
-        return { json in json as! Int64 }
+    private func InitLong() -> (_:Any?) -> Long {
+        return { json in json as! Long }
     }
 
     //Bool
@@ -139,7 +142,7 @@ public class ApiClient {
                     Log.Error(self._tag, "Fundamental problem with request.")
                     Log.Error(self._tag, "Error: \(error)")
 
-                    handler(ApiResponse(statusCode: .ConnectionError))
+                    handler(ApiResponse(statusCode: .ConnectionError, response: response))
                     return
                 }
 
@@ -149,28 +152,26 @@ public class ApiClient {
                     Log.Warning(self._tag, "Response status code is \(httpStatus.statusCode)")
                     Log.Error(self._tag, "Response status code is not success.")
 
-                    handler(ApiResponse(statusCode: .InternalServerError))
+                    handler(ApiResponse(statusCode: .InternalServerError, response: response))
                     return
                 }
 
                 Log.Debug(self._tag, "Response from \(url)")
                 do {
-                    let stringContent = String(data: data!, encoding: .utf8)!
-                    let data =  try JSONSerialization.jsonObject(with: data!, options: [])
-                    let json = data as! JSON
+                    let content = String(data: data!, encoding: .utf8)!
+                    let json =  try JSONSerialization.jsonObject(with: data!, options: []) as! JSON
 
-                    let apiResponse = ApiResponse<TData>(json: json)
+                    let apiResponse = ApiResponse<TData>(json: json, response: response, content: content)
                     if (apiResponse.statusCode == .OK) {
                         apiResponse.data = parser(json["Data"])
-                        handler(apiResponse)
-                    } else {
-                        handler(apiResponse)
                     }
+
+                    handler(apiResponse)
 
                 } catch {
                     Log.Error(self._tag, "Problem with parse response from \(url).")
 
-                    handler(ApiResponse(statusCode: .InternalServerError))
+                    handler(ApiResponse(statusCode: .InternalServerError, response: response))
                 }
             }
             task.resume()

@@ -33,9 +33,8 @@ public class PlacesListAdapter: PlacesListDelegate {
 
         self._navigationContrller = source.navigationController!
 
-        let services = ServicesFactory.shared
-        self._positions = services.positions
-        self._likes = services.likes
+        self._positions = LogicServices.shared.positions
+        self._likes = LogicServices.shared.likes
 
         self._searchAdapter = SearchAdapter()
         _searchAdapter.add({ $0.name })
@@ -57,13 +56,13 @@ public class PlacesListAdapter: PlacesListDelegate {
     }
 
     public func isLiked(place: Long) -> Bool {
-        return _likes.isLiked(place: place)
+        return _likes.isLiked(place)
     }
     public func like(place: Long) {
-        _likes.like(place: place)
+        _likes.like(place)
     }
     public func unlike(place: Long) {
-        _likes.unlike(place: place)
+        _likes.unlike(place)
     }
 
     public func distanceTo(position: PositionsService.Position) -> Double? {

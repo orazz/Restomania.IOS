@@ -12,20 +12,20 @@ import IOSLibrary
 
 internal protocol OnePlaceMainCellProtocol: InterfaceTableCellProtocol {
 
-    func update(by: Place)
+    func update(by: DisplayPlaceInfo)
 }
 public class OnePlaceMainController: UIViewController {
 
     private static let nibName = "OnePlaceMainView"
     public static func build(placeId: Long) -> OnePlaceMainController {
 
-        let instance = OnePlaceMainController(nibName: nibName, bundle: Bundle.main)
+        let vc = OnePlaceMainController(nibName: nibName, bundle: Bundle.main)
 
-        instance.placeId = placeId
-        instance.cache = ServicesFactory.shared.places
-        instance.likes = ServicesFactory.shared.likes
+        vc.placeId = placeId
+        vc.cache = CacheServices.places
+        vc.likes = LogicServices.shared.likes
 
-        return instance
+        return vc
     }
 
 
@@ -38,8 +38,8 @@ public class OnePlaceMainController: UIViewController {
 
     //MARK: Data
     private var placeId: Long!
-    private var place: Place? = nil
-    private var cache: PlacesCacheservice!
+    private var place: DisplayPlaceInfo? = nil
+    private var cache: PlacesCacheService!
     private var likes: LikesService!
 
 
@@ -52,55 +52,64 @@ public class OnePlaceMainController: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.backgroundColor = ThemeSettings.Colors.background
         refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(needRefreshData), for: .valueChanged)
         contentTable.addSubview(refreshControl)
 
         setupLikeButton()
 
-        contentAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!)
-        buildRows()
+        let rows = buildRows()
+        contentAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!, rows: rows)
 
         loadData(manual: false)
+    }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     private func setupLikeButton() {
 
         var image = ThemeSettings.Images.heartInactive
-        if (likes.isLiked(place: placeId)){
+        if (likes.isLiked(placeId)){
 
             image = ThemeSettings.Images.heartActive
         }
 
         likeButton.image = image.withRenderingMode(.alwaysOriginal)
     }
-    private func buildRows() {
+    private func buildRows() -> [OnePlaceMainCellProtocol] {
 
-        contentAdapter.add(OnePlaceMainTitleCell.instance)
-        contentAdapter.add(OnePlaceMainSliderCell.instance)
-        contentAdapter.add(OnePlaceMainAddressCell.instance)
-        contentAdapter.add(OnePlaceMainStatisticCell.create(with: self.navigationController!))
+        var result = [OnePlaceMainCellProtocol]()
+
+        result.append(OnePlaceMainTitleCell.instance)
+        result.append(OnePlaceMainSliderCell.instance)
+        result.append(OnePlaceMainAddressCell.instance)
+        result.append(OnePlaceMainStatisticCell.create(with: self.navigationController!))
+
+        let actions = OnePlaceMainLastActionCell.instance
+        result.append(actions)
+        result.append(OnePlaceMainDividerCell.instance(for: actions))
 
         let description = OnePlaceMainDescriptionCell.instance
-        contentAdapter.add(description)
-        contentAdapter.add(OnePlaceMainDividerCell.instance(for: description))
-
-//        let actions = OnePlaceMainContactsCell.instance
-//        _interfaceAdapter.add(actions)
-//        _interfaceAdapter.add(OnePlaceMainDividerCell.instance(for: actions))
+        result.append(description)
+        result.append(OnePlaceMainDividerCell.instance(for: description))
 
         let contacts = OnePlaceMainContactsCell.instance
-        contentAdapter.add(contacts)
-        contentAdapter.add(OnePlaceMainDividerCell.instance(for: contacts))
+        result.append(contacts)
+        result.append(OnePlaceMainDividerCell.instance(for: contacts))
 
-        contentAdapter.add(OnePlaceMainLocationCell.instance)
-        contentAdapter.add(OnePlaceMainSpaceCell.instance)
+        result.append(OnePlaceMainLocationCell.instance)
+        result.append(OnePlaceMainSpaceCell.instance)
+
+        return result
     }
 
-    @objc private func refreshData() {
+    @objc private func needRefreshData() {
         loadData(manual: true)
     }
     private func loadData(manual: Bool) {
 
-        if  !manual, let place = cache.findLocal(id: placeId) {
+        if  !manual, let place = cache.cache.find(placeId) {
 
             completeLoad(place)
             return
@@ -130,15 +139,17 @@ public class OnePlaceMainController: UIViewController {
             }
         })
     }
-    private func completeLoad(_ place: Place) {
+    private func completeLoad(_ place: DisplayPlaceInfo) {
 
         self.place = place
+        self.title = place.name
 
         for it in contentAdapter.rows {
             if let cell = it as? OnePlaceMainCellProtocol {
                 cell.update(by: place)
             }
         }
+
 
         contentAdapter.reload()
 
@@ -162,11 +173,11 @@ public class OnePlaceMainController: UIViewController {
     }
     @IBAction public func likePlace() {
 
-        if (likes.isLiked(place: placeId)){
-            likes.unlike(place: placeId)
+        if (likes.isLiked(placeId)){
+            likes.unlike(placeId)
         }
         else {
-            likes.like(place: placeId)
+            likes.like(placeId)
         }
 
         setupLikeButton()

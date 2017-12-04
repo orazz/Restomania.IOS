@@ -32,22 +32,22 @@ public class Place: BaseDataType, ICached {
         public static let clientsData = "ClientsData"
     }
 
-    public var name: String
-    public var type: String
-    public var description: String
-    public var status: PlaceStatus
-    public var seatingCapacity: Int
-    //public var timeZone: TimeZoneOffset
+    public let name: String
+    public let type: String
+    public let description: String
+    public let status: PlaceStatus
+    public let seatingCapacity: Int
+    //public let timeZone: TimeZoneOffset
     
-    public var images: [PlaceImage]
-    public var actions: [Action]
+    public let images: [PlaceImage]
+    public let actions: [Action]
     
-    public var locationId: Long
-    public var location: Location
-    public var contactsId: Long
-    public var contacts: Contacts
-    public var clientsDataId: Long
-    public var clientsData: ClientsData
+    public let locationId: Long
+    public let location: Location
+    public let contactsId: Long
+    public let contacts: Contacts
+    public let clientsDataId: Long
+    public let clientsData: ClientsStatistic
     
     //MARK: ICopyng
     public required init(source: Place) {
@@ -66,7 +66,7 @@ public class Place: BaseDataType, ICached {
         self.contactsId = source.contactsId
         self.contacts = Contacts(source: source.contacts)
         self.clientsDataId = source.clientsDataId
-        self.clientsData = ClientsData(source: source.clientsData)
+        self.clientsData = ClientsStatistic(source: source.clientsData)
         
         super.init(source: source)
     }

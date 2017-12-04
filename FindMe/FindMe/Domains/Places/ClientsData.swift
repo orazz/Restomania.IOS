@@ -10,7 +10,7 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-public class ClientsData: BaseDataType, IPlaceDependent, ICopying {
+public class ClientsStatistic: BaseDataType, IPlaceDependent, ICopying {
     
     public struct Keys {
         
@@ -55,7 +55,7 @@ public class ClientsData: BaseDataType, IPlaceDependent, ICopying {
     }
     
     //MARK: ICopyng
-    public required init(source: ClientsData) {
+    public required init(source: ClientsStatistic) {
         
         self.placeId = source.placeId
         

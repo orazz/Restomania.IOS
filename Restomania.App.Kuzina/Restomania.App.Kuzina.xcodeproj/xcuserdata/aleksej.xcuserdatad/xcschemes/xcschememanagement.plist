@@ -4,28 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Restomania.App.Kuzina.xcscheme</key>
+		<key>RestomaniaAppKuzina.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>1FC5A69B1F138A8600ABE1A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1FC5A6AF1F138A8600ABE1A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1FC5A6BA1F138A8600ABE1A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>9</integer>
 		</dict>
 	</dict>
 </dict>

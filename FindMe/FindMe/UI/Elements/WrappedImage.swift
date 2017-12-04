@@ -30,7 +30,7 @@ public class ImageWrapper: BaseImageWrapper, ImageWrapperDelegate {
 
         delegate = self
 
-        _cache = ServicesFactory.shared.images
+        _cache = CacheServices.images
         _sizes = [:]
         _sizes![CGFloat(50)] = "t"
         _sizes![CGFloat(150)] = "s"

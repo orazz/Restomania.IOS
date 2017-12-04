@@ -21,11 +21,11 @@ public class User: Account {
         public static let status = "Status"
     }
 
-    public var image: String
-    public var city: String
-    public var sex: UserSex
-    public var age: Int
-    public var status: UserStatus
+    public let image: String
+    public let city: String
+    public let sex: UserSex
+    public let age: Int
+    public let status: UserStatus
 
     public override init() {
 

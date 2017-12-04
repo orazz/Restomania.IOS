@@ -30,7 +30,7 @@ public class OnePlaceMainAddressCell: UITableViewCell {
     @IBOutlet public weak var AddressLabel: FMSubheadLabel!
 
     //MARK: Data & Services
-    private var _place: Place?
+    private var _place: DisplayPlaceInfo?
     private var _location: Location? {
         didSet {
             AddressLabel?.text = _location?.address ?? String.empty
@@ -39,7 +39,7 @@ public class OnePlaceMainAddressCell: UITableViewCell {
 
 }
 extension OnePlaceMainAddressCell: OnePlaceMainCellProtocol {
-    public func update(by place: Place) {
+    public func update(by place: DisplayPlaceInfo) {
 
         _place = place
         _location = place.location

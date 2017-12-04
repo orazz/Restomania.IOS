@@ -26,9 +26,9 @@ public class MapController: UIViewController {
     private let _tag = String.tag(MapController.self)
     private let _guid = Guid.new
     private var _listAdapter: PlacesListAdapter!
-    private var _cache: SearchPlaceCardsCacheService!
-    private var _likesService: LikesService!
-    private var _positions: PositionsService!
+    private var cacheService: SearchPlaceCardsCacheService!
+    private var likesService = LogicServices.shared.likes
+    private var positionsService = LogicServices.shared.positions
 
     private var _places: [SearchPlaceCard]! {
         didSet {
@@ -56,21 +56,19 @@ public class MapController: UIViewController {
         _popup = MapPopupView.build(parent: self.view, delegate: _listAdapter)
         _loader = InterfaceLoader(for: self.view)
 
-        _cache = ServicesFactory.shared.searchCards
-        _likesService = ServicesFactory.shared.likes
-        _positions = ServicesFactory.shared.positions
+        cacheService = CacheServices.searchCards
 
-        _likesService.subscribe(guid: _guid, handler: self, tag: _tag)
+        likesService.subscribe(guid: _guid, handler: self, tag: _tag)
 
         loadData()
     }
     deinit {
-        _likesService.unsubscribe(guid: _guid)
+        likesService.unsubscribe(guid: _guid)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setToolbarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -85,33 +83,29 @@ public class MapController: UIViewController {
     //MARK: Load data
     private func loadData() {
 
-        let local = _cache.allLocal
-        if (local.isEmpty) {
+        let cached = cacheService.cache.all
+        if (cached.isEmpty) {
             _loader.show()
 
             _places = []
         }
         else {
 
-            _places = local
+            _places = cached
         }
 
-        let task = _cache.allRemote()
+        let task = cacheService.all(with: SelectParameters())
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
 
                 self._loader.hide()
 
-                if let response = response {
-
+                if let response = response.data {
                     self._places = response
                 }
                 else if (self._places.isEmpty) {
-
-                    let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: false, completion: nil)
+                    self.present(ProblemAlerts.Error(for: response.statusCode), animated: false, completion: nil)
                 }
             }
         })
@@ -138,7 +132,7 @@ public class MapController: UIViewController {
 
         //Filter liked
         if (_onlyLiked) {
-            _filtered = _filtered.where({ _likesService.isLiked(place: $0.card.ID) })
+            _filtered = _filtered.where({ likesService.isLiked( $0.card.ID) })
         }
 
         MapView.addAnnotations(_filtered)
@@ -222,7 +216,7 @@ extension MapController: MKMapViewDelegate {
 
             super.init()
         }
-        public convenience init(place: Place) {
+        public convenience init(place: DisplayPlaceInfo) {
             self.init(card: SearchPlaceCard(source: place))
         }
 

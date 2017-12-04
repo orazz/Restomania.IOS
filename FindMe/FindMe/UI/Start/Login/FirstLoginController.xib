@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstLoginController" customModule="FindMe" customModuleProvider="target">
+            <connections>
+                <outlet property="acquaintancesStatusSwitch" destination="0CE-uV-FuK" id="Wv5-UD-xh5"/>
+                <outlet property="ageTextField" destination="ubO-IO-PWG" id="Jne-s0-t73"/>
+                <outlet property="firstDividerView" destination="pTA-HL-v5F" id="kOq-qe-erS"/>
+                <outlet property="nameTextField" destination="afi-tJ-dwp" id="HoZ-zl-sUB"/>
+                <outlet property="secondDividerView" destination="yqf-Iq-6Pm" id="W0Y-hl-C2Z"/>
+                <outlet property="sexSegmentControl" destination="S9o-gu-hNy" id="r3a-ek-tqh"/>
+                <outlet property="view" destination="6HI-2l-VVw" id="b42-xb-HTa"/>
+                <outlet property="vkButton" destination="Xfe-iW-it4" id="iGa-9z-Bhn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="6HI-2l-VVw">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизуйтесь в приложении" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmR-Dr-agY" customClass="FMTitleLabel" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="20" y="40" width="280" height="57.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afi-tJ-dwp" customClass="FMTextField" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="40" y="117.5" width="240" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="N0T-mJ-NHr"/>
+                        <constraint firstAttribute="width" constant="240" id="SyC-8B-o79"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9o-gu-hNy" customClass="FMSegmentedControl" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="40" y="172.5" width="240" height="45"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="alr-aS-fdy"/>
+                        <constraint firstAttribute="height" constant="45" id="wNM-ql-3SV"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubO-IO-PWG" customClass="FMTextField" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="40" y="237.5" width="240" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="4XZ-9C-ynx"/>
+                        <constraint firstAttribute="height" constant="35" id="ZFq-Gn-5jb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CE-uV-FuK" customClass="FMSwitch" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="40" y="292.5" width="240" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="bBb-9G-aAm"/>
+                        <constraint firstAttribute="height" constant="35" id="muf-sa-Vex"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02r-b5-ymZ">
+                    <rect key="frame" x="5" y="347.5" width="310" height="20"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTA-HL-v5F">
+                            <rect key="frame" x="5" y="9" width="130" height="1"/>
+                            <color key="backgroundColor" red="0.2423847854" green="0.2423847854" blue="0.2423847854" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="eLA-RC-4TG"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="или" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxT-fg-NrV">
+                            <rect key="frame" x="135" y="0.0" width="40" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="2hw-BD-MoK"/>
+                                <constraint firstAttribute="width" constant="40" id="MUW-yj-ITN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqf-Iq-6Pm">
+                            <rect key="frame" x="175" y="9" width="129.5" height="1"/>
+                            <color key="backgroundColor" red="0.2423847854" green="0.2423847854" blue="0.2423847854" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="vcm-lW-7Tk"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="lxT-fg-NrV" firstAttribute="centerX" secondItem="02r-b5-ymZ" secondAttribute="centerX" id="8mJ-rz-4yH"/>
+                        <constraint firstItem="lxT-fg-NrV" firstAttribute="centerX" secondItem="02r-b5-ymZ" secondAttribute="centerX" id="9Zl-VU-NzB"/>
+                        <constraint firstAttribute="height" constant="20" id="AX2-a5-OqH"/>
+                        <constraint firstAttribute="trailing" secondItem="yqf-Iq-6Pm" secondAttribute="trailing" constant="5" id="EBj-KX-UiZ"/>
+                        <constraint firstItem="pTA-HL-v5F" firstAttribute="centerY" secondItem="02r-b5-ymZ" secondAttribute="centerY" id="R4E-8A-VtC"/>
+                        <constraint firstItem="yqf-Iq-6Pm" firstAttribute="centerY" secondItem="02r-b5-ymZ" secondAttribute="centerY" id="aI1-fv-c3r"/>
+                        <constraint firstItem="lxT-fg-NrV" firstAttribute="leading" secondItem="pTA-HL-v5F" secondAttribute="trailing" id="fDU-NI-HK7"/>
+                        <constraint firstItem="yqf-Iq-6Pm" firstAttribute="leading" secondItem="lxT-fg-NrV" secondAttribute="trailing" id="hfk-lx-aDg"/>
+                        <constraint firstItem="pTA-HL-v5F" firstAttribute="leading" secondItem="02r-b5-ymZ" secondAttribute="leading" constant="5" id="oTP-nq-qo7"/>
+                        <constraint firstItem="lxT-fg-NrV" firstAttribute="centerY" secondItem="02r-b5-ymZ" secondAttribute="centerY" id="pTl-Nk-wcW"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdA-t3-yR6" customClass="BorderedButton" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="10" y="487.5" width="300" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="89i-45-R2s"/>
+                        <constraint firstAttribute="height" constant="50" id="EhL-nt-3vC"/>
+                    </constraints>
+                    <state key="normal" title="Начать"/>
+                    <connections>
+                        <action selector="continueWithoutAuth" destination="-1" eventType="touchUpInside" id="qHi-AO-ibi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfe-iW-it4" customClass="FilledButton" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="35" y="387.5" width="250" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="nsh-UC-eVU"/>
+                        <constraint firstAttribute="height" constant="40" id="tEe-MB-v8g"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Войти через ВКонтакте"/>
+                    <connections>
+                        <action selector="authViaVk" destination="-1" eventType="touchUpInside" id="7FL-G2-ebV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.55258595943450928" green="0.51018869876861572" blue="0.99870163202285767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Xfe-iW-it4" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="0di-rL-vcu"/>
+                <constraint firstItem="0CE-uV-FuK" firstAttribute="top" secondItem="ubO-IO-PWG" secondAttribute="bottom" constant="20" id="1zY-0m-Ciq"/>
+                <constraint firstItem="0CE-uV-FuK" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="8ag-BU-ZKU"/>
+                <constraint firstItem="Mx6-zm-Ay7" firstAttribute="trailing" secondItem="TmR-Dr-agY" secondAttribute="trailing" constant="20" id="BiT-a8-w4C"/>
+                <constraint firstItem="hdA-t3-yR6" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="C6C-TD-yKG"/>
+                <constraint firstItem="afi-tJ-dwp" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="CdJ-wa-Zek"/>
+                <constraint firstItem="ubO-IO-PWG" firstAttribute="top" secondItem="S9o-gu-hNy" secondAttribute="bottom" constant="20" id="EQ9-SL-TiH"/>
+                <constraint firstItem="Xfe-iW-it4" firstAttribute="top" secondItem="02r-b5-ymZ" secondAttribute="bottom" constant="20" id="WE2-cH-q7f"/>
+                <constraint firstItem="S9o-gu-hNy" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="X7B-oV-GC7"/>
+                <constraint firstItem="02r-b5-ymZ" firstAttribute="top" secondItem="0CE-uV-FuK" secondAttribute="bottom" constant="20" id="XzV-oN-CMA"/>
+                <constraint firstItem="ubO-IO-PWG" firstAttribute="centerX" secondItem="6HI-2l-VVw" secondAttribute="centerX" id="YY3-8H-dtv"/>
+                <constraint firstItem="02r-b5-ymZ" firstAttribute="leading" secondItem="Mx6-zm-Ay7" secondAttribute="leading" constant="5" id="ZtE-8Q-c1d"/>
+                <constraint firstItem="afi-tJ-dwp" firstAttribute="top" secondItem="TmR-Dr-agY" secondAttribute="bottom" constant="20" id="cX0-XC-VoT"/>
+                <constraint firstItem="hdA-t3-yR6" firstAttribute="top" secondItem="Xfe-iW-it4" secondAttribute="bottom" constant="60" id="gBp-09-T9C"/>
+                <constraint firstItem="TmR-Dr-agY" firstAttribute="leading" secondItem="Mx6-zm-Ay7" secondAttribute="leading" constant="20" id="iz1-Ox-VcA"/>
+                <constraint firstItem="Mx6-zm-Ay7" firstAttribute="trailing" secondItem="02r-b5-ymZ" secondAttribute="trailing" constant="5" id="o5d-rq-6H4"/>
+                <constraint firstItem="Mx6-zm-Ay7" firstAttribute="trailing" secondItem="hdA-t3-yR6" secondAttribute="trailing" constant="10" id="oFS-qo-MHY"/>
+                <constraint firstItem="S9o-gu-hNy" firstAttribute="top" secondItem="afi-tJ-dwp" secondAttribute="bottom" constant="20" id="sYu-7Z-R3O"/>
+                <constraint firstItem="TmR-Dr-agY" firstAttribute="top" secondItem="Mx6-zm-Ay7" secondAttribute="top" constant="20" id="vQy-GC-djU"/>
+                <constraint firstItem="hdA-t3-yR6" firstAttribute="leading" secondItem="Mx6-zm-Ay7" secondAttribute="leading" constant="10" id="xiO-kn-zDu"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Mx6-zm-Ay7"/>
+        </scrollView>
+    </objects>
+</document>

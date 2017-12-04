@@ -15,12 +15,12 @@ public class CacheMenuSummariesService {
     public let tag = "CacheMenuSummariesService"
 
     private let _client: MenuSummariesApiService
-    private let _adapter: CacheRangeAdapter<MenuSummary>
+    private let _adapter: CacheAdapter<MenuSummary>
 
     public init() {
 
         _client = MenuSummariesApiService()
-        _adapter = CacheRangeAdapter<MenuSummary>(tag: tag, filename: "menues-summaries.json", livetime: 24 * 60 * 60)
+        _adapter = CacheAdapter<MenuSummary>(tag: tag, filename: "menues-summaries.json", livetime: 24 * 60 * 60)
 
         Log.Info(tag, "Complete load service.")
     }
