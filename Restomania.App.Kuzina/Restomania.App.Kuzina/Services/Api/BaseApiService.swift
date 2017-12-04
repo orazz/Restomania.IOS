@@ -11,9 +11,11 @@ import IOSLibrary
 import Gloss
 
 public class BaseApiService: ILoggable {
-    public var tag: String
+    
+    internal var tag: String
     internal let _client: ApiClient
     private let _url: String
+    private let keysStorage: KeysStorage
 
     public init(area: String, tag: String) {
         self._url = AppSummary.current.serverUrl
@@ -21,7 +23,19 @@ public class BaseApiService: ILoggable {
         self.tag = tag
         self._client = ApiClient(url: "\(_url)/api/\(area)", tag: tag)
     }
+    public init()
 
+
+    internal override func CollectParameters(for role: ApiRole _ values: Parameters? = nil) -> Parameters {
+        var parameters = super.CollectParameters(values)
+
+        if let storage = keysStorage {
+            let keys = storage.keys(for: role)
+            parameters["keys"] = keys?.toJSON()
+        }
+
+        return parameters
+    }
     internal func CollectParameters(_ values: Parameters? = nil) -> Parameters {
         var result = Parameters()
 

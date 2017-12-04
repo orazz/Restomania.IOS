@@ -10,15 +10,9 @@ import Foundation
 import Gloss
 import IOSLibrary
 
-public protocol IKeysCRUDStorage: IKeysStorage {
+public class KeysStorage {
 
-    func set(keys: ApiKeys, for rights: ApiRole)
-    func remove(for rights: ApiRole)
-}
-public class KeysStorage: ILoggable {
-
-    public var tag = String.tag(KeysStorage.self)
-
+    private var tag = String.tag(KeysStorage.self)
     private var _data: [KeysContainer]
     private let _filename: String = "keys-storage.json"
     private let _client: FileSystem
