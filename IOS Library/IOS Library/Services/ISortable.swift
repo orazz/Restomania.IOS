@@ -10,5 +10,5 @@ import Foundation
 
 public protocol ISortable {
 
-    var orderNumber: Int { get set }
+    var orderNumber: Int { get }
 }

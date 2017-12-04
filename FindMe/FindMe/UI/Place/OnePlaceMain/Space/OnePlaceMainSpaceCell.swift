@@ -23,7 +23,7 @@ public class OnePlaceMainSpaceCell: UITableViewCell {
 }
 extension OnePlaceMainSpaceCell: OnePlaceMainCellProtocol {
 
-    public func update(by place: Place) {}
+    public func update(by place: DisplayPlaceInfo) {}
 }
 extension OnePlaceMainSpaceCell: InterfaceTableCellProtocol {
 

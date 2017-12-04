@@ -31,7 +31,7 @@ public class OnePlaceMainDividerCell: UITableViewCell {
 }
 extension OnePlaceMainDividerCell: OnePlaceMainCellProtocol {
 
-    public func update(by place: Place) {}
+    public func update(by place: DisplayPlaceInfo) {}
 }
 extension OnePlaceMainDividerCell: InterfaceTableCellProtocol {
 

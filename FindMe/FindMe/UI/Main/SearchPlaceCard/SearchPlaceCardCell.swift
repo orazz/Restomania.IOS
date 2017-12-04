@@ -44,7 +44,7 @@ public class SearchPlaceCardCell: UITableViewCell {
     private var _isSetupMarkup: Bool = false
 
     //Services
-    private let _likes = ServicesFactory.shared.likes
+    private let _likes = LogicServices.shared.likes
 
 
 

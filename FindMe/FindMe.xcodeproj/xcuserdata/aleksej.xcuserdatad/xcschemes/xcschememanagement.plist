@@ -4,33 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>FIndMe-BgFetch.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
 		<key>FindMe.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>1FC5A70F1F138B5100ABE1A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1FC5A7231F138B5100ABE1A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1FC5A72E1F138B5100ABE1A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>10</integer>
 		</dict>
 	</dict>
 </dict>

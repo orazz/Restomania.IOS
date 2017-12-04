@@ -18,9 +18,9 @@ open class BaseDataType: Glossy {
         public static let UpdateAt = "UpdateAt"
     }
 
-    open var ID: Int64
-    open var CreateAt: Date
-    open var UpdateAt: Date
+    open let ID: Int64
+    open let CreateAt: Date
+    open let UpdateAt: Date
 
     public init() {
 

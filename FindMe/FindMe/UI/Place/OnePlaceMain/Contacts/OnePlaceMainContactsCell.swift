@@ -166,7 +166,7 @@ extension OnePlaceMainContactsCell: OnePlaceShowDividerDelegate {
 }
 extension OnePlaceMainContactsCell: OnePlaceMainCellProtocol {
 
-    public func update(by place: Place) {
+    public func update(by place: DisplayPlaceInfo) {
         _contacts = place.contacts
     }
 }

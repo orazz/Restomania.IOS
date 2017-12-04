@@ -65,7 +65,7 @@ extension OnePlaceMainDescriptionCell: OnePlaceShowDividerDelegate {
 }
 extension OnePlaceMainDescriptionCell: OnePlaceMainCellProtocol {
 
-    public func update(by place: Place) {
+    public func update(by place: DisplayPlaceInfo) {
         _description = place.description
     }
 }

@@ -12,22 +12,20 @@ public typealias Action<THandler> = (THandler) throws -> Void
 public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
     public typealias THandler = Handler
 
-    public var tag: String {
-        return "EventsAdapter<\(_eventName)>"
-    }
-
+    public let tag: String
+    private let sourceInstance: String
     private let _queue = DispatchQueue.global()
 
-    private var _eventName: String
     private var _subscribers: [String : Subscriber<Handler>]
-
     private var _failLimit: Int
     private var _automatic: Bool
     private var _defaultAction: Action<Handler>?
     private var _triggered: Bool
 
-    public init(name: String, failLimit: Int = -1) {
-        _eventName = name
+    public init(tag: String, failLimit: Int = -1) {
+
+        self.tag = "\(tag):EventsAdapter"
+        self.sourceInstance = tag
         _subscribers = [String: Subscriber<Handler>]()
 
         _failLimit = failLimit
@@ -44,8 +42,8 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
         let subscriber = Subscriber(guid: guid, handler: handler, tag: tag)
         _subscribers[guid] = subscriber
 
-        let message = "On \(_eventName) subscribe \(subscriber.Info)."
-        Log.Debug(tag, message)
+        let message = "On \(sourceInstance) subscribe \(subscriber.Info)."
+        Log.Debug(self.tag, message)
 
         if (self._automatic && self._triggered) {
             Notify(subscriber, action:  _defaultAction!)
@@ -56,7 +54,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
 
         if (nil != subscriber) {
             _subscribers.removeValue(forKey: guid)
-            Log.Debug(tag, "From \(_eventName) unsubscribe \(subscriber!.Info).")
+            Log.Debug(tag, "From \(sourceInstance) unsubscribe \(subscriber!.Info).")
         }
     }
     private func ForceUnsubscribe(guid: String) {
@@ -75,7 +73,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
             }
         }
 
-        Log.Debug(tag, "Trigger \"\(_eventName)\" event.")
+        Log.Debug(tag, "Trigger \"\(sourceInstance)\" event.")
         for (_, subscriber) in _subscribers {
             Notify(subscriber, action: mainAction!)
         }

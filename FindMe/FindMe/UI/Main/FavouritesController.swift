@@ -24,8 +24,8 @@ public class FavouritesController: UIViewController {
     private let _guid = Guid.new
     private var _listAdapter: PlacesListAdapter!
     private var _tableAdapter: PlacesListTableAdapter!
-    private var _cache: SearchPlaceCardsCacheService!
-    private var _likesService: LikesService!
+    private var cacheService: SearchPlaceCardsCacheService!
+    private var _likesService = LogicServices.shared.likes
     private var _stored: [SearchPlaceCard]! {
         didSet {
             _tableAdapter.update(places: _stored)
@@ -43,8 +43,7 @@ public class FavouritesController: UIViewController {
         _listAdapter = PlacesListAdapter(source: self)
         _tableAdapter = PlacesListTableAdapter(source: TableView, delegate: _listAdapter)
         Searchbar.delegate = _tableAdapter
-        _cache = ServicesFactory.shared.searchCards
-        _likesService = ServicesFactory.shared.likes
+        cacheService = CacheServices.searchCards
 
         _likesService.subscribe(guid: _guid, handler: self, tag: _tag)
 
@@ -57,6 +56,8 @@ public class FavouritesController: UIViewController {
         super.viewWillAppear(animated)
 
         loadData()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     //MARK: Load data
@@ -67,41 +68,39 @@ public class FavouritesController: UIViewController {
         }
 
         let liked = _likesService.all()
-        let result = _cache.checkLocal(liked)
-        if (result.cached.isEmpty) {
+        let checkResult = cacheService.cache.check(liked)
+        if (checkResult.cached.isEmpty) {
             _loader.show()
 
             _stored = []
         }
         else {
 
-            _stored = _cache.rangeInLocal(result.cached)
+            _stored = cacheService.cache.range(checkResult.cached)
             _tableAdapter.update(places: _stored)
         }
 
-        if (result.notFound.isEmpty) {
+        if (checkResult.notFound.isEmpty) {
             _loader.hide()
             return
         }
 
         //WTF: Change on range API
         self._isLoadData = true
-        let task = _cache.allRemote()
+        let task = cacheService.all(with: SelectParameters())
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
 
                 self._loader.hide()
 
-                if let response = response {
+                if let response = response.data {
 
                     self._stored = response
                 }
                 else if(!liked.isEmpty && self._stored.isEmpty) {
 
-                    let alert = UIAlertController(title: "Ошибка", message: "Возникла ошибка при обновлении данных. Проверьте подключение к интернету или повторите позднее.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: false, completion: nil)
+                    self.present(ProblemAlerts.Error(for: response.statusCode), animated: true, completion: nil)
                 }
 
                 self._isLoadData = false

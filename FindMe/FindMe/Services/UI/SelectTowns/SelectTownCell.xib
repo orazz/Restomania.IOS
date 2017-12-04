@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SelectTownCell" customModule="FindMe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="SQV-1O-r6X">
+                    <rect key="frame" x="10" y="17.5" width="10" height="10"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="YJw-oG-XiB"/>
+                        <constraint firstAttribute="width" constant="10" id="m6f-I8-Jyh"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Город" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGz-oy-tvC" customClass="FMBodyLabel" customModule="FindMe" customModuleProvider="target">
+                    <rect key="frame" x="35" y="12" width="330" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="SQV-1O-r6X" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="302-th-S9U"/>
+                <constraint firstItem="aGz-oy-tvC" firstAttribute="leading" secondItem="SQV-1O-r6X" secondAttribute="trailing" constant="15" id="EBy-H2-iK3"/>
+                <constraint firstItem="aGz-oy-tvC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="P6i-eR-RRS"/>
+                <constraint firstItem="SQV-1O-r6X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="TTa-m3-9Db"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aGz-oy-tvC" secondAttribute="trailing" constant="10" id="aY1-iZ-fvD"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="MarkImage" destination="SQV-1O-r6X" id="Muw-rb-UJd"/>
+                <outlet property="NameLabel" destination="aGz-oy-tvC" id="68F-Qg-1fF"/>
+            </connections>
+            <point key="canvasLocation" x="4.5" y="-298.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mark" width="50" height="50"/>
+    </resources>
+</document>

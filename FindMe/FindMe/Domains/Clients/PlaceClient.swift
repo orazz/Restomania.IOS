@@ -21,11 +21,11 @@ public class PlaceClient: BaseDataType {
         public static let status = "Status"
     }
 
-    public var name: String
-    public var image: String
-    public var age: Int
-    public var sex: UserSex
-    public var status: UserStatus
+    public let name: String
+    public let image: String
+    public let age: Int
+    public let sex: UserSex
+    public let status: UserStatus
 
     public override init() {
 

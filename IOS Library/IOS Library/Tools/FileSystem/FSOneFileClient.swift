@@ -34,7 +34,6 @@ public class FSOneFileClient {
 
         var result: Data?
         blockQueue.sync {
-
             result = self.fileSystem.loadData(self.filename, fromCache: self.useCache)
         }
 

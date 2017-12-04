@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import IOSLibrary
+import AsyncTask
 
 public class ProfileController: UIViewController {
 
@@ -25,9 +26,9 @@ public class ProfileController: UIViewController {
 
     //MARK: Data & services
     private let _tag = String.tag(ProfileController.self)
-    private var _account: User? = nil
-    private var _usersApiService: UsersMainApiService!
-    private var _isInitUI: Bool = false
+    private var account: User?
+    private var loadQueue: AsyncQueue!
+    private let accountApiService = ApiServices.Users.main
 
 
 
@@ -35,12 +36,31 @@ public class ProfileController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _usersApiService = ApiServices.Users.main
+        loadQueue = AsyncQueue.createForControllerLoad(for: tag)
 
-        setupMarkup()
-        loadData(refresh: false)
+        loadMarkup()
+        startLoadData()
     }
-    private func setupMarkup() {
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.subscribeToScrollWhenKeyboardShow()
+    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        self.unsubscribefromScrollWhenKeyboardShow()
+    }
+
+
+
+    //MARK: Load data
+    private func loadMarkup() {
 
         avatarImage.clipsToBounds = true
         avatarImage.layer.cornerRadius = avatarImage.frame.width / 2
@@ -73,51 +93,35 @@ public class ProfileController: UIViewController {
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
     }
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    private func startLoadData() {
 
-        self.subscribeToScrollWhenKeyboardShow()
+        _loader.show()
 
-        if let _ = _account {
-            refreshData()
-        }
+        loadData()
     }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        self.unsubscribefromScrollWhenKeyboardShow()
-    }
-
-
-
     @objc private func refreshData() {
-        loadData(refresh: true)
+        loadData()
     }
-    private func loadData(refresh: Bool) {
+    private func loadData() {
 
-        if (!refresh) {
-            _loader.show()
-        }
-
-        let request = _usersApiService.find()
+        let request = accountApiService.find()
         request.async(.background, completion: { response in
-
             DispatchQueue.main.async {
 
                 if (response.isFail) {
-                    self.present(ProblemAlerts.NotConnection, animated: false, completion: nil)
+                    self.present(ProblemAlerts.Error(for: response.statusCode), animated: true, completion: nil)
                 }
 
-                self._account = response.data
-                self.completeLoad()
+                self.completeLoad(response.data)
             }
         })
     }
-    private func completeLoad() {
+    private func completeLoad(_ account: User?) {
 
         self._loader.hide()
 
-        if let account = _account {
+        self.account = account
+        if let account = account {
             apply(account: account)
         }
     }
@@ -160,7 +164,7 @@ public class ProfileController: UIViewController {
     }
     private func sendChanges(_ update: PartialUpdateContainer) {
 
-        let request = _usersApiService.change(updates: [update])
+        let request = accountApiService.change(updates: [update])
         request.async(.background, completion: { response in
             DispatchQueue.main.async {
                 if (response.isFail) {
@@ -178,7 +182,7 @@ public class ProfileController: UIViewController {
         if  let normalized = image.normalizeOrientation(),
             let dataUrl = DataUrl.convert(normalized) {
 
-            let request = _usersApiService.changeAvatar(dataUrl: dataUrl)
+            let request = accountApiService.changeAvatar(dataUrl: dataUrl)
             request.async(.background, completion: { response in
                 DispatchQueue.main.async {
                     if (response.isFail) {
@@ -201,6 +205,12 @@ extension ProfileController {
         imagePicker.sourceType = .photoLibrary
 
         self.present(imagePicker, animated: true, completion: nil)
+    }
+
+    @IBAction private func selectTowns() {
+
+        let vc = SelectTownsUIService.initialController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

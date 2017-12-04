@@ -83,7 +83,7 @@ public class ThemeSettings {
         public static let shortDate = "dd/MM"
     }
 
-    public static func initializeStyles() {
+    public static func initialize() {
 
         //Labels
 

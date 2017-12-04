@@ -77,4 +77,7 @@ public extension Array {
 
         return result
     }
+    public var isFilled: Bool {
+        return !self.isEmpty
+    }
 }

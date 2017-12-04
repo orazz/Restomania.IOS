@@ -17,7 +17,7 @@ public class Account: BaseDataType {
         public static let name = "Name"
     }
     
-    public var name: String
+    public let name: String
     
     public override init() {
         

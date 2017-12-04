@@ -24,7 +24,7 @@ public class FMMap: MKMapView {
     //MARK: Services
     private let _tag = String.tag(FMMap.self)
     private let _guid = Guid.new
-    private var _positions: PositionsService!
+    private var _positions = LogicServices.shared.positions
 
     //MARK: Elements
     private var _plus: Control!
@@ -47,7 +47,6 @@ public class FMMap: MKMapView {
 
     private func setup() {
 
-        _positions = ServicesFactory.shared.positions
         _positions.subscribe(guid: _guid, handler: self, tag: _tag)
 
         setupStyles()

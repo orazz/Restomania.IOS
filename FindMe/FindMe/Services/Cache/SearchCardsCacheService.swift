@@ -12,93 +12,91 @@ import AsyncTask
 
 public class SearchPlaceCardsCacheService {
 
-    private let _tag: String
-    private let _client: PlacesMainApiService
-    private let _adapter: CacheRangeAdapter<SearchPlaceCard>
-    private let _properties: PropertiesStorage<PropertiesKey>
+    private let tag = String.tag(SearchPlaceCardsCacheService.self)
+    private let client = ApiServices.Places.searchCards
+    private let properties: PropertiesStorage<PropertiesKey>
+    private let adapter: CacheAdapter<SearchPlaceCard>
+    private let apiQueue: AsyncQueue
 
-
-    
-    public init(configs: ConfigsStorage, properties: PropertiesStorage<PropertiesKey>) {
-
-        _tag = String.tag(SearchPlaceCardsCacheService.self)
-        _client = PlacesMainApiService(configs)
-        _adapter = CacheRangeAdapter<SearchPlaceCard>(tag: _tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
-        _properties = properties
-
-        Log.Debug(_tag, "Complete load service.")
-
-        refresh()
+    //MARK: Cached processing
+    public var cache: CacheAdapterExtender<SearchPlaceCard> {
+        return adapter.extender
     }
 
 
+    public init(properties: PropertiesStorage<PropertiesKey>) {
 
-    //MARK: Local
-    public var allLocal: [SearchPlaceCard] {
-        return _adapter.localData
+        self.properties = properties
+        self.adapter = CacheAdapter<SearchPlaceCard>(tag: tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
+        self.apiQueue = AsyncQueue.createForApi(for: tag)
+
+        Log.Debug(tag, "Complete load service.")
     }
-    public func checkLocal(_ range: [Long]) -> CacheSearchResult<Long>{
-        return _adapter.checkCache(range)
-    }
-    public func findInLocal(_ placeId: Long) -> SearchPlaceCard? {
-        return _adapter.find(placeId)
-    }
-    public func rangeInLocal(_ range: [Long]) -> [SearchPlaceCard] {
-        return _adapter.range(range)
+
+    public func load() {
+        adapter.loadCached()
     }
 
 
     //MARK: Remote
-    
-    public func allRemote() -> Task<[SearchPlaceCard]?> {
+    public func all(with parameters: SelectParameters, in towns: [Long]? = nil) -> Task<ApiResponse<[SearchPlaceCard]>> {
 
-        return Task { (handler: @escaping (([SearchPlaceCard]?) -> Void)) in
+        return Task { (handler: @escaping (ApiResponse<[SearchPlaceCard]>) -> Void) in
 
-            Log.Debug(self._tag, "Request all places' cards.")
+            Log.Debug(self.tag, "Request all places' cards.")
 
-            let request = self._client.SearchCards(args: SelectParameters(time: nil))
-            request.async(.custom(self._adapter.blockQueue), completion: { response in
+            let request = self.client.all(with: parameters, towns: towns)
+            request.async(self.apiQueue, completion: { response in
 
-                guard response.isSuccess,
-                    let update = response.data else {
+                if response.isFail {
+                    handler(response)
+                    Log.Warning(self.tag, "Problem with request all search cards.")
 
-                        handler(nil)
-                        Log.Warning(self._tag, "Problem with request all search cards.")
-                        return
                 }
+                else if let update = response.data {
 
-                self._adapter.addOrUpdate(with: update)
-                handler(self._adapter.localData)
-                Log.Debug(self._tag, "Complete request all.")
+                    self.adapter.addOrUpdate(update)
+                    self.adapter.clearOldCached()
+                    handler(response)
+                    Log.Debug(self.tag, "Complete request all.")
+                }
             })
         }
     }
-    public func refresh() {
+    public func refresh() -> Task<Bool> {
 
-        if (_adapter.isEmpty) {
-            return
-        }
+        return Task<Bool>.init(action: { handler in
 
-        _adapter.blockQueue.async {
+            Log.Debug(self.tag, "Try refresh data.")
 
-            Log.Debug(self._tag, "Start refresh data.")
+            let places = self.cache.all.map{ $0.ID }
+            if (places.isEmpty) {
+                handler(true)
+                return
+            }
 
-//            let time = self._properties.getDate(.lastUpdateSearchCards)
-            let request = self._client.SearchCards(args: SelectParameters(time: nil))
-//            let request = self._client.SearchCards(args: SelectParameters(time: time.unwrapped))
-            request.async(.custom(self._adapter.blockQueue), completion: { response in
+            let request = self.client.range(for: places)
+            request.async(self.apiQueue, completion: { response in
 
-                guard response.isSuccess,
-                    let update = response.data else {
+                if (response.isFail) {
+                    if (response.statusCode != .ConnectionError) {
 
-                    Log.Warning(self._tag, "Problem with refresh data.")
-                    return
+                        Log.Warning(self.tag, "Problem with refresh data.")
+                        handler(false)
+                    }
+
+                }
+                else if let update = response.data {
+                    
+                    Log.Info(self.tag, "Complete refresh data.")
+
+                    self.adapter.clear()
+                    self.adapter.addOrUpdate(update)
                 }
 
-                self._adapter.addOrUpdate(with: update)
-                self._properties.set(.lastUpdateSearchCards, value: Date())
-                Log.Info(self._tag, "Complete refresh data.")
+                handler(true)
             })
-        }
+
+        })
     }
 }

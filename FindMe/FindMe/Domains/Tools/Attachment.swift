@@ -18,8 +18,8 @@ public class Attachment: BaseDataType {
         public static let comment = "Comment"
     }
     
-    public var link: String
-    public var comment: String
+    public let link: String
+    public let comment: String
     
     public override init() {
         

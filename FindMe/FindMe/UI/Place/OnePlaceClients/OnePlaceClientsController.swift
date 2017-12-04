@@ -13,7 +13,7 @@ import IOSLibrary
 public class OnePlaceClientsController: UIViewController {
 
     private static let nibName = "OnePlaceClientsView"
-    public static func build(for sex: UserSex, in place: Place) -> OnePlaceClientsController {
+    public static func build(for sex: UserSex, in place: DisplayPlaceInfo) -> OnePlaceClientsController {
 
         let vc = OnePlaceClientsController(nibName: nibName, bundle: Bundle.main)
 
@@ -25,7 +25,6 @@ public class OnePlaceClientsController: UIViewController {
     }
 
     //MARK: UI elements
-    @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var sexSegment: FMSegmentedControl!
     @IBOutlet private weak var clientsTable: UITableView!
     private var loader: InterfaceLoader!
@@ -34,7 +33,7 @@ public class OnePlaceClientsController: UIViewController {
     //MARK: Data & services
     private var _tag = String.tag(OnePlaceClientsController.self)
     private var apiClient: PlacesClientsApiService!
-    private var place: Place!
+    private var place: DisplayPlaceInfo!
     private var selectedSex: UserSex! {
         didSet {
             updateFiltered()
@@ -55,24 +54,35 @@ public class OnePlaceClientsController: UIViewController {
 
         loadData(refresh: false)
     }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.edgesForExtendedLayout = []
+    }
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
     private func setupMarkup() {
 
         loader = InterfaceLoader(for: self.view)
 
-        navigationBar.topItem?.title = place.name
+        self.title = place.name
 
         refreshControl = UIRefreshControl()
         refreshControl.backgroundColor = ThemeSettings.Colors.background
         refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(needRefreshData), for: .valueChanged)
         clientsTable.addSubview(refreshControl)
 
         updateSegmentControl()
         sexSegment.onChangeEvent = changeSex(_:index:value:)
 
+        self.navigationController?.navigationBar.backgroundColor = ThemeSettings.Colors.background
+
         OnePlaceClientsCell.register(in: clientsTable)
     }
-    @objc private func refreshData() {
+    @objc private func needRefreshData() {
         loadData(refresh: true)
     }
     private func loadData(refresh: Bool) {

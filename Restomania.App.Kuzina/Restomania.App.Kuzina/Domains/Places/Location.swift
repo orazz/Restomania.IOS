@@ -20,11 +20,11 @@ public class PlaceLocation: BaseDataType, ICopying {
         public static let house = "House"
     }
 
-    public var Latitude: Double
-    public var Longitude: Double
-    public var City: String
-    public var Street: String
-    public var House: String
+    public let Latitude: Double
+    public let Longitude: Double
+    public let City: String
+    public let Street: String
+    public let House: String
 
     public override init() {
 
