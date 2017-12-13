@@ -17,7 +17,7 @@ public class AddPaymentCardService: NSObject, UIWebViewDelegate {
     private let _controller: UIViewController
     private let _loader: InterfaceLoader
 
-    private let _cardsService: UserCardsApiService
+    private let _cardsService = ApiServices.Users.cards
 
     private var _isBusy: Bool = false
     private var _complete: AddPaymentCardCallback?
@@ -33,10 +33,6 @@ public class AddPaymentCardService: NSObject, UIWebViewDelegate {
         _controller.view.addSubview(_webView)
 
         _loader = InterfaceLoader(for: _controller.view)
-
-        //Service
-        let keys = ServicesManager.shared.keys
-        _cardsService = UserCardsApiService(storage: keys)
 
         super.init()
 

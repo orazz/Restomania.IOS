@@ -12,22 +12,38 @@ import IOSLibrary
 public class ApiServices {
 
     public struct Auth {
-        public static let main = AuthMainApiService(configs: configs)
+        public static var main: AuthMainApiService {
+            return AuthMainApiService(configs: configs)
+        }
     }
     public struct Menu {
-        public static let summaries = MenuSummariesApiService(configs: configs)
+        public static var summaries: MenuSummariesApiService {
+            return MenuSummariesApiService(configs: configs)
+        }
     }
     public struct Notifications {
-        public static let devices = NotificationsDevicesApiService(configs: configs, keys: keys)
+        public static var devices: NotificationsDevicesApiService {
+            return NotificationsDevicesApiService(configs: configs, keys: keys)
+        }
     }
     public struct Places {
-        public static let summaries = PlaceSummariesApiService(configs: configs)
+        public static var summaries: PlaceSummariesApiService {
+            return PlaceSummariesApiService(configs: configs)
+        }
     }
     public struct Users {
-        public static let account = UserAccountApiService(configs: configs, keys: keys)
-        public static let cards = UserCardsApiService(configs: configs, keys: keys)
-        public static let change = UserChangeApiService(configs: configs, keys: keys)
-        public static let orders = UserOrdersApiService(configs: configs, keys: keys)
+        public static var account: UserAccountApiService {
+            return UserAccountApiService(configs: configs, keys: keys)
+        }
+        public static var cards: UserCardsApiService {
+            return UserCardsApiService(configs: configs, keys: keys)
+        }
+        public static var change: UserChangeApiService {
+            return UserChangeApiService(configs: configs, keys: keys)
+        }
+        public static var orders: UserOrdersApiService {
+            return UserOrdersApiService(configs: configs, keys: keys)
+        }
     }
 
     private static var configs: ConfigsStorage {
