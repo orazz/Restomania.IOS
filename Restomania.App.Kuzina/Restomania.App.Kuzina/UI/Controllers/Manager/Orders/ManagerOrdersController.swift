@@ -20,8 +20,6 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
 
         let vc = ManagerOrdersController(nibName: nibName, bundle: Bundle.main)
 
-        vc._apiService = UserOrdersApiService(storage: ServicesManager.shared.keys)
-
         return vc
     }
 
@@ -31,7 +29,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
     //Tools
     private let _tag = String.tag(ManagerOrdersController.self)
     private var _loader: InterfaceLoader!
-    private var _apiService: UserOrdersApiService!
+    private let _apiService = ApiServices.Users.orders
     private var _orders: [DishOrder] = [DishOrder]()
 
     // MARK: Life circle

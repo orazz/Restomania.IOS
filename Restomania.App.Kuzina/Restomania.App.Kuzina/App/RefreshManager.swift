@@ -14,31 +14,29 @@ public class RefreshManager {
     public static var shared = RefreshManager()
 
     private let tag = String.tag(RefreshManager.self)
-    private let authApiClient = AuthMainApiService()
-    private let keysService: KeysStorage
+    private let authApi = ApiServices.Auth.main
+private let keys = ToolsServices.shared.keys
 
-    private init() {
-        keysService = ServicesManager.shared.keys
-    }
+    private init() {}
 
     public func checkApiKeys() {
 
-        guard let keys = keysService.keys(for: .user) else {
+        guard let keys = keys.keys(for: .user) else {
             return
         }
 
-        let request = authApiClient.refresh(keys: keys)
+        let request = authApi.refresh(keys: keys)
         request.async(.background, completion: { response in
 
             if response.isSuccess,
                 let update = response.data {
 
-                self.keysService.set(keys: update, for: .user)
+                self.keys.set(keys: update, for: .user)
                 Log.Info(self.tag, "Successful update keys for \(ApiRole.user)")
 
             } else if (response.statusCode != .ConnectionError) {
 
-                self.keysService.logout(for: .user)
+                self.keys.logout(for: .user)
                 Log.Warning(self.tag, "Remove old api keys.")
             }
         })

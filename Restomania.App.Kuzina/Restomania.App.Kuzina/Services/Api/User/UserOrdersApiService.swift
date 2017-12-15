@@ -9,7 +9,7 @@
 import Foundation
 import IOSLibrary
 
-public class UserOrdersApiService: BaseAuthApiService {
+public class UserOrdersApiService: BaseApiService {
 
     public init(configs: ConfigsStorage, keys: KeysStorage) {
         super.init(area: "User/DishOrders", tag: String.tag(UserOrdersApiService.self), configs: configs, keys: keys)
@@ -21,7 +21,7 @@ public class UserOrdersApiService: BaseAuthApiService {
                 "time": args?.time
             ])
 
-        return _client.GetRange(action: "All", type: DishOrder.self, parameters: parameters)
+        return client.GetRange(action: "All", type: DishOrder.self, parameters: parameters)
     }
 
     public func find(orderID: Int64) -> RequestResult<DishOrder> {
@@ -30,20 +30,20 @@ public class UserOrdersApiService: BaseAuthApiService {
                 "orderId": orderID
             ])
 
-        return _client.Get(action: "Find", type: DishOrder.self, parameters: parameters)
+        return client.Get(action: "Find", type: DishOrder.self, parameters: parameters)
     }
     public func add(order: AddedOrder) -> RequestResult<DishOrder> {
         let parameters = CollectParameters(for: .user, [
                 "container": order
             ])
 
-        return _client.Post(action: "Add", type: DishOrder.self, parameters: parameters)
+        return client.Post(action: "Add", type: DishOrder.self, parameters: parameters)
     }
     public func cancel(orderID: Int64) -> RequestResult<DishOrder> {
         let parameters = CollectParameters(for: .user, [
                 "orderId": orderID
             ])
 
-        return _client.Put(action: "Cancel", type: DishOrder.self, parameters: parameters)
+        return client.Put(action: "Cancel", type: DishOrder.self, parameters: parameters)
     }
 }

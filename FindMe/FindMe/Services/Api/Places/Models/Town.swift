@@ -19,7 +19,7 @@ public class Town: Glossy, ICached {
         public static let longtitude = "Longtitude"
     }
 
-    public let ID: Long
+    public var ID: Long
     public let name: String
     public let latitude: Double
     public let longtitude: Double

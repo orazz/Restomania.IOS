@@ -18,7 +18,7 @@ public class ManagerController: UIViewController {
 
     private var _theme: ThemeSettings!
     private var _authService: AuthService!
-    private var _keysStorage: IKeysStorage!
+    private var _keysStorage = ToolsServices.shared.keys
 
     //Properties
     private var _isAuth: Bool {
@@ -30,7 +30,6 @@ public class ManagerController: UIViewController {
         super.viewDidLoad()
 
         _authService = AuthService(open: .signup, with: self.navigationController!, rights: .user)
-        _keysStorage = ServicesManager.shared.keys
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -19,7 +19,6 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
 
         vc._orderId = order.ID
         vc._order = order
-        vc._ordersApiService = UserOrdersApiService(storage: ServicesManager.shared.keys)
 
         return vc
     }
@@ -48,7 +47,7 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     private let _tag = String.tag(ManagerOneOrderController.self)
     private var _orderId: Long!
     private var _order: DishOrder!
-    private var _ordersApiService: UserOrdersApiService!
+    private let  _ordersApiService = ApiServices.Users.orders
     private var _dateFormatter: DateFormatter {
 
         let result = DateFormatter()

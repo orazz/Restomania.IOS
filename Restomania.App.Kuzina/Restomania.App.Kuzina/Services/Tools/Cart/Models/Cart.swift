@@ -21,11 +21,11 @@ public class Cart: Reservation {
 
     internal init(place: PlaceCartContainer, cart: CommonCartContainer, saver: @escaping () -> Void) {
         _place = place
-        _adapter = EventsAdapter(name: "\(String.tag(Cart.self))#\(_place.placeID)")
+        _adapter = EventsAdapter(tag: "\(String.tag(Cart.self))#\(_place.placeID)")
 
         super.init(cart: cart, saver: saver)
 
-        while( 0 != _place.dishes.filter({ 0 == $0.count }).count) {
+        while(_place.dishes.any { 0 == $0.count }) {
 
             for (index, dish) in _place.dishes.enumerated() {
                 if (dish.count == 0) {

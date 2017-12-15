@@ -56,25 +56,6 @@ open class CacheAdapter<TElement> where TElement: ICached {
         return !hasData
     }
 
-    // MARK: Search
-    public func checkCache(_ range: [Long]) -> CacheSearchResult<Long> {
-
-        var cached = [Long]()
-        var notFound = [Long]()
-
-        for id in range {
-
-            if let _ = self.data.index(where: { $0.ID == id}) {
-                cached.append(id)
-            }
-            else {
-                notFound.append(id)
-            }
-        }
-
-        return CacheSearchResult<Long>(cached: cached, notFound: notFound)
-    }
-
     // MARK: Adding
     public func addOrUpdate(_ element: TElement) {
         addOrUpdate([element])

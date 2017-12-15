@@ -21,21 +21,15 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     private var _loader: InterfaceLoader!
     private var _tableAdapter: TableAdapter!
     private var _searchAdapter: SearchAdapter<PlaceSummary>!
-    private var _service: CachePlaceSummariesService!
+    private var _service = CacheServices.places
     private var _data: [PlaceSummary]!
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let control = UIRefreshControl()
-//        control.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        control.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
-//        table.addSubview(control)
-
         _loader = InterfaceLoader(for: self.view)
         _tableAdapter = TableAdapter(source: self)
         _searchAdapter = setupSearchAdapter()
-        _service = ServicesManager.shared.placeSummariesService
 
         searchBar.delegate = self
 
@@ -64,9 +58,8 @@ public class SearchController: UIViewController, UISearchBarDelegate {
         let ids = AppSummary.current.placeIDs!
 
         //Take local data
-        let checked = _service.checkCache(ids)
-        _data = _service.rangeLocal(checked.cached)
-        _tableAdapter.Update(_data)
+        let checked = _service.cache.check(ids)
+        completeLoad(checked.cached)
 
         if (checked.notFound.isEmpty) {
 
@@ -79,14 +72,23 @@ public class SearchController: UIViewController, UISearchBarDelegate {
 
         //Request remote
         let task = _service.range(ids)
-        task.async(.utility, completion: { data in
+        task.async(.utility, completion: { response in
 
             DispatchQueue.main.sync {
-                self._data = data
-                self._tableAdapter.Update(data)
-                self._loader.hide()
+
+                if (response.isSuccess) {
+                    self.completeLoad(response.data!)
+                }
+
             }
         })
+    }
+    private func completeLoad(_ places: [PlaceSummary]) {
+
+        self._data = places
+        self._tableAdapter.Update(places)
+
+        self._loader.hide()
     }
     internal func goTo(placeId: Long) {
 

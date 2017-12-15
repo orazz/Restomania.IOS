@@ -38,11 +38,7 @@ public class PlaceMenuController: UIViewController {
         let vc = PlaceMenuController(nibName: nibName, bundle: Bundle.main)
 
         vc._placeId = placeId
-        let factory = ServicesManager.shared!
-        vc._menuService = factory.menuSummariesService
-        vc._placesService = factory.placeSummariesService
-        vc._cart = factory.cartsService.get(for: placeId)
-        vc._keysService = factory.keys
+        vc._cart = ToolsServices.shared.cartsService.get(for: placeId)
 
         return vc
     }
@@ -73,11 +69,11 @@ public class PlaceMenuController: UIViewController {
     private var _cartAction: PlaceMenuCartAction!
 
     // MARK: Services
-    private var _cart: Cart!
-    private var _menuService: CacheMenuSummariesService!
-    private var _placesService: CachePlaceSummariesService!
-    private var _keysService: IKeysStorage!
+    private var _menuService = CacheServices.menu
+    private var _placesService = CacheServices.places
+    private var _keysService = ToolsServices.shared.keys
     private var _authService: AuthService!
+    private var _cart: Cart!
 
     // MARK: Data
     private let _tag = String.tag(PlaceMenuController.self)
@@ -206,7 +202,7 @@ extension PlaceMenuController {
 
         //Take local
         if (!ignoreCache) {
-            if let menu = _menuService.findInLocal(_placeId) {
+            if let menu = _menuService.cache.find { $0. == _placeId } {
 
                 _menu = menu
                 applyMenu()
@@ -215,7 +211,7 @@ extension PlaceMenuController {
         }
 
         //Take remote
-        let task = _menuService.find(for: _placeId, ignoreCache: ignoreCache)
+        let task = _menuService.find(for: _placeId)
         task.async(.background, completion: { result in
 
             if (nil == result) {

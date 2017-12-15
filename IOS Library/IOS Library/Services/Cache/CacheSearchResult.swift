@@ -11,11 +11,11 @@ import Foundation
 public class CacheSearchResult<TType> {
 
     public let cached: [TType]
-    public let notFound: [TType]
+    public let notFound: [Long]
 
 
 
-    public init(cached: [TType], notFound: [TType])
+    public init(cached: [TType], notFound: [Long])
     {
         self.cached = cached
         self.notFound = notFound

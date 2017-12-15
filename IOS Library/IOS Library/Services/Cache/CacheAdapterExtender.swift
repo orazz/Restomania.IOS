@@ -38,8 +38,23 @@ open class CacheAdapterExtender<TElement> where TElement: ICached  {
     public func range(_ ids: [Long]) -> [TElement] {
         return adapter.data.where({ ids.contains($0.ID) }).map{ $0.data }
     }
-    public func check(_ range: [Long]) -> CacheSearchResult<Long>{
-        return adapter.checkCache(range)
+    public func check(_ range: [Long]) -> CacheSearchResult<TElement>{
+
+        var cached = [TElement]()
+        var notFound = [Long]()
+
+        let data = adapter.data
+        for id in range {
+
+            if let index = data.index(where: { $0.ID == id}) {
+                cached.append(data[index].data)
+            }
+            else {
+                notFound.append(id)
+            }
+        }
+
+        return CacheSearchResult<TElement>(cached: cached, notFound: notFound)
     }
 
     public func clear() {

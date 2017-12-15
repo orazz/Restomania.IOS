@@ -13,7 +13,7 @@ public class BaseAuthController: UIViewController {
 
     internal var root: AuthService!
     internal var client: AuthMainApiService!
-    internal var storage: IKeysCRUDStorage!
+    internal var storage = ToolsServices.shared.keys
     internal var loader: InterfaceLoader!
 
     private var login = String.empty
@@ -49,7 +49,6 @@ public class BaseAuthController: UIViewController {
         super.viewDidLoad()
 
         client = AuthMainApiService()
-        storage = ServicesManager.shared.keys as! IKeysCRUDStorage
         loader = InterfaceLoader(for: self.view)
 
         LoginTextField?.addTarget(self, action: #selector(updateLogin), for: .editingChanged)

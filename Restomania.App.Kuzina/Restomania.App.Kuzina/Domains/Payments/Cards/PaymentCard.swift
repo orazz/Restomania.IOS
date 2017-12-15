@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 import IOSLibrary
 
-public class PaymentCard: BaseDataType {
+public class PaymentCard: BaseDataType, ICached {
 
     public struct Keys {
         public static let userId = "UserID"
@@ -38,6 +38,19 @@ public class PaymentCard: BaseDataType {
         self.Currency = .EUR
 
         super.init()
+    }
+
+    // MARK: ICopying
+    public required init(source: PaymentCard) {
+
+        self.UserID = source.UserID
+        self.Last4Number = source.Last4Number
+        self.Status = source.Status
+        self.Type = source.Type
+        self.ClientType = source.ClientType
+        self.Currency = source.Currency
+
+        super.init(source: source)
     }
 
     // MARK: Glossy

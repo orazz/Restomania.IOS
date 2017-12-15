@@ -20,14 +20,14 @@ public class UserCardsApiService: BaseApiService {
     public func all(args: GetArgs? = nil) -> RequestResult<[PaymentCard]> {
         let parameters = CollectParameters(for: .user)
 
-        return _client.GetRange(action: "All", type: PaymentCard.self, parameters: parameters)
+        return client.GetRange(action: "All", type: PaymentCard.self, parameters: parameters)
     }
     public func find(by cardId: Long) -> RequestResult<PaymentCard> {
         let parameters = CollectParameters(for: .user, [
                 "cardId": cardId
             ])
 
-        return _client.Get(action: "Find", type: PaymentCard.self, parameters: parameters)
+        return client.Get(action: "Find", type: PaymentCard.self, parameters: parameters)
     }
 
     public func add(currency: CurrencyType) -> RequestResult<AddingCard> {
@@ -36,13 +36,13 @@ public class UserCardsApiService: BaseApiService {
                 "mobile": true
             ])
 
-        return _client.Post(action: "Add", type: AddingCard.self, parameters: parameters)
+        return client.Post(action: "Add", type: AddingCard.self, parameters: parameters)
     }
     public func remove(cardId: Long) -> RequestResult<Bool> {
         let parameters = CollectParameters(for: .user, [
                 "cardId": cardId
             ])
 
-        return _client.DeleteBool(action: "Remove", parameters: parameters)
+        return client.DeleteBool(action: "Remove", parameters: parameters)
     }
 }

@@ -24,9 +24,6 @@ public class PaymentCardsController: UIViewController,
 
         let vc = PaymentCardsController(nibName: nibName, bundle: Bundle.main)
 
-        vc._addCardService = AddPaymentCardService()
-        vc._apiService = UserCardsApiService(storage: ServicesManager.shared.keys)
-
         return vc
     }
 
@@ -36,8 +33,8 @@ public class PaymentCardsController: UIViewController,
     // MARK: Data & service
     private let _tag = String.tag(PaymentCardsController.self)
     private var _loader: InterfaceLoader!
-    private var _addCardService: AddPaymentCardService!
-    private var _apiService: UserCardsApiService!
+    private var _addCardService = AddCardUIService()
+    private var _apiService = ApiServices.Users.cards
     private var _cards = [PaymentCard]()
 
     // MARK: Life circle

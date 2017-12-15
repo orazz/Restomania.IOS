@@ -17,17 +17,12 @@ public class PushNotificationsManager {
     public static let shared = PushNotificationsManager()
 
     private let tag = String.tag(PushNotificationsManager.self)
-    private let _apiClient: NotificationsDevicesApiService
-    private let _keysStorage: IKeysStorage
-    private let _properties: PropertiesStorage<PropertiesKey>
+    private let _apiClient = ApiServices.Notifications.devices
+    private let _keysStorage = ToolsServices.shared.keys
+    private let _properties = ToolsServices.shared.properties
     private var _token: String?
 
     private init() {
-
-        _apiClient = NotificationsDevicesApiService()
-        _keysStorage = ServicesManager.shared.keys
-
-        _properties = PropertiesStorage<PropertiesKey>()
 
         let token = _properties.getString(.PushDeviceToken)
         if (token.hasValue) {
@@ -85,7 +80,7 @@ public class PushNotificationsManager {
 
         Log.Debug(tag, "Register device with token: \(token)")
 
-        guard let keys = _keysStorage.keys(for: .user) else {
+       if (!_keysStorage.isAuth(for: .user)) {
             return
         }
 
@@ -97,7 +92,7 @@ public class PushNotificationsManager {
 
         _token = token
 
-        let task = _apiClient.Register(keys: keys, token: token, locale: locale)
+        let task = _apiClient.Register(role: .user, token: token, locale: locale)
         task.async(.background, completion: { result in
 
             if (result.statusCode == .OK) {

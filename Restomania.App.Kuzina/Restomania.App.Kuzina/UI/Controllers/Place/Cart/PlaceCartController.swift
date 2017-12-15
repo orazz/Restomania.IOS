@@ -39,13 +39,13 @@ public class PlaceCartController: UIViewController {
         let instance = PlaceCartController(nibName: nibName, bundle: Bundle.main)
 
         instance.placeId = placeId
-        instance.cart = ServicesManager.shared.cartsService.get(for: placeId)
-        instance.placesService = ServicesManager.shared.placeSummariesService
-        instance.menusService = ServicesManager.shared.menuSummariesService
-        instance.cardsService = ServicesManager.shared.paymentCards
-        instance.addPaymentCardsService = AddPaymentCardService()
-        instance.keysService = ServicesManager.shared.keys
-        instance.ordersApiService = UserOrdersApiService(storage:instance.keysService)
+        instance.cart = ToolsServices.shared.cart(for: placeId)
+        instance.placesService = CacheServices.places
+        instance.menusService = CacheServices.menu
+        instance.cardsService = CacheServices.cards
+        instance.addPaymentCardsService = AddCardUIService()
+        instance.keysService = ToolsServices.shared.keys
+        instance.ordersApiService = ApiServices.Users.orders
 
         return instance
     }
@@ -64,11 +64,11 @@ public class PlaceCartController: UIViewController {
     private var sectionsAdapter: InterfaceTable?
     private var rows: [PlaceCartContainerCell] = []
     private var cart: Cart!
-    private var placesService: CachePlaceSummariesService!
-    private var menusService: CacheMenuSummariesService!
-    private var cardsService: CachePaymentCardsService!
-    private var addPaymentCardsService: AddPaymentCardService!
-    private var keysService: IKeysStorage!
+    private var placesService: PlacesCacheService!
+    private var menusService: MenuCacheService!
+    private var cardsService: CardsCacheService!
+    private var addPaymentCardsService: AddCardUIService!
+    private var keysService: KeysStorage!
     private var ordersApiService: UserOrdersApiService!
 
     //Data

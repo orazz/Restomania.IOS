@@ -65,6 +65,6 @@ public class AuthMainApiService: BaseApiService {
             "role": role.rawValue
         ])
 
-        return _client.PutBool(action: "RecoverPassword", parameters: parameters)
+        return client.PutBool(action: "RecoverPassword", parameters: parameters)
     }
 }

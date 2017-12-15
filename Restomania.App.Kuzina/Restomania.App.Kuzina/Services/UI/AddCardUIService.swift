@@ -1,5 +1,5 @@
 //
-//  AddPaymentCardService.swift
+//  AddCardUIService.swift
 //  Restomania.App.Kuzina
 //
 //  Created by Алексей on 12.09.17.
@@ -11,7 +11,7 @@ import UIKit
 import IOSLibrary
 
 public typealias AddPaymentCardCallback = ((Bool, Long) -> Void)
-public class AddPaymentCardService: NSObject, UIWebViewDelegate {
+public class AddCardUIService: NSObject, UIWebViewDelegate {
 
     private let _webView: UIWebView
     private let _controller: UIViewController

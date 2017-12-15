@@ -20,6 +20,6 @@ public class PlaceSummariesApiService: BaseApiService {
                 "placeIDs": placeIDs
             ])
 
-        return _client.GetRange(action: "Range", type: PlaceSummary.self, parameters: parameters)
+        return client.GetRange(action: "Range", type: PlaceSummary.self, parameters: parameters)
     }
 }

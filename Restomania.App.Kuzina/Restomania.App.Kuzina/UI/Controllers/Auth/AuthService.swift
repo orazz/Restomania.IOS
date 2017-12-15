@@ -28,7 +28,7 @@ public class AuthService {
     private var _rights: ApiRole!
     private var _currentPage: AuthPage!
 
-    private var _storage: IKeysStorage!
+    private var _storage: KeysStorage!
     private var _complete: ((Bool) -> Void)?
 
     public init(open firstPage: AuthPage, with navigator: UINavigationController, rights: ApiRole) {
@@ -44,7 +44,7 @@ public class AuthService {
         _rights = rights
         _currentPage = firstPage
 
-        _storage = ServicesManager.shared.keys
+        _storage = ToolsServices.shared.keys
 
         for controller in _controllers {
             controller.root = self
