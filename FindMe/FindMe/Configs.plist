@@ -5,6 +5,6 @@
 	<key>VKAppID</key>
 	<integer>6208351</integer>
 	<key>ServerUrl</key>
-	<string>https://find-me-app-test.azurewebsites.net</string>
+	<string>https://find-me-app.azurewebsites.net</string>
 </dict>
 </plist>
