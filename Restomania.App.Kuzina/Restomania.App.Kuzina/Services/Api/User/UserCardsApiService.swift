@@ -13,7 +13,7 @@ import AsyncTask
 public class UserCardsApiService: BaseApiService {
 
     public init(configs: ConfigsStorage, keys: KeysStorage) {
-        super.init(area: "User/Cards", tag: String.tag(UserCardsApiService.self), configs: configs, keys: keys)
+        super.init(area: "User/Cards", type: UserCardsApiService.self, configs: configs, keys: keys)
     }
 
     // MARK: Methods

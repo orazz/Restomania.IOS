@@ -99,7 +99,6 @@ public class ShortSchedule: Glossy, ICopying {
             }
 
             let minutesInDay = 60 * 24
-            let minutesInWeek = 7 * minutesInDay
 
             let components = _value.components(separatedBy: "-")
             let open = Int(components.first!)! - _number * minutesInDay

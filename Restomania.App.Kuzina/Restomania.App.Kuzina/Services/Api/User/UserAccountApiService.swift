@@ -13,7 +13,7 @@ import AsyncTask
 public class UserAccountApiService: BaseApiService {
 
     public init(configs: ConfigsStorage, keys: KeysStorage) {
-        super.init(area: "User/Account", tag: String.tag(UserAccountApiService.self), configs: configs, keys: keys)
+        super.init(area: "User/Account", type: UserAccountApiService.self, configs: configs, keys: keys)
     }
 
     // MARK: Methods
@@ -21,6 +21,6 @@ public class UserAccountApiService: BaseApiService {
 
         let parameters = CollectParameters(for: .user)
 
-        return _client.Get(action: "Info", type: User.self, parameters: parameters)
+        return client.Get(action: "Info", type: User.self, parameters: parameters)
     }
 }

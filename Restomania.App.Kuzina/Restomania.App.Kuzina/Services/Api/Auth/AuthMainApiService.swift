@@ -13,7 +13,7 @@ import IOSLibrary
 public class AuthMainApiService: BaseApiService {
 
     public init(configs: ConfigsStorage) {
-        super.init(area: "Auth", tag: String.tag(AuthMainApiService.self), configs: configs)
+        super.init(area: "Auth", type: AuthMainApiService.self, configs: configs)
     }
 
     public func refresh(keys: ApiKeys) -> RequestResult<ApiKeys> {

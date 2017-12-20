@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         AppSummary.initialize()
         ThemeSettings.applyStyles()
-        ServicesManager.initialize()
+        CacheServices.load()
 
         PushNotificationsManager.shared.requestPermissions()
         RefreshManager.shared.checkApiKeys()

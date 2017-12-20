@@ -10,40 +10,36 @@ import UIKit
 import AsyncTask
 import IOSLibrary
 
-public class SearchController: UIViewController, UISearchBarDelegate {
+public class SearchController: UIViewController {
 
     // MARK: UI elements
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var table: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var table: UITableView!
+    private var loader: InterfaceLoader!
+    private var refreshControl: RefreshControl!
 
     // MARK: Data & services
     private let _tag = String.tag(SearchController.self)
-    private let loadQueue: AsyncQueue!
-    private var _loader: InterfaceLoader!
-    private var _tableAdapter: TableAdapter!
-    private var _searchAdapter: SearchAdapter<PlaceSummary>!
-    private var _service = CacheServices.places
-    private var _data: [PlaceSummary]!
+    private var loadQueue: AsyncQueue!
+    private var tableAdapter: TableAdapter!
+    private var searchAdapter: SearchAdapter<PlaceSummary>!
+    private var service = CacheServices.places
+    private var places: [PlaceSummary]!
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        loader = InterfaceLoader(for: self.view)
+        refreshControl = table.addRefreshControl(for: self, action: #selector(needReload))
+
         loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
-        _loader = InterfaceLoader(for: self.view)
-        _tableAdapter = TableAdapter(source: self)
-        _searchAdapter = setupSearchAdapter()
+        tableAdapter = TableAdapter(for: self)
+        searchAdapter = setupSearchAdapter()
 
         searchBar.delegate = self
 
         loadData()
-
     }
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        hideNavigationBar()
-    }
-
     private func setupSearchAdapter() -> SearchAdapter<PlaceSummary> {
         let adapter = SearchAdapter<PlaceSummary>()
 
@@ -55,21 +51,42 @@ public class SearchController: UIViewController, UISearchBarDelegate {
 
         return adapter
     }
+
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        hideNavigationBar()
+    }
+
+    internal func goTo(_ place: PlaceSummary) {
+
+        let vc = PlaceMenuController.create(for: place.ID)
+        self.navigationController!.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: Load
+extension SearchController {
+
     private func loadData() {
 
         let ids = AppSummary.shared.placeIDs!
+        let cached = service.cache.range(ids)
 
-        //Take local data
-        let result = _service.cache.check(ids)
-        if (result.cached.isEmpty) {
-            _loader.show()
+        if (cached.isEmpty) {
+            loader.show()
         }
-        else {
-            completeLoad(result.cached)
-        }
+        completeLoad(cached)
 
-        //Request remote
-        let task = _service.range(ids)
+        requestPlaces()
+    }
+    @objc private func needReload() {
+        requestPlaces()
+    }
+    private func requestPlaces() {
+
+        let ids = AppSummary.shared.placeIDs!
+        let task = service.range(ids)
         task.async(loadQueue, completion: { response in
 
             DispatchQueue.main.sync {
@@ -86,66 +103,73 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     private func completeLoad(_ places: [PlaceSummary]?) {
 
         if let places = places {
-            self._data = places
-            self._tableAdapter.Update(places)
+            self.places = places
+            self.tableAdapter.Update(places)
         }
 
-        self._loader.hide()
+        self.loader.hide()
+        self.refreshControl.endRefreshing()
     }
+}
 
-    internal func goTo(placeId: Long) {
+// MARK: Search delegate
+extension SearchController: UISearchBarDelegate {
 
-        let vc = PlaceMenuController.create(for: placeId)
-
-        self.navigationController!.pushViewController(vc, animated: true)
-    }
-
-    //SearchBar delegate
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        let filtered = _searchAdapter.filter(phrase: searchBar.text ?? String.empty, for: _data)
-
-        _tableAdapter.Update(filtered)
+        let filtered = searchAdapter.filter(phrase: searchBar.text, for: places)
+        tableAdapter.Update(filtered)
     }
+}
+
+// MARK: Table adapter
+extension SearchController {
 
     private class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
 
-        private let _table: UITableView
-        private let _source: SearchController
-        private var _data: [PlaceSummary]
+        private let table: UITableView
+        private let delegate: SearchController
+        private var places: [PlaceSummary]
 
-        public init(source: SearchController) {
-            _source = source
-            _table = source.table
-            _data = [PlaceSummary]()
+        public init(for delegate: SearchController) {
+
+            self.table = delegate.table
+            self.delegate = delegate
+            self.places = [PlaceSummary]()
 
             super.init()
 
-            let nib = UINib.init(nibName: PlaceCard.nibName, bundle: nil)
-            _table.register(nib, forCellReuseIdentifier: PlaceCard.identifier)
-            _table.delegate = self
-            _table.dataSource = self
+            SearchPlaceCard.register(in: table)
+            table.delegate = self
+            table.dataSource = self
         }
 
-        public func Update(_ data: [PlaceSummary]) {
-            _data = data
-            _table.reloadData()
+        public func Update(_ places: [PlaceSummary]) {
+            self.places = places
+            table.reloadData()
         }
 
-        //Delegate
-        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return _data.count
+        // MARK: UITableViewDelegate
+        public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+
+            tableView.deselectRow(at: indexPath, animated: true)
+            delegate.goTo(places[indexPath.row])
         }
+
+        // MARK: UITableViewDataSource
         public func numberOfSections(in tableView: UITableView) -> Int {
             return 1
         }
+        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return places.count
+        }
         public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return PlaceCard.height
+            return SearchPlaceCard.height
         }
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-            let cell = tableView.dequeueReusableCell(withIdentifier: PlaceCard.identifier, for: indexPath) as! PlaceCard
-            cell.initialize(summary: _data[indexPath.row], touchAction: { self._source.goTo(placeId: $0) })
+            let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCard.identifier, for: indexPath) as! SearchPlaceCard
+            cell.update(summary: places[indexPath.row])
 
             return cell
         }

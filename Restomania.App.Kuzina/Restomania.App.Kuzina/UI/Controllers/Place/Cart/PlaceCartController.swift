@@ -198,7 +198,7 @@ extension PlaceCartController {
     }
     private func requestMenu() {
 
-        if let menu = menusService.cache.find{ $0.placeID == placeId } {
+        if let menu = menusService.cache.find { $0.placeID == placeId } {
 
             self.menu = menu
             self.isCompleteLoadMenu = true
@@ -237,8 +237,7 @@ extension PlaceCartController {
 
             if (response.isSuccess) {
                 self.summary = response.data!
-            }
-            else {
+            } else {
                 Log.Error(self._tag, "Problem with load place's summary.")
             }
 
@@ -251,7 +250,7 @@ extension PlaceCartController {
     }
     private func requestCards() {
 
-        let request = card.all()
+        let request = cardsService.all()
         request.async(.background, completion: { result in
 
             if let cards = result {

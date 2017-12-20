@@ -9,34 +9,26 @@
 import UIKit
 import IOSLibrary
 
-public class PlaceCard: UITableViewCell {
+public class SearchPlaceCard: UITableViewCell {
 
-    public static var nibName = "PlaceCard"
-    public static let identifier = "PlaceCard-\(Guid.new)"
     public static let height = CGFloat(150)
+    public static let identifier = "\(String.tag(SearchPlaceCard.self))-\(Guid.new)"
+    private static let nibName = "SearchPlaceCardCell"
+    public static func register(in table: UITableView) {
 
-    @IBOutlet weak var placeImage: WrappedImage!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var workingHours: UILabel!
+        let nib = UINib.init(nibName: SearchPlaceCard.nibName, bundle: nil)
+        table.register(nib, forCellReuseIdentifier: identifier)
+    }
+
+    @IBOutlet private weak var placeImage: WrappedImage!
+    @IBOutlet private weak var name: UILabel!
+    @IBOutlet private weak var location: UILabel!
+    @IBOutlet private weak var workingHours: UILabel!
 
     private var _summary: PlaceSummary!
-    private var _isSetupedStyles: Bool = false
-    private var _touchAction: ((Long) -> Void)!
 
-    public func initialize(summary: PlaceSummary, touchAction:@escaping (Long) -> Void) {
-
-        _summary = summary
-        _touchAction = touchAction
-
-        setupStyles()
-        refresh()
-    }
-    private func setupStyles() {
-
-        if (_isSetupedStyles) {
-            return
-        }
+    public override func awakeFromNib() {
+        super.awakeFromNib()
 
         name.font = ThemeSettings.Fonts.bold(size: .head)
         name.textColor = ThemeSettings.Colors.additional
@@ -46,17 +38,12 @@ public class PlaceCard: UITableViewCell {
 
         location.font = ThemeSettings.Fonts.default(size: .subhead)
         location.textColor = ThemeSettings.Colors.additional
-
-        let handler = UITapGestureRecognizer(target: self, action: #selector(self.tapHandler))
-        self.addGestureRecognizer(handler)
-
-        _isSetupedStyles = true
     }
-    @objc public func tapHandler() {
+    public func update(summary: PlaceSummary) {
+        _summary = summary
 
-        _touchAction(_summary.ID)
+        refresh()
     }
-
     private func refresh() {
 
         placeImage.setup(url: _summary.Image)

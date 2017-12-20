@@ -12,7 +12,7 @@ import IOSLibrary
 public class BaseAuthController: UIViewController {
 
     internal var root: AuthService!
-    internal var client: AuthMainApiService!
+    internal var client = ApiServices.Auth.main
     internal var storage = ToolsServices.shared.keys
     internal var loader: InterfaceLoader!
 
@@ -48,7 +48,6 @@ public class BaseAuthController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        client = AuthMainApiService()
         loader = InterfaceLoader(for: self.view)
 
         LoginTextField?.addTarget(self, action: #selector(updateLogin), for: .editingChanged)

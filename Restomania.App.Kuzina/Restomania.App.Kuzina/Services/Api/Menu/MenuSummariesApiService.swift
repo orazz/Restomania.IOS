@@ -12,7 +12,7 @@ import IOSLibrary
 public class MenuSummariesApiService: BaseApiService {
 
     public init(configs: ConfigsStorage) {
-        super.init(area: "Menu/Summaries", tag: "MenuSummariesApiService", configs: configs)
+        super.init(area: "Menu/Summaries", type: MenuSummariesApiService.self, configs: configs)
     }
 
     public func find(placeID: Long) -> RequestResult<MenuSummary> {

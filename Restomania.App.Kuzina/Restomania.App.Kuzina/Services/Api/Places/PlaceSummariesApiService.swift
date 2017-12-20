@@ -1,5 +1,5 @@
 //
-//  OpenPlaceSummariesApiService.swift
+//  PlaceSummariesApiService.swift
 //  Restomania.App.Kuzina
 //
 //  Created by Алексей on 20.07.17.
@@ -12,7 +12,7 @@ import IOSLibrary
 public class PlaceSummariesApiService: BaseApiService {
 
     public init(configs: ConfigsStorage) {
-        super.init(area: "Place/Summaries", tag: String.tag(PlaceSummariesApiService.self), configs: configs)
+        super.init(area: "Place/Summaries", type: PlaceSummariesApiService.self, configs: configs)
     }
 
     public func find(placeId: Long) -> RequestResult<PlaceSummary> {

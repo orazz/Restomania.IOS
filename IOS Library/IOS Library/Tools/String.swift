@@ -23,11 +23,27 @@ extension String {
 
         return type.components(separatedBy: ".").first!
     }
+}
+
+//MARK: Localization
+public protocol Localizable {
+    var tableName: String { get }
+    var localized: String { get }
+}
+extension String {
+
     public var localized: String {
         return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
     }
-    public func localized(with comment: String) -> String {
-        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: comment)
+    public func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
+        return NSLocalizedString(self, tableName: tableName, value: "**\(self)**", comment: "")
+    }
+}
+extension Localizable where Self: RawRepresentable,
+                             Self.RawValue == String {
+
+    public var localized: String {
+        return rawValue.localized(tableName: tableName)
     }
 }
 

@@ -14,14 +14,23 @@ public class RefreshControl: UIRefreshControl {
 
     public init(_ target: Any, action: Selector) {
 
+        super.init()
+
         self.backgroundColor = ThemeSettings.Colors.background
-        self.attributedTitle = NSAttributedString(string: "Потяните для обновления")
+        self.attributedTitle = NSAttributedString(string: Localization.UIElements.RefreshControl.title)
         self.addTarget(target, action: action, for: .valueChanged)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }
 extension UITableView {
 
-    public func addRefreshControl(for target: Any, action: Selector) {
+    public func addRefreshControl(for target: Any, action: Selector) -> RefreshControl {
 
+        let control = RefreshControl.init(target, action: action)
+        self.addSubview(control)
+
+        return control
     }
 }

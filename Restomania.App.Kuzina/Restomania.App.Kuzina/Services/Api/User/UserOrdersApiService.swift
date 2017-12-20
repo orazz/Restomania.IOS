@@ -12,7 +12,7 @@ import IOSLibrary
 public class UserOrdersApiService: BaseApiService {
 
     public init(configs: ConfigsStorage, keys: KeysStorage) {
-        super.init(area: "User/DishOrders", tag: String.tag(UserOrdersApiService.self), configs: configs, keys: keys)
+        super.init(area: "User/DishOrders", type: UserOrdersApiService.self, configs: configs, keys: keys)
     }
 
     public func all(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {

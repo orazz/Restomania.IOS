@@ -13,7 +13,7 @@ import IOSLibrary
 public class UserChangeApiService: BaseApiService {
 
     public init(configs: ConfigsStorage, keys: KeysStorage) {
-        super.init(area: "User/Change", tag: String.tag(UserChangeApiService.self), configs: configs, keys: keys)
+        super.init(area: "User/Change", type: UserChangeApiService.self, configs: configs, keys: keys)
     }
 
 }
