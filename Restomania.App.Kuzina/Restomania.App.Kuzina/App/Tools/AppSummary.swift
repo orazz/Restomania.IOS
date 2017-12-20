@@ -11,10 +11,10 @@ import IOSLibrary
 
 public class AppSummary: ILoggable {
 
-    public static var current: AppSummary!
+    public static var shared: AppSummary!
     public static func initialize() {
-        current = AppSummary()
-        Log.Info(current.tag, "Lanuch app with type \(AppSummary.current.type).")
+        shared = AppSummary()
+        Log.Info(shared.tag, "Lanuch app with type \(AppSummary.shared.type).")
     }
 
     public var tag: String {

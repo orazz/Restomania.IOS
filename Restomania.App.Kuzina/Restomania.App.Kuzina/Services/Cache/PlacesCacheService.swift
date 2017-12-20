@@ -33,11 +33,24 @@ public class PlacesCacheService {
     }
 
     //Remote
-    public func range(_ ids: [Long]) -> RequestResult<[PlaceSummary]> {
+    public func find(_ id: Long) -> RequestResult<PlaceSummary> {
+        return RequestResult<PlaceSummary> { handler in
 
+            let request = self.api.find(placeId: id)
+            request.async(self.apiQueue, completion: { response in
+
+                if (response.isSuccess) {
+                    self.adapter.addOrUpdate(response.data!)
+                }
+
+                handler(response)
+            })
+        }
+    }
+    public func range(_ ids: [Long]) -> RequestResult<[PlaceSummary]> {
         return RequestResult<[PlaceSummary]> { handler in
 
-            let request = self.api.Range(placeIDs: ids)
+            let request = self.api.all(placeIDs: ids)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {

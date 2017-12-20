@@ -15,7 +15,14 @@ public class PlaceSummariesApiService: BaseApiService {
         super.init(area: "Place/Summaries", tag: String.tag(PlaceSummariesApiService.self), configs: configs)
     }
 
-    public func Range(placeIDs: [Long]) -> RequestResult<[PlaceSummary]> {
+    public func find(placeId: Long) -> RequestResult<PlaceSummary> {
+        let parameters = CollectParameters([
+            "placeId": placeId
+            ])
+
+        return client.Get(action: "Find", type: PlaceSummary.self, parameters: parameters)
+    }
+    public func all(placeIDs: [Long]) -> RequestResult<[PlaceSummary]> {
         let parameters = CollectParameters([
                 "placeIDs": placeIDs
             ])

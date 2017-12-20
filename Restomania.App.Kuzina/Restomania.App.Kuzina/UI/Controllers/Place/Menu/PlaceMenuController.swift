@@ -107,7 +107,7 @@ public class PlaceMenuController: UIViewController {
         _interfaceAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!, rows: _contentRows)
         _interfaceAdapter.delegate = self
 
-        _cart = ServicesManager.shared.cartsService.get(for: _placeId)
+        _cart = ToolsServices.shared.cart(for: _placeId)
 
         _bottomAction = BottomActions(for: self.view)
         _cartAction = PlaceMenuCartAction.create(with: self)
@@ -202,7 +202,7 @@ extension PlaceMenuController {
 
         //Take local
         if (!ignoreCache) {
-            if let menu = _menuService.cache.find { $0. == _placeId } {
+            if let menu = _menuService.cache.find { $0.placeID == _placeId } {
 
                 _menu = menu
                 applyMenu()
@@ -248,8 +248,8 @@ extension PlaceMenuController {
         }
 
         //Take remote
-        let task = _placesService.range([ _placeId ], ignoreCache: ignoreCache)
-        task.async(.background, completion: { result in
+        let task = _placesService.range([ _placeId ])
+        task.async(.background, completion: { response in
 
             if (result.isEmpty) {
                 Log.Warning(self._tag, "Problem with load place summary.")

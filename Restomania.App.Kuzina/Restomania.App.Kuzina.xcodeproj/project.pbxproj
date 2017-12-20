@@ -48,6 +48,8 @@
 		1F36C88E1F20C4DA00232B9A /* ShortSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88D1F20C4DA00232B9A /* ShortSchedule.swift */; };
 		1F36C8901F20C5E000232B9A /* PlaceSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36C88F1F20C5E000232B9A /* PlaceSummary.swift */; };
 		1F3C5A0C1FB15D940038EB97 /* BottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */; };
+		1F4B0E821FE84CFD006C0C58 /* ProblemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B0E811FE84CFC006C0C58 /* ProblemAlert.swift */; };
+		1F4B0E841FE8A8CD006C0C58 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B0E831FE8A8CD006C0C58 /* RefreshControl.swift */; };
 		1F5CF82F1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */; };
 		1F5CF8331FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */; };
 		1F5CF8371FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF8361FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift */; };
@@ -297,6 +299,8 @@
 		1F36C89F1F20CE8800232B9A /* ConfigsStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorageTests.swift; path = Tools/ConfigsStorageTests.swift; sourceTree = "<group>"; };
 		1F36C8A01F20CE8800232B9A /* PropertiesStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorageTests.swift; path = Tools/PropertiesStorageTests.swift; sourceTree = "<group>"; };
 		1F3C5A0B1FB15D940038EB97 /* BottomActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BottomActions.swift; path = UI/Elements/BottomActions/BottomActions.swift; sourceTree = "<group>"; };
+		1F4B0E811FE84CFC006C0C58 /* ProblemAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProblemAlert.swift; path = Services/UI/ProblemAlert.swift; sourceTree = "<group>"; };
+		1F4B0E831FE8A8CD006C0C58 /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RefreshControl.swift; path = UI/Elements/RefreshControl.swift; sourceTree = "<group>"; };
 		1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartDishesContainerCell.swift; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCell.swift; sourceTree = "<group>"; };
 		1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartDishesContainerCellView.xib; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCellView.xib; sourceTree = "<group>"; };
 		1F5CF8361FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartPaymentCardsContainer.swift; path = UI/Controllers/Place/Cart/PaymentCardContainer/PlaceCartPaymentCardsContainer.swift; sourceTree = "<group>"; };
@@ -871,6 +875,7 @@
 			isa = PBXGroup;
 			children = (
 				1FB3F2511FD572BE0073640B /* AddCardUIService.swift */,
+				1F4B0E811FE84CFC006C0C58 /* ProblemAlert.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1384,6 +1389,7 @@
 				1F261C781F42BC4B004BFFCB /* Buttons */,
 				1FBE83F91F25C9D00002F0B5 /* WrappedImage */,
 				1FD9A0BA1F23607C0026BDF8 /* Cards */,
+				1F4B0E831FE8A8CD006C0C58 /* RefreshControl.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -1892,6 +1898,7 @@
 				1F62E4811FAE466F00D1C89D /* BaseAuthController.swift in Sources */,
 				1FB3F28D1FD57D370073640B /* ToolsServices.swift in Sources */,
 				1FB8EFCF1F1D41590090045E /* UserSex.swift in Sources */,
+				1F4B0E821FE84CFD006C0C58 /* ProblemAlert.swift in Sources */,
 				1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */,
 				1FB3F25F1FD573000073640B /* CommonCartContainer.swift in Sources */,
 				1FE3C76B1FB31702009CE542 /* PlaceCartTotalContainer.swift in Sources */,
@@ -1949,6 +1956,7 @@
 				1F279F6D1FB07CCA003A2B47 /* TermsController.swift in Sources */,
 				1FF703A71F6845C50028A9B8 /* Price.swift in Sources */,
 				1F62E4831FAE466F00D1C89D /* LoginController.swift in Sources */,
+				1F4B0E841FE8A8CD006C0C58 /* RefreshControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

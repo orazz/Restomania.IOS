@@ -59,7 +59,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
     // MARK: Process methods
     private func loadOrders() {
 
-        let placeIds = AppSummary.current.placeIDs!
+        let placeIds = AppSummary.shared.placeIDs!
 
         _loader.show()
 

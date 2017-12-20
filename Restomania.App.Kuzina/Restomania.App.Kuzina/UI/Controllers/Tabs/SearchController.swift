@@ -18,6 +18,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
 
     // MARK: Data & services
     private let _tag = String.tag(SearchController.self)
+    private let loadQueue: AsyncQueue!
     private var _loader: InterfaceLoader!
     private var _tableAdapter: TableAdapter!
     private var _searchAdapter: SearchAdapter<PlaceSummary>!
@@ -27,6 +28,7 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
         _loader = InterfaceLoader(for: self.view)
         _tableAdapter = TableAdapter(source: self)
         _searchAdapter = setupSearchAdapter()
@@ -55,41 +57,42 @@ public class SearchController: UIViewController, UISearchBarDelegate {
     }
     private func loadData() {
 
-        let ids = AppSummary.current.placeIDs!
+        let ids = AppSummary.shared.placeIDs!
 
         //Take local data
-        let checked = _service.cache.check(ids)
-        completeLoad(checked.cached)
-
-        if (checked.notFound.isEmpty) {
-
-            return
-        }
-        if (checked.cached.isEmpty) {
-
+        let result = _service.cache.check(ids)
+        if (result.cached.isEmpty) {
             _loader.show()
+        }
+        else {
+            completeLoad(result.cached)
         }
 
         //Request remote
         let task = _service.range(ids)
-        task.async(.utility, completion: { response in
+        task.async(loadQueue, completion: { response in
 
             DispatchQueue.main.sync {
 
-                if (response.isSuccess) {
-                    self.completeLoad(response.data!)
+                if (response.isFail) {
+                    let alert = ProblemAlerts.error(for: response)
+                    self.present(alert, animated: true, completion: nil)
                 }
 
+                self.completeLoad(response.data)
             }
         })
     }
-    private func completeLoad(_ places: [PlaceSummary]) {
+    private func completeLoad(_ places: [PlaceSummary]?) {
 
-        self._data = places
-        self._tableAdapter.Update(places)
+        if let places = places {
+            self._data = places
+            self._tableAdapter.Update(places)
+        }
 
         self._loader.hide()
     }
+
     internal func goTo(placeId: Long) {
 
         let vc = PlaceMenuController.create(for: placeId)
