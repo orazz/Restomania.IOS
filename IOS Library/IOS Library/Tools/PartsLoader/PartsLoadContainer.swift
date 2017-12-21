@@ -49,7 +49,7 @@ public class PartsLoadTypedContainer<TData> : PartsLoadContainer {
     public override var hasData: Bool {
         return nil != data
     }
-    public var updateHandler: Consumer<TData>?
+    public var updateHandler: Action<TData>?
 
     //MARK: Methods
     public func update(_ data: TData?) {

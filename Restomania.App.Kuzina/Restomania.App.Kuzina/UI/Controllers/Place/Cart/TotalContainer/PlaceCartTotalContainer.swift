@@ -28,7 +28,7 @@ public class PlaceCartTotalContainer: UITableViewCell {
 
         var result = [PlaceCartContainerCell]()
 
-        result.append(PlaceCartTotalContainerCell.create(for: delegate, title: "Итого", { $0.totalPrice(with: $1) }))
+        result.append(PlaceCartTotalContainerCell.create(for: delegate, title: "Итого", { $0.total(with: $1) }))
 
         return result
     }

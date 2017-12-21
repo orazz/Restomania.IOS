@@ -206,7 +206,7 @@ extension PlaceCartController {
             return
         }
 
-        let request = menusService.find(for: placeId)
+        let request = menusService.find(placeId)
         request.async(.background, completion: { response in
 
             if (response.isSuccess) {

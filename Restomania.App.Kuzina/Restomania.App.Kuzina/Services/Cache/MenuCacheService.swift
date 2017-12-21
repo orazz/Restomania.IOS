@@ -32,11 +32,11 @@ public class MenuCacheService {
     }
 
     //Remote
-    public func find(for placeID: Long) -> RequestResult<MenuSummary> {
+    public func find(_ placeId: Long) -> RequestResult<MenuSummary> {
 
         return RequestResult<MenuSummary> { handler in
 
-            let request = self.api.find(placeID: placeID)
+            let request = self.api.find(placeID: placeId)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
@@ -47,11 +47,11 @@ public class MenuCacheService {
             }
         }
     }
-    public func range(placeIDs: [Long]) -> RequestResult<[MenuSummary]> {
+    public func range(_ placeIds: [Long]) -> RequestResult<[MenuSummary]> {
 
         return RequestResult<[MenuSummary]> { handler in
 
-            let request = self.api.range(placeIDs: placeIDs)
+            let request = self.api.range(placeIDs: placeIds)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {

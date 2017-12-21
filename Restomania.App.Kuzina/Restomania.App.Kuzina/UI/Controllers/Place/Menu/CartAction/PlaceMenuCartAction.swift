@@ -18,10 +18,12 @@ public class PlaceMenuCartAction: UIView {
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceMenuCartAction
 
-        instance._delegate = delegate
-        instance._menu = delegate.menu
-        instance._cart = delegate.cart
+        instance.delegate = delegate
+        instance.menu = delegate.menu
+        instance.cart = delegate.cart
+
         instance.setupMarkup()
+        instance.apply()
 
         return instance
     }
@@ -31,44 +33,43 @@ public class PlaceMenuCartAction: UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
     @IBAction private func goToCart() {
-        _delegate.goToCart()
+        delegate.goToCart()
     }
 
     //Data & services
     private let _tag = String.tag(PlaceMenuCartAction.self)
-    private let _guid = Guid.new
-    private var _currency = CurrencyType.All
-    private var _delegate: PlaceMenuDelegate!
-    private var _menu: MenuSummary?
-    private var _cart: Cart! {
+    private let guid = Guid.new
+    private var currency = CurrencyType.All
+    private var delegate: PlaceMenuDelegate!
+    private var menu: MenuSummary? {
         didSet {
-            apply()
+            if let menu = menu {
+                currency = menu.currency
+            }
         }
     }
+    private var cart: Cart!
 
     public func viewDidAppear() {
-        _cart.subscribe(guid: _guid, handler: self, tag: _tag)
+        cart.subscribe(guid: guid, handler: self, tag: _tag)
     }
     public func viewDidDisappear() {
-        _cart.unsubscribe(guid: _guid)
+        cart.unsubscribe(guid: guid)
     }
     public func update(new menu: MenuSummary) {
-
-        _menu = menu
-        _currency = menu.currency
+        self.menu = menu
 
         apply()
     }
 
     private func apply() {
 
-        let cart = _cart!
-
         DispatchQueue.main.async {
-            self.countLabel.text = "\(cart.dishes.sum({ $0.count }))"
+            self.countLabel.text = "\(self.cart.dishes.sum({ $0.count }))"
 
-            if let menu = self._menu {
-                self.totalLabel.setup(amount: cart.totalPrice(with: menu), currency: self._currency)
+            if let menu = self.menu {
+                self.totalLabel.setup(amount: self.cart.total(with: menu),
+                                     currency: self.currency)
             }
         }
     }

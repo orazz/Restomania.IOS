@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceMenuController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <connections>
                 <outlet property="contentTable" destination="uaE-hu-3IV" id="kSB-yX-d61"/>
-                <outlet property="fadeInPanel" destination="xaJ-Ms-SXz" id="zBy-xg-JXI"/>
+                <outlet property="fadeInPanel" destination="xaJ-Ms-SXz" id="7eK-5n-WV9"/>
                 <outlet property="view" destination="JL5-6G-4pb" id="czT-wx-xCv"/>
             </connections>
         </placeholder>

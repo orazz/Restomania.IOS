@@ -8,7 +8,6 @@
 
 import Foundation
 
-public typealias Action<THandler> = (THandler) throws -> Void
 public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
     public typealias THandler = Handler
 
@@ -110,17 +109,9 @@ private class Subscriber<THandler> {
         self.Fails = 0
     }
     public func Call(action: Action<THandler>, logger: ILoggable) -> Bool {
-        do {
-            try action(self.Handler)
-            Fails = 0
 
-            return true
-        } catch {
-            Fails += 1
-            Log.Error(logger.tag, "Problem with \(self.Info)")
-
-            return false
-        }
+         action(self.Handler)
+        return true
     }
 
 }

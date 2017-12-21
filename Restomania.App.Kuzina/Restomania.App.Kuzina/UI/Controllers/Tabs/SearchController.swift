@@ -14,17 +14,21 @@ public class SearchController: UIViewController {
 
     // MARK: UI elements
     @IBOutlet private weak var searchBar: UISearchBar!
-    @IBOutlet private weak var table: UITableView!
+    @IBOutlet private weak var placesTable: UITableView!
     private var loader: InterfaceLoader!
     private var refreshControl: RefreshControl!
 
     // MARK: Data & services
     private let _tag = String.tag(SearchController.self)
     private var loadQueue: AsyncQueue!
-    private var tableAdapter: TableAdapter!
     private var searchAdapter: SearchAdapter<PlaceSummary>!
     private var service = CacheServices.places
-    private var places: [PlaceSummary]!
+    private var places: [PlaceSummary]! {
+        didSet {
+            updateFiltered()
+        }
+    }
+    private var filtered: [PlaceSummary]!
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,26 +41,24 @@ public class SearchController: UIViewController {
 
         hideNavigationBar()
     }
-
-    // MARK: Actions
-    internal func goTo(_ place: PlaceSummary) {
-
-        let vc = PlaceMenuController.create(for: place.ID)
-        self.navigationController!.pushViewController(vc, animated: true)
-    }
 }
 
 // MARK: Load
 extension SearchController {
 
     private func loadMarkup() {
-        loader = InterfaceLoader(for: self.view)
-        refreshControl = table.addRefreshControl(for: self, action: #selector(needReload))
+
+        searchBar.delegate = self
+
+        placesTable.delegate = self
+        placesTable.dataSource = self
+        SearchPlaceCard.register(in: placesTable)
 
         loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
-        tableAdapter = TableAdapter(for: self)
+
+        loader = InterfaceLoader(for: self.view)
         searchAdapter = setupSearchAdapter()
-        searchBar.delegate = self
+        refreshControl = placesTable.addRefreshControl(for: self, action: #selector(needReload))
     }
     private func setupSearchAdapter() -> SearchAdapter<PlaceSummary> {
         let adapter = SearchAdapter<PlaceSummary>()
@@ -106,7 +108,6 @@ extension SearchController {
 
         if let places = places {
             self.places = places
-            self.tableAdapter.Update(places)
         }
 
         self.loader.hide()
@@ -118,62 +119,40 @@ extension SearchController {
 extension SearchController: UISearchBarDelegate {
 
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        updateFiltered()
+    }
+    private func updateFiltered() {
 
-        let filtered = searchAdapter.filter(phrase: searchBar.text, for: places)
-        tableAdapter.Update(filtered)
+        filtered = searchAdapter.filter(phrase: searchBar.text, for: places)
+        placesTable.reloadData()
     }
 }
 
 // MARK: Table adapter
-extension SearchController {
+extension SearchController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
 
-    private class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
+        let place = filtered[indexPath.row]
+        let vc = PlaceMenuController.create(for: place.ID)
+        self.navigationController!.pushViewController(vc, animated: true)
+    }
+}
+extension SearchController: UITableViewDataSource {
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filtered.count
+    }
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SearchPlaceCard.height
+    }
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        private let table: UITableView
-        private let delegate: SearchController
-        private var places: [PlaceSummary]
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCard.identifier, for: indexPath) as! SearchPlaceCard
+        cell.update(summary: filtered[indexPath.row])
 
-        public init(for delegate: SearchController) {
-
-            self.table = delegate.table
-            self.delegate = delegate
-            self.places = [PlaceSummary]()
-
-            super.init()
-
-            SearchPlaceCard.register(in: table)
-            table.delegate = self
-            table.dataSource = self
-        }
-
-        public func Update(_ places: [PlaceSummary]) {
-            self.places = places
-            table.reloadData()
-        }
-
-        // MARK: UITableViewDelegate
-        public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-
-            tableView.deselectRow(at: indexPath, animated: true)
-            delegate.goTo(places[indexPath.row])
-        }
-
-        // MARK: UITableViewDataSource
-        public func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
-        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return places.count
-        }
-        public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return SearchPlaceCard.height
-        }
-        public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-            let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCard.identifier, for: indexPath) as! SearchPlaceCard
-            cell.update(summary: places[indexPath.row])
-
-            return cell
-        }
+        return cell
     }
 }

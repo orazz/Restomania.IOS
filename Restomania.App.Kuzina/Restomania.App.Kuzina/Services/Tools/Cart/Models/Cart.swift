@@ -71,7 +71,7 @@ public class Cart: Reservation {
             save()
         }
     }
-    public func totalPrice(with menu: MenuSummary) -> Double {
+    public func total(with menu: MenuSummary) -> Double {
 
         var result = Double(0)
 

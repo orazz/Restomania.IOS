@@ -58,9 +58,29 @@ public class PlaceMenuMenuContainer: UITableViewCell {
         allCategory.ID = -1
         allCategory.orderNumber = -1
 
-        _categoriesAdapter.update(range: [allCategory] + menu.categories)
+        let notEmpty = filterNotEmptyCategories(menu)
+        _categoriesAdapter.update(range: [allCategory] + notEmpty)
         _dishesAdapter.update(range: menu.dishes, currency: menu.currency)
     }
+    private func filterNotEmptyCategories(_ menu: MenuSummary) -> [MenuCategory] {
+
+        var result = [MenuCategory]()
+
+        for category in menu.categories {
+
+            //Dish in category
+            if menu.dishes.any({ $0.categoryId == category.ID }) {
+                result.append(category)
+            }
+            //Child category
+            else if menu.categories.any({ $0.parentId == category.ID }) {
+                result.append(category)
+            }
+        }
+
+        return result
+    }
+
     private func setupMarkup() {
 
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: BottomActions.height, right: 0.0)
@@ -159,7 +179,9 @@ extension PlaceMenuMenuContainer: CartUpdateProtocol {
             offset = CGFloat(0)
         }
 
-        dishesTable.setParentContraint(.bottom, to: offset)
+        DispatchQueue.main.async {
+            self.dishesTable.setParentContraint(.bottom, to: offset)
+        }
     }
 }
 
