@@ -50,5 +50,6 @@ public class CacheServices {
         places.load()
         menu.load()
         cards.load()
+        images.load()
     }
 }

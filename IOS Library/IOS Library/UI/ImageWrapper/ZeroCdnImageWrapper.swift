@@ -69,7 +69,7 @@ open class ZeroCdnImageWrapper: BaseImageWrapper {
             }
 
             let task = delegate.cache.download(url: url)
-            task.async(.utility) { result in
+            task.async(.background) { result in
 
                 if let data = result.data {
                     handler(UIImage(data: data))
