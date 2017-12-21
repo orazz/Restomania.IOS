@@ -12,31 +12,34 @@ import Gloss
 
 public class CartService {
 
-    private let _tag: String = "CartService"
+    private let _tag = String.tag(CartService.self)
 
-    private let _filename: String = "cart.json"
-    private let _fileSystem: FileSystem
-    private let _queue: DispatchQueue
+    private let file: FSOneFileClient
+    private let loadQueue: DispatchQueue
 
-    private var _cartContainer: CommonCartContainer
-    private var _carts: [Cart]
-    private var _saver: (() -> Void)!
+    private var _cartContainer = CommonCartContainer()
+    private var _carts = [Cart]()
+    private var needSave = false
+    private var saveTimer: Timer!
+    private var needSaveTrigger: Trigger!
 
      public init() {
 
-        _fileSystem = FileSystem()
-        _queue = DispatchQueue(label: _tag)
+        file = FSOneFileClient(filename: "cart.json", inCache: false, tag: _tag)
+        loadQueue = DispatchQueue(label: _tag)
 
-        _cartContainer = CommonCartContainer()
-        _carts = [Cart]()
-        _saver = { self.save() }
+        saveTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(checkNeedSave), userInfo: nil, repeats: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(checkNeedSave), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+        needSaveTrigger = {
+            self.needSave = true
+        }
 
         load()
         Log.Info(_tag, "Complete load service.")
     }
 
     public func reservation() -> Reservation {
-        return Reservation(cart: _cartContainer, saver: _saver)
+        return Reservation(cart: _cartContainer, saver: needSaveTrigger)
     }
     public func get(for place: Long) -> Cart {
 
@@ -46,7 +49,7 @@ public class CartService {
 
         let place = PlaceCartContainer(placeID: place)
         _cartContainer.places.append(place)
-        let cart = Cart(place: place, cart: _cartContainer, saver: _saver)
+        let cart = Cart(place: place, cart: _cartContainer, saver: needSaveTrigger)
         _carts.append(cart)
 
         return cart
@@ -60,17 +63,22 @@ public class CartService {
         }
         _carts.removeAll()
 
-        save()
+        needSaveTrigger()
     }
 
+    @objc private func checkNeedSave() {
+        if (needSave) {
+            save()
+        }
+    }
     private func save() {
 
-        _queue.async {
-
+        loadQueue.async {
             do {
 
                 let data = try JSONSerialization.data(withJSONObject: self._cartContainer.toJSON()!, options: [])
-                self._fileSystem.saveTo(self._filename, data: data, toCache: false)
+                self.file.save(data: data)
+                self.needSave = false
 
                 Log.Debug(self._tag, "Save cart's data to storage.")
             } catch {
@@ -82,19 +90,19 @@ public class CartService {
     }
     private func load() {
 
-        _queue.sync {
+        loadQueue.sync {
 
             do {
-                if (!self._fileSystem.isExist(_filename, inCache: false)) {
+                if (!self.file.isExist) {
                     return
                 }
 
-                let content = self._fileSystem.load(self._filename, fromCache: false)!
-                let json = try JSONSerialization.jsonObject(with: content.data(using: .utf8)!, options: []) as! JSON
+                let content = self.file.loadData()
+                let json = try JSONSerialization.jsonObject(with: content!, options: []) as! JSON
 
                 self._cartContainer = CommonCartContainer(json: json)!
                 for place in self._cartContainer.places {
-                    self._carts.append(Cart(place: place, cart: self._cartContainer, saver: self._saver))
+                    self._carts.append(Cart(place: place, cart: self._cartContainer, saver: self.needSaveTrigger))
                 }
                 Log.Debug(self._tag, "Load cart's data from storage")
             } catch {
