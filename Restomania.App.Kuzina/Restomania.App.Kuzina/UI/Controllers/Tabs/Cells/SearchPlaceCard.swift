@@ -20,7 +20,7 @@ public class SearchPlaceCard: UITableViewCell {
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 
-    @IBOutlet private weak var placeImage: WrappedImage!
+    @IBOutlet private weak var placeImage: ImageWrapper!
     @IBOutlet private weak var name: UILabel!
     @IBOutlet private weak var location: UILabel!
     @IBOutlet private weak var workingHours: UILabel!

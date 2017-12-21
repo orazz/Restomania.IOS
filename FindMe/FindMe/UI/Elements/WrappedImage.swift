@@ -1,5 +1,5 @@
 ////
-////  WrappedImage.swift
+////  ImageWrapper.swift
 ////  FindMe
 ////
 ////  Created by Алексей on 25.09.17.
@@ -11,7 +11,7 @@ import IOSLibrary
 import UIKit
 import AsyncTask
 
-public class ImageWrapper: BaseImageWrapper, ImageWrapperDelegate {
+public class ImageWrapper: IOSLibrary.ImageWrapper, ImageWrapperDelegate {
 
     private var _cache: CacheImagesService?
     private var _sizes:[CGFloat: String]?

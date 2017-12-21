@@ -38,6 +38,7 @@
 		1F451FA51FCCB8820080C103 /* CacheAdapterExtender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451FA41FCCB8820080C103 /* CacheAdapterExtender.swift */; };
 		1F49E1F21F7B996F00F384B3 /* FSOneFileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49E1F11F7B996C00F384B3 /* FSOneFileClient.swift */; };
 		1F4C82CF1F953D16004B294C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C82CE1F953D16004B294C /* View.swift */; };
+		1F52B3F11FEC2F1C003B2420 /* ZeroCdnImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F52B3F01FEC2F1C003B2420 /* ZeroCdnImageWrapper.swift */; };
 		1F5CF8351FB3509600DDDC3F /* MathOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF8341FB3509600DDDC3F /* MathOperators.swift */; };
 		1F6AE6DC1FBB3179007E1B2B /* DataUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6AE6DB1FBB3179007E1B2B /* DataUrl.swift */; };
 		1F77EF9C1F66C85700C93DB0 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77EF9B1F66C85700C93DB0 /* Object.swift */; };
@@ -125,6 +126,7 @@
 		1F451FA41FCCB8820080C103 /* CacheAdapterExtender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheAdapterExtender.swift; path = Services/Cache/CacheAdapterExtender.swift; sourceTree = "<group>"; };
 		1F49E1F11F7B996C00F384B3 /* FSOneFileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FSOneFileClient.swift; path = Tools/FileSystem/FSOneFileClient.swift; sourceTree = "<group>"; };
 		1F4C82CE1F953D16004B294C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = View.swift; path = Tools/View.swift; sourceTree = "<group>"; };
+		1F52B3F01FEC2F1C003B2420 /* ZeroCdnImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZeroCdnImageWrapper.swift; path = UI/ImageWrapper/ZeroCdnImageWrapper.swift; sourceTree = "<group>"; };
 		1F5CF8341FB3509600DDDC3F /* MathOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MathOperators.swift; path = Tools/MathOperators.swift; sourceTree = "<group>"; };
 		1F6AE6DB1FBB3179007E1B2B /* DataUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataUrl.swift; path = Requests/DataUrl.swift; sourceTree = "<group>"; };
 		1F77EF9B1F66C85700C93DB0 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = Tools/Object.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				1F1A0E741F79682900FDBA97 /* ImageWrapperDelegate.swift */,
 				1FBB97C91F79985F00FF4D1C /* ImageWrapper.swift */,
+				1F52B3F01FEC2F1C003B2420 /* ZeroCdnImageWrapper.swift */,
 			);
 			name = ImageWrapper;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				1FC547EB1F6FA293007CE6AB /* CacheAdapter.swift in Sources */,
 				1F451FA51FCCB8820080C103 /* CacheAdapterExtender.swift in Sources */,
 				1F3D71CF1F72CAC40010818A /* ConfigsStorage.swift in Sources */,
+				1F52B3F11FEC2F1C003B2420 /* ZeroCdnImageWrapper.swift in Sources */,
 				1F3382F91F97D56700E43596 /* Switch.swift in Sources */,
 				1FA20BBC1F226D2A00215C4A /* SearchAdapter.swift in Sources */,
 				1FC5480D1F6FFEFD007CE6AB /* BaseDataType.swift in Sources */,

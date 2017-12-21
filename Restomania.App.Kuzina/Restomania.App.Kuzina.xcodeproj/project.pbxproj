@@ -60,6 +60,7 @@
 		1F4B0E8E1FEA60A7006C0C58 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B0E8D1FEA60A7006C0C58 /* Localization.swift */; };
 		1F4B0E921FEA69E4006C0C58 /* SearchPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B0E901FEA69E4006C0C58 /* SearchPlaceCard.swift */; };
 		1F4B0E931FEA69E4006C0C58 /* SearchPlaceCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B0E911FEA69E4006C0C58 /* SearchPlaceCardCell.xib */; };
+		1F52B3EF1FEC2E04003B2420 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F52B3EE1FEC2E03003B2420 /* ImageWrapper.swift */; };
 		1F5CF82F1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */; };
 		1F5CF8331FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */; };
 		1F5CF8371FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF8361FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift */; };
@@ -93,8 +94,6 @@
 		1F62E4C11FAE470800D1C89D /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4BC1FAE470700D1C89D /* BaseButton.swift */; };
 		1F62E4C21FAE470800D1C89D /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4BD1FAE470700D1C89D /* BlackButton.swift */; };
 		1F62E4C31FAE470800D1C89D /* GreyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4BE1FAE470800D1C89D /* GreyButton.swift */; };
-		1F62E4C61FAE471600D1C89D /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4C41FAE471500D1C89D /* ImageSize.swift */; };
-		1F62E4C71FAE471600D1C89D /* WrappedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4C51FAE471600D1C89D /* WrappedImage.swift */; };
 		1F62E4CD1FAE476E00D1C89D /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */; };
 		1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF681F285866000614C9 /* MenuSummary.swift */; };
 		1F68AF6B1F285A32000614C9 /* MenuCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6A1F285A32000614C9 /* MenuCacheService.swift */; };
@@ -320,6 +319,7 @@
 		1F4B0E8D1FEA60A7006C0C58 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Localization/Localization.swift; sourceTree = "<group>"; };
 		1F4B0E901FEA69E4006C0C58 /* SearchPlaceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPlaceCard.swift; path = UI/Controllers/Tabs/Cells/SearchPlaceCard.swift; sourceTree = "<group>"; };
 		1F4B0E911FEA69E4006C0C58 /* SearchPlaceCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchPlaceCardCell.xib; path = UI/Controllers/Tabs/Cells/SearchPlaceCardCell.xib; sourceTree = "<group>"; };
+		1F52B3EE1FEC2E03003B2420 /* ImageWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWrapper.swift; path = UI/Elements/ImageWrapper.swift; sourceTree = "<group>"; };
 		1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartDishesContainerCell.swift; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCell.swift; sourceTree = "<group>"; };
 		1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartDishesContainerCellView.xib; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCellView.xib; sourceTree = "<group>"; };
 		1F5CF8361FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartPaymentCardsContainer.swift; path = UI/Controllers/Place/Cart/PaymentCardContainer/PlaceCartPaymentCardsContainer.swift; sourceTree = "<group>"; };
@@ -353,8 +353,6 @@
 		1F62E4BC1FAE470700D1C89D /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseButton.swift; path = UI/Elements/Buttons/BaseButton.swift; sourceTree = "<group>"; };
 		1F62E4BD1FAE470700D1C89D /* BlackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlackButton.swift; path = UI/Elements/Buttons/BlackButton.swift; sourceTree = "<group>"; };
 		1F62E4BE1FAE470800D1C89D /* GreyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GreyButton.swift; path = UI/Elements/Buttons/GreyButton.swift; sourceTree = "<group>"; };
-		1F62E4C41FAE471500D1C89D /* ImageSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSize.swift; path = UI/Elements/WrappedImage/ImageSize.swift; sourceTree = "<group>"; };
-		1F62E4C51FAE471600D1C89D /* WrappedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WrappedImage.swift; path = UI/Elements/WrappedImage/WrappedImage.swift; sourceTree = "<group>"; };
 		1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceLabel.swift; path = UI/Elements/Labels/PriceLabel.swift; sourceTree = "<group>"; };
 		1F68AF681F285866000614C9 /* MenuSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummary.swift; path = Domains/PlaceModels/MenuSummary.swift; sourceTree = "<group>"; };
 		1F68AF6A1F285A32000614C9 /* MenuCacheService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuCacheService.swift; path = Services/Cache/MenuCacheService.swift; sourceTree = "<group>"; };
@@ -1191,15 +1189,6 @@
 			name = DishOrders;
 			sourceTree = "<group>";
 		};
-		1FBE83F91F25C9D00002F0B5 /* WrappedImage */ = {
-			isa = PBXGroup;
-			children = (
-				1F62E4C41FAE471500D1C89D /* ImageSize.swift */,
-				1F62E4C51FAE471600D1C89D /* WrappedImage.swift */,
-			);
-			name = WrappedImage;
-			sourceTree = "<group>";
-		};
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
@@ -1409,7 +1398,7 @@
 				1F3C5A0A1FB15D5E0038EB97 /* BottomActions */,
 				1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */,
 				1F261C781F42BC4B004BFFCB /* Buttons */,
-				1FBE83F91F25C9D00002F0B5 /* WrappedImage */,
+				1F52B3EE1FEC2E03003B2420 /* ImageWrapper.swift */,
 				1F4B0E831FE8A8CD006C0C58 /* RefreshControl.swift */,
 			);
 			name = Elements;
@@ -1829,7 +1818,6 @@
 				1FB8F0311F1E61E70090045E /* TransactionType.swift in Sources */,
 				1FB8F0351F1E628F0090045E /* TransactionSummary.swift in Sources */,
 				1FB8EFDA1F1D47F80090045E /* DayOfWeek.swift in Sources */,
-				1F62E4C61FAE471600D1C89D /* ImageSize.swift in Sources */,
 				1FB3F2811FD574A00073640B /* UserChangeApiService.swift in Sources */,
 				1FC01CC81FB20F4100413ED7 /* PlaceCartController.swift in Sources */,
 				1FB8EFDE1F1D48CD0090045E /* Schedule.swift in Sources */,
@@ -1854,7 +1842,6 @@
 				1F62E4671FAE464400D1C89D /* GreetingController.swift in Sources */,
 				1F279F9C1FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift in Sources */,
 				1FB8EFEC1F1D4EEC0090045E /* KitchenType.swift in Sources */,
-				1F62E4C71FAE471600D1C89D /* WrappedImage.swift in Sources */,
 				1F279F7D1FB07CFC003A2B47 /* ManagerOrdersController.swift in Sources */,
 				1F36C88E1F20C4DA00232B9A /* ShortSchedule.swift in Sources */,
 				1FB8F0241F1E5C2D0090045E /* NotificationPlatformType.swift in Sources */,
@@ -1944,6 +1931,7 @@
 				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
 				1F1DA2CF1F688AFD00EFE5CE /* PlaceDependentProtocol.swift in Sources */,
 				1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */,
+				1F52B3EF1FEC2E04003B2420 /* ImageWrapper.swift in Sources */,
 				1F62E4A91FAE46D300D1C89D /* ManagerPaymentCardsController.swift in Sources */,
 				1F4B0E8C1FEA607E006C0C58 /* Localization.UIElements.swift in Sources */,
 				1FB8F05A1F1EC5C90090045E /* OrderSummary.swift in Sources */,

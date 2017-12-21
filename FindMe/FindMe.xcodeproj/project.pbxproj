@@ -18,7 +18,7 @@
 		1F1A0E431F77E99E00FDBA97 /* LogicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E421F77E99E00FDBA97 /* LogicServices.swift */; };
 		1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1A0E4E1F78EA0300FDBA97 /* Assets.xcassets */; };
 		1F1A0E671F79568900FDBA97 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E661F79568900FDBA97 /* Buttons.swift */; };
-		1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */; };
+		1F1A0E6E1F795FBF00FDBA97 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E6D1F795FBF00FDBA97 /* ImageWrapper.swift */; };
 		1F1CA9071FCE78840006BE0B /* OnePlaceMainLastActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */; };
 		1F1CA90C1FCEE5A20006BE0B /* AuthMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */; };
 		1F1CA90E1FCEEDE60006BE0B /* ActionsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA90D1FCEEDE60006BE0B /* ActionsCacheService.swift */; };
@@ -210,7 +210,7 @@
 		1F1A0E421F77E99E00FDBA97 /* LogicServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogicServices.swift; path = Services/LogicServices.swift; sourceTree = "<group>"; };
 		1F1A0E4E1F78EA0300FDBA97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F1A0E661F79568900FDBA97 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buttons.swift; path = UI/Elements/Buttons.swift; sourceTree = "<group>"; };
-		1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WrappedImage.swift; path = UI/Elements/WrappedImage.swift; sourceTree = "<group>"; };
+		1F1A0E6D1F795FBF00FDBA97 /* ImageWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWrapper.swift; path = UI/Elements/ImageWrapper.swift; sourceTree = "<group>"; };
 		1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLastActionCell.xib; path = UI/Place/OnePlaceMain/Actions/OnePlaceMainLastActionCell.xib; sourceTree = "<group>"; };
 		1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthMainApiService.swift; path = Services/Api/Auth/AuthMainApiService.swift; sourceTree = "<group>"; };
 		1F1CA90D1FCEEDE60006BE0B /* ActionsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActionsCacheService.swift; path = Services/Cache/ActionsCacheService.swift; sourceTree = "<group>"; };
@@ -523,7 +523,7 @@
 				1F2F4B1F1F81263F002FE39B /* Slider */,
 				1F1A0E6B1F795DD400FDBA97 /* Cards */,
 				1F1A0E661F79568900FDBA97 /* Buttons.swift */,
-				1F1A0E6D1F795FBF00FDBA97 /* WrappedImage.swift */,
+				1F1A0E6D1F795FBF00FDBA97 /* ImageWrapper.swift */,
 				1F09EE5A1F865D7900694D8D /* Labels.swift */,
 				1FACBA7D1F966BEF004CEED0 /* Map.swift */,
 			);
@@ -1475,7 +1475,7 @@
 				1FD0754B1F893F3000F34A26 /* PlacesCacheService.swift in Sources */,
 				1FC548171F703442007CE6AB /* Location.swift in Sources */,
 				1F2E37771FCC9193003D24C1 /* BaseApiService.swift in Sources */,
-				1F1A0E6E1F795FBF00FDBA97 /* WrappedImage.swift in Sources */,
+				1F1A0E6E1F795FBF00FDBA97 /* ImageWrapper.swift in Sources */,
 				1F46770B1F910003007E426D /* OnePlaceMainDescriptionCell.swift in Sources */,
 				1F2E376D1FCC9169003D24C1 /* SearchPlaceCard.swift in Sources */,
 				1F4677131F950F21007E426D /* OnePlaceMainSpaceCell.swift in Sources */,
