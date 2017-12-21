@@ -16,12 +16,12 @@ extension Localization {
         private static let space = "\(String.tag(UIElements.self))"
 
         public class RefreshControl {
-            private static let space = "\(UIElements.space).\(String.tag(RefreshControl.self))"
+            private static let space = UIElements.space.extendSpace(by: RefreshControl.self)
 
             public static let title = "\(space).Title".localized(tableName: tableName)
         }
         public class ProblemAlerts {
-            private static let space = "\(UIElements.space).\(String.tag(ProblemAlerts.self))"
+            private static let space = UIElements.space.extendSpace(by: ProblemAlerts.self)
 
             public static let okAction = "\(space).OK".localized(tableName: tableName)
             public static let errorTitle = "\(space).ErrorTitle".localized(tableName: tableName)
@@ -29,5 +29,19 @@ extension Localization {
             public static let noConnectionMessage = "\(space).NoConnectionMessage".localized(tableName: tableName)
             public static let serverErrorMessage = "\(space).ServerErrorMessage".localized(tableName: tableName)
         }
+        public class Schedule {
+            private static let space = UIElements.space.extendSpace(by: Schedule.self)
+
+            public static let holiday = "\(space).Holiday".localized(tableName: tableName)
+        }
     }
+}
+extension String {
+    public func extendSpace(by type: Any.Type) -> String {
+        return self.extendSpace(by: String.tag(type))
+    }
+    public func extendSpace(by area: String) -> String {
+        return "\(self).\(area)"
+    }
+
 }

@@ -15,3 +15,6 @@
 "UIElements.ProblemAlerts.ConnectionErrorTitle" = "Ошибка соединения";
 "UIElements.ProblemAlerts.NoConnectionMessage" = "Не можем достучатсья до сервера. Проверьте интернет подключение.";
 "UIElements.ProblemAlerts.ServerErrorMessage" = "У нас возникла ошибка. Попробуйте позднее.";
+
+//Schedule
+"UIElements.Schedule.Holiday" = "выходной";

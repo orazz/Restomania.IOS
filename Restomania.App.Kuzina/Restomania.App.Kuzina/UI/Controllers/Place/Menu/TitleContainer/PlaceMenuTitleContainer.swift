@@ -47,13 +47,7 @@ public class PlaceMenuTitleContainer: UITableViewCell {
         //Header
         placeImage.setup(url: summary.Image)
         nameLabel.text = summary.Name
-
-        var day = summary.Schedule.takeToday()
-        if (String.isNullOrEmpty(day)) {
-            day = NSLocalizedString("holiday", comment: "Schedule")
-        }
-
-        workingHoursLabel.text = day
+        workingHoursLabel.text = summary.Schedule.todayRepresentation
     }
     private func setupMarkup() {
         dimmerView.backgroundColor = ThemeSettings.Colors.background

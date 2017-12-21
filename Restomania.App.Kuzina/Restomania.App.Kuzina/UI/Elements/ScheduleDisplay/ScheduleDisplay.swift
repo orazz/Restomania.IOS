@@ -99,3 +99,15 @@ extension ScheduleDisplay: UICollectionViewDataSource {
         return (day + 1 + 7) % 7
     }
 }
+extension ShortSchedule {
+
+    public var todayRepresentation: String {
+
+        var day = self.takeToday()
+        if (String.isNullOrEmpty(day)) {
+            day = Localization.UIElements.Schedule.holiday
+        }
+
+        return day
+    }
+}

@@ -93,6 +93,6 @@ public class ThemeSettings {
 
         //UINavigationbar
         let navbar = UINavigationBar.appearance()
-        navbar.tintColor = Colors.main  
+        navbar.tintColor = Colors.main
     }
 }

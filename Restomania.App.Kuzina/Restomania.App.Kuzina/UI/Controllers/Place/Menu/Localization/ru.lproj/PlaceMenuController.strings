@@ -14,3 +14,5 @@
 
 "Alerts.AuthError.Title" = "Авторизация";
 "Alerts.AuthError.Message" = "Для заказа через приложение необходима авторизация.";
+
+"Categories.AllDishes" = "Все";

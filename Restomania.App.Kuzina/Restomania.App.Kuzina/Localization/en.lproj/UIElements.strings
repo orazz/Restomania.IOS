@@ -15,3 +15,6 @@
 "UIElements.ProblemAlerts.ConnectionErrorTitle" = "No connection";
 "UIElements.ProblemAlerts.NoConnectionMessage" = "No connection with server. Check internet connection.";
 "UIElements.ProblemAlerts.ServerErrorMessage" = "Problem on server side. Try repeat later.";
+
+//Schedule
+"UIElements.Schedule.Holiday" = "holiday";

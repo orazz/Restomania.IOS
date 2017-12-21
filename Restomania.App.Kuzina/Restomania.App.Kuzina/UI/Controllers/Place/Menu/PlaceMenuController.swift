@@ -86,7 +86,8 @@ public class PlaceMenuController: UIViewController {
         menuContainer = PartsLoadTypedContainer<MenuSummary>(self)
         loadAdapter = PartsLoader([summaryContainer, menuContainer])
         //Add load handlers
-        summaryContainer.updateHandler = { _ in
+        summaryContainer.updateHandler = { update in
+            self.fadeInPanel.topItem?.title = update.Schedule.todayRepresentation
             self.completeLoad()
         }
         menuContainer.updateHandler = { update in
@@ -363,6 +364,11 @@ extension PlaceMenuController: UITableViewDelegate {
         fadeInPanel.translatesAutoresizingMaskIntoConstraints = false
         fadeInPanel.backgroundColor = ThemeSettings.Colors.main
         fadeInPanel.barTintColor = ThemeSettings.Colors.main
+        fadeInPanel.tintColor = ThemeSettings.Colors.additional
+        fadeInPanel.titleTextAttributes = [
+            NSAttributedStringKey.foregroundColor: ThemeSettings.Colors.additional,
+            NSAttributedStringKey.font: ThemeSettings.Fonts.default(size: .head)
+        ]
         self.view.addSubview(fadeInPanel)
 
         let top = NSLayoutConstraint(item: fadeInPanel, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0)
@@ -441,5 +447,8 @@ extension PlaceMenuController {
 
         case AlertAuthErrorTitle = "Alerts.AuthError.Title"
         case AlertAuthErrorMessage = "Alerts.AuthError.Message"
+
+        case AllDishesCategory = "Categories.AllDishes"
+
     }
 }

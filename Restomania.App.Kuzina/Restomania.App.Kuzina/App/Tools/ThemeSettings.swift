@@ -73,7 +73,5 @@ public class ThemeSettings {
         }
     }
 
-    public static func applyStyles() {
-
-    }
+    public static func applyStyles() {}
 }

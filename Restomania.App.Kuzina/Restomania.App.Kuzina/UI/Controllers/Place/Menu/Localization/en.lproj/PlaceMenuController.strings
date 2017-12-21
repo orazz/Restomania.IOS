@@ -13,3 +13,5 @@
 
 "Alerts.AuthError.Title" = "Authorize";
 "Alerts.AuthError.Message" = "For order via app you need login.";
+
+"Categories.AllDishes" = "All";

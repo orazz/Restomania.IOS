@@ -54,7 +54,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     private func apply(_ menu: MenuSummary) {
 
         let allCategory = MenuCategory()
-        allCategory.name = "Всё"
+        allCategory.name = PlaceMenuController.Keys.AllDishesCategory.localized
         allCategory.ID = -1
         allCategory.orderNumber = -1
 
@@ -190,22 +190,25 @@ extension PlaceMenuMenuContainer: CartUpdateProtocol {
 extension PlaceMenuMenuContainer {
     private class CategoriesCollection: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-        private let _collection: UICollectionView
-        private let _delegate: PlaceMenuDelegate
-        private var _categories: [MenuCategory]
-        private var _selectedCategory: Long = -1
+        private let collection: UICollectionView
+        private let delegate: PlaceMenuDelegate
+        private var categories: [MenuCategory]
+        private var selectedCategory: Long = -1
 
         public init(for collection: UICollectionView, with delegate: PlaceMenuDelegate) {
 
-            _collection = collection
-            _delegate = delegate
-            _categories = [MenuCategory]()
+            self.collection = collection
+            self.delegate = delegate
+            self.categories = [MenuCategory]()
 
             super.init()
 
-            PlaceMenuCategoryCell.register(in: _collection)
-            _collection.dataSource = self
-            _collection.delegate = self
+            collection.delegate = self
+            collection.dataSource = self
+            collection.allowsSelection = true
+            collection.allowsMultipleSelection = false
+
+            PlaceMenuCategoryCell.register(in: collection)
         }
 
         // MARK: Interface
@@ -216,16 +219,16 @@ extension PlaceMenuMenuContainer {
         }
         public func update(range: [MenuCategory]) {
 
-            _categories = range.sorted(by: { $0.orderNumber < $1.orderNumber })
-            if (!_categories.isEmpty) {
-                _selectedCategory = _categories.first!.ID
+            categories = range.sorted(by: { $0.orderNumber < $1.orderNumber })
+            if (!categories.isEmpty) {
+                selectedCategory = categories.first!.ID
             }
 
-            selectAndNotify(about: _selectedCategory)
+            selectAndNotify(about: selectedCategory)
             reload()
         }
         private func reload() {
-            _collection.reloadData()
+            collection.reloadData()
         }
 
         // MARK: UICollectionViewDataSource
@@ -233,15 +236,15 @@ extension PlaceMenuMenuContainer {
             return 1
         }
         public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return _categories.count
+            return categories.count
         }
         public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-            let category = _categories[indexPath.row]
+            let category = categories[indexPath.row]
             let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: PlaceMenuCategoryCell.identifier, for: indexPath) as! PlaceMenuCategoryCell
             cell.update(by: category)
 
-            if (_selectedCategory == category.ID) {
+            if (selectedCategory == category.ID) {
                 cell.select()
             } else {
                 cell.deselect()
@@ -253,11 +256,11 @@ extension PlaceMenuMenuContainer {
         // MARK: UICollectionViewDelegateFlowLayout
         public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-            return PlaceMenuCategoryCell.sizeOfCell(category: _categories[indexPath.row])
+            return PlaceMenuCategoryCell.sizeOfCell(category: categories[indexPath.row])
         }
         public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-            for cell in _collection.visibleCells {
+            for cell in collection.visibleCells {
                 if let cell = cell as? PlaceMenuCategoryCell {
                     cell.deselect()
                 }
@@ -266,17 +269,17 @@ extension PlaceMenuMenuContainer {
             let cell = collectionView.cellForItem(at: indexPath) as! PlaceMenuCategoryCell
             cell.select()
 
-            let category = _categories[indexPath.row]
+            let category = categories[indexPath.row]
             selectAndNotify(about: category.ID)
         }
         private func selectAndNotify(about category: Long) {
 
-            _selectedCategory = category
-            _delegate.select(category: category)
+            selectedCategory = category
+            delegate.select(category: category)
 
-            if (!_collection.visibleCells.isEmpty) {
-                let index = _categories.index(where: { $0.ID == category }) ?? 0
-                _collection.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+            if (!collection.visibleCells.isEmpty) {
+                let index = categories.index(where: { $0.ID == category }) ?? 0
+                collection.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
             }
         }
     }

@@ -40,7 +40,7 @@ public class ScheduleDisplayCell: UICollectionViewCell {
     private func setupMarkup() {
 
         if (String.isNullOrEmpty(_value)) {
-            valueLabel.text = NSLocalizedString("holiday", comment: "Schedule")
+            valueLabel.text = Localization.UIElements.Schedule.holiday
         } else {
             valueLabel.text = _value
         }

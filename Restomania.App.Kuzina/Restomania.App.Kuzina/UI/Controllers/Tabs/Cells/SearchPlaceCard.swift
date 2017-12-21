@@ -61,7 +61,7 @@ public class SearchPlaceCard: UITableViewCell {
 
         let value = workingHours.takeToday()
         if (String.isNullOrEmpty(value)) {
-            return NSLocalizedString("holiday", comment: "Schedule")
+            return Localization.UIElements.Schedule.holiday
         }
 
         return value
