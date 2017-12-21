@@ -16,12 +16,12 @@ extension Localization {
         private static let space = "\(String.tag(UIElements.self))"
 
         public class RefreshControl {
-            private static let space = UIElements.space.extendSpace(by: RefreshControl.self)
+            private static let space = "\(String.tag(RefreshControl.self))"
 
             public static let title = "\(space).Title".localized(tableName: tableName)
         }
         public class ProblemAlerts {
-            private static let space = UIElements.space.extendSpace(by: ProblemAlerts.self)
+            private static let space = "\(String.tag(ProblemAlerts.self))"
 
             public static let okAction = "\(space).OK".localized(tableName: tableName)
             public static let errorTitle = "\(space).ErrorTitle".localized(tableName: tableName)
@@ -30,7 +30,7 @@ extension Localization {
             public static let serverErrorMessage = "\(space).ServerErrorMessage".localized(tableName: tableName)
         }
         public class Schedule {
-            private static let space = UIElements.space.extendSpace(by: Schedule.self)
+            private static let space = "\(String.tag(Schedule.self))"
 
             public static let holiday = "\(space).Holiday".localized(tableName: tableName)
         }

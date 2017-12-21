@@ -14,6 +14,8 @@
 		1F1D103A1FEA72F4000F4F8F /* PlaceMenuCartAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D10381FEA72F3000F4F8F /* PlaceMenuCartAction.swift */; };
 		1F1D103B1FEA72F4000F4F8F /* PlaceMenuCartActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1D10391FEA72F3000F4F8F /* PlaceMenuCartActionView.xib */; };
 		1F1D10441FEAEE8E000F4F8F /* PlaceMenuController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F1D10461FEAEE8E000F4F8F /* PlaceMenuController.strings */; };
+		1F1D104E1FEC21E1000F4F8F /* Tools.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F1D10501FEC21E1000F4F8F /* Tools.strings */; };
+		1F1D10531FEC21FE000F4F8F /* Localization.Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D10521FEC21FE000F4F8F /* Localization.Tools.swift */; };
 		1F1DA2C91F6889FB00EFE5CE /* DishType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2C81F6889FB00EFE5CE /* DishType.swift */; };
 		1F1DA2CB1F688A4400EFE5CE /* IMenuDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CA1F688A4400EFE5CE /* IMenuDependent.swift */; };
 		1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CC1F688AAE00EFE5CE /* UnitsOfSize.swift */; };
@@ -268,6 +270,9 @@
 		1F1D10391FEA72F3000F4F8F /* PlaceMenuCartActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuCartActionView.xib; path = UI/Controllers/Place/Menu/CartAction/PlaceMenuCartActionView.xib; sourceTree = "<group>"; };
 		1F1D10451FEAEE8E000F4F8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PlaceMenuController.strings; sourceTree = "<group>"; };
 		1F1D10471FEAEE90000F4F8F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PlaceMenuController.strings; sourceTree = "<group>"; };
+		1F1D104F1FEC21E1000F4F8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tools.strings; sourceTree = "<group>"; };
+		1F1D10511FEC21E5000F4F8F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Tools.strings; sourceTree = "<group>"; };
+		1F1D10521FEC21FE000F4F8F /* Localization.Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Localization.Tools.swift; path = Localization/Localization.Tools.swift; sourceTree = "<group>"; };
 		1F1DA2C81F6889FB00EFE5CE /* DishType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishType.swift; path = Domains/Places/Menues/DishType.swift; sourceTree = "<group>"; };
 		1F1DA2CA1F688A4400EFE5CE /* IMenuDependent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMenuDependent.swift; path = Domains/Places/Menues/IMenuDependent.swift; sourceTree = "<group>"; };
 		1F1DA2CC1F688AAE00EFE5CE /* UnitsOfSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitsOfSize.swift; path = Domains/Places/Menues/UnitsOfSize.swift; sourceTree = "<group>"; };
@@ -1275,8 +1280,10 @@
 			children = (
 				1FB3F24A1FD5712A0073640B /* Localizable.strings */,
 				1F4B0E891FEA6056006C0C58 /* UIElements.strings */,
+				1F1D10501FEC21E1000F4F8F /* Tools.strings */,
 				1F4B0E8D1FEA60A7006C0C58 /* Localization.swift */,
 				1F4B0E8B1FEA607E006C0C58 /* Localization.UIElements.swift */,
+				1F1D10521FEC21FE000F4F8F /* Localization.Tools.swift */,
 			);
 			name = Localization;
 			sourceTree = "<group>";
@@ -1589,6 +1596,7 @@
 				1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */,
 				1F279F931FB07D51003A2B47 /* PlaceInfoControllerView.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
+				1F1D104E1FEC21E1000F4F8F /* Tools.strings in Resources */,
 				1F12EB541FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib in Resources */,
 				1FF79A5F1FB22E55008F3FCC /* ScheduleDisplayCellView.xib in Resources */,
 				1F62E46F1FAE465700D1C89D /* Tabs.storyboard in Resources */,
@@ -1919,6 +1927,7 @@
 				1F4B0E821FE84CFD006C0C58 /* ProblemAlert.swift in Sources */,
 				1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */,
 				1FB3F25F1FD573000073640B /* CommonCartContainer.swift in Sources */,
+				1F1D10531FEC21FE000F4F8F /* Localization.Tools.swift in Sources */,
 				1FE3C76B1FB31702009CE542 /* PlaceCartTotalContainer.swift in Sources */,
 				1F36C8901F20C5E000232B9A /* PlaceSummary.swift in Sources */,
 				1FE3C7711FB31B6A009CE542 /* PlaceCartTotalContainerCell.swift in Sources */,
@@ -2024,6 +2033,16 @@
 			);
 			name = PlaceMenuController.strings;
 			path = UI/Controllers/Place/Menu/Localization;
+			sourceTree = "<group>";
+		};
+		1F1D10501FEC21E1000F4F8F /* Tools.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F1D104F1FEC21E1000F4F8F /* en */,
+				1F1D10511FEC21E5000F4F8F /* ru */,
+			);
+			name = Tools.strings;
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		1F4B0E891FEA6056006C0C58 /* UIElements.strings */ = {

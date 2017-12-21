@@ -16,3 +16,5 @@
 "Alerts.AuthError.Message" = "Для заказа через приложение необходима авторизация.";
 
 "Categories.AllDishes" = "Все";
+
+"Buttons.ToCart" = "В корзину";

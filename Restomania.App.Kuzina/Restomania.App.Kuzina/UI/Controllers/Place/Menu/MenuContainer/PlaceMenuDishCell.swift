@@ -30,13 +30,14 @@ public class PlaceMenuDishCell: UITableViewCell {
     @IBOutlet weak var dishImage: WrappedImage!
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishDescription: UILabel!
+    @IBOutlet weak var dishWeight: UILabel!
     @IBOutlet weak var dishPrice: PriceLabel!
 
     //Data
     private var _dish: Dish?
     private var _delegate: PlaceMenuDelegate?
 
-    private func update(by dish: Dish, with currency: CurrencyType, delegate: PlaceMenuDelegate) {
+    public func update(by dish: Dish, with currency: CurrencyType, delegate: PlaceMenuDelegate) {
 
         _dish = dish
         _delegate = delegate
@@ -45,6 +46,7 @@ public class PlaceMenuDishCell: UITableViewCell {
         dishDescription.text = dish.description
         dishImage.setup(url: dish.image)
 
+        dishWeight.text = buildWeight(for: dish)
         dishPrice.setup(amount: dish.price.double, currency: currency)
 
         if (String.isNullOrEmpty(dish.image)) {
@@ -52,6 +54,26 @@ public class PlaceMenuDishCell: UITableViewCell {
         } else {
             dishImage.setContraint(.width, to: dishImage.getConstant(.height)!)
         }
+    }
+    private func buildWeight(for dish: BaseDish) -> String {
+
+        if (0.0 == dish.size) {
+            return String.empty
+        }
+
+        if (dish.type == .simpleDish) {
+
+            let integer = Int(floor(dish.size))
+            let float = dish.size - Double(integer)
+
+            if (float < 0.0001) {
+                return "\(integer) \(dish.sizeUnits.shortName)"
+            } else {
+                return "\(dish.size) \(dish.sizeUnits.shortName)"
+            }
+        }
+
+        return String.empty
     }
     private func setupStyles() {
 
@@ -62,6 +84,10 @@ public class PlaceMenuDishCell: UITableViewCell {
         //Description
         dishDescription.font = ThemeSettings.Fonts.default(size: .caption)
         dishDescription.textColor = ThemeSettings.Colors.main
+
+        //Weight
+        dishWeight.font = ThemeSettings.Fonts.default(size: .caption)
+        dishWeight.textColor = ThemeSettings.Colors.main
 
         //Price
         dishPrice.font = ThemeSettings.Fonts.default(size: .subhead)

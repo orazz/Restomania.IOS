@@ -44,7 +44,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7s0-Bb-jBF" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="69" width="181" height="21"/>
+                                <rect key="frame" x="90" y="69" width="91" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2222 gm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9l3-mA-0El">
+                                <rect key="frame" x="0.0" y="69" width="90" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="9SB-eN-rJY"/>
+                                    <constraint firstAttribute="width" constant="90" id="WMb-60-Oie"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -53,14 +63,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RPX-hY-CGc" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="2ih-d0-r3o"/>
+                            <constraint firstItem="9l3-mA-0El" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="BUq-ts-O7c"/>
                             <constraint firstItem="SQ5-lo-ZwD" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="Mb2-Jv-SY6"/>
                             <constraint firstAttribute="bottom" secondItem="7s0-Bb-jBF" secondAttribute="bottom" id="P7e-d0-fMc"/>
                             <constraint firstItem="SQ5-lo-ZwD" firstAttribute="top" secondItem="gay-xo-6hW" secondAttribute="top" id="Qyc-Lg-tiC"/>
                             <constraint firstAttribute="trailing" secondItem="7s0-Bb-jBF" secondAttribute="trailing" id="T6E-qr-XPx"/>
                             <constraint firstAttribute="trailing" secondItem="SQ5-lo-ZwD" secondAttribute="trailing" id="ViK-dl-pS1"/>
                             <constraint firstAttribute="trailing" secondItem="RPX-hY-CGc" secondAttribute="trailing" id="a8b-eK-Ege"/>
-                            <constraint firstItem="7s0-Bb-jBF" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="cIr-aC-PcS"/>
+                            <constraint firstItem="7s0-Bb-jBF" firstAttribute="leading" secondItem="9l3-mA-0El" secondAttribute="trailing" id="cIr-aC-PcS"/>
                             <constraint firstItem="RPX-hY-CGc" firstAttribute="top" secondItem="SQ5-lo-ZwD" secondAttribute="bottom" id="rCO-6d-ZBB"/>
+                            <constraint firstAttribute="bottom" secondItem="9l3-mA-0El" secondAttribute="bottom" id="xGr-2b-0GN"/>
+                            <constraint firstItem="9l3-mA-0El" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="yP2-1i-vLC"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpY-3e-q6k" userLabel="Adding">
@@ -103,6 +116,7 @@
                 <outlet property="dishImage" destination="bbw-mG-wDH" id="W0g-fd-doF"/>
                 <outlet property="dishName" destination="SQ5-lo-ZwD" id="xKo-ZR-0UH"/>
                 <outlet property="dishPrice" destination="7s0-Bb-jBF" id="MbK-24-1Rd"/>
+                <outlet property="dishWeight" destination="9l3-mA-0El" id="DbU-FG-TmT"/>
             </connections>
             <point key="canvasLocation" x="-160.5" y="-169"/>
         </tableViewCell>

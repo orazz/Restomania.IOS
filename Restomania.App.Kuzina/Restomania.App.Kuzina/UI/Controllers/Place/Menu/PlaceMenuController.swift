@@ -442,13 +442,17 @@ extension PlaceMenuController {
             return String.tag(PlaceMenuController.self)
         }
 
+        //Alerts
         case AlertLoadErrorTitle = "Alerts.LoadError.Title"
         case AlertLoadErrorMessage = "Alerts.LoadError.Message"
 
         case AlertAuthErrorTitle = "Alerts.AuthError.Title"
         case AlertAuthErrorMessage = "Alerts.AuthError.Message"
 
+        //Categories
         case AllDishesCategory = "Categories.AllDishes"
 
+        //Buttons
+        case ToCart = "Buttons.ToCart"
     }
 }

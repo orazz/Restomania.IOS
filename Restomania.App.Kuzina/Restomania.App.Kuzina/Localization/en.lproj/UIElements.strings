@@ -1,5 +1,5 @@
 /* 
-  UIElements.strings
+  strings
   Restomania.App.Kuzina
 
   Created by Алексей on 20.12.17.
@@ -7,14 +7,14 @@
 */
 
 //RefreshControl
-"UIElements.RefreshControl.Title" = "Pull for refresh";
+"RefreshControl.Title" = "Pull for refresh";
 
 //ProblemAlerts
-"UIElements.ProblemAlerts.OK" = "OK";
-"UIElements.ProblemAlerts.ErrorTitle" = "Error";
-"UIElements.ProblemAlerts.ConnectionErrorTitle" = "No connection";
-"UIElements.ProblemAlerts.NoConnectionMessage" = "No connection with server. Check internet connection.";
-"UIElements.ProblemAlerts.ServerErrorMessage" = "Problem on server side. Try repeat later.";
+"ProblemAlerts.OK" = "OK";
+"ProblemAlerts.ErrorTitle" = "Error";
+"ProblemAlerts.ConnectionErrorTitle" = "No connection";
+"ProblemAlerts.NoConnectionMessage" = "No connection with server. Check internet connection.";
+"ProblemAlerts.ServerErrorMessage" = "Problem on server side. Try repeat later.";
 
 //Schedule
-"UIElements.Schedule.Holiday" = "holiday";
+"Schedule.Holiday" = "holiday";

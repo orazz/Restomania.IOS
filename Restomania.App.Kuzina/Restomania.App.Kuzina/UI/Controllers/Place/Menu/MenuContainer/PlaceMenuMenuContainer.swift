@@ -356,7 +356,9 @@ extension PlaceMenuMenuContainer {
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
             let dish = _filtered[indexPath.row]
-            if nil == _cells[dish.ID] {
+            if let cell = _cells[dish.ID] {
+                cell.update(by: dish, with: _currency, delegate: _delegate)
+            } else {
                 _cells[dish.ID] = PlaceMenuDishCell.instance(for: dish, with: _currency, delegate: _delegate)
             }
 

@@ -22,7 +22,6 @@ public class PlaceMenuCartAction: UIView {
         instance.menu = delegate.menu
         instance.cart = delegate.cart
 
-        instance.setupMarkup()
         instance.apply()
 
         return instance
@@ -73,13 +72,15 @@ public class PlaceMenuCartAction: UIView {
             }
         }
     }
-    private func setupMarkup() {
+    public override func awakeFromNib() {
+        super.awakeFromNib()
 
         self.backgroundColor = ThemeSettings.Colors.main
 
         countLabel.textColor = ThemeSettings.Colors.additional
         countLabel.font = ThemeSettings.Fonts.default(size: .title)
 
+        titleLabel.text = PlaceMenuController.Keys.ToCart.localized
         titleLabel.textColor = ThemeSettings.Colors.additional
         titleLabel.font = ThemeSettings.Fonts.default(size: .title)
 
