@@ -11,27 +11,16 @@ import IOSLibrary
 
 public class GreetingController: UIViewController {
 
-    private let _tag = "StartController"
-
     @IBOutlet weak var DemoButton: UIButton!
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-
-        Log.Info(_tag, "Open controller.")
+    public init() {
+        super.init(nibName: "GreetingControllerView", bundle: Bundle.main)
     }
-    override public func viewWillAppear(_ animated: Bool) {
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        let storage = ToolsServices.shared.keys
-        if let _ = storage.keys(for: .user) {
-
-            goToSearch()
-        }
-
-        setupMarkup()
-    }
-    private func setupMarkup() {
 
         navigationController?.hideNavigationBar()
 
@@ -42,36 +31,25 @@ public class GreetingController: UIViewController {
 
     // MARK: Auth navigation
     @IBAction func goToSignUp(_ sender: Any) {
-
         goToAuth(page: .signup)
     }
     @IBAction func goToLogin(_ sender: Any) {
-
 //        goToAuth(page: .login)
         goToAuth(page: .signup)
     }
     private func goToAuth(page: AuthPage) {
         let auth = AuthService(open: .signup, with: self.navigationController!, rights: .user)
         auth.show(complete: { success in
-
                 if (success) {
-
-                    self.goToSearch()
+                    self.goBack()
                 }
             })
     }
 
     @IBAction func goWithoutAuth(_ sender: Any) {
-        goToSearch()
+        goBack()
     }
-    private func goToSearch() {
-
-        let board = UIStoryboard(name: "Tabs", bundle: nil)
-        let controller = board.instantiateInitialViewController()!
-
-        navigationController?.present(controller, animated: false, completion: {
-
-            Log.Debug(self._tag, "Navigate to tabs storyboard.")
-        })
+    private func goBack() {
+        self.navigationController?.popViewController(animated: false)
     }
 }
