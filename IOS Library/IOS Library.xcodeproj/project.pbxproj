@@ -17,6 +17,9 @@
 		1F1A0E6A1F795CC100FDBA97 /* InterfaceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E691F795CC100FDBA97 /* InterfaceLoader.swift */; };
 		1F1A0E751F79682900FDBA97 /* ImageWrapperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E741F79682900FDBA97 /* ImageWrapperDelegate.swift */; };
 		1F1CA9091FCECD710006BE0B /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA9081FCECD710006BE0B /* DispatchQueue.swift */; };
+		1F1D103E1FEAB61F000F4F8F /* PartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D103D1FEAB61F000F4F8F /* PartsLoader.swift */; };
+		1F1D10401FEABA6A000F4F8F /* PartsLoadContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D103F1FEABA6A000F4F8F /* PartsLoadContainer.swift */; };
+		1F1D104B1FEB87E1000F4F8F /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D104A1FEB87E1000F4F8F /* Delegates.swift */; };
 		1F24A90F1F8964BC000BD8F1 /* InterfaceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A90E1F8964BC000BD8F1 /* InterfaceTable.swift */; };
 		1F24A9111F89654A000BD8F1 /* InterfaceTableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24A9101F89654A000BD8F1 /* InterfaceTableCellProtocol.swift */; };
 		1F2DC3C51F1CFAD70058E699 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DC3C41F1CFAD70058E699 /* String.swift */; };
@@ -98,6 +101,9 @@
 		1F1A0E691F795CC100FDBA97 /* InterfaceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceLoader.swift; path = UI/InterfaceLoader.swift; sourceTree = "<group>"; };
 		1F1A0E741F79682900FDBA97 /* ImageWrapperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWrapperDelegate.swift; path = UI/ImageWrapper/ImageWrapperDelegate.swift; sourceTree = "<group>"; };
 		1F1CA9081FCECD710006BE0B /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = Tools/DispatchQueue.swift; sourceTree = "<group>"; };
+		1F1D103D1FEAB61F000F4F8F /* PartsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PartsLoader.swift; path = Tools/PartsLoader/PartsLoader.swift; sourceTree = "<group>"; };
+		1F1D103F1FEABA6A000F4F8F /* PartsLoadContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PartsLoadContainer.swift; path = Tools/PartsLoader/PartsLoadContainer.swift; sourceTree = "<group>"; };
+		1F1D104A1FEB87E1000F4F8F /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Delegates.swift; path = Tools/Delegates.swift; sourceTree = "<group>"; };
 		1F24A90E1F8964BC000BD8F1 /* InterfaceTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterfaceTable.swift; path = UI/InterfaceTable/InterfaceTable.swift; sourceTree = "<group>"; };
 		1F24A9101F89654A000BD8F1 /* InterfaceTableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterfaceTableCellProtocol.swift; path = UI/InterfaceTable/InterfaceTableCellProtocol.swift; sourceTree = "<group>"; };
 		1F2DC3C41F1CFAD70058E699 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Tools/String.swift; sourceTree = "<group>"; };
@@ -207,6 +213,15 @@
 			name = ImageWrapper;
 			sourceTree = "<group>";
 		};
+		1F1D103C1FEAAD5F000F4F8F /* PartsLoader */ = {
+			isa = PBXGroup;
+			children = (
+				1F1D103D1FEAB61F000F4F8F /* PartsLoader.swift */,
+				1F1D103F1FEABA6A000F4F8F /* PartsLoadContainer.swift */,
+			);
+			name = PartsLoader;
+			sourceTree = "<group>";
+		};
 		1F24A90D1F896469000BD8F1 /* InterfaceTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +280,7 @@
 		1F41CE5D1F13BE8E000B92E1 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1F1D103C1FEAAD5F000F4F8F /* PartsLoader */,
 				1FA20BAF1F226CCF00215C4A /* SearchAdapter */,
 				1FA2606A1F13D36900C14886 /* FileSystem */,
 				1F41CE5E1F13BE97000B92E1 /* Log */,
@@ -285,6 +301,7 @@
 				1F5CF8341FB3509600DDDC3F /* MathOperators.swift */,
 				1FA0E2E61FBC7ABC004B778C /* UIImage.swift */,
 				1F1CA9081FCECD710006BE0B /* DispatchQueue.swift */,
+				1F1D104A1FEB87E1000F4F8F /* Delegates.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -647,11 +664,13 @@
 				1FC5480D1F6FFEFD007CE6AB /* BaseDataType.swift in Sources */,
 				1F1A0E491F78D68A00FDBA97 /* PartialUpdateContainer.swift in Sources */,
 				1FC547F71F6FA3F5007CE6AB /* CacheContainer.swift in Sources */,
+				1F1D104B1FEB87E1000F4F8F /* Delegates.swift in Sources */,
 				1FC547F11F6FA305007CE6AB /* ISortable.swift in Sources */,
 				1F1A0E4D1F78D9EF00FDBA97 /* HttpMethod.swift in Sources */,
 				1F1A0E3C1F77C34600FDBA97 /* Color.swift in Sources */,
 				1FA20BC21F2276DD00215C4A /* NumberFilter.swift in Sources */,
 				1F138C8E1F19ED11003EAEE6 /* HttpStatusCode.swift in Sources */,
+				1F1D10401FEABA6A000F4F8F /* PartsLoadContainer.swift in Sources */,
 				1FC547F91F6FB3A7007CE6AB /* CacheImagesService.swift in Sources */,
 				1FFA57C31F211EE800E83463 /* Date.swift in Sources */,
 				1FA20BB61F226D1400215C4A /* IFIlter.swift in Sources */,
@@ -674,6 +693,7 @@
 				1FFEA2811F14A824002DD78F /* Guid.swift in Sources */,
 				1F6AE6DC1FBB3179007E1B2B /* DataUrl.swift in Sources */,
 				1F138C881F19EC66003EAEE6 /* ApiResponse.swift in Sources */,
+				1F1D103E1FEAB61F000F4F8F /* PartsLoader.swift in Sources */,
 				1F24A9111F89654A000BD8F1 /* InterfaceTableCellProtocol.swift in Sources */,
 				1FA20BBD1F226D2A00215C4A /* ValueType.swift in Sources */,
 				1FE7E3D21F7BA45D00D1745E /* JsonSerialization.swift in Sources */,

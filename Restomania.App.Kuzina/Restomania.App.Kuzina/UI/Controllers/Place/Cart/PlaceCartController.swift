@@ -198,7 +198,7 @@ extension PlaceCartController {
     }
     private func requestMenu() {
 
-        if let menu = menusService.cache.find { $0.placeID == placeId } {
+        if let menu = menusService.cache.find({ $0.placeID == self.placeId }) {
 
             self.menu = menu
             self.isCompleteLoadMenu = true
@@ -251,9 +251,9 @@ extension PlaceCartController {
     private func requestCards() {
 
         let request = cardsService.all()
-        request.async(.background, completion: { result in
+        request.async(.background, completion: { response in
 
-            if let cards = result {
+            if let cards = response.data {
                 self.cards = cards
             } else {
                 Log.Error(self._tag, "Problem with load user's payment cards.")
@@ -340,9 +340,9 @@ extension PlaceCartController: PlaceCartDelegate {
 
                 self.loader.show()
                 let request = self.cardsService.find(result)
-                request.async(.background, completion: { result in
+                request.async(.background, completion: { response in
 
-                        if let card = result {
+                        if let card = response.data {
                             if nil == self.cards {
                                 self.cards = []
                             }

@@ -27,15 +27,25 @@ public class ProblemAlerts {
 
     public static var noConnection: UIAlertController {
 
-        let alert = UIAlertController(title: "Ошибка соединения", message: "Нет содинения с интрнетом. Попробуйте позднее.", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        let title = Localization.UIElements.ProblemAlerts.connectionErrorTitle
+        let message = Localization.UIElements.ProblemAlerts.noConnectionMessage
 
-        return alert
+        return toastAlert(title: title, message: message)
     }
     public static var internalError: UIAlertController {
 
-        let alert = UIAlertController(title: "Ошибка", message: "У нас возникла ошибка, но мы скоро все исправим, попробуйте позднее.", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        let title = Localization.UIElements.ProblemAlerts.errorTitle
+        let message = Localization.UIElements.ProblemAlerts.serverErrorMessage
+
+        return toastAlert(title: title, message: message)
+    }
+    public static func toastAlert(title: Localizable, message: Localizable) -> UIAlertController {
+        return toastAlert(title: title.localized, message: message.localized)
+    }
+    public static func toastAlert(title: String, message: String) -> UIAlertController {
+
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: Localization.UIElements.ProblemAlerts.okAction, style: .cancel, handler: nil))
 
         return alert
     }

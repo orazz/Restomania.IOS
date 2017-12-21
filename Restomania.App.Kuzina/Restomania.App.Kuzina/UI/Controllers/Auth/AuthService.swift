@@ -28,7 +28,7 @@ public class AuthService {
     private var _rights: ApiRole!
     private var _currentPage: AuthPage!
 
-    private var _storage: KeysStorage!
+    private var authKeys: KeysStorage!
     private var _complete: ((Bool) -> Void)?
 
     public init(open firstPage: AuthPage, with navigator: UINavigationController, rights: ApiRole) {
@@ -44,11 +44,14 @@ public class AuthService {
         _rights = rights
         _currentPage = firstPage
 
-        _storage = ToolsServices.shared.keys
+        authKeys = ToolsServices.shared.keys
 
         for controller in _controllers {
             controller.root = self
         }
+    }
+    public func isAuth(for role: ApiRole) -> Bool {
+        return authKeys.isAuth(for: role)
     }
     public func show(complete: ((Bool) -> Void)? ) {
 
@@ -99,7 +102,7 @@ public class AuthService {
 
         if let done = _complete {
 
-            done(nil != _storage.keys(for: _rights))
+            done(nil != authKeys.keys(for: _rights))
         }
 
         _navigator.popToViewController(_root, animated: true)

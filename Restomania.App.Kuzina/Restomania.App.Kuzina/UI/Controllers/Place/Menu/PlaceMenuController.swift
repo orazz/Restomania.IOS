@@ -44,135 +44,108 @@ public class PlaceMenuController: UIViewController {
     }
 
     //UI Elements
-    private var _loader: InterfaceLoader!
-    private var _refreshControl: UIRefreshControl!
+    private var loader: InterfaceLoader!
+    private var refreshControl: RefreshControl!
     @IBOutlet private weak var contentTable: UITableView!
-    private var _contentRows: [PlaceMenuCellsProtocol] = []
-    private var _interfaceAdapter: InterfaceTable!
-    private var _titleBlock: PlaceMenuTitleContainer!
-    private var _menuBlock: PlaceMenuMenuContainer!
+    private var contentRows: [PlaceMenuCellsProtocol] = []
+    private var interfaceAdapter: InterfaceTable!
+    private var titleBlock: PlaceMenuTitleContainer!
+    private var menuBlock: PlaceMenuMenuContainer!
+    private var bottomAction: BottomActions!
+    private var cartAction: PlaceMenuCartAction!
     @IBOutlet private weak var fadeInPanel: UINavigationBar!
     private var _isInitFadeInPanel: Bool = false
-    @IBAction private func goBack() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    @IBAction private func goPlaceInfo() {
-
-        guard let summary = _summary else {
-            return
-        }
-
-        let vc = PlaceInfoController.create(for: summary.ID)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    private var _bottomAction: BottomActions!
-    private var _cartAction: PlaceMenuCartAction!
-
-    // MARK: Services
-    private var _menuService = CacheServices.menu
-    private var _placesService = CacheServices.places
-    private var _keysService = ToolsServices.shared.keys
-    private var _authService: AuthService!
-    private var _cart: Cart!
-
-    // MARK: Data
-    private let _tag = String.tag(PlaceMenuController.self)
-    private let _guid = Guid.new
-    private var _placeId: Long!
-    private var _summary: PlaceSummary?
-    private var _menu: MenuSummary?
-    private var _summaryCompleteRequest = false
-    private var _menuCompleteRequest = false
     private var _recheckOffset = CGFloat(100)
     private var _lastOverOffset = CGFloat(0)
 
+    // MARK: Services
+    private var menuCache = CacheServices.menu
+    private var placesCache = CacheServices.places
+    private var _authService: AuthService!
+    private var _cart: Cart!
+
+    // MARK: Tools
+    private var _placeId: Long!
+    private let _tag = String.tag(PlaceMenuController.self)
+    private let _guid = Guid.new
+    private var loadQueue: AsyncQueue!
+
+    // MARK: Data
+    private var summaryContainer: PartsLoadTypedContainer<PlaceSummary>!
+    private var menuContainer: PartsLoadTypedContainer<MenuSummary>!
+    private var loadAdapter: PartsLoader!
+
     // MARK: View life circle
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
+
         _authService = AuthService(open: .login, with: self.navigationController!, rights: .user)
-
-        _loader = InterfaceLoader(for: self.view)
-        _refreshControl = contentTable.addRefreshControl(for: self, action: #selector(needReload))
-
-        _contentRows = loadRows()
-        _interfaceAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!, rows: _contentRows)
-        _interfaceAdapter.delegate = self
-
         _cart = ToolsServices.shared.cart(for: _placeId)
 
-        _bottomAction = BottomActions(for: self.view)
-        _cartAction = PlaceMenuCartAction.create(with: self)
-        _bottomAction.setup(content: _cartAction)
+        summaryContainer = PartsLoadTypedContainer<PlaceSummary>(self)
+        summaryContainer.updateHandler = { _ in
+            self.completeLoad()
+        }
 
-        reloadData()
+        menuContainer = PartsLoadTypedContainer<MenuSummary>(self)
+        menuContainer.updateHandler = { update in
+            self.cartAction.update(new: update)
+            self.completeLoad()
+        }
 
-        Log.Info(_tag, "Load place's menu of #\(_placeId).")
+        loadAdapter = PartsLoader([summaryContainer])
+
+        loadMarkup()
+        loadData()
+
+        Log.Info(_tag, "Load place #\(_placeId) menu page.")
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if (isNeedShowLoader) {
-            _loader.show()
-        }
+        _cart.subscribe(guid: _guid, handler: self, tag: _tag)
 
-        setupMarkup()
+        self.hideNavigationBar()
     }
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        _recheckOffset = contentTable.contentSize.height - CGFloat(_menuBlock.viewHeight) - CGFloat(64) - CGFloat(20) //64 - MenuBlock, 20 - status bar offset
-
-        _cart.subscribe(guid: _guid, handler: self, tag: _tag)
-        trigger({ $0.viewDidDisappear() })
-
-        _cartAction.viewDidAppear()
+        cartAction.viewDidAppear()
+        trigger({ $0.viewDidAppear() })
     }
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         _cart.unsubscribe(guid: _guid)
+        cartAction.viewDidDisappear()
         trigger({ $0.viewDidDisappear() })
-
-        _cartAction.viewDidDisappear()
 
         contentTable.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         enableScrolling()
-        _menuBlock.disableScroll()
+        menuBlock.disableScroll()
+    }
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
-    private func setupMarkup() {
+    // MARK: Actions
+    @IBAction private func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction private func goPlaceInfo() {
 
-        self.hideNavigationBar()
+        if let summary = summaryContainer.data {
 
-        view.backgroundColor = ThemeSettings.Colors.background
-
-        _menuBlock.disableScroll()
-        setupFadeOutPanel()
-
-        if (_cart.hasDishes) {
-            _bottomAction.show()
+            let vc = PlaceInfoController.create(for: summary.ID)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
-    private func loadRows() -> [PlaceMenuCellsProtocol] {
-
-        var result = [PlaceMenuCellsProtocol]()
-
-        _titleBlock = PlaceMenuTitleContainer.create(with: self.navigationController!)
-        result.append(_titleBlock)
-
-        _menuBlock = PlaceMenuMenuContainer.create(with: self)
-        result.append(_menuBlock)
-
-        return result
-    }
     private func trigger(_ handler: ((PlaceMenuCellsProtocol) -> Void)) {
 
-        for cell in _contentRows {
+        for cell in contentRows {
             handler(cell)
         }
     }
@@ -181,112 +154,109 @@ public class PlaceMenuController: UIViewController {
 // MARK: Load data
 extension PlaceMenuController {
 
+    private func loadMarkup() {
+
+        loader = InterfaceLoader(for: self.view)
+        refreshControl = contentTable.addRefreshControl(for: self, action: #selector(needReload))
+
+        contentRows = loadRows()
+        interfaceAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!, rows: contentRows)
+        interfaceAdapter.delegate = self
+
+        bottomAction = BottomActions(for: self.view)
+        cartAction = PlaceMenuCartAction.create(with: self)
+        bottomAction.setup(content: cartAction)
+
+        view.backgroundColor = ThemeSettings.Colors.background
+
+        //Count position of switch scroll
+        _recheckOffset = contentTable.contentSize.height - CGFloat(menuBlock.viewHeight) - CGFloat(64) - CGFloat(20) //64 - MenuBlock, 20 - status bar offset
+
+        menuBlock.disableScroll()
+        setupFadeOutPanel()
+
+        if (_cart.hasDishes) {
+            bottomAction.show()
+        }
+    }
+    private func loadRows() -> [PlaceMenuCellsProtocol] {
+
+        var result = [PlaceMenuCellsProtocol]()
+
+        titleBlock = PlaceMenuTitleContainer.create(with: self.navigationController!)
+        result.append(titleBlock)
+
+        menuBlock = PlaceMenuMenuContainer.create(with: self)
+        result.append(menuBlock)
+
+        return result
+    }
+
+    private func loadData() {
+
+        if let summary = placesCache.cache.find(_placeId) {
+            summaryContainer.update(summary)
+        }
+
+        if let summary = summaryContainer.data,
+           let menu = menuCache.cache.find(summary.menuId) {
+            menuContainer.update(menu)
+        } else if let menu = menuCache.cache.find({ $0.placeID == self._placeId }) {
+            menuContainer.update(menu)
+        }
+
+        if (!loadAdapter.hasData) {
+            loader.show()
+        }
+
+        requestData()
+    }
     @objc private func needReload() {
-
-        reloadData(ignoreCache: true)
+        requestData()
     }
-    private func reloadData(ignoreCache: Bool = false) {
+    private func requestData() {
 
-        _menuCompleteRequest = false
-        _summaryCompleteRequest = false
+        summaryContainer.startRequest()
+        menuContainer.startRequest()
 
-        requestSummary(ignoreCache)
-        requestMenu(ignoreCache)
+        requestSummary()
+        requestMenu()
     }
-    private func requestMenu(_ ignoreCache: Bool) {
 
-        //Take local
-        if (!ignoreCache) {
-            if let menu = _menuService.cache.find { $0.placeID == _placeId } {
+    //MARK Place summary
+    private func requestSummary() {
 
-                _menu = menu
-                applyMenu()
-                return
-            }
-        }
-
-        //Take remote
-        let task = _menuService.find(for: _placeId)
-        task.async(.background, completion: { result in
-
-            if (nil == result) {
-                Log.Warning(self._tag, "Problem with load place's menu.")
-            } else {
-                self._menu = result
-            }
-
-            DispatchQueue.main.async {
-
-                self._menuCompleteRequest = true
-                self.applyMenu()
-            }
-        })
+        let request = placesCache.find(_placeId)
+        request.async(loadQueue, completion: summaryContainer.completeLoad)
     }
-    private func applyMenu() {
 
-        if let menu = _menu {
-            _cartAction.update(new: menu)
-        }
+    // MARK: Menu
+    private func requestMenu() {
 
-        completeLoad()
+        let request = menuCache.find(for: _placeId)
+        request.async(loadQueue, completion: menuContainer.completeLoad)
     }
-    private func requestSummary(_ ignoreCache: Bool) {
 
-        //Take local
-        if (!ignoreCache) {
-            if let summary = _placesService.findInLocal(_placeId) {
-
-                _summary = summary
-                completeLoad()
-                return
-            }
-        }
-
-        //Take remote
-        let task = _placesService.range([ _placeId ])
-        task.async(.background, completion: { _ in
-
-            if (result.isEmpty) {
-                Log.Warning(self._tag, "Problem with load place summary.")
-            } else {
-                self._summary = result.first!
-            }
-
-            DispatchQueue.main.async {
-
-                self._summaryCompleteRequest = true
-                self.completeLoad()
-            }
-        })
-    }
     private func completeLoad() {
+        DispatchQueue.main.async {
 
-        if (!isNeedShowLoader) {
-            _loader.hide()
+            if (self.loadAdapter.isFail) {
+                Log.Error(self._tag, "Problem with load data for page.")
+
+                let alert = ProblemAlerts.toastAlert(title: Keys.AlertLoadErrorTitle,
+                                                    message: Keys.AlertLoadErrorMessage)
+
+                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.present(alert, animated: true, completion: nil)
+            }
+
+            if (self.loadAdapter.isLoad) {
+                self.loader.hide()
+                self.refreshControl.endRefreshing()
+            }
+
+            self.trigger({ $0.dataDidLoad(delegate: self) })
         }
-
-        if (nil == _summary && _summaryCompleteRequest ||
-            nil == _menu && _menuCompleteRequest) {
-            Log.Error(_tag, "Problem with load data for page.")
-
-            let alert = UIAlertController(title: "Ошибка", message: "У нас возникла проблема с загрузкой данных.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-
-            self.navigationController?.popViewController(animated: true)
-            self.navigationController?.present(alert, animated: true, completion: nil)
-        }
-
-        if (_refreshControl.isRefreshing && isCompleteLoad) {
-            _refreshControl.endRefreshing()
-        }
-
-        trigger({ $0.dataDidLoad(delegate: self) })
-    }
-    private var isNeedShowLoader: Bool {
-        return nil == _summary || nil == _menu
-    }
-    private var isCompleteLoad: Bool {
-        return _menuCompleteRequest && _summaryCompleteRequest
     }
 }
 
@@ -294,10 +264,10 @@ extension PlaceMenuController {
 extension PlaceMenuController: PlaceMenuDelegate {
 
     public var summary: PlaceSummary? {
-        return _summary
+        return summaryContainer.data
     }
     public var menu: MenuSummary? {
-        return _menu
+        return menuContainer.data
     }
     public var cart: Cart {
         return _cart
@@ -318,7 +288,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
 
     public func goToCart() {
 
-        if (_keysService.isAuth(for: .user)) {
+        if (_authService.isAuth(for: .user)) {
             openCartPage()
         } else {
              _authService.show(complete: { success in
@@ -326,10 +296,10 @@ extension PlaceMenuController: PlaceMenuDelegate {
                 if (success) {
                     self.openCartPage()
                 } else {
-                    Log.Warning(self._tag, "Not wuthorize user.")
+                    Log.Warning(self._tag, "Not authorize user.")
 
-                    let alert = UIAlertController(title: "Авторизация", message: "Для заказа через приложение необходима авторизация.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    let alert = ProblemAlerts.toastAlert(title: Keys.AlertAuthErrorTitle,
+                                                        message: Keys.AlertAuthErrorMessage)
                     self.present(alert, animated: true, completion: nil)
                 }
             })
@@ -348,7 +318,7 @@ extension PlaceMenuController: UITableViewDelegate {
     //Scroll dishes table
     public func scrollTo(offset: CGFloat) {
         if (offset < -1) {
-            _menuBlock.disableScroll()
+            menuBlock.disableScroll()
 
             _lastOverOffset = min(offset, _lastOverOffset)
             contentTable.setContentOffset(CGPoint(x: 0, y: _recheckOffset - count(offset: _lastOverOffset)), animated: true)
@@ -363,8 +333,8 @@ extension PlaceMenuController: UITableViewDelegate {
             disableScrolling()
 
             _lastOverOffset = max(offset - _recheckOffset, _lastOverOffset)
-            _menuBlock.setScroll(count(offset: _lastOverOffset), animated: true)
-            _menuBlock.enableScroll()
+            menuBlock.setScroll(count(offset: _lastOverOffset), animated: true)
+            menuBlock.enableScroll()
         }
 
         updateFadeOutPanel()
@@ -450,14 +420,28 @@ extension PlaceMenuController: CartUpdateProtocol {
 
     public func cart(_ cart: Cart, changedDish: Long, newCount: Int) {
         DispatchQueue.main.async {
-            self._bottomAction.show()
+            self.bottomAction.show()
         }
     }
     public func cart(_ cart: Cart, removedDish: Long) {
         DispatchQueue.main.async {
             if (cart.isEmpty) {
-                self._bottomAction.hide()
+                self.bottomAction.hide()
             }
         }
+    }
+}
+extension PlaceMenuController {
+    public enum Keys: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(PlaceMenuController.self)
+        }
+
+        case AlertLoadErrorTitle = "Alerts.LoadError.Title"
+        case AlertLoadErrorMessage = "Alerts.LoadError.Message"
+
+        case AlertAuthErrorTitle = "Alerts.AuthError.Title"
+        case AlertAuthErrorMessage = "Alerts.AuthError.Message"
     }
 }

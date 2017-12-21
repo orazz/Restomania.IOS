@@ -29,16 +29,34 @@ public class SearchController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadMarkup()
+        startLoadData()
+    }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        hideNavigationBar()
+    }
+
+    // MARK: Actions
+    internal func goTo(_ place: PlaceSummary) {
+
+        let vc = PlaceMenuController.create(for: place.ID)
+        self.navigationController!.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: Load
+extension SearchController {
+
+    private func loadMarkup() {
         loader = InterfaceLoader(for: self.view)
         refreshControl = table.addRefreshControl(for: self, action: #selector(needReload))
 
         loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
         tableAdapter = TableAdapter(for: self)
         searchAdapter = setupSearchAdapter()
-
         searchBar.delegate = self
-
-        loadData()
     }
     private func setupSearchAdapter() -> SearchAdapter<PlaceSummary> {
         let adapter = SearchAdapter<PlaceSummary>()
@@ -52,23 +70,7 @@ public class SearchController: UIViewController {
         return adapter
     }
 
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        hideNavigationBar()
-    }
-
-    internal func goTo(_ place: PlaceSummary) {
-
-        let vc = PlaceMenuController.create(for: place.ID)
-        self.navigationController!.pushViewController(vc, animated: true)
-    }
-}
-
-// MARK: Load
-extension SearchController {
-
-    private func loadData() {
+    private func startLoadData() {
 
         let ids = AppSummary.shared.placeIDs!
         let cached = service.cache.range(ids)

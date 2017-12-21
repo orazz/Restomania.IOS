@@ -6,4 +6,12 @@
   Copyright © 2017 Medved-Studio. All rights reserved.
 */
 
+//RefreshControl
 "UIElements.RefreshControl.Title" = "Потяните для обновления";
+
+//ProblemAlerts
+"UIElements.ProblemAlerts.OK" = "ОК";
+"UIElements.ProblemAlerts.ErrorTitle" = "Ошибка";
+"UIElements.ProblemAlerts.ConnectionErrorTitle" = "Ошибка соединения";
+"UIElements.ProblemAlerts.NoConnectionMessage" = "Не можем достучатсья до сервера. Проверьте интернет подключение.";
+"UIElements.ProblemAlerts.ServerErrorMessage" = "У нас возникла ошибка. Попробуйте позднее.";

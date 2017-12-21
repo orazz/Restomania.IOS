@@ -11,6 +11,9 @@
 		1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */; };
 		1F12EB541FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F12EB531FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib */; };
 		1F12EB561FB4166100EF9BEA /* ManagerOrdersControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F12EB551FB4166100EF9BEA /* ManagerOrdersControllerView.xib */; };
+		1F1D103A1FEA72F4000F4F8F /* PlaceMenuCartAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D10381FEA72F3000F4F8F /* PlaceMenuCartAction.swift */; };
+		1F1D103B1FEA72F4000F4F8F /* PlaceMenuCartActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1D10391FEA72F3000F4F8F /* PlaceMenuCartActionView.xib */; };
+		1F1D10441FEAEE8E000F4F8F /* PlaceMenuController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F1D10461FEAEE8E000F4F8F /* PlaceMenuController.strings */; };
 		1F1DA2C91F6889FB00EFE5CE /* DishType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2C81F6889FB00EFE5CE /* DishType.swift */; };
 		1F1DA2CB1F688A4400EFE5CE /* IMenuDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CA1F688A4400EFE5CE /* IMenuDependent.swift */; };
 		1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DA2CC1F688AAE00EFE5CE /* UnitsOfSize.swift */; };
@@ -177,8 +180,6 @@
 		1FBE84111F266E7C0002F0B5 /* CartServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE840F1F266E6E0002F0B5 /* CartServiceTests.swift */; };
 		1FC01CC81FB20F4100413ED7 /* PlaceCartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CC71FB20F4100413ED7 /* PlaceCartController.swift */; };
 		1FC01CCA1FB2115000413ED7 /* PlaceCartControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC01CC91FB2115000413ED7 /* PlaceCartControllerView.xib */; };
-		1FC01CCD1FB211EC00413ED7 /* PlaceMenuCartActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC01CCB1FB211EC00413ED7 /* PlaceMenuCartActionView.xib */; };
-		1FC01CCE1FB211EC00413ED7 /* PlaceMenuCartAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CCC1FB211EC00413ED7 /* PlaceMenuCartAction.swift */; };
 		1FC01CDF1FB21D6600413ED7 /* SubdishSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDC1FB21D6600413ED7 /* SubdishSummary.swift */; };
 		1FC01CE01FB21D6600413ED7 /* AdditionSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDD1FB21D6600413ED7 /* AdditionSummary.swift */; };
 		1FC01CE11FB21D6600413ED7 /* DishOrderDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDE1FB21D6600413ED7 /* DishOrderDish.swift */; };
@@ -263,6 +264,10 @@
 		1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCompleteOrderController.swift; path = UI/Controllers/Place/CompleteOrder/PlaceCompleteOrderController.swift; sourceTree = "<group>"; };
 		1F12EB531FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCompleteOrderControllerView.xib; path = UI/Controllers/Place/CompleteOrder/PlaceCompleteOrderControllerView.xib; sourceTree = "<group>"; };
 		1F12EB551FB4166100EF9BEA /* ManagerOrdersControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ManagerOrdersControllerView.xib; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerView.xib; sourceTree = "<group>"; };
+		1F1D10381FEA72F3000F4F8F /* PlaceMenuCartAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuCartAction.swift; path = UI/Controllers/Place/Menu/CartAction/PlaceMenuCartAction.swift; sourceTree = "<group>"; };
+		1F1D10391FEA72F3000F4F8F /* PlaceMenuCartActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuCartActionView.xib; path = UI/Controllers/Place/Menu/CartAction/PlaceMenuCartActionView.xib; sourceTree = "<group>"; };
+		1F1D10451FEAEE8E000F4F8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PlaceMenuController.strings; sourceTree = "<group>"; };
+		1F1D10471FEAEE90000F4F8F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PlaceMenuController.strings; sourceTree = "<group>"; };
 		1F1DA2C81F6889FB00EFE5CE /* DishType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishType.swift; path = Domains/Places/Menues/DishType.swift; sourceTree = "<group>"; };
 		1F1DA2CA1F688A4400EFE5CE /* IMenuDependent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMenuDependent.swift; path = Domains/Places/Menues/IMenuDependent.swift; sourceTree = "<group>"; };
 		1F1DA2CC1F688AAE00EFE5CE /* UnitsOfSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitsOfSize.swift; path = Domains/Places/Menues/UnitsOfSize.swift; sourceTree = "<group>"; };
@@ -433,8 +438,6 @@
 		1FBE840F1F266E6E0002F0B5 /* CartServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartServiceTests.swift; path = Services/CartServiceTests.swift; sourceTree = "<group>"; };
 		1FC01CC71FB20F4100413ED7 /* PlaceCartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartController.swift; path = UI/Controllers/Place/Cart/PlaceCartController.swift; sourceTree = "<group>"; };
 		1FC01CC91FB2115000413ED7 /* PlaceCartControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartControllerView.xib; path = UI/Controllers/Place/Cart/PlaceCartControllerView.xib; sourceTree = "<group>"; };
-		1FC01CCB1FB211EC00413ED7 /* PlaceMenuCartActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuCartActionView.xib; path = UI/Controllers/Place/Menu/PlaceMenuCartActionView.xib; sourceTree = "<group>"; };
-		1FC01CCC1FB211EC00413ED7 /* PlaceMenuCartAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuCartAction.swift; path = UI/Controllers/Place/Menu/PlaceMenuCartAction.swift; sourceTree = "<group>"; };
 		1FC01CDC1FB21D6600413ED7 /* SubdishSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubdishSummary.swift; path = Domains/Orders/DishOrders/SubdishSummary.swift; sourceTree = "<group>"; };
 		1FC01CDD1FB21D6600413ED7 /* AdditionSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdditionSummary.swift; path = Domains/Orders/DishOrders/AdditionSummary.swift; sourceTree = "<group>"; };
 		1FC01CDE1FB21D6600413ED7 /* DishOrderDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderDish.swift; path = Domains/Orders/DishOrders/DishOrderDish.swift; sourceTree = "<group>"; };
@@ -523,6 +526,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F1D10371FEA72B0000F4F8F /* CartAction */ = {
+			isa = PBXGroup;
+			children = (
+				1F1D10381FEA72F3000F4F8F /* PlaceMenuCartAction.swift */,
+				1F1D10391FEA72F3000F4F8F /* PlaceMenuCartActionView.xib */,
+			);
+			name = CartAction;
+			sourceTree = "<group>";
+		};
 		1F261C781F42BC4B004BFFCB /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,10 +574,10 @@
 			children = (
 				1F279F881FB07D3C003A2B47 /* PlaceMenuController.swift */,
 				1F279F851FB07D3C003A2B47 /* PlaceMenuControllerView.xib */,
-				1FC01CCC1FB211EC00413ED7 /* PlaceMenuCartAction.swift */,
-				1FC01CCB1FB211EC00413ED7 /* PlaceMenuCartActionView.xib */,
+				1F1D10461FEAEE8E000F4F8F /* PlaceMenuController.strings */,
 				1F279F951FB0EB92003A2B47 /* TitleContainer */,
 				1F279F961FB0EBA1003A2B47 /* MenuContainer */,
+				1F1D10371FEA72B0000F4F8F /* CartAction */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -1562,7 +1574,6 @@
 				1F62E4681FAE464400D1C89D /* Start.storyboard in Resources */,
 				1F279F7F1FB07CFC003A2B47 /* ManagerOrdersControllerOrderCellView.xib in Resources */,
 				1F279FA21FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib in Resources */,
-				1FC01CCD1FB211EC00413ED7 /* PlaceMenuCartActionView.xib in Resources */,
 				1F279F9D1FB0EC11003A2B47 /* PlaceMenuDishCellView.xib in Resources */,
 				1F279F661FB07C82003A2B47 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */,
 				1FE3C7731FB31C2B009CE542 /* PlaceCartTotalContainerCellView.xib in Resources */,
@@ -1588,9 +1599,11 @@
 				1F279F771FB07CEC003A2B47 /* ManagerOneOrderControllerView.xib in Resources */,
 				1F279FA61FB0ECEE003A2B47 /* PlaceMenuTitleContainerView.xib in Resources */,
 				1F62E47B1FAE466F00D1C89D /* ForgetPasswordPage.xib in Resources */,
+				1F1D10441FEAEE8E000F4F8F /* PlaceMenuController.strings in Resources */,
 				1F4B0E931FEA69E4006C0C58 /* SearchPlaceCardCell.xib in Resources */,
 				1FB3F24C1FD5712A0073640B /* Localizable.strings in Resources */,
 				1FE3C7611FB2F41E009CE542 /* PlaceCartDividerView.xib in Resources */,
+				1F1D103B1FEA72F4000F4F8F /* PlaceMenuCartActionView.xib in Resources */,
 				1F62E47D1FAE466F00D1C89D /* LoginPage.xib in Resources */,
 				1F62E4A61FAE46D300D1C89D /* ManagerPaymentCardCellView.xib in Resources */,
 				1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */,
@@ -1871,6 +1884,7 @@
 				1FB6B9301FAE19A400CD0B17 /* PropertiesKey.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,
+				1F1D103A1FEA72F4000F4F8F /* PlaceMenuCartAction.swift in Sources */,
 				1FB8F0401F1EADFB0090045E /* PaymentCardType.swift in Sources */,
 				1FB3F25D1FD573000073640B /* PlaceCartContainer.swift in Sources */,
 				1FB8F0021F1DF3BC0090045E /* CountedLoyaltySystem.swift in Sources */,
@@ -1953,7 +1967,6 @@
 				1FB3F2601FD573000073640B /* Cart.swift in Sources */,
 				1FB3F25E1FD573000073640B /* Reservation.swift in Sources */,
 				1FB8F03F1F1EADFB0090045E /* PaymentCardStatus.swift in Sources */,
-				1FC01CCE1FB211EC00413ED7 /* PlaceMenuCartAction.swift in Sources */,
 				1F62E46E1FAE465700D1C89D /* ManagerController.swift in Sources */,
 				1FB3F28F1FD57DAF0073640B /* ApiServices.swift in Sources */,
 				1FE3C7671FB30F62009CE542 /* PlaceCartAdditionalContainer.swift in Sources */,
@@ -2003,6 +2016,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F1D10461FEAEE8E000F4F8F /* PlaceMenuController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F1D10451FEAEE8E000F4F8F /* en */,
+				1F1D10471FEAEE90000F4F8F /* ru */,
+			);
+			name = PlaceMenuController.strings;
+			path = UI/Controllers/Place/Menu/Localization;
+			sourceTree = "<group>";
+		};
 		1F4B0E891FEA6056006C0C58 /* UIElements.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

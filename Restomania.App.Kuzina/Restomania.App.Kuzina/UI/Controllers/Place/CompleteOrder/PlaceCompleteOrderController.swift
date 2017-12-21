@@ -18,7 +18,7 @@ public class PlaceCompleteOrderController: UIViewController {
         let instance = PlaceCompleteOrderController(nibName: nibName, bundle: Bundle.main)
 
         instance.order = order
-        let cart = ServicesManager.shared.cartsService.get(for: order.placeId)
+        let cart = ToolsServices.shared.cart(for: order.placeId)
         cart.clear()
 
         return instance
