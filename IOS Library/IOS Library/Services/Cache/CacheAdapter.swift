@@ -118,7 +118,7 @@ open class CacheAdapter<TElement> where TElement: ICached {
         blockQueue.sync {
             let date = Date()
             for element in data {
-                if ( 0 > element.relevanceDate.timeIntervalSince(date)) {
+                if (!element.isRelevance) {
                     ids.append(element.ID)
                 }
             }

@@ -23,7 +23,7 @@ public class CacheServices {
 
         return _places!
     }
-    public static var menu: MenuCacheService {
+    public static var menus: MenuCacheService {
         if (nil == _menu) {
             _menu = MenuCacheService()
         }
@@ -48,7 +48,7 @@ public class CacheServices {
     public static func load() {
 
         places.load()
-        menu.load()
+        menus.load()
         cards.load()
         images.load()
     }

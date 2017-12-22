@@ -19,9 +19,9 @@ public protocol PlaceMenuCellsProtocol: InterfaceTableCellProtocol {
 }
 public protocol PlaceMenuDelegate {
 
-    var summary: PlaceSummary? { get }
-    var menu: MenuSummary? { get }
-    var cart: Cart { get }
+    func takeSummary() -> PlaceSummary?
+    func takeMenu() -> MenuSummary?
+    func takeCart() -> Cart
 
     func add(dish: Long)
     func select(category: Long)
@@ -48,8 +48,8 @@ public class PlaceMenuController: UIViewController {
     private var _lastOverOffset = CGFloat(0)
 
     // MARK: Services
-    private var menuCache = CacheServices.menu
-    private var placesCache = CacheServices.places
+    private var menusService = CacheServices.menus
+    private var placesService = CacheServices.places
     private var cartService: Cart!
     private var enterService: AuthService!
 
@@ -78,11 +78,15 @@ public class PlaceMenuController: UIViewController {
         self.loadAdapter = PartsLoader([summaryContainer, menuContainer])
         //Add load handlers
         self.summaryContainer.updateHandler = { update in
-            self.fadeInPanel.topItem?.title = update.Schedule.todayRepresentation
+            DispatchQueue.main.async {
+                self.fadeInPanel.topItem?.title = update.Schedule.todayRepresentation
+            }
             self.completeLoad()
         }
         self.menuContainer.updateHandler = { update in
-            self.cartAction.update(new: update)
+            DispatchQueue.main.async {
+                self.cartAction.update(new: update)
+            }
             self.completeLoad()
         }
     }
@@ -117,7 +121,7 @@ public class PlaceMenuController: UIViewController {
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        cart.unsubscribe(guid: guid)
+        cartService.unsubscribe(guid: guid)
         cartAction.viewDidDisappear()
         trigger({ $0.viewDidDisappear() })
 
@@ -169,7 +173,7 @@ extension PlaceMenuController {
         setupFadeOutPanel()
         resetScrolling()
 
-        if (cart.hasDishes) {
+        if (cartService.hasDishes) {
             bottomAction.show()
         }
     }
@@ -189,21 +193,13 @@ extension PlaceMenuController {
     private func loadData() {
 
         //Place's summary
-        if let summary = placesCache.cache.find(placeId) {
-            summaryContainer.update(summary)
-
-            if (placesCache.cache.isFresh(summary.ID)) {
-                summaryContainer.completeLoad()
-            }
+        if let summary = placesService.cache.find(placeId) {
+            summaryContainer.updateAndCheckFresh(summary, cache: placesService.cache)
         }
 
         //Menu summary
-        if let menu = menuCache.findLocal(by: placeId, summary: summaryContainer.data) {
-            menuContainer.update(menu)
-
-            if (menuCache.cache.isFresh(menu.ID)) {
-                menuContainer.completeLoad()
-            }
+        if let menu = menusService.findLocal(by: placeId, summary: summaryContainer.data) {
+            menuContainer.updateAndCheckFresh(menu, cache: menusService.cache)
         }
 
         if (loadAdapter.noData) {
@@ -219,14 +215,20 @@ extension PlaceMenuController {
     private func requestData() {
 
         if (!summaryContainer.isLoad) {
-            let request = placesCache.find(placeId)
-            request.async(loadQueue, completion: summaryContainer.completeLoad)
+            requestSummary()
         }
 
         if (!menuContainer.isLoad) {
-            let request = menuCache.find(placeId)
-            request.async(loadQueue, completion: menuContainer.completeLoad)
+            requestMenu()
         }
+    }
+    private func requestSummary() {
+        let request = placesService.find(placeId)
+        request.async(loadQueue, completion: summaryContainer.completeLoad)
+    }
+    private func requestMenu() {
+        let request = menusService.find(placeId)
+        request.async(loadQueue, completion: menuContainer.completeLoad)
     }
     private func completeLoad() {
         DispatchQueue.main.async {
@@ -252,13 +254,13 @@ extension PlaceMenuController {
 // MARK: PlaceMenuControllerProtocol
 extension PlaceMenuController: PlaceMenuDelegate {
 
-    public var summary: PlaceSummary? {
+    public func takeSummary() -> PlaceSummary? {
         return summaryContainer.data
     }
-    public var menu: MenuSummary? {
+    public func takeMenu() -> MenuSummary? {
         return menuContainer.data
     }
-    public var cart: Cart {
+    public func takeCart() -> Cart {
         return cartService
     }
 

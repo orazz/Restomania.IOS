@@ -99,7 +99,7 @@ extension PlaceMenuTitleContainer: PlaceMenuCellsProtocol {
     public func viewDidAppear() {}
     public func viewDidDisappear() {}
     public func dataDidLoad(delegate: PlaceMenuDelegate) {
-        _summary = delegate.summary
+        _summary = delegate.takeSummary()
     }
 }
 extension PlaceMenuTitleContainer: InterfaceTableCellProtocol {

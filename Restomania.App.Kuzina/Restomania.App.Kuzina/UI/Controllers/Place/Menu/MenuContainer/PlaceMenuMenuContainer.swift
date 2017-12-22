@@ -21,7 +21,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
         instance._menu = nil
         instance._delegate = controller
         instance._controller = controller
-        instance._cart = instance._delegate.cart
+        instance._cart = instance._delegate.takeCart()
 
         instance._categoriesAdapter = CategoriesCollection(for: instance.categoriesStack, with: instance)
         instance._dishesAdapter = DishesAdapter(for: instance.dishesTable, with: instance)
@@ -108,13 +108,13 @@ public class PlaceMenuMenuContainer: UITableViewCell {
 
 // MARK: Protocols
 extension PlaceMenuMenuContainer: PlaceMenuDelegate {
-    public var summary: PlaceSummary? {
-        return _delegate.summary
+    public func takeSummary() -> PlaceSummary? {
+        return _delegate.takeSummary()
     }
-    public var menu: MenuSummary? {
-        return _delegate.menu
+    public func takeMenu() -> MenuSummary? {
+        return _delegate.takeMenu()
     }
-    public var cart: Cart {
+    public func takeCart() -> Cart {
         return _cart
     }
 
@@ -153,7 +153,7 @@ extension PlaceMenuMenuContainer: PlaceMenuCellsProtocol {
         _cart.unsubscribe(guid: _guid)
     }
     public func dataDidLoad(delegate: PlaceMenuDelegate) {
-        _menu = delegate.menu
+        _menu = delegate.takeMenu()
     }
 }
 extension PlaceMenuMenuContainer: InterfaceTableCellProtocol {

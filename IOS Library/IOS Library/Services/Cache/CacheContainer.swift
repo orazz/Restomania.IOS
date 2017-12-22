@@ -21,9 +21,9 @@ internal class CacheContainer<T: ICached> : ICached {
         return data.ID
     }
     public private(set) var data: T
-    public private(set) var relevanceDate: Date
-    public private(set) var freshDate: Date
-    public private(set) var needSaveFreshDate: Bool
+    private var relevanceDate: Date
+    private var freshDate: Date
+    private var needSaveFreshDate: Bool
 
     public init(data: T, livetime: TimeInterval, freshtime: TimeInterval, needSaveFreshDate: Bool = true) {
 
@@ -31,6 +31,13 @@ internal class CacheContainer<T: ICached> : ICached {
         self.relevanceDate = Date().addingTimeInterval(livetime)
         self.freshDate = Date().addingTimeInterval(freshtime)
         self.needSaveFreshDate = needSaveFreshDate
+    }
+
+    public var isRelevance: Bool {
+        return 0 < relevanceDate.timeIntervalSince(Date())
+    }
+    public var isFresh: Bool {
+        return 0 < freshDate.timeIntervalSince(Date())
     }
 
     //MARK: Copying

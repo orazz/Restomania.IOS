@@ -60,7 +60,7 @@ public class PlaceCartController: UIViewController {
     private var menuContainer: PartsLoadTypedContainer<MenuSummary>!
     private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
     private var placesCache = CacheServices.places
-    private var menusCache = CacheServices.menu
+    private var menusCache = CacheServices.menus
     private var cardsCache = CacheServices.cards
     private var loadAdapter: PartsLoader!
 
@@ -76,6 +76,16 @@ public class PlaceCartController: UIViewController {
         menuContainer = PartsLoadTypedContainer<MenuSummary>()
         cardsContainer = PartsLoadTypedContainer<[PaymentCard]>()
         loadAdapter = PartsLoader([summaryContainer, menuContainer, cardsContainer])
+
+        summaryContainer.updateHandler = { _ in
+            self.completeLoad()
+        }
+        menuContainer.updateHandler = { _ in
+            self.completeLoad()
+        }
+        cardsContainer.updateHandler = { _ in
+            self.completeLoad()
+        }
     }
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -183,14 +193,12 @@ extension PlaceCartController {
             return
         }
 
-        if let data = placesCache.cache.find(placeId) {
-            self.summaryContainer.update(data)
-            self.summaryContainer.completeLoad()
+        if let summary = placesCache.cache.find(placeId) {
+            summaryContainer.updateAndCheckFresh(summary, cache: placesCache.cache)
         }
 
         if let menu = menusCache.findLocal(by: placeId, summary: self.summaryContainer.data) {
-            self.menuContainer.update(menu)
-            self.menuContainer.completeLoad()
+            menuContainer.updateAndCheckFresh(menu, cache: menusCache.cache)
         }
 
         self.cardsContainer.update(cardsCache.cache.all)

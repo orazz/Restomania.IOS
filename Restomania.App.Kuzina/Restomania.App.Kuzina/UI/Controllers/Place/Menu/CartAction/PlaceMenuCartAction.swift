@@ -19,8 +19,8 @@ public class PlaceMenuCartAction: UIView {
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceMenuCartAction
 
         instance.delegate = delegate
-        instance.menu = delegate.menu
-        instance.cart = delegate.cart
+        instance.menu = delegate.takeMenu()
+        instance.cart = delegate.takeCart()
 
         instance.apply()
 

@@ -62,7 +62,7 @@ open class CacheAdapterExtender<TElement> where TElement: ICached  {
             return false
         }
 
-        return container.freshDate > Date()
+        return container.isFresh
     }
 
     public func clear() {
