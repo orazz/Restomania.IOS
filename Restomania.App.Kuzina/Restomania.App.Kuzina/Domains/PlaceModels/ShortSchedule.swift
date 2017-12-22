@@ -12,16 +12,17 @@ import IOSLibrary
 
 public class ShortSchedule: Glossy, ICopying {
 
-    public var sunday: String
-    public var monday: String
-    public var tuesday: String
-    public var wednesday: String
-    public var thursday: String
-    public var friday: String
-    public var saturday: String
+    private var sunday: String
+    private var monday: String
+    private var tuesday: String
+    private var wednesday: String
+    private var thursday: String
+    private var friday: String
+    private var saturday: String
+
+    private var days = [Day]()
 
     public init() {
-
         self.sunday = String.empty
         self.monday = String.empty
         self.tuesday = String.empty
@@ -31,19 +32,15 @@ public class ShortSchedule: Glossy, ICopying {
         self.saturday = String.empty
     }
 
-    public func dayValue(_ weekDay: Int) -> Day {
-        let days = [sunday, monday, tuesday, wednesday, thursday, friday, saturday]
+    public class Day {
+        private let value: String
+        private let day: DayOfWeek
 
-        let number = abs(weekDay) % 7
-        return Day(value: days[number], number: number)
-    }
-    public func takeToday() -> String {
+        fileprivate init(value: String, day: DayOfWeek) {
 
-        let date = Date()
-        let calendar = Calendar.current
-        let day = calendar.component(.weekday, from: date)
-
-        return dayValue(day).toString()
+            self.value = value
+            self.day = day
+        }
     }
 
     // MARK: ICopying
@@ -56,58 +53,94 @@ public class ShortSchedule: Glossy, ICopying {
         self.thursday = source.thursday
         self.friday = source.friday
         self.saturday = source.saturday
+
+        buildDays()
     }
+    private func buildDays() {
+        days = [
+            Day(value: sunday, day: .sunday),
+            Day(value: monday, day: .monday),
+            Day(value: tuesday, day: .tuesday),
+            Day(value: wednesday, day: .wednesday),
+            Day(value: thursday, day: .thursday),
+            Day(value: friday, day: .friday),
+            Day(value: saturday, day: .saturday)
+        ]
+    }
+
     // MARK: Glossy
+    private struct Keys {
+        public static let sunday = "Sunday"
+        public static let monday = "Monday"
+        public static let tuesday = "Tuesday"
+        public static let wednesday = "Wednesday"
+        public static let thursday = "Thursday"
+        public static let friday = "Friday"
+        public static let saturday = "Saturday"
+    }
     public required init(json: JSON) {
 
-        self.sunday = ("Sunday" <~~ json)!
-        self.monday = ("Monday" <~~ json)!
-        self.tuesday = ("Tuesday" <~~ json)!
-        self.wednesday = ("Wednesday" <~~ json)!
-        self.thursday = ("Thursday" <~~ json)!
-        self.friday = ("Friday" <~~ json)!
-        self.saturday = ("Saturday" <~~ json)!
+        self.sunday = (Keys.sunday <~~ json)!
+        self.monday = (Keys.monday <~~ json)!
+        self.tuesday = (Keys.tuesday <~~ json)!
+        self.wednesday = (Keys.wednesday <~~ json)!
+        self.thursday = (Keys.thursday <~~ json)!
+        self.friday = (Keys.friday <~~ json)!
+        self.saturday = (Keys.saturday <~~ json)!
+
+        buildDays()
     }
     public func toJSON() -> JSON? {
 
         return jsonify([
-            "Sunday" ~~> sunday,
-            "Monday" ~~> monday,
-            "Tuesday" ~~> tuesday,
-            "Wednesday" ~~> wednesday,
-            "Thursday" ~~> thursday,
-            "Friday" ~~> friday,
-            "Saturday" ~~> saturday
+            Keys.sunday ~~> sunday,
+            Keys.monday ~~> monday,
+            Keys.tuesday ~~> tuesday,
+            Keys.wednesday ~~> wednesday,
+            Keys.thursday ~~> thursday,
+            Keys.friday ~~> friday,
+            Keys.saturday ~~> saturday
             ])
     }
+}
 
-    public class Day {
+//Display schedule
+extension ShortSchedule {
 
-        private let _value: String
-        private let _number: Int
+    public func dayValue(_ weekDay: Int) -> Day {
 
-        public init(value: String, number: Int) {
+        let number = abs(weekDay) % 7
+        return days[number]
+    }
+    public func takeToday() -> String {
 
-            _value = value
-            _number = number
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.weekday, from: date)
+
+        return dayValue(day).toString()
+    }
+}
+extension ShortSchedule.Day {
+
+    public func toString() -> String {
+
+        if (String.isNullOrEmpty(value)) {
+            return String.empty
         }
 
-        public func toString() -> String {
-
-            if (String.isNullOrEmpty(_value)) {
-                return String.empty
-            }
-
-            let minutesInDay = 60 * 24
-
-            let components = _value.components(separatedBy: "-")
-            let open = Int(components.first!)! - _number * minutesInDay
-            let close = Int(components.last!)! - _number * minutesInDay
-
-            return "\(format(open)) - \(format(close))"
+        let components = value.components(separatedBy: "-")
+        if (components.count < 2) {
+            return String.empty
         }
-        private func format(_ minutes: Int) -> String {
-            return "\(minutes / 60):\(minutes % 60)"
-        }
+
+        let minutesInDay = 60 * 24
+        let open = Int(components.first!)! - day.rawValue * minutesInDay
+        let close = Int(components.last!)! - day.rawValue * minutesInDay
+
+        return "\(format(open)) - \(format(close))"
+    }
+    private func format(_ minutes: Int) -> String {
+        return "\(minutes / 60):\(minutes % 60)"
     }
 }

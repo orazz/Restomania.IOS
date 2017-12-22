@@ -10,121 +10,114 @@ import Foundation
 import Gloss
 import IOSLibrary
 
+public protocol KeysStorageDelegate {
+    func set(keys: ApiKeys, for role: ApiRole)
+    func remove(for role: ApiRole)
+}
 public class KeysStorage {
 
     private var tag = String.tag(KeysStorage.self)
-    private var _data: [KeysContainer]
-    private let _filename: String = "keys-storage.json"
-    private let _client: FileSystem
+    private var allKeys: [KeysContainer]
+    private let file: FSOneFileClient
+    private let eventsAdapter: EventsAdapter<KeysStorageDelegate>
 
     public init() {
-        _data = [KeysContainer]()
+        allKeys = [KeysContainer]()
 
-        _client = FileSystem()
+        file = FSOneFileClient(filename: "keys-storage.json", inCache: false, tag: tag)
+        eventsAdapter = EventsAdapter<KeysStorageDelegate>(tag: tag)
 
-        if (_client.isExist(_filename, inCache: false)) {
+        load()
 
-            do {
-                let fileContent = _client.load(_filename, fromCache: false)!
-                let data = try JSONSerialization.jsonObject(with: fileContent.data(using: .utf8)!, options: []) as! [JSON]
-                _data = [KeysContainer]()
-
-                for json in data {
-                    _data.append(KeysContainer(json: json))
-                }
-            } catch {
-                _data = [KeysContainer]()
-                _client.saveTo(_filename, data: "[]", toCache: false)
-                Log.Debug(tag, "Problem with parse \(_filename) on load.")
-            }
-        } else {
-
-            _data = [KeysContainer]()
-        }
-
-        Log.Info(tag, "Complete load service.")
+        Log.Info(tag, "Service is load.")
     }
 
-    private func save() {
-        do {
-            let builded = _data.map({ $0.toJSON()})
-            let data = try JSONSerialization.data(withJSONObject: builded, options: [])
+    private func load() {
 
-            _client.saveTo(_filename, data: data, toCache: false)
-        } catch {
-            Log.Error(tag, "Problem with save keys to storage")
+        if (!file.isExist) {
+            return
         }
 
-        Log.Debug(tag, "Save keys to storage.")
+        do {
+            let fileContent = file.loadData()
+            allKeys = try JSONSerialization.parseRange(data: fileContent!)
+        } catch {}
+    }
+    private func save() {
+        do {
+            let data = try JSONSerialization.serialize(data: allKeys)
+
+            file.save(data: data)
+        } catch {
+            Log.Error(tag, "Problem with save keys to file")
+        }
+
+        Log.Debug(tag, "Save auth keys.")
     }
 
     private class KeysContainer: Glossy {
 
         public var keys: ApiKeys
-        public var rights: ApiRole
+        public var role: ApiRole
 
-        public init() {
+        public init(keys: ApiKeys, role: ApiRole) {
             self.keys = ApiKeys()
-            self.rights = .user
+            self.role = .user
         }
         public required init(json: JSON) {
             self.keys = ("keys" <~~ json)!
-            self.rights = ("rights" <~~ json)!
+            self.role = ("rights" <~~ json)!
         }
 
         public func toJSON() -> JSON? {
             return jsonify([
                 "keys" ~~> self.keys,
-                "rights" ~~> self.rights
+                "rights" ~~> self.role
                 ])
         }
     }
 }
 extension KeysStorage {
-    public func set(keys: ApiKeys, for rights: ApiRole) {
+    public func set(keys: ApiKeys, for role: ApiRole) {
 
-        for container in _data {
-            if (rights == container.rights) {
-                container.keys = keys
-                save()
-                return
-            }
+        if let container = allKeys.find({ $0.role == role }) {
+            container.keys = keys
         }
-
-        let container = KeysContainer()
-        container.keys = keys
-        container.rights = rights
-
-        _data.append(container)
-        save()
-    }
-    public func remove(for rights: ApiRole) {
-        for (index, container) in _data.enumerated() {
-            if (rights == container.rights) {
-                _data.remove(at: index)
-                break
-            }
+        else {
+            let container = KeysContainer(keys: keys, role: role)
+            allKeys.append(container)
         }
 
         save()
+        eventsAdapter.Trigger(action: { $0.set(keys: keys, for: role) })
     }
-}
-extension KeysStorage {
+    public func remove(for role: ApiRole) {
+
+        if let index = allKeys.index(where: { $0.role == role }) {
+            allKeys.remove(at: index)
+        }
+
+        save()
+        eventsAdapter.Trigger(action: { $0.remove(for: role) })
+    }
+
     public func isAuth(for rights: ApiRole) -> Bool {
         return nil != keys(for: rights)
     }
     public func keys(for rights: ApiRole) -> ApiKeys? {
-
-        for container in _data {
-            if (rights == container.rights) {
-                return container.keys
-            }
-        }
-
-        return nil
+        return allKeys.find({ $0.role == rights})?.keys
     }
     public func logout(for rights: ApiRole) {
-
         remove(for: rights)
+    }
+}
+extension KeysStorage: IEventsEmitter {
+    public typealias THandler = KeysStorageDelegate
+
+    public func subscribe(guid: String, handler: KeysStorageDelegate, tag: String) {
+        eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        eventsAdapter.unsubscribe(guid: guid)
     }
 }

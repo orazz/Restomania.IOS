@@ -13,10 +13,12 @@ import AsyncTask
 public class CardsCacheService {
 
     private let tag = String.tag(CardsCacheService.self)
+    private let guid = Guid.new
 
     private let api = ApiServices.Users.cards
     private let apiQueue: AsyncQueue
     private let adapter: CacheAdapter<PaymentCard>
+    private let keys = ToolsServices.shared.keys
 
     public init() {
         apiQueue = AsyncQueue.createForApi(for: tag)
@@ -24,6 +26,8 @@ public class CardsCacheService {
                                filename: "payment-cards.json",
                                livetime: 5 * 60 * 60,
                               freshtime: 5 * 60)
+
+        keys.subscribe(guid: guid, handler: self, tag: tag)
     }
     public func load() {
         adapter.loadCached()
@@ -63,6 +67,21 @@ public class CardsCacheService {
 
                 handler(response)
             }
+        }
+    }
+}
+
+extension CardsCacheService: KeysStorageDelegate {
+    public func set(keys: ApiKeys, for role: ApiRole) {
+
+        if (role == .user) {
+            adapter.clear()
+        }
+    }
+    public func remove(for role: ApiRole) {
+
+        if (role == .user) {
+            adapter.clear()
         }
     }
 }

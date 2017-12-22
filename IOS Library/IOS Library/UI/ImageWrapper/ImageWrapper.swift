@@ -79,7 +79,7 @@ open class BaseImageWrapper: UIImageView {
                 return
             }
 
-            let duration = 0.2
+            let duration = 0.1
             UIView.animate(withDuration: duration, animations: { self.alpha = 0 }, completion: ({ _ in
 
                 self.image = image
