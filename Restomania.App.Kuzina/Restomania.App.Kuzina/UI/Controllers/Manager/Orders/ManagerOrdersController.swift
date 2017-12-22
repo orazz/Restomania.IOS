@@ -149,7 +149,7 @@ extension ManagerOrdersController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOrdersControllerOrderCell.identifier, for: indexPath) as! ManagerOrdersControllerOrderCell
-        cell.setup(order: orders[indexPath.row])
+        cell.update(by: orders[indexPath.row])
 
         return cell
     }

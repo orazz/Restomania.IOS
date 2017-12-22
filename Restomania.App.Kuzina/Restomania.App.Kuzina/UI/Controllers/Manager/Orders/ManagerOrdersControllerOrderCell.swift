@@ -29,12 +29,10 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
 
     //Data
     public var OrderId: Long {
-
-        return _order.ID
+        return order.ID
     }
-    private var _order: DishOrder!
-    private var _isSetupMarkup: Bool = false
-    private var _dateFormatter: DateFormatter {
+    private var order: DishOrder!
+    private var formatter: DateFormatter {
 
         let result = DateFormatter()
 
@@ -43,32 +41,8 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
 
         return result
     }
-
-    public func setup(order: DishOrder) {
-
-        setupStyles()
-
-        _order = order
-
-        IdLabel.text = "# \(OrderId)"
-        DateLabel.text = _dateFormatter.string(from: order.summary.completeAt)
-        PlaceNameLabel.text = order.summary.placeName
-        PriceLabel.setup(amount: order.total.double, currency: order.currency)
-
-        var alpha = 1.0
-        if (_order.isCompleted) {
-            alpha = 0.5
-        }
-        for view in subviews {
-            view.alpha = CGFloat(alpha)
-        }
-    }
-    private func setupStyles() {
-
-        if (_isSetupMarkup) {
-
-            return
-        }
+    public override func awakeFromNib() {
+        super.awakeFromNib()
 
         let font = ThemeSettings.Fonts.default(size: .subhead)
 
@@ -76,7 +50,19 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
         DateLabel.font = font
         PlaceNameLabel.font = font
         PriceLabel.font = font
+    }
+    public func update(by order: DishOrder) {
 
-        _isSetupMarkup = true
+        self.order = order
+
+        IdLabel.text = "# \(OrderId)"
+        DateLabel.text = formatter.string(from: order.summary.completeAt)
+        PlaceNameLabel.text = order.summary.placeName
+        PriceLabel.setup(amount: order.total.double, currency: order.currency)
+
+        alpha = order.isCompleted ? 0.5 : 1.0
+        for view in subviews {
+            view.alpha = CGFloat(alpha)
+        }
     }
 }
