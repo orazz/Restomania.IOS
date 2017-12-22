@@ -21,7 +21,7 @@ public class PlacesCacheService {
 
     public init() {
         apiQueue = AsyncQueue.createForApi(for: tag)
-        adapter = CacheAdapter<PlaceSummary>(tag: tag, filename: "places-summaries.json", livetime: 24 * 60 * 60)
+        adapter = CacheAdapter<PlaceSummary>(tag: tag, filename: "places-summaries.json", livetime: 24 * 60 * 60, freshtime: 60 * 60)
     }
     public func load() {
         adapter.loadCached()

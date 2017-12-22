@@ -46,6 +46,17 @@ public class CacheImagesService {
         launchService()
     }
 
+    public func clear() {
+
+        adapter.loadCached()
+        for image in adapter.extender.all {
+            if (fileSystem.isExist(image.filename, inCache: true)) {
+                fileSystem.remove(image.filename, fromCache: true)
+            }
+        }
+        
+        adapter.clear()
+    }
     public func download(url: String) -> Task<DownloadResult> {
 
         return Task { (handler:@escaping (_:DownloadResult) -> Void) in

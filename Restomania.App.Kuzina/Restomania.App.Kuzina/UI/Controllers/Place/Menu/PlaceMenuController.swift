@@ -188,47 +188,46 @@ extension PlaceMenuController {
 
     private func loadData() {
 
+        //Place's summary
         if let summary = placesCache.cache.find(placeId) {
             summaryContainer.update(summary)
-            summaryContainer.completeLoad()
+
+            if (placesCache.cache.isFresh(summary.ID)) {
+                summaryContainer.completeLoad()
+            }
         }
 
+        //Menu summary
         if let menu = menuCache.findLocal(by: placeId, summary: summaryContainer.data) {
             menuContainer.update(menu)
+
+            if (menuCache.cache.isFresh(menu.ID)) {
+                menuContainer.completeLoad()
+            }
         }
 
         if (loadAdapter.noData) {
             loader.show()
         }
-
         requestData()
     }
     @objc private func needReload() {
 
         loadAdapter.startRequest()
-
         requestData()
     }
     private func requestData() {
 
         if (!summaryContainer.isLoad) {
-            requestSummary()
+            let request = placesCache.find(placeId)
+            request.async(loadQueue, completion: summaryContainer.completeLoad)
         }
 
-        requestMenu()
+        if (!menuContainer.isLoad) {
+            let request = menuCache.find(placeId)
+            request.async(loadQueue, completion: menuContainer.completeLoad)
+        }
     }
-
-    private func requestSummary() {
-
-        let request = placesCache.find(placeId)
-        request.async(loadQueue, completion: summaryContainer.completeLoad)
-    }
-    private func requestMenu() {
-
-        let request = menuCache.find(placeId)
-        request.async(loadQueue, completion: menuContainer.completeLoad)
-    }
-
     private func completeLoad() {
         DispatchQueue.main.async {
 

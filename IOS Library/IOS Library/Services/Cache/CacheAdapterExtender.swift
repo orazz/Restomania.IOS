@@ -56,6 +56,14 @@ open class CacheAdapterExtender<TElement> where TElement: ICached  {
 
         return CacheSearchResult<TElement>(cached: cached, notFound: notFound)
     }
+    public func isFresh(_ id: Long) -> Bool {
+
+        guard let container = adapter.data.find({ $0.ID == id }) else {
+            return false
+        }
+
+        return container.freshDate > Date()
+    }
 
     public func clear() {
         adapter.clear()
