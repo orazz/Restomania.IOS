@@ -1,3 +1,4 @@
+
 //
 //  PartsLoadContainer.swift
 //  IOSLibrary
@@ -8,17 +9,7 @@
 
 import Foundation
 
-public class PartsLoadContainer {
-
-    fileprivate(set) var isLoad: Bool = false
-    fileprivate(set) var isSuccessLastUpdate: Bool = false
-
-    public var hasData: Bool {
-        return nil != getter?(target)
-    }
-    public var isFail: Bool {
-        return isLoad && nil == getter?(target) 
-    }
+public class PartsLoadContainer: LoadContainerHandler {
 
     private let target: Any
     private let getter: ((Any) -> Any?)?
@@ -29,29 +20,34 @@ public class PartsLoadContainer {
         self.getter = getter
     }
 
-    public func completeLoad() { }
+    //MARK: LoadContainerHandler
+    public fileprivate(set) var isLoad: Bool = false
+    public fileprivate(set) var isSuccessLastUpdate: Bool = false
 
+    public var hasData: Bool {
+        return nil != getter?(target)
+    }
+    public var isFail: Bool {
+        return isLoad && nil == getter?(target)
+    }
+
+    public func startRequest() {
+        self.isLoad = false
+    }
+    public func completeLoad() {
+        self.isLoad = true
+    }
 }
-public class PartsLoadTypedContainer<TData> : PartsLoadContainer {
+public class PartsLoadTypedContainer<TData> : LoadContainerHandler {
 
-    private(set) public var data: TData?
+    public private(set) var data: TData?
+    public var updateHandler: Action<TData>?
 
-    public init(_ target: Any) {
-        super.init(target)
+    public init() {
 
         data = nil
     }
 
-    //MARK: Properties
-    public override var isFail: Bool {
-        return isLoad && !hasData
-    }
-    public override var hasData: Bool {
-        return nil != data
-    }
-    public var updateHandler: Action<TData>?
-
-    //MARK: Methods
     public func update(_ data: TData?) {
         self.data = data
 
@@ -60,16 +56,31 @@ public class PartsLoadTypedContainer<TData> : PartsLoadContainer {
             handler(data)
         }
     }
-    public func startRequest() {
-        self.isLoad = false
-    }
     public func completeLoad(_ response: ApiResponse<TData>) {
+        self.completeLoad()
 
-        self.isLoad = true
         if response.isSuccess {
             self.update(response.data)
         }
 
         self.isSuccessLastUpdate = response.isSuccess
+    }
+
+    //MARK: LoadContainerHandler
+    public private(set) var isLoad: Bool = false
+    public private(set) var isSuccessLastUpdate: Bool = false
+
+    public var isFail: Bool {
+        return isLoad && !hasData
+    }
+    public var hasData: Bool {
+        return nil != data
+    }
+
+    public func startRequest() {
+        self.isLoad = false
+    }
+    public func completeLoad() {
+        self.isLoad = true
     }
 }

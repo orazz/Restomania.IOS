@@ -1,0 +1,18 @@
+/* 
+  PlaceCartController.strings
+  Restomania.App.Kuzina
+
+  Created by Алексей on 22.12.17.
+  Copyright © 2017 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Корзина";
+
+"Alerts.AddPaymentCard.Title" = "Платженая карта";
+"Alerts.AddPaymentCard.Message" = "Проблема с добавление платежной карты.";
+
+"Alerts.AddOrder.Title" = "Добавление заказа";
+"Alerts.AddOrder.Message" = "Проблема с добавлением заказа. Попробуйте позднее.";
+
+"Alerts.LoadError.Title" = "Ошибка";
+"Alerts.LoadError.Message" = "Проблема с загрузкой данных. Проверьте подключение к интернету.";

@@ -11,6 +11,7 @@
 		1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */; };
 		1F12EB541FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F12EB531FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib */; };
 		1F12EB561FB4166100EF9BEA /* ManagerOrdersControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F12EB551FB4166100EF9BEA /* ManagerOrdersControllerView.xib */; };
+		1F1C692B1FECD88B002E7F1E /* PlaceCartController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F1C692D1FECD88B002E7F1E /* PlaceCartController.strings */; };
 		1F1D103A1FEA72F4000F4F8F /* PlaceMenuCartAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D10381FEA72F3000F4F8F /* PlaceMenuCartAction.swift */; };
 		1F1D103B1FEA72F4000F4F8F /* PlaceMenuCartActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1D10391FEA72F3000F4F8F /* PlaceMenuCartActionView.xib */; };
 		1F1D10441FEAEE8E000F4F8F /* PlaceMenuController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F1D10461FEAEE8E000F4F8F /* PlaceMenuController.strings */; };
@@ -267,6 +268,8 @@
 		1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCompleteOrderController.swift; path = UI/Controllers/Place/CompleteOrder/PlaceCompleteOrderController.swift; sourceTree = "<group>"; };
 		1F12EB531FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCompleteOrderControllerView.xib; path = UI/Controllers/Place/CompleteOrder/PlaceCompleteOrderControllerView.xib; sourceTree = "<group>"; };
 		1F12EB551FB4166100EF9BEA /* ManagerOrdersControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ManagerOrdersControllerView.xib; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerView.xib; sourceTree = "<group>"; };
+		1F1C692C1FECD88B002E7F1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PlaceCartController.strings; sourceTree = "<group>"; };
+		1F1C692E1FECD890002E7F1E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PlaceCartController.strings; sourceTree = "<group>"; };
 		1F1D10381FEA72F3000F4F8F /* PlaceMenuCartAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceMenuCartAction.swift; path = UI/Controllers/Place/Menu/CartAction/PlaceMenuCartAction.swift; sourceTree = "<group>"; };
 		1F1D10391FEA72F3000F4F8F /* PlaceMenuCartActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceMenuCartActionView.xib; path = UI/Controllers/Place/Menu/CartAction/PlaceMenuCartActionView.xib; sourceTree = "<group>"; };
 		1F1D10451FEAEE8E000F4F8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PlaceMenuController.strings; sourceTree = "<group>"; };
@@ -605,6 +608,7 @@
 			children = (
 				1FC01CC71FB20F4100413ED7 /* PlaceCartController.swift */,
 				1FC01CC91FB2115000413ED7 /* PlaceCartControllerView.xib */,
+				1F1C692D1FECD88B002E7F1E /* PlaceCartController.strings */,
 				1F7F069A1FB23FA6003B8F16 /* DateContainer */,
 				1F7F069B1FB23FFD003B8F16 /* DishesContainer */,
 				1F7F069C1FB2400D003B8F16 /* TotalContainer */,
@@ -1609,6 +1613,7 @@
 				1FE3C7611FB2F41E009CE542 /* PlaceCartDividerView.xib in Resources */,
 				1F1D103B1FEA72F4000F4F8F /* PlaceMenuCartActionView.xib in Resources */,
 				1F62E47D1FAE466F00D1C89D /* LoginPage.xib in Resources */,
+				1F1C692B1FECD88B002E7F1E /* PlaceCartController.strings in Resources */,
 				1F62E4A61FAE46D300D1C89D /* ManagerPaymentCardCellView.xib in Resources */,
 				1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */,
 				1F5CF83F1FB386A700DDDC3F /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
@@ -2021,6 +2026,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F1C692D1FECD88B002E7F1E /* PlaceCartController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F1C692C1FECD88B002E7F1E /* en */,
+				1F1C692E1FECD890002E7F1E /* ru */,
+			);
+			name = PlaceCartController.strings;
+			path = UI/Controllers/Place/Cart;
+			sourceTree = "<group>";
+		};
 		1F1D10461FEAEE8E000F4F8F /* PlaceMenuController.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

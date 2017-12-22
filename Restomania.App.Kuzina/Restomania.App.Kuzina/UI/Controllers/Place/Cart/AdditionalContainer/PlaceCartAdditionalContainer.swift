@@ -36,7 +36,7 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
         }
     }
     private var container: PlaceCartController.CartContainer {
-        return delegate.takeContainer()
+        return delegate.takeCartContainer()
     }
 
     private func apply() {

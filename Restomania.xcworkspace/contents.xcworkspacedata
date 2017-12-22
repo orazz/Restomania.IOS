@@ -8,10 +8,6 @@
          location = "group:Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj">
       </FileRef>
    </Group>
-   <Group
-      location = "container:"
-      name = "Restomania">
-   </Group>
    <FileRef
       location = "group:FindMe/FindMe.xcodeproj">
    </FileRef>

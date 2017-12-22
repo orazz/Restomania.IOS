@@ -32,15 +32,6 @@ public protocol PlaceMenuDelegate {
 }
 public class PlaceMenuController: UIViewController {
 
-    private static let nibname = "PlaceMenuControllerView"
-    public static func create(for placeId: Long) -> UIViewController {
-
-        let vc = PlaceMenuController(nibName: nibname, bundle: Bundle.main)
-        vc.placeId = placeId
-
-        return vc
-    }
-
     //UI Elements
     private var loader: InterfaceLoader!
     private var refreshControl: RefreshControl!
@@ -74,31 +65,39 @@ public class PlaceMenuController: UIViewController {
     private var loadAdapter: PartsLoader!
 
     // MARK: View life circle
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+    public init(for placeId: Long) {
+        super.init(nibName: "PlaceMenuControllerView", bundle: Bundle.main)
 
-        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
-        cartService = ToolsServices.shared.cart(for: placeId)
-        enterService = AuthService(open: .login, with: self.navigationController!, rights: .user)
+        self.placeId = placeId
+        self.loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
+        self.cartService = ToolsServices.shared.cart(for: placeId)
 
         //Loaders
-        summaryContainer = PartsLoadTypedContainer<PlaceSummary>(self)
-        menuContainer = PartsLoadTypedContainer<MenuSummary>(self)
-        loadAdapter = PartsLoader([summaryContainer, menuContainer])
+        self.summaryContainer = PartsLoadTypedContainer<PlaceSummary>()
+        self.menuContainer = PartsLoadTypedContainer<MenuSummary>()
+        self.loadAdapter = PartsLoader([summaryContainer, menuContainer])
         //Add load handlers
-        summaryContainer.updateHandler = { update in
+        self.summaryContainer.updateHandler = { update in
             self.fadeInPanel.topItem?.title = update.Schedule.todayRepresentation
             self.completeLoad()
         }
-        menuContainer.updateHandler = { update in
+        self.menuContainer.updateHandler = { update in
             self.cartAction.update(new: update)
             self.completeLoad()
         }
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.enterService = AuthService(open: .login, with: self.navigationController!, rights: .user)
 
         loadMarkup()
         loadData()
 
-        Log.Info(_tag, "Load place #\(placeId) menu page.")
+        Log.Info(_tag, "Load place #\(placeId!) menu page.")
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -191,30 +190,31 @@ extension PlaceMenuController {
 
         if let summary = placesCache.cache.find(placeId) {
             summaryContainer.update(summary)
+            summaryContainer.completeLoad()
         }
 
-        if let summary = summaryContainer.data,
-           let menu = menuCache.cache.find(summary.menuId) {
-            menuContainer.update(menu)
-        } else if let menu = menuCache.cache.find({ $0.placeID == self.placeId }) {
+        if let menu = menuCache.findLocal(by: placeId, summary: summaryContainer.data) {
             menuContainer.update(menu)
         }
 
-        if (!loadAdapter.hasData) {
+        if (loadAdapter.noData) {
             loader.show()
         }
 
         requestData()
     }
     @objc private func needReload() {
+
+        loadAdapter.startRequest()
+
         requestData()
     }
     private func requestData() {
 
-        summaryContainer.startRequest()
-        menuContainer.startRequest()
+        if (!summaryContainer.isLoad) {
+            requestSummary()
+        }
 
-        requestSummary()
         requestMenu()
     }
 
@@ -296,7 +296,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
     }
     private func openCartPage() {
 
-        let vc = PlaceCartController.create(for: placeId)
+        let vc = PlaceCartController(for: placeId)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -134,7 +134,7 @@ extension SearchController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
 
         let place = filtered[indexPath.row]
-        let vc = PlaceMenuController.create(for: place.ID)
+        let vc = PlaceMenuController(for: place.ID)
         self.navigationController!.pushViewController(vc, animated: true)
     }
 }

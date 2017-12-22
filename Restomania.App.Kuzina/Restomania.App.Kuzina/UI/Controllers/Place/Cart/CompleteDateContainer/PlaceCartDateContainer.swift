@@ -62,7 +62,7 @@ public class PlaceCartDateContainer: UITableViewCell {
     private var delegate: PlaceCartDelegate!
 
     private var container: PlaceCartController.CartContainer {
-        return delegate.takeContainer()
+        return delegate.takeCartContainer()
     }
     private var cart: Cart {
         return delegate.takeCart()

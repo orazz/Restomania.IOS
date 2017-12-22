@@ -46,7 +46,7 @@ public class PlaceCartPaymentCardsContainer: UITableViewCell {
     private var reloadHandler: (() -> Void)?
     private var cards: [PaymentCard] = []
     private var container: PlaceCartController.CartContainer {
-        return delegate.takeContainer()
+        return delegate.takeCartContainer()
     }
 
     private func update() {

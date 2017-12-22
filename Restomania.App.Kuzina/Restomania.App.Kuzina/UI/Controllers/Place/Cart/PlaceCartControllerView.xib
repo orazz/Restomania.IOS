@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceCartController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <connections>
                 <outlet property="backNavigationItem" destination="kDs-NY-VrT" id="rl6-Jt-Knm"/>
-                <outlet property="contentTable" destination="Bkn-CQ-iXs" id="Ig6-VS-sYY"/>
+                <outlet property="interfaceTable" destination="Bkn-CQ-iXs" id="Ig6-VS-sYY"/>
                 <outlet property="navigationBar" destination="lpu-8G-T8N" id="bVE-CO-Ai4"/>
                 <outlet property="navigationBarStubDimmer" destination="XAr-Ms-Ood" id="Yvb-9P-jpe"/>
                 <outlet property="view" destination="iN0-l3-epB" id="aIa-jO-FP1"/>

@@ -19,9 +19,9 @@ public protocol PlaceCartContainerCell: InterfaceTableCellProtocol {
 }
 public protocol PlaceCartDelegate {
 
-    func takeContainer() -> PlaceCartController.CartContainer
-    func takeMenu() -> MenuSummary?
+    func takeCartContainer() -> PlaceCartController.CartContainer
     func takeSummary() -> PlaceSummary?
+    func takeMenu() -> MenuSummary?
     func takeCart() -> Cart
     func takeCards() -> [PaymentCard]?
     func takeController() -> UIViewController
@@ -33,55 +33,53 @@ public protocol PlaceCartDelegate {
 }
 public class PlaceCartController: UIViewController {
 
-    private static let nibName = "PlaceCartControllerView"
-    public static func create(for placeId: Long) -> PlaceCartController {
-
-        let instance = PlaceCartController(nibName: nibName, bundle: Bundle.main)
-
-        instance.placeId = placeId
-        instance.cart = ToolsServices.shared.cart(for: placeId)
-        instance.placesService = CacheServices.places
-        instance.menusService = CacheServices.menu
-        instance.cardsService = CacheServices.cards
-        instance.addPaymentCardsService = AddCardUIService()
-        instance.keysService = ToolsServices.shared.keys
-        instance.ordersApiService = ApiServices.Users.orders
-
-        return instance
-    }
-
     //UI elements
     @IBOutlet private weak var navigationBarStubDimmer: UIView!
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var backNavigationItem: UIBarButtonItem!
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    @IBOutlet private weak var contentTable: UITableView!
-    private var loader: InterfaceLoader!
+    @IBOutlet private weak var interfaceTable: UITableView!
+    private var interfaceLoader: InterfaceLoader!
+    private var interfaceBuilder: InterfaceTable?
+    private var interfaceParts: [PlaceCartContainerCell] = []
+    private var refreshControl: RefreshControl!
 
-    //Services
-    private var sectionsAdapter: InterfaceTable?
-    private var rows: [PlaceCartContainerCell] = []
-    private var cart: Cart!
-    private var placesService: PlacesCacheService!
-    private var menusService: MenuCacheService!
-    private var cardsService: CardsCacheService!
-    private var addPaymentCardsService: AddCardUIService!
-    private var keysService: KeysStorage!
-    private var ordersApiService: UserOrdersApiService!
+    // MARK: Services
+    private var addPaymentCardsService = AddCardUIService()
+    private var keysService = ToolsServices.shared.keys
+    private var ordersApi = ApiServices.Users.orders
 
-    //Data
+    // MARK: Data
     private let _tag = String.tag(PlaceCartController.self)
+    private var loadQueue: AsyncQueue!
     private var placeId: Long!
-    private var contaier: CartContainer!
-    private var menu: MenuSummary?
-    private var summary: PlaceSummary?
-    private var cards: [PaymentCard]?
-    private var isCompleteLoadSummary: Bool = false
-    private var isCompleteLoadMenu: Bool = false
-    private var isCompleteLoadCards: Bool = false
+    private var cart: Cart!
+    private var cartContaier: CartContainer!
 
+    // MARK: Loading
+    private var summaryContainer: PartsLoadTypedContainer<PlaceSummary>!
+    private var menuContainer: PartsLoadTypedContainer<MenuSummary>!
+    private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
+    private var placesCache = CacheServices.places
+    private var menusCache = CacheServices.menu
+    private var cardsCache = CacheServices.cards
+    private var loadAdapter: PartsLoader!
+
+    public init(for placeId: Long) {
+        super.init(nibName: "PlaceCartControllerView", bundle: Bundle.main)
+
+        self.loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
+        self.placeId = placeId
+        self.cart = ToolsServices.shared.cart(for: placeId)
+        self.cartContaier = CartContainer(for: placeId, with: cart)
+
+        summaryContainer = PartsLoadTypedContainer<PlaceSummary>()
+        menuContainer = PartsLoadTypedContainer<MenuSummary>()
+        cardsContainer = PartsLoadTypedContainer<[PaymentCard]>()
+        loadAdapter = PartsLoader([summaryContainer, menuContainer, cardsContainer])
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }
 
 // MARK: Actions
@@ -96,22 +94,17 @@ extension PlaceCartController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        loader = InterfaceLoader(for: self.view)
-        contaier = CartContainer(for: placeId, with: cart)
+        interfaceLoader = InterfaceLoader(for: self.view)
 
-        rows = loadRows()
-        sectionsAdapter = InterfaceTable(source: contentTable, navigator: self.navigationController!, rows: rows.map { $0 as InterfaceTableCellProtocol })
+        interfaceParts = loadRows()
+        interfaceBuilder = InterfaceTable(source: interfaceTable, navigator: self.navigationController!, rows: interfaceParts)
+        refreshControl = interfaceTable.addRefreshControl(for: self, action: #selector(needReload))
 
-        reloadData()
+        loadMarkup()
+        loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        if (needLoader) {
-            loader.show()
-        }
-
-        setupStyles()
     }
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -123,7 +116,10 @@ extension PlaceCartController {
 
         trigger({ $0.viewDidDisappear() })
     }
-    private func setupStyles() {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    private func loadMarkup() {
 
         navigationBarStubDimmer.backgroundColor = ThemeSettings.Colors.main
         navigationBar.barTintColor = ThemeSettings.Colors.main
@@ -141,7 +137,7 @@ extension PlaceCartController {
     private func trigger(_ action: @escaping ((PlaceCartContainerCell) -> Void)) {
 
         DispatchQueue.main.async {
-            for cell in self.rows {
+            for cell in self.interfaceParts {
                 action(cell)
             }
         }
@@ -181,211 +177,188 @@ extension PlaceCartController {
 //MARk: Load data
 extension PlaceCartController {
 
-    private func reloadData() {
-
-        if (keysService.isAuth(for: .user)) {
-
-            isCompleteLoadMenu = false
-            isCompleteLoadSummary = false
-            isCompleteLoadCards = false
-
-            requestMenu()
-            requestSummary()
-            requestCards()
-        } else {
+    private func loadData() {
+        if (!keysService.isAuth(for: .user)) {
             closePage()
-        }
-    }
-    private func requestMenu() {
-
-        if let menu = menusService.cache.find({ $0.placeID == self.placeId }) {
-
-            self.menu = menu
-            self.isCompleteLoadMenu = true
-            completeLoad()
             return
         }
 
-        let request = menusService.find(placeId)
-        request.async(.background, completion: { response in
+        if let data = placesCache.cache.find(placeId) {
+            self.summaryContainer.update(data)
+            self.summaryContainer.completeLoad()
+        }
 
-            if (response.isSuccess) {
-                self.menu = response.data!
-            } else {
-                Log.Error(self._tag, "Problem with load place's menu summary.")
-            }
+        if let menu = menusCache.findLocal(by: placeId, summary: self.summaryContainer.data) {
+            self.menuContainer.update(menu)
+            self.menuContainer.completeLoad()
+        }
 
-            DispatchQueue.main.async {
+        self.cardsContainer.update(cardsCache.cache.all)
 
-                self.isCompleteLoadMenu = true
-                self.completeLoad()
-            }
-        })
+        if (loadAdapter.noData) {
+            interfaceLoader.show()
+        }
+
+        requestData()
+    }
+    @objc private func needReload() {
+
+        loadAdapter.startRequest()
+
+        requestData()
+    }
+    private func requestData() {
+
+        if (!summaryContainer.isLoad) {
+            requestSummary()
+        }
+
+        if (!menuContainer.isLoad) {
+            requestMenu()
+        }
+
+        requestCards()
     }
     private func requestSummary() {
-
-        if let summary = placesService.cache.find(placeId) {
-
-            self.summary = summary
-            self.isCompleteLoadSummary = true
-            completeLoad()
-            return
-        }
-
-        let request = placesService.find(placeId)
-        request.async(.background, completion: { response in
-
-            if (response.isSuccess) {
-                self.summary = response.data!
-            } else {
-                Log.Error(self._tag, "Problem with load place's summary.")
-            }
-
-            DispatchQueue.main.async {
-
-                self.isCompleteLoadSummary = true
-                self.completeLoad()
-            }
-        })
+        let request = placesCache.find(placeId)
+        request.async(loadQueue, completion: summaryContainer.completeLoad)
+    }
+    private func requestMenu() {
+        let request = menusCache.find(placeId)
+        request.async(loadQueue, completion: menuContainer.completeLoad)
     }
     private func requestCards() {
-
-        let request = cardsService.all()
-        request.async(.background, completion: { response in
-
-            if let cards = response.data {
-                self.cards = cards
-            } else {
-                Log.Error(self._tag, "Problem with load user's payment cards.")
-            }
-
-            DispatchQueue.main.async {
-
-                self.isCompleteLoadCards = true
-                self.completeLoad()
-            }
-        })
+        let request = cardsCache.all()
+        request.async(loadQueue, completion: cardsContainer.completeLoad)
     }
     private func completeLoad() {
+        DispatchQueue.main.async {
 
-        if (!needLoader) {
-            loader.hide()
+            if (self.loadAdapter.isFail) {
+                Log.Error(self._tag, "Problem with load data for page.")
+
+                self.closePage()
+                self.navigationController?.toast(title: Localization.Alerts.LoadError.Title.localized,
+                                                message: Localization.Alerts.LoadError.Message.localized)
+
+                return
+            }
+
+            self.trigger({ $0.updateData(with: self) })
+
+            if (self.loadAdapter.isLoad) {
+                self.interfaceLoader.hide()
+                self.refreshControl.endRefreshing()
+            }
+
+            self.reloadInterface()
         }
-
-        if ( nil == menu && isCompleteLoadMenu) ||
-            (nil == summary && isCompleteLoadSummary) ||
-            (nil == cards && isCompleteLoadCards) {
-
-            Log.Error(_tag, "Problem with load data for page.")
-
-            self.goBack()
-
-            let alert = UIAlertController(title: "Ошибка", message: "У нас возникла проблема с загрузкой данных.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.navigationController?.present(alert, animated: true, completion: nil)
-        }
-
-        trigger({ $0.updateData(with: self) })
-        reloadInterface()
-    }
-    private var needLoader: Bool {
-        return nil == menu || nil == summary || nil == cards
     }
 }
 
 // MARK: PlaceCartDelegate
 extension PlaceCartController: PlaceCartDelegate {
 
-    public func takeContainer() -> PlaceCartController.CartContainer {
-        return contaier
-    }
-    public func takeMenu() -> MenuSummary? {
-        return menu
+    public func takeCartContainer() -> PlaceCartController.CartContainer {
+        return cartContaier
     }
     public func takeSummary() -> PlaceSummary? {
-        return summary
+        return summaryContainer.data
+    }
+    public func takeMenu() -> MenuSummary? {
+        return menuContainer.data
     }
     public func takeCart() -> Cart {
         return cart
     }
     public func takeCards() -> [PaymentCard]? {
-        return cards
+
+        if let menu = takeMenu() {
+            return cardsContainer.data?.where({ $0.Currency == menu.currency })
+        } else {
+            return cardsContainer.data
+        }
     }
     public func takeController() -> UIViewController {
         return self
     }
 
     public func reloadInterface() {
-        sectionsAdapter?.reload()
+        interfaceBuilder?.reload()
     }
     public func closePage() {
         goBack()
     }
     public func addPaymentCard() {
 
-        guard let menu = menu else {
+        guard let menu = takeMenu() else {
             return
         }
 
-        addPaymentCardsService.addCard(for: menu.currency, on: self, complete: { success, result in
-
-            DispatchQueue.main.async {
+        addPaymentCardsService.addCard(for: menu.currency, on: self) { success, result in
+            DispatchQueue.main.sync {
 
                 if (!success) {
-                    let alert = UIAlertController(title: "Ошибка", message: "Проблемы с добавление платежной карты", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    self.toast(title: Localization.Alerts.AddPaymentCard.Title,
+                              message: Localization.Alerts.AddPaymentCard.Message)
+
                     return
+                } else {
+                    self.interfaceLoader.show()
                 }
-
-                self.loader.show()
-                let request = self.cardsService.find(result)
-                request.async(.background, completion: { response in
-
-                        if let card = response.data {
-                            if nil == self.cards {
-                                self.cards = []
-                            }
-
-                            self.cards?.append(card)
-                            self.contaier.cardId = card.ID
-
-                            self.trigger({ $0.updateData(with: self) })
-                        }
-
-                    DispatchQueue.main.async {
-                        self.loader.hide()
-                    }
-                })
-
             }
 
-        })
+            let request = self.cardsCache.find(result)
+            request.async(self.loadQueue) { response in
+                DispatchQueue.main.async {
+
+                    if let card = response.data {
+                        self.cardsContainer.update([card] + self.cardsCache.cache.all)
+                        self.cartContaier.cardId = card.ID
+
+                        self.trigger({ $0.updateData(with: self) })
+                    } else if (response.isFail) {
+                        self.toast(for: response)
+                    }
+
+                    self.interfaceLoader.hide()
+                }
+            }
+        }
     }
     public func tryAddOrder() {
         Log.Info(_tag, "Try add order.")
 
-        loader.show()
+        interfaceLoader.show()
 
-        let builded = contaier.prepareOrder()
-        let request = ordersApiService.add(order: builded)
-        request.async(.background, completion: { response in
+        let request = ordersApi.add(order: cartContaier.prepareOrder())
+        request.async(loadQueue) { response in
 
             DispatchQueue.main.async {
 
-                if (response.isFail) {
-                    let alert = UIAlertController(title: "Ошибка", message: "Проблемы с добавление заказа", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                if response.isSuccess,
+                    let order = response.data {
 
-                    self.loader.hide()
-                } else {
-                    let order = response.data!
                     let vc = PlaceCompleteOrderController.create(for: order)
                     self.navigationController?.pushViewController(vc, animated: true)
+
+                    Log.Debug(self._tag, "Add order to #\(self.placeId)")
                 }
+
+                if (response.isFail) {
+                    if (response.statusCode == .BadRequest) {
+                        self.toast(title: Localization.Alerts.AddOrder.Title,
+                                 message: Localization.Alerts.AddOrder.Message)
+                    } else {
+                        self.toast(for: response)
+                    }
+
+                    Log.Warning(self._tag, "Problem with add order.")
+                }
+
+                self.interfaceLoader.hide()
             }
-        })
+        }
     }
 
     public class CartContainer {
@@ -393,6 +366,13 @@ extension PlaceCartController: PlaceCartDelegate {
         public let placeId: Long
         public var cardId: Long?
         public var isValidDateTime: Bool = false
+
+        private let cart: Cart
+
+        public init(for placeId: Long, with cart: Cart) {
+            self.placeId = placeId
+            self.cart = cart
+        }
 
         public var comment: String {
             get {
@@ -410,17 +390,50 @@ extension PlaceCartController: PlaceCartDelegate {
                 cart.takeaway = newValue
             }
         }
-
         public func prepareOrder() -> AddedOrder {
             return cart.build(cardId: cardId!)
         }
+    }
+}
 
-        private let cart: Cart
+extension PlaceCartController {
 
-        public init(for placeId: Long, with cart: Cart) {
+    public class Localization {
+        private static let tablename = "PlaceCartController"
 
-            self.placeId = placeId
-            self.cart = cart
+        public enum Keys: String, Localizable {
+
+            case Title = "Title"
+
+            public var tableName: String {
+                return Localization.tablename
+            }
+        }
+        public class Alerts {
+            public enum AddPaymentCard: String, Localizable {
+                public var tableName: String {
+                    return Localization.tablename
+                }
+
+                case Title = "Alerts.AddPaymentCard.Title"
+                case Message = "Alerts.AddPaymentCard.Message"
+            }
+            public enum AddOrder: String, Localizable {
+                public var tableName: String {
+                    return Localization.tablename
+                }
+
+                case Title = "Alerts.AddOrder.Title"
+                case Message = "Alerts.AddOrder.Message"
+            }
+            public enum LoadError: String, Localizable {
+                public var tableName: String {
+                    return Localization.tablename
+                }
+
+                case Title = "Alerts.LoadError.Title"
+                case Message = "Alerts.LoadError.Message"
+            }
         }
     }
 }

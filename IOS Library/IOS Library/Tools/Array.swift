@@ -10,7 +10,10 @@ import Foundation
 
 public extension Array {
 
-    public func find(_ predicate: (Element) -> Bool) -> Element? {
+    public var isFilled: Bool {
+        return !self.isEmpty
+    }
+    public func find(_ predicate: Predicate<Element>) -> Element? {
 
         for element in self {
             if (predicate(element)) {
@@ -20,7 +23,7 @@ public extension Array {
 
         return nil
     }
-    public func count( _ predicate: (Element) -> Bool) -> Int {
+    public func count( _ predicate: Predicate<Element>) -> Int {
 
         var result = 0
 
@@ -32,7 +35,7 @@ public extension Array {
 
         return result
     }
-    public func `where`(_ predicate: (Element) -> Bool) -> [Element] {
+    public func `where`(_ predicate: Predicate<Element>) -> [Element] {
 
         var result = [Element]()
 
@@ -44,7 +47,7 @@ public extension Array {
 
         return result
     }
-    public func all( _ predicate: (Element) -> Bool) -> Bool {
+    public func all( _ predicate: Predicate<Element>) -> Bool {
 
         for element in self {
             if (!predicate(element)) {
@@ -54,7 +57,7 @@ public extension Array {
 
         return true
     }
-    public func any( _ predicate: (Element) -> Bool) -> Bool {
+    public func any( _ predicate: Predicate<Element>) -> Bool {
 
         for element in self {
             if (predicate(element)) {
@@ -64,10 +67,10 @@ public extension Array {
 
         return false
     }
-    public func notAny( _ predicate: (Element) -> Bool) -> Bool {
+    public func notAny( _ predicate: Predicate<Element>) -> Bool {
         return !self.any(predicate)
     }
-    public func sum(_ predicate: (Element) -> Int) -> Int {
+    public func sum(_ predicate: Function<Element, Int>) -> Int {
 
         var result = 0
 
@@ -77,7 +80,10 @@ public extension Array {
 
         return result
     }
-    public var isFilled: Bool {
-        return !self.isEmpty
+    public func each(_ action: Action<Element>) {
+        
+        for element in self {
+            action(element)
+        }
     }
 }
