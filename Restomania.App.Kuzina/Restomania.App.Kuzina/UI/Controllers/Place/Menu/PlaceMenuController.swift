@@ -73,22 +73,23 @@ public class PlaceMenuController: UIViewController {
         self.cartService = ToolsServices.shared.cart(for: placeId)
 
         //Loaders
-        self.summaryContainer = PartsLoadTypedContainer<PlaceSummary>()
-        self.menuContainer = PartsLoadTypedContainer<MenuSummary>()
-        self.loadAdapter = PartsLoader([summaryContainer, menuContainer])
-        //Add load handlers
+        self.summaryContainer = PartsLoadTypedContainer<PlaceSummary>(completeLoadHandler: self.completeLoad)
         self.summaryContainer.updateHandler = { update in
             DispatchQueue.main.async {
                 self.fadeInPanel.topItem?.title = update.Schedule.todayRepresentation
             }
             self.completeLoad()
         }
+
+        self.menuContainer = PartsLoadTypedContainer<MenuSummary>(completeLoadHandler: self.completeLoad)
         self.menuContainer.updateHandler = { update in
             DispatchQueue.main.async {
                 self.cartAction.update(new: update)
             }
             self.completeLoad()
         }
+
+        self.loadAdapter = PartsLoader([summaryContainer, menuContainer])
     }
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -198,7 +199,7 @@ extension PlaceMenuController {
         }
 
         //Menu summary
-        if let menu = menusService.findLocal(by: placeId, summary: summaryContainer.data) {
+        if let menu = menusService.cache.find(by: placeId, summary: summaryContainer.data) {
             menuContainer.updateAndCheckFresh(menu, cache: menusService.cache)
         }
 

@@ -9,86 +9,100 @@
 import Foundation
 import UIKit
 import IOSLibrary
+import AsyncTask
 
 public protocol OrdersControllerProtocol {
 
 }
 public class ManagerOrdersController: UIViewController, OrdersControllerProtocol, UITableViewDelegate, UITableViewDataSource {
 
-    private static let nibName = "ManagerOrdersControllerView"
-    public static func create() -> ManagerOrdersController {
-
-        let vc = ManagerOrdersController(nibName: nibName, bundle: Bundle.main)
-
-        return vc
-    }
-
-    //UI Elements
+    // MARK: UI Elements
     @IBOutlet private weak var ordersTable: UITableView!
+    private var interfaceLoader: InterfaceLoader!
+    private var refreshControl: RefreshControl!
 
-    //Tools
+    // MARK: Tools
     private let _tag = String.tag(ManagerOrdersController.self)
-    private var _loader: InterfaceLoader!
-    private let _apiService = ApiServices.Users.orders
-    private var _orders: [DishOrder] = [DishOrder]()
+    private var loadQueue: AsyncQueue!
+
+    // MARK: Loaders
+    private let ordersApi = ApiServices.Users.orders
+    private var ordersContainer: PartsLoadTypedContainer<[DishOrder]>!
+    private var loaderAdapter: PartsLoader!
 
     // MARK: Life circle
+    public init() {
+        super.init(nibName: "ManagerOrdersControllerView", bundle: Bundle.main)
+
+        loadQueue = AsyncQueue.createForControllerLoad(for: tag)
+
+        ordersContainer = PartsLoadTypedContainer<[DishOrder]>(completeLoadHandler: self.completeLoad)
+        ordersContainer.updateHandler = { _ in
+            DispatchQueue.main.async {
+                self.ordersTable.reloadData()
+            }
+        }
+
+        loaderAdapter = PartsLoader([ordersContainer])
+    }
+    public convenience required init?(coder aDecoder: NSCoder) {
+        self.init()
+    }
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _loader = InterfaceLoader(for: self.view)
+        interfaceLoader = InterfaceLoader(for: self.view)
+        refreshControl = ordersTable.addRefreshControl(for: self, action: #selector(needReload))
 
         ordersTable.dataSource = self
         ordersTable.delegate = self
         ManagerOrdersControllerOrderCell.register(in: ordersTable)
+
+        loadOrders()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         showNavigationBar()
         navigationItem.title = "Заказы"
-
-        loadOrders()
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
-//        hideNavigationBar()
     }
 
     // MARK: Process methods
+    @objc private func needReload() {
+
+    }
     private func loadOrders() {
 
-        let placeIds = AppSummary.shared.placeIDs!
+        let request = ordersApi.all()
+        request.async(loadQueue, completion: { response in
 
-        _loader.show()
+            if (response.isSuccess) {
 
-        let request = _apiService.all()
-        request.async(.background, completion: { response in
+                let placeIds = AppSummary.shared.placeIDs!
 
-            DispatchQueue.main.async {
-
-                if (!response.isSuccess) {
-
-                    Log.Warning(self._tag, "Problem with getting orders.")
-                } else {
-
-                    let orders = response.data?.filter({ placeIds.contains($0.placeId)  }).sorted(by: { $0.ID > $1.ID })
-
-                    self._orders = orders!
-                    self.ordersTable.reloadData()
-                }
-
-                self._loader.hide()
+                let orders = response.data?.filter({ placeIds.contains($0.placeId)  }).sorted(by: { $0.ID > $1.ID })
             }
-        })
 
+        })
+    }
+    private func completeLoad() {
+        DispatchQueue.main.async {
+
+            if (self.loaderAdapter.isLoad) {
+                self.interfaceLoader.hide()
+                self.refreshControl.endRefreshing()
+            }
+        }
     }
     private func goToOrder(id orderId: Long) {
 
-        let vc = ManagerOneOrderController.create(with: _orders.find({ orderId == $0.ID })!)
-
-        self.navigationController?.pushViewController(vc, animated: true)
+        if let orders = ordersContainer.data {
+            let vc = ManagerOneOrderController.create(with: orders.find({ orderId == $0.ID })!)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     // MARK: OrdersControllerProtocol
@@ -97,7 +111,7 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOrdersControllerOrderCell.identifier, for: indexPath) as! ManagerOrdersControllerOrderCell
-        cell.setup(order: _orders[indexPath.row], delegate: self)
+//        cell.setup(order: orders[indexPath.row], delegate: self)
 
         return cell
     }
@@ -118,6 +132,6 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return _orders.count
+        return 0//orders.count
     }
 }

@@ -59,9 +59,9 @@ public class PlaceCartController: UIViewController {
     private var summaryContainer: PartsLoadTypedContainer<PlaceSummary>!
     private var menuContainer: PartsLoadTypedContainer<MenuSummary>!
     private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
-    private var placesCache = CacheServices.places
-    private var menusCache = CacheServices.menus
-    private var cardsCache = CacheServices.cards
+    private var placesService = CacheServices.places
+    private var menusService = CacheServices.menus
+    private var cardsService = CacheServices.cards
     private var loadAdapter: PartsLoader!
 
     public init(for placeId: Long) {
@@ -72,20 +72,12 @@ public class PlaceCartController: UIViewController {
         self.cart = ToolsServices.shared.cart(for: placeId)
         self.cartContaier = CartContainer(for: placeId, with: cart)
 
-        summaryContainer = PartsLoadTypedContainer<PlaceSummary>()
-        menuContainer = PartsLoadTypedContainer<MenuSummary>()
-        cardsContainer = PartsLoadTypedContainer<[PaymentCard]>()
-        loadAdapter = PartsLoader([summaryContainer, menuContainer, cardsContainer])
+        //Loaders
+        summaryContainer = PartsLoadTypedContainer<PlaceSummary>(completeLoadHandler: self.completeLoad)
+        menuContainer = PartsLoadTypedContainer<MenuSummary>(completeLoadHandler: self.completeLoad)
+        cardsContainer = PartsLoadTypedContainer<[PaymentCard]>(completeLoadHandler: self.completeLoad)
 
-        summaryContainer.updateHandler = { _ in
-            self.completeLoad()
-        }
-        menuContainer.updateHandler = { _ in
-            self.completeLoad()
-        }
-        cardsContainer.updateHandler = { _ in
-            self.completeLoad()
-        }
+        loadAdapter = PartsLoader([summaryContainer, menuContainer, cardsContainer])
     }
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -193,15 +185,15 @@ extension PlaceCartController {
             return
         }
 
-        if let summary = placesCache.cache.find(placeId) {
-            summaryContainer.updateAndCheckFresh(summary, cache: placesCache.cache)
+        if let summary = placesService.cache.find(placeId) {
+            summaryContainer.updateAndCheckFresh(summary, cache: placesService.cache)
         }
 
-        if let menu = menusCache.findLocal(by: placeId, summary: self.summaryContainer.data) {
-            menuContainer.updateAndCheckFresh(menu, cache: menusCache.cache)
+        if let menu = menusService.cache.find(by: placeId, summary: self.summaryContainer.data) {
+            menuContainer.updateAndCheckFresh(menu, cache: menusService.cache)
         }
 
-        self.cardsContainer.update(cardsCache.cache.all)
+        self.cardsContainer.update(cardsService.cache.all)
 
         if (loadAdapter.noData) {
             interfaceLoader.show()
@@ -228,15 +220,15 @@ extension PlaceCartController {
         requestCards()
     }
     private func requestSummary() {
-        let request = placesCache.find(placeId)
+        let request = placesService.find(placeId)
         request.async(loadQueue, completion: summaryContainer.completeLoad)
     }
     private func requestMenu() {
-        let request = menusCache.find(placeId)
+        let request = menusService.find(placeId)
         request.async(loadQueue, completion: menuContainer.completeLoad)
     }
     private func requestCards() {
-        let request = cardsCache.all()
+        let request = cardsService.all()
         request.async(loadQueue, completion: cardsContainer.completeLoad)
     }
     private func completeLoad() {
@@ -316,12 +308,12 @@ extension PlaceCartController: PlaceCartDelegate {
                 }
             }
 
-            let request = self.cardsCache.find(result)
+            let request = self.cardsService.find(result)
             request.async(self.loadQueue) { response in
                 DispatchQueue.main.async {
 
                     if let card = response.data {
-                        self.cardsContainer.update([card] + self.cardsCache.cache.all)
+                        self.cardsContainer.update([card] + self.cardsService.cache.all)
                         self.cartContaier.cardId = card.ID
 
                         self.trigger({ $0.updateData(with: self) })

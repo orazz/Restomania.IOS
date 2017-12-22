@@ -82,8 +82,7 @@ extension KeysStorage {
 
         if let container = allKeys.find({ $0.role == role }) {
             container.keys = keys
-        }
-        else {
+        } else {
             let container = KeysContainer(keys: keys, role: role)
             allKeys.append(container)
         }

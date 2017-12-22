@@ -42,18 +42,20 @@ public class PartsLoadTypedContainer<TData> : LoadContainerHandler {
 
     public private(set) var data: TData?
     public var updateHandler: Action<TData>?
+    public var completeLoadHandler: Trigger?
 
-    public init() {
+    public init(updateHandler: Action<TData>? = nil, completeLoadHandler: Trigger? = nil) {
 
         data = nil
+        self.updateHandler = updateHandler
+        self.completeLoadHandler = completeLoadHandler
     }
 
     public func update(_ data: TData?) {
         self.data = data
 
-        if let data = data,
-            let handler = updateHandler {
-            handler(data)
+        if let data = data {
+            updateHandler?(data)
         }
     }
     public func completeLoad(_ response: ApiResponse<TData>) {
@@ -82,5 +84,7 @@ public class PartsLoadTypedContainer<TData> : LoadContainerHandler {
     }
     public func completeLoad() {
         self.isLoad = true
+
+        completeLoadHandler?()
     }
 }

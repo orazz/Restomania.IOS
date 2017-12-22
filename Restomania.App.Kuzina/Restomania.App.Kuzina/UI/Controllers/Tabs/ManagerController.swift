@@ -70,7 +70,7 @@ public class ManagerController: UIViewController {
         presentSubmanager(controller: PaymentCardsController.create())
     }
     @IBAction public func goToOrders() {
-        presentSubmanager(controller: ManagerOrdersController.create())
+        presentSubmanager(controller: ManagerOrdersController())
     }
     @IBAction public func goToTerms() {
 //        presentSubmanager(controller: TermsController(), needAuth: false)

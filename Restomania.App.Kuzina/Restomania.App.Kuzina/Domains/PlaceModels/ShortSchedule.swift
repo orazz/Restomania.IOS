@@ -30,6 +30,8 @@ public class ShortSchedule: Glossy, ICopying {
         self.thursday = String.empty
         self.friday = String.empty
         self.saturday = String.empty
+
+        buildDays()
     }
 
     public class Day {
