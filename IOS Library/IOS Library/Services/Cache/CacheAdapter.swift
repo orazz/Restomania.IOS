@@ -22,8 +22,9 @@ open class CacheAdapter<TElement> where TElement: ICached {
     private let file: FSOneFileClient
 
     internal var data = [CacheContainer<TElement>]()
-    private var freshtime: TimeInterval
     private var livetime: TimeInterval
+    private var freshtime: TimeInterval
+    public var needSaveFreshDate: Bool = false
 
     public init(tag: String, filename: String) {
 
@@ -36,15 +37,12 @@ open class CacheAdapter<TElement> where TElement: ICached {
         self.blockQueue = DispatchQueue(label: "\(tag)-\(Guid.new)")
         self.extender = CacheAdapterExtender(for: self)
     }
-    public convenience init(tag: String, filename: String, livetime: TimeInterval) {
+    public convenience init(tag: String, filename: String, livetime: TimeInterval, freshtime: TimeInterval = 0, needSaveFreshDate: Bool = false) {
         self.init(tag: tag, filename: filename)
 
         self.livetime = livetime
-    }
-    public convenience init(tag: String, filename: String, livetime: TimeInterval, freshtime: TimeInterval) {
-        self.init(tag: tag, filename: filename, livetime: livetime)
-
         self.freshtime = freshtime
+        self.needSaveFreshDate = needSaveFreshDate
     }
     public func loadCached() {
 
@@ -73,7 +71,7 @@ open class CacheAdapter<TElement> where TElement: ICached {
 
             for update in range {
 
-                let container = CacheContainer<TElement>(data: update, livetime: livetime, freshtime: freshtime)
+                let container = CacheContainer<TElement>(data: update, livetime: livetime, freshtime: freshtime, needSaveFreshDate: needSaveFreshDate)
                 if let index = self.data.index(where: { $0.ID == update.ID }) {
                     self.data[index] = container
                 }

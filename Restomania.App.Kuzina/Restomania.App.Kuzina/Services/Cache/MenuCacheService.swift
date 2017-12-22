@@ -20,7 +20,11 @@ public class MenuCacheService {
 
     public init() {
         apiQueue = AsyncQueue.createForApi(for: tag)
-        adapter = CacheAdapter<MenuSummary>(tag: tag, filename: "menues-summaries.json", livetime: 24 * 60 * 60, freshtime: 60 * 60)
+        adapter = CacheAdapter<MenuSummary>(tag: tag,
+                                            filename: "menues-summaries.json",
+                                            livetime: 24 * 60 * 60,
+                                           freshtime: 10 * 60,
+                                   needSaveFreshDate: true)
     }
     public func load() {
         adapter.loadCached()

@@ -20,7 +20,10 @@ public class CardsCacheService {
 
     public init() {
         apiQueue = AsyncQueue.createForApi(for: tag)
-        adapter = CacheAdapter(tag: tag, filename: "payment-cards.json", livetime: 5 * 60 * 60, freshtime: 5 * 60)
+        adapter = CacheAdapter(tag: tag,
+                               filename: "payment-cards.json",
+                               livetime: 5 * 60 * 60,
+                              freshtime: 5 * 60)
     }
     public func load() {
         adapter.loadCached()
