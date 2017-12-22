@@ -24,24 +24,24 @@ public class UserOrdersApiService: BaseApiService {
         return client.GetRange(action: "All", type: DishOrder.self, parameters: parameters)
     }
 
-    public func find(orderID: Int64) -> RequestResult<DishOrder> {
+    public func find(_ orderId: Long) -> RequestResult<DishOrder> {
 
         let parameters = CollectParameters(for: .user, [
-                "orderId": orderID
+                "orderId": orderId
             ])
 
         return client.Get(action: "Find", type: DishOrder.self, parameters: parameters)
     }
-    public func add(order: AddedOrder) -> RequestResult<DishOrder> {
+    public func add(_ order: AddedOrder) -> RequestResult<DishOrder> {
         let parameters = CollectParameters(for: .user, [
                 "container": order
             ])
 
         return client.Post(action: "Add", type: DishOrder.self, parameters: parameters)
     }
-    public func cancel(orderID: Int64) -> RequestResult<DishOrder> {
+    public func cancel(_ orderId: Long) -> RequestResult<DishOrder> {
         let parameters = CollectParameters(for: .user, [
-                "orderId": orderID
+                "orderId": orderId
             ])
 
         return client.Put(action: "Cancel", type: DishOrder.self, parameters: parameters)

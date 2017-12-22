@@ -161,7 +161,7 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
         StatusValueLabel.text = prepare(status: DishOrderStatus.CanceledByUser)
         CancelButton.isHidden = true
 
-        let request = _ordersApiService.cancel(orderID: _orderId)
+        let request = _ordersApiService.cancel(_orderId)
         request.async(.background, completion: { response in
 
             DispatchQueue.main.async {

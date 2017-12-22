@@ -11,10 +11,7 @@ import UIKit
 import IOSLibrary
 import AsyncTask
 
-public protocol OrdersControllerProtocol {
-
-}
-public class ManagerOrdersController: UIViewController, OrdersControllerProtocol, UITableViewDelegate, UITableViewDataSource {
+public class ManagerOrdersController: UIViewController {
 
     // MARK: UI Elements
     @IBOutlet private weak var ordersTable: UITableView!
@@ -26,8 +23,9 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
     private var loadQueue: AsyncQueue!
 
     // MARK: Loaders
-    private let ordersApi = ApiServices.Users.orders
+    private let ordersService = CacheServices.orders
     private var ordersContainer: PartsLoadTypedContainer<[DishOrder]>!
+    private var orders = [DishOrder]()
     private var loaderAdapter: PartsLoader!
 
     // MARK: Life circle
@@ -37,7 +35,10 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
         loadQueue = AsyncQueue.createForControllerLoad(for: tag)
 
         ordersContainer = PartsLoadTypedContainer<[DishOrder]>(completeLoadHandler: self.completeLoad)
-        ordersContainer.updateHandler = { _ in
+        ordersContainer.updateHandler = { update in
+            let placeIds = AppSummary.shared.placeIDs!
+            self.orders = update.filter({ placeIds.contains($0.placeId) }).sorted(by: self.sorter)
+
             DispatchQueue.main.async {
                 self.ordersTable.reloadData()
             }
@@ -51,14 +52,8 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        interfaceLoader = InterfaceLoader(for: self.view)
-        refreshControl = ordersTable.addRefreshControl(for: self, action: #selector(needReload))
-
-        ordersTable.dataSource = self
-        ordersTable.delegate = self
-        ManagerOrdersControllerOrderCell.register(in: ordersTable)
-
-        loadOrders()
+        loadMarkup()
+        loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -71,22 +66,38 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
     }
 
     // MARK: Process methods
+    private func loadMarkup() {
+
+        interfaceLoader = InterfaceLoader(for: self.view)
+        refreshControl = ordersTable.addRefreshControl(for: self, action: #selector(needReload))
+
+        ordersTable.dataSource = self
+        ordersTable.delegate = self
+        ManagerOrdersControllerOrderCell.register(in: ordersTable)
+    }
+    private func loadData() {
+
+        let orders = ordersService.cache.all
+        ordersContainer.update(orders)
+        if (orders.isFilled) {
+            ordersContainer.completeLoad()
+        }
+
+        if (loaderAdapter.noData || orders.isEmpty) {
+            interfaceLoader.show()
+        }
+
+        requestOrders()
+    }
     @objc private func needReload() {
 
+        ordersContainer.startRequest()
+
+        requestOrders()
     }
-    private func loadOrders() {
-
-        let request = ordersApi.all()
-        request.async(loadQueue, completion: { response in
-
-            if (response.isSuccess) {
-
-                let placeIds = AppSummary.shared.placeIDs!
-
-                let orders = response.data?.filter({ placeIds.contains($0.placeId)  }).sorted(by: { $0.ID > $1.ID })
-            }
-
-        })
+    private func requestOrders() {
+        let request = ordersService.all()
+        request.async(loadQueue, completion: ordersContainer.completeLoad)
     }
     private func completeLoad() {
         DispatchQueue.main.async {
@@ -97,6 +108,15 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
             }
         }
     }
+    private func sorter(left: DishOrder, right: DishOrder) -> Bool {
+//        if (left.isCompleted && !right.isCompleted) {
+//            return false
+//        } else if (!left.isCompleted && right.isCompleted) {
+//            return false
+//        } else {
+            return left.summary.completeAt > right.summary.completeAt
+//        }
+    }
     private func goToOrder(id orderId: Long) {
 
         if let orders = ordersContainer.data {
@@ -104,17 +124,10 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+}
+// MARK: Table
+extension ManagerOrdersController: UITableViewDelegate {
 
-    // MARK: OrdersControllerProtocol
-
-    // MARK: UITableViewDelegate
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOrdersControllerOrderCell.identifier, for: indexPath) as! ManagerOrdersControllerOrderCell
-//        cell.setup(order: orders[indexPath.row], delegate: self)
-
-        return cell
-    }
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
@@ -124,14 +137,20 @@ public class ManagerOrdersController: UIViewController, OrdersControllerProtocol
 
         goToOrder(id: orderId)
     }
+}
+extension ManagerOrdersController: UITableViewDataSource {
 
-    // MARK: UITableViewDataSource
     public func numberOfSections(in tableView: UITableView) -> Int {
-
         return 1
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orders.count
+    }
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        return 0//orders.count
+        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOrdersControllerOrderCell.identifier, for: indexPath) as! ManagerOrdersControllerOrderCell
+        cell.setup(order: orders[indexPath.row])
+
+        return cell
     }
 }

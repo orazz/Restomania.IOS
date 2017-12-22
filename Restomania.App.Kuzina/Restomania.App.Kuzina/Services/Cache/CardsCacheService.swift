@@ -40,7 +40,6 @@ public class CardsCacheService {
     }
 
     public func all() -> RequestResult<[PaymentCard]> {
-
         return RequestResult<[PaymentCard]> { handler in
 
             let request = self.api.all()
@@ -55,7 +54,6 @@ public class CardsCacheService {
         }
     }
     public func find(_ cardId: Long) -> RequestResult<PaymentCard> {
-
         return RequestResult<PaymentCard> { handler in
 
             let request = self.api.find(by: cardId)

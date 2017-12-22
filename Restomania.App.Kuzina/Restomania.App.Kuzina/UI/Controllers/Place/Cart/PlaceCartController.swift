@@ -331,7 +331,8 @@ extension PlaceCartController: PlaceCartDelegate {
 
         interfaceLoader.show()
 
-        let request = ordersApi.add(order: cartContaier.prepareOrder())
+        let order = cartContaier.prepareOrder()
+        let request = ordersApi.add(order)
         request.async(loadQueue) { response in
 
             DispatchQueue.main.async {

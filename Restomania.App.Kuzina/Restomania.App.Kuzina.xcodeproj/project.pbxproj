@@ -220,6 +220,7 @@
 		1FE3C76D1FB318E8009CE542 /* PlaceCartTotalContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3C76C1FB318E8009CE542 /* PlaceCartTotalContainerView.xib */; };
 		1FE3C7711FB31B6A009CE542 /* PlaceCartTotalContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3C7701FB31B6A009CE542 /* PlaceCartTotalContainerCell.swift */; };
 		1FE3C7731FB31C2B009CE542 /* PlaceCartTotalContainerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3C7721FB31C2B009CE542 /* PlaceCartTotalContainerCellView.xib */; };
+		1FE715461FEDAB0500E8A773 /* OrdersCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE715451FEDAB0500E8A773 /* OrdersCacheService.swift */; };
 		1FF703A71F6845C50028A9B8 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF703A61F6845C50028A9B8 /* Price.swift */; };
 		1FF79A571FB22D96008F3FCC /* ScheduleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF79A561FB22D96008F3FCC /* ScheduleDisplay.swift */; };
 		1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF79A581FB22DB8008F3FCC /* ScheduleDisplayView.xib */; };
@@ -479,6 +480,7 @@
 		1FE3C76C1FB318E8009CE542 /* PlaceCartTotalContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartTotalContainerView.xib; path = UI/Controllers/Place/Cart/TotalContainer/PlaceCartTotalContainerView.xib; sourceTree = "<group>"; };
 		1FE3C7701FB31B6A009CE542 /* PlaceCartTotalContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartTotalContainerCell.swift; path = UI/Controllers/Place/Cart/TotalContainer/PlaceCartTotalContainerCell.swift; sourceTree = "<group>"; };
 		1FE3C7721FB31C2B009CE542 /* PlaceCartTotalContainerCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartTotalContainerCellView.xib; path = UI/Controllers/Place/Cart/TotalContainer/PlaceCartTotalContainerCellView.xib; sourceTree = "<group>"; };
+		1FE715451FEDAB0500E8A773 /* OrdersCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrdersCacheService.swift; path = Services/Cache/OrdersCacheService.swift; sourceTree = "<group>"; };
 		1FF4FE641F1BF43C00CC78B3 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Domains/Versions/Platform.swift; sourceTree = "<group>"; };
 		1FF4FE661F1BF4B600CC78B3 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Domains/Versions/Version.swift; sourceTree = "<group>"; };
 		1FF4FE701F1BFC0F00CC78B3 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSettings.swift; path = Domains/AppSettings.swift; sourceTree = "<group>"; };
@@ -1295,6 +1297,7 @@
 			children = (
 				1FD9A09D1F2323FF0026BDF8 /* PlacesCacheService.swift */,
 				1F68AF6A1F285A32000614C9 /* MenuCacheService.swift */,
+				1FE715451FEDAB0500E8A773 /* OrdersCacheService.swift */,
 				1F5CF8381FB3758F00DDDC3F /* CardsCacheService.swift */,
 			);
 			name = Cache;
@@ -1988,6 +1991,7 @@
 				1F279F6D1FB07CCA003A2B47 /* TermsController.swift in Sources */,
 				1FF703A71F6845C50028A9B8 /* Price.swift in Sources */,
 				1F62E4831FAE466F00D1C89D /* LoginController.swift in Sources */,
+				1FE715461FEDAB0500E8A773 /* OrdersCacheService.swift in Sources */,
 				1F4B0E841FE8A8CD006C0C58 /* RefreshControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

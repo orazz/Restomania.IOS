@@ -33,7 +33,6 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
         return _order.ID
     }
     private var _order: DishOrder!
-    private var _delegate: OrdersControllerProtocol!
     private var _isSetupMarkup: Bool = false
     private var _dateFormatter: DateFormatter {
 
@@ -45,12 +44,11 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
         return result
     }
 
-    public func setup(order: DishOrder, delegate: OrdersControllerProtocol) {
+    public func setup(order: DishOrder) {
 
         setupStyles()
 
         _order = order
-        _delegate = delegate
 
         IdLabel.text = "# \(OrderId)"
         DateLabel.text = _dateFormatter.string(from: order.summary.completeAt)

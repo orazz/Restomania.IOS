@@ -13,6 +13,7 @@ public class CacheServices {
 
     private static var _places: PlacesCacheService?
     private static var _menu: MenuCacheService?
+    private static var _orders: OrdersCacheService?
     private static var _cards: CardsCacheService?
     private static var _images: CacheImagesService?
 
@@ -29,6 +30,13 @@ public class CacheServices {
         }
 
         return _menu!
+    }
+    public static var orders: OrdersCacheService {
+        if (nil == _orders) {
+            _orders = OrdersCacheService()
+        }
+
+        return _orders!
     }
     public static var cards: CardsCacheService {
         if (nil == _cards) {
@@ -50,6 +58,7 @@ public class CacheServices {
         places.load()
         menus.load()
         cards.load()
+        orders.load()
         images.load()
     }
 }

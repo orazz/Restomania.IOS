@@ -10,7 +10,7 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-public class DishOrder: BaseDataType, UserDependentProtocol, PlaceDependentProtocol {
+public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDependentProtocol {
 
     public struct Keys {
 
@@ -79,6 +79,33 @@ public class DishOrder: BaseDataType, UserDependentProtocol, PlaceDependentProto
 
         super.init()
     }
+    // MARK: ICopying
+    public required init(source: DishOrder) {
+
+        self.userId = source.userId
+        self.placeId = source.placeId
+
+        self.cardId = source.cardId
+
+        self.status = source.status
+        self.type = source.type
+        self.currency = source.currency
+        self.isPaid = source.isPaid
+        self.takeaway = source.takeaway
+        self.customData = source.customData
+
+        self.dishes = source.dishes
+        self.summary = source.summary
+
+        self.isCompleted = source.isCompleted
+        self.subtotal = source.subtotal
+        self.discount = source.discount
+        self.total = source.total
+
+        super.init(source: source)
+    }
+
+    // MARK: Glossy
     public required init(json: JSON) {
 
         self.userId = (Keys.userId <~~ json)!
@@ -102,5 +129,30 @@ public class DishOrder: BaseDataType, UserDependentProtocol, PlaceDependentProto
         self.total = (Keys.total <~~ json)!
 
         super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+            super.toJSON(),
+
+            Keys.userId ~~> self.userId,
+            Keys.placeId ~~> self.placeId,
+
+            Keys.cardId ~~> self.cardId,
+
+            Keys.status ~~> self.status,
+            Keys.type ~~> self.type,
+            Keys.currency ~~> self.currency,
+            Keys.isPaid ~~> self.isPaid,
+            Keys.takeaway ~~> self.takeaway,
+            Keys.customData ~~> self.customData,
+
+            Keys.dishes ~~> self.dishes,
+            Keys.summary ~~> self.summary,
+
+            Keys.isCompleted ~~> self.isCompleted,
+            Keys.subtotal ~~> self.subtotal,
+            Keys.discount ~~> self.discount,
+            Keys.total ~~> self.total
+            ])
     }
 }

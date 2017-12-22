@@ -49,6 +49,7 @@ public class OrderSummary: BaseDataType, UserDependentProtocol, PlaceDependentPr
 
         super.init()
     }
+    //Glossy
     public required init(json: JSON) {
 
         self.userId = (Keys.userId <~~ json)!
@@ -56,12 +57,26 @@ public class OrderSummary: BaseDataType, UserDependentProtocol, PlaceDependentPr
 
         self.codeword = (Keys.codeword <~~ json)!
         self.comment = (Keys.comment <~~ json)!
-        let completeDate: String = (Keys.completeAt <~~ json)!
-        self.completeAt = (Date.parseJson(value: completeDate))
+        self.completeAt = (Date.parseJson(value: (Keys.completeAt <~~ json)!))
 
         self.userName = (Keys.userName <~~ json)!
         self.placeName = (Keys.placeName <~~ json)!
 
         super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+            super.toJSON(),
+
+            Keys.userId ~~> self.userId,
+            Keys.placeId ~~> self.placeId,
+
+            Keys.codeword ~~> self.codeword,
+            Keys.comment ~~> self.comment,
+            Keys.completeAt ~~> self.completeAt.prepareForJson(),
+
+            Keys.userName ~~> self.userName,
+            Keys.placeName ~~> self.placeName
+            ])
     }
 }
