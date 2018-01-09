@@ -58,27 +58,8 @@ public class PlaceMenuMenuContainer: UITableViewCell {
         allCategory.ID = -1
         allCategory.orderNumber = -1
 
-        let notEmpty = filterNotEmptyCategories(menu)
-        _categoriesAdapter.update(range: [allCategory] + notEmpty)
-        _dishesAdapter.update(range: menu.dishes, currency: menu.currency)
-    }
-    private func filterNotEmptyCategories(_ menu: MenuSummary) -> [MenuCategory] {
-
-        var result = [MenuCategory]()
-
-        for category in menu.categories {
-
-            //Dish in category
-            if menu.dishes.any({ $0.categoryId == category.ID }) {
-                result.append(category)
-            }
-            //Child category
-            else if menu.categories.any({ $0.parentId == category.ID }) {
-                result.append(category)
-            }
-        }
-
-        return result
+        _categoriesAdapter.update(by: menu)
+        _dishesAdapter.update(by: menu)
     }
 
     private func setupMarkup() {
@@ -217,9 +198,18 @@ extension PlaceMenuMenuContainer {
             selectAndNotify(about: category)
             reload()
         }
-        public func update(range: [MenuCategory]) {
+        public func update(by menu: MenuSummary) {
 
-            categories = range.sorted(by: { $0.orderNumber < $1.orderNumber })
+            var categoriesForShow = Set<MenuCategory>()
+            for dish in menu.dishes {
+                if let category = menu.categories.find({ $0.ID == dish.categoryId }) {
+                    categoriesForShow.insert(category)
+                }
+            }
+
+            categories = categoriesForShow.map({ $0 })
+                                           .filter({ !$0.isHidden && $0.isBase })
+                                           .sorted(by: { $0.orderNumber < $1.orderNumber })
             if (!categories.isEmpty) {
                 selectedCategory = categories.first!.ID
             }
@@ -317,10 +307,10 @@ extension PlaceMenuMenuContainer {
         }
 
         // MARK: Interface
-        public func update(range: [Dish], currency: CurrencyType) {
+        public func update(by menu: MenuSummary) {
 
-            _dishes = range.sorted(by: { $0.orderNumber < $1.orderNumber  })
-            _currency = currency
+            _dishes = menu.dishes.sorted(by: { $0.orderNumber < $1.orderNumber  })
+            _currency = menu.currency
 
             reload()
         }

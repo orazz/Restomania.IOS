@@ -41,6 +41,13 @@ public class MenuCategory: BaseDataType, IMenuDependent, ISortable {
         super.init()
     }
 
+    public var isDependent: Bool {
+        return nil != parentId
+    }
+    public var isBase: Bool {
+        return nil == parentId
+    }
+
     // MARK: Glossy
     public required init(json: JSON) {
 
@@ -65,5 +72,13 @@ public class MenuCategory: BaseDataType, IMenuDependent, ISortable {
 
             super.toJSON()
             ])
+    }
+}
+extension MenuCategory: Hashable {
+    public var hashValue: Int {
+        return Int(ID)
+    }
+    public static func ==(left: MenuCategory, right: MenuCategory) -> Bool {
+        return left.ID == right.ID
     }
 }
