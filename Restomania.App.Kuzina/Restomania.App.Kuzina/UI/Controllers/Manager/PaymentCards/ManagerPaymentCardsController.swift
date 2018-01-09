@@ -9,15 +9,13 @@
 import Foundation
 import UIKit
 import IOSLibrary
+import AsyncTask
 
 public protocol IPaymentCardsDelegate {
 
-    func removeCard(id: Long)
+    func removeCard(_: Long)
 }
-public class PaymentCardsController: UIViewController,
-                                      IPaymentCardsDelegate,
-                                      UITableViewDelegate,
-                                      UITableViewDataSource {
+public class PaymentCardsController: UIViewController {
 
     private static let nibName = "ManagerPaymentCardsControllerView"
     public static func create() -> PaymentCardsController {
@@ -28,31 +26,48 @@ public class PaymentCardsController: UIViewController,
     }
 
     //UI elements
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var cardsTable: UITableView!
+    private var interfaceLoader: InterfaceLoader!
+    private var refreshControl: RefreshControl!
+    private var addCardUIService: AddCardUIService!
+
+    // MARK: Tools
+    private let _tag = String.tag(PaymentCardsController.self)
+    private var loadQueue: AsyncQueue!
 
     // MARK: Data & service
-    private let _tag = String.tag(PaymentCardsController.self)
-    private var _loader: InterfaceLoader!
-    private var _addCardService = AddCardUIService()
-    private var _apiService = ApiServices.Users.cards
-    private var _cards = [PaymentCard]()
+    private var cardsService = CacheServices.cards
+    private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
+    private var loaderAdapter: PartsLoader!
+    private let mainCurrency = CurrencyType.RUB
 
-    // MARK: Life circle
+}
+// MARK: Load circle
+extension PaymentCardsController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
         let nib = UINib(nibName: PaymentCardCell.nibName, bundle: nil)
-        TableView.register(nib, forCellReuseIdentifier: PaymentCardCell.identifier)
+        cardsTable.register(nib, forCellReuseIdentifier: PaymentCardCell.identifier)
 
-        _loader = InterfaceLoader(for: view)
+        interfaceLoader = InterfaceLoader(for: view)
+        refreshControl = cardsTable.addRefreshControl(for: self, action: #selector(needReload))
+        addCardUIService = AddCardUIService()
+
+        cardsContainer = PartsLoadTypedContainer<[PaymentCard]>(completeLoadHandler: self.completeLoad)
+        cardsContainer.updateHandler = { update in
+            DispatchQueue.main.async {
+                self.cardsTable.reloadData()
+            }
+        }
+
+        loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         showNavigationBar()
         navigationItem.title = "Карты оплаты"
-
-        loadCards()
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -60,109 +75,98 @@ public class PaymentCardsController: UIViewController,
         hideNavigationBar()
     }
 
-    private func loadCards() {
+    private func loadData() {
 
-        _loader.show()
-
-        let request = _apiService.all()
-        request.async(.background, completion: { response in
-
-            DispatchQueue.main.async {
-
-                if (!response.isSuccess) {
-
-                    Log.Warning(self._tag, "problem with getting payment cards.")
-                } else {
-
-                    self._cards = response.data!
-                    self.TableView.reloadData()
-                }
-
-                self._loader.hide()
-            }
-
-        })
-
-    }
-
-    // MARK: IPaymentCardsDelegate
-    public func removeCard(id: Long) {
-
-        Log.Debug(_tag, "Try remove #\(id) payment card.")
-
-        let card = _cards.find({ id == $0.ID })
-        let index = _cards.index(where: { id == $0.ID })
-        if (nil == card) {
-            return
+        let cards = cardsService.cache.where { $0.Currency == self.mainCurrency }
+        if (cards.isEmpty) {
+            interfaceLoader.show()
         }
 
-        //Update interface 
-        _cards.remove(at: index!)
-        TableView.reloadData()
-
-        let request = _apiService.remove(cardId: id)
-        request.async(.background, completion: { response in
-
-            if (!response.isSuccess) {
-
-                self._cards.insert(card!, at: index!)
-                self.TableView.reloadData()
-
-                let alert = UIAlertController()
-                alert.message = "Проблемы с удалением карты, попробуйте позднее."
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
-                self.show(alert, sender: self)
-            }
-        })
+        requestCards()
     }
+    @objc private func needReload() {
+        requestCards()
+    }
+    private func requestCards() {
+        cardsService.all().async(loadQueue, completion: cardsContainer.completeLoad)
+    }
+    private func completeLoad() {
+
+        if (loaderAdapter.isLoad) {
+            interfaceLoader.hide()
+            refreshControl.endRefreshing()
+        }
+    }
+}
+// MARK: IPaymentCardsDelegate
+extension PaymentCardsController: IPaymentCardsDelegate {
+
     @IBAction public func addCard() {
 
         Log.Debug(_tag, "Try add new payment card.")
-        let currency = CurrencyType.RUB
 
-        _addCardService.addCard(for: currency, on: self, complete: { success, _ in
+        let currency = CurrencyType.RUB
+        addCardUIService.addCard(for: currency, on: self) { success, _ in
 
             Log.Debug(self._tag, "Adding new card is \(success)")
 
             if (success) {
-
                 DispatchQueue.main.async {
-
-                    self.loadCards()
+                    self.loadData()
                 }
             }
-        })
+        }
     }
+    public func removeCard(_ cardId: Long) {
 
-    // MARK: UITableViewDelegate
+        Log.Debug(_tag, "Try remove #\(cardId) payment card.")
+
+        guard var cards = cardsContainer.data,
+              let index = cards.index(where: { cardId == $0.ID }) else {
+            return
+        }
+
+        //Remove local
+        let backup = cards
+        cards.remove(at: index)
+        cardsContainer.update(cards)
+
+        //Remove remote
+        let request = cardsService.remove(cardId)
+        request.async(loadQueue) { response in
+            if (response.isFail) {
+
+                self.cardsContainer.update(backup)
+                self.toast(for: response)
+            }
+        }
+    }
+}
+// MARK: Table
+extension PaymentCardsController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as? PaymentCardCell
+        cell?.Remove()
+    }
+}
+extension PaymentCardsController: UITableViewDataSource {
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cardsContainer.data?.count ?? 0
+    }
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return PaymentCardCell.height
+    }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let card = _cards[indexPath.row]
+        let card = cardsContainer.data![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: PaymentCardCell.identifier, for: indexPath) as! PaymentCardCell
         cell.setup(card: card, delegate: self)
 
         return cell
-    }
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        tableView.deselectRow(at: indexPath, animated: true)
-
-        let cell = tableView.cellForRow(at: indexPath) as? PaymentCardCell
-        cell?.Remove()
-    }
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
-        return PaymentCardCell.height
-    }
-
-    // MARK: UITableViewDataSource
-    public func numberOfSections(in tableView: UITableView) -> Int {
-
-        return 1
-    }
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return _cards.count
     }
 }

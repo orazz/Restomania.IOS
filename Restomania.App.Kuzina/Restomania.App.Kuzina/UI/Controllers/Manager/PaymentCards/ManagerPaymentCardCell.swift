@@ -43,7 +43,7 @@ public class PaymentCardCell: UITableViewCell {
     }
     @objc private func tapRemove() {
 
-        _delegate.removeCard(id: _card.ID)
+        _delegate.removeCard(_card.ID)
     }
 
     private func setupStyles() {

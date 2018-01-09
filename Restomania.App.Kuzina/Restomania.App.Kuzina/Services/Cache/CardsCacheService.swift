@@ -67,6 +67,20 @@ public class CardsCacheService {
             }
         }
     }
+    public func remove(_ cardId: Long) -> RequestResult<Bool> {
+        return RequestResult<Bool> { handler in
+
+            let request = self.api.remove(cardId: cardId)
+            request.async(self.apiQueue) { response in
+
+                if (response.isSuccess) {
+                    self.adapter.remove(cardId)
+                }
+
+                handler(response)
+            }
+        }
+    }
 }
 
 extension CardsCacheService: KeysStorageDelegate {

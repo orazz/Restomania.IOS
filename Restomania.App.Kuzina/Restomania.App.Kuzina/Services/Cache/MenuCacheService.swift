@@ -75,7 +75,7 @@ extension CacheAdapterExtender where TElement == MenuSummary {
         if let summary = summary {
             return self.find(summary.menuId)
         } else {
-            return self.find({ $0.placeID == placeId })
+            return self.find({ $0.placeId == placeId })
         }
     }
 }

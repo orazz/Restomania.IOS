@@ -61,7 +61,7 @@ public class KeysStorage {
         public var role: ApiRole
 
         public init(keys: ApiKeys, role: ApiRole) {
-            self.keys = ApiKeys()
+            self.keys = keys
             self.role = .user
         }
         public required init(json: JSON) {

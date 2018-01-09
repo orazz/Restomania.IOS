@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentCardsController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <connections>
-                <outlet property="TableView" destination="H7f-OT-Z9s" id="2NZ-2A-gVb"/>
+                <outlet property="cardsTable" destination="H7f-OT-Z9s" id="2NZ-2A-gVb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ZSl-EB-SeP"/>
             </connections>
         </placeholder>

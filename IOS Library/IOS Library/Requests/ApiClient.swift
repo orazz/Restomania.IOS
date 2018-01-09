@@ -137,6 +137,8 @@ public class ApiClient {
 
         return Task { (handler: @escaping (_:ApiResponse<TData>) -> Void) in
 
+            Log.Debug(self._tag, "Request to \(url)")
+
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     Log.Error(self._tag, "Fundamental problem with request.")
