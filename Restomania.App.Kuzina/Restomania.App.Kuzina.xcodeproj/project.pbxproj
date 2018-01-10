@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */; };
+		1F0F2163200590EC008672DA /* TermsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2162200590EB008672DA /* TermsControllerView.xib */; };
+		1F0F2166200593FB008672DA /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2168200593FB008672DA /* TermsController.strings */; };
 		1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */; };
 		1F12EB541FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F12EB531FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib */; };
 		1F12EB561FB4166100EF9BEA /* ManagerOrdersControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F12EB551FB4166100EF9BEA /* ManagerOrdersControllerView.xib */; };
@@ -267,6 +269,9 @@
 
 /* Begin PBXFileReference section */
 		0A71E4697424BB89A1AA9DFA /* Pods-RestomaniaAppKuzina-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina-Tests/Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1F0F2162200590EB008672DA /* TermsControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TermsControllerView.xib; path = UI/Controllers/Manager/Terms/TermsControllerView.xib; sourceTree = "<group>"; };
+		1F0F2167200593FB008672DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
+		1F0F2169200593FE008672DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCompleteOrderController.swift; path = UI/Controllers/Place/CompleteOrder/PlaceCompleteOrderController.swift; sourceTree = "<group>"; };
 		1F12EB531FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCompleteOrderControllerView.xib; path = UI/Controllers/Place/CompleteOrder/PlaceCompleteOrderControllerView.xib; sourceTree = "<group>"; };
 		1F12EB551FB4166100EF9BEA /* ManagerOrdersControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ManagerOrdersControllerView.xib; path = UI/Controllers/Manager/Orders/ManagerOrdersControllerView.xib; sourceTree = "<group>"; };
@@ -671,6 +676,8 @@
 			isa = PBXGroup;
 			children = (
 				1F279F6C1FB07CCA003A2B47 /* TermsController.swift */,
+				1F0F2162200590EB008672DA /* TermsControllerView.xib */,
+				1F0F2168200593FB008672DA /* TermsController.strings */,
 			);
 			name = Terms;
 			sourceTree = "<group>";
@@ -1599,6 +1606,7 @@
 				1FE3C76D1FB318E8009CE542 /* PlaceCartTotalContainerView.xib in Resources */,
 				1F62E4691FAE464400D1C89D /* LaunchScreen.storyboard in Resources */,
 				1FE3C75C1FB2EE48009CE542 /* PlaceCartDishesContainerView.xib in Resources */,
+				1F0F2163200590EC008672DA /* TermsControllerView.xib in Resources */,
 				1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */,
 				1F279F931FB07D51003A2B47 /* PlaceInfoControllerView.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
@@ -1624,6 +1632,7 @@
 				1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */,
 				1F5CF83F1FB386A700DDDC3F /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
 				1F279F691FB07CA6003A2B47 /* ManagerChangePasswordControllerView.xib in Resources */,
+				1F0F2166200593FB008672DA /* TermsController.strings in Resources */,
 				1FE3C7691FB31171009CE542 /* PlaceCartAdditionalContainerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2034,6 +2043,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F0F2168200593FB008672DA /* TermsController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F0F2167200593FB008672DA /* en */,
+				1F0F2169200593FE008672DA /* ru */,
+			);
+			name = TermsController.strings;
+			path = UI/Controllers/Manager/Terms;
+			sourceTree = "<group>";
+		};
 		1F1C692D1FECD88B002E7F1E /* PlaceCartController.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

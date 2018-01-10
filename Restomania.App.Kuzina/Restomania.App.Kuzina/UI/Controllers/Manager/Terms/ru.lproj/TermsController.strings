@@ -1,0 +1,12 @@
+/* 
+  TermsController.strings
+  Restomania.App.Kuzina
+
+  Created by Алексей on 10.01.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Пользовательское соглашение";
+
+"Errors.ProblemWithLoad.Title" = "Ошибка загрузки";
+"Errors.ProblemWithLoadTerms.Message" = "Проблема с загрузкой пользовательского соглашения. Проверьте ваше подключение к интенету.";

@@ -1,0 +1,12 @@
+/* 
+  TermsController.strings
+  Restomania.App.Kuzina
+
+  Created by Алексей on 10.01.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Terms";
+
+"Errors.ProblemWithLoad.Title" = "Error of load";
+"Errors.ProblemWithLoadTerms.Message" = "Error of load terms from website. Check internet connection.";

@@ -133,7 +133,7 @@
                                     <constraint firstAttribute="width" constant="300" id="WNY-TB-a7D"/>
                                     <constraint firstAttribute="height" constant="50" id="hD8-x8-Neg"/>
                                 </constraints>
-                                <state key="normal" title="Условия работы"/>
+                                <state key="normal" title="Пользовательское соглашение"/>
                                 <connections>
                                     <action selector="goToTerms" destination="6zb-zD-LkU" eventType="touchUpInside" id="kge-nt-MAm"/>
                                 </connections>

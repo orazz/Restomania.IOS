@@ -8,23 +8,47 @@
 
 import Foundation
 import UIKit
+import IOSLibrary
 
 public class TermsController: UIViewController {
+
+    // UI
+    @IBOutlet private weak var pageWebView: UIWebView!
+    private var interfaceLoader: InterfaceLoader!
 
     // MARK: Life circle
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        pageWebView.delegate = self
+        pageWebView.loadRequest(URLRequest(url: URL(string: "http://medvedstudio.azurewebsites.net/restomania-terms-user.html")!))
 
-        showNavigationBar()
-        navigationItem.title = "Условия работы"
-    }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+        interfaceLoader = InterfaceLoader(for: self.view)
+        interfaceLoader.show()
 
-        hideNavigationBar()
+        navigationItem.title = Keys.title.localized
+    }
+}
+extension TermsController: UIWebViewDelegate {
+    public func webViewDidFinishLoad(_ webView: UIWebView) {
+        interfaceLoader.hide()
+    }
+    public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        interfaceLoader.hide()
+
+        toast(title: Keys.problemWithLoadTitle.localized, message: Keys.problemWithLoadMessage.localized)
+    }
+}
+extension TermsController {
+    public enum Keys: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(TermsController.self)
+        }
+
+        case title = "Title"
+
+        case problemWithLoadTitle = "Errors.ProblemWithLoad.Title"
+        case problemWithLoadMessage = "Errors.ProblemWithLoadTerms.Message"
     }
 }
