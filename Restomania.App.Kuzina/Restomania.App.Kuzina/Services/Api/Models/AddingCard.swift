@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 import IOSLibrary
 
-public class AddingCard: Gloss.Decodable {
+public class AddingCard: JSONDecodable {
 
     public struct Keys {
         public static let ID = BaseDataType.Keys.ID

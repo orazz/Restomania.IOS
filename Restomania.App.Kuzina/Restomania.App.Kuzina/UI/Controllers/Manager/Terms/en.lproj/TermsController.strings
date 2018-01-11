@@ -8,5 +8,4 @@
 
 "Title" = "Terms";
 
-"Errors.ProblemWithLoad.Title" = "Error of load";
-"Errors.ProblemWithLoadTerms.Message" = "Error of load terms from website. Check internet connection.";
+"Errors.ProblemWithLoad.Message" = "Error of load terms from website. Check internet connection.";

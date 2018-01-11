@@ -4,14 +4,16 @@ platform :ios, '9.1'
 
 def shared_pods
     use_frameworks!
-    pod 'Gloss', '~> 1.2'
-    pod 'AsyncTask', '~> 0.1.3'
+    pod 'Gloss', '~> 2.0'
+    pod 'AsyncTask'
 end
 
 
 target 'RestomaniaAppKuzina' do
     project './Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj'
     shared_pods
+    pod 'Toast-Swift', '~> 3.0.1'
+    pod 'NotificationBannerSwift', '~> 1.5.4'
 end
 target 'RestomaniaAppKuzina-Tests' do
     project './Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj'

@@ -28,7 +28,7 @@ public class PartialUpdateContainer: Glossy {
     }
     public convenience init(property: String, update: Any?) {
 
-        if let value = update as? Gloss.Encodable {
+        if let value = update as? JSONEncodable {
 
             var jsonUpdate = "{}"
 

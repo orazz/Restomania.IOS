@@ -18,7 +18,7 @@ enum JSONSerializationErrors: Error {
 }
 extension JSONSerialization {
 
-    open static func parse<Type: Gloss.Decodable>(data: Data) throws -> Type  {
+    open static func parse<Type: JSONDecodable>(data: Data) throws -> Type  {
 
         var json: JSON
         do {
@@ -28,14 +28,14 @@ extension JSONSerialization {
             throw error
         }
 
-        if let result = Type.init(json: json) {
+        if let result = Type(json: json) {
             return result
         }
         else {
             throw JSONSerializationErrors.invalidConstructor
         }
     }
-    open static func parseRange<Type: Gloss.Decodable>(data: Data) throws -> [Type] {
+    open static func parseRange<Type: JSONDecodable>(data: Data) throws -> [Type] {
 
         var json: [JSON]
         do {
@@ -76,7 +76,7 @@ extension JSONSerialization {
         }
     }
 
-    open static func serialize(data: Gloss.Encodable) throws -> Data {
+    open static func serialize(data: JSONEncodable) throws -> Data {
 
         guard let prepared = data.toJSON() else {
             throw JSONSerializationErrors.invalidSerialization
@@ -89,7 +89,7 @@ extension JSONSerialization {
             throw JSONSerializationErrors.invalidData(error)
         }
     }
-    open static func serialize(data: [Gloss.Encodable]) throws -> Data {
+    open static func serialize(data: [JSONEncodable]) throws -> Data {
 
         var prepared = [JSON]()
         for entity in data {

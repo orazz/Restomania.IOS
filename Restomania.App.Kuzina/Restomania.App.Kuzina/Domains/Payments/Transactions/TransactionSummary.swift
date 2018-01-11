@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class TransactionSummary: Gloss.Decodable {
+public class TransactionSummary: JSONDecodable {
 
     public struct Keys {
         public static let type = "Type"

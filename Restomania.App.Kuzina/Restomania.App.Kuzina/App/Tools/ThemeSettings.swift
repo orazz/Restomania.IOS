@@ -8,8 +8,21 @@
 
 import UIKit
 import IOSLibrary
+import Toast_Swift
 
 public class ThemeSettings {
+
+    public class Elements {
+
+        public static var toast: ToastStyle {
+
+            var result = ToastStyle()
+
+            result.messageFont = Fonts.default(size: .subhead)
+
+            return result
+        }
+    }
 
     public class Colors {
 

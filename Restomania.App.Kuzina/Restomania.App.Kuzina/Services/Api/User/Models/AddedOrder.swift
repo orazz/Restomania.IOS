@@ -34,7 +34,7 @@ public class AddedOrder {
     }
 }
 
-extension AddedOrder: Gloss.Encodable {
+extension AddedOrder: JSONEncodable {
     public struct Keys {
         public static let userId = "UserId"
         public static let placeId = "PlaceId"

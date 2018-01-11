@@ -8,7 +8,7 @@
 
 import Gloss
 
-public class AppSettings: Gloss.Decodable {
+public class AppSettings: JSONDecodable {
 
     public struct Keys {
         public static let hostname = "HostName"

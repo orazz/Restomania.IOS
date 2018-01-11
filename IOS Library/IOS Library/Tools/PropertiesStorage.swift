@@ -66,7 +66,7 @@ public class PropertiesStorage<TKey: RawRepresentable> : NSObject {
 
         _storage.set(value, forKey: name)
     }
-    public func set(_ key: TKey, value: Gloss.Encodable) {
+    public func set(_ key: TKey, value: JSONEncodable) {
         let json = value.toJSON()
 
         if (nil == json) {
@@ -135,7 +135,7 @@ public class PropertiesStorage<TKey: RawRepresentable> : NSObject {
 
         return OptionalValue(value)
     }
-    public func get<T: Gloss.Decodable>(_ type: T.Type, key: TKey) -> OptionalValue<T> {
+    public func get<T: JSONDecodable>(_ type: T.Type, key: TKey) -> OptionalValue<T> {
 
         let jsonString = getString(key)
 

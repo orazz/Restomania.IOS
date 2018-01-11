@@ -38,7 +38,7 @@ public class GetArgs {
 }
 
 // MARK: Encodable
-extension GetArgs: Gloss.Encodable {
+extension GetArgs: JSONEncodable {
 
     public func toJSON() -> JSON? {
         return jsonify([

@@ -40,7 +40,7 @@ public class BaseApiService {
         if let values = values {
             for (key, value) in values {
 
-                if let object = value as? Gloss.Encodable {
+                if let object = value as? JSONEncodable {
                     result[key] = object.toJSON()
                 } else {
                     result[key] = value

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import IOSLibrary
+import Toast_Swift
 
 public class TermsController: UIViewController {
 
@@ -17,6 +18,12 @@ public class TermsController: UIViewController {
     private var interfaceLoader: InterfaceLoader!
 
     // MARK: Life circle
+    public init() {
+        super.init(nibName: "TermsControllerView", bundle: Bundle.main)
+    }
+    public convenience required init?(coder aDecoder: NSCoder) {
+        self.init()
+    }
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +35,9 @@ public class TermsController: UIViewController {
 
         navigationItem.title = Keys.title.localized
     }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }
 extension TermsController: UIWebViewDelegate {
     public func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -36,7 +46,7 @@ extension TermsController: UIWebViewDelegate {
     public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         interfaceLoader.hide()
 
-        toast(title: Keys.problemWithLoadTitle.localized, message: Keys.problemWithLoadMessage.localized)
+        self.view.makeToast(Keys.problemWithLoadMessage.localized, style: ThemeSettings.Elements.toast)
     }
 }
 extension TermsController {
@@ -48,7 +58,6 @@ extension TermsController {
 
         case title = "Title"
 
-        case problemWithLoadTitle = "Errors.ProblemWithLoad.Title"
-        case problemWithLoadMessage = "Errors.ProblemWithLoadTerms.Message"
+        case problemWithLoadMessage = "Errors.ProblemWithLoad.Message"
     }
 }

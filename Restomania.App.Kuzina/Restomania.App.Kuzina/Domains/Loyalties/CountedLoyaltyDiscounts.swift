@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class CountedLoyaltyDiscounts: Gloss.Decodable {
+public class CountedLoyaltyDiscounts: JSONDecodable {
 
     public struct Keys {
         public static let bonuses = "Bonuses"

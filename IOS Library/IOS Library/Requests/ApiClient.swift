@@ -21,19 +21,19 @@ public class ApiClient {
         self._tag = tag
     }
     //Range decodable
-    public func GetRange<T: Gloss.Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
+    public func GetRange<T: JSONDecodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
         return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitRange(type:type))
     }
-    public func PostRange<T: Gloss.Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
+    public func PostRange<T: JSONDecodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
         return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitRange(type:type))
     }
-    public func PutRange<T: Gloss.Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
+    public func PutRange<T: JSONDecodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
         return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitRange(type:type))
     }
-    public func DeleteRange<T: Gloss.Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
+    public func DeleteRange<T: JSONDecodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<[T]> {
         return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitRange(type:type))
     }
-    private func InitRange<T: Gloss.Decodable>(type: T.Type) -> (_:Any?) -> [T] {
+    private func InitRange<T: JSONDecodable>(type: T.Type) -> (_:Any?) -> [T] {
         return { json in
 
             let range = json as! [JSON]
@@ -103,19 +103,19 @@ public class ApiClient {
     }
 
     //Decodable
-    public func Get<T: Gloss.Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
+    public func Get<T: JSONDecodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
         return SendTo(action, method: .Get, parameters: Wrap(parameters), parser: InitT())
     }
-    public func Post<T: Gloss.Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
+    public func Post<T: JSONDecodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
         return SendTo(action, method: .Post, parameters: Wrap(parameters), parser: InitT())
     }
-    public func Put<T: Gloss.Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
+    public func Put<T: JSONDecodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
         return SendTo(action, method: .Put, parameters: Wrap(parameters), parser: InitT())
     }
-    public func Delete<T: Gloss.Decodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
+    public func Delete<T: JSONDecodable>(action: String, type: T.Type, parameters: Parameters? = nil) -> RequestResult<T> {
         return SendTo(action, method: .Delete, parameters: Wrap(parameters), parser: InitT())
     }
-    private func InitT<T: Gloss.Decodable>() -> (_:Any?) -> T {
+    private func InitT<T: JSONDecodable>() -> (_:Any?) -> T {
         return { json in T(json: json as! JSON)! }
     }
 
