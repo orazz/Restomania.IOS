@@ -73,7 +73,7 @@ public class ManagerController: UIViewController {
         presentSubmanager(controller: ManagerOrdersController())
     }
     @IBAction public func goToTerms() {
-//        presentSubmanager(controller: TermsController(), needAuth: false)
+        presentSubmanager(controller: TermsController(), needAuth: false)
     }
     private func presentSubmanager(controller: UIViewController, needAuth: Bool = true) {
 

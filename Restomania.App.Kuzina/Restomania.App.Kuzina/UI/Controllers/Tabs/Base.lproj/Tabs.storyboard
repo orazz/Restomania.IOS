@@ -73,56 +73,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7x-qw-HAV" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                                <rect key="frame" x="37" y="32" width="300" height="50"/>
+                                <rect key="frame" x="37.5" y="32" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="tTR-wX-iQU"/>
                                     <constraint firstAttribute="height" constant="50" id="vLS-oM-Ipv"/>
                                 </constraints>
-                                <state key="normal" title="Профиль"/>
+                                <state key="normal" title="Profile"/>
                                 <connections>
                                     <action selector="goToEditProfile" destination="6zb-zD-LkU" eventType="touchUpInside" id="PM8-nx-kTk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-rF-Khr" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                                <rect key="frame" x="37" y="94" width="300" height="50"/>
+                                <rect key="frame" x="37.5" y="94" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="1Mj-hJ-BiN"/>
                                     <constraint firstAttribute="height" constant="50" id="VJj-z2-wOu"/>
                                 </constraints>
-                                <state key="normal" title="Уведомления"/>
+                                <state key="normal" title="Notifications"/>
                                 <connections>
                                     <action selector="goToEditNotificationPreferences" destination="6zb-zD-LkU" eventType="touchUpInside" id="KPh-vm-NiF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-ka-1eM" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                                <rect key="frame" x="37" y="156" width="300" height="50"/>
+                                <rect key="frame" x="37.5" y="156" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="E4d-q3-5Xg"/>
                                     <constraint firstAttribute="height" constant="50" id="TwG-3N-I3S"/>
                                 </constraints>
-                                <state key="normal" title="Изменить пароль"/>
+                                <state key="normal" title="Change password"/>
                                 <connections>
                                     <action selector="goToChangePassword" destination="6zb-zD-LkU" eventType="touchUpInside" id="gkV-ef-Udn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHs-Ww-9na" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                                <rect key="frame" x="37" y="218" width="300" height="50"/>
+                                <rect key="frame" x="37.5" y="218" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="NaV-UL-BX9"/>
                                     <constraint firstAttribute="height" constant="50" id="jfU-pC-t7f"/>
                                 </constraints>
-                                <state key="normal" title="Платежные карты"/>
+                                <state key="normal" title="Payment cards"/>
                                 <connections>
                                     <action selector="goToPaymentCards" destination="6zb-zD-LkU" eventType="touchUpInside" id="4e8-rr-Ms4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXn-eB-bc6" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                                <rect key="frame" x="37" y="298" width="300" height="50"/>
+                                <rect key="frame" x="37.5" y="298" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EtH-ey-qAE"/>
                                     <constraint firstAttribute="width" constant="300" id="pJi-ut-WmU"/>
                                 </constraints>
-                                <state key="normal" title="Заказы"/>
+                                <state key="normal" title="Orders"/>
                                 <connections>
                                     <action selector="goToOrders" destination="6zb-zD-LkU" eventType="touchUpInside" id="7nP-zW-e7K"/>
                                 </connections>
@@ -133,18 +133,18 @@
                                     <constraint firstAttribute="width" constant="300" id="WNY-TB-a7D"/>
                                     <constraint firstAttribute="height" constant="50" id="hD8-x8-Neg"/>
                                 </constraints>
-                                <state key="normal" title="Пользовательское соглашение"/>
+                                <state key="normal" title="Terms"/>
                                 <connections>
                                     <action selector="goToTerms" destination="6zb-zD-LkU" eventType="touchUpInside" id="kge-nt-MAm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIJ-RG-sxZ" customClass="BlackButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="440" width="300" height="50"/>
+                                <rect key="frame" x="37.5" y="458" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="UX5-xC-4AI"/>
                                     <constraint firstAttribute="width" constant="300" id="YX2-gI-UAm"/>
                                 </constraints>
-                                <state key="normal" title="Выйти"/>
+                                <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="Logout" destination="6zb-zD-LkU" eventType="touchUpInside" id="Eru-m4-sH1"/>
                                 </connections>
@@ -153,7 +153,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BHs-Ww-9na" firstAttribute="top" secondItem="j1p-ka-1eM" secondAttribute="bottom" constant="12" id="1Wy-Ea-MS9"/>
-                            <constraint firstItem="LIJ-RG-sxZ" firstAttribute="top" secondItem="v0w-Dd-wXa" secondAttribute="bottom" constant="12" id="7yD-VU-KdZ"/>
+                            <constraint firstItem="LIJ-RG-sxZ" firstAttribute="top" secondItem="v0w-Dd-wXa" secondAttribute="bottom" constant="30" id="7yD-VU-KdZ"/>
                             <constraint firstItem="v0w-Dd-wXa" firstAttribute="top" secondItem="HXn-eB-bc6" secondAttribute="bottom" constant="30" id="Fq4-1Z-Nwi"/>
                             <constraint firstItem="BHs-Ww-9na" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="N2C-aY-kY5"/>
                             <constraint firstItem="LIJ-RG-sxZ" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="UbG-xs-Cfd"/>

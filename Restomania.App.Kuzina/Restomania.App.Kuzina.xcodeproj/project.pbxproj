@@ -77,7 +77,6 @@
 		1F62E4681FAE464400D1C89D /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E4651FAE464400D1C89D /* Launch.storyboard */; };
 		1F62E4691FAE464400D1C89D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E4661FAE464400D1C89D /* LaunchScreen.storyboard */; };
 		1F62E46E1FAE465700D1C89D /* ManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E46A1FAE465600D1C89D /* ManagerController.swift */; };
-		1F62E46F1FAE465700D1C89D /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E46B1FAE465700D1C89D /* Tabs.storyboard */; };
 		1F62E4701FAE465700D1C89D /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E46C1FAE465700D1C89D /* TabsController.swift */; };
 		1F62E4711FAE465700D1C89D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E46D1FAE465700D1C89D /* SearchController.swift */; };
 		1F62E47B1FAE466F00D1C89D /* ForgetPasswordPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F62E4721FAE466F00D1C89D /* ForgetPasswordPage.xib */; };
@@ -101,6 +100,7 @@
 		1F62E4CD1FAE476E00D1C89D /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */; };
 		1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF681F285866000614C9 /* MenuSummary.swift */; };
 		1F68AF6B1F285A32000614C9 /* MenuCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68AF6A1F285A32000614C9 /* MenuCacheService.swift */; };
+		1F691A65200824CD00415F2F /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F691A67200824CD00415F2F /* Tabs.storyboard */; };
 		1F6E07651FE4583B00B092B6 /* CacheServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6E07641FE4583B00B092B6 /* CacheServices.swift */; };
 		1F959C181F24F68F00E7487F /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */; };
 		1FAA9F7A1FC2F8A600BB105D /* UserDependentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA9F791FC2F8A600BB105D /* UserDependentProtocol.swift */; };
@@ -345,7 +345,6 @@
 		1F62E4651FAE464400D1C89D /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Launch.storyboard; path = UI/Controllers/Start/Launch.storyboard; sourceTree = "<group>"; };
 		1F62E4661FAE464400D1C89D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = UI/Controllers/Start/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F62E46A1FAE465600D1C89D /* ManagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerController.swift; path = UI/Controllers/Tabs/ManagerController.swift; sourceTree = "<group>"; };
-		1F62E46B1FAE465700D1C89D /* Tabs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Tabs.storyboard; path = UI/Controllers/Tabs/Tabs.storyboard; sourceTree = "<group>"; };
 		1F62E46C1FAE465700D1C89D /* TabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabsController.swift; path = UI/Controllers/Tabs/TabsController.swift; sourceTree = "<group>"; };
 		1F62E46D1FAE465700D1C89D /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = UI/Controllers/Tabs/SearchController.swift; sourceTree = "<group>"; };
 		1F62E4721FAE466F00D1C89D /* ForgetPasswordPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordPage.xib; path = UI/Controllers/Auth/ForgetPasswordPage.xib; sourceTree = "<group>"; };
@@ -369,6 +368,9 @@
 		1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceLabel.swift; path = UI/Elements/Labels/PriceLabel.swift; sourceTree = "<group>"; };
 		1F68AF681F285866000614C9 /* MenuSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummary.swift; path = Domains/PlaceModels/MenuSummary.swift; sourceTree = "<group>"; };
 		1F68AF6A1F285A32000614C9 /* MenuCacheService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuCacheService.swift; path = Services/Cache/MenuCacheService.swift; sourceTree = "<group>"; };
+		1F691A66200824CD00415F2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tabs.storyboard; sourceTree = "<group>"; };
+		1F691A69200824D300415F2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tabs.strings; sourceTree = "<group>"; };
+		1F691A6B200824D400415F2F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Tabs.strings; sourceTree = "<group>"; };
 		1F6E07641FE4583B00B092B6 /* CacheServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheServices.swift; path = Services/CacheServices.swift; sourceTree = "<group>"; };
 		1F959C171F24F68F00E7487F /* PushNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationsManager.swift; path = App/PushNotificationsManager.swift; sourceTree = "<group>"; };
 		1FAA9F711FC245F700BB105D /* RestomaniaAppKuzina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestomaniaAppKuzina.entitlements; sourceTree = "<group>"; };
@@ -569,11 +571,11 @@
 		1F261C811F42C31D004BFFCB /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				1F62E46B1FAE465700D1C89D /* Tabs.storyboard */,
+				1F691A67200824CD00415F2F /* Tabs.storyboard */,
 				1F62E46C1FAE465700D1C89D /* TabsController.swift */,
 				1F62E46D1FAE465700D1C89D /* SearchController.swift */,
-				1F4B0E8F1FEA698C006C0C58 /* Cells */,
 				1F62E46A1FAE465600D1C89D /* ManagerController.swift */,
+				1F4B0E8F1FEA698C006C0C58 /* Cells */,
 			);
 			name = Tabs;
 			sourceTree = "<group>";
@@ -1613,7 +1615,7 @@
 				1F1D104E1FEC21E1000F4F8F /* Tools.strings in Resources */,
 				1F12EB541FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib in Resources */,
 				1FF79A5F1FB22E55008F3FCC /* ScheduleDisplayCellView.xib in Resources */,
-				1F62E46F1FAE465700D1C89D /* Tabs.storyboard in Resources */,
+				1F691A65200824CD00415F2F /* Tabs.storyboard in Resources */,
 				1F279F9E1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib in Resources */,
 				1F62E47E1FAE466F00D1C89D /* SignupPage.xib in Resources */,
 				1F279F8B1FB07D3C003A2B47 /* PlaceMenuControllerView.xib in Resources */,
@@ -2091,6 +2093,17 @@
 			);
 			name = UIElements.strings;
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		1F691A67200824CD00415F2F /* Tabs.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F691A66200824CD00415F2F /* Base */,
+				1F691A69200824D300415F2F /* en */,
+				1F691A6B200824D400415F2F /* ru */,
+			);
+			name = Tabs.storyboard;
+			path = UI/Controllers/Tabs;
 			sourceTree = "<group>";
 		};
 		1FB3F24A1FD5712A0073640B /* Localizable.strings */ = {
