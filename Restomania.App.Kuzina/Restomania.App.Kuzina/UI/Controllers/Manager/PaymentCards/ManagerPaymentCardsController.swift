@@ -126,6 +126,7 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
             DispatchQueue.main.async {
                 if (success) {
                     self.loadData()
+                    self.view.makeToast(Keys.addSuccess.localized, style: ThemeSettings.Elements.toast)
                 } else {
                     self.view.makeToast(Keys.addError.localized, style: ThemeSettings.Elements.toast)
                 }
@@ -197,8 +198,9 @@ extension ManagerPaymentCardsController {
         case title = "Title"
 
         case addButton = "Buttons.Add"
-        case loadError = "Error.ProblemWithLoad"
-        case addError = "Error.ProblemWithAdd"
-        case removeError = "Error.ProblemWithRemove"
+        case loadError = "Messages.ProblemWithLoad"
+        case addSuccess = "Messages.SuccessAdd"
+        case addError = "Messages.ProblemWithAdd"
+        case removeError = "Messages.ProblemWithRemove"
     }
 }

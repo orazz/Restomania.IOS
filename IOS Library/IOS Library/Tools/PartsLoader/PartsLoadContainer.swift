@@ -70,7 +70,7 @@ public class PartsLoadTypedContainer<TData> : LoadContainerHandler {
 
     //MARK: LoadContainerHandler
     public private(set) var isLoad: Bool = false
-    public private(set) var isSuccessLastUpdate: Bool = false
+    public private(set) var isSuccessLastUpdate: Bool = true
 
     public var isFail: Bool {
         return isLoad && !hasData

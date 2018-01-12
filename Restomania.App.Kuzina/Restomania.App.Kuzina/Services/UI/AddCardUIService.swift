@@ -21,7 +21,7 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
 
     private var _isBusy: Bool = false
     private var _complete: AddPaymentCardCallback?
-    private var _cardId: Long?
+    private var cardId: Long?
 
     public override init() {
 
@@ -42,7 +42,6 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
     public func addCard(for currency: CurrencyType, on controller: UIViewController, complete: @escaping AddPaymentCardCallback) {
 
         if (_isBusy) {
-
             complete(false, 0)
             return
         }
@@ -50,11 +49,14 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
         controller.present(_controller, animated: true, completion: nil)
         _isBusy = true
         _loader.show()
-        _complete = {success, cardId in
+        _complete = { success, cardId in
 
-            self._loader.hide()
+            self._isBusy = false
             self._webView.stopLoading()
             self._controller.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.async {
+                self._loader.hide()
+            }
 
             complete(success, cardId)
         }
@@ -63,17 +65,15 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
         request.async(.background, completion: { response in
 
             if (!response.isSuccess) {
-
                 self._complete?(false, 0)
                 return
             }
 
             let addingCard = response.data!
-            self._cardId = addingCard.ID
+            self.cardId = addingCard.ID
             let link = addingCard.link
 
             DispatchQueue.main.async {
-
                 self._webView.loadRequest(URLRequest(url: URL(string: link)!))
             }
         })
@@ -89,9 +89,8 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
                 url.contains("Payment") &&
                 (url.contains("Success") || url.contains("Fail"))) {
 
-                _isBusy = false
                 let result = url.contains("Success")
-                _complete?(result, _cardId!)
+                _complete?(result, cardId!)
 
                 return
             }
