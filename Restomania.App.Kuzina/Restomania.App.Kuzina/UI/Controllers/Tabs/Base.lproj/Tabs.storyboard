@@ -72,7 +72,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7x-qw-HAV" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7x-qw-HAV" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
                                 <rect key="frame" x="37.5" y="32" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="tTR-wX-iQU"/>
@@ -83,7 +83,7 @@
                                     <action selector="goToEditProfile" destination="6zb-zD-LkU" eventType="touchUpInside" id="PM8-nx-kTk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-rF-Khr" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-rF-Khr" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
                                 <rect key="frame" x="37.5" y="94" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="1Mj-hJ-BiN"/>
@@ -94,7 +94,7 @@
                                     <action selector="goToEditNotificationPreferences" destination="6zb-zD-LkU" eventType="touchUpInside" id="KPh-vm-NiF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-ka-1eM" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-ka-1eM" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
                                 <rect key="frame" x="37.5" y="156" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="E4d-q3-5Xg"/>

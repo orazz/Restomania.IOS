@@ -10,29 +10,31 @@ import Foundation
 import UIKit
 import IOSLibrary
 import AsyncTask
+import Toast_Swift
 
 public protocol IPaymentCardsDelegate {
 
     func removeCard(_: Long)
 }
-public class PaymentCardsController: UIViewController {
+public class ManagerPaymentCardsController: UIViewController {
 
     private static let nibName = "ManagerPaymentCardsControllerView"
-    public static func create() -> PaymentCardsController {
+    public static func create() -> ManagerPaymentCardsController {
 
-        let vc = PaymentCardsController(nibName: nibName, bundle: Bundle.main)
+        let vc = ManagerPaymentCardsController(nibName: nibName, bundle: Bundle.main)
 
         return vc
     }
 
     //UI elements
     @IBOutlet weak var cardsTable: UITableView!
+    @IBOutlet weak var addButton: UIButton!
     private var interfaceLoader: InterfaceLoader!
     private var refreshControl: RefreshControl!
     private var addCardUIService: AddCardUIService!
 
     // MARK: Tools
-    private let _tag = String.tag(PaymentCardsController.self)
+    private let _tag = String.tag(ManagerPaymentCardsController.self)
     private var loadQueue: AsyncQueue!
 
     // MARK: Data & service
@@ -43,7 +45,7 @@ public class PaymentCardsController: UIViewController {
 
 }
 // MARK: Load circle
-extension PaymentCardsController {
+extension ManagerPaymentCardsController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,6 +56,8 @@ extension PaymentCardsController {
         refreshControl = cardsTable.addRefreshControl(for: self, action: #selector(needReload))
         addCardUIService = AddCardUIService()
 
+        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
+
         cardsContainer = PartsLoadTypedContainer<[PaymentCard]>(completeLoadHandler: self.completeLoad)
         cardsContainer.updateHandler = { update in
             DispatchQueue.main.async {
@@ -61,13 +65,16 @@ extension PaymentCardsController {
             }
         }
 
+        loaderAdapter = PartsLoader([cardsContainer])
+
         loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         showNavigationBar()
-        navigationItem.title = "Карты оплаты"
+        navigationItem.title = Keys.title.localized
+        addButton.setTitle(Keys.addButton.localized, for: .normal)
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -80,6 +87,8 @@ extension PaymentCardsController {
         let cards = cardsService.cache.where { $0.Currency == self.mainCurrency }
         if (cards.isEmpty) {
             interfaceLoader.show()
+        } else {
+            cardsContainer.update(cards)
         }
 
         requestCards()
@@ -91,28 +100,34 @@ extension PaymentCardsController {
         cardsService.all().async(loadQueue, completion: cardsContainer.completeLoad)
     }
     private func completeLoad() {
+        DispatchQueue.main.async {
 
-        if (loaderAdapter.isLoad) {
-            interfaceLoader.hide()
-            refreshControl.endRefreshing()
+            if (self.loaderAdapter.isLoad) {
+                self.interfaceLoader.hide()
+                self.refreshControl.endRefreshing()
+            }
+
+            if (!self.cardsContainer.isSuccessLastUpdate) {
+                self.view.makeToast(Keys.loadError.localized, style: ThemeSettings.Elements.toast)
+            }
         }
     }
 }
 // MARK: IPaymentCardsDelegate
-extension PaymentCardsController: IPaymentCardsDelegate {
+extension ManagerPaymentCardsController: IPaymentCardsDelegate {
 
     @IBAction public func addCard() {
-
         Log.Debug(_tag, "Try add new payment card.")
 
-        let currency = CurrencyType.RUB
-        addCardUIService.addCard(for: currency, on: self) { success, _ in
+        addCardUIService.addCard(for: self.mainCurrency, on: self) { success, _ in
 
             Log.Debug(self._tag, "Adding new card is \(success)")
 
-            if (success) {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if (success) {
                     self.loadData()
+                } else {
+                    self.view.makeToast(Keys.addError.localized, style: ThemeSettings.Elements.toast)
                 }
             }
         }
@@ -137,13 +152,15 @@ extension PaymentCardsController: IPaymentCardsDelegate {
             if (response.isFail) {
 
                 self.cardsContainer.update(backup)
-                self.toast(for: response)
+                DispatchQueue.main.async {
+                    self.view.makeToast(Keys.removeError.localized, style: ThemeSettings.Elements.toast)
+                }
             }
         }
     }
 }
 // MARK: Table
-extension PaymentCardsController: UITableViewDelegate {
+extension ManagerPaymentCardsController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
@@ -151,7 +168,7 @@ extension PaymentCardsController: UITableViewDelegate {
         cell?.Remove()
     }
 }
-extension PaymentCardsController: UITableViewDataSource {
+extension ManagerPaymentCardsController: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -168,5 +185,20 @@ extension PaymentCardsController: UITableViewDataSource {
         cell.setup(card: card, delegate: self)
 
         return cell
+    }
+}
+extension ManagerPaymentCardsController {
+    public enum Keys: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(ManagerPaymentCardsController.self)
+        }
+
+        case title = "Title"
+
+        case addButton = "Buttons.Add"
+        case loadError = "Error.ProblemWithLoad"
+        case addError = "Error.ProblemWithAdd"
+        case removeError = "Error.ProblemWithRemove"
     }
 }
