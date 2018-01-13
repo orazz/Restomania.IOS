@@ -31,8 +31,10 @@ private let keys = ToolsServices.shared.keys
             if response.isSuccess,
                 let update = response.data {
 
-                self.keys.set(keys: update, for: .user)
-                Log.Info(self.tag, "Successful update keys for \(ApiRole.user)")
+                if (keys != update) {
+                    self.keys.set(keys: update, for: .user)
+                    Log.Info(self.tag, "Successful update keys for \(ApiRole.user)")
+                }
 
             } else if (response.statusCode != .ConnectionError) {
 

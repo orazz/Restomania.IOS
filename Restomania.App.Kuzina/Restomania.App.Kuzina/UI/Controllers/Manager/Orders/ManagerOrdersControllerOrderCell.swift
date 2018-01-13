@@ -34,15 +34,6 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
     public var orderId: Long {
         return order.ID
     }
-    private var formatter: DateFormatter {
-
-        let result = DateFormatter()
-
-        result.dateFormat = ManagerOrdersController.Keys.dateAndTimeFormat.localized
-        result.timeZone = TimeZone(identifier: "UTC")
-
-        return result
-    }
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -65,7 +56,17 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
 
         alpha = order.isCompleted ? 0.5 : 1.0
         for view in subviews {
-            view.alpha = CGFloat(alpha)
+            view.alpha = alpha
         }
+    }
+
+    private var formatter: DateFormatter {
+
+        let result = DateFormatter()
+
+        result.dateFormat = ManagerOrdersController.Keys.dateAndTimeFormat.localized
+        result.timeZone = TimeZone(identifier: "UTC")
+
+        return result
     }
 }

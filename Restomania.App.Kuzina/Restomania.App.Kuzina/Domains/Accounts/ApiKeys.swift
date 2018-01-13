@@ -15,22 +15,29 @@ public class ApiKeys: Glossy {
         public static let id = "ID"
         public static let token = "AccessToken"
     }
-    public var ID: Int64
-    public var AccessToken: String
+    public var id: Int64
+    public var token: String
 
     public init() {
-        self.ID = 0
-        self.AccessToken = String.empty
+        self.id = 0
+        self.token = String.empty
     }
     public required init(json: JSON) {
-        self.ID = (Keys.id <~~ json)!
-        self.AccessToken = (Keys.token <~~ json)!
+        self.id = (Keys.id <~~ json)!
+        self.token = (Keys.token <~~ json)!
     }
 
     public func toJSON() -> JSON? {
         return jsonify([
-            Keys.id ~~> self.ID,
-            Keys.token ~~> self.AccessToken
+            Keys.id ~~> self.id,
+            Keys.token ~~> self.token
         ])
     }
+}
+
+public func !=(left: ApiKeys, right: ApiKeys) -> Bool {
+    return !(left == right)
+}
+public func ==(left: ApiKeys, right: ApiKeys) -> Bool {
+    return left.id == right.id && left.token == right.token
 }

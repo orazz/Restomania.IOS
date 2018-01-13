@@ -31,8 +31,8 @@ public class OrdersCacheService {
         eventsAdapter = EventsAdapter<OrdersCacheServiceDelegate>(tag: tag)
         cacheAdapter = CacheAdapter(tag: tag,
                                filename: "dish-orders.json",
-                               livetime: 20 * 60 * 60,
-                               freshtime: 60 * 60,
+                               livetime: 3 * 24 * 60 * 60,
+                               freshtime: 20 * 60,
                                needSaveFreshDate: true)
 
         keys.subscribe(guid: guid, handler: self, tag: tag)

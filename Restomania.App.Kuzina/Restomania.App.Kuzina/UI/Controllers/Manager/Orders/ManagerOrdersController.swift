@@ -72,11 +72,9 @@ public class ManagerOrdersController: UIViewController {
         ManagerOrdersControllerOrderCell.register(in: ordersTable)
     }
     private func loadData() {
+        displayCachedOrders()
 
-        let orders = ordersService.cache.all
-        ordersContainer.update(orders)
-
-        if (loaderAdapter.noData || orders.isEmpty) {
+        if (loaderAdapter.noData) {
             interfaceLoader.show()
         }
 
@@ -127,7 +125,7 @@ public class ManagerOrdersController: UIViewController {
 // MARK: Orders delegate
 extension ManagerOrdersController: OrdersCacheServiceDelegate {
     public func update(_ orderId: Long, order: DishOrder) {
-        displayLocalOrders()
+        displayCachedOrders()
 
         for cell in ordersTable.visibleCells {
             if let cell = cell as? ManagerOrdersControllerOrderCell {
@@ -139,9 +137,9 @@ extension ManagerOrdersController: OrdersCacheServiceDelegate {
         }
     }
     public func update(range: [DishOrder]) {
-        displayLocalOrders()
+        displayCachedOrders()
     }
-    private func displayLocalOrders() {
+    private func displayCachedOrders() {
         let orders = ordersService.cache.all
         ordersContainer.update(orders)
     }
