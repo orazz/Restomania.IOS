@@ -23,16 +23,16 @@ public class OneOrderSummaryContainer: UITableViewCell {
     }
 
     //UI
-    @IBOutlet weak var CompleteAtLabel: UILabel!
+    @IBOutlet weak var completeAtLabel: UILabel!
 
-    @IBOutlet weak var CodewordTitleLabel: UILabel!
-    @IBOutlet weak var CodeworddValueLabel: UILabel!
+    @IBOutlet weak var codewordTitleLabel: UILabel!
+    @IBOutlet weak var codeworddValueLabel: UILabel!
 
-    @IBOutlet weak var PlaceNameTitleLabel: UILabel!
-    @IBOutlet weak var PlaceNameValueLabel: UILabel!
+    @IBOutlet weak var placeNameTitleLabel: UILabel!
+    @IBOutlet weak var placeNameValueLabel: UILabel!
 
-    @IBOutlet weak var StatusTitleLabel: UILabel!
-    @IBOutlet weak var StatusValueLabel: UILabel!
+    @IBOutlet weak var statusTitleLabel: UILabel!
+    @IBOutlet weak var statusValueLabel: UILabel!
 
     //Data
     private var order: DishOrder?
@@ -43,23 +43,23 @@ public class OneOrderSummaryContainer: UITableViewCell {
         let boldFont = ThemeSettings.Fonts.bold(size: .head)
         let lightFont = ThemeSettings.Fonts.default(size: .head)
 
-        CompleteAtLabel.font = boldFont
-        CompleteAtLabel.text = String.empty
+        completeAtLabel.font = boldFont
+        completeAtLabel.text = String.empty
 
-        CodewordTitleLabel.font = lightFont
-        CodewordTitleLabel.text = OneOrderController.Keys.codewordTitleLabel.localized
-        CodeworddValueLabel.font = boldFont
-        CodeworddValueLabel.text = String.empty
+        codewordTitleLabel.font = lightFont
+        codewordTitleLabel.text = OneOrderController.Keys.codewordTitleLabel.localized
+        codeworddValueLabel.font = boldFont
+        codeworddValueLabel.text = String.empty
 
-        PlaceNameTitleLabel.font = lightFont
-        PlaceNameTitleLabel.text = OneOrderController.Keys.placeNameTitleLabel.localized
-        PlaceNameValueLabel.font = boldFont
-        PlaceNameValueLabel.text = String.empty
+        placeNameTitleLabel.font = lightFont
+        placeNameTitleLabel.text = OneOrderController.Keys.placeNameTitleLabel.localized
+        placeNameValueLabel.font = boldFont
+        placeNameValueLabel.text = String.empty
 
-        StatusTitleLabel.font = lightFont
-        StatusTitleLabel.text = OneOrderController.Keys.statusTitleLabel.localized
-        StatusValueLabel.font = boldFont
-        StatusValueLabel.text = String.empty
+        statusTitleLabel.font = lightFont
+        statusTitleLabel.text = OneOrderController.Keys.statusTitleLabel.localized
+        statusValueLabel.font = boldFont
+        statusValueLabel.text = String.empty
     }
 }
 extension OneOrderSummaryContainer: OneOrderInterfacePart {
@@ -69,13 +69,13 @@ extension OneOrderSummaryContainer: OneOrderInterfacePart {
         let format = OneOrderController.Keys.completeAtLabel.localized
         let time = formatter(OneOrderController.Keys.timeFormat.localized).string(from: update.summary.completeAt)
         let date = formatter(OneOrderController.Keys.dateFormat.localized).string(from: update.summary.completeAt)
-        CompleteAtLabel.text = String(format: format, time, date)
+        completeAtLabel.text = String(format: format, time, date)
 
-        CodeworddValueLabel.text = update.summary.codeword
+        codeworddValueLabel.text = update.summary.codeword
 
-        PlaceNameValueLabel.text = update.summary.placeName
+        placeNameValueLabel.text = update.summary.placeName
 
-        StatusValueLabel.text = prepareStatus(update.status).localized
+        statusValueLabel.text = prepareStatus(update.status).localized
     }
     private func formatter(_ format: String) -> DateFormatter {
 

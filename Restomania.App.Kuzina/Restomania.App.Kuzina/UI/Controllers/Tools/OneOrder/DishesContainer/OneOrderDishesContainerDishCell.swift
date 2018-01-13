@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class OneOrderDishCell: UITableViewCell {
+public class OneOrderDishesContainerDishCell: UITableViewCell {
 
     public static let identifier = "OrderedDishCell-\(Guid.new)"
     public static let height: CGFloat = 40
-    private static let nibname = "OneOrderDishCellView"
+    private static let nibname = "\(String.tag(OneOrderDishesContainerDishCell.self))View"
     public static func register(for tableView: UITableView) {
 
         let nib = UINib(nibName: nibname, bundle: Bundle.main)

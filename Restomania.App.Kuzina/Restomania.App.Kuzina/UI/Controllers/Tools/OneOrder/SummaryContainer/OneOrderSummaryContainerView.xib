@@ -80,13 +80,13 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="dqc-KS-V7h"/>
             <connections>
-                <outlet property="CodewordTitleLabel" destination="oDk-al-qAW" id="gHu-a8-dFw"/>
-                <outlet property="CodeworddValueLabel" destination="jO2-oH-CIy" id="9Av-G7-zwW"/>
-                <outlet property="CompleteAtLabel" destination="lmS-TF-dx8" id="UlT-b4-Cd2"/>
-                <outlet property="PlaceNameTitleLabel" destination="TiN-hx-pxg" id="4wL-zs-0Wd"/>
-                <outlet property="PlaceNameValueLabel" destination="8Bq-ax-FUA" id="4lA-hD-KMP"/>
-                <outlet property="StatusTitleLabel" destination="T7Y-4S-liq" id="ju3-lT-Kbc"/>
-                <outlet property="StatusValueLabel" destination="Hit-wS-ejJ" id="iAz-Nx-6t4"/>
+                <outlet property="codewordTitleLabel" destination="oDk-al-qAW" id="gHu-a8-dFw"/>
+                <outlet property="codeworddValueLabel" destination="jO2-oH-CIy" id="9Av-G7-zwW"/>
+                <outlet property="completeAtLabel" destination="lmS-TF-dx8" id="UlT-b4-Cd2"/>
+                <outlet property="placeNameTitleLabel" destination="TiN-hx-pxg" id="4wL-zs-0Wd"/>
+                <outlet property="placeNameValueLabel" destination="8Bq-ax-FUA" id="4lA-hD-KMP"/>
+                <outlet property="statusTitleLabel" destination="T7Y-4S-liq" id="ju3-lT-Kbc"/>
+                <outlet property="statusValueLabel" destination="Hit-wS-ejJ" id="iAz-Nx-6t4"/>
             </connections>
         </view>
     </objects>

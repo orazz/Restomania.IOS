@@ -10,7 +10,7 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-public class PriceType: Glossy {
+public class Price: Glossy {
 
     public struct Keys {
 
@@ -18,8 +18,8 @@ public class PriceType: Glossy {
         public static let float = "Float"
     }
 
-    public static var Zero: PriceType {
-        return PriceType(decimal: 0, float: 0)
+    public static var zero: Price {
+        return Price(decimal: 0, float: 0)
     }
 
     public var decimal: Int
@@ -41,7 +41,7 @@ public class PriceType: Glossy {
         let diffent = value - Double(decimal)
         float = Int(round(diffent * 100))
     }
-    public convenience init(source: PriceType) {
+    public convenience init(source: Price) {
         self.init(decimal: source.decimal, float: source.float)
     }
 
@@ -67,4 +67,7 @@ public class PriceType: Glossy {
                 Keys.float ~~> self.float
             ])
     }
+}
+func ==(left: Price, right: Price) -> Bool {
+    return left.decimal == right.decimal && left.float == right.float
 }

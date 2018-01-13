@@ -35,7 +35,7 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
     public var name: String
     public var description: String
     public var type: DishType
-    public var price: PriceType
+    public var price: Price
     public var image: String
     public var size: Double
     public var sizeUnits: UnitsOfSize
@@ -49,7 +49,7 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
         name = String.empty
         description = String.empty
         type = .simpleDish
-        price = PriceType()
+        price = Price()
         image = String.empty
         size = 0
         sizeUnits = .units

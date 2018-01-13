@@ -32,8 +32,8 @@ public class DishOrderDish: BaseDataType {
     public var count: Int
     public var name: String
     public var type: DishType
-    public var price: PriceType
-    public var total: PriceType
+    public var price: Price
+    public var total: Price
 
     public var additions: [AdditionSummary]
     public var subdishes: [SubdishSummary]
@@ -45,9 +45,9 @@ public class DishOrderDish: BaseDataType {
         self.additions = []
         self.subdishes = []
 
-        self.price = PriceType()
+        self.price = Price()
         self.count = 0
-        self.total = PriceType()
+        self.total = Price()
         self.name = String.empty
         self.type = .simpleDish
 
@@ -69,9 +69,9 @@ public class DishOrderDish: BaseDataType {
         self.additions = source.additions.map { AdditionSummary(source: $0) }
         self.subdishes = source.subdishes.map { SubdishSummary(source: $0) }
 
-        self.price = PriceType(source: source.price)
+        self.price = Price(source: source.price)
         self.count = source.count
-        self.total = PriceType(source: source.total)
+        self.total = Price(source: source.total)
         self.name = source.name
         self.type = source.type
 
@@ -88,14 +88,14 @@ public class DishOrderDish: BaseDataType {
 
         self.price = (Keys.price <~~ json)!
         self.count = (Keys.count <~~ json)!
-        self.total = Keys.total <~~ json ?? PriceType()
+        self.total = Keys.total <~~ json ?? Price()
         self.name = (Keys.name <~~ json)!
         self.type = Keys.type <~~ json ?? .simpleDish
 
         super.init(json: json)
 
         if (nil == json[Keys.total]) {
-            self.total = PriceType(double: price.double * count)
+            self.total = Price(double: price.double * count)
         }
     }
     public override func toJSON() -> JSON? {

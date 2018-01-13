@@ -20,13 +20,13 @@ public class SubdishSummary: ICopying, Glossy {
 
     public var id: Long
     public var name: String
-    public var cost: PriceType
+    public var cost: Price
 
     public init() {
 
         self.id = 0
         self.name = String.empty
-        self.cost = PriceType()
+        self.cost = Price()
     }
 
     // MARK: ICopying
@@ -34,7 +34,7 @@ public class SubdishSummary: ICopying, Glossy {
 
         self.id = source.id
         self.name = source.name
-        self.cost = PriceType(source: source.cost)
+        self.cost = Price(source: source.cost)
     }
 
     // MARK: Glossy

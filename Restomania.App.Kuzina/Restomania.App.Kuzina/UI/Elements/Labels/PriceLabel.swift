@@ -10,25 +10,13 @@ import UIKit
 
 public class PriceLabel: UILabel {
 
-    public class Price {
-
-        public let amount: Double
-        public let currency: CurrencyType
-
-        public init(amount: Double, currency: CurrencyType) {
-
-            self.amount = amount
-            self.currency = currency
-        }
-    }
-
-    public var price: Price? {
-        return _price
-    }
-
+    //UI
     private var _font: UIFont!
-    private var _fontAwesome: UIFont!
-    private var _price: Price?
+    private var currencyFont: UIFont!
+
+    //Data
+    public private(set) var price = Price.zero
+    public private(set) var currency = CurrencyType.All
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,57 +29,50 @@ public class PriceLabel: UILabel {
         initialize()
     }
     private func initialize() {
+        currencyFont = ThemeSettings.Fonts.icons(size: UIFont.systemFontSize)
 
-        _font = self.font
-        _fontAwesome = ThemeSettings.Fonts.icons(size: UIFont.systemFontSize)
-
-        refreshText()
+        refresh()
     }
 
+    public func setup(price: Price, currency: CurrencyType) {
+        self.price = price
+        self.currency = currency
+
+        refresh()
+    }
     public func setup(amount: Double, currency: CurrencyType) {
+        self.price = Price(double: amount)
+        self.currency = currency
 
-        _price = Price(amount: amount, currency: currency)
-        refreshText()
+        refresh()
     }
-    private func refreshText() {
+    private func refresh() {
 
-        guard let price = _price else {
-
+        if (price == Price.zero) {
             self.text = String.empty
-            return
         }
 
-        let amount = format(amount: price.amount)
-        let symbol = getSymbol(currency: price.currency)
+        let amount = format(price)
+        let symbol = getSymbol(currency: currency)
         let text = "\(amount) \(symbol)"
 
         let characters = Array(text)
         let attributed = NSMutableAttributedString(string: text)
         attributed.addAttribute(NSAttributedStringKey.font,
-                                value: _fontAwesome.withSize(floor(0.8 * _font.pointSize)),
+                                value: currencyFont.withSize(floor(0.8 * font.pointSize)),
                                 range: NSRange(location: characters.count - 1, length: 1))
 
         self.attributedText = attributed
     }
-    private func format(amount value: Double) -> String {
+    private func format(_ price: Price) -> String {
+        if (0 == price.float) {
+            return "\(price.decimal)"
 
-        let sign = value < 0 ? -1 : 1
-        let value = abs(value)
-        let decimal = Int(floor(value)) * sign
+        } else if (0 == price.float % 10) {
+            return "\(price.decimal).\(price.float / 10)"
 
-        let diffent = value - Double(decimal)
-        let float = Int(round(diffent * 100))
-
-        if (0 == float) {
-
-            return "\(decimal)"
-
-        } else if (0 == float % 10) {
-
-            return "\(decimal).\(float / 10)"
         } else {
-
-            return "\(decimal).\(float)"
+            return "\(price.decimal).\(price.float)"
         }
     }
     private func getSymbol(currency: CurrencyType) -> String {

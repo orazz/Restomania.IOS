@@ -51,9 +51,9 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
     public let summary: OrderSummary
 
     public let isCompleted: Bool
-    public let subtotal: PriceType
-    public let discount: PriceType
-    public let total: PriceType
+    public let subtotal: Price
+    public let discount: Price
+    public let total: Price
 
     public override init() {
 
@@ -73,9 +73,9 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
         self.summary = OrderSummary()
 
         self.isCompleted = false
-        self.subtotal = PriceType.Zero
-        self.discount = PriceType.Zero
-        self.total = PriceType.Zero
+        self.subtotal = Price.zero
+        self.discount = Price.zero
+        self.total = Price.zero
 
         super.init()
     }

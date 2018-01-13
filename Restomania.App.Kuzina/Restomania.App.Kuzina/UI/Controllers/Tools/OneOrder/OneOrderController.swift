@@ -20,15 +20,8 @@ public protocol OneOrderControllerDelegate {
 public class OneOrderController: UIViewController {
 
     //UI Elements
-
-    @IBOutlet weak var CreateAtLabel: UILabel!
-
-    @IBOutlet weak var TableView: UITableView!
-
-    @IBOutlet weak var TotalTitleLabel: UILabel!
-    @IBOutlet weak var TotalValueLabel: PriceLabel!
-
-    @IBOutlet weak var CancelButton: BlackBottomButton!
+    @IBOutlet
+    weak var CancelButton: BlackBottomButton!
     @IBOutlet
     private weak var interfaceTable: UITableView!
     private var interfaceAdapter: InterfaceTable!
@@ -114,10 +107,13 @@ public class OneOrderController: UIViewController {
         result.append(OneOrderSummaryContainer.instance)
 
         result.append(OneOrderSpaceContainer.instance)
+        result.append(OneOrderDishesContainer.instance)
 
         result.append(OneOrderSpaceContainer.instance)
+        result.append(OneOrderTotalContainer.instance)
 
         result.append(OneOrderSpaceContainer.instance)
+        result.append(OneOrderFooterContainer.instance)
 
         result.append(OneOrderSpaceContainer.instance)
 
@@ -134,43 +130,10 @@ public class OneOrderController: UIViewController {
     private func applyOrder() {
 
         if let order = _order {
-//            CompleteDateLabel.text = "на \(_dateFormatter.string(from: order.summary.completeAt))"
-            CreateAtLabel.text = "добавлено \(_dateFormatter.string(from: order.summary.CreateAt))"
-//
-//            CodeworddValueLabel.text = order.summary.codeword
-//            CodewordTitleLabel.isHidden = true
-//            CodeworddValueLabel.isHidden = true
-//
-//            PlaceNameValueLabel.text = order.summary.placeName
-//            StatusValueLabel.text = prepare(status: order.status)
-            TotalValueLabel.setup(amount: order.total.double, currency: order.currency)
 
             CancelButton.isHidden = order.isCompleted
         }
     }
-//    private func prepare(status: DishOrderStatus) -> String {
-//
-////        switch(status) {
-////
-////            case .processing:
-////                return "В обработке"
-////            case .waitingPayment:
-////                return "Ожидание оплаты"
-////            case .Making:
-////                return "Готовится"
-////            case .Prepared:
-////                return "Готов к выдаче"
-////            case .PaymentFail:
-////                return "Платеж отклонён"
-////            case .Completed:
-////                return "Завершен"
-////            case .CanceledByPlace:
-////                return "Отменён заведением"
-////            case .CanceledByUser:
-////                return "Отменён пользователем"
-////        }
-//        return String.empty
-//    }
 
     //Actions
     @IBAction private func cancelOrder() {
@@ -197,29 +160,6 @@ public class OneOrderController: UIViewController {
         })
     }
 
-//    // MARK: UITableViewDelegate
-//    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        let cell = tableView.dequeueReusableCell(withIdentifier: OneOrderDishCell.identifier, for: indexPath) as! OneOrderDishCell
-//        cell.update(dish: _order!.dishes[indexPath.row], currency: _order!.currency)
-//
-//        return cell
-//    }
-//    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        tableView.deselectRow(at: indexPath, animated: false)
-//    }
-//    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return OneOrderDishCell.height
-//    }
-//
-//    // MARK: UITableViewDataSource
-//    public func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return _order?.dishes.count ?? 0
-//    }
 }
 extension OneOrderController {
     public enum Keys: String, Localizable {
@@ -231,11 +171,13 @@ extension OneOrderController {
 
         case cancelOrderButton = "Buttons.CancelOrder"
 
+        case completeAtLabel = "Labels.CompleteAt"
+
         case codewordTitleLabel = "Labels.Codeword"
         case placeNameTitleLabel = "Labels.PlaceName"
         case statusTitleLabel = "Labels.Status"
 
-        case completeAtLabel = "Labels.CompleteAt"
+        case totalLabel = "Labels.Total"
         case createAtLabel = "Labels.CreateAt"
 
         case timeFormat = "Formats.Time"
