@@ -71,14 +71,12 @@ extension ManagerPaymentCardsController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        showNavigationBar()
+        showNavigationBar(animated: animated)
         navigationItem.title = Keys.title.localized
         addButton.setTitle(Keys.addButton.localized, for: .normal)
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
-        hideNavigationBar()
     }
 
     private func loadData() {

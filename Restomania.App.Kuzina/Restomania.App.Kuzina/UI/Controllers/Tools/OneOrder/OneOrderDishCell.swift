@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class ManagerOneOrderDishCell: UITableViewCell {
+public class OneOrderDishCell: UITableViewCell {
 
     public static let identifier = "OrderedDishCell-\(Guid.new)"
-    private static let nibname = "ManagerOneOrderDishCellView"
     public static let height: CGFloat = 40
+    private static let nibname = "OneOrderDishCellView"
     public static func register(for tableView: UITableView) {
 
         let nib = UINib(nibName: nibname, bundle: Bundle.main)
@@ -26,31 +26,23 @@ public class ManagerOneOrderDishCell: UITableViewCell {
     @IBOutlet weak var CostLabel: PriceLabel!
 
     //Data
-    private var _dish: DishOrderDish!
-    private var _currency: CurrencyType!
-    private var _IsSetupMarkup: Bool = false
+    private var dish: DishOrderDish!
+    private var currency: CurrencyType!
 
-    public func setup(dish: DishOrderDish, currency: CurrencyType) {
+    public override func awakeFromNib() {
+        super.awakeFromNib()
 
-        setupStyles()
+        let font =  ThemeSettings.Fonts.default(size: .subhead)
 
-        _dish = dish
-        _currency = currency
+        NameAndCountLabel.font = font
+        CostLabel.font = font
+    }
+    public func update(dish: DishOrderDish, currency: CurrencyType) {
+
+        self.dish = dish
+        self.currency = currency
 
         NameAndCountLabel.text = "\(dish.count) x \(dish.name)"
         CostLabel.setup(amount: dish.total.double, currency: currency)
-    }
-    private func setupStyles() {
-
-        if (_IsSetupMarkup) {
-
-            return
-        }
-
-        let font =  ThemeSettings.Fonts.default(size: .subhead)
-        NameAndCountLabel.font = font
-        CostLabel.font = font
-
-        _IsSetupMarkup = true
     }
 }

@@ -77,6 +77,7 @@ public class ThemeSettings {
     public static func applyStyles() {
 
         ToastManager.shared.style = toastStyle
+        ToastManager.shared.isQueueEnabled = true
     }
     private static var toastStyle: ToastStyle {
         var result = ToastStyle()

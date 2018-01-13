@@ -44,7 +44,8 @@ extension PlaceCompleteOrderController {
                 let navigator = tabs.navigationController
 //                self.navigationController?.pushViewController(ManagerOrdersController.create(), animated: true)
                 DispatchQueue.main.async {
-                    navigator?.pushViewController(ManagerOneOrderController.create(with: self.order), animated: true)
+                    let vc = OneOrderController(for: self.order.ID)
+                    navigator?.pushViewController(vc, animated: true)
                 }
             }
         }

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManagerOneOrderController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OneOrderController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <connections>
                 <outlet property="CancelButton" destination="XbW-9M-ZMl" id="APM-dO-9eW"/>
                 <outlet property="CodewordTitleLabel" destination="fqv-OI-nKv" id="J9R-ux-Fy3"/>

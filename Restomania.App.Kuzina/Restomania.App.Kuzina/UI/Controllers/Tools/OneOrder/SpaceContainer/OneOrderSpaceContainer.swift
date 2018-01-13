@@ -1,0 +1,40 @@
+//
+//  OneOrderSpaceContainer.swift
+//  RestomaniaAppKuzina
+//
+//  Created by Алексей on 13.01.18.
+//  Copyright © 2018 Medved-Studio. All rights reserved.
+//
+
+import Foundation
+import UIKit
+import IOSLibrary
+
+public class OneOrderSpaceContainer: UITableViewCell {
+
+    private static var nibName = "\(String.tag(OneOrderSpaceContainer.self))View"
+    public static var instance: UITableViewCell {
+
+        let cell: OneOrderSpaceContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
+
+        cell.loadStyles()
+
+        return cell
+    }
+
+    private func loadStyles() {
+        backgroundColor = ThemeSettings.Colors.background
+    }
+}
+extension OneOrderSpaceContainer: OneOrderInterfaceCell {
+    public func update(by: DishOrder) {}
+}
+extension OneOrderSpaceContainer: InterfaceTableCellProtocol {
+
+    public var viewHeight: Int {
+        return 20
+    }
+    public func prepareView() -> UITableViewCell {
+        return self
+    }
+}

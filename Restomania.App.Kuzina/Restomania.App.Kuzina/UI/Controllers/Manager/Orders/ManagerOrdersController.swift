@@ -54,7 +54,7 @@ public class ManagerOrdersController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        showNavigationBar()
+        showNavigationBar(animated: animated)
         navigationItem.title = Keys.title.localized
     }
     public override func viewWillDisappear(_ animated: Bool) {
@@ -117,7 +117,7 @@ public class ManagerOrdersController: UIViewController {
     private func goToOrder(id orderId: Long) {
 
         if let orders = ordersContainer.data {
-            let vc = ManagerOneOrderController.create(with: orders.find({ orderId == $0.ID })!)
+            let vc = OneOrderController(for: orderId)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

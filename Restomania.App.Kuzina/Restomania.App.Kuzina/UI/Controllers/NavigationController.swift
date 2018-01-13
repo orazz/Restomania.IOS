@@ -27,6 +27,7 @@ internal extension UIViewController {
     }
     internal func showNavigationBar(animated: Bool = true) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.edgesForExtendedLayout = []
     }
     internal func set(title: String, subtitle: String) {
 

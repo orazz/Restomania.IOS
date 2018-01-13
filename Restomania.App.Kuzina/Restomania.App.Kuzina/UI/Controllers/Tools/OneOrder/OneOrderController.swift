@@ -10,18 +10,14 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class ManagerOneOrderController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    private static let nibName = "ManagerOneOrderControllerView"
-    public static func create(with order: DishOrder) -> ManagerOneOrderController {
-
-        let vc = ManagerOneOrderController(nibName: nibName, bundle: Bundle.main)
-
-        vc._orderId = order.ID
-        vc._order = order
-
-        return vc
-    }
+public protocol OneOrderInterfaceCell: InterfaceTableCellProtocol {
+    func update(by: DishOrder)
+}
+public protocol OneOrderControllerDelegate {
+    var orderId: Long { get }
+    var order: DishOrder? { get }
+}
+public class OneOrderController: UIViewController {
 
     //UI Elements
     @IBOutlet weak var CompleteDateLabel: UILabel!
@@ -44,8 +40,8 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var CancelButton: BlackBottomButton!
 
     // MARK: Data & services
-    private let _tag = String.tag(ManagerOneOrderController.self)
-    private var _orderId: Long!
+    private let _tag = String.tag(OneOrderController.self)
+    private var orderId: Long!
     private var _order: DishOrder!
     private let  _ordersApiService = ApiServices.Users.orders
     private var _dateFormatter: DateFormatter {
@@ -59,21 +55,25 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     }
 
     // MARK: Life circle
+    public init(for orderId: Long) {
+        super.init(nibName: "OneOrderControllerView", bundle: Bundle.main)
+
+        self.orderId = orderId
+    }
+    public required convenience init?(coder aDecoder: NSCoder) {
+        fatalError("Not implemented init from coder for \(String.tag(OneOrderController.self))")
+    }
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        ManagerOneOrderDishCell.register(for: TableView)
-
-        setupStyles()
-        setupDataToInterface()
+        loadMarkup()
+        loadData()
     }
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         showNavigationBar()
-        navigationItem.title = "Заказ #\(_orderId!)"
-
-        loadOrder()
+        navigationItem.title = String(format: Keys.title.localized, orderId!)
     }
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -81,14 +81,14 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     }
 
     // MARK: Methods
-    private func loadOrder() {
+    private func loadData() {
 
         if (nil == _order) {
 
             fatalError("<\(self._tag)> Fuck, orderis  not setup.")
         }
     }
-    private func setupDataToInterface() {
+    private func applyOrder() {
 
         if let order = _order {
             CompleteDateLabel.text = "на \(_dateFormatter.string(from: order.summary.completeAt))"
@@ -127,7 +127,7 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
                 return "Отменён пользователем"
         }
     }
-    private func setupStyles() {
+    private func loadMarkup() {
 
         let boldFont = ThemeSettings.Fonts.bold(size: .head)
         let lightFont = ThemeSettings.Fonts.default(size: .head)
@@ -151,7 +151,7 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
 
         if let constraint = (TableView.constraints.filter {$0.firstAttribute == .height}.first) {
 
-            constraint.constant = ManagerOneOrderDishCell.height * CGFloat(_order!.dishes.count)
+            constraint.constant = OneOrderDishCell.height * CGFloat(_order!.dishes.count)
         }
     }
 
@@ -161,7 +161,7 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
         StatusValueLabel.text = prepare(status: DishOrderStatus.CanceledByUser)
         CancelButton.isHidden = true
 
-        let request = _ordersApiService.cancel(_orderId)
+        let request = _ordersApiService.cancel(orderId)
         request.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -183,8 +183,8 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     // MARK: UITableViewDelegate
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOneOrderDishCell.identifier, for: indexPath) as! ManagerOneOrderDishCell
-        cell.setup(dish: _order!.dishes[indexPath.row], currency: _order!.currency)
+        let cell = tableView.dequeueReusableCell(withIdentifier: OneOrderDishCell.identifier, for: indexPath) as! OneOrderDishCell
+        cell.update(dish: _order!.dishes[indexPath.row], currency: _order!.currency)
 
         return cell
     }
@@ -193,7 +193,7 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
         tableView.deselectRow(at: indexPath, animated: false)
     }
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ManagerOneOrderDishCell.height
+        return OneOrderDishCell.height
     }
 
     // MARK: UITableViewDataSource
@@ -202,5 +202,14 @@ public class ManagerOneOrderController: UIViewController, UITableViewDelegate, U
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return _order?.dishes.count ?? 0
+    }
+}
+extension OneOrderController {
+    public enum Keys: String, Localizable {
+        public var tableName: String {
+            return String.tag(OneOrderController.self)
+        }
+
+        case title = "Title"
     }
 }
