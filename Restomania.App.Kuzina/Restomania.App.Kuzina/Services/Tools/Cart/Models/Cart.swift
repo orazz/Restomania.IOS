@@ -131,7 +131,7 @@ public class Cart: Reservation {
     private func trigger(_ action: @escaping ((CartUpdateProtocol) -> Void)) {
 
         _queue.async {
-            self._adapter.Trigger(action: action)
+            self._adapter.invoke(action)
         }
     }
 //    public func refresh(dishes menuDishes: Array<Dish>) {

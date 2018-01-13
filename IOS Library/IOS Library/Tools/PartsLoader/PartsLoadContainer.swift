@@ -27,7 +27,7 @@ public class PartsLoadContainer: LoadContainerHandler {
     public var hasData: Bool {
         return nil != getter?(target)
     }
-    public var isFail: Bool {
+    public var problemWithLoad: Bool {
         return isLoad && nil == getter?(target)
     }
 
@@ -59,22 +59,19 @@ public class PartsLoadTypedContainer<TData> : LoadContainerHandler {
         }
     }
     public func completeLoad(_ response: ApiResponse<TData>) {
-        self.completeLoad()
-
         if response.isSuccess {
             self.update(response.data)
         }
 
-        self.isSuccessLastUpdate = response.isSuccess
+        self.problemWithLoad = response.isFail
+
+        self.completeLoad()
     }
 
     //MARK: LoadContainerHandler
     public private(set) var isLoad: Bool = false
-    public private(set) var isSuccessLastUpdate: Bool = true
 
-    public var isFail: Bool {
-        return isLoad && !hasData
-    }
+    public var problemWithLoad: Bool = false
     public var hasData: Bool {
         return nil != data
     }

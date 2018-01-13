@@ -45,7 +45,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
         Log.Debug(self.tag, message)
 
         if (self._automatic && self._triggered) {
-            Notify(subscriber, action:  _defaultAction!)
+            notify(subscriber, action:  _defaultAction!)
         }
     }
     public func unsubscribe(guid: String) {
@@ -61,25 +61,25 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
         Log.Warning(tag, "Force remove subscriber with GUID: \(guid).")
     }
 
-    public func Trigger(action: Action<Handler>?) {
+    public func invoke(_ action: Action<Handler>?) {
         var mainAction = action
         if (nil == mainAction) {
             if (nil != _defaultAction) {
                 mainAction = _defaultAction
             } else {
-                Log.Warning(tag, "Can't trigger event without action.s")
+                Log.Warning(tag, "Can't trigger event without action.")
                 return
             }
         }
 
         Log.Debug(tag, "Trigger \"\(sourceInstance)\" event.")
         for (_, subscriber) in _subscribers {
-            Notify(subscriber, action: mainAction!)
+            notify(subscriber, action: mainAction!)
         }
 
         _triggered = true
     }
-    private func Notify(_ subscriber: Subscriber<Handler>, action: @escaping Action<Handler>) {
+    private func notify(_ subscriber: Subscriber<Handler>, action: @escaping Action<Handler>) {
         _queue.async(execute: {() -> Void in
 
             let success = subscriber.Call(action: action, logger: self)

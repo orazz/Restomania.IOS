@@ -49,7 +49,7 @@ extension TermsController: UIWebViewDelegate {
     public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         interfaceLoader.hide()
 
-        self.view.makeToast(Keys.problemWithLoadMessage.localized, style: ThemeSettings.Elements.toast)
+        self.view.makeToast(Keys.problemWithLoadMessage.localized)
     }
 }
 extension TermsController {

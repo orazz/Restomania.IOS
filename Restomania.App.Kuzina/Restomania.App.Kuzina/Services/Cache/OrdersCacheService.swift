@@ -10,6 +10,10 @@ import Foundation
 import IOSLibrary
 import AsyncTask
 
+public protocol OrdersCacheServiceDelegate {
+    func update(_: Long, order: DishOrder)
+    func update(range: [DishOrder])
+}
 public class OrdersCacheService {
 
     private let tag = String.tag(OrdersCacheService.self)
@@ -17,28 +21,32 @@ public class OrdersCacheService {
 
     private let api = ApiServices.Users.orders
     private let apiQueue: AsyncQueue
-    private let adapter: CacheAdapter<DishOrder>
+    private let eventsAdapter: EventsAdapter<OrdersCacheServiceDelegate>
+    private let cacheAdapter: CacheAdapter<DishOrder>
+
     private let keys = ToolsServices.shared.keys
 
     public init() {
         apiQueue = AsyncQueue.createForApi(for: tag)
-        adapter = CacheAdapter(tag: tag,
+        eventsAdapter = EventsAdapter<OrdersCacheServiceDelegate>(tag: tag)
+        cacheAdapter = CacheAdapter(tag: tag,
                                filename: "dish-orders.json",
                                livetime: 20 * 60 * 60,
                                freshtime: 60 * 60,
                                needSaveFreshDate: true)
+
         keys.subscribe(guid: guid, handler: self, tag: tag)
     }
     public func load() {
-        adapter.loadCached()
+        cacheAdapter.loadCached()
     }
     public func clear() {
-        adapter.clear()
+        cacheAdapter.clear()
     }
 
     //Local
     public var cache: CacheAdapterExtender<DishOrder> {
-        return adapter.extender
+        return cacheAdapter.extender
     }
 
     //Remote
@@ -49,8 +57,12 @@ public class OrdersCacheService {
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
-                    self.adapter.addOrUpdate(response.data!)
-                    self.adapter.clearOldCached()
+                    let orders = response.data!
+
+                    self.cacheAdapter.addOrUpdate(orders)
+                    self.cacheAdapter.clearOldCached()
+
+                    self.eventsAdapter.invoke({ $0.update(range: orders) })
                 }
 
                 handler(response)
@@ -64,7 +76,10 @@ public class OrdersCacheService {
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
-                    self.adapter.addOrUpdate(response.data!)
+                    let order = response.data!
+
+                    self.cacheAdapter.addOrUpdate(order)
+                    self.eventsAdapter.invoke({ $0.update(order.ID, order: order) })
                 }
 
                 handler(response)
@@ -79,7 +94,10 @@ public class OrdersCacheService {
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
-                    self.adapter.addOrUpdate(response.data!)
+                    let order = response.data!
+
+                    self.cacheAdapter.addOrUpdate(response.data!)
+                    self.eventsAdapter.invoke({ $0.update(order.ID, order: order) })
                 }
 
                 handler(response)
@@ -93,7 +111,10 @@ public class OrdersCacheService {
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
-                    self.adapter.addOrUpdate(response.data!)
+                    let order = response.data!
+
+                    self.cacheAdapter.addOrUpdate(order)
+                    self.eventsAdapter.invoke({ $0.update(order.ID, order: order) })
                 }
 
                 handler(response)
@@ -101,7 +122,16 @@ public class OrdersCacheService {
         }
     }
 }
+extension OrdersCacheService : IEventsEmitter {
+    public typealias THandler = OrdersCacheServiceDelegate
 
+    public func subscribe(guid: String, handler: OrdersCacheServiceDelegate, tag: String) {
+        eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        eventsAdapter.unsubscribe(guid: guid)
+    }
+}
 extension OrdersCacheService: KeysStorageDelegate {
     public func set(keys: ApiKeys, for role: ApiRole) {
         if (role == .user) {
@@ -113,4 +143,8 @@ extension OrdersCacheService: KeysStorageDelegate {
             clear()
         }
     }
+}
+extension OrdersCacheServiceDelegate {
+    public func update(_ orderId: Long, order: DishOrder) {}
+    public func update(range: [DishOrder]) {}
 }

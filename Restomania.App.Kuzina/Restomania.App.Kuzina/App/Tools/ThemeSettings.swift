@@ -12,18 +12,6 @@ import Toast_Swift
 
 public class ThemeSettings {
 
-    public class Elements {
-
-        public static var toast: ToastStyle {
-
-            var result = ToastStyle()
-
-            result.messageFont = Fonts.default(size: .subhead)
-
-            return result
-        }
-    }
-
     public class Colors {
 
         public static let main = UIColor(red: 34, green: 31, blue: 30)
@@ -86,5 +74,15 @@ public class ThemeSettings {
         }
     }
 
-    public static func applyStyles() {}
+    public static func applyStyles() {
+
+        ToastManager.shared.style = toastStyle
+    }
+    private static var toastStyle: ToastStyle {
+        var result = ToastStyle()
+
+        result.messageFont = Fonts.default(size: .subhead)
+
+        return result
+    }
 }

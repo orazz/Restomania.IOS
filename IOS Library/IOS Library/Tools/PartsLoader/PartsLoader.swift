@@ -11,10 +11,9 @@ import Foundation
 public protocol LoadContainerHandler {
 
     var isLoad: Bool { get }
-    var isSuccessLastUpdate: Bool { get }
 
     var hasData: Bool { get }
-    var isFail: Bool { get }
+    var problemWithLoad: Bool { get }
 
     func startRequest()
     func completeLoad()
@@ -32,9 +31,6 @@ public class PartsLoader: LoadContainerHandler {
     public var isLoad: Bool {
         return loaders.all{ $0.isLoad }
     }
-    public var isSuccessLastUpdate: Bool {
-        return loaders.all{ $0.isSuccessLastUpdate }
-    }
 
     public var noData: Bool {
         return loaders.any({ !$0.hasData })
@@ -42,8 +38,8 @@ public class PartsLoader: LoadContainerHandler {
     public var hasData: Bool {
         return loaders.all{ $0.hasData }
     }
-    public var isFail: Bool {
-        return loaders.any{ $0.isFail }
+    public var problemWithLoad: Bool {
+        return loaders.any{ $0.problemWithLoad }
     }
 
     public func startRequest() {

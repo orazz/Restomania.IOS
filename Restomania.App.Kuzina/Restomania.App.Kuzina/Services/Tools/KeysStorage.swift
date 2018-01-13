@@ -88,7 +88,7 @@ extension KeysStorage {
         }
 
         save()
-        eventsAdapter.Trigger(action: { $0.set(keys: keys, for: role) })
+        eventsAdapter.invoke({ $0.set(keys: keys, for: role) })
     }
     public func remove(for role: ApiRole) {
 
@@ -97,7 +97,7 @@ extension KeysStorage {
         }
 
         save()
-        eventsAdapter.Trigger(action: { $0.remove(for: role) })
+        eventsAdapter.invoke({ $0.remove(for: role) })
     }
 
     public func isAuth(for rights: ApiRole) -> Bool {

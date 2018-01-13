@@ -18,14 +18,6 @@ public protocol IPaymentCardsDelegate {
 }
 public class ManagerPaymentCardsController: UIViewController {
 
-    private static let nibName = "ManagerPaymentCardsControllerView"
-    public static func create() -> ManagerPaymentCardsController {
-
-        let vc = ManagerPaymentCardsController(nibName: nibName, bundle: Bundle.main)
-
-        return vc
-    }
-
     //UI elements
     @IBOutlet weak var cardsTable: UITableView!
     @IBOutlet weak var addButton: UIButton!
@@ -43,9 +35,18 @@ public class ManagerPaymentCardsController: UIViewController {
     private var loaderAdapter: PartsLoader!
     private let mainCurrency = CurrencyType.RUB
 
+    public init() {
+        super.init(nibName: "ManagerPaymentCardsControllerView", bundle: Bundle.main)
+
+        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
+    }
+    public required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+    }
 }
 // MARK: Load circle
 extension ManagerPaymentCardsController {
+
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,8 +56,6 @@ extension ManagerPaymentCardsController {
         interfaceLoader = InterfaceLoader(for: view)
         refreshControl = cardsTable.addRefreshControl(for: self, action: #selector(needReload))
         addCardUIService = AddCardUIService()
-
-        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
 
         cardsContainer = PartsLoadTypedContainer<[PaymentCard]>(completeLoadHandler: self.completeLoad)
         cardsContainer.updateHandler = { update in
@@ -107,8 +106,8 @@ extension ManagerPaymentCardsController {
                 self.refreshControl.endRefreshing()
             }
 
-            if (!self.cardsContainer.isSuccessLastUpdate) {
-                self.view.makeToast(Keys.loadError.localized, style: ThemeSettings.Elements.toast)
+            if (!self.cardsContainer.problemWithLoad) {
+                self.view.makeToast(Keys.loadError.localized)
             }
         }
     }
@@ -126,9 +125,9 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
             DispatchQueue.main.async {
                 if (success) {
                     self.loadData()
-                    self.view.makeToast(Keys.addSuccess.localized, style: ThemeSettings.Elements.toast)
+                    self.view.makeToast(Keys.addSuccess.localized)
                 } else {
-                    self.view.makeToast(Keys.addError.localized, style: ThemeSettings.Elements.toast)
+                    self.view.makeToast(Keys.addError.localized)
                 }
             }
         }
@@ -154,7 +153,7 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
 
                 self.cardsContainer.update(backup)
                 DispatchQueue.main.async {
-                    self.view.makeToast(Keys.removeError.localized, style: ThemeSettings.Elements.toast)
+                    self.view.makeToast(Keys.removeError.localized)
                 }
             }
         }

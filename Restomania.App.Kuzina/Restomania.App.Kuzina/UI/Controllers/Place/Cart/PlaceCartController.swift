@@ -234,7 +234,7 @@ extension PlaceCartController {
     private func completeLoad() {
         DispatchQueue.main.async {
 
-            if (self.loadAdapter.isFail) {
+            if (self.loadAdapter.problemWithLoad) {
                 Log.Error(self._tag, "Problem with load data for page.")
 
                 self.closePage()

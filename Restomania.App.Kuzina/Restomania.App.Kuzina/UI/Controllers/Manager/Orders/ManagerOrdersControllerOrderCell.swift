@@ -28,19 +28,22 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
     @IBOutlet weak var PriceLabel: PriceLabel!
 
     //Data
-    public var OrderId: Long {
+    private var order: DishOrder!
+
+    //Properties
+    public var orderId: Long {
         return order.ID
     }
-    private var order: DishOrder!
     private var formatter: DateFormatter {
 
         let result = DateFormatter()
 
-        result.dateFormat = "\(AppSummary.DataTimeFormat.shortTime)\n\(AppSummary.DataTimeFormat.shortDate)"
+        result.dateFormat = ManagerOrdersController.Keys.dateAndTimeFormat.localized
         result.timeZone = TimeZone(identifier: "UTC")
 
         return result
     }
+
     public override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -55,7 +58,7 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
 
         self.order = order
 
-        IdLabel.text = "# \(OrderId)"
+        IdLabel.text = String(format: ManagerOrdersController.Keys.idFormat.localized, orderId)
         DateLabel.text = formatter.string(from: order.summary.completeAt)
         PlaceNameLabel.text = order.summary.placeName
         PriceLabel.setup(amount: order.total.double, currency: order.currency)

@@ -20,6 +20,7 @@ public class ManagerOrdersController: UIViewController {
 
     // MARK: Tools
     private let _tag = String.tag(ManagerOrdersController.self)
+    private let guid = Guid.new
     private var loadQueue: AsyncQueue!
 
     // MARK: Loaders
@@ -32,22 +33,17 @@ public class ManagerOrdersController: UIViewController {
     public init() {
         super.init(nibName: "ManagerOrdersControllerView", bundle: Bundle.main)
 
+        ordersService.subscribe(guid: guid, handler: self, tag: tag)
         loadQueue = AsyncQueue.createForControllerLoad(for: tag)
 
-        ordersContainer = PartsLoadTypedContainer<[DishOrder]>(completeLoadHandler: self.completeLoad)
-        ordersContainer.updateHandler = { update in
-            let placeIds = AppSummary.shared.placeIDs!
-            self.orders = update.filter({ placeIds.contains($0.placeId) }).sorted(by: self.sorter)
-
-            DispatchQueue.main.async {
-                self.ordersTable.reloadData()
-            }
-        }
-
+        ordersContainer = PartsLoadTypedContainer<[DishOrder]>(updateHandler: displayOrders, completeLoadHandler: completeLoad)
         loaderAdapter = PartsLoader([ordersContainer])
     }
     public convenience required init?(coder aDecoder: NSCoder) {
         self.init()
+    }
+    deinit {
+        ordersService.unsubscribe(guid: guid)
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +55,7 @@ public class ManagerOrdersController: UIViewController {
         super.viewWillAppear(animated)
 
         showNavigationBar()
-        navigationItem.title = "Заказы"
+        navigationItem.title = Keys.title.localized
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -79,9 +75,6 @@ public class ManagerOrdersController: UIViewController {
 
         let orders = ordersService.cache.all
         ordersContainer.update(orders)
-        if (orders.isFilled) {
-            ordersContainer.completeLoad()
-        }
 
         if (loaderAdapter.noData || orders.isEmpty) {
             interfaceLoader.show()
@@ -90,9 +83,7 @@ public class ManagerOrdersController: UIViewController {
         requestOrders()
     }
     @objc private func needReload() {
-
         ordersContainer.startRequest()
-
         requestOrders()
     }
     private func requestOrders() {
@@ -105,17 +96,25 @@ public class ManagerOrdersController: UIViewController {
             if (self.loaderAdapter.isLoad) {
                 self.interfaceLoader.hide()
                 self.refreshControl.endRefreshing()
+
+                if (self.loaderAdapter.problemWithLoad) {
+                    self.view.makeToast(Keys.loadError.localized)
+                }
             }
         }
     }
+    private func displayOrders(_ orders: [DishOrder]) {
+
+        let placeIds = AppSummary.shared.placeIDs!
+        self.orders = orders.filter({ placeIds.contains($0.placeId) })
+                            .sorted(by: self.sorter)
+
+        DispatchQueue.main.async {
+            self.ordersTable.reloadData()
+        }
+    }
     private func sorter(left: DishOrder, right: DishOrder) -> Bool {
-//        if (left.isCompleted && !right.isCompleted) {
-//            return false
-//        } else if (!left.isCompleted && right.isCompleted) {
-//            return false
-//        } else {
-            return left.summary.completeAt > right.summary.completeAt
-//        }
+        return left.ID > right.ID
     }
     private func goToOrder(id orderId: Long) {
 
@@ -123,6 +122,28 @@ public class ManagerOrdersController: UIViewController {
             let vc = ManagerOneOrderController.create(with: orders.find({ orderId == $0.ID })!)
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+}
+// MARK: Orders delegate
+extension ManagerOrdersController: OrdersCacheServiceDelegate {
+    public func update(_ orderId: Long, order: DishOrder) {
+        displayLocalOrders()
+
+        for cell in ordersTable.visibleCells {
+            if let cell = cell as? ManagerOrdersControllerOrderCell {
+                if (cell.orderId == orderId) {
+                    cell.update(by: order)
+                    break
+                }
+            }
+        }
+    }
+    public func update(range: [DishOrder]) {
+        displayLocalOrders()
+    }
+    private func displayLocalOrders() {
+        let orders = ordersService.cache.all
+        ordersContainer.update(orders)
     }
 }
 // MARK: Table
@@ -133,7 +154,7 @@ extension ManagerOrdersController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let cell = tableView.cellForRow(at: indexPath) as! ManagerOrdersControllerOrderCell
-        let orderId = cell.OrderId
+        let orderId = cell.orderId
 
         goToOrder(id: orderId)
     }
@@ -152,5 +173,21 @@ extension ManagerOrdersController: UITableViewDataSource {
         cell.update(by: orders[indexPath.row])
 
         return cell
+    }
+}
+//Localization
+extension ManagerOrdersController {
+    public enum Keys: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(ManagerOrdersController.self)
+        }
+
+        case title = "Title"
+
+        case idFormat = "Formats.Id"
+        case dateAndTimeFormat = "Formats.DateAndTime"
+
+        case loadError = "Errors.Load"
     }
 }
