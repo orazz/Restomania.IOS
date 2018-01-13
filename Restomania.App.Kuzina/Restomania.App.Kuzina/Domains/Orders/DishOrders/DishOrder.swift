@@ -62,7 +62,7 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
 
         self.cardId = nil
 
-        self.status = .Processing
+        self.status = .processing
         self.type = .Remote
         self.currency = .RUB
         self.isPaid = false

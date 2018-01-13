@@ -9,12 +9,12 @@
 import Foundation
 
 public enum DishOrderStatus: Int {
-    case Processing = 1
-    case WaitingPayment = 2
-    case Making = 3
-    case Prepared = 4
-    case Completed = 5
-    case PaymentFail = 6
-    case CanceledByUser = 7
-    case CanceledByPlace = 8
+    case processing = 1
+    case waitingPayment = 2
+    case making = 3
+    case prepared = 4
+    case completed = 5
+    case paymentFail = 6
+    case canceledByUser = 7
+    case canceledByPlace = 8
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtf-0A-xKa" customClass="OneOrderSummaryContainer" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="на 08:00 25/07/2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmS-TF-dx8">
+                    <rect key="frame" x="8" y="5" width="359" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="кодовое слово: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDk-al-qAW">
+                    <rect key="frame" x="8" y="41" width="127" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шоколад" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jO2-oH-CIy">
+                    <rect key="frame" x="143" y="41" width="78" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="в" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiN-hx-pxg">
+                    <rect key="frame" x="8" y="72" width="9" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="статус" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7Y-4S-liq">
+                    <rect key="frame" x="8" y="103" width="53" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В обработке" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hit-wS-ejJ">
+                    <rect key="frame" x="69" y="103" width="106" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Кузина Красный проспект 77б" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="8Bq-ax-FUA">
+                    <rect key="frame" x="25" y="72" width="261" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="T7Y-4S-liq" firstAttribute="top" secondItem="8Bq-ax-FUA" secondAttribute="bottom" constant="10" id="1jY-WE-An1"/>
+                <constraint firstItem="lmS-TF-dx8" firstAttribute="top" secondItem="Gtf-0A-xKa" secondAttribute="top" constant="5" id="2TL-h7-yil"/>
+                <constraint firstAttribute="height" constant="135" id="7N7-Ot-Q8V"/>
+                <constraint firstItem="lmS-TF-dx8" firstAttribute="leading" secondItem="Gtf-0A-xKa" secondAttribute="leading" constant="8" id="Bjv-RV-RQH"/>
+                <constraint firstItem="8Bq-ax-FUA" firstAttribute="leading" secondItem="TiN-hx-pxg" secondAttribute="trailing" constant="8" id="F4d-cT-eE7"/>
+                <constraint firstItem="Hit-wS-ejJ" firstAttribute="top" secondItem="8Bq-ax-FUA" secondAttribute="bottom" constant="10" id="G5Q-yr-nQy"/>
+                <constraint firstItem="jO2-oH-CIy" firstAttribute="top" secondItem="lmS-TF-dx8" secondAttribute="bottom" constant="15" id="Ikf-Le-vAG"/>
+                <constraint firstItem="8Bq-ax-FUA" firstAttribute="top" secondItem="jO2-oH-CIy" secondAttribute="bottom" constant="10" id="JI3-jR-edi"/>
+                <constraint firstItem="T7Y-4S-liq" firstAttribute="leading" secondItem="Gtf-0A-xKa" secondAttribute="leading" constant="8" id="Q3n-jj-vBY"/>
+                <constraint firstItem="TiN-hx-pxg" firstAttribute="leading" secondItem="Gtf-0A-xKa" secondAttribute="leading" constant="8" id="TDk-zc-Zpa"/>
+                <constraint firstItem="oDk-al-qAW" firstAttribute="top" secondItem="lmS-TF-dx8" secondAttribute="bottom" constant="15" id="btH-IJ-RYJ"/>
+                <constraint firstAttribute="trailing" secondItem="lmS-TF-dx8" secondAttribute="trailing" constant="8" id="iM3-NW-LO6"/>
+                <constraint firstItem="TiN-hx-pxg" firstAttribute="top" secondItem="oDk-al-qAW" secondAttribute="bottom" constant="10" id="j7h-We-kIc"/>
+                <constraint firstItem="oDk-al-qAW" firstAttribute="leading" secondItem="Gtf-0A-xKa" secondAttribute="leading" constant="8" id="pKu-ME-yTq"/>
+                <constraint firstItem="jO2-oH-CIy" firstAttribute="leading" secondItem="oDk-al-qAW" secondAttribute="trailing" constant="8" id="uiu-Z6-Cbf"/>
+                <constraint firstItem="Hit-wS-ejJ" firstAttribute="leading" secondItem="T7Y-4S-liq" secondAttribute="trailing" constant="8" id="yOb-aB-7c6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="dqc-KS-V7h"/>
+            <connections>
+                <outlet property="CodewordTitleLabel" destination="oDk-al-qAW" id="gHu-a8-dFw"/>
+                <outlet property="CodeworddValueLabel" destination="jO2-oH-CIy" id="9Av-G7-zwW"/>
+                <outlet property="CompleteAtLabel" destination="lmS-TF-dx8" id="UlT-b4-Cd2"/>
+                <outlet property="PlaceNameTitleLabel" destination="TiN-hx-pxg" id="4wL-zs-0Wd"/>
+                <outlet property="PlaceNameValueLabel" destination="8Bq-ax-FUA" id="4lA-hD-KMP"/>
+                <outlet property="StatusTitleLabel" destination="T7Y-4S-liq" id="ju3-lT-Kbc"/>
+                <outlet property="StatusValueLabel" destination="Hit-wS-ejJ" id="iAz-Nx-6t4"/>
+            </connections>
+        </view>
+    </objects>
+</document>

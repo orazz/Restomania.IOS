@@ -13,7 +13,7 @@ import IOSLibrary
 public class OneOrderSpaceContainer: UITableViewCell {
 
     private static var nibName = "\(String.tag(OneOrderSpaceContainer.self))View"
-    public static var instance: UITableViewCell {
+    public static var instance: OneOrderSpaceContainer {
 
         let cell: OneOrderSpaceContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
 
@@ -26,7 +26,7 @@ public class OneOrderSpaceContainer: UITableViewCell {
         backgroundColor = ThemeSettings.Colors.background
     }
 }
-extension OneOrderSpaceContainer: OneOrderInterfaceCell {
+extension OneOrderSpaceContainer: OneOrderInterfacePart {
     public func update(by: DishOrder) {}
 }
 extension OneOrderSpaceContainer: InterfaceTableCellProtocol {
