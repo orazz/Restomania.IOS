@@ -11,7 +11,7 @@ import IOSLibrary
 import AsyncTask
 
 public protocol OrdersCacheServiceDelegate {
-    func update(_: Long, order: DishOrder)
+    func update(_: Long, update: DishOrder)
     func update(range: [DishOrder])
 }
 public class OrdersCacheService {
@@ -79,7 +79,7 @@ public class OrdersCacheService {
                     let order = response.data!
 
                     self.cacheAdapter.addOrUpdate(order)
-                    self.eventsAdapter.invoke({ $0.update(order.ID, order: order) })
+                    self.eventsAdapter.invoke({ $0.update(order.ID, update: order) })
                 }
 
                 handler(response)
@@ -97,7 +97,7 @@ public class OrdersCacheService {
                     let order = response.data!
 
                     self.cacheAdapter.addOrUpdate(response.data!)
-                    self.eventsAdapter.invoke({ $0.update(order.ID, order: order) })
+                    self.eventsAdapter.invoke({ $0.update(order.ID, update: order) })
                 }
 
                 handler(response)
@@ -114,7 +114,7 @@ public class OrdersCacheService {
                     let order = response.data!
 
                     self.cacheAdapter.addOrUpdate(order)
-                    self.eventsAdapter.invoke({ $0.update(order.ID, order: order) })
+                    self.eventsAdapter.invoke({ $0.update(order.ID, update: order) })
                 }
 
                 handler(response)
@@ -145,6 +145,6 @@ extension OrdersCacheService: KeysStorageDelegate {
     }
 }
 extension OrdersCacheServiceDelegate {
-    public func update(_ orderId: Long, order: DishOrder) {}
+    public func update(_ orderId: Long, update: DishOrder) {}
     public func update(range: [DishOrder]) {}
 }

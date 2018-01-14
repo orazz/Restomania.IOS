@@ -41,8 +41,8 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="CostLabel" destination="G2d-9Z-9Dg" id="ihY-X1-EF0"/>
-                <outlet property="NameAndCountLabel" destination="8Ak-a9-oRr" id="FWs-dV-iMG"/>
+                <outlet property="costLabel" destination="G2d-9Z-9Dg" id="ihY-X1-EF0"/>
+                <outlet property="nameAndCountLabel" destination="8Ak-a9-oRr" id="FWs-dV-iMG"/>
             </connections>
             <point key="canvasLocation" x="10.5" y="-259"/>
         </view>

@@ -8,56 +8,61 @@
 
 import Foundation
 import UIKit
+import AsyncTask
 import IOSLibrary
 
 public protocol OneOrderInterfacePart: InterfaceTableCellProtocol {
     func update(by: DishOrder)
 }
-public protocol OneOrderControllerDelegate {
-    var orderId: Long { get }
-    var order: DishOrder? { get }
-}
 public class OneOrderController: UIViewController {
 
     //UI Elements
-    @IBOutlet
-    weak var CancelButton: BlackBottomButton!
-    @IBOutlet
-    private weak var interfaceTable: UITableView!
+    @IBOutlet private weak var cancelButton: BlackBottomButton!
+    @IBOutlet private weak var interfaceTable: UITableView!
     private var interfaceAdapter: InterfaceTable!
     private var interfaceParts: [OneOrderInterfacePart] = []
+    private var interfaceLoader: InterfaceLoader!
+    private var refreshControl: RefreshControl!
 
     //Services
-    private let  _ordersApiService = ApiServices.Users.orders
+    private let  ordersService = CacheServices.orders
+    private var orderContainer: PartsLoadTypedContainer<DishOrder>!
+    private var partsLoader: PartsLoader!
 
-    // MARK: Data & services
+    //Data
     private let _tag = String.tag(OneOrderController.self)
+    private let guid = Guid.new
+    private var loadQueue: AsyncQueue!
     private var orderId: Long!
-    private var _order: DishOrder!
-    private var _dateFormatter: DateFormatter {
-
-        let result = DateFormatter()
-
-        result.dateFormat = AppSummary.DataTimeFormat.dateWithTime
-        result.timeZone = TimeZone(identifier: "UTC")
-
-        return result
-    }
 
     // MARK: Life circle
+    public convenience init(for order: DishOrder) {
+        self.init(for: order.ID)
+
+        orderContainer.update(order)
+    }
     public init(for orderId: Long) {
         super.init(nibName: "\(String.tag(OneOrderController.self))View", bundle: Bundle.main)
 
         self.orderId = orderId
+
+        self.orderContainer = PartsLoadTypedContainer<DishOrder>(updateHandler: applyOrder, completeLoadHandler: completeLoad)
+        self.partsLoader = PartsLoader([orderContainer])
+
+        self.loadQueue = AsyncQueue.createForControllerLoad(for: tag)
     }
     public required convenience init?(coder aDecoder: NSCoder) {
-        fatalError("Not implemented init from coder for \(String.tag(OneOrderController.self))")
+        self.init(for: -1)
     }
+
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         interfaceParts = loadParts()
         interfaceAdapter = InterfaceTable(source: interfaceTable, navigator: self.navigationController!, rows: interfaceParts)
+
+        interfaceLoader = InterfaceLoader(for: self.view)
+        refreshControl = interfaceTable.addRefreshControl(for: self, action: #selector(needReload))
 
         loadMarkup()
         loadData()
@@ -66,100 +71,133 @@ public class OneOrderController: UIViewController {
         super.viewWillAppear(animated)
 
         showNavigationBar()
+        self.ordersService.subscribe(guid: guid, handler: self, tag: tag)
     }
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
+        ordersService.unsubscribe(guid: guid)
     }
-
+}
+//Load
+extension OneOrderController {
     private func loadMarkup() {
 
-        navigationItem.title = String(format: Keys.title.localized, orderId!)
+        self.navigationItem.title = String(format: Keys.title.localized, orderId!)
+        self.view.backgroundColor = ThemeSettings.Colors.background
+        self.interfaceTable.backgroundColor = ThemeSettings.Colors.background
 
-        CancelButton.setTitle(Keys.cancelOrderButton.localized, for: .normal)
-
-//        let boldFont = ThemeSettings.Fonts.bold(size: .head)
-//        let lightFont = ThemeSettings.Fonts.default(size: .head)
-//
-//        self.view.backgroundColor = ThemeSettings.Colors.grey
-//
-//        CompleteDateLabel.font = boldFont
-//        CreateAtLabel.font = ThemeSettings.Fonts.default(size: .subhead)
-//
-//        CodewordTitleLabel.font = lightFont
-//        CodeworddValueLabel.font = boldFont
-//
-//        PlaceNameTitleLabel.font = lightFont
-//        PlaceNameValueLabel.font = boldFont
-//
-//        StatusTitleLabel.font = lightFont
-//        StatusValueLabel.font = boldFont
-//
-//        TotalTitleLabel.font = lightFont
-//        TotalValueLabel.font = boldFont
-
+        cancelButton.setTitle(Keys.cancelOrderButton.localized, for: .normal)
     }
     private func loadParts() -> [OneOrderInterfacePart] {
 
         var result = [OneOrderInterfacePart]()
 
-        result.append(OneOrderSpaceContainer.instance)
-        result.append(OneOrderSummaryContainer.instance)
+        result.append(OneOrderSpaceContainer.create())
+        result.append(OneOrderSummaryContainer.create())
 
-        result.append(OneOrderSpaceContainer.instance)
+        result.append(OneOrderSpaceContainer.create())
         result.append(OneOrderDishesContainer.instance)
 
-        result.append(OneOrderSpaceContainer.instance)
+        result.append(OneOrderSpaceContainer.create())
         result.append(OneOrderTotalContainer.instance)
 
-        result.append(OneOrderSpaceContainer.instance)
+        result.append(OneOrderSpaceContainer.create())
         result.append(OneOrderFooterContainer.instance)
 
-        result.append(OneOrderSpaceContainer.instance)
+        result.append(OneOrderSpaceContainer.create())
 
         return result
     }
-    // MARK: Methods
+    @objc private func needReload() {
+        requestData()
+    }
     private func loadData() {
+        if let cached = ordersService.cache.find(orderId) {
+            orderContainer.updateAndCheckFresh(cached, cache: ordersService.cache)
+        } else {
+            interfaceLoader.show()
+        }
 
-        if (nil == _order) {
-
-            fatalError("<\(self._tag)> Fuck, orderis  not setup.")
+        if (!ordersService.cache.isFresh(orderId)) {
+            requestData()
         }
     }
-    private func applyOrder() {
+    private func requestData() {
+        orderContainer.startRequest()
 
-        if let order = _order {
-
-            CancelButton.isHidden = order.isCompleted
-        }
+        requestOrder()
     }
+    private func requestOrder() {
+        let request = ordersService.find(orderId)
+        request.async(loadQueue, completion: orderContainer.completeLoad)
+    }
+    @objc private func completeLoad() {
+        DispatchQueue.main.async {
 
-    //Actions
-    @IBAction private func cancelOrder() {
+            if (self.partsLoader.isLoad) {
+                self.refreshControl.endRefreshing()
+                self.interfaceLoader.hide()
 
-//        StatusValueLabel.text = prepare(status: DishOrderStatus.CanceledByUser)
-        CancelButton.isHidden = true
-
-        let request = _ordersApiService.cancel(orderId)
-        request.async(.background, completion: { response in
-
-            DispatchQueue.main.async {
-                if (response.isFail) {
-
-//                    self.StatusValueLabel.text = self.prepare(status: self._order.status)
-                    self.CancelButton.isHidden = false
-
-                    let alert = UIAlertController()
-                    alert.message = "Проблемы с отменой заказа, попробуйте позднее"
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
-                    self.present(alert, animated: true, completion: nil)
+                if (self.partsLoader.problemWithLoad) {
+                    self.view.makeToast(Keys.problemWithLoad.localized)
                 }
             }
-        })
+        }
     }
+    private func applyOrder(_ order: DishOrder) {
 
+        DispatchQueue.main.async {
+            self.cancelButton.isHidden = order.isCompleted
+
+            for part in self.interfaceParts {
+                part.update(by: order)
+            }
+
+            self.interfaceAdapter.reload()
+        }
+    }
+}
+
+extension OneOrderController {
+    @IBAction private func cancelOrder() {
+
+        guard let order = orderContainer.data else {
+            return
+        }
+
+        let oldStatus = order.status
+        order.status = DishOrderStatus.canceledByUser
+        orderContainer.update(order)
+
+        let request = ordersService.cancel(orderId)
+        request.async(loadQueue) { response in
+
+            if (response.isFail) {
+                DispatchQueue.main.async {
+                    order.status = oldStatus
+                    self.orderContainer.update(order)
+
+                    self.view.makeToast(Keys.problemWithCancel.localized)
+                }
+            }
+        }
+    }
+}
+extension OneOrderController: OrdersCacheServiceDelegate {
+    public func update(range: [DishOrder]) {
+        for update in range {
+            if (update.ID == orderId) {
+                orderContainer.update(update)
+                break
+            }
+        }
+    }
+    public func update(_ orderId: Long, update: DishOrder) {
+        if (orderId == self.orderId) {
+            orderContainer.update(update)
+        }
+    }
 }
 extension OneOrderController {
     public enum Keys: String, Localizable {
@@ -191,5 +229,8 @@ extension OneOrderController {
         case statusCompleted = "DishOrder.Status.Completed"
         case statusCanceledByPlace = "DishOrder.Status.CanceledByPlace"
         case statusCanceledByUser = "DishOrder.Status.CanceledByUser"
+
+        case problemWithLoad = "Messages.ProblemWithLoad"
+        case problemWithCancel = "Messages.ProblemWithCancel"
     }
 }

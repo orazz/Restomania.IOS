@@ -22,8 +22,8 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
     }
 
     //UI Elements
-    @IBOutlet weak var NameAndCountLabel: UILabel!
-    @IBOutlet weak var CostLabel: PriceLabel!
+    @IBOutlet weak var nameAndCountLabel: UILabel!
+    @IBOutlet weak var costLabel: PriceLabel!
 
     //Data
     private var dish: DishOrderDish!
@@ -34,15 +34,18 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
 
         let font =  ThemeSettings.Fonts.default(size: .subhead)
 
-        NameAndCountLabel.font = font
-        CostLabel.font = font
+        nameAndCountLabel.font = font
+        nameAndCountLabel.textColor = ThemeSettings.Colors.main
+
+        costLabel.font = font
+        costLabel.textColor = ThemeSettings.Colors.main
     }
     public func update(dish: DishOrderDish, currency: CurrencyType) {
 
         self.dish = dish
         self.currency = currency
 
-        NameAndCountLabel.text = "\(dish.count) x \(dish.name)"
-        CostLabel.setup(amount: dish.total.double, currency: currency)
+        nameAndCountLabel.text = "\(dish.count) x \(dish.name)"
+        costLabel.setup(amount: dish.total.double, currency: currency)
     }
 }

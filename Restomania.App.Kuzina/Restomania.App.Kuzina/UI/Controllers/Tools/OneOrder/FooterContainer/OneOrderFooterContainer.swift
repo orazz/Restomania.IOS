@@ -29,6 +29,7 @@ public class OneOrderFooterContainer: UITableViewCell {
         backgroundColor = ThemeSettings.Colors.background
 
         createAtLabel.text = String.empty
+        createAtLabel.font = ThemeSettings.Fonts.default(size: .subhead)
     }
 }
 extension OneOrderFooterContainer: OneOrderInterfacePart {

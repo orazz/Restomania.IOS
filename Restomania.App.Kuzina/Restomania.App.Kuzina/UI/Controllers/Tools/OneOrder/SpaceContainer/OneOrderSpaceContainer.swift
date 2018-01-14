@@ -13,7 +13,7 @@ import IOSLibrary
 public class OneOrderSpaceContainer: UITableViewCell {
 
     private static var nibName = "\(String.tag(OneOrderSpaceContainer.self))View"
-    public static var instance: OneOrderSpaceContainer {
+    public static func create() -> OneOrderSpaceContainer {
 
         let cell: OneOrderSpaceContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
 

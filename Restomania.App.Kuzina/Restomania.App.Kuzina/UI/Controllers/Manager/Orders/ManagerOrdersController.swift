@@ -33,7 +33,6 @@ public class ManagerOrdersController: UIViewController {
     public init() {
         super.init(nibName: "ManagerOrdersControllerView", bundle: Bundle.main)
 
-        ordersService.subscribe(guid: guid, handler: self, tag: tag)
         loadQueue = AsyncQueue.createForControllerLoad(for: tag)
 
         ordersContainer = PartsLoadTypedContainer<[DishOrder]>(updateHandler: displayOrders, completeLoadHandler: completeLoad)
@@ -41,9 +40,6 @@ public class ManagerOrdersController: UIViewController {
     }
     public convenience required init?(coder aDecoder: NSCoder) {
         self.init()
-    }
-    deinit {
-        ordersService.unsubscribe(guid: guid)
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,9 +52,15 @@ public class ManagerOrdersController: UIViewController {
 
         showNavigationBar(animated: animated)
         navigationItem.title = Keys.title.localized
+
+        displayCachedOrders()
+
+        ordersService.subscribe(guid: guid, handler: self, tag: tag)
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
+        ordersService.unsubscribe(guid: guid)
     }
 
     // MARK: Process methods
@@ -116,21 +118,19 @@ public class ManagerOrdersController: UIViewController {
     }
     private func goToOrder(id orderId: Long) {
 
-        if let orders = ordersContainer.data {
-            let vc = OneOrderController(for: orderId)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = OneOrderController(for: orderId)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 // MARK: Orders delegate
 extension ManagerOrdersController: OrdersCacheServiceDelegate {
-    public func update(_ orderId: Long, order: DishOrder) {
+    public func update(_ orderId: Long, update: DishOrder) {
         displayCachedOrders()
 
         for cell in ordersTable.visibleCells {
             if let cell = cell as? ManagerOrdersControllerOrderCell {
                 if (cell.orderId == orderId) {
-                    cell.update(by: order)
+                    cell.update(by: update)
                     break
                 }
             }
@@ -141,7 +141,7 @@ extension ManagerOrdersController: OrdersCacheServiceDelegate {
     }
     private func displayCachedOrders() {
         let orders = ordersService.cache.all
-        ordersContainer.update(orders)
+        self.ordersContainer.update(orders)
     }
 }
 // MARK: Table

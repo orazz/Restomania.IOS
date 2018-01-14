@@ -27,7 +27,15 @@ public class OneOrderTotalContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = ThemeSettings.Colors.main
+        totalTitleLabel.text = OneOrderController.Keys.totalLabel.localized
+        totalTitleLabel.font = ThemeSettings.Fonts.default(size: .head)
+        totalTitleLabel.textColor = ThemeSettings.Colors.main
+
+        totalValueLabel.text = String.empty
+        totalValueLabel.font = ThemeSettings.Fonts.bold(size: .head)
+        totalValueLabel.textColor = ThemeSettings.Colors.main
+
+        backgroundColor = ThemeSettings.Colors.additional
     }
 }
 extension OneOrderTotalContainer: OneOrderInterfacePart {

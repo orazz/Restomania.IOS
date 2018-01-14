@@ -30,7 +30,8 @@ public class OneOrderDishesContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = ThemeSettings.Colors.main
+        backgroundColor = ThemeSettings.Colors.additional
+        dishesTable.backgroundColor = ThemeSettings.Colors.additional
 
         OneOrderDishesContainerDishCell.register(for: dishesTable)
     }

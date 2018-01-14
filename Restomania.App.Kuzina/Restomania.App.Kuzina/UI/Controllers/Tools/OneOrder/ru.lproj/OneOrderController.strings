@@ -7,3 +7,29 @@
 */
 
 "Title" = "Заказ #%d";
+
+"Buttons.CancelOrder" = "Отменить заказ";
+
+"Labels.CompleteAt" = "на %@ %@";
+
+"Labels.Codeword" = "кодовое слово";
+"Labels.PlaceName" = "в";
+"Labels.Status" = "статус";
+
+"Labels.Total" = "Итог";
+"Labels.CreateAt" = "добавлен в %@ %@";
+
+"Formats.Time" = "HH:mm";
+"Formats.Date" = "dd/MM/yyyy";
+
+"DishOrder.Status.Processing" = "В обработке";
+"DishOrder.Status.WaitingPayment" = "Ожидает оплаты";
+"DishOrder.Status.Making" = "Собирается";
+"DishOrder.Status.Prepared" = "Готов к выдаче";
+"DishOrder.Status.PaymentFail" = "Проблемы с оплатой";
+"DishOrder.Status.Completed" = "Завершен";
+"DishOrder.Status.CanceledByPlace" = "Отменен заведением";
+"DishOrder.Status.CanceledByUser" = "Отменен пользователем";
+
+"Messages.ProblemWithLoad" = "Проблемы с закгрузкой заказа. Проверьте подключение к интернету.";
+"Messages.ProblemWithCancel" = "Проблемы с отменой заказа. Проверьте подключение к интернету и обновите страницу.";

@@ -13,11 +13,9 @@ import IOSLibrary
 public class OneOrderSummaryContainer: UITableViewCell {
 
     private static var nibName = "\(String.tag(OneOrderSummaryContainer.self))View"
-    public static var instance: OneOrderSummaryContainer {
+    public static func create() -> OneOrderSummaryContainer {
 
         let cell: OneOrderSummaryContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
-
-        cell.loadStyles()
 
         return cell
     }
@@ -26,7 +24,7 @@ public class OneOrderSummaryContainer: UITableViewCell {
     @IBOutlet weak var completeAtLabel: UILabel!
 
     @IBOutlet weak var codewordTitleLabel: UILabel!
-    @IBOutlet weak var codeworddValueLabel: UILabel!
+    @IBOutlet weak var codewordValueLabel: UILabel!
 
     @IBOutlet weak var placeNameTitleLabel: UILabel!
     @IBOutlet weak var placeNameValueLabel: UILabel!
@@ -37,8 +35,10 @@ public class OneOrderSummaryContainer: UITableViewCell {
     //Data
     private var order: DishOrder?
 
-    private func loadStyles() {
-        backgroundColor = ThemeSettings.Colors.main
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+
+        backgroundColor = ThemeSettings.Colors.additional
 
         let boldFont = ThemeSettings.Fonts.bold(size: .head)
         let lightFont = ThemeSettings.Fonts.default(size: .head)
@@ -48,8 +48,8 @@ public class OneOrderSummaryContainer: UITableViewCell {
 
         codewordTitleLabel.font = lightFont
         codewordTitleLabel.text = OneOrderController.Keys.codewordTitleLabel.localized
-        codeworddValueLabel.font = boldFont
-        codeworddValueLabel.text = String.empty
+        codewordValueLabel.font = boldFont
+        codewordValueLabel.text = String.empty
 
         placeNameTitleLabel.font = lightFont
         placeNameTitleLabel.text = OneOrderController.Keys.placeNameTitleLabel.localized
@@ -71,7 +71,7 @@ extension OneOrderSummaryContainer: OneOrderInterfacePart {
         let date = formatter(OneOrderController.Keys.dateFormat.localized).string(from: update.summary.completeAt)
         completeAtLabel.text = String(format: format, time, date)
 
-        codeworddValueLabel.text = update.summary.codeword
+        codewordValueLabel.text = update.summary.codeword
 
         placeNameValueLabel.text = update.summary.placeName
 

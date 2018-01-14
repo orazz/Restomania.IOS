@@ -29,7 +29,6 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
         public static let dishes = "Dishes"
         public static let summary = "Summary"
 
-        public static let isCompleted = "IsCompleted"
         public static let subtotal = "Subtotal"
         public static let discount = "Discount"
         public static let total = "Total"
@@ -40,7 +39,7 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
 
     public let cardId: Long?
 
-    public let status: DishOrderStatus
+    public var status: DishOrderStatus
     public let type: DishOrderType
     public let currency: CurrencyType
     public let isPaid: Bool
@@ -50,10 +49,16 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
     public let dishes: [DishOrderDish]
     public let summary: OrderSummary
 
-    public let isCompleted: Bool
     public let subtotal: Price
     public let discount: Price
     public let total: Price
+
+    public var isCompleted: Bool {
+        return status == .canceledByPlace ||
+               status == .canceledByUser ||
+               status == .paymentFail ||
+               status == .completed
+    }
 
     public override init() {
 
@@ -72,7 +77,6 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
         self.dishes = [DishOrderDish]()
         self.summary = OrderSummary()
 
-        self.isCompleted = false
         self.subtotal = Price.zero
         self.discount = Price.zero
         self.total = Price.zero
@@ -97,7 +101,6 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
         self.dishes = source.dishes
         self.summary = source.summary
 
-        self.isCompleted = source.isCompleted
         self.subtotal = source.subtotal
         self.discount = source.discount
         self.total = source.total
@@ -123,7 +126,6 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
         self.dishes = (Keys.dishes <~~ json)!
         self.summary = (Keys.summary <~~ json)!
 
-        self.isCompleted = (Keys.isCompleted <~~ json)!
         self.subtotal = (Keys.subtotal <~~ json)!
         self.discount = (Keys.discount <~~ json)!
         self.total = (Keys.total <~~ json)!
@@ -149,7 +151,6 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
             Keys.dishes ~~> self.dishes,
             Keys.summary ~~> self.summary,
 
-            Keys.isCompleted ~~> self.isCompleted,
             Keys.subtotal ~~> self.subtotal,
             Keys.discount ~~> self.discount,
             Keys.total ~~> self.total
