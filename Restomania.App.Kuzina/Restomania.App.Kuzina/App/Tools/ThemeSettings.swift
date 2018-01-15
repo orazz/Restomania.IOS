@@ -9,8 +9,22 @@
 import UIKit
 import IOSLibrary
 import Toast_Swift
+import NotificationBannerSwift
 
 public class ThemeSettings {
+
+    public class Elements {
+        public static func applyStyles(to banner: NotificationBanner) {
+
+            banner.titleLabel?.font = Fonts.bold(size: .head)
+            banner.titleLabel?.textColor = Colors.additional
+
+            banner.subtitleLabel?.font = Fonts.default(size: .subhead)
+            banner.subtitleLabel?.textColor = Colors.additional
+
+            banner.backgroundColor = Colors.main
+        }
+    }
 
     public class Colors {
 

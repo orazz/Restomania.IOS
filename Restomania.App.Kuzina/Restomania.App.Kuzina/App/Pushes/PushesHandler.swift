@@ -46,13 +46,27 @@ public class PushesHandler {
     }
     private static func processDishOrder(_ push: NotificationContainer, complete: @escaping Action<NotificationBanner?>) {
 
-        let title = "\(push.message).Title".localized
-        let subtitle = String(format: push.message.localized, arguments: push.messageArgs)
-        let banner = NotificationBanner(title: title, subtitle: subtitle)
-
         guard let model = DishOrderModel(json: push.model) else {
             return
         }
+
+        let title = "\(push.message).Title".localized
+        let subtitle = String(format: push.message.localized, arguments: push.messageArgs)
+        let banner = NotificationBanner(title: title, subtitle: subtitle)
+        ThemeSettings.Elements.applyStyles(to: banner)
+        banner.onTap = {
+            DispatchQueue.main.async {
+
+                if let delegate = UIApplication.shared.delegate as? AppDelegate,
+                    let root = delegate.window?.rootViewController as? UINavigationController,
+                    let navigator = root.presentedViewController as? UINavigationController {
+
+                    let vc = OneOrderController(for: model.id)
+                    navigator.pushViewController(vc, animated: true)
+                }
+            }
+        }
+
         let request = CacheServices.orders.find(model.id)
         request.async(AsyncQueue.background, completion: { _ in complete(banner)})
     }
