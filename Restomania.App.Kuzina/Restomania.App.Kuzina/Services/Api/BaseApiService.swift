@@ -14,6 +14,7 @@ public class BaseApiService {
 
     internal var tag: String
     internal let client: ApiClient
+    internal let configs: ConfigsStorage
     private let keysStorage: KeysStorage?
 
     public init(area: String, type: AnyObject.Type, configs: ConfigsStorage, keys: KeysStorage? = nil) {
@@ -21,6 +22,7 @@ public class BaseApiService {
         self.tag = String.tag(type)
         let url = configs.get(forKey: ConfigKeys.ServerUrl).value
         self.client = ApiClient(url: "\(url)/api/\(area)", tag: tag)
+        self.configs = configs
         self.keysStorage = keys
     }
 

@@ -7,8 +7,16 @@
 */
 
 "Pushes.DishOrders.Add.ForUser" = "Add new order #%@ on %@";
-"Pushes.DishOrders.ChangeStatus.ForUser" = "Order #%@ on %@ change status";
+"Pushes.DishOrders.Add.ForUser.Title" = "New order";
+
+"Pushes.DishOrders.ChangeStatus.ForUser" = "Order #%@ change status on %@";
+"Pushes.DishOrders.ChangeStatus.ForUser.Title" = "Order change status";
 
 "Pushes.DishOrders.IsPrepared.ForUser" = "Order #%@ is ready to delivery";
+"Pushes.DishOrders.IsPrepared.ForUser.Title" = "Order is ready";
+
 "Pushes.DishOrders.PaymentComplete.ForUser" = "Order #%@ is paid";
+"Pushes.DishOrders.PaymentComplete.ForUser.Title" = "Payment succes";
+
 "Pushes.DishOrders.PaymentFail.ForUser" = "Problem with payment for order #%@";
+"Pushes.DishOrders.PaymentFail.ForUser.Title" = "Payment fail";

@@ -14,12 +14,18 @@ import IOSLibrary
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var options: [UIApplicationLaunchOptionsKey: Any]?
 
     private let _tag = String.tag(AppDelegate.self)
-    private var _pushManager: PushNotificationsManager!
-    private let _minimalUpdateInterval: TimeInterval = 30 * 60
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        self.options = launchOptions
+////
+//        if let payload = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary,
+//            let identifier = payload["event"] as? String {
+//            window?.rootViewController?.view.makeToast(identifier)
+//        }
 
         Log.Info(tag, "Launch app with options.")
 
@@ -27,27 +33,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ThemeSettings.applyStyles()
         CacheServices.load()
 
-        PushNotificationsManager.shared.requestPermissions()
+        PushesService.shared.requestPermissions()
         RefreshManager.shared.checkApiKeys()
 
         return true
     }
 
-    //Push notifications
+    // MARK: Push notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        PushNotificationsManager.shared.completeRequestToPushNotifications(token: deviceToken)
+        PushesService.shared.completeRequestToPushNotifications(token: deviceToken)
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        PushNotificationsManager.shared.completeRequestToPushNotifications(token: nil, error: error)
+        PushesService.shared.completeRequestToPushNotifications(token: nil, error: error)
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-
-        Log.Info(_tag, "Recive new notification.")
+        PushesService.shared.processMessage(push: userInfo)
 
         completionHandler(.newData)
     }
 
-    //Refresh data
+    // MARK: Refresh data
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
         completionHandler(.newData)

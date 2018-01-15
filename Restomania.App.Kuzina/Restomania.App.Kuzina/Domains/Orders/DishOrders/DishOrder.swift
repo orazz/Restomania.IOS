@@ -53,13 +53,6 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
     public let discount: Price
     public let total: Price
 
-    public var isCompleted: Bool {
-        return status == .canceledByPlace ||
-               status == .canceledByUser ||
-               status == .paymentFail ||
-               status == .completed
-    }
-
     public override init() {
 
         self.userId = 0
@@ -155,5 +148,13 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
             Keys.discount ~~> self.discount,
             Keys.total ~~> self.total
             ])
+    }
+}
+extension DishOrder {
+    public var isCompleted: Bool {
+        return status == .canceledByPlace ||
+            status == .canceledByUser ||
+            status == .paymentFail ||
+            status == .completed
     }
 }

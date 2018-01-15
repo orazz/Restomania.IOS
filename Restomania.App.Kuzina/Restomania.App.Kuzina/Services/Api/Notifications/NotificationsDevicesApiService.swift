@@ -18,6 +18,7 @@ public class NotificationsDevicesApiService: BaseApiService {
 
     public func Register(role: ApiRole, token: String, locale: String) -> RequestResult<Device> {
         let parameters = CollectParameters(for: role, [
+                "appKey": configs.get(forKey: ConfigKeys.AppKey).value as? String,
                 "token": token,
                 "platform": NotificationPlatformType.apple.rawValue,
                 "locale": locale

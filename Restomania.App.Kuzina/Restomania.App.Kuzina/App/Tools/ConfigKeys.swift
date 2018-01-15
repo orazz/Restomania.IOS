@@ -10,6 +10,7 @@ import Foundation
 
 public enum ConfigKeys: String {
 
+    case AppKey = "AppKey"
     case AppType = "AppType"
     case ClientAppType = "ClientAppType"
 

@@ -19,5 +19,5 @@ public enum PropertiesKey: Int {
     //Cache service
     case PlacesSummariesUpdateTime = 4
 
-    case PushDeviceToken = 20
+    case devicePushToken = 20
 }

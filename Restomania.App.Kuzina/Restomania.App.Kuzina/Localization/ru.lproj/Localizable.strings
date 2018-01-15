@@ -7,8 +7,16 @@
 */
 
 "Pushes.DishOrders.Add.ForUser" = "Добавлен новый заказ #%@ на %@";
+"Pushes.DishOrders.Add.ForUser.Title" = "Новый заказ";
+
 "Pushes.DishOrders.ChangeStatus.ForUser" = "Заказ #%@ на %@ изменил статус";
+"Pushes.DishOrders.ChangeStatus.ForUser.Title" = "Заказ изменил статус";
 
 "Pushes.DishOrders.IsPrepared.ForUser" = "Заказ #%@ готов к выдаче";
+"Pushes.DishOrders.IsPrepared.ForUser.Title" = "Заказ готов";
+
 "Pushes.DishOrders.PaymentComplete.ForUser" = "Заказ #%@ успешно оплачен";
+"Pushes.DishOrders.PaymentComplete.ForUser.Title" = "Заказ оплачен";
+
 "Pushes.DishOrders.PaymentFail.ForUser" = "Проблемы с оплатой заказа #%@";
+"Pushes.DishOrders.PaymentFail.ForUser.Title" = "Оплата не прошла";
