@@ -62,25 +62,26 @@ extension PlaceMenuMenuContainer {
             table.reloadData()
         }
         private func collectAll() -> [CategoryContainer] {
-            var dishes = [Dish]()
-            for dish in menu.dishes {
 
-                if (nil == dish.categoryId) {
-                    dishes.append(dish)
-                } else if let category = menu.categories.find({ $0.ID == dish.categoryId! }) {
-                    if (category.isHidden) {
-                        continue
-                    } else if (category.isBase) {
-                        dishes.append(dish)
-                    } else if category.isDependent,
-                        let parent = menu.categories.find({ $0.ID == category.parentId }),
-                        !parent.isHidden {
-                        dishes.append(dish)
+            var dishesForShow = [Dish]()
+            let alldishes = menu.dishes.sorted(by: { $0.orderNumber < $1.orderNumber })
+            let notHidden = menu.categories.filter({ !$0.isHidden })
+                                           .sorted(by: { $0.orderNumber < $1.orderNumber })
+            let parents = notHidden.filter({ $0.isBase })
+            for category in parents {
+
+                for dish in alldishes.filter({ $0.categoryId == category.ID }) {
+                    dishesForShow.append(dish)
+                }
+
+                for dependent in notHidden.filter({ $0.parentId == category.ID }) {
+                    for dish in alldishes.filter({ $0.categoryId == dependent.ID }) {
+                        dishesForShow.append(dish)
                     }
                 }
             }
 
-            return [CategoryContainer(dishes)]
+            return [CategoryContainer(dishesForShow)]
         }
         private func collectFor(_ categoryId: Long) -> [CategoryContainer] {
 

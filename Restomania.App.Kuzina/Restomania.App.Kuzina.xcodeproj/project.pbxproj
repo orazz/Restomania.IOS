@@ -142,6 +142,7 @@
 		1FB3F2871FD574B20073640B /* AddedOrderDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2851FD574B20073640B /* AddedOrderDish.swift */; };
 		1FB3F28D1FD57D370073640B /* ToolsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F28C1FD57D370073640B /* ToolsServices.swift */; };
 		1FB3F28F1FD57DAF0073640B /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F28E1FD57DAF0073640B /* ApiServices.swift */; };
+		1FB62AB3200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB62AB2200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift */; };
 		1FB6B92B1FAE19A400CD0B17 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */; };
 		1FB6B92C1FAE19A400CD0B17 /* AppSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */; };
 		1FB6B92D1FAE19A400CD0B17 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */; };
@@ -435,6 +436,7 @@
 		1FB3F2851FD574B20073640B /* AddedOrderDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddedOrderDish.swift; path = Services/Api/User/Models/AddedOrderDish.swift; sourceTree = "<group>"; };
 		1FB3F28C1FD57D370073640B /* ToolsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolsServices.swift; path = Services/ToolsServices.swift; sourceTree = "<group>"; };
 		1FB3F28E1FD57DAF0073640B /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiServices.swift; path = Services/ApiServices.swift; sourceTree = "<group>"; };
+		1FB62AB2200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceMenuSubcategoryHeader.swift; path = UI/Controllers/Place/Menu/MenuContainer/PlaceMenuSubcategoryHeader.swift; sourceTree = "<group>"; };
 		1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigKeys.swift; path = App/Tools/ConfigKeys.swift; sourceTree = "<group>"; };
 		1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSummary.swift; path = App/Tools/AppSummary.swift; sourceTree = "<group>"; };
 		1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeSettings.swift; path = App/Tools/ThemeSettings.swift; sourceTree = "<group>"; };
@@ -757,6 +759,7 @@
 				1F279FA11FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib */,
 				1F279F981FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift */,
 				1F279F9A1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib */,
+				1FB62AB2200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift */,
 				1F279F971FB0EC11003A2B47 /* PlaceMenuDishCell.swift */,
 				1F279F991FB0EC11003A2B47 /* PlaceMenuDishCellView.xib */,
 			);
@@ -2078,6 +2081,7 @@
 				1F68AF691F285866000614C9 /* MenuSummary.swift in Sources */,
 				1FC01CE11FB21D6600413ED7 /* DishOrderDish.swift in Sources */,
 				1FB3F28D1FD57D370073640B /* ToolsServices.swift in Sources */,
+				1FB62AB3200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift in Sources */,
 				1FB8EFCF1F1D41590090045E /* UserSex.swift in Sources */,
 				1F4B0E821FE84CFD006C0C58 /* ProblemAlert.swift in Sources */,
 				1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */,
