@@ -119,8 +119,21 @@ extension PlaceMenuMenuContainer {
         public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return categories[section].dishes.count
         }
-        public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            return categories[section].name
+        public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+            guard let _ = categories[section].name else {
+                return CGFloat(0)
+            }
+
+            return PlaceMenuSubcategoryHeader.height
+        }
+        public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+            guard let name = categories[section].name else {
+                return nil
+            }
+
+            return PlaceMenuSubcategoryHeader.instance(for: name)
         }
         public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return PlaceMenuDishCell.height

@@ -143,6 +143,7 @@
 		1FB3F28D1FD57D370073640B /* ToolsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F28C1FD57D370073640B /* ToolsServices.swift */; };
 		1FB3F28F1FD57DAF0073640B /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F28E1FD57DAF0073640B /* ApiServices.swift */; };
 		1FB62AB3200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB62AB2200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift */; };
+		1FB62AB5200E999F00FD56EE /* PlaceMenuSubcategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB62AB4200E999F00FD56EE /* PlaceMenuSubcategoryHeaderView.xib */; };
 		1FB6B92B1FAE19A400CD0B17 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */; };
 		1FB6B92C1FAE19A400CD0B17 /* AppSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */; };
 		1FB6B92D1FAE19A400CD0B17 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */; };
@@ -437,6 +438,7 @@
 		1FB3F28C1FD57D370073640B /* ToolsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolsServices.swift; path = Services/ToolsServices.swift; sourceTree = "<group>"; };
 		1FB3F28E1FD57DAF0073640B /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiServices.swift; path = Services/ApiServices.swift; sourceTree = "<group>"; };
 		1FB62AB2200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceMenuSubcategoryHeader.swift; path = UI/Controllers/Place/Menu/MenuContainer/PlaceMenuSubcategoryHeader.swift; sourceTree = "<group>"; };
+		1FB62AB4200E999F00FD56EE /* PlaceMenuSubcategoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceMenuSubcategoryHeaderView.xib; path = UI/Controllers/Place/Menu/MenuContainer/PlaceMenuSubcategoryHeaderView.xib; sourceTree = "<group>"; };
 		1FB6B9251FAE19A300CD0B17 /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigKeys.swift; path = App/Tools/ConfigKeys.swift; sourceTree = "<group>"; };
 		1FB6B9261FAE19A300CD0B17 /* AppSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSummary.swift; path = App/Tools/AppSummary.swift; sourceTree = "<group>"; };
 		1FB6B9271FAE19A300CD0B17 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeSettings.swift; path = App/Tools/ThemeSettings.swift; sourceTree = "<group>"; };
@@ -760,6 +762,7 @@
 				1F279F981FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift */,
 				1F279F9A1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib */,
 				1FB62AB2200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift */,
+				1FB62AB4200E999F00FD56EE /* PlaceMenuSubcategoryHeaderView.xib */,
 				1F279F971FB0EC11003A2B47 /* PlaceMenuDishCell.swift */,
 				1F279F991FB0EC11003A2B47 /* PlaceMenuDishCellView.xib */,
 			);
@@ -1745,6 +1748,7 @@
 				1F279F931FB07D51003A2B47 /* PlaceInfoControllerView.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
 				1F1D104E1FEC21E1000F4F8F /* Tools.strings in Resources */,
+				1FB62AB5200E999F00FD56EE /* PlaceMenuSubcategoryHeaderView.xib in Resources */,
 				1F12EB541FB3FEF900EF9BEA /* PlaceCompleteOrderControllerView.xib in Resources */,
 				1FF79A5F1FB22E55008F3FCC /* ScheduleDisplayCellView.xib in Resources */,
 				1F691A65200824CD00415F2F /* Tabs.storyboard in Resources */,

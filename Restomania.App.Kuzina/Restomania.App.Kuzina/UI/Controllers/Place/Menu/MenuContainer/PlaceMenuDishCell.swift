@@ -11,10 +11,10 @@ import IOSLibrary
 
 public class PlaceMenuDishCell: UITableViewCell {
 
-    public static let identifier = "MenuDishCard-\(Guid.new)"
+    public static let identifier = "\(String.tag(PlaceMenuDishCell.self))-\(Guid.new)"
     public static let height = CGFloat(110)
 
-    private static let nibName = "PlaceMenuDishCellView"
+    private static let nibName = "\(String.tag(PlaceMenuDishCell.self))View"
     private static let nib = UINib(nibName: nibName, bundle: Bundle.main)
     public static func instance(for dish: Dish, with currency: CurrencyType, delegate: PlaceMenuDelegate) -> PlaceMenuDishCell {
 
