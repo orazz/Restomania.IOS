@@ -23,7 +23,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
         instance._controller = controller
         instance._cart = instance._delegate.takeCart()
 
-        instance._categoriesAdapter = CategoriesCollection(for: instance.categoriesStack, with: instance)
+        instance._categoriesAdapter = CategoriesAdapter(for: instance.categoriesStack, with: instance)
         instance._dishesAdapter = DishesAdapter(for: instance.dishesTable, with: instance)
 
         instance.setupMarkup()
@@ -34,7 +34,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     //UI elements
     @IBOutlet private weak var categoriesStack: UICollectionView!
     @IBOutlet private weak var dishesTable: UITableView!
-    private var _categoriesAdapter: CategoriesCollection!
+    private var _categoriesAdapter: CategoriesAdapter!
     private var _dishesAdapter: DishesAdapter!
 
     //Data & services
@@ -52,12 +52,6 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     private var _cart: Cart!
 
     private func apply(_ menu: MenuSummary) {
-
-        let allCategory = MenuCategory()
-        allCategory.name = PlaceMenuController.Keys.AllDishesCategory.localized
-        allCategory.ID = -1
-        allCategory.orderNumber = -1
-
         _categoriesAdapter.update(by: menu)
         _dishesAdapter.update(by: menu)
     }
@@ -106,10 +100,10 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
     public func select(category: Long) {
 
         if (-1 == category) {
-            _dishesAdapter.filter(by: nil)
+            _dishesAdapter.select(by: nil)
         } else {
 
-            _dishesAdapter.filter(by: category)
+            _dishesAdapter.select(by: category)
         }
 
         if (!dishesTable.visibleCells.isEmpty) {
@@ -162,210 +156,6 @@ extension PlaceMenuMenuContainer: CartUpdateProtocol {
 
         DispatchQueue.main.async {
             self.dishesTable.setParentContraint(.bottom, to: offset)
-        }
-    }
-}
-
-// MARK: Adapters
-// MARK: Categories
-extension PlaceMenuMenuContainer {
-    private class CategoriesCollection: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-        private let collection: UICollectionView
-        private let delegate: PlaceMenuDelegate
-        private var categories: [MenuCategory]
-        private var selectedCategory: Long = -1
-
-        public init(for collection: UICollectionView, with delegate: PlaceMenuDelegate) {
-
-            self.collection = collection
-            self.delegate = delegate
-            self.categories = [MenuCategory]()
-
-            super.init()
-
-            collection.delegate = self
-            collection.dataSource = self
-            collection.allowsSelection = true
-            collection.allowsMultipleSelection = false
-
-            PlaceMenuCategoryCell.register(in: collection)
-        }
-
-        // MARK: Interface
-        public func select(category: Long) {
-
-            selectAndNotify(about: category)
-            reload()
-        }
-        public func update(by menu: MenuSummary) {
-
-            var categoriesForShow = Set<MenuCategory>()
-            for dish in menu.dishes {
-                if let category = menu.categories.find({ $0.ID == dish.categoryId }) {
-                    categoriesForShow.insert(category)
-                }
-            }
-
-            categories = categoriesForShow.map({ $0 })
-                                           .filter({ !$0.isHidden && $0.isBase })
-                                           .sorted(by: { $0.orderNumber < $1.orderNumber })
-            if (!categories.isEmpty) {
-                selectedCategory = categories.first!.ID
-            }
-
-            selectAndNotify(about: selectedCategory)
-            reload()
-        }
-        private func reload() {
-            collection.reloadData()
-        }
-
-        // MARK: UICollectionViewDataSource
-        public func numberOfSections(in collectionView: UICollectionView) -> Int {
-            return 1
-        }
-        public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return categories.count
-        }
-        public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-            let category = categories[indexPath.row]
-            let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: PlaceMenuCategoryCell.identifier, for: indexPath) as! PlaceMenuCategoryCell
-            cell.update(by: category)
-
-            if (selectedCategory == category.ID) {
-                cell.select()
-            } else {
-                cell.deselect()
-            }
-
-            return cell
-        }
-
-        // MARK: UICollectionViewDelegateFlowLayout
-        public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-            return PlaceMenuCategoryCell.sizeOfCell(category: categories[indexPath.row])
-        }
-        public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-            for cell in collection.visibleCells {
-                if let cell = cell as? PlaceMenuCategoryCell {
-                    cell.deselect()
-                }
-            }
-
-            let cell = collectionView.cellForItem(at: indexPath) as! PlaceMenuCategoryCell
-            cell.select()
-
-            let category = categories[indexPath.row]
-            selectAndNotify(about: category.ID)
-        }
-        private func selectAndNotify(about category: Long) {
-
-            selectedCategory = category
-            delegate.select(category: category)
-
-            if (!collection.visibleCells.isEmpty) {
-                let index = categories.index(where: { $0.ID == category }) ?? 0
-                collection.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
-            }
-        }
-    }
-}
-// MARK: Dishes
-extension PlaceMenuMenuContainer {
-    private class DishesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
-
-        private let _table: UITableView
-        private let _delegate: PlaceMenuDelegate
-
-        private var _dishes: [Dish]
-        private var _filtered: [Dish]
-        private var _categoryId: Long?
-
-        private var _cells: [Long : PlaceMenuDishCell]
-        private var _currency: CurrencyType
-
-        public init(for table: UITableView, with delegate: PlaceMenuDelegate) {
-
-            _table = table
-            _delegate = delegate
-
-            _dishes = [Dish]()
-            _filtered = [Dish]()
-            _categoryId = nil
-
-            _cells = [Long: PlaceMenuDishCell]()
-            _currency = .All
-
-            super.init()
-
-            _table.delegate = self
-            _table.dataSource = self
-        }
-
-        // MARK: Interface
-        public func update(by menu: MenuSummary) {
-
-            _dishes = menu.dishes.sorted(by: { $0.orderNumber < $1.orderNumber  })
-            _currency = menu.currency
-
-            reload()
-        }
-        public func filter(by categoryId: Long?) {
-
-            _categoryId = categoryId
-            reload()
-        }
-        public func reload() {
-
-            if let categoryId = _categoryId {
-                _filtered = _dishes.filter({ categoryId == $0.categoryId })
-            } else {
-                _filtered = _dishes
-            }
-
-            _table.reloadData()
-        }
-        public func clear() {
-            _cells.removeAll()
-        }
-
-        // MARK: UITableViewDataSource
-        public func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
-        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return _filtered.count
-        }
-        public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return PlaceMenuDishCell.height
-        }
-        public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-            let dish = _filtered[indexPath.row]
-            if let cell = _cells[dish.ID] {
-                cell.update(by: dish, with: _currency, delegate: _delegate)
-            } else {
-                _cells[dish.ID] = PlaceMenuDishCell.instance(for: dish, with: _currency, delegate: _delegate)
-            }
-
-            return _cells[dish.ID]!
-        }
-
-        // MARK: UITableViewDelegate
-        public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-            tableView.deselectRow(at: indexPath, animated: true)
-
-            _delegate.select(dish: _filtered[indexPath.row].ID)
-        }
-
-        // MARK: UIScrroolViewDelegate
-        public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            _delegate.scrollTo(offset: scrollView.contentOffset.y )
         }
     }
 }

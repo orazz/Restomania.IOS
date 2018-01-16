@@ -122,8 +122,8 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
 
             DispatchQueue.main.async {
                 if (success) {
-                    self.loadData()
                     self.view.makeToast(Keys.addSuccess.localized)
+                    self.loadData()
                 } else {
                     self.view.makeToast(Keys.addError.localized)
                 }

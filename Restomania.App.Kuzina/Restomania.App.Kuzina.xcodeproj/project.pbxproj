@@ -192,6 +192,8 @@
 		1FB8F0621F1ECE5F0090045E /* DishOrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0611F1ECE5F0090045E /* DishOrderStatus.swift */; };
 		1FB8F0641F1ECE990090045E /* DishOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0631F1ECE990090045E /* DishOrderType.swift */; };
 		1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0691F1ECF980090045E /* DishOrder.swift */; };
+		1FB9DBCF200E1A1A00CB35E2 /* PlaceMenuMenuContainer+DIshes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9DBCE200E1A1A00CB35E2 /* PlaceMenuMenuContainer+DIshes.swift */; };
+		1FB9DBD1200E1A5400CB35E2 /* PlaceMenuMenuContainer+Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9DBD0200E1A5400CB35E2 /* PlaceMenuMenuContainer+Categories.swift */; };
 		1FBE83EC1F2521780002F0B5 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; };
 		1FBE83ED1F2521780002F0B5 /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1FBE83F01F2554BB0002F0B5 /* _fonts */; };
@@ -483,6 +485,8 @@
 		1FB8F0611F1ECE5F0090045E /* DishOrderStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderStatus.swift; path = Domains/Orders/DishOrders/DishOrderStatus.swift; sourceTree = "<group>"; };
 		1FB8F0631F1ECE990090045E /* DishOrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderType.swift; path = Domains/Orders/DishOrders/DishOrderType.swift; sourceTree = "<group>"; };
 		1FB8F0691F1ECF980090045E /* DishOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrder.swift; path = Domains/Orders/DishOrders/DishOrder.swift; sourceTree = "<group>"; };
+		1FB9DBCE200E1A1A00CB35E2 /* PlaceMenuMenuContainer+DIshes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PlaceMenuMenuContainer+DIshes.swift"; path = "UI/Controllers/Place/Menu/MenuContainer/PlaceMenuMenuContainer+DIshes.swift"; sourceTree = "<group>"; };
+		1FB9DBD0200E1A5400CB35E2 /* PlaceMenuMenuContainer+Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PlaceMenuMenuContainer+Categories.swift"; path = "UI/Controllers/Place/Menu/MenuContainer/PlaceMenuMenuContainer+Categories.swift"; sourceTree = "<group>"; };
 		1FBE83EB1F2521780002F0B5 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBE83F01F2554BB0002F0B5 /* _fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _fonts; path = Restomania.App.Kuzina/_fonts; sourceTree = "<group>"; };
 		1FBE83F21F2556B40002F0B5 /* RefreshManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshManager.swift; path = App/RefreshManager.swift; sourceTree = "<group>"; };
@@ -505,6 +509,7 @@
 		1FC6E9F4200D217E003B47E5 /* NotificationEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationEvents.swift; path = App/Pushes/NotificationEvents.swift; sourceTree = "<group>"; };
 		1FC6E9F6200D2343003B47E5 /* PushesHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PushesHandler.swift; path = App/Pushes/PushesHandler.swift; sourceTree = "<group>"; };
 		1FC6E9F9200D23DD003B47E5 /* NotificationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationContainer.swift; path = App/Pushes/NotificationContainer.swift; sourceTree = "<group>"; };
+		1FC6E9FB200D75C4003B47E5 /* AddOrder.apns */ = {isa = PBXFileReference; lastKnownFileType = text; name = AddOrder.apns; path = Notifications/AddOrder.apns; sourceTree = "<group>"; };
 		1FD7E6AA1F1D0E6B0023C033 /* IOSLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Restomania-ddestcygydqsikdncgqzzaesfjnm/Build/Products/Debug-iphonesimulator/IOSLibrary.framework"; sourceTree = "<group>"; };
 		1FD9A09D1F2323FF0026BDF8 /* PlacesCacheService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesCacheService.swift; path = Services/Cache/PlacesCacheService.swift; sourceTree = "<group>"; };
 		1FD9A0A31F232FEC0026BDF8 /* KeysStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorageTests.swift; path = Services/KeysStorageTests.swift; sourceTree = "<group>"; };
@@ -747,6 +752,8 @@
 			isa = PBXGroup;
 			children = (
 				1F279F9F1FB0EC35003A2B47 /* PlaceMenuMenuContainer.swift */,
+				1FB9DBD0200E1A5400CB35E2 /* PlaceMenuMenuContainer+Categories.swift */,
+				1FB9DBCE200E1A1A00CB35E2 /* PlaceMenuMenuContainer+DIshes.swift */,
 				1F279FA11FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib */,
 				1F279F981FB0EC11003A2B47 /* PlaceMenuCategoryCell.swift */,
 				1F279F9A1FB0EC11003A2B47 /* PlaceMenuCategoryCellView.xib */,
@@ -1312,6 +1319,7 @@
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
+				1FC6E9FB200D75C4003B47E5 /* AddOrder.apns */,
 				1FAA9F711FC245F700BB105D /* RestomaniaAppKuzina.entitlements */,
 				1FBE83F01F2554BB0002F0B5 /* _fonts */,
 				1FFA57EE1F225FA000E83463 /* _markup */,
@@ -2037,6 +2045,7 @@
 				1FB6B9301FAE19A400CD0B17 /* PropertiesKey.swift in Sources */,
 				1FB8EFE61F1D4BDF0090045E /* Dish.swift in Sources */,
 				1FB8EFE21F1D49E20090045E /* Link.swift in Sources */,
+				1FB9DBD1200E1A5400CB35E2 /* PlaceMenuMenuContainer+Categories.swift in Sources */,
 				1F1D103A1FEA72F4000F4F8F /* PlaceMenuCartAction.swift in Sources */,
 				1FB8F0401F1EADFB0090045E /* PaymentCardType.swift in Sources */,
 				1F691A832009BC8F00415F2F /* AuthService.swift in Sources */,
@@ -2123,6 +2132,7 @@
 				1FB8EFCD1F1D41420090045E /* User.swift in Sources */,
 				1FB8EFEE1F1D4F480090045E /* RegistrationStatus.swift in Sources */,
 				1FD7E6A91F1D0E140023C033 /* AppSettings.swift in Sources */,
+				1FB9DBCF200E1A1A00CB35E2 /* PlaceMenuMenuContainer+DIshes.swift in Sources */,
 				1FB3F2601FD573000073640B /* Cart.swift in Sources */,
 				1FB3F25E1FD573000073640B /* Reservation.swift in Sources */,
 				1F691AB6200A545100415F2F /* OneOrderFooterContainer.swift in Sources */,
