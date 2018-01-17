@@ -58,12 +58,10 @@ extension UIViewController {
         let alert = ProblemAlerts.error(for: response)
         self.present(alert, animated: true, completion: complettion)
     }
-    public func toast(title: Localizable, message: Localizable, complettion: Trigger? = nil) {
-        self.toast(title: title.localized, message: message.localized, completion: complettion)
+    public func toast(_ message: Localizable, complettion: Trigger? = nil) {
+        self.toast(message.localized, completion: complettion)
     }
-    public func toast(title: String, message: String, completion: Trigger? = nil) {
-
-        let alert = ProblemAlerts.toastAlert(title: title, message: message)
-        self.present(alert, animated: true, completion: completion)
+    public func toast(_ message: String, completion: Trigger? = nil) {
+        self.view.makeToast(message)
     }
 }

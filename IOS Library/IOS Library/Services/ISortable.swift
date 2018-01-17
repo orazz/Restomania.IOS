@@ -12,3 +12,8 @@ public protocol ISortable {
 
     var orderNumber: Int { get }
 }
+extension Array where Element: ISortable {
+    public var ordered: Array<Element> {
+        return self.sorted(by: { $0.orderNumber < $1.orderNumber })
+    }
+}

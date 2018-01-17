@@ -34,17 +34,6 @@ public class ShortSchedule: Glossy, ICopying {
         buildDays()
     }
 
-    public class Day {
-        private let value: String
-        private let day: DayOfWeek
-
-        fileprivate init(value: String, day: DayOfWeek) {
-
-            self.value = value
-            self.day = day
-        }
-    }
-
     // MARK: ICopying
     public required init(source: ShortSchedule) {
 
@@ -109,9 +98,24 @@ public class ShortSchedule: Glossy, ICopying {
 //Display schedule
 extension ShortSchedule {
 
-    public func dayValue(_ weekDay: Int) -> Day {
+    public func canOrder(on date: Date) -> Bool {
 
-        let number = abs(weekDay) % 7
+        let dayOfWeek = date.utcDayOfWeek()
+        let days = [takeDay(dayOfWeek - 1),
+                    takeDay(dayOfWeek),
+                    takeDay(dayOfWeek + 1)]
+
+        for day in days {
+            if (day.canOrder(at: date)) {
+                return true
+            }
+        }
+
+        return false
+    }
+    public func takeDay(_ weekDay: Int) -> Day {
+
+        let number = ((weekDay % 7) + 7) % 7
         return days[number]
     }
     public func takeToday() -> String {
@@ -120,29 +124,70 @@ extension ShortSchedule {
         let calendar = Calendar.current
         let day = calendar.component(.weekday, from: date)
 
-        return dayValue(day).toString()
+        return takeDay(day).description
     }
 }
-extension ShortSchedule.Day {
+extension ShortSchedule {
+    public class Day: CustomStringConvertible {
 
-    public func toString() -> String {
+        private static let minutesInWeek = 7 * minutesInDay
+        private static let minutesInDay = 24 * minutesInHour
+        private static let minutesInHour = 60
 
-        if (String.isNullOrEmpty(value)) {
-            return String.empty
+        private let value: String
+        private let day: DayOfWeek
+        private var open: Int
+        private var close: Int
+
+        fileprivate init(value: String, day: DayOfWeek) {
+
+            self.value = value
+            self.day = day
+            self.open = -1
+            self.close = -1
+
+            if (String.isNullOrEmpty(value)) {
+                return
+            }
+            let components = value.components(separatedBy: "-")
+            if (components.count != 2) {
+                return
+            }
+
+            open = Int(components.first!)!
+            close = Int(components.last!)!
         }
 
-        let components = value.components(separatedBy: "-")
-        if (components.count < 2) {
-            return String.empty
+        public var isHoliday: Bool {
+            return -1 == open || -1 == close
+        }
+        public var description: String {
+
+            if (isHoliday) {
+                return String.empty
+            }
+
+            let open = self.open - day.rawValue * Day.minutesInDay
+            let close = self.close - day.rawValue * Day.minutesInDay
+            return "\(format(open)) - \(format(close))"
+        }
+        private func format(_ minutes: Int) -> String {
+            return "\(minutes / 60):\(minutes % 60)"
         }
 
-        let minutesInDay = 60 * 24
-        let open = Int(components.first!)! - day.rawValue * minutesInDay
-        let close = Int(components.last!)! - day.rawValue * minutesInDay
+        fileprivate func canOrder(at date: Date) -> Bool {
 
-        return "\(format(open)) - \(format(close))"
-    }
-    private func format(_ minutes: Int) -> String {
-        return "\(minutes / 60):\(minutes % 60)"
+            if (isHoliday) {
+                return false
+            }
+
+            let orderMinutes = date.utcDayOfWeek() * Day.minutesInDay +
+                               date.utcHours() * Day.minutesInHour +
+                               date.utcMinutes()
+            return canOrder(at: orderMinutes) || canOrder(at: orderMinutes + Day.minutesInWeek)
+        }
+        private func canOrder(at minutes: Int) -> Bool {
+            return open < minutes && minutes < close
+        }
     }
 }

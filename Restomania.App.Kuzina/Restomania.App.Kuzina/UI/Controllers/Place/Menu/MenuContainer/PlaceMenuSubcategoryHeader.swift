@@ -13,7 +13,7 @@ import IOSLibrary
 public class PlaceMenuSubcategoryHeader: UITableViewCell {
 
     public static let identifier = "\(String.tag(PlaceMenuSubcategoryHeader.self))-\(Guid.new)"
-    public static let height = CGFloat(50)
+    public static let height = CGFloat(35)
 
     private static let nibName = "\(String.tag(PlaceMenuSubcategoryHeader.self))View"
     private static let nib = UINib(nibName: nibName, bundle: Bundle.main)

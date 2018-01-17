@@ -19,7 +19,7 @@ public class Reservation {
         self._saver = saver
     }
 
-    public func buildCompleteDateTime() -> Date {
+    public func buildCompleteAt() -> Date {
 
         var calendar = Calendar.current
         var components = DateComponents()

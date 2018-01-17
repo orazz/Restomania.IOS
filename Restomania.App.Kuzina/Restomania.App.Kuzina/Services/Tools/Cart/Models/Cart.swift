@@ -92,7 +92,7 @@ public class Cart: Reservation {
         result.placeId = placeID
         result.cardId = cardId
         result.dishes = dishes
-        result.completeAt = buildCompleteDateTime()
+        result.completeAt = buildCompleteAt()
         result.comment = comment
         result.takeaway = takeaway
 

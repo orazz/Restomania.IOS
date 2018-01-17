@@ -44,8 +44,7 @@ extension PlaceMenuMenuContainer {
 
             var categoriesForShow = [MenuCategory]()
             let notHidden = menu.categories.filter({ !$0.isHidden })
-            let filtered = notHidden.filter({ $0.isBase })
-                                           .sorted(by: { $0.orderNumber < $1.orderNumber })
+            let filtered = notHidden.filter({ $0.isBase }).ordered
             for category in filtered {
 
                 if (menu.dishes.any({ $0.categoryId == category.ID })) {

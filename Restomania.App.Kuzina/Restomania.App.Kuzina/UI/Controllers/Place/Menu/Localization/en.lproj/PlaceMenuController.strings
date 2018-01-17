@@ -8,10 +8,7 @@
 
 "Title" = "Place's menu";
 
-"Alerts.LoadError.Title" = "Problem";
-"Alerts.LoadError.Message" = "Problem with load data. Try repeat later.";
-
-"Alerts.AuthError.Title" = "Authorize";
+"Alerts.LoadError.Message" = "Problem with load data. Check your internet connection.";
 "Alerts.AuthError.Message" = "For order via app you need login.";
 
 "Categories.AllDishes" = "All";

@@ -88,7 +88,7 @@ extension PlaceMenuTitleContainer {
             return
         }
 
-        let vc = PlaceInfoController.create(for: summary.ID)
+        let vc = PlaceInfoController(for: summary.ID)
         _navigator.pushViewController(vc, animated: true)
     }
 }

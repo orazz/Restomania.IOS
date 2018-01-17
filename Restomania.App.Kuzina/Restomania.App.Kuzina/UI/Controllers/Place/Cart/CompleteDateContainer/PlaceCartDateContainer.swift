@@ -75,10 +75,10 @@ public class PlaceCartDateContainer: UITableViewCell {
         }
 
         let now = Date()
-        if (cart.buildCompleteDateTime() < now) {
+        if (cart.buildCompleteAt() < now) {
             setup(dateAndTime: now)
         } else {
-            setup(dateAndTime: cart.buildCompleteDateTime())
+            setup(dateAndTime: cart.buildCompleteAt())
         }
     }
 }

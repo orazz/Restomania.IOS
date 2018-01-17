@@ -138,11 +138,12 @@ public class PlaceMenuController: UIViewController {
     }
     @IBAction private func goPlaceInfo() {
 
-        if let summary = summaryContainer.data {
-
-            let vc = PlaceInfoController.create(for: summary.ID)
-            self.navigationController?.pushViewController(vc, animated: true)
+        guard let summary = summaryContainer.data else {
+            return
         }
+
+        let vc = PlaceInfoController(for: summary.ID)
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     private func trigger(_ handler: Action<PlaceMenuCellsProtocol>) {
@@ -206,6 +207,7 @@ extension PlaceMenuController {
         if (loadAdapter.noData) {
             loader.show()
         }
+
         requestData()
     }
     @objc private func needReload() {
@@ -234,17 +236,14 @@ extension PlaceMenuController {
     private func completeLoad() {
         DispatchQueue.main.async {
 
-            if (self.loadAdapter.problemWithLoad) {
-                Log.Error(self._tag, "Problem with load data for page.")
-
-                self.navigationController?.popViewController(animated: true)
-                self.navigationController?.toast(title: Keys.AlertLoadErrorTitle,
-                                                message: Keys.AlertLoadErrorMessage)
-            }
-
             if (self.loadAdapter.isLoad) {
                 self.loader.hide()
                 self.refreshControl.endRefreshing()
+
+                if (self.loadAdapter.problemWithLoad) {
+                    Log.Error(self._tag, "Problem with load data for page.")
+                    self.view.makeToast(Keys.AlertLoadErrorMessage.localized)
+                }
             }
 
             self.trigger({ $0.dataDidLoad(delegate: self) })
@@ -290,8 +289,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
                 } else {
                     Log.Warning(self._tag, "Not authorize user.")
 
-                    self.toast(title: Keys.AlertAuthErrorTitle,
-                              message: Keys.AlertAuthErrorMessage)
+                    self.toast(Keys.AlertAuthErrorMessage)
                 }
             })
         }
@@ -445,10 +443,7 @@ extension PlaceMenuController {
         }
 
         //Alerts
-        case AlertLoadErrorTitle = "Alerts.LoadError.Title"
         case AlertLoadErrorMessage = "Alerts.LoadError.Message"
-
-        case AlertAuthErrorTitle = "Alerts.AuthError.Title"
         case AlertAuthErrorMessage = "Alerts.AuthError.Message"
 
         //Categories

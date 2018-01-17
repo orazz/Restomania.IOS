@@ -57,9 +57,9 @@ public class ScheduleDisplay: UIView {
         focus(on: Date())
     }
     public func focus(on day: Date) {
-        //-1 - start from zero
-        //-1 - return weekdat from 1 and from sunday
-        focus(on: DayOfWeek(rawValue: (day.dayOfWeek() - 1 - 1 + 7) % 7)!)
+        //-1 - we need start week from monday
+        let day = (day.dayOfWeek() - 1 + 7) % 7
+        focus(on: DayOfWeek(rawValue: day)!)
     }
     public func focus(on day: DayOfWeek) {
         contentView.scrollToItem(at: IndexPath(item: day.rawValue, section: 0), at: .centeredHorizontally, animated: true)
@@ -92,8 +92,7 @@ extension ScheduleDisplay: UICollectionViewDataSource {
         return cell
     }
     private func valueOf(day: Int, of schedule: ShortSchedule) -> String {
-
-        return schedule.dayValue(day + 1).toString()
+        return "\(schedule.takeDay(day + 1))"
     }
     private func dayIndex(for day: Int) -> Int {
         return (day + 1 + 7) % 7

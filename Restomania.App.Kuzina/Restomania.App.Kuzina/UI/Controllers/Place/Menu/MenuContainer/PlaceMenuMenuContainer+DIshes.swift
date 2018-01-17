@@ -64,9 +64,8 @@ extension PlaceMenuMenuContainer {
         private func collectAll() -> [CategoryContainer] {
 
             var dishesForShow = [Dish]()
-            let alldishes = menu.dishes.sorted(by: { $0.orderNumber < $1.orderNumber })
-            let notHidden = menu.categories.filter({ !$0.isHidden })
-                                           .sorted(by: { $0.orderNumber < $1.orderNumber })
+            let alldishes = menu.dishes.ordered
+            let notHidden = menu.categories.filter({ !$0.isHidden }).ordered
             let parents = notHidden.filter({ $0.isBase })
             for category in parents {
 
@@ -87,13 +86,12 @@ extension PlaceMenuMenuContainer {
 
             let filtered = menu.categories.filter({ !$0.isHidden })
                 .filter({ $0.ID == categoryId || $0.parentId == categoryId })
-                .sorted(by: { $0.orderNumber < $1.orderNumber })
+                .ordered
 
             var categories = [CategoryContainer]()
             for category in filtered {
 
-                let dishes = menu.dishes.filter({ $0.categoryId == category.ID })
-                                         .sorted(by: { $0.orderNumber < $1.orderNumber })
+                let dishes = menu.dishes.filter({ $0.categoryId == category.ID }).ordered
                 if (dishes.isEmpty) {
                     continue
                 } else {

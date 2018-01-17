@@ -12,11 +12,19 @@ import IOSLibrary
 
 public class PlaceInfoController: UIViewController {
 
-    private static let nibName = "PlaceInfoControllerView"
-    public static func create(for placeid: Long) -> PlaceInfoController {
+    //UI
 
-        let vc = PlaceInfoController(nibName: nibName, bundle: Bundle.main)
+    //Data
+    private let placeId: Long
 
-        return vc
+    //Service
+
+    public init(for placeId: Long) {
+        self.placeId = placeId
+
+        super.init(nibName: "\(String.tag(PlaceInfoController.self))View", bundle: Bundle.main)
+    }
+    public required convenience init?(coder aDecoder: NSCoder) {
+        self.init(for: -1)
     }
 }

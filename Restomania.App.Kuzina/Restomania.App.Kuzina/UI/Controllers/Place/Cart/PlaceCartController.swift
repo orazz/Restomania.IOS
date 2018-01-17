@@ -46,7 +46,7 @@ public class PlaceCartController: UIViewController {
     // MARK: Services
     private var addPaymentCardsService = AddCardUIService()
     private var keysService = ToolsServices.shared.keys
-    private var ordersApi = ApiServices.Users.orders
+    private var ordersService = CacheServices.orders
 
     // MARK: Data
     private let _tag = String.tag(PlaceCartController.self)
@@ -234,23 +234,18 @@ extension PlaceCartController {
     private func completeLoad() {
         DispatchQueue.main.async {
 
-            if (self.loadAdapter.problemWithLoad) {
-                Log.Error(self._tag, "Problem with load data for page.")
-
-                self.closePage()
-                self.navigationController?.toast(title: Localization.Alerts.LoadError.Title.localized,
-                                                message: Localization.Alerts.LoadError.Message.localized)
-
-                return
-            }
-
-            self.trigger({ $0.updateData(with: self) })
-
             if (self.loadAdapter.isLoad) {
                 self.interfaceLoader.hide()
                 self.refreshControl.endRefreshing()
+
+                if (self.loadAdapter.problemWithLoad) {
+                    self.toast(Localization.Toasts.problemWithLoad)
+
+                    Log.Error(self._tag, "Problem with load data for page.")
+                }
             }
 
+            self.trigger({ $0.updateData(with: self) })
             self.reloadInterface()
         }
     }
@@ -299,8 +294,7 @@ extension PlaceCartController: PlaceCartDelegate {
             DispatchQueue.main.sync {
 
                 if (!success) {
-                    self.toast(title: Localization.Alerts.AddPaymentCard.Title,
-                              message: Localization.Alerts.AddPaymentCard.Message)
+                    self.toast(Localization.Toasts.problemWithAddCard)
 
                     return
                 } else {
@@ -329,10 +323,19 @@ extension PlaceCartController: PlaceCartDelegate {
     public func tryAddOrder() {
         Log.Info(_tag, "Try add order.")
 
-        interfaceLoader.show()
+        guard let summary = takeSummary() else {
+            return
+        }
 
         let order = cartContaier.prepareOrder()
-        let request = ordersApi.add(order)
+        if (!summary.Schedule.canOrder(on: order.completeAt)) {
+            self.toast(Localization.Toasts.notWorkTime)
+            return
+        }
+
+        interfaceLoader.show()
+
+        let request = ordersService.add(order)
         request.async(loadQueue) { response in
 
             DispatchQueue.main.async {
@@ -348,8 +351,7 @@ extension PlaceCartController: PlaceCartDelegate {
 
                 if (response.isFail) {
                     if (response.statusCode == .BadRequest) {
-                        self.toast(title: Localization.Alerts.AddOrder.Title,
-                                 message: Localization.Alerts.AddOrder.Message)
+                        self.toast(Localization.Toasts.badAddOrder)
                     } else {
                         self.toast(for: response)
                     }
@@ -410,31 +412,16 @@ extension PlaceCartController {
                 return Localization.tablename
             }
         }
-        public class Alerts {
-            public enum AddPaymentCard: String, Localizable {
-                public var tableName: String {
-                    return Localization.tablename
-                }
+        public enum Toasts: String, Localizable {
 
-                case Title = "Alerts.AddPaymentCard.Title"
-                case Message = "Alerts.AddPaymentCard.Message"
+            public var tableName: String {
+                return Localization.tablename
             }
-            public enum AddOrder: String, Localizable {
-                public var tableName: String {
-                    return Localization.tablename
-                }
 
-                case Title = "Alerts.AddOrder.Title"
-                case Message = "Alerts.AddOrder.Message"
-            }
-            public enum LoadError: String, Localizable {
-                public var tableName: String {
-                    return Localization.tablename
-                }
-
-                case Title = "Alerts.LoadError.Title"
-                case Message = "Alerts.LoadError.Message"
-            }
+            case notWorkTime = "Toasts.NotWorkTime"
+            case badAddOrder = "Toasts.NotAddOrder"
+            case problemWithLoad = "Toasts.ProblemWithLoad"
+            case problemWithAddCard = "Toasts.ProblemWithAddCard"
         }
     }
 }

@@ -52,11 +52,29 @@ extension Date {
         return component(.minute)
     }
     public func dayOfWeek() -> Int {
-       return component(.weekday)
+        return component(.weekday) - 1
     }
     private func component(_ part: Calendar.Component) -> Int {
 
         let calendar = NSCalendar.current
+        let component = calendar.component(part, from: self)
+
+        return component
+    }
+
+    public func utcHours() -> Int {
+        return utcComponent(.hour)
+    }
+    public func utcMinutes() ->  Int {
+        return utcComponent(.minute)
+    }
+    public func utcDayOfWeek() -> Int {
+        return utcComponent(.weekday) - 1
+    }
+    private func utcComponent(_ part: Calendar.Component) -> Int {
+
+        var calendar = NSCalendar.current
+        calendar.timeZone = TimeZone(identifier: "UTC")!
         let component = calendar.component(part, from: self)
 
         return component
