@@ -159,7 +159,6 @@
 		1FB8EFD11F1D429D0090045E /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFD01F1D429D0090045E /* Rate.swift */; };
 		1FB8EFD31F1D42DF0090045E /* ReviewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFD21F1D42DF0090045E /* ReviewStatus.swift */; };
 		1FB8EFD51F1D430D0090045E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFD41F1D430D0090045E /* Review.swift */; };
-		1FB8EFDA1F1D47F80090045E /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFD91F1D47F80090045E /* DayOfWeek.swift */; };
 		1FB8EFDC1F1D48290090045E /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFDB1F1D48290090045E /* Day.swift */; };
 		1FB8EFDE1F1D48CD0090045E /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFDD1F1D48CD0090045E /* Schedule.swift */; };
 		1FB8EFE01F1D49AF0090045E /* LinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8EFDF1F1D49AF0090045E /* LinkType.swift */; };
@@ -456,7 +455,6 @@
 		1FB8EFD01F1D429D0090045E /* Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rate.swift; path = Domains/Reviews/Rate.swift; sourceTree = "<group>"; };
 		1FB8EFD21F1D42DF0090045E /* ReviewStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewStatus.swift; path = Domains/Reviews/ReviewStatus.swift; sourceTree = "<group>"; };
 		1FB8EFD41F1D430D0090045E /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Review.swift; path = Domains/Reviews/Review.swift; sourceTree = "<group>"; };
-		1FB8EFD91F1D47F80090045E /* DayOfWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayOfWeek.swift; path = Domains/Places/Schedules/DayOfWeek.swift; sourceTree = "<group>"; };
 		1FB8EFDB1F1D48290090045E /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Day.swift; path = Domains/Places/Schedules/Day.swift; sourceTree = "<group>"; };
 		1FB8EFDD1F1D48CD0090045E /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = Domains/Places/Schedules/Schedule.swift; sourceTree = "<group>"; };
 		1FB8EFDF1F1D49AF0090045E /* LinkType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkType.swift; path = Domains/Places/Contacts/LinkType.swift; sourceTree = "<group>"; };
@@ -1263,7 +1261,6 @@
 		1FB8EFD81F1D47CD0090045E /* Schedules */ = {
 			isa = PBXGroup;
 			children = (
-				1FB8EFD91F1D47F80090045E /* DayOfWeek.swift */,
 				1FB8EFDB1F1D48290090045E /* Day.swift */,
 				1FB8EFDD1F1D48CD0090045E /* Schedule.swift */,
 			);
@@ -1999,7 +1996,6 @@
 				1F6E07651FE4583B00B092B6 /* CacheServices.swift in Sources */,
 				1FB8F0311F1E61E70090045E /* TransactionType.swift in Sources */,
 				1FB8F0351F1E628F0090045E /* TransactionSummary.swift in Sources */,
-				1FB8EFDA1F1D47F80090045E /* DayOfWeek.swift in Sources */,
 				1FB3F2811FD574A00073640B /* UserChangeApiService.swift in Sources */,
 				1FC01CC81FB20F4100413ED7 /* PlaceCartController.swift in Sources */,
 				1FB8EFDE1F1D48CD0090045E /* Schedule.swift in Sources */,

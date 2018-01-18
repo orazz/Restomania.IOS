@@ -12,14 +12,29 @@ import IOSLibrary
 
 public class PlaceCartDateContainer: UITableViewCell {
 
-    private static let nibName = "PlaceCartDateContainerView"
+    fileprivate enum TimePickerComponents: Int {
+        case hours = 0
+        case minutes = 1
+    }
+    fileprivate enum DaySelectorSegments: Int {
+        case now = 0
+        case today = 1
+        case tommorow = 2
+    }
+
+    private static let nibName = "\(String.tag(PlaceCartDateContainer.self))View"
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartDateContainer {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartDateContainer
 
+        cell.timeFormatter = DateFormatter(for: "HH:mm")
+        cell.dateFormatter = DateFormatter(for: "dd.MM")
+        let utcTimeZone = TimeZone.utc
+        cell.timeFormatter.timeZone = utcTimeZone
+        cell.dateFormatter.timeZone = utcTimeZone
+
         cell.delegate = delegate
-        cell.setupMarkup()
         cell.refresh()
 
         return cell
@@ -30,31 +45,6 @@ public class PlaceCartDateContainer: UITableViewCell {
     @IBOutlet private weak var dateChecker: UISegmentedControl!
     @IBOutlet private weak var timePicker: UIPickerView!
     @IBOutlet private weak var dateTimeLabel: UILabel!
-    private func setupMarkup() {
-
-        dateChecker.tintColor = ThemeSettings.Colors.main
-        dateChecker.backgroundColor = ThemeSettings.Colors.additional
-        dateChecker.addTarget(self, action: #selector(changeDate), for: .valueChanged)
-
-        timePicker.dataSource = self
-        timePicker.delegate = self
-
-        dateTimeLabel.font = ThemeSettings.Fonts.default(size: .head)
-        dateTimeLabel.textColor = ThemeSettings.Colors.main
-
-        timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH:mm"
-
-        dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM"
-    }
-    private func updateDateTimeLabel() {
-
-        let time = cart.time
-        let date = cart.date
-
-        dateTimeLabel.text = "Заказ на \(timeFormatter.string(from: time)) \(dateFormatter.string(from: date))"
-    }
 
     //Data
     private var timeFormatter: DateFormatter!
@@ -68,115 +58,187 @@ public class PlaceCartDateContainer: UITableViewCell {
         return delegate.takeCart()
     }
 
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+
+        dateChecker.tintColor = ThemeSettings.Colors.main
+        dateChecker.backgroundColor = ThemeSettings.Colors.additional
+        dateChecker.addTarget(self, action: #selector(handleDaySelect), for: .valueChanged)
+
+        timePicker.dataSource = self
+        timePicker.delegate = self
+
+        dateTimeLabel.font = ThemeSettings.Fonts.default(size: .head)
+        dateTimeLabel.textColor = ThemeSettings.Colors.main
+    }
+
     private func refresh() {
+
+        refreshSchedule()
+
+        let now = Calendar.current.date(byAdding: .minute, value: 15, to: nowLikeUTC)!
+        let completeAt = cart.buildCompleteAt()
+        if (completeAt < now) {
+            dateChecker.select(day: .now)
+            handleDaySelect()
+        } else {
+            setup(dateAndTime: completeAt)
+        }
+    }
+    private var nowLikeUTC: Date {
+
+        let now = Date()
+
+        let calendar = Calendar.utcCurrent
+
+        var components = DateComponents()
+        components.year = calendar.component(.year, from: now)
+        components.month = calendar.component(.month, from: now)
+        components.day = calendar.component(.day, from: now)
+        components.hour = now.hours()
+        components.minute = now.minutes()
+        components.second = 0
+
+        return calendar.date(from: components)!
+    }
+    private func refreshSchedule() {
 
         if let summary = delegate.takeSummary() {
             scheduleView.update(by: summary.Schedule)
         }
-
-        let now = Date()
-        if (cart.buildCompleteAt() < now) {
-            setup(dateAndTime: now)
-        } else {
-            setup(dateAndTime: cart.buildCompleteAt())
-        }
     }
+    private func updateTimeAndRefreshTimePicker(hours: Int, minutes: Int) {
+
+        var wrapedHours = hours
+        var wrapedMinutes = (minutes / 5) * 5
+        if (minutes % 5 != 0) {
+            wrapedMinutes += 5
+        }
+
+        if (wrapedMinutes > 59) {
+            wrapedHours += 1
+            wrapedMinutes = wrapedMinutes % 60
+        }
+
+        timePicker.set(wrapedHours % 24, to: .hours)
+        timePicker.set(wrapedMinutes / 5, to: .minutes)
+
+        update(hours: wrapedHours, minutes: wrapedMinutes)
+    }
+    private func refreshDateTimeLabel() {
+
+        let time = cart.time
+        let date = cart.date
+
+        dateTimeLabel.text = "Заказ на \(timeFormatter.string(from: time)) \(dateFormatter.string(from: date))"
+    }
+
 }
 extension PlaceCartDateContainer {
 
     private func setup(dateAndTime date: Date) {
 
-        var hours = date.hours()
-        var minutes = (date.minutes() / 5) * 5 + 5
+        //Time
+        updateTimeAndRefreshTimePicker(hours: date.utcHours(), minutes: date.utcMinutes())
 
-        if (minutes > 59) {
-            hours += 1
-            minutes = minutes % 60
+        //Date
+        let side = Calendar.utcCurrent.date(bySettingHour: 23, minute: 59, second: 0, of: Date())!
+        if (date < side) {
+            dateChecker.select(day: .today)
+        } else {
+            dateChecker.select(day: .tommorow)
         }
-
-        timePicker.selectRow(hours % 24, inComponent: 0, animated: true)
-        timePicker.selectRow(minutes / 5, inComponent: 1, animated: true)
-
-        setup(hours: hours, minutes: minutes)
-
-        setup(date: date)
+        handleDaySelect()
     }
-    private func setup(date: Date) {
+
+    private func update(date: Date) {
 
         cart.date = date
 
-        scheduleView.focus(on: date)
-        updateDateTimeLabel()
+        scheduleView.focus(on: date.utcDayOfWeek())
+        refreshDateTimeLabel()
     }
-    private func setup(minutes: Int) {
-        setup(hours: cart.time.hours(), minutes: minutes)
-    }
-    private func setup(hours: Int) {
-        setup(hours: hours, minutes: cart.time.minutes())
-    }
-    private func setup(hours: Int, minutes: Int) {
+    private func update(hours: Int, minutes: Int) {
         cart.time = timeFormatter.date(from: "\(String(format: "%02d", hours % 24)):\(String(format: "%02d", minutes % 60))")!
 
-        updateDateTimeLabel()
+        refreshDateTimeLabel()
     }
 }
 // MARK: Segment
 extension PlaceCartDateContainer {
-    @objc private func changeDate() {
+    @objc private func handleDaySelect() {
 
-        let index = dateChecker.selectedSegmentIndex
-
-        if (0 == index) {
-            let date = Calendar.current.date(byAdding: .minute, value: 10, to: Date())!
-            setup(dateAndTime: date)
-        } else if(1 == index) {
-            setup(date: Date().noon)
-        } else if (2 == index) {
-            setup(date: Date().tomorrow)
+        let segment = DaySelectorSegments(rawValue: dateChecker.selectedSegmentIndex)!
+        switch segment {
+            case .now,
+                 .today:
+                update(date: Date().noon)
+            case .tommorow:
+                update(date: Date().tomorrow)
         }
 
-        timePicker.isHidden = 0 == index
+        if (segment == .now) {
+            timePicker.isHidden = true
+
+            let now = Calendar.current.date(byAdding: .minute, value: 10, to: nowLikeUTC)!
+            updateTimeAndRefreshTimePicker(hours: now.utcHours(), minutes: now.utcMinutes())
+        } else {
+            timePicker.isHidden = false
+        }
+
     }
 }
-extension PlaceCartDateContainer: UIPickerViewDelegate {
-    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if (0 == component) {
-            return String(format: "%02d", row)
-        } else if (1 == component) {
-            return String(format: "%02d", row * 5)
-        } else {
-            return "0"
-        }
-    }
+
+extension PlaceCartDateContainer: UIPickerViewDelegate, UIPickerViewDataSource {
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
-        if (0 == component) {
-            setup(hours: row)
-        } else if (1 == component) {
-            setup(minutes: row * 5)
+        switch TimePickerComponents(rawValue: component)! {
+            case .hours:
+                update(hours: row, minutes: cart.time.utcMinutes())
+            case .minutes:
+                update(hours: cart.time.utcHours(), minutes: row * 5)
         }
     }
-}
-extension PlaceCartDateContainer: UIPickerViewDataSource {
+
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+        switch TimePickerComponents(rawValue: component)! {
+            case .hours:
+                return String(format: "%02d", row)
+            case .minutes:
+                return String(format: "%02d", row * 5)
+        }
+    }
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
-        if (0 == component) {
-            return 24
-        } else if (1 == component) {
-            return 12
-        } else {
-            return 0
+        switch TimePickerComponents(rawValue: component)! {
+            case .hours:
+                return 24
+            case .minutes:
+                return 60 / 5
         }
     }
 }
+
+extension UISegmentedControl {
+    fileprivate func select(day: PlaceCartDateContainer.DaySelectorSegments) {
+        self.selectedSegmentIndex = day.rawValue
+    }
+}
+extension UIPickerView {
+    fileprivate func set(_ value: Int, to part: PlaceCartDateContainer.TimePickerComponents) {
+        self.selectRow(value, inComponent: part.rawValue, animated: true)
+    }
+}
+
 extension PlaceCartDateContainer: PlaceCartContainerCell {
     public func viewDidAppear() {}
     public func viewDidDisappear() {}
-    public func updateData(with delegate: PlaceCartDelegate) {
-        refresh()
+    public func updateData(with: PlaceCartDelegate) {
+        refreshSchedule()
     }
 }
 extension PlaceCartDateContainer: InterfaceTableCellProtocol {

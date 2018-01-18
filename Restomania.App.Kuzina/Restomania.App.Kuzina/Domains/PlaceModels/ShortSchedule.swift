@@ -100,7 +100,7 @@ extension ShortSchedule {
 
     public func canOrder(on date: Date) -> Bool {
 
-        let dayOfWeek = date.utcDayOfWeek()
+        let dayOfWeek = date.utcDayOfWeek().rawValue
         let days = [takeDay(dayOfWeek - 1),
                     takeDay(dayOfWeek),
                     takeDay(dayOfWeek + 1)]
@@ -184,7 +184,7 @@ extension ShortSchedule {
                 return false
             }
 
-            let orderMinutes = date.utcDayOfWeek() * Day.minutesInDay +
+            let orderMinutes = date.utcDayOfWeek().rawValue * Day.minutesInDay +
                                date.utcHours() * Day.minutesInHour +
                                date.utcMinutes()
             return canOrder(at: orderMinutes) || canOrder(at: orderMinutes + Day.minutesInWeek)

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import IOSLibrary
 import Gloss
 
 public class ScheduleDisplay: UIView {
@@ -20,7 +21,7 @@ public class ScheduleDisplay: UIView {
     //Data
     private var schedule = ShortSchedule()
     private var days = [DayOfWeek]()
-    private var lastFocusDay = Date()
+    private var lastFocusDay = Date().dayOfWeek()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,15 +68,10 @@ public class ScheduleDisplay: UIView {
 
         focus(on: lastFocusDay)
     }
-    public func focus(on day: Date) {
+    public func focus(on day: DayOfWeek) {
 
         lastFocusDay = day
 
-        if (days.isEmpty) {
-            return
-        }
-
-        let day = DayOfWeek(rawValue: day.dayOfWeek())
         guard let position = days.index(where: { $0 == day }) else {
             return
         }

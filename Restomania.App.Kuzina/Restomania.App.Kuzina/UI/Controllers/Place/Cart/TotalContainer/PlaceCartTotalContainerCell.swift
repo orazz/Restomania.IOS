@@ -57,7 +57,7 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
         titleLabel.textColor = ThemeSettings.Colors.main
         titleLabel.text = title
 
-        totalLabel.font = ThemeSettings.Fonts.default(size: .subhead)
+        totalLabel.font = ThemeSettings.Fonts.bold(size: .head)
         totalLabel.textColor = ThemeSettings.Colors.main
         totalLabel.setup(amount: 0, currency: .RUB)
     }

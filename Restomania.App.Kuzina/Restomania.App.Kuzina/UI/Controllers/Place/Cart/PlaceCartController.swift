@@ -154,9 +154,6 @@ extension PlaceCartController {
 
         //Dishes
         result.append(PlaceCartDishesContainer.create(for: self))
-        result.append(PlaceCartDivider.create())
-
-        //Total check
         result.append(PlaceCartTotalContainer.create(for: self))
         result.append(PlaceCartDivider.create())
 

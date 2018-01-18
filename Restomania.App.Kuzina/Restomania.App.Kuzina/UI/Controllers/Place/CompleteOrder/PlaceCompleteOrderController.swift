@@ -83,7 +83,7 @@ extension PlaceCompleteOrderController {
         titleLabel.textColor = ThemeSettings.Colors.main
 
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(identifier: "UTC")
+        formatter.timeZone = TimeZone.utc
         formatter.dateFormat = "HH:mm dd/MM"
         dataLabel.text = "#\(order.ID) на \(formatter.string(from: order.summary.completeAt))"
         dataLabel.font = ThemeSettings.Fonts.bold(size: .head)

@@ -79,10 +79,8 @@ extension OneOrderSummaryContainer: OneOrderInterfacePart {
     }
     private func formatter(_ format: String) -> DateFormatter {
 
-        let result = DateFormatter()
-
-        result.dateFormat = format
-        result.timeZone = TimeZone(identifier: "UTC")
+        let result = DateFormatter(for: format)
+        result.timeZone = TimeZone.utc
 
         return result
     }

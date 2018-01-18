@@ -43,7 +43,7 @@ public class ApiClientTests: XCTestCase {
         components.year = 2012
         components.month = 7
         components.day = 11
-        components.timeZone = TimeZone(identifier: "UTC")
+        components.timeZone = TimeZone.utc
         components.hour = 8
         components.minute = 34
         components.second = 12

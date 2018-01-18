@@ -70,8 +70,7 @@ public class DateTimeFilter: IFilter {
     }
     private func Check(value: Int, date: Date, values: Calendar.Component...) -> Bool {
 
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(identifier: "UTC")!
+        let calendar = Calendar.utcCurrent
 
         for component in values {
 
@@ -87,8 +86,7 @@ public class DateTimeFilter: IFilter {
     private func checkMoreOneDigit(_ digits: [String], forDate value: Date) -> Bool {
 
         let digits = digits.map({ digit in Int(digit)!})
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(identifier: "UTC")!
+        let calendar = Calendar.utcCurrent
 
         let left = (digits[0], digits[1])
         let time = (calendar.component(.hour, from: value), calendar.component(.minute, from: value))

@@ -30,6 +30,9 @@
 		1F3705811F7B694F00E6CB0D /* CacheSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3705801F7B694F00E6CB0D /* CacheSearchResult.swift */; };
 		1F3D71CC1F72B6100010818A /* PropertiesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3D71CB1F72B6100010818A /* PropertiesStorage.swift */; };
 		1F3D71CF1F72CAC40010818A /* ConfigsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3D71CE1F72CAC40010818A /* ConfigsStorage.swift */; };
+		1F41C1AB201074220001E6CB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41C1AA201074220001E6CB /* DateFormatter.swift */; };
+		1F41C1AD20108D1A0001E6CB /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41C1AC20108D1A0001E6CB /* TimeZone.swift */; };
+		1F41C1AF20108D6E0001E6CB /* Calendat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41C1AE20108D6E0001E6CB /* Calendat.swift */; };
 		1F41CE4D1F13BE5B000B92E1 /* IOSLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */; };
 		1F41CE541F13BE5B000B92E1 /* IOS Library.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F41CE461F13BE5B000B92E1 /* IOS Library.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F41CE611F13BEA1000B92E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F41CE5F1F13BEA1000B92E1 /* Log.swift */; };
@@ -116,6 +119,9 @@
 		1F3705801F7B694F00E6CB0D /* CacheSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheSearchResult.swift; path = Services/Cache/CacheSearchResult.swift; sourceTree = "<group>"; };
 		1F3D71CB1F72B6100010818A /* PropertiesStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesStorage.swift; path = Tools/PropertiesStorage.swift; sourceTree = "<group>"; };
 		1F3D71CE1F72CAC40010818A /* ConfigsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigsStorage.swift; path = Tools/ConfigsStorage.swift; sourceTree = "<group>"; };
+		1F41C1AA201074220001E6CB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = Tools/DateFormatter.swift; sourceTree = "<group>"; };
+		1F41C1AC20108D1A0001E6CB /* TimeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone.swift; sourceTree = "<group>"; };
+		1F41C1AE20108D6E0001E6CB /* Calendat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Calendat.swift; path = Tools/Calendat.swift; sourceTree = "<group>"; };
 		1F41CE431F13BE5B000B92E1 /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F41CE461F13BE5B000B92E1 /* IOS Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOS Library.h"; sourceTree = "<group>"; };
 		1F41CE471F13BE5B000B92E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -308,6 +314,9 @@
 				1F1CA9081FCECD710006BE0B /* DispatchQueue.swift */,
 				1F1D104A1FEB87E1000F4F8F /* Delegates.swift */,
 				1F691AA3200A2DCC00415F2F /* Nib.swift */,
+				1F41C1AA201074220001E6CB /* DateFormatter.swift */,
+				1F41C1AC20108D1A0001E6CB /* TimeZone.swift */,
+				1F41C1AE20108D6E0001E6CB /* Calendat.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -661,10 +670,13 @@
 				1FC547EF1F6FA2E1007CE6AB /* IIdentified.swift in Sources */,
 				1F24A90F1F8964BC000BD8F1 /* InterfaceTable.swift in Sources */,
 				1F49E1F21F7B996F00F384B3 /* FSOneFileClient.swift in Sources */,
+				1F41C1AB201074220001E6CB /* DateFormatter.swift in Sources */,
 				1FC547F31F6FA322007CE6AB /* ICopying.swift in Sources */,
 				1FC547EB1F6FA293007CE6AB /* CacheAdapter.swift in Sources */,
 				1F451FA51FCCB8820080C103 /* CacheAdapterExtender.swift in Sources */,
 				1F3D71CF1F72CAC40010818A /* ConfigsStorage.swift in Sources */,
+				1F41C1AD20108D1A0001E6CB /* TimeZone.swift in Sources */,
+				1F41C1AF20108D6E0001E6CB /* Calendat.swift in Sources */,
 				1F52B3F11FEC2F1C003B2420 /* ZeroCdnImageWrapper.swift in Sources */,
 				1F3382F91F97D56700E43596 /* Switch.swift in Sources */,
 				1FA20BBC1F226D2A00215C4A /* SearchAdapter.swift in Sources */,

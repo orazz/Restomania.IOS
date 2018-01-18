@@ -65,7 +65,7 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
         let result = DateFormatter()
 
         result.dateFormat = ManagerOrdersController.Keys.dateAndTimeFormat.localized
-        result.timeZone = TimeZone(identifier: "UTC")
+        result.timeZone = TimeZone.utc
 
         return result
     }

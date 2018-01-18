@@ -37,10 +37,10 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
 
         cart.subscribe(guid: guid, handler: self, tag: _tag)
 
-        titleLabel.font = ThemeSettings.Fonts.default(size: .caption)
+        titleLabel.font = ThemeSettings.Fonts.default(size: .subhead)
         titleLabel.textColor = ThemeSettings.Colors.main
 
-        totalLabel.font = ThemeSettings.Fonts.bold(size: .caption)
+        totalLabel.font = ThemeSettings.Fonts.default(size: .subhead)
         totalLabel.textColor = ThemeSettings.Colors.main
     }
 

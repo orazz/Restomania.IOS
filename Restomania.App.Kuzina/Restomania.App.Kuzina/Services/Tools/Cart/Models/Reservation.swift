@@ -21,7 +21,7 @@ public class Reservation {
 
     public func buildCompleteAt() -> Date {
 
-        var calendar = Calendar.current
+        var calendar = Calendar.utcCurrent
         var components = DateComponents()
 
         //Date
@@ -34,7 +34,6 @@ public class Reservation {
         components.minute = calendar.component(.minute, from: time)
         components.second = 0
 
-        calendar.timeZone = TimeZone(identifier: "UTC")!
         return calendar.date(from: components)!
     }
     public var date: Date {

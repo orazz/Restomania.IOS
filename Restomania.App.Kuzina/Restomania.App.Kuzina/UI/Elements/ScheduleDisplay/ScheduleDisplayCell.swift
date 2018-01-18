@@ -29,7 +29,7 @@ public class ScheduleDisplayCell: UICollectionViewCell {
     //Service
 
     //Data
-    private static let today = DayOfWeek(rawValue: Date().dayOfWeek())
+    private static let today = Date().dayOfWeek()
     private var day: DayOfWeek!
     private var value: String!
     private var isToday: Bool {

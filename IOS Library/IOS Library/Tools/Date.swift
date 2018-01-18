@@ -9,12 +9,21 @@
 import Foundation
 import Gloss
 
+public enum DayOfWeek: Int {
+    case sunday = 0
+    case monday = 1
+    case tuesday = 2
+    case wednesday = 3
+    case thursday = 4
+    case friday = 5
+    case saturday = 6
+}
 extension Date {
 
     public static var ISOFormatter: DateFormatter {
         let result = DateFormatter()
         result.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        result.timeZone = TimeZone(identifier: "UTC")
+        result.timeZone = TimeZone.utc
 
         return result
     }
@@ -51,8 +60,8 @@ extension Date {
     public func minutes() ->  Int {
         return component(.minute)
     }
-    public func dayOfWeek() -> Int {
-        return component(.weekday) - 1
+    public func dayOfWeek() -> DayOfWeek {
+        return DayOfWeek(rawValue: component(.weekday) - 1)!
     }
     private func component(_ part: Calendar.Component) -> Int {
 
@@ -68,13 +77,12 @@ extension Date {
     public func utcMinutes() ->  Int {
         return utcComponent(.minute)
     }
-    public func utcDayOfWeek() -> Int {
-        return utcComponent(.weekday) - 1
+    public func utcDayOfWeek() -> DayOfWeek {
+        return DayOfWeek(rawValue: utcComponent(.weekday) - 1)!
     }
     private func utcComponent(_ part: Calendar.Component) -> Int {
 
-        var calendar = NSCalendar.current
-        calendar.timeZone = TimeZone(identifier: "UTC")!
+        var calendar = Calendar.utcCurrent
         let component = calendar.component(part, from: self)
 
         return component
