@@ -165,8 +165,8 @@ extension PlaceCartController {
         result.append(PlaceCartDivider.create())
 
         //Comment and takeaway
-//        result.append(PlaceCartAdditionalContainer.create(for: self))
-//        result.append(PlaceCartDivider.create())
+        result.append(PlaceCartAdditionalContainer.create(for: self))
+        result.append(PlaceCartDivider.create())
 
         //Complete
         result.append(PlaceCartDivider.create())

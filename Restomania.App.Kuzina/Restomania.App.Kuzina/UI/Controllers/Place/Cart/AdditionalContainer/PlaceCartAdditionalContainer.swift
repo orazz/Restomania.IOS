@@ -19,56 +19,67 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartAdditionalContainer
 
         cell.delegate = delegate
-        cell.setupMarkup()
+        cell.refresh()
 
         return cell
     }
 
     //UI hooks
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var textField: UITextField!
-    @IBOutlet private weak var underlineView: UIView!
+    @IBOutlet private weak var commentLabel: UITextView!
+    @IBOutlet private weak var changeButton: UIButton!
+    private var editor = ExternalTextEditor()
 
     //Data
-    private var delegate: PlaceCartDelegate! {
-        didSet {
-            apply()
-        }
-    }
+    private var delegate: PlaceCartDelegate!
     private var container: PlaceCartController.CartContainer {
         return delegate.takeCartContainer()
     }
 
-    private func apply() {
+    public override func awakeFromNib() {
+        super.awakeFromNib()
 
-    }
-    private func setupMarkup() {
-
-        titleLabel.font = ThemeSettings.Fonts.default(size: .head)
+        titleLabel.font = ThemeSettings.Fonts.bold(size: .head)
         titleLabel.textColor = ThemeSettings.Colors.main
 
-        textField.font = ThemeSettings.Fonts.default(size: .caption)
-        textField.textColor = ThemeSettings.Colors.main
-        textField.delegate = self
-        textField.text = container.comment
+        commentLabel.font = ThemeSettings.Fonts.default(size: .caption)
 
-        underlineView.backgroundColor = ThemeSettings.Colors.main
+        editor.title = titleLabel.text
+        editor.onEdit = { update in
+            self.container.comment = update
+            self.refresh()
+        }
+    }
+    private func refresh() {
+
+        let comment = container.comment
+        if (String.isNullOrEmpty(comment)) {
+            commentLabel.text = titleLabel.text
+            commentLabel.textColor = ThemeSettings.Colors.grey
+        } else {
+            commentLabel.text = comment
+            commentLabel.textColor = ThemeSettings.Colors.main
+        }
     }
 }
-extension PlaceCartAdditionalContainer: UITextFieldDelegate {
-    public func textFieldDidEndEditing(_ textField: UITextField) {
-        container.comment = textField.text ?? String.empty
+extension PlaceCartAdditionalContainer {
+    @IBAction private func changeComment() {
+
+        editor.text = container.comment
+        delegate.takeController().modal(editor, animated: true)
     }
 }
 extension PlaceCartAdditionalContainer: PlaceCartContainerCell {
     public func viewDidAppear() {}
     public func viewDidDisappear() {}
-    public func updateData(with: PlaceCartDelegate) {}
+    public func updateData(with: PlaceCartDelegate) {
+        refresh()
+    }
 }
 extension PlaceCartAdditionalContainer: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 110
+        return 160
     }
     public func prepareView() -> UITableViewCell {
         return self

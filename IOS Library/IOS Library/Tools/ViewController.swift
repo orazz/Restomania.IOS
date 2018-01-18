@@ -11,6 +11,13 @@ import UIKit
 
 extension UIViewController {
 
+    //MARK: Show
+    open func modal(_ modal: UIViewController, animated: Bool, completion: Trigger? = nil) {
+        
+        modal.modalPresentationStyle = .overCurrentContext
+        self.present(modal, animated: animated, completion: completion)
+    }
+
     //MARK: Focus by scroll on active text field
     open func subscribeToScrollWhenKeyboardShow() {
 
@@ -73,7 +80,7 @@ extension UIViewController {
         scrollView.isScrollEnabled = false
         view.endEditing(true)
     }
-    private func prepareKeyboardHeight(for notification: NSNotification) -> CGFloat {
+    open func prepareKeyboardHeight(for notification: NSNotification) -> CGFloat {
 
         var info = notification.userInfo!
         return (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue.size.height * 1.1

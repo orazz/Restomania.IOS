@@ -49,8 +49,8 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="1lz-QV-MLe" firstAttribute="centerY" secondItem="lm8-DJ-ui6" secondAttribute="centerY" id="47x-Dj-5FV"/>
-                        <constraint firstItem="1lz-QV-MLe" firstAttribute="centerX" secondItem="lm8-DJ-ui6" secondAttribute="centerX" id="HXu-zO-kS3"/>
                         <constraint firstAttribute="height" constant="50" id="aF8-g2-wYT"/>
+                        <constraint firstItem="1lz-QV-MLe" firstAttribute="centerX" secondItem="lm8-DJ-ui6" secondAttribute="centerX" id="ufT-CA-YhU"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6yr-61-xP4">
