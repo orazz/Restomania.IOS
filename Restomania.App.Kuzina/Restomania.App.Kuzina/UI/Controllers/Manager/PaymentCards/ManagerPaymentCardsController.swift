@@ -102,10 +102,10 @@ extension ManagerPaymentCardsController {
             if (self.loaderAdapter.isLoad) {
                 self.interfaceLoader.hide()
                 self.refreshControl.endRefreshing()
-            }
 
-            if (!self.cardsContainer.problemWithLoad) {
-                self.view.makeToast(Keys.loadError.localized)
+                if (self.loaderAdapter.problemWithLoad) {
+                    self.view.makeToast(Keys.loadError.localized)
+                }
             }
         }
     }
