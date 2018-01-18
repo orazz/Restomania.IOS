@@ -33,6 +33,16 @@ extension Localization {
             private static let space = "\(String.tag(Schedule.self))"
 
             public static let holiday = "\(space).Holiday".localized(tableName: tableName)
+
+            public static let weekStartFrom = Int("\(space).WeekStartFrom".localized(tableName: tableName)) ?? 0
+
+            public static let sunday = "\(space).Sunday".localized(tableName: tableName)
+            public static let monday = "\(space).Monday".localized(tableName: tableName)
+            public static let tuesday = "\(space).Tuesday".localized(tableName: tableName)
+            public static let wednesday = "\(space).Wednesday".localized(tableName: tableName)
+            public static let thursday = "\(space).Thursday".localized(tableName: tableName)
+            public static let friday = "\(space).Friday".localized(tableName: tableName)
+            public static let saturday = "\(space).Saturday".localized(tableName: tableName)
         }
     }
 }

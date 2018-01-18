@@ -113,6 +113,9 @@ extension ShortSchedule {
 
         return false
     }
+    public func takeDay(_ weekDay: DayOfWeek) -> Day {
+        return takeDay(weekDay.rawValue)
+    }
     public func takeDay(_ weekDay: Int) -> Day {
 
         let number = ((weekDay % 7) + 7) % 7

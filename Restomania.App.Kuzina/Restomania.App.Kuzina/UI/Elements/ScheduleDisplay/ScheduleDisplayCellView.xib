@@ -13,29 +13,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ScheduleDisplayCell" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="175" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="175" height="45"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПОНЕДЕЛЬНИК" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7P-4M-Fav">
-                    <rect key="frame" x="5" y="10" width="165" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <rect key="frame" x="5" y="5" width="165" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:22 - 22:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8b-9u-PMv">
-                    <rect key="frame" x="35" y="39" width="105" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="48.5" y="25.5" width="78" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="A7P-4M-Fav" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="F11-xj-WdW"/>
+                <constraint firstItem="A7P-4M-Fav" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="F11-xj-WdW"/>
                 <constraint firstItem="A7P-4M-Fav" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="Xkf-q3-5LM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="A7P-4M-Fav" secondAttribute="trailing" constant="5" id="aWf-Pl-u6P"/>
                 <constraint firstItem="X8b-9u-PMv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cKU-Oe-tZp"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="X8b-9u-PMv" secondAttribute="bottom" constant="10" id="jwg-K1-t0M"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="X8b-9u-PMv" secondAttribute="bottom" constant="5" id="jwg-K1-t0M"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -43,7 +43,7 @@
                 <outlet property="titleLabel" destination="A7P-4M-Fav" id="3pz-TI-lqJ"/>
                 <outlet property="valueLabel" destination="X8b-9u-PMv" id="hHQ-01-vMw"/>
             </connections>
-            <point key="canvasLocation" x="-74.5" y="-246"/>
+            <point key="canvasLocation" x="-74.5" y="-258"/>
         </view>
     </objects>
 </document>

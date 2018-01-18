@@ -14,9 +14,13 @@ public class ScheduleDisplay: UIView {
 
     private let nibName = "ScheduleDisplayView"
 
+    //UI
     @IBOutlet private weak var contentView: UICollectionView!
 
-    private var _schedule = ShortSchedule()
+    //Data
+    private var schedule = ShortSchedule()
+    private var days = [DayOfWeek]()
+    private var lastFocusDay = Date()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,26 +55,40 @@ public class ScheduleDisplay: UIView {
 
     public func update(by schedule: ShortSchedule) {
 
-        _schedule = schedule
+        self.schedule = schedule
+
+        let weekStart = Localization.UIElements.Schedule.weekStartFrom
+        self.days = []
+        for offset in 0..<7 {
+            days.append(DayOfWeek(rawValue: (weekStart + offset) % 7)!)
+        }
+
         contentView.reloadData()
 
-        focus(on: Date())
+        focus(on: lastFocusDay)
     }
     public func focus(on day: Date) {
-        //-1 - we need start week from monday
-        let day = (day.dayOfWeek() - 1 + 7) % 7
-        focus(on: DayOfWeek(rawValue: day)!)
-    }
-    public func focus(on day: DayOfWeek) {
-        contentView.scrollToItem(at: IndexPath(item: day.rawValue, section: 0), at: .centeredHorizontally, animated: true)
+
+        lastFocusDay = day
+
+        if (days.isEmpty) {
+            return
+        }
+
+        let day = DayOfWeek(rawValue: day.dayOfWeek())
+        guard let position = days.index(where: { $0 == day }) else {
+            return
+        }
+
+        contentView.scrollToItem(at: IndexPath(item: position, section: 0), at: .centeredHorizontally, animated: true)
     }
 }
 extension ScheduleDisplay: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let index = dayIndex(for: indexPath.item)
-        let width = ScheduleDisplayCell.titleWidth(for: DayOfWeek(rawValue: index)!)
+        let index = days[indexPath.item]
+        let width = ScheduleDisplayCell.titleWidth(for: index)
         return CGSize.init(width: width, height: ScheduleDisplayCell.height)
     }
 }
@@ -79,23 +97,16 @@ extension ScheduleDisplay: UICollectionViewDataSource {
         return 1
     }
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return days.count
     }
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let index = dayIndex(for: indexPath.item)
-        let day = DayOfWeek(rawValue: index)!
+        let day = days[indexPath.item]
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScheduleDisplayCell.identifier, for: indexPath) as! ScheduleDisplayCell
-        cell.update(for: day, by: valueOf(day: index, of: _schedule))
+        cell.update(for: day, by: "\(schedule.takeDay(day))")
 
         return cell
-    }
-    private func valueOf(day: Int, of schedule: ShortSchedule) -> String {
-        return "\(schedule.takeDay(day + 1))"
-    }
-    private func dayIndex(for day: Int) -> Int {
-        return (day + 1 + 7) % 7
     }
 }
 extension ShortSchedule {

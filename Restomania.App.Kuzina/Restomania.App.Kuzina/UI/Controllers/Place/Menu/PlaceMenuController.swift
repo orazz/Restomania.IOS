@@ -138,11 +138,11 @@ public class PlaceMenuController: UIViewController {
     }
     @IBAction private func goPlaceInfo() {
 
-        guard let summary = summaryContainer.data else {
-            return
-        }
+//        guard let summary = summaryContainer.data else {
+//            return
+//        }
 
-        let vc = PlaceInfoController(for: summary.ID)
+//        let vc = PlaceInfoController(for: summary.ID)
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
 

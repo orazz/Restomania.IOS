@@ -18,3 +18,12 @@
 
 //Schedule
 "Schedule.Holiday" = "holiday";
+"Schedule.WeekStartFrom" = "0";
+"Schedule.Sunday" = "Sunday";
+"Schedule.Monday" = "Monday";
+"Schedule.Tuesday" = "Tuesday";
+"Schedule.Wednesday" = "Wednesday";
+"Schedule.Thursday" = "Thursday";
+"Schedule.Friday" = "Friday";
+"Schedule.Saturday" = "Saturday";
+

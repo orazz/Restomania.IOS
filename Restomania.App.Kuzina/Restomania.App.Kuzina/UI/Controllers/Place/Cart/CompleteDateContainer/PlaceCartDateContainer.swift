@@ -102,6 +102,7 @@ extension PlaceCartDateContainer {
         setup(date: date)
     }
     private func setup(date: Date) {
+
         cart.date = date
 
         scheduleView.focus(on: date)
@@ -180,7 +181,7 @@ extension PlaceCartDateContainer: PlaceCartContainerCell {
 }
 extension PlaceCartDateContainer: InterfaceTableCellProtocol {
     public var viewHeight: Int {
-        return 290
+        return 245
     }
     public func prepareView() -> UITableViewCell {
         return self

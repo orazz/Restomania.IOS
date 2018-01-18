@@ -12,9 +12,10 @@ import IOSLibrary
 
 public class ScheduleDisplayCell: UICollectionViewCell {
 
-    public static let height = CGFloat(70)
+    public static let height = CGFloat(45)
     public static let identifier = "\(String.tag(ScheduleDisplayCell.self))-\(Guid.new)"
-    private static let nibName = "ScheduleDisplayCellView"
+    private static let Localize = Localization.UIElements.Schedule.self
+    private static let nibName = "\(String.tag(ScheduleDisplayCell.self))View"
     public static func register(in collectionView: UICollectionView) {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
@@ -25,56 +26,58 @@ public class ScheduleDisplayCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var valueLabel: UILabel!
 
+    //Service
+
     //Data
-    public var isToday: Bool = false
-    private var _day: DayOfWeek!
-    private var _value: String!
+    private static let today = DayOfWeek(rawValue: Date().dayOfWeek())
+    private var day: DayOfWeek!
+    private var value: String!
+    private var isToday: Bool {
+        return day == ScheduleDisplayCell.today
+    }
 
     public func update(for day: DayOfWeek, by value: String) {
 
-        _day = day
-        _value = value
+        self.day = day
+        self.value = value
 
-        setupMarkup()
+        updateStyles()
     }
-    private func setupMarkup() {
+    private func updateStyles() {
 
-        if (String.isNullOrEmpty(_value)) {
-            valueLabel.text = Localization.UIElements.Schedule.holiday
+        if (String.isNullOrEmpty(value)) {
+            valueLabel.text = ScheduleDisplayCell.Localize.holiday
         } else {
-            valueLabel.text = _value
+            valueLabel.text = value
         }
 
-        titleLabel.text = ScheduleDisplayCell.title(for: _day).uppercased()
-
-        let weekday = Date().dayOfWeek()
-        let now = DayOfWeek(rawValue: weekday - 1)
-        if (now != _day) {
-            titleLabel.font = ThemeSettings.Fonts.default(size: .title)
-            valueLabel.font = ThemeSettings.Fonts.default(size: .subhead)
+        titleLabel.text = ScheduleDisplayCell.title(for: day).uppercased()
+        if (isToday) {
+            titleLabel.font = ThemeSettings.Fonts.bold(size: .subhead)
+            valueLabel.font = ThemeSettings.Fonts.bold(size: .caption)
         } else {
-            isToday = true
-            titleLabel.font = ThemeSettings.Fonts.bold(size: .title)
-            valueLabel.font = ThemeSettings.Fonts.bold(size: .subhead)
+            titleLabel.font = ThemeSettings.Fonts.default(size: .subhead)
+            valueLabel.font = ThemeSettings.Fonts.default(size: .caption)
         }
     }
+
     public static func title(for day: DayOfWeek) -> String {
 
         switch (day) {
-            case .monday:
-                return "Понедельник"
-            case .tuesday:
-                return "Вторник"
-            case .wednesday:
-                return "Среда"
-            case .thursday:
-                return "Четверг"
-            case .friday:
-                return "Пятница"
-            case .saturday:
-                return "Суббота"
             case .sunday:
-                return "Воскресенье"
+                return Localize.sunday
+            case .monday:
+                return Localize.monday
+            case .tuesday:
+                return Localize.tuesday
+            case .wednesday:
+                return Localize.wednesday
+            case .thursday:
+                return Localize.thursday
+            case .friday:
+                return Localize.friday
+            case .saturday:
+                return Localize.saturday
         }
     }
     public static func titleWidth(for day: DayOfWeek) -> CGFloat {

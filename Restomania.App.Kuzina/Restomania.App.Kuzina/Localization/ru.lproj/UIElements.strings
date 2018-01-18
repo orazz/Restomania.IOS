@@ -18,3 +18,11 @@
 
 //Schedule
 "Schedule.Holiday" = "выходной";
+"Schedule.WeekStartFrom" = "1";
+"Schedule.Sunday" = "Воскресенье";
+"Schedule.Monday" = "Понедельник";
+"Schedule.Tuesday" = "Вторник";
+"Schedule.Wednesday" = "Среда";
+"Schedule.Thursday" = "Четверг";
+"Schedule.Friday" = "Пятница";
+"Schedule.Saturday" = "Суббота";

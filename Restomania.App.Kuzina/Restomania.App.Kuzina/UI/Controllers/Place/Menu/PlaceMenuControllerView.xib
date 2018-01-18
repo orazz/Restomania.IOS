@@ -61,7 +61,7 @@
                 <navigationItem id="bMO-bg-9fN">
                     <barButtonItem key="leftBarButtonItem" style="plain" id="LNT-4I-2hb">
                         <inset key="imageInsets" minX="11" minY="0.0" maxX="-16" maxY="0.0"/>
-                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="17a-Si-tyA">
+                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="17a-Si-tyA">
                             <rect key="frame" x="16" y="0.0" width="50" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <gestureRecognizers/>
