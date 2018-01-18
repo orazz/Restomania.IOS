@@ -78,7 +78,7 @@ public class PlaceMenuController: UIViewController {
             DispatchQueue.main.async {
                 self.fadeInPanel.topItem?.title = update.Schedule.todayRepresentation
             }
-            self.completeLoad()
+            self.notifyAboutLoadData()
         }
 
         self.menuContainer = PartsLoadTypedContainer<MenuSummary>(completeLoadHandler: self.completeLoad)
@@ -86,7 +86,7 @@ public class PlaceMenuController: UIViewController {
             DispatchQueue.main.async {
                 self.cartAction.update(new: update)
             }
-            self.completeLoad()
+            self.notifyAboutLoadData()
         }
 
         self.loadAdapter = PartsLoader([summaryContainer, menuContainer])
@@ -211,7 +211,6 @@ extension PlaceMenuController {
         requestData()
     }
     @objc private func needReload() {
-
         loadAdapter.startRequest()
         requestData()
     }
@@ -234,9 +233,10 @@ extension PlaceMenuController {
         request.async(loadQueue, completion: menuContainer.completeLoad)
     }
     private func completeLoad() {
-        DispatchQueue.main.async {
 
-            if (self.loadAdapter.isLoad) {
+        if (self.loadAdapter.isLoad) {
+
+            DispatchQueue.main.async {
                 self.loader.hide()
                 self.refreshControl.endRefreshing()
 
@@ -245,9 +245,10 @@ extension PlaceMenuController {
                     self.view.makeToast(Keys.AlertLoadErrorMessage.localized)
                 }
             }
-
-            self.trigger({ $0.dataDidLoad(delegate: self) })
         }
+    }
+    private func notifyAboutLoadData() {
+        self.trigger({ $0.dataDidLoad(delegate: self) })
     }
 }
 

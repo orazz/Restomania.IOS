@@ -21,21 +21,21 @@ public class PaymentCard: BaseDataType, ICached {
         public static let currency = "Currency"
     }
 
-    public var UserID: Int64
-    public var Last4Number: String
-    public var Status: PaymentCardStatus
-    public var `Type`: PaymentCardType
-    public var ClientType: BankClientType
-    public var Currency: CurrencyType
+    public var userID: Int64
+    public var last4Number: String
+    public var status: PaymentCardStatus
+    public var type: PaymentCardType
+    public var bankType: BankClientType
+    public var currency: CurrencyType
 
     public override init() {
 
-        self.UserID = 0
-        self.Last4Number = String.empty
-        self.Status = .Proccessing
-        self.Type = .Other
-        self.ClientType = .TestClient
-        self.Currency = .EUR
+        self.userID = 0
+        self.last4Number = String.empty
+        self.status = .Proccessing
+        self.type = .Other
+        self.bankType = .TestClient
+        self.currency = .EUR
 
         super.init()
     }
@@ -43,12 +43,12 @@ public class PaymentCard: BaseDataType, ICached {
     // MARK: ICopying
     public required init(source: PaymentCard) {
 
-        self.UserID = source.UserID
-        self.Last4Number = source.Last4Number
-        self.Status = source.Status
-        self.Type = source.Type
-        self.ClientType = source.ClientType
-        self.Currency = source.Currency
+        self.userID = source.userID
+        self.last4Number = source.last4Number
+        self.status = source.status
+        self.type = source.type
+        self.bankType = source.bankType
+        self.currency = source.currency
 
         super.init(source: source)
     }
@@ -56,12 +56,12 @@ public class PaymentCard: BaseDataType, ICached {
     // MARK: Glossy
     public required init(json: JSON) {
 
-        self.UserID = (Keys.userId <~~ json)!
-        self.Last4Number = (Keys.last4Number <~~ json)!
-        self.Status = (Keys.status <~~ json)!
-        self.Type = (Keys.type <~~ json)!
-        self.ClientType = (Keys.clientType <~~ json)!
-        self.Currency = (Keys.currency <~~ json)!
+        self.userID = (Keys.userId <~~ json)!
+        self.last4Number = (Keys.last4Number <~~ json)!
+        self.status = (Keys.status <~~ json)!
+        self.type = (Keys.type <~~ json)!
+        self.bankType = (Keys.clientType <~~ json)!
+        self.currency = (Keys.currency <~~ json)!
 
         super.init(json: json)
     }
@@ -69,12 +69,12 @@ public class PaymentCard: BaseDataType, ICached {
         return jsonify([
             super.toJSON(),
 
-            Keys.userId ~~> self.UserID,
-            Keys.last4Number ~~> self.Last4Number,
-            Keys.status ~~> self.Status,
-            Keys.type ~~> self.Type,
-            Keys.clientType ~~> self.ClientType,
-            Keys.currency ~~> self.Currency
+            Keys.userId ~~> self.userID,
+            Keys.last4Number ~~> self.last4Number,
+            Keys.status ~~> self.status,
+            Keys.type ~~> self.type,
+            Keys.clientType ~~> self.bankType,
+            Keys.currency ~~> self.currency
             ])
     }
 }

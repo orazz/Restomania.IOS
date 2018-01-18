@@ -37,7 +37,7 @@ public class PlaceCartPaymentCardsContainerCell: UITableViewCell {
     //Data
     private var card: PaymentCard! {
         didSet {
-            numberLabel.text = "**** \(card.Last4Number)"
+            numberLabel.text = "**** \(card.last4Number)"
         }
     }
 

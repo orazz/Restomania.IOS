@@ -81,7 +81,7 @@ extension ManagerPaymentCardsController {
 
     private func loadData() {
 
-        let cards = cardsService.cache.where { $0.Currency == self.mainCurrency }
+        let cards = cardsService.cache.where { $0.currency == self.mainCurrency }
         if (cards.isEmpty) {
             interfaceLoader.show()
         } else {

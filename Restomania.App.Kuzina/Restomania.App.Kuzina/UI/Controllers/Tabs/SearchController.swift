@@ -93,7 +93,7 @@ extension SearchController {
         let task = service.range(ids)
         task.async(loadQueue, completion: { response in
 
-            DispatchQueue.main.sync {
+            DispatchQueue.main.async {
 
                 if (response.isFail) {
                     let alert = ProblemAlerts.error(for: response)

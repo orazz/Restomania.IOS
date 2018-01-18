@@ -29,8 +29,8 @@ public class PaymentCardCell: UITableViewCell {
         _card = card
         _delegate = delegate
 
-        NumberLabel.text = "**** \(_card.Last4Number)"
-        TypeLabel.text = "\(card.Type)"
+        NumberLabel.text = "**** \(_card.last4Number)"
+        TypeLabel.text = "\(card.type)"
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapRemove))
         CloseIcon.addGestureRecognizer(tap)

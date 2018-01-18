@@ -131,6 +131,8 @@ extension PlaceCartController {
         let back = UIImageView(image: ThemeSettings.Images.navigationBackward)
         back.frame = CGRect(x: -11, y: 0 /*backButton.center.y - size/2*/, width: size, height: size)
         backButton.addSubview(back)
+
+        reloadInterface()
     }
 }
 
@@ -229,21 +231,29 @@ extension PlaceCartController {
         request.async(loadQueue, completion: cardsContainer.completeLoad)
     }
     private func completeLoad() {
-        DispatchQueue.main.async {
 
             if (self.loadAdapter.isLoad) {
-                self.interfaceLoader.hide()
-                self.refreshControl.endRefreshing()
 
-                if (self.loadAdapter.problemWithLoad) {
-                    self.toast(Localization.Toasts.problemWithLoad)
+                DispatchQueue.main.async {
+                    self.interfaceLoader.hide()
+                    self.refreshControl.endRefreshing()
 
-                    Log.Error(self._tag, "Problem with load data for page.")
+                    if (self.loadAdapter.problemWithLoad) {
+                        self.toast(Localization.Toasts.problemWithLoad)
+
+                        Log.Error(self._tag, "Problem with load data for page.")
+                    }
+
+                    self.trigger({ $0.updateData(with: self) })
+                    self.reloadInterface()
                 }
-            }
+        }
+    }
+    private func filterCards() {
 
-            self.trigger({ $0.updateData(with: self) })
-            self.reloadInterface()
+        if let menu = menuContainer.data,
+            let cards = cardsContainer.data {
+            cardsContainer.update(cards.filter({ $0.currency == menu.currency }))
         }
     }
 }
@@ -266,7 +276,7 @@ extension PlaceCartController: PlaceCartDelegate {
     public func takeCards() -> [PaymentCard]? {
 
         if let menu = takeMenu() {
-            return cardsContainer.data?.where({ $0.Currency == menu.currency })
+            return cardsContainer.data?.where({ $0.currency == menu.currency })
         } else {
             return cardsContainer.data
         }
@@ -287,29 +297,27 @@ extension PlaceCartController: PlaceCartDelegate {
             return
         }
 
-        addPaymentCardsService.addCard(for: menu.currency, on: self) { success, result in
-            DispatchQueue.main.sync {
+        addPaymentCardsService.addCard(for: menu.currency, on: self) { success, cardId in
 
-                if (!success) {
-                    self.toast(Localization.Toasts.problemWithAddCard)
-
-                    return
-                } else {
-                    self.interfaceLoader.show()
-                }
+            if (!success) {
+                self.toast(Localization.Toasts.problemWithAddCard)
+                return
             }
 
-            let request = self.cardsService.find(result)
+            self.interfaceLoader.show()
+
+            let request = self.cardsService.find(cardId)
             request.async(self.loadQueue) { response in
                 DispatchQueue.main.async {
 
-                    if let card = response.data {
-                        self.cardsContainer.update([card] + self.cardsService.cache.all)
-                        self.cartContaier.cardId = card.ID
+                    if response.isSuccess {
+                        self.cardsContainer.update(self.cardsService.cache.all)
+                        self.cartContaier.cardId = cardId
 
                         self.trigger({ $0.updateData(with: self) })
-                    } else if (response.isFail) {
-                        self.toast(for: response)
+                        self.reloadInterface()
+                    } else {
+                        self.toast(Localization.Toasts.problemWithAddCard)
                     }
 
                     self.interfaceLoader.hide()
@@ -343,7 +351,7 @@ extension PlaceCartController: PlaceCartDelegate {
                     let vc = PlaceCompleteOrderController.create(for: order)
                     self.navigationController?.pushViewController(vc, animated: true)
 
-                    Log.Debug(self._tag, "Add order to #\(self.placeId)")
+                    Log.Debug(self._tag, "Add order #\(self.placeId)")
                 }
 
                 if (response.isFail) {
