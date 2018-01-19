@@ -6,7 +6,19 @@
   Copyright © 2017 Medved-Studio. All rights reserved.
 */
 
-"Title" = "Корзина";
+
+"Labels.Title" = "Корзина";
+"Labels.OrderOn" = "Заказ в %@ на %@";
+"Labels.Total" = "Итог";
+"Labels.SelectPaymentCard" = "Выберите карту для оплаты";
+"Labels.Comment" = "Комментарий";
+
+"Buttons.Now" = "Я скоро буд";
+"Buttons.Today" = "Сегодня";
+"Buttons.Tommorow" = "Завтра";
+"Buttons.AddNewCard" = "Добавить карту";
+"Buttons.EditComment" = "Редактировать";
+"Buttons.AddNewOrder" = "Добавить заказ";
 
 "Toasts.NotWorkTime" = "Заведение не работает в это время, попробуйте изменить время заказа.";
 "Toasts.NotAddOrder" = "Проблемы с добавлением заказа. Обновите страницу и попробуйте снова..";

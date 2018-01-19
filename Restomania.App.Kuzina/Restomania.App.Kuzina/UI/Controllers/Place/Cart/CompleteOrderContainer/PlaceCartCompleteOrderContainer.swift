@@ -36,7 +36,7 @@ public class PlaceCartCompleteOrderContainer: UITableViewCell {
 
         titleLabel.font = ThemeSettings.Fonts.default(size: .title)
         titleLabel.textColor = ThemeSettings.Colors.additional
-        titleLabel.text = PlaceCartController.Localization.Buttons.addNewOrder.localized
+        titleLabel.text = PlaceCartController.Localization.Buttons.addNewOrder.localized.uppercased()
     }
 }
 extension PlaceCartCompleteOrderContainer: PlaceCartContainerCell {
