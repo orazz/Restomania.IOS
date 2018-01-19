@@ -65,6 +65,11 @@ public class PlaceCartDateContainer: UITableViewCell {
         dateChecker.backgroundColor = ThemeSettings.Colors.additional
         dateChecker.addTarget(self, action: #selector(handleDaySelect), for: .valueChanged)
 
+        dateChecker.removeAllSegments()
+        dateChecker.insertSegment(withTitle: PlaceCartController.Localization.Buttons.now.localized, at: DaySelectorSegments.now.rawValue, animated: true)
+        dateChecker.insertSegment(withTitle: PlaceCartController.Localization.Buttons.today.localized, at: DaySelectorSegments.today.rawValue, animated: true)
+        dateChecker.insertSegment(withTitle: PlaceCartController.Localization.Buttons.tomorrow.localized, at: DaySelectorSegments.tommorow.rawValue, animated: true)
+
         timePicker.dataSource = self
         timePicker.delegate = self
 
@@ -130,7 +135,8 @@ public class PlaceCartDateContainer: UITableViewCell {
         let time = cart.time
         let date = cart.date
 
-        dateTimeLabel.text = "Заказ на \(timeFormatter.string(from: time)) \(dateFormatter.string(from: date))"
+        let format = PlaceCartController.Localization.Labels.orderOn.localized
+        dateTimeLabel.text = String(format: format, timeFormatter.string(from: time), dateFormatter.string(from: date))
     }
 
 }

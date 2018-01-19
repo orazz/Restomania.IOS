@@ -12,7 +12,7 @@ import IOSLibrary
 
 public class PlaceCartTotalContainer: UITableViewCell {
 
-    private static let nibName = "PlaceCartTotalContainerView"
+    private static let nibName = "\(String.tag(PlaceCartTotalContainer.self))View"
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartTotalContainer {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
@@ -28,7 +28,7 @@ public class PlaceCartTotalContainer: UITableViewCell {
 
         var result = [PlaceCartContainerCell]()
 
-        result.append(PlaceCartTotalContainerCell.create(for: delegate, title: "Итого", { $0.total(with: $1) }))
+        result.append(PlaceCartTotalContainerCell.create(for: delegate, title: PlaceCartController.Localization.Labels.total.localized, { $0.total(with: $1) }))
 
         return result
     }

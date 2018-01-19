@@ -82,10 +82,8 @@ extension Date {
     }
     private func utcComponent(_ part: Calendar.Component) -> Int {
 
-        var calendar = Calendar.utcCurrent
-        let component = calendar.component(part, from: self)
-
-        return component
+        let calendar = Calendar.utcCurrent
+        return calendar.component(part, from: self)
     }
 
     public var yesterday: Date {

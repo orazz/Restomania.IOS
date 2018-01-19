@@ -248,7 +248,9 @@ extension PlaceMenuController {
         }
     }
     private func notifyAboutLoadData() {
-        self.trigger({ $0.dataDidLoad(delegate: self) })
+        DispatchQueue.main.async {
+            self.trigger({ $0.dataDidLoad(delegate: self) })
+        }
     }
 }
 

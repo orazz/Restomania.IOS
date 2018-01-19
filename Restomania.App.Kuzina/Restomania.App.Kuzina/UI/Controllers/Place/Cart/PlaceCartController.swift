@@ -74,8 +74,17 @@ public class PlaceCartController: UIViewController {
 
         //Loaders
         summaryContainer = PartsLoadTypedContainer<PlaceSummary>(completeLoadHandler: self.completeLoad)
+        summaryContainer.updateHandler = { _ in
+            self.notifyAboutUpdateData()
+        }
         menuContainer = PartsLoadTypedContainer<MenuSummary>(completeLoadHandler: self.completeLoad)
+        menuContainer.updateHandler = { _ in
+            self.notifyAboutUpdateData()
+        }
         cardsContainer = PartsLoadTypedContainer<[PaymentCard]>(completeLoadHandler: self.completeLoad)
+        cardsContainer.updateHandler = { _ in
+            self.notifyAboutUpdateData()
+        }
 
         loadAdapter = PartsLoader([summaryContainer, menuContainer, cardsContainer])
     }
@@ -125,6 +134,7 @@ extension PlaceCartController {
 
         navigationBarStubDimmer.backgroundColor = ThemeSettings.Colors.main
         navigationBar.barTintColor = ThemeSettings.Colors.main
+        navigationBar.topItem?.title = Localization.Labels.title.localized
 
         let backButton = backNavigationItem.customView as! UIButton
         let size = CGFloat(35)
@@ -203,7 +213,6 @@ extension PlaceCartController {
     @objc private func needReload() {
 
         loadAdapter.startRequest()
-
         requestData()
     }
     private func requestData() {
@@ -232,21 +241,23 @@ extension PlaceCartController {
     }
     private func completeLoad() {
 
-            if (self.loadAdapter.isLoad) {
+        if (self.loadAdapter.isLoad) {
+            DispatchQueue.main.async {
 
-                DispatchQueue.main.async {
-                    self.interfaceLoader.hide()
-                    self.refreshControl.endRefreshing()
+                self.interfaceLoader.hide()
+                self.refreshControl.endRefreshing()
 
-                    if (self.loadAdapter.problemWithLoad) {
-                        self.toast(Localization.Toasts.problemWithLoad)
-
-                        Log.Error(self._tag, "Problem with load data for page.")
-                    }
-
-                    self.trigger({ $0.updateData(with: self) })
-                    self.reloadInterface()
+                if (self.loadAdapter.problemWithLoad) {
+                    self.toast(Localization.Toasts.problemWithLoad)
+                    Log.Error(self._tag, "Problem with load data for page.")
                 }
+            }
+        }
+    }
+    private func notifyAboutUpdateData() {
+        DispatchQueue.main.async {
+            self.trigger({ $0.updateData(with: self) })
+            self.reloadInterface()
         }
     }
     private func filterCards() {
@@ -409,16 +420,30 @@ extension PlaceCartController {
     public class Localization {
         private static let tablename = "PlaceCartController"
 
-        public enum Keys: String, Localizable {
-
-            case Title = "Title"
-
+        public enum Labels: String, Localizable {
             public var tableName: String {
                 return Localization.tablename
             }
+
+            case title = "Labels.Title"
+            case orderOn = "Labels.OrderOn"
+            case total = "Labels.Total"
+            case selectPaymentCard = "Labels.SelectPaymentCard"
+            case comment = "Labels.Comment"
+        }
+        public enum Buttons: String, Localizable {
+            public var tableName: String {
+                return Localization.tablename
+            }
+
+            case now = "Buttons.Now"
+            case today = "Buttons.Today"
+            case tomorrow = "Buttons.Tommorow"
+            case addNewCard = "Buttons.AddNewCard"
+            case editComment = "Buttons.EditComment"
+            case addNewOrder = "Buttons.AddNewOrder"
         }
         public enum Toasts: String, Localizable {
-
             public var tableName: String {
                 return Localization.tablename
             }

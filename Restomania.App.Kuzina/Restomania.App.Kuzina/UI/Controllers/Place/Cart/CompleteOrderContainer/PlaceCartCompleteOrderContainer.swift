@@ -12,7 +12,7 @@ import IOSLibrary
 
 public class PlaceCartCompleteOrderContainer: UITableViewCell {
 
-    private static let nibName = "PlaceCartCompleteOrderContainerView"
+    private static let nibName = "\(String.tag(PlaceCartCompleteOrderContainer.self))View"
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartCompleteOrderContainer {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
@@ -36,6 +36,7 @@ public class PlaceCartCompleteOrderContainer: UITableViewCell {
 
         titleLabel.font = ThemeSettings.Fonts.default(size: .title)
         titleLabel.textColor = ThemeSettings.Colors.additional
+        titleLabel.text = PlaceCartController.Localization.Buttons.addNewOrder.localized
     }
 }
 extension PlaceCartCompleteOrderContainer: PlaceCartContainerCell {

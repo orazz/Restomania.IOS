@@ -78,6 +78,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="addCardButton" destination="1lz-QV-MLe" id="0kx-y8-HXJ"/>
                 <outlet property="bottomView" destination="lm8-DJ-ui6" id="rvN-Mv-isr"/>
                 <outlet property="cardsTable" destination="6yr-61-xP4" id="azN-P8-kGg"/>
                 <outlet property="titleLabel" destination="W8z-E0-Blo" id="aMi-hw-igv"/>

@@ -106,8 +106,9 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
             _dishesAdapter.select(by: category)
         }
 
-        if (!dishesTable.visibleCells.isEmpty) {
-            dishesTable.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+        let path = IndexPath(row: 0, section: 0)
+        if let _ = dishesTable.cellForRow(at: path) {
+            dishesTable.scrollToRow(at: path, at: .top, animated: true)
         }
     }
     public func select(dish: Long) {}

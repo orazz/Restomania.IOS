@@ -12,7 +12,7 @@ import IOSLibrary
 
 public class PlaceCartAdditionalContainer: UITableViewCell {
 
-    private static let nibName = "PlaceCartAdditionalContainerView"
+    private static let nibName = "\(String.tag(PlaceCartAdditionalContainer.self))View"
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartContainerCell {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
@@ -41,10 +41,13 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
 
         titleLabel.font = ThemeSettings.Fonts.bold(size: .head)
         titleLabel.textColor = ThemeSettings.Colors.main
+        titleLabel.text = PlaceCartController.Localization.Labels.comment.localized
 
         commentLabel.font = ThemeSettings.Fonts.default(size: .caption)
 
-        editor.title = titleLabel.text
+        changeButton.setTitle(PlaceCartController.Localization.Buttons.editComment.localized, for: .normal)
+
+        editor.title = PlaceCartController.Localization.Labels.comment.localized
         editor.onEdit = { update in
             self.container.comment = update
             self.refresh()
@@ -54,7 +57,7 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
 
         let comment = container.comment
         if (String.isNullOrEmpty(comment)) {
-            commentLabel.text = titleLabel.text
+            commentLabel.text = PlaceCartController.Localization.Labels.comment.localized
             commentLabel.textColor = ThemeSettings.Colors.grey
         } else {
             commentLabel.text = comment

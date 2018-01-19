@@ -12,14 +12,13 @@ import IOSLibrary
 
 public class PlaceCartPaymentCardsContainer: UITableViewCell {
 
-    private static let nibName = "PlaceCartPaymentCardsContainerView"
+    private static let nibName = "\(String.tag(PlaceCartPaymentCardsContainer.self))View"
     public static func create(with delegate: PlaceCartDelegate) -> PlaceCartPaymentCardsContainer {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartPaymentCardsContainer
 
         cell.delegate = delegate
-        cell.setupMarkup()
 
         return cell
     }
@@ -29,13 +28,19 @@ public class PlaceCartPaymentCardsContainer: UITableViewCell {
     @IBOutlet private weak var cardsTable: UITableView!
     @IBOutlet private weak var bottomView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    private func setupMarkup() {
+    @IBOutlet private weak var addCardButton: UIButton!
+
+    public override func awakeFromNib() {
+        super.awakeFromNib()
 
         titleLabel.font = ThemeSettings.Fonts.bold(size: .head)
         titleLabel.textColor = ThemeSettings.Colors.main
+        titleLabel.text = PlaceCartController.Localization.Labels.selectPaymentCard.localized
 
         cardsTable.dataSource = self
         cardsTable.delegate = self
+
+        addCardButton.setTitle(PlaceCartController.Localization.Buttons.addNewCard.localized, for: .normal)
     }
     @IBAction private func addCard() {
        delegate.addPaymentCard()
