@@ -28,14 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppSummary.shared.launchApp()
 
         Migrations.apply()
+
         CacheServices.load()
+        StreamServices.start()
         LogicServices.shared.load();
 
         RefreshDataManager.shared.launch()
 
         LogicServices.shared.positions.requestPermission(always: true)
-
-        //setupForTesting()
     }
     private func setupForTesting() {
 

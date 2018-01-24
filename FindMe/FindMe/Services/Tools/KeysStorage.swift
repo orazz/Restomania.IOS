@@ -67,10 +67,9 @@ public class KeysStorage {
     }
     public func set(for role: ApiRole, keys: ApiKeys) {
 
-        logout(role)
         data.append(KeysContainer(keys: keys, rights: role))
-
         save()
+
         eventsAdapter.invoke({ $0.set(keys: keys, for: role) })
     }
     public func logout(_ role: ApiRole) {
@@ -78,8 +77,8 @@ public class KeysStorage {
         if let index = data.index(where: { role == $0.rights }) {
             data.remove(at: index)
         }
-
         save()
+        
         eventsAdapter.invoke({ $0.remove(for: role) })
     }
 }

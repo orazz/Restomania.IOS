@@ -886,8 +886,8 @@
 			isa = PBXGroup;
 			children = (
 				1F1A0E421F77E99E00FDBA97 /* LogicServices.swift */,
-				1F2E375F1FCC82A2003D24C1 /* CacheServices.swift */,
 				1FE0B70220176114008EAFD2 /* StreamServices.swift */,
+				1F2E375F1FCC82A2003D24C1 /* CacheServices.swift */,
 				1F61302C1FAA7948009D3AF1 /* ApiServices.swift */,
 				1F2E37611FCC8569003D24C1 /* ToolsServices.swift */,
 				1F2E37641FCC9119003D24C1 /* UI */,

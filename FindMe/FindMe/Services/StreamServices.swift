@@ -11,4 +11,8 @@ import Foundation
 public class StreamServices {
 
     public static let chat: ChatConnection = ChatConnection(configs: ToolsServices.shared.configs, keys: ToolsServices.shared.keys)
+
+    public static func start() {
+        chat.start()
+    }
 }
