@@ -52,6 +52,7 @@ public class ChatDialogsCacheService {
                 if let update = response.data {
 
                     self.cacheAdapter.addOrUpdate(update)
+                    self.eventsAdapter.invoke({ $0.dialogsService(self, updates: update) })
                 }
 
                 handler(response)
@@ -66,9 +67,10 @@ public class ChatDialogsCacheService {
             let request = self.api.find(dialogId)
             request.async(self.apiQueue) { response in
 
-                if let update = response.data {
+                if let dialog = response.data {
 
-                    self.cacheAdapter.addOrUpdate(update)
+                    self.cacheAdapter.addOrUpdate(dialog)
+                    self.eventsAdapter.invoke({ $0.dialogsService(self, update: dialog) })
                 }
 
                 handler(response)
@@ -89,6 +91,7 @@ public class ChatDialogsCacheService {
 
                     dialog.partners = update
                     self.cacheAdapter.addOrUpdate(dialog)
+                    self.eventsAdapter.invoke({ $0.dialogsService(self, update: dialog) })
                 }
 
                 handler(response)
@@ -107,6 +110,7 @@ public class ChatDialogsCacheService {
                 if let update = response.data {
 
                     self.cacheAdapter.addOrUpdate(update)
+                    self.eventsAdapter.invoke({ $0.dialogsService(self, new: update) })
                 }
 
                 handler(response)
@@ -138,14 +142,21 @@ extension ChatDialogsCacheService: IEventsEmitter {
 extension ChatDialogsCacheService: ChatConnectionDelegate {
     public func chatConnection(_ connection: ChatConnection, new message: ChatMessage) {
 
+        if nil == cache.find(message.dialogId) {
+            _ = self.find(message.dialogId)
+        }
     }
 }
 
 
 
 public protocol ChatDialogsCacheServiceDelegate {
-
+    func dialogsService(_ service: ChatDialogsCacheService, new dialog: Dialog)
+    func dialogsService(_ service: ChatDialogsCacheService, update dialog: Dialog)
+    func dialogsService(_ service: ChatDialogsCacheService, updates dialogs: [Dialog])
 }
 extension ChatDialogsCacheServiceDelegate {
-    
+    public func dialogsService(_ service: ChatDialogsCacheService, new dialog: Dialog) {}
+    public func dialogsService(_ service: ChatDialogsCacheService, update dialog: Dialog) {}
+    public func dialogsService(_ service: ChatDialogsCacheService, updates dialogs: [Dialog]) {}
 }
