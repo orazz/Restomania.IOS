@@ -155,6 +155,16 @@ extension ChatMessagesCacheService: ChatConnectionDelegate {
         }
     }
 }
+extension ChatMessagesCacheService: IEventsEmitter {
+    public typealias THandler = ChatMessagesCacheServiceDelegate
+
+    public func subscribe(guid: String, handler: ChatMessagesCacheServiceDelegate, tag: String) {
+        eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        eventsAdapter.unsubscribe(guid: guid)
+    }
+}
 
 
 
@@ -165,7 +175,7 @@ public protocol ChatMessagesCacheServiceDelegate {
 }
 extension ChatMessagesCacheServiceDelegate {
 
-    func messagesService(_ service: ChatMessagesCacheService, new message: ChatMessage) {}
-    func messagesService(_ service: ChatMessagesCacheService, updates messages: [ChatMessage]) {}
-    func messagesService(_ service: ChatMessagesCacheService, change message: ChatMessage) {}
+    public func messagesService(_ service: ChatMessagesCacheService, new message: ChatMessage) {}
+    public func messagesService(_ service: ChatMessagesCacheService, updates messages: [ChatMessage]) {}
+    public func messagesService(_ service: ChatMessagesCacheService, change message: ChatMessage) {}
 }

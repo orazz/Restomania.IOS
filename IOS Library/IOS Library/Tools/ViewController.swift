@@ -80,10 +80,14 @@ extension UIViewController {
         scrollView.isScrollEnabled = false
         view.endEditing(true)
     }
-    open func prepareKeyboardHeight(for notification: NSNotification) -> CGFloat {
+    open func realKeyboardHeight(for notification: NSNotification) -> CGFloat {
 
         var info = notification.userInfo!
-        return (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue.size.height * 1.1
+        return (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue.size.height
+    }
+    open func prepareKeyboardHeight(for notification: NSNotification) -> CGFloat {
+
+        return realKeyboardHeight(for: notification) * 1.1
     }
     private func searchActiveSubview(in parent: UIView) -> UIView? {
 
