@@ -14,19 +14,19 @@ public class ChatDialogsCacheService {
 
     private let tag = String.tag(ChatDialogsCacheService.self)
     private let guid = Guid.new
-    private let cacheAdapter: CacheAdapter<Dialog>
+    private let cacheAdapter: CacheAdapter<ChatDialog>
     private let eventsAdapter: EventsAdapter<ChatDialogsCacheServiceDelegate>
     private let api = ApiServices.Chat.dialogs
     private let stream = StreamServices.chat
     private let apiQueue: AsyncQueue
 
-    public var cache: CacheAdapterExtender<Dialog> {
+    public var cache: CacheAdapterExtender<ChatDialog> {
         return cacheAdapter.extender
     }
 
     public init() {
 
-        cacheAdapter = CacheAdapter<Dialog>(tag: tag, filename: "chat-dialogs.json", livetime: 365 * 24 * 60 * 60)
+        cacheAdapter = CacheAdapter<ChatDialog>(tag: tag, filename: "chat-dialogs.json", livetime: 365 * 24 * 60 * 60)
         eventsAdapter = EventsAdapter<ChatDialogsCacheServiceDelegate>(tag: tag)
         apiQueue = AsyncQueue.createForApi(for: tag)
 
@@ -41,7 +41,7 @@ public class ChatDialogsCacheService {
     }
 
     //MARK: Methods
-    public func all(with parameters: SelectParameters) -> RequestResult<[Dialog]> {
+    public func all(with parameters: SelectParameters) -> RequestResult<[ChatDialog]> {
 
         Log.Debug(tag, "Request all dialogs (\(parameters.skip):\(parameters.take))")
         return RequestResult { handler in
@@ -59,7 +59,7 @@ public class ChatDialogsCacheService {
             }
         }
     }
-    public func find(_ dialogId: Long) -> RequestResult<Dialog> {
+    public func find(_ dialogId: Long) -> RequestResult<ChatDialog> {
 
         Log.Debug(tag, "Request dialog #\(dialogId).")
         return RequestResult { handler in
@@ -99,7 +99,7 @@ public class ChatDialogsCacheService {
         }
     }
 
-    public func add(for recipientId: Long) -> RequestResult<Dialog> {
+    public func add(for recipientId: Long) -> RequestResult<ChatDialog> {
 
         Log.Debug(tag, "Create new dialog for user #\(recipientId).")
         return RequestResult { handler in
@@ -142,21 +142,38 @@ extension ChatDialogsCacheService: IEventsEmitter {
 extension ChatDialogsCacheService: ChatConnectionDelegate {
     public func chatConnection(_ connection: ChatConnection, new message: ChatMessage) {
 
-        if nil == cache.find(message.dialogId) {
+        guard let dialog = cache.find(message.dialogId) else {
             _ = self.find(message.dialogId)
+            return
         }
+
+        dialog.lastMessage = message
+        dialog.lastActivity = Date()
+        self.cacheAdapter.addOrUpdate(dialog)
+        self.eventsAdapter.invoke({ $0.dialogsService(self, update: dialog) })
+    }
+    public func chatConnection(_ connection: ChatConnection, message messageId: Long, changeStatusOn: DeliveryStatus) {
+
+        guard let message = CacheServices.chatMessages.cache.find(messageId),
+                let dialog = cache.find(message.dialogId) else {
+            return
+        }
+
+        dialog.lastActivity = Date()
+        self.cacheAdapter.addOrUpdate(dialog)
+        self.eventsAdapter.invoke({ $0.dialogsService(self, update: dialog) })
     }
 }
 
 
 
 public protocol ChatDialogsCacheServiceDelegate {
-    func dialogsService(_ service: ChatDialogsCacheService, new dialog: Dialog)
-    func dialogsService(_ service: ChatDialogsCacheService, update dialog: Dialog)
-    func dialogsService(_ service: ChatDialogsCacheService, updates dialogs: [Dialog])
+    func dialogsService(_ service: ChatDialogsCacheService, new dialog: ChatDialog)
+    func dialogsService(_ service: ChatDialogsCacheService, update dialog: ChatDialog)
+    func dialogsService(_ service: ChatDialogsCacheService, updates dialogs: [ChatDialog])
 }
 extension ChatDialogsCacheServiceDelegate {
-    public func dialogsService(_ service: ChatDialogsCacheService, new dialog: Dialog) {}
-    public func dialogsService(_ service: ChatDialogsCacheService, update dialog: Dialog) {}
-    public func dialogsService(_ service: ChatDialogsCacheService, updates dialogs: [Dialog]) {}
+    public func dialogsService(_ service: ChatDialogsCacheService, new dialog: ChatDialog) {}
+    public func dialogsService(_ service: ChatDialogsCacheService, update dialog: ChatDialog) {}
+    public func dialogsService(_ service: ChatDialogsCacheService, updates dialogs: [ChatDialog]) {}
 }

@@ -42,6 +42,9 @@ open class BaseImageWrapper: UIImageView {
         self.backgroundColor = UIColor.white
     }
 
+    public func clear() {
+        self.image = delegate?.defaultImage
+    }
     public func setup(url: String) {
 
         let url = delegate?.prepare(url: url, width: frame.width)
@@ -79,7 +82,7 @@ open class BaseImageWrapper: UIImageView {
                 return
             }
 
-            let duration = 0.1
+            let duration = 0.05
             UIView.animate(withDuration: duration, animations: { self.alpha = 0 }, completion: ({ _ in
 
                 self.image = image

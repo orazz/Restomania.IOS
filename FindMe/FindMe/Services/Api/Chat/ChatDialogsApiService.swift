@@ -16,21 +16,21 @@ public class ChatDialogsApiService: BaseApiService {
     }
 
     //MARK: Methods
-    public func all(with parameters: SelectParameters) -> RequestResult<[Dialog]> {
+    public func all(with parameters: SelectParameters) -> RequestResult<[ChatDialog]> {
 
         let parameters = self.CollectParameters(rights: .user, [
             "parameters": parameters
         ])
 
-        return self.client.GetRange(action: "All", type: Dialog.self, parameters: parameters)
+        return self.client.GetRange(action: "All", type: ChatDialog.self, parameters: parameters)
     }
-    public func find(_ dialogId: Long) -> RequestResult<Dialog> {
+    public func find(_ dialogId: Long) -> RequestResult<ChatDialog> {
 
         let parameters = self.CollectParameters(rights: .user, [
             "dialogId": dialogId
         ])
 
-        return self.client.Get(action: "Find", type: Dialog.self, parameters: parameters)
+        return self.client.Get(action: "Find", type: ChatDialog.self, parameters: parameters)
     }
     public func partnersStatus(in dialogId: Long) -> RequestResult<[PartnerStatus]> {
 
@@ -43,13 +43,13 @@ public class ChatDialogsApiService: BaseApiService {
 
 
 
-    public func add(for recipientId: Long) -> RequestResult<Dialog> {
+    public func add(for recipientId: Long) -> RequestResult<ChatDialog> {
 
         let parameters = self.CollectParameters(rights: .user, [
             "recipientId": recipientId
         ])
 
-        return self.client.Post(action: "Add", type: Dialog.self, parameters: parameters)
+        return self.client.Post(action: "Add", type: ChatDialog.self, parameters: parameters)
     }
     public func edit(_ dialogId: Long, by updates: [PartialUpdateContainer]) -> RequestResult<Bool> {
 

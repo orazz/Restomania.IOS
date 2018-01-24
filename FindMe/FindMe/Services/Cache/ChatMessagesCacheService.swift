@@ -142,6 +142,8 @@ extension ChatMessagesCacheService: ChatConnectionDelegate {
 
         cacheAdapter.addOrUpdate(message)
         eventsAdapter.invoke({ $0.messagesService(self, new: message) })
+
+        _ = markAsDelivery(message.ID)
     }
     public func chatConnection(_ connection: ChatConnection, message: Long, changeStatusOn status: DeliveryStatus) {
 
