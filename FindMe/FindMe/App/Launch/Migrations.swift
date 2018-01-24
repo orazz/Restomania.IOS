@@ -25,7 +25,8 @@ public class Migrations {
 
         let migrations = [
             305: to305,
-            329: to329
+            329: to329,
+            395: to395
             ]
 
 
@@ -47,5 +48,8 @@ public class Migrations {
     }
     private static func to329() {
         CacheServices.searchCards.cache.clear()
+    }
+    private static func to395() {
+        CacheServices.chatDialogs.clear()
     }
 }

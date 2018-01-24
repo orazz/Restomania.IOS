@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 import IOSLibrary
 
+public protocol OnePlaceClientsControllerDelegate {
+    func writeMessageTo(_ userId: Long)
+}
 public class OnePlaceClientsController: UIViewController {
 
     private static let nibName = "OnePlaceClientsView"
@@ -153,7 +156,7 @@ public class OnePlaceClientsController: UIViewController {
     }
 }
 //MARK: Actions
-extension OnePlaceClientsController {
+extension OnePlaceClientsController: OnePlaceClientsControllerDelegate {
     @IBAction private func goBack() {
 
         self.navigationController?.popViewController(animated: true)
@@ -162,6 +165,9 @@ extension OnePlaceClientsController {
 
         selectedSex = value as! UserSex
         updateInterface()
+    }
+    public func writeMessageTo(_ userId: Long) {
+        Log.Debug(tag, "Try write message to user #\(userId).")
     }
 }
 
@@ -185,7 +191,7 @@ extension OnePlaceClientsController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: OnePlaceClientsCell.identifier, for: indexPath) as! OnePlaceClientsCell
-        cell.update(data: filtered[indexPath.row])
+        cell.update(by: filtered[indexPath.row], delegate: self)
 
         return cell
     }

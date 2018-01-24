@@ -26,6 +26,7 @@ public class ChatDialogsController: UIViewController {
 
     //Data
     private let _tag = String.tag(ChatDialogsController.self)
+    private let guid = Guid.new
     private var dialogs: [ChatDialog] = []
     private var loadQueue: AsyncQueue!
 
@@ -36,6 +37,7 @@ public class ChatDialogsController: UIViewController {
         refreshControl = dialogsTable.addRefreshControl(target: self, selector: #selector(needReload))
         interfaceLoader = InterfaceLoader(for: self.view)
 
+        dialogsService.subscribe(guid: guid, handler: self, tag: tag)
         dialogsContainer = PartsLoadTypedContainer<[ChatDialog]>()
         dialogsContainer.updateHandler = { update in
 
@@ -83,10 +85,8 @@ public class ChatDialogsController: UIViewController {
     }
     private func loadData() {
 
-        let dialogs = dialogsService.cache.all
-        dialogsContainer.update(dialogs)
-
-        if (dialogs.isEmpty) {
+        let cached = displayCached()
+        if (cached.isEmpty) {
             interfaceLoader.show()
         }
 
@@ -105,9 +105,27 @@ public class ChatDialogsController: UIViewController {
             interfaceLoader.hide()
         }
     }
+    private func displayCached() -> [ChatDialog] {
+
+        let cached = dialogsService.cache.all
+        dialogsContainer.update(cached)
+
+        return cached
+    }
     private func applyData() {
 
         dialogsTable.reloadData()
+    }
+}
+extension ChatDialogsController: ChatDialogsCacheServiceDelegate {
+    public func dialogsService(_ service: ChatDialogsCacheService, new dialog: ChatDialog) {
+        _ = displayCached()
+    }
+    public func dialogsService(_ service: ChatDialogsCacheService, update dialog: ChatDialog) {
+        _ = displayCached()
+    }
+    public func dialogsService(_ service: ChatDialogsCacheService, updates dialogs: [ChatDialog]) {
+        _ = displayCached()
     }
 }
 extension ChatDialogsController: UITableViewDelegate {
