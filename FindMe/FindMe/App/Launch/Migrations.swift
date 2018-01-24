@@ -29,7 +29,6 @@ public class Migrations {
             395: to395
             ]
 
-
         for (build, migration) in migrations.sorted(by: { $0.key < $1.key }) {
 
             if (prevBuild < build) {

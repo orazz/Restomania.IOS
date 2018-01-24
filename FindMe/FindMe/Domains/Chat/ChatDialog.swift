@@ -81,7 +81,10 @@ public class ChatDialog: ICached {
         self.isBan = (Keys.isBan <~~ json)!
         self.isGroup = (Keys.isGroup <~~ json)!
         self.lastMessage = Keys.lastMessage <~~ json
-        self.lastActivity = (Keys.lastActivity <~~ json)!
+
+        let date: String = (Keys.lastActivity <~~ json)!
+        self.lastActivity = Date.parseJson(value: date)
+        
         self.partners = (Keys.partners <~~ json)!
     }
     public func toJSON() -> JSON? {
@@ -96,7 +99,7 @@ public class ChatDialog: ICached {
             Keys.isBan ~~> self.isBan,
             Keys.isGroup ~~> self.isGroup,
             Keys.lastMessage ~~> self.lastMessage,
-            Keys.lastActivity ~~> self.lastActivity,
+            Keys.lastActivity ~~> self.lastActivity.prepareForJson(),
             Keys.partners ~~> self.partners
             ])
     }

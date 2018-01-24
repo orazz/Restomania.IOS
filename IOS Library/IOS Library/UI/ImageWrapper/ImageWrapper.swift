@@ -43,6 +43,7 @@ open class BaseImageWrapper: UIImageView {
     }
 
     public func clear() {
+        self._url = String.empty
         self.image = delegate?.defaultImage
     }
     public func setup(url: String) {
@@ -64,7 +65,8 @@ open class BaseImageWrapper: UIImageView {
         if let task = delegate?.download(url: url!) {
             task.async(.background, completion: { result in
 
-                if let data = result {
+                if let data = result,
+                    url == self._url {
 
                     self.animatedSetupImage(data)
                 }

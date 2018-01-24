@@ -43,15 +43,15 @@ public class ChatDialogsDialogRow: UITableViewCell {
         lastMessageLabel.font = ThemeSettings.Fonts.default(size: .caption)
         lastMessageLabel.textColor = ThemeSettings.Colors.blackText
     }
-    public override func prepareForReuse() {
-        super.prepareForReuse()
-
-        logoImage.clear()
-    }
+//    public override func prepareForReuse() {
+//        super.prepareForReuse()
+//
+//    }
     public func update(by update: ChatDialog) {
 
         self.dialog = update
 
+        logoImage.clear()
         logoImage.setup(url: update.logo)
         nameLabel.text = update.name
         lastMessageLabel.text = update.lastMessage?.content ?? String.empty

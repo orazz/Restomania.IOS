@@ -21,6 +21,7 @@ public class ChatDialogsController: UIViewController {
 
     //Services
     private let dialogsService = CacheServices.chatDialogs
+    private let messagesService = CacheServices.chatMessages
     private var dialogsContainer: PartsLoadTypedContainer<[ChatDialog]>!
     private var loadAdapter: PartsLoader!
 
@@ -60,6 +61,9 @@ public class ChatDialogsController: UIViewController {
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        _ = messagesService.new(with: SelectParameters())
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -117,6 +121,23 @@ public class ChatDialogsController: UIViewController {
         dialogsTable.reloadData()
     }
 }
+extension ChatDialogsController {
+    public func dialog(with userId: Long) -> ChatDialog? {
+        return dialogsService.cache.find({ !$0.isGroup && $0.recipientId == userId })
+    }
+    public func start(with userId: Long) -> RequestResult<ChatDialog> {
+        return dialogsService.add(for: userId)
+    }
+    public func open(_ dialogId: Long) {
+
+        guard let dialog = dialogsService.cache.find(dialogId) else {
+            return
+        }
+
+        let vc = OneDialogController(for: dialog)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
 extension ChatDialogsController: ChatDialogsCacheServiceDelegate {
     public func dialogsService(_ service: ChatDialogsCacheService, new dialog: ChatDialog) {
         _ = displayCached()
@@ -134,6 +155,7 @@ extension ChatDialogsController: UITableViewDelegate {
 
         let dialog = dialogs[indexPath.row]
         Log.Debug(_tag, "Select dialog #\(dialog.ID)")
+        open(dialog.ID)
     }
 }
 extension ChatDialogsController: UITableViewDataSource {

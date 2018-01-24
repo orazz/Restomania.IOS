@@ -168,6 +168,36 @@ extension OnePlaceClientsController: OnePlaceClientsControllerDelegate {
     }
     public func writeMessageTo(_ userId: Long) {
         Log.Debug(tag, "Try write message to user #\(userId).")
+
+        let tabs = TabBarController.instance!
+        let chat = tabs.chat
+        if let dialog = chat.dialog(with: userId) {
+            DispatchQueue.main.async {
+                self.navigationController?.popToViewController(tabs, animated: true)
+                tabs.focusOn(.chat)
+
+                chat.open(dialog.ID)
+            }
+            return
+        }
+
+        loader.show()
+        let request = chat.start(with: userId)
+        request.async(.background, completion: { response in
+
+            if (response.isSuccess) {
+                self.writeMessageTo(userId)
+            }
+            else {
+                DispatchQueue.main.async {
+
+                    self.loader.hide()
+
+                    let alert = ProblemAlerts.Error(for: response.statusCode)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        })
     }
 }
 
