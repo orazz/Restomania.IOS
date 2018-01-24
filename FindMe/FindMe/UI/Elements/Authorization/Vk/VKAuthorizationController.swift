@@ -35,7 +35,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
 
     //MARK: Data & Services
     private let _tag = String.tag(VKAuthorizationController.self)
-    private var _keys: IKeysStorage!
+    private var _keys: KeysStorage!
     private var _auth: UsersAuthApiService!
     private var _callback: Handler!
     private var _appID: Int!

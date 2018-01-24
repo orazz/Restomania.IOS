@@ -1,5 +1,5 @@
 //
-//  IKeysStorage.swift
+//  KeysStorage.swift
 //  FindMe
 //
 //  Created by Алексей on 24.09.17.
@@ -10,29 +10,36 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-internal class KeysStorage: IKeysStorage {
 
-    private let _tag = String.tag(KeysStorage.self)
-    private let _fileClient: FSOneFileClient
-    private var _keys: [KeysContainer] = []
+public protocol KeysStorageDelegate {
+    func set(keys: ApiKeys, for role: ApiRole)
+    func remove(for role: ApiRole)
+}
+public class KeysStorage {
+
+    private let tag = String.tag(KeysStorage.self)
+    private let eventsAdapter: EventsAdapter<KeysStorageDelegate>
+    private let fileAdapter: FSOneFileClient
+    private var data: [KeysContainer] = []
 
     public init() {
 
-        _fileClient = FSOneFileClient(filename: "keys.json", inCache: false, tag: _tag)
-        _keys = load()
+        eventsAdapter = EventsAdapter(tag: tag)
+        fileAdapter = FSOneFileClient(filename: "keys.json", inCache: false, tag: tag)
+        data = load()
 
-        Log.Info(_tag, "Load service.")
+        Log.Info(tag, "Load service.")
     }
     private func load() -> [KeysContainer] {
 
-        if _fileClient.isExist,
-           let content = _fileClient.loadData() {
+        if fileAdapter.isExist,
+           let content = fileAdapter.loadData() {
 
             do {
                 return try JSONSerialization.parseRange(data: content)
             }
             catch {
-                _fileClient.save(data: "[]")
+                fileAdapter.save(data: "[]")
             }
         }
 
@@ -41,45 +48,46 @@ internal class KeysStorage: IKeysStorage {
     private func save() {
 
         do {
-            let data = try JSONSerialization.serialize(data: _keys)
-            _fileClient.save(data: data)
+            let data = try JSONSerialization.serialize(data: self.data)
+            fileAdapter.save(data: data)
         }
         catch {
 
-            Log.Error(_tag, "Problem with save keys to file.")
+            Log.Error(tag, "Problem with save keys to file.")
         }
     }
     
     
-    //MARK: IKeysStorage
-    public func keys(for rights: ApiRole) -> ApiKeys? {
-
-        return _keys.find({ rights == $0.rights })?.keys
-    }
-    public func set(for rights: ApiRole, keys: ApiKeys) {
-
-        logout(rights)
-
-        _keys.append(KeysContainer(keys: keys, rights: rights))
-
-        save()
-    }
-    public func logout(_ rights: ApiRole) {
-        if let index = _keys.index(where: { rights == $0.rights }) {
-            _keys.remove(at: index)
-        }
-
-        save()
-    }
     public func isAuth(rights: ApiRole) -> Bool {
         return nil != keys(for: rights)
     }
+    public func keys(for rights: ApiRole) -> ApiKeys? {
 
-    private class KeysContainer: Glossy{
+        return data.find({ rights == $0.rights })?.keys
+    }
+    public func set(for role: ApiRole, keys: ApiKeys) {
+
+        logout(role)
+        data.append(KeysContainer(keys: keys, rights: role))
+
+        save()
+        eventsAdapter.invoke({ $0.set(keys: keys, for: role) })
+    }
+    public func logout(_ role: ApiRole) {
+
+        if let index = data.index(where: { role == $0.rights }) {
+            data.remove(at: index)
+        }
+
+        save()
+        eventsAdapter.invoke({ $0.remove(for: role) })
+    }
+}
+extension KeysStorage {
+    fileprivate class KeysContainer: Glossy {
 
         private struct Keys {
-
-            public static let id = "ID"
+            public static let id = BaseDataType.Keys.ID
             public static let token = "Token"
             public static let rights = "Rights"
         }
@@ -113,7 +121,17 @@ internal class KeysStorage: IKeysStorage {
                 Keys.id ~~> self.id,
                 Keys.token ~~> self.token,
                 Keys.rights ~~> self.rights
-            ])
+                ])
         }
+    }
+}
+extension KeysStorage: IEventsEmitter {
+    public typealias THandler = KeysStorageDelegate
+
+    public func subscribe(guid: String, handler: KeysStorage.THandler, tag: String) {
+        eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        eventsAdapter.unsubscribe(guid: guid)
     }
 }

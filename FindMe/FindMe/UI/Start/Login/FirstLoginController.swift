@@ -41,7 +41,7 @@ public class FirstLoginController: UIViewController {
 
     //MARK: Data & Services
     private let _tag = String.tag(FirstLoginController.self)
-    private var keysStorage: IKeysStorage!
+    private var keysStorage: KeysStorage!
     private var authApiService: UsersAuthApiService!
     private var usersApiService: UsersMainApiService!
     private var fieldsStorage: UIViewController.TextFieldsStorage?

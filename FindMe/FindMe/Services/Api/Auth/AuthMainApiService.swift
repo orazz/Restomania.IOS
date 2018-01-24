@@ -11,7 +11,7 @@ import IOSLibrary
 
 public class AuthMainApiService: BaseApiService {
 
-    public init(configs: ConfigsStorage, keys: IKeysStorage) {
+    public init(configs: ConfigsStorage, keys: KeysStorage) {
         super.init(area: "Auth", configs: configs, tag: String.tag(AuthMainApiService.self), keys: keys)
     }
 

@@ -12,7 +12,7 @@ import AsyncTask
 
 public class UsersTownsApiService: BaseApiService {
 
-    public init(configs: ConfigsStorage, keys: IKeysStorage) {
+    public init(configs: ConfigsStorage, keys: KeysStorage) {
         super.init(area: "Users/Towns", configs: configs, tag: String.tag(UsersTownsApiService.self), keys: keys)
     }
 

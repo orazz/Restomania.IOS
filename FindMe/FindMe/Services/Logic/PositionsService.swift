@@ -169,7 +169,7 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
         _lastPosition = positions.first
 
         if (!positions.isEmpty) {
-            _eventsAdapter.Trigger(action: { $0.updateLocation(positions: positions) })
+            _eventsAdapter.invoke({ $0.updateLocation(positions: positions) })
         }
     }
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

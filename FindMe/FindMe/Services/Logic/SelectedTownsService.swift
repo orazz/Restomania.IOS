@@ -53,13 +53,13 @@ public class SelectedTownsService {
     private func select(_ town: TownContainer) {
         adapter.addOrUpdate(town)
 
-        eventsAdapter.Trigger(action: { $0.selectedTownsService(self, select: town.ID) })
+        eventsAdapter.invoke({ $0.selectedTownsService(self, select: town.ID) })
         Log.Debug(tag, "Select town #\(town.ID)")
     }
     public func unselect(_ town: Town) {
         adapter.remove(TownContainer(for: town))
 
-        eventsAdapter.Trigger(action: { $0.selectedTownsService(self, unselect: town.ID) })
+        eventsAdapter.invoke({ $0.selectedTownsService(self, unselect: town.ID) })
         Log.Debug(tag, "Unselect town #\(town.ID)")
     }
     public func all() -> [Long] {

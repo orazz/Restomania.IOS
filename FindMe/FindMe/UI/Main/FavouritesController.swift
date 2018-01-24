@@ -71,12 +71,11 @@ public class FavouritesController: UIViewController {
         let checkResult = cacheService.cache.check(liked)
         if (checkResult.cached.isEmpty) {
             _loader.show()
-
             _stored = []
         }
         else {
 
-            _stored = cacheService.cache.range(checkResult.cached)
+            _stored = checkResult.cached
             _tableAdapter.update(places: _stored)
         }
 

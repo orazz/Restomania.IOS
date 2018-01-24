@@ -30,7 +30,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
                 backgroundPositions: BackgroundPositionsServices,
                 searchCards: SearchPlaceCardsCacheService,
                 configs: ConfigsStorage,
-                keys: IKeysStorage) {
+                keys: KeysStorage) {
 
         self._positionsService = positions
         self._backgroundPositions = backgroundPositions

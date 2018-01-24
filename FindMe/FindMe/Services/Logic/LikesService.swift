@@ -67,7 +67,7 @@ public class LikesService: NSObject {
 
         adapter.addOrUpdate(LikeContainer(for: placeId))
 
-        eventsAdapter.Trigger(action: { handler in
+        eventsAdapter.invoke({ handler in
             handler.like?(placeId: placeId)
             handler.change?(placeId: placeId, isLiked: true)
         })
@@ -78,7 +78,7 @@ public class LikesService: NSObject {
 
         adapter.remove(placeId)
 
-        eventsAdapter.Trigger(action: { handler in
+        eventsAdapter.invoke({ handler in
             handler.unlike?(placeId: placeId)
             handler.change?(placeId: placeId, isLiked: false)
         })
