@@ -10,11 +10,6 @@ import Foundation
 import AsyncTask
 import IOSLibrary
 
-public protocol ChatMessagesCacheServiceDelegate {
-    func messagesService(_ service: ChatMessagesCacheService, new message: ChatMessage)
-    func messagesService(_ service: ChatMessagesCacheService, updates messages: [ChatMessage])
-    func messagesService(_ service: ChatMessagesCacheService, change message: ChatMessage)
-}
 public class ChatMessagesCacheService {
 
     private let tag = String.tag(ChatMessagesCacheService.self)
@@ -157,6 +152,14 @@ extension ChatMessagesCacheService: ChatConnectionDelegate {
             eventsAdapter.invoke({ $0.messagesService(self, change: message) })
         }
     }
+}
+
+
+
+public protocol ChatMessagesCacheServiceDelegate {
+    func messagesService(_ service: ChatMessagesCacheService, new message: ChatMessage)
+    func messagesService(_ service: ChatMessagesCacheService, updates messages: [ChatMessage])
+    func messagesService(_ service: ChatMessagesCacheService, change message: ChatMessage)
 }
 extension ChatMessagesCacheServiceDelegate {
 

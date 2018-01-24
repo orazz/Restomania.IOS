@@ -91,6 +91,7 @@
 		1F4690711F869CCC0056F9B0 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4690701F869CCC0056F9B0 /* SearchController.swift */; };
 		1F4690801F86A6340056F9B0 /* SearchPlaceCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F46907F1F86A6340056F9B0 /* SearchPlaceCardView.xib */; };
 		1F4690821F86A66E0056F9B0 /* SearchPlaceCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4690811F86A66E0056F9B0 /* SearchPlaceCardCell.swift */; };
+		1F476A142018C6C70073A0A0 /* ChatDialogsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F476A132018C6C70073A0A0 /* ChatDialogsCacheService.swift */; };
 		1F49A0421F86BF980001768F /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49A0411F86BF980001768F /* FavouritesController.swift */; };
 		1F4AD0761FD33EB400E6ADCC /* ExplainerBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AD0721FD33EB400E6ADCC /* ExplainerBlockView.swift */; };
 		1F4AD0771FD33EB400E6ADCC /* GreetingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AD0731FD33EB400E6ADCC /* GreetingController.xib */; };
@@ -298,6 +299,7 @@
 		1F4690701F869CCC0056F9B0 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = UI/Main/SearchController.swift; sourceTree = "<group>"; };
 		1F46907F1F86A6340056F9B0 /* SearchPlaceCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchPlaceCardView.xib; path = UI/Main/SearchPlaceCard/SearchPlaceCardView.xib; sourceTree = "<group>"; };
 		1F4690811F86A66E0056F9B0 /* SearchPlaceCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPlaceCardCell.swift; path = UI/Main/SearchPlaceCard/SearchPlaceCardCell.swift; sourceTree = "<group>"; };
+		1F476A132018C6C70073A0A0 /* ChatDialogsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatDialogsCacheService.swift; path = Services/Cache/ChatDialogsCacheService.swift; sourceTree = "<group>"; };
 		1F49A0411F86BF980001768F /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouritesController.swift; path = UI/Main/FavouritesController.swift; sourceTree = "<group>"; };
 		1F4AD0721FD33EB400E6ADCC /* ExplainerBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExplainerBlockView.swift; path = UI/Start/Greeting/ExplainerBlockView.swift; sourceTree = "<group>"; };
 		1F4AD0731FD33EB400E6ADCC /* GreetingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GreetingController.xib; path = UI/Start/Greeting/GreetingController.xib; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				1FD0754A1F893F3000F34A26 /* PlacesCacheService.swift */,
 				1F1CA90D1FCEEDE60006BE0B /* ActionsCacheService.swift */,
 				1FE0B72020186FD4008EAFD2 /* ChatMessagesCacheService.swift */,
+				1F476A132018C6C70073A0A0 /* ChatDialogsCacheService.swift */,
 			);
 			name = Cache;
 			sourceTree = "<group>";
@@ -1532,6 +1535,7 @@
 				1F451F9C1FCCA6E60080C103 /* Town.swift in Sources */,
 				1FE0B71A20182042008EAFD2 /* SendingMessage.swift in Sources */,
 				1F4C82CD1F952D49004B294C /* OnePlaceMainContactsCellOneLine.swift in Sources */,
+				1F476A142018C6C70073A0A0 /* ChatDialogsCacheService.swift in Sources */,
 				1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */,
 				1F4C82D11F95C894004B294C /* OnePlaceMainLocationCell.swift in Sources */,
 				1F1A0E431F77E99E00FDBA97 /* LogicServices.swift in Sources */,

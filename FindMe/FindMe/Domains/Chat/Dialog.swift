@@ -22,11 +22,11 @@ public class Dialog: ICached {
     }
 
     public let ID: Long
-    public let name: String
-    public let isMute: Bool
-    public let isBan: Bool
-    public let lastMessage: ChatMessage?
-    public let partners: [PartnerStatus]
+    public var name: String
+    public var isMute: Bool
+    public var isBan: Bool
+    public var lastMessage: ChatMessage?
+    public var partners: [PartnerStatus]
 
     public init() {
 

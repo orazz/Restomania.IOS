@@ -10,14 +10,6 @@ import Foundation
 import SwiftR
 import IOSLibrary
 
-public protocol ChatConnectionDelegate {
-    func chatConnection(_ connection: ChatConnection, new message: ChatMessage)
-    func chatConnection(_ connection: ChatConnection, message: Long, changeStatusOn: DeliveryStatus)
-}
-extension ChatConnectionDelegate {
-    public func chatConnection(_ connection: ChatConnection, new message: ChatMessage) {}
-    public func chatConnection(_ connection: ChatConnection, message: Long, changeStatusOn: DeliveryStatus) {}
-}
 public class ChatConnection {
 
     private let tag = String.tag(ChatConnection.self)
@@ -206,4 +198,15 @@ extension ChatConnection {
             return nil
         }
     }
+}
+
+
+
+public protocol ChatConnectionDelegate {
+    func chatConnection(_ connection: ChatConnection, new message: ChatMessage)
+    func chatConnection(_ connection: ChatConnection, message: Long, changeStatusOn: DeliveryStatus)
+}
+extension ChatConnectionDelegate {
+    public func chatConnection(_ connection: ChatConnection, new message: ChatMessage) {}
+    public func chatConnection(_ connection: ChatConnection, message: Long, changeStatusOn: DeliveryStatus) {}
 }

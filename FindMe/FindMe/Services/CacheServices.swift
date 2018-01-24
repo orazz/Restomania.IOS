@@ -51,6 +51,14 @@ public class CacheServices {
         return service
     }
 
+    private static var _chatDialogs: ChatDialogsCacheService?
+    public static var chatDialogs: ChatDialogsCacheService {
+        let service = _chatDialogs ?? ChatDialogsCacheService()
+        _chatDialogs = service
+
+        return service
+    }
+
 
     public static func load() {
 
@@ -61,6 +69,7 @@ public class CacheServices {
         images.load()
 
         chatMessages.load()
+        chatDialogs.load()
     }
 
     private static var configs: ConfigsStorage {
