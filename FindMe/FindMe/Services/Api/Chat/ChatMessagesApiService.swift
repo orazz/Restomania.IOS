@@ -25,7 +25,7 @@ public class ChatMessagesApiService: BaseApiService {
         return self.client.GetRange(action: "New", type: ChatMessage.self, parameters: parameters)
     }
 
-    public func all(for dialogId: Long, with parameters: SelectParameters) -> RequestResult<[ChatMessage]> {
+    public func all(from dialogId: Long, with parameters: SelectParameters) -> RequestResult<[ChatMessage]> {
 
         let parameters = self.CollectParameters(rights: .user, [
             "dialogId": dialogId,

@@ -12,6 +12,11 @@ import IOSLibrary
 
 public protocol ChatConnectionDelegate {
     func chatConnection(_ connection: ChatConnection, new message: ChatMessage)
+    func chatConnection(_ connection: ChatConnection, message: Long, changeStatusOn: DeliveryStatus)
+}
+extension ChatConnectionDelegate {
+    public func chatConnection(_ connection: ChatConnection, new message: ChatMessage) {}
+    public func chatConnection(_ connection: ChatConnection, message: Long, changeStatusOn: DeliveryStatus) {}
 }
 public class ChatConnection {
 
@@ -122,37 +127,36 @@ extension ChatConnection: KeysStorageDelegate {
         }
     }
 }
+extension ChatConnection: IEventsEmitter {
+    public typealias THandler = ChatConnectionDelegate
+
+    public func subscribe(guid: String, handler: ChatConnection.THandler, tag: String) {
+        eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        eventsAdapter.unsubscribe(guid: guid)
+    }
+}
 extension ChatConnection {
     fileprivate func addPingPingHandler() {
 
         chatHub.on("PingPong") { args in
 
-            guard let json = args?.first as? String else {
-                return
-            }
-
-            var pingPongData: PingPongContainer? = nil
-            do {
-                if let data = json.data(using: .utf8) {
-                    pingPongData = try JSONSerialization.parse(data: data)
-                }
-            }
-            catch {}
-            
-            guard let container = pingPongData else {
+            guard let container = self.tryParseArgs(args),
+                let model: PingPongContainer = container.model() else {
                 Log.Warning(self.tag, "Problem with parse data.")
                 return
             }
 
 
 
-            if let index = self.pingPingTokens.index(where: { $0 == container.token }) {
+            if let index = self.pingPingTokens.index(where: { $0 == model.token }) {
                 Log.Debug(self.tag, "Server confirm connection.")
                 self.pingPingTokens.remove(at: index)
             }
-            else if (container.needAnswer) {
+            else if (model.needAnswer) {
                 Log.Debug(self.tag, "Resendr server ping pings.")
-                self.sendPingPong(with: container.token, needAnswer: false)
+                self.sendPingPong(with: model.token, needAnswer: false)
             }
         }
     }
@@ -168,7 +172,38 @@ extension ChatConnection {
     fileprivate func addMessagesHandler() {
 
         chatHub.on("Messages") { args in
-            print("Message processing: \(String(describing: args))")
+
+            guard let container = self.tryParseArgs(args) else {
+                Log.Warning(self.tag, "Problem with parse message data.")
+                return
+            }
+
+
+
+            if container.command == .newMessage,
+                let model: ChatMessage = container.model() {
+
+                self.eventsAdapter.invoke({ $0.chatConnection(self, new: model) })
+            }
+            else if container.command == .newMessage,
+                let model: ChangeMessageStatus = container.model() {
+
+                self.eventsAdapter.invoke({ $0.chatConnection(self, message: model.id, changeStatusOn: model.deliveryStatus) })
+            }
+        }
+    }
+    private func tryParseArgs(_ args: [Any]?) -> CommandContainer? {
+
+        guard let json = args?.first as? String,
+              let data = json.data(using: .utf8) else {
+            return nil
+        }
+
+        do {
+            return try JSONSerialization.parse(data: data)
+        }
+        catch {
+            return nil
         }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-public class ChatMessage: SourceChatMessage {
+public class ChatMessage: SourceChatMessage, ICached {
 
     private struct Keys {
         fileprivate static let sourceMessageId = "SourceMessageId"
@@ -20,7 +20,7 @@ public class ChatMessage: SourceChatMessage {
 
     public let sourceMessageId: Long
     public let recipientId: Long
-    public let deliveryStatus: DeliveryStatus
+    public var deliveryStatus: DeliveryStatus
 
     public override init() {
 
@@ -29,6 +29,29 @@ public class ChatMessage: SourceChatMessage {
         self.deliveryStatus = .processing
 
         super.init()
+    }
+
+    public init(wrap source: SourceChatMessage) {
+
+        self.sourceMessageId = source.ID
+        self.recipientId = -1
+        self.deliveryStatus = .processing
+
+        super.init(source: source)
+    }
+
+    public var isMyMessage: Bool {
+        return -1 == recipientId
+    }
+
+    //MARK: ICopying
+    public required init(source: ChatMessage) {
+
+        self.sourceMessageId = source.sourceMessageId
+        self.recipientId = source.recipientId
+        self.deliveryStatus = source.deliveryStatus
+
+        super.init(source: source)
     }
 
     //MARK: Glossy

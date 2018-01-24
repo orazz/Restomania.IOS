@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class ComandContainer: Glossy {
+public class CommandContainer: Glossy {
 
     private struct Keys {
         public static let id = "Id"
@@ -34,5 +34,16 @@ public class ComandContainer: Glossy {
             Keys.command ~~> self.command,
             Keys.data ~~> self.data
             ])
+    }
+}
+extension CommandContainer {
+
+    public func model<TModel: JSONDecodable>() -> TModel? {
+
+        guard let model = data else {
+            return nil
+        }
+
+        return TModel(json: model)
     }
 }

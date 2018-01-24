@@ -170,6 +170,8 @@
 		1FE0B71820182012008EAFD2 /* ChatMessagesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0B71720182012008EAFD2 /* ChatMessagesApiService.swift */; };
 		1FE0B71A20182042008EAFD2 /* SendingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0B71920182042008EAFD2 /* SendingMessage.swift */; };
 		1FE0B71C20186409008EAFD2 /* PingPongContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0B71B20186409008EAFD2 /* PingPongContainer.swift */; };
+		1FE0B71F20186BC0008EAFD2 /* ChangeMessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0B71E20186BC0008EAFD2 /* ChangeMessageStatus.swift */; };
+		1FE0B72120186FD4008EAFD2 /* ChatMessagesCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0B72020186FD4008EAFD2 /* ChatMessagesCacheService.swift */; };
 		1FEF08471FCCDF0F00FFD9FD /* PlacesSearchCardsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF08461FCCDF0F00FFD9FD /* PlacesSearchCardsApiService.swift */; };
 		1FEF08491FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF08481FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift */; };
 		1FF6D57A1F86F71100309ED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6D5791F86F71100309ED3 /* MapKit.framework */; };
@@ -383,6 +385,8 @@
 		1FE0B71720182012008EAFD2 /* ChatMessagesApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatMessagesApiService.swift; path = Services/Api/Chat/ChatMessagesApiService.swift; sourceTree = "<group>"; };
 		1FE0B71920182042008EAFD2 /* SendingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendingMessage.swift; path = Services/Api/Chat/Models/SendingMessage.swift; sourceTree = "<group>"; };
 		1FE0B71B20186409008EAFD2 /* PingPongContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PingPongContainer.swift; path = Services/StreamConnections/Models/PingPongContainer.swift; sourceTree = "<group>"; };
+		1FE0B71E20186BC0008EAFD2 /* ChangeMessageStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeMessageStatus.swift; path = Services/StreamConnections/Models/Messages/ChangeMessageStatus.swift; sourceTree = "<group>"; };
+		1FE0B72020186FD4008EAFD2 /* ChatMessagesCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatMessagesCacheService.swift; path = Services/Cache/ChatMessagesCacheService.swift; sourceTree = "<group>"; };
 		1FEF08461FCCDF0F00FFD9FD /* PlacesSearchCardsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesSearchCardsApiService.swift; path = Services/Api/Places/PlacesSearchCardsApiService.swift; sourceTree = "<group>"; };
 		1FEF08481FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLastActionCell.swift; path = UI/Place/OnePlaceMain/Actions/OnePlaceMainLastActionCell.swift; sourceTree = "<group>"; };
 		1FF6D5791F86F71100309ED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -536,6 +540,7 @@
 				1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */,
 				1FD0754A1F893F3000F34A26 /* PlacesCacheService.swift */,
 				1F1CA90D1FCEEDE60006BE0B /* ActionsCacheService.swift */,
+				1FE0B72020186FD4008EAFD2 /* ChatMessagesCacheService.swift */,
 			);
 			name = Cache;
 			sourceTree = "<group>";
@@ -1114,9 +1119,10 @@
 		1FE0B701201760D2008EAFD2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1FE0B71B20186409008EAFD2 /* PingPongContainer.swift */,
+				1FE0B71D20186B96008EAFD2 /* Messages */,
 				1FE0B70420176434008EAFD2 /* Commands.swift */,
 				1FE0B706201764D1008EAFD2 /* CommandContainer.swift */,
-				1FE0B71B20186409008EAFD2 /* PingPongContainer.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1149,6 +1155,14 @@
 				1FE0B71920182042008EAFD2 /* SendingMessage.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		1FE0B71D20186B96008EAFD2 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				1FE0B71E20186BC0008EAFD2 /* ChangeMessageStatus.swift */,
+			);
+			name = Messages;
 			sourceTree = "<group>";
 		};
 		1FF8E6271FA7A2D2001852CE /* OnePlaceClients */ = {
@@ -1544,6 +1558,7 @@
 				1F4E10FD1F970BFA00EB8391 /* FMTextField.swift in Sources */,
 				1FEF08471FCCDF0F00FFD9FD /* PlacesSearchCardsApiService.swift in Sources */,
 				1F2E377C1FCC91B1003D24C1 /* BackgroundTasksService.swift in Sources */,
+				1FE0B71F20186BC0008EAFD2 /* ChangeMessageStatus.swift in Sources */,
 				1FC548231F705822007CE6AB /* Place.swift in Sources */,
 				1FE0B70E20181BCA008EAFD2 /* ChatMessage.swift in Sources */,
 				1F2E37761FCC9193003D24C1 /* SelectParameters.swift in Sources */,
@@ -1551,6 +1566,7 @@
 				1F1CA90C1FCEE5A20006BE0B /* AuthMainApiService.swift in Sources */,
 				1FC583901F8150050045941A /* StartContoller.swift in Sources */,
 				1FD0754B1F893F3000F34A26 /* PlacesCacheService.swift in Sources */,
+				1FE0B72120186FD4008EAFD2 /* ChatMessagesCacheService.swift in Sources */,
 				1FC548171F703442007CE6AB /* Location.swift in Sources */,
 				1F2E37771FCC9193003D24C1 /* BaseApiService.swift in Sources */,
 				1F1A0E6E1F795FBF00FDBA97 /* ImageWrapper.swift in Sources */,

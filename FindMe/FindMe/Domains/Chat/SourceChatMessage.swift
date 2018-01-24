@@ -33,6 +33,15 @@ public class SourceChatMessage: BaseDataType {
 
         super.init()
     }
+    public init(source: SourceChatMessage) {
+
+        self.senderId = source.senderId
+        self.dialogId = source.dialogId
+        self.content = source.content
+        self.attachments = source.attachments.map{ $0 }
+
+        super.init(source: source)
+    }
 
     //MARK: Glossy
     public required init(json: JSON) {
