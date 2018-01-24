@@ -169,6 +169,7 @@
 		1FE0B71620181FED008EAFD2 /* ChatDialogsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0B71520181FED008EAFD2 /* ChatDialogsApiService.swift */; };
 		1FE0B71820182012008EAFD2 /* ChatMessagesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0B71720182012008EAFD2 /* ChatMessagesApiService.swift */; };
 		1FE0B71A20182042008EAFD2 /* SendingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0B71920182042008EAFD2 /* SendingMessage.swift */; };
+		1FE0B71C20186409008EAFD2 /* PingPongContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0B71B20186409008EAFD2 /* PingPongContainer.swift */; };
 		1FEF08471FCCDF0F00FFD9FD /* PlacesSearchCardsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF08461FCCDF0F00FFD9FD /* PlacesSearchCardsApiService.swift */; };
 		1FEF08491FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF08481FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift */; };
 		1FF6D57A1F86F71100309ED3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6D5791F86F71100309ED3 /* MapKit.framework */; };
@@ -381,6 +382,7 @@
 		1FE0B71520181FED008EAFD2 /* ChatDialogsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatDialogsApiService.swift; path = Services/Api/Chat/ChatDialogsApiService.swift; sourceTree = "<group>"; };
 		1FE0B71720182012008EAFD2 /* ChatMessagesApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatMessagesApiService.swift; path = Services/Api/Chat/ChatMessagesApiService.swift; sourceTree = "<group>"; };
 		1FE0B71920182042008EAFD2 /* SendingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendingMessage.swift; path = Services/Api/Chat/Models/SendingMessage.swift; sourceTree = "<group>"; };
+		1FE0B71B20186409008EAFD2 /* PingPongContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PingPongContainer.swift; path = Services/StreamConnections/Models/PingPongContainer.swift; sourceTree = "<group>"; };
 		1FEF08461FCCDF0F00FFD9FD /* PlacesSearchCardsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesSearchCardsApiService.swift; path = Services/Api/Places/PlacesSearchCardsApiService.swift; sourceTree = "<group>"; };
 		1FEF08481FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLastActionCell.swift; path = UI/Place/OnePlaceMain/Actions/OnePlaceMainLastActionCell.swift; sourceTree = "<group>"; };
 		1FF6D5791F86F71100309ED3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -1114,6 +1116,7 @@
 			children = (
 				1FE0B70420176434008EAFD2 /* Commands.swift */,
 				1FE0B706201764D1008EAFD2 /* CommandContainer.swift */,
+				1FE0B71B20186409008EAFD2 /* PingPongContainer.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1554,6 +1557,7 @@
 				1F46770B1F910003007E426D /* OnePlaceMainDescriptionCell.swift in Sources */,
 				1F2E376D1FCC9169003D24C1 /* SearchPlaceCard.swift in Sources */,
 				1F4677131F950F21007E426D /* OnePlaceMainSpaceCell.swift in Sources */,
+				1FE0B71C20186409008EAFD2 /* PingPongContainer.swift in Sources */,
 				1F6B89361FA86D7100B7A99A /* OnePlaceClientsCell.swift in Sources */,
 				1FE0B70320176114008EAFD2 /* StreamServices.swift in Sources */,
 				1F3382F31F97D1C700E43596 /* FMSwitch.swift in Sources */,

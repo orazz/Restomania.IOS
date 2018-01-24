@@ -17,7 +17,6 @@ public class ChatConnection {
 
     private let tag = String.tag(ChatConnection.self)
     private let guid = Guid.new
-    public private(set) var isConnected: Bool = false
 
     private let configs: ConfigsStorage
     private let keys: KeysStorage
@@ -25,6 +24,9 @@ public class ChatConnection {
 
     fileprivate let connection: SignalR
     fileprivate let chatHub: Hub
+    private let pingPongInterval = 60.0
+    private var pingPingTimer: Timer?
+    private var pingPingTokens = [String]()
 
     public init(configs: ConfigsStorage, keys: KeysStorage) {
 
@@ -50,32 +52,45 @@ public class ChatConnection {
         guard let keys = self.keys.keys(for: .user) else {
             return
         }
-        
-        isConnected = true
-        var query = String.empty
+
         do {
             let data = try JSONSerialization.data(withJSONObject: keys.toJSON()!, options: [])
-            query = String(data: data, encoding: .utf8)!
+
+            DispatchQueue.main.async {
+                self.connection.queryString = ["keys": String(data: data, encoding: .utf8)!]
+            }
         }
         catch {}
 
         DispatchQueue.main.async {
-            self.connection.queryString = ["keys": query]
+            self.pingPingTimer?.invalidate()
+            self.pingPingTimer = nil
+            self.pingPingTimer = Timer.scheduledTimer(timeInterval: self.pingPongInterval,
+                                                      target: self,
+                                                      selector: #selector(ChatConnection.refreshSession),
+                                                      userInfo: nil,
+                                                      repeats: true)
+        }
 
-            self.connection.error = { error in
-                print("Error: \(error)")
-            }
-            self.connection.connected = {
-                print("Fuck")
-            }
+        connection.disconnected = {
 
+            Log.Warning(self.tag, "Stream disconnected.")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5)) {
+                self.connection.start()
+            }
+        }
+
+        Log.Debug(self.tag, "Launch chat stream connection.")
+        DispatchQueue.main.async {
             self.connection.start()
         }
     }
     public func stop() {
 
-        if (isConnected) {
-            isConnected = false
+        pingPingTimer?.invalidate()
+        pingPingTimer = nil
+
+        if (connection.state == .connected) {
             DispatchQueue.main.async {
                 self.connection.stop()
             }
@@ -84,6 +99,15 @@ public class ChatConnection {
     public func restart() {
         stop()
         start()
+    }
+
+    @objc func refreshSession() {
+
+        Log.Debug(tag, "Send ping pong message.")
+
+        let token = Guid.new
+        pingPingTokens.append(token)
+        sendPingPong(with: token, needAnswer: true)
     }
 }
 extension ChatConnection: KeysStorageDelegate {
@@ -103,6 +127,42 @@ extension ChatConnection {
 
         chatHub.on("PingPong") { args in
 
+            guard let json = args?.first as? String else {
+                return
+            }
+
+            var pingPongData: PingPongContainer? = nil
+            do {
+                if let data = json.data(using: .utf8) {
+                    pingPongData = try JSONSerialization.parse(data: data)
+                }
+            }
+            catch {}
+            
+            guard let container = pingPongData else {
+                Log.Warning(self.tag, "Problem with parse data.")
+                return
+            }
+
+
+
+            if let index = self.pingPingTokens.index(where: { $0 == container.token }) {
+                Log.Debug(self.tag, "Server confirm connection.")
+                self.pingPingTokens.remove(at: index)
+            }
+            else if (container.needAnswer) {
+                Log.Debug(self.tag, "Resendr server ping pings.")
+                self.sendPingPong(with: container.token, needAnswer: false)
+            }
+        }
+    }
+    fileprivate func sendPingPong(with token: String, needAnswer: Bool) {
+
+        DispatchQueue.main.async {
+            do {
+                try self.chatHub.invoke("PingPong", arguments: [token, needAnswer], callback: nil)
+            }
+            catch {}
         }
     }
     fileprivate func addMessagesHandler() {
@@ -110,6 +170,5 @@ extension ChatConnection {
         chatHub.on("Messages") { args in
             print("Message processing: \(String(describing: args))")
         }
-
     }
 }
