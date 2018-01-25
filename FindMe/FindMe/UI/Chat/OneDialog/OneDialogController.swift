@@ -21,6 +21,7 @@ public class OneDialogController: UIViewController {
     private var keyboardOffsetConstraint: NSLayoutConstraint!
     private var interfaceLoader: InterfaceLoader!
     private var refreshControl: UIRefreshControl!
+    private var messagesCache: [Long: OneDialogMessage] = [:]
 
     //Services
     private let dialogsService = CacheServices.chatDialogs
@@ -91,7 +92,7 @@ public class OneDialogController: UIViewController {
             }
         }
 
-        updateTableContentInset()
+        setupTable()
     }
     private func loadData() {
 
@@ -135,15 +136,7 @@ extension OneDialogController: UITableViewDelegate {
         messagesTable.delegate = self
         messagesTable.dataSource = self
 
-        let numRows = tableView(messagesTable, numberOfRowsInSection: 0)
-        var contentInsetTop = messagesTable.bounds.size.height
-        for i in 0..<numRows {
-            contentInsetTop -= tableView(messagesTable, heightForRowAt: IndexPath(item: i, section: 0))
-            if contentInsetTop <= 0 {
-                contentInsetTop = 0
-            }
-        }
-        messagesTable.contentInset = UIEdgeInsetsMake(contentInsetTop, 0, 0, 0)
+        messagesTable.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi));
     }
 
 }
@@ -158,7 +151,20 @@ extension OneDialogController: UITableViewDataSource {
         return 70.0
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        return createMessageWrapper(for: indexPath)
+    }
+    private func createMessageWrapper(for indexPath: IndexPath) -> UITableViewCell {
+
+        let message = messages[indexPath.row]
+
+        if let cell = messagesCache[message.ID] {
+            cell.update(by: message)
+        }
+        else {
+            messagesCache[message.ID] = OneDialogReceivedMessage.create(for: message)
+        }
+
+        return messagesCache[message.ID]!
     }
 }
 //Messages
