@@ -18,5 +18,7 @@ public class NavigationController: UINavigationController {
         super.viewDidLoad()
 
         Log.Info(_tag, "Main navigation controller load.")
+        navigationBar.isTranslucent = false
+        navigationBar.backgroundColor = ThemeSettings.Colors.background
     }
 }

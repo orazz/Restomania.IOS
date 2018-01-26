@@ -51,6 +51,7 @@ public class ChatDialogsCacheService {
 
                 if let update = response.data {
 
+                    self.cacheAdapter.clear()
                     self.cacheAdapter.addOrUpdate(update)
                     self.eventsAdapter.invoke({ $0.dialogsService(self, updates: update) })
                 }

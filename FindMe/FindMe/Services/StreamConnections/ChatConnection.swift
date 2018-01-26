@@ -76,6 +76,9 @@ public class ChatConnection {
                 self.connection.start()
             }
         }
+        connection.connected = {
+            Log.Info(self.tag, "Stream connected.")
+        }
 
         Log.Debug(self.tag, "Launch chat stream connection.")
         DispatchQueue.main.async {
@@ -176,11 +179,13 @@ extension ChatConnection {
                 let model: ChatMessage = container.model() {
 
                 self.eventsAdapter.invoke({ $0.chatConnection(self, new: model) })
+                Log.Info(self.tag, "Process new message.")
             }
             else if container.command == .newMessage,
                 let model: ChangeMessageStatus = container.model() {
 
                 self.eventsAdapter.invoke({ $0.chatConnection(self, message: model.id, changeStatusOn: model.deliveryStatus) })
+                Log.Info(self.tag, "Process change status of message.")
             }
         }
     }

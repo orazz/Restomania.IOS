@@ -81,9 +81,15 @@ public class OneDialogController: UIViewController {
         super.viewWillDisappear(animated)
 
         unsubscribeOnOpenKeyboard()
+        messagesCache.values.map({ $0.viewWillDisappear() })
+        messagesCache.removeAll()
     }
 
     private func loadMarkup() {
+
+        interfaceLoader = InterfaceLoader(for: self.view)
+        refreshControl = messagesTable.addRefreshControl(target: self, selector: #selector(needReload))
+        refreshControl.attributedTitle = nil
 
         for constraint in controlsPanel.superview?.constraints ?? [] {
             if (constraint.identifier == "KeyboardOffset") {
@@ -93,6 +99,10 @@ public class OneDialogController: UIViewController {
         }
 
         setupTable()
+    }
+    @objc private func needReload() {
+        loadAdapter.startRequest()
+        requestData()
     }
     private func loadData() {
 
@@ -105,7 +115,6 @@ public class OneDialogController: UIViewController {
     }
     private func requestData() {
 
-        messagesContainer.startRequest()
         let request = messagesService.all(from: dialog.ID, with: SelectParameters())
         request.async(loadQueue, completion: self.messagesContainer.completeLoad)
     }
@@ -148,12 +157,17 @@ extension OneDialogController: UITableViewDataSource {
         return messages.count
     }
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        return createMessageWrapper(for: indexPath).countHeight()
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return createMessageWrapper(for: indexPath)
     }
-    private func createMessageWrapper(for indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? OneDialogMessage {
+            cell.willDisplay()
+        }
+    }
+    private func createMessageWrapper(for indexPath: IndexPath) -> OneDialogMessage {
 
         let message = messages[indexPath.row]
 
@@ -161,7 +175,12 @@ extension OneDialogController: UITableViewDataSource {
             cell.update(by: message)
         }
         else {
-            messagesCache[message.ID] = OneDialogReceivedMessage.create(for: message)
+            if (message.isSended) {
+                messagesCache[message.ID] = OneDialogReceivedMessage.create(for: message)
+            }
+            else {
+                messagesCache[message.ID] = OneDialogReceivedMessage.create(for: message)
+            }
         }
 
         return messagesCache[message.ID]!

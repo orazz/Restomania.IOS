@@ -40,7 +40,7 @@ public class ChatMessage: SourceChatMessage, ICached {
         super.init(source: source)
     }
 
-    public var isMyMessage: Bool {
+    public var isSended: Bool {
         return -1 == recipientId
     }
 

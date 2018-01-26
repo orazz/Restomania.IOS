@@ -121,7 +121,7 @@ public class ChatMessagesCacheService {
         Log.Debug(tag, "Mark message #\(messageId) like read.")
         return RequestResult<Bool> { handler in
 
-            let request = self.api.markAsDelivery(messageId)
+            let request = self.api.markAsRead(messageId)
             request.async(self.apiQueue) { response in
 
                 if response.isSuccess,
@@ -143,7 +143,8 @@ extension ChatMessagesCacheService: ChatConnectionDelegate {
         cacheAdapter.addOrUpdate(message)
         eventsAdapter.invoke({ $0.messagesService(self, new: message) })
 
-        _ = markAsDelivery(message.ID)
+        let request = markAsDelivery(message.ID)
+        request.async(self.apiQueue)
     }
     public func chatConnection(_ connection: ChatConnection, message: Long, changeStatusOn status: DeliveryStatus) {
 
