@@ -12,13 +12,27 @@ import UIKit
 
 public class ImageWrapper: ZeroCdnImageWrapper {
 
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        initialize()
+    }
+
+    public required init(coder: NSCoder) {
+        super.init(coder: coder)
+
+        initialize()
+    }
     public override func awakeFromNib() {
         super.awakeFromNib()
 
+        initialize()
+    }
+    private func initialize() {
         super.setup(delegate: self)
     }
 }
-extension ZeroCdnImageWrapper: ZeroCdnImageWrapperDelegate {
+extension ImageWrapper: ZeroCdnImageWrapperDelegate {
 
     public var defaultImage: UIImage {
         return ThemeSettings.Images.default

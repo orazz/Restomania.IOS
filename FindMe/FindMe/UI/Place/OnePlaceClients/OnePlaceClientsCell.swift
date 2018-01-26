@@ -28,7 +28,9 @@ public class OnePlaceClientsCell: UITableViewCell {
 
     //MARK: Data
     private var client: PlaceClient?
-    private var delegate: OnePlaceClientsControllerDelegate?
+    public var userId: Long {
+        return client?.ID ?? 0
+    }
 
 
     public override func awakeFromNib() {
@@ -37,23 +39,12 @@ public class OnePlaceClientsCell: UITableViewCell {
         avatarImage.layer.cornerRadius = avatarImage.frame.width/2
         avatarImage.layer.borderWidth = 3.0
         avatarImage.layer.borderColor = ThemeSettings.Colors.main.cgColor
-
-        writeMessageImage.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(writeMessage))
-        writeMessageImage.addGestureRecognizer(tap)
     }
-    public func update(by update: PlaceClient, delegate: OnePlaceClientsControllerDelegate) {
+    public func update(by update: PlaceClient) {
 
         avatarImage.setup(url: update.image)
         nameLabel.text = update.name
 
         self.client = update
-        self.delegate = delegate
-    }
-
-    @objc private func writeMessage() {
-        if let client = client {
-            delegate?.writeMessageTo(client.ID)
-        }
     }
 }

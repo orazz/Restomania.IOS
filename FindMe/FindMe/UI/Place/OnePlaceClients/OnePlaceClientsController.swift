@@ -204,8 +204,11 @@ extension OnePlaceClientsController: OnePlaceClientsControllerDelegate {
 //MARK: UITableViewDelegate
 extension OnePlaceClientsController: UITableViewDelegate {
 
-    public func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
-        return false
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let cell = tableView.cellForRow(at: indexPath) as? OnePlaceClientsCell {
+            writeMessageTo(cell.userId)
+        }
     }
 }
 
@@ -221,7 +224,7 @@ extension OnePlaceClientsController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: OnePlaceClientsCell.identifier, for: indexPath) as! OnePlaceClientsCell
-        cell.update(by: filtered[indexPath.row], delegate: self)
+        cell.update(by: filtered[indexPath.row])
 
         return cell
     }

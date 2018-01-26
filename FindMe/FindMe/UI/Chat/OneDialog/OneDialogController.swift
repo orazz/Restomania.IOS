@@ -100,7 +100,7 @@ public class OneDialogController: UIViewController {
             }
         }
 
-        controlsPanel.backgroundColor = ThemeSettings.Colors.facebook
+        controlsPanel.backgroundColor = ThemeSettings.Colors.background
         controlsPanel.layer.shadowColor = ThemeSettings.Colors.divider.cgColor
 
         setupTable()

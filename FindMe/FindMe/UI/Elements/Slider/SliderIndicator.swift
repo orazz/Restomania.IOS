@@ -39,12 +39,17 @@ open class SliderIndicator: UIView {
     }
 
     //MARK: Draw methods
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+
+        reDraw()
+    }
     private func reDraw() {
 
         for bullet in _bullets {
             bullet.removeFromSuperview()
         }
-        _bullets = []
+        _bullets.removeAll()
 
         if (0 == _size) {
             return
