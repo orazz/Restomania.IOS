@@ -28,8 +28,6 @@ public class Migrations {
             329: to329,
             395: to395
             ]
-
-        CacheServices.chatDialogs.clear()
         
         for (build, migration) in migrations.sorted(by: { $0.key < $1.key }) {
 

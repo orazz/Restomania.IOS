@@ -100,6 +100,9 @@ public class OneDialogController: UIViewController {
             }
         }
 
+        controlsPanel.backgroundColor = ThemeSettings.Colors.facebook
+        controlsPanel.layer.shadowColor = ThemeSettings.Colors.divider.cgColor
+
         setupTable()
     }
     @objc private func needReload() {
@@ -210,8 +213,8 @@ extension OneDialogController {
 
             DispatchQueue.main.async {
                 if (response.isFail) {
-                        self.inputField.text = message
-                        self.view.makeToast("Проблемы с отправкой сообщения. Проверьте подключение к интернету.")
+                    self.inputField.text = message
+                    self.view.makeToast("Проблемы с отправкой сообщения. Проверьте подключение к интернету.", position: .top)
                 }
                 else {
                     if let index = self.messages.index(where: { $0 === stub }),

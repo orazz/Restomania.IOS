@@ -47,7 +47,7 @@
             <constraints>
                 <constraint firstItem="yst-35-MFE" firstAttribute="bottom" secondItem="r1c-lR-BKM" secondAttribute="bottom" id="HbX-jr-6zc"/>
                 <constraint firstItem="r1c-lR-BKM" firstAttribute="top" secondItem="yst-35-MFE" secondAttribute="top" constant="5" id="R7N-qK-Fjl"/>
-                <constraint firstItem="r1c-lR-BKM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yst-35-MFE" secondAttribute="leading" constant="10" id="cbl-CN-UKU"/>
+                <constraint firstItem="r1c-lR-BKM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yst-35-MFE" secondAttribute="leading" constant="90" id="cbl-CN-UKU"/>
                 <constraint firstItem="yst-35-MFE" firstAttribute="trailing" secondItem="r1c-lR-BKM" secondAttribute="trailing" constant="5" id="s2H-Pu-TVC"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
