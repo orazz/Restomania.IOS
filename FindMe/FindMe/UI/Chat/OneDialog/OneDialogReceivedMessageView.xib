@@ -17,16 +17,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8H-UK-vZb">
-                    <rect key="frame" x="10" y="5" width="167" height="99"/>
+                    <rect key="frame" x="10" y="5" width="104.5" height="99"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сообщение" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="99999999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rk-7M-jjW">
-                            <rect key="frame" x="5" y="5" width="157" height="20.5"/>
+                            <rect key="frame" x="5" y="5" width="94.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opb-sZ-MvE">
-                            <rect key="frame" x="117" y="30.5" width="45" height="21"/>
+                            <rect key="frame" x="54.5" y="30.5" width="45" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -34,19 +34,19 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="80g-7f-18f"/>
                         <constraint firstItem="6rk-7M-jjW" firstAttribute="top" secondItem="t8H-UK-vZb" secondAttribute="top" constant="5" id="Ube-1U-Uoa"/>
                         <constraint firstItem="6rk-7M-jjW" firstAttribute="leading" secondItem="t8H-UK-vZb" secondAttribute="leading" constant="5" id="fuy-3R-DHU"/>
                         <constraint firstAttribute="trailing" secondItem="6rk-7M-jjW" secondAttribute="trailing" constant="5" id="lFu-v3-JDW"/>
                         <constraint firstItem="opb-sZ-MvE" firstAttribute="top" secondItem="6rk-7M-jjW" secondAttribute="bottom" constant="5" id="lfR-xQ-a5W"/>
                         <constraint firstAttribute="trailing" secondItem="opb-sZ-MvE" secondAttribute="trailing" constant="5" id="xRm-Qy-L6k"/>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="220" id="zvt-Sr-mjA"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="t8H-UK-vZb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="SGN-LQ-xCS"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="t8H-UK-vZb" secondAttribute="trailing" constant="90" id="caX-Fa-sY4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="t8H-UK-vZb" secondAttribute="trailing" constant="90" id="caX-Fa-sY4"/>
                 <constraint firstItem="t8H-UK-vZb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="ifN-hM-mMb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="t8H-UK-vZb" secondAttribute="bottom" id="tE8-6W-GQm"/>
             </constraints>

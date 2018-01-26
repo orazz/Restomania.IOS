@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import IOSLibrary
 import AsyncTask
+import Toast_Swift
 
 public class OneDialogController: UIViewController {
 
@@ -47,6 +48,7 @@ public class OneDialogController: UIViewController {
 
         super.init(nibName: "\(String.tag(OneDialogController.self))View", bundle: Bundle.main)
 
+        self.title = dialog.name
         messagesContainer.updateHandler = { update in
             DispatchQueue.main.async {
                 self.messages = update.sorted(by: { $0.CreateAt > $1.CreateAt })
@@ -81,7 +83,7 @@ public class OneDialogController: UIViewController {
         super.viewWillDisappear(animated)
 
         unsubscribeOnOpenKeyboard()
-        messagesCache.values.map({ $0.viewWillDisappear() })
+        _ = messagesCache.values.map({ $0.viewWillDisappear() })
         messagesCache.removeAll()
     }
 
@@ -176,7 +178,7 @@ extension OneDialogController: UITableViewDataSource {
         }
         else {
             if (message.isSended) {
-                messagesCache[message.ID] = OneDialogReceivedMessage.create(for: message)
+                messagesCache[message.ID] = OneDialogSendingMessage.create(for: message)
             }
             else {
                 messagesCache[message.ID] = OneDialogReceivedMessage.create(for: message)
@@ -186,7 +188,44 @@ extension OneDialogController: UITableViewDataSource {
         return messagesCache[message.ID]!
     }
 }
-//Messages
+//Write message
+extension OneDialogController {
+    @IBAction private func sendMessage() {
+
+        let message = inputField.text
+        if (String.isNullOrEmpty(message)) {
+            return
+        }
+
+        inputField.text = String.empty
+
+        let container = SendingMessage(toDialog: dialog.ID, content: message!, and: [])
+        let stub = container.createStub()
+        messages.append(stub)
+        applyData()
+        _ = dialogsService.updateLastMessage(for: stub.dialogId, by: stub)
+
+        let request = self.messagesService.send(container)
+        request.async(self.loadQueue, completion: { response in
+
+            DispatchQueue.main.async {
+                if (response.isFail) {
+                        self.inputField.text = message
+                        self.view.makeToast("Проблемы с отправкой сообщения. Проверьте подключение к интернету.")
+                }
+                else {
+                    if let index = self.messages.index(where: { $0 === stub }),
+                        let message = self.messagesService.cache.find({ $0.ID == response.data!.ID }) {
+                            self.messages[index] = message
+                            self.applyData()
+                            _ = self.dialogsService.updateLastMessage(for: message.dialogId, by: message)
+                    }
+                }
+            }
+        })
+    }
+}
+//Get messages
 extension OneDialogController: ChatMessagesCacheServiceDelegate {
     public func messagesService(_ service: ChatMessagesCacheService, new message: ChatMessage) {
         if (message.dialogId == dialog.ID) {
@@ -199,6 +238,9 @@ extension OneDialogController: ChatMessagesCacheServiceDelegate {
 }
 //Keysboard
 extension OneDialogController {
+    @IBAction private func tryCloseKeyboard() {
+        self.view.endEditing(true)
+    }
     public func subscribeOnOpenKeyboard() {
 
         let center = NotificationCenter.default

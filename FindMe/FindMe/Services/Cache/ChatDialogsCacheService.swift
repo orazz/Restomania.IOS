@@ -40,6 +40,20 @@ public class ChatDialogsCacheService {
         cacheAdapter.clear()
     }
 
+    public func updateLastMessage(for dialogId: Long, by message: ChatMessage) -> ChatDialog? {
+
+        guard let dialog = cache.find(dialogId) else {
+            return nil
+        }
+
+        dialog.lastMessage = message
+        dialog.lastActivity = Date()
+        self.cacheAdapter.addOrUpdate(dialog)
+        self.eventsAdapter.invoke({ $0.dialogsService(self, update: dialog) })
+
+        return dialog
+    }
+
     //MARK: Methods
     public func all(with parameters: SelectParameters) -> RequestResult<[ChatDialog]> {
 
@@ -143,15 +157,11 @@ extension ChatDialogsCacheService: IEventsEmitter {
 extension ChatDialogsCacheService: ChatConnectionDelegate {
     public func chatConnection(_ connection: ChatConnection, new message: ChatMessage) {
 
-        guard let dialog = cache.find(message.dialogId) else {
-            _ = self.find(message.dialogId)
-            return
-        }
+        if nil == self.updateLastMessage(for: message.dialogId, by: message) {
 
-        dialog.lastMessage = message
-        dialog.lastActivity = Date()
-        self.cacheAdapter.addOrUpdate(dialog)
-        self.eventsAdapter.invoke({ $0.dialogsService(self, update: dialog) })
+            let request = self.find(message.dialogId)
+            request.async(self.apiQueue, completion: { _ in })
+        }
     }
     public func chatConnection(_ connection: ChatConnection, message messageId: Long, changeStatusOn: DeliveryStatus) {
 

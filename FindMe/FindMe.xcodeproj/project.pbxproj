@@ -124,6 +124,8 @@
 		1F64C413201954CC00F364CD /* OneDialogReceivedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F64C412201954CC00F364CD /* OneDialogReceivedMessage.swift */; };
 		1F64C415201958BD00F364CD /* OneDialogReceivedMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F64C414201958BD00F364CD /* OneDialogReceivedMessageView.xib */; };
 		1F64C4172019C11300F364CD /* OneDialogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F64C4162019C11300F364CD /* OneDialogMessage.swift */; };
+		1F64C419201B0F7500F364CD /* OneDialogSendingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F64C418201B0F7500F364CD /* OneDialogSendingMessage.swift */; };
+		1F64C41B201B0FA200F364CD /* OneDialogSendingMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F64C41A201B0FA200F364CD /* OneDialogSendingMessageView.xib */; };
 		1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B21B91F881DAD0068E29A /* MapPopupView.xib */; };
 		1F6B21BE1F881E270068E29A /* PlacesListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */; };
 		1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */; };
@@ -341,6 +343,8 @@
 		1F64C412201954CC00F364CD /* OneDialogReceivedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogReceivedMessage.swift; path = UI/Chat/OneDialog/OneDialogReceivedMessage.swift; sourceTree = "<group>"; };
 		1F64C414201958BD00F364CD /* OneDialogReceivedMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OneDialogReceivedMessageView.xib; path = UI/Chat/OneDialog/OneDialogReceivedMessageView.xib; sourceTree = "<group>"; };
 		1F64C4162019C11300F364CD /* OneDialogMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogMessage.swift; path = UI/Chat/OneDialog/OneDialogMessage.swift; sourceTree = "<group>"; };
+		1F64C418201B0F7500F364CD /* OneDialogSendingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogSendingMessage.swift; path = UI/Chat/OneDialog/OneDialogSendingMessage.swift; sourceTree = "<group>"; };
+		1F64C41A201B0FA200F364CD /* OneDialogSendingMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OneDialogSendingMessageView.xib; path = UI/Chat/OneDialog/OneDialogSendingMessageView.xib; sourceTree = "<group>"; };
 		1F6B21B91F881DAD0068E29A /* MapPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPopupView.xib; path = UI/Main/Map/MapPopupView.xib; sourceTree = "<group>"; };
 		1F6B21BC1F881E260068E29A /* PlacesListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListAdapter.swift; path = UI/Main/Adapters/PlacesListAdapter.swift; sourceTree = "<group>"; };
 		1F6B21BD1F881E270068E29A /* PlacesListTableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesListTableAdapter.swift; path = UI/Main/Adapters/PlacesListTableAdapter.swift; sourceTree = "<group>"; };
@@ -874,6 +878,8 @@
 				1F64C4162019C11300F364CD /* OneDialogMessage.swift */,
 				1F64C412201954CC00F364CD /* OneDialogReceivedMessage.swift */,
 				1F64C414201958BD00F364CD /* OneDialogReceivedMessageView.xib */,
+				1F64C418201B0F7500F364CD /* OneDialogSendingMessage.swift */,
+				1F64C41A201B0FA200F364CD /* OneDialogSendingMessageView.xib */,
 			);
 			name = OneDialog;
 			sourceTree = "<group>";
@@ -1387,6 +1393,7 @@
 				1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */,
 				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
 				1F64C4072018DEE700F364CD /* ChatDialogsDialogRowView.xib in Resources */,
+				1F64C41B201B0FA200F364CD /* OneDialogSendingMessageView.xib in Resources */,
 				1F1CA9071FCE78840006BE0B /* OnePlaceMainLastActionCell.xib in Resources */,
 				1F4677111F950F0C007E426D /* OnePlaceMainSpaceCell.xib in Resources */,
 				1F4690801F86A6340056F9B0 /* SearchPlaceCardView.xib in Resources */,
@@ -1521,12 +1528,14 @@
 				"${SRCROOT}/../Pods/Target Support Files/Pods-FindMe/Pods-FindMe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AsyncTask/AsyncTask.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftR/SwiftR.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncTask.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftR.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1604,6 +1613,7 @@
 				1F1A0E361F77C10300FDBA97 /* ConfigsKey.swift in Sources */,
 				1FC5481F1F7048EF007CE6AB /* Attachment.swift in Sources */,
 				1FE0B700201760CE008EAFD2 /* ChatConnection.swift in Sources */,
+				1F64C419201B0F7500F364CD /* OneDialogSendingMessage.swift in Sources */,
 				1F2E37581FCC7A2B003D24C1 /* RefreshDataManager.swift in Sources */,
 				1FE0B70520176434008EAFD2 /* Commands.swift in Sources */,
 				1F2D6CFD1FD1585E00BF9E63 /* OnePlaceOneActionController.swift in Sources */,

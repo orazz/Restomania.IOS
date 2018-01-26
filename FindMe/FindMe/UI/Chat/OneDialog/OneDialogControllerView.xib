@@ -34,6 +34,9 @@
                                 <constraint firstAttribute="height" constant="25" id="pvJ-vF-Yz5"/>
                             </constraints>
                             <state key="normal" title="Button" image="send"/>
+                            <connections>
+                                <action selector="sendMessage" destination="-1" eventType="touchUpInside" id="IaG-gt-7Ra"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-mK-qvO" customClass="FMTextField" customModule="FindMe" customModuleProvider="target">
                             <rect key="frame" x="5" y="5" width="325" height="35"/>
@@ -56,9 +59,13 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RPr-1I-BMt">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="KVe-3J-1zd" appends="YES" id="oMa-1T-qhd"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="ssK-OR-oHm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1ru-1P-THC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ssK-OR-oHm" secondAttribute="trailing" id="4pj-db-ldc"/>
@@ -71,6 +78,11 @@
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
+        <tapGestureRecognizer id="KVe-3J-1zd" userLabel="close keyboard">
+            <connections>
+                <action selector="tryCloseKeyboard" destination="-1" id="BuC-wu-X4v"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="send" width="40" height="40"/>

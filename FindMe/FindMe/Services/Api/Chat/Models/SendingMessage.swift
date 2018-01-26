@@ -22,11 +22,22 @@ public class SendingMessage: JSONEncodable {
     public let content: String
     public var attachments: [Long]
 
-    public init(to dialogId: Long, with content: String, and attachments: [Long]) {
+    public init(toDialog dialogId: Long, content: String, and attachments: [Long]) {
 
         self.dialogId = dialogId
         self.content = content
         self.attachments = attachments
+    }
+
+    public func createStub() -> ChatMessage {
+
+        let source = SourceChatMessage()
+        source.senderId = -1
+        source.dialogId = dialogId
+        source.content = content
+        source.attachments = []
+
+        return ChatMessage(wrap: source)
     }
 
     //MARK: Glossy

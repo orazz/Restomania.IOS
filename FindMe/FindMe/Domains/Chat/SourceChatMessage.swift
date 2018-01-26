@@ -19,10 +19,10 @@ public class SourceChatMessage: BaseDataType {
         fileprivate static let attachments = "Attachments"
     }
 
-    public let senderId: Long
-    public let dialogId: Long
-    public let content: String
-    public let attachments: [String]
+    public var senderId: Long
+    public var dialogId: Long
+    public var content: String
+    public var attachments: [String]
 
     public override init() {
 
