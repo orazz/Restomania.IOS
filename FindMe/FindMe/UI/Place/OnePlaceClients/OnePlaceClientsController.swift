@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 import IOSLibrary
 
+public protocol OnePlaceClientsControllerDelegate {
+    func writeMessageTo(_ userId: Long)
+}
 public class OnePlaceClientsController: UIViewController {
 
     private static let nibName = "OnePlaceClientsView"
@@ -153,7 +156,7 @@ public class OnePlaceClientsController: UIViewController {
     }
 }
 //MARK: Actions
-extension OnePlaceClientsController {
+extension OnePlaceClientsController: OnePlaceClientsControllerDelegate {
     @IBAction private func goBack() {
 
         self.navigationController?.popViewController(animated: true)
@@ -163,13 +166,49 @@ extension OnePlaceClientsController {
         selectedSex = value as! UserSex
         updateInterface()
     }
+    public func writeMessageTo(_ userId: Long) {
+        Log.debug(tag, "Try write message to user #\(userId).")
+
+        let tabs = TabBarController.instance!
+        let chat = tabs.chat
+        if let dialog = chat.dialog(with: userId) {
+            DispatchQueue.main.async {
+                self.navigationController?.popToViewController(tabs, animated: true)
+                tabs.focusOn(.chat)
+
+                chat.open(dialog.ID)
+            }
+            return
+        }
+
+        loader.show()
+        let request = chat.start(with: userId)
+        request.async(.background, completion: { response in
+
+            if (response.isSuccess) {
+                self.writeMessageTo(userId)
+            }
+            else {
+                DispatchQueue.main.async {
+
+                    self.loader.hide()
+
+                    let alert = ProblemAlerts.Error(for: response.statusCode)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        })
+    }
 }
 
 //MARK: UITableViewDelegate
 extension OnePlaceClientsController: UITableViewDelegate {
 
-    public func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
-        return false
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let cell = tableView.cellForRow(at: indexPath) as? OnePlaceClientsCell {
+            writeMessageTo(cell.userId)
+        }
     }
 }
 
@@ -185,7 +224,7 @@ extension OnePlaceClientsController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: OnePlaceClientsCell.identifier, for: indexPath) as! OnePlaceClientsCell
-        cell.update(data: filtered[indexPath.row])
+        cell.update(by: filtered[indexPath.row])
 
         return cell
     }

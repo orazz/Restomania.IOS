@@ -30,7 +30,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
                 backgroundPositions: BackgroundPositionsServices,
                 searchCards: SearchPlaceCardsCacheService,
                 configs: ConfigsStorage,
-                keys: IKeysStorage) {
+                keys: KeysStorage) {
 
         self._positionsService = positions
         self._backgroundPositions = backgroundPositions
@@ -61,7 +61,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
     //MARK: Methods
     @objc public func tryCheckIn() {
 
-        Log.Debug(_tag, "Try check in.")
+        Log.debug(_tag, "Try check in.")
 
         var lastPosition: PositionsService.Position? = nil
 
@@ -79,7 +79,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
 //                self.messageToSlack(position)
                 self.checkPlaces(on: position)
 
-                Log.Info(self._tag, "Process new location.")
+                Log.info(self._tag, "Process new location.")
 
                 done(nil)
             }).async(.background, completion: { _ in })

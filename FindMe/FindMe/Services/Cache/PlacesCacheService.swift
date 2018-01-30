@@ -51,7 +51,7 @@ public class PlacesCacheService {
                 else if let update = response.data {
                     self.adapter.addOrUpdate(update)
                     handler(update)
-                    Log.Debug(self.tag, "Find and update place #\(placeId)")
+                    Log.debug(self.tag, "Find and update place #\(placeId)")
                 }
             })
         })
@@ -77,7 +77,7 @@ public class PlacesCacheService {
 //                }
 //
 //                self._adapter.addOrUpdate(update)
-//                Log.Info(self._tag, "Complete refresh data.")
+//                Log.info(self._tag, "Complete refresh data.")
 //            })
 //        }
 //    }

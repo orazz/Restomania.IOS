@@ -143,7 +143,7 @@ open class CacheAdapter<TElement> where TElement: ICached {
                 let data = try JSONSerialization.serialize(data: self.data)
                 self.file.save(data: data)
 
-                Log.Debug(self.tag, "Save cached data.")
+                Log.debug(self.tag, "Save cached data.")
             } catch {
                 Log.warning(self.tag, "Problem with save data.")
             }

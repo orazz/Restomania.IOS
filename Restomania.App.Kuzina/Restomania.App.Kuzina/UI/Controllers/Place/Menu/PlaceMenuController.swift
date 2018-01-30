@@ -102,7 +102,7 @@ public class PlaceMenuController: UIViewController {
         loadMarkup()
         loadData()
 
-        Log.Info(_tag, "Load place #\(placeId!) menu page.")
+        Log.info(_tag, "Load place #\(placeId!) menu page.")
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -268,16 +268,16 @@ extension PlaceMenuController: PlaceMenuDelegate {
     }
 
     public func add(dish: Long) {
-        Log.Debug(_tag, "Add dish #\(dish)")
+        Log.debug(_tag, "Add dish #\(dish)")
 
         cartService.add(dishId: dish)
     }
     public func select(category: Long) {
-        Log.Debug(_tag, "Select category #\(category)")
+        Log.debug(_tag, "Select category #\(category)")
 
     }
     public func select(dish: Long) {
-        Log.Debug(_tag, "Select dish #\(dish)")
+        Log.debug(_tag, "Select dish #\(dish)")
     }
 
     public func goToCart() {

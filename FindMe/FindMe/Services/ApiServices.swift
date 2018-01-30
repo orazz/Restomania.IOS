@@ -16,6 +16,15 @@ public struct ApiServices {
         }
     }
 
+    public struct Chat {
+        public static var dialogs: ChatDialogsApiService {
+            return ChatDialogsApiService(configs: ToolsServices.shared.configs, keys: ToolsServices.shared.keys)
+        }
+        public static var messages: ChatMessagesApiService {
+            return ChatMessagesApiService(configs: ToolsServices.shared.configs, keys: ToolsServices.shared.keys)
+        }
+    }
+
     public struct Users {
         public static var main: UsersMainApiService {
             return UsersMainApiService(configs: ToolsServices.shared.configs, keys: ToolsServices.shared.keys)

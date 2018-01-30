@@ -137,7 +137,7 @@ public class ApiClient {
 
         return Task { (handler: @escaping (_:ApiResponse<TData>) -> Void) in
 
-            Log.Debug(self._tag, "Request to \(url)")
+            Log.debug(self._tag, "Request to \(url)")
 
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
@@ -158,7 +158,7 @@ public class ApiClient {
                     return
                 }
 
-                Log.Debug(self._tag, "Response from \(url)")
+                Log.debug(self._tag, "Response from \(url)")
                 do {
                     let content = String(data: data!, encoding: .utf8)!
                     let json =  try JSONSerialization.jsonObject(with: data!, options: []) as! JSON

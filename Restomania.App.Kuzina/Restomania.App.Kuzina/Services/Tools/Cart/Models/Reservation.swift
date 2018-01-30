@@ -21,7 +21,7 @@ public class Reservation {
 
     public func buildCompleteAt() -> Date {
 
-        var calendar = Calendar.utcCurrent
+        let calendar = Calendar.utcCurrent
         var components = DateComponents()
 
         //Date

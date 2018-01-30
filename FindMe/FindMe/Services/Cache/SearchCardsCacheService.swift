@@ -30,7 +30,7 @@ public class SearchPlaceCardsCacheService {
         self.adapter = CacheAdapter<SearchPlaceCard>(tag: tag, filename: "places-search-cards.json", livetime: 24 * 60 * 60)
         self.apiQueue = AsyncQueue.createForApi(for: tag)
 
-        Log.Debug(tag, "Complete load service.")
+        Log.debug(tag, "Complete load service.")
     }
 
     public func load() {
@@ -43,7 +43,7 @@ public class SearchPlaceCardsCacheService {
 
         return Task { (handler: @escaping (ApiResponse<[SearchPlaceCard]>) -> Void) in
 
-            Log.Debug(self.tag, "Request all places' cards.")
+            Log.debug(self.tag, "Request all places' cards.")
 
             let request = self.client.all(with: parameters, towns: towns)
             request.async(self.apiQueue, completion: { response in
@@ -58,7 +58,7 @@ public class SearchPlaceCardsCacheService {
                     self.adapter.addOrUpdate(update)
                     self.adapter.clearOldCached()
                     handler(response)
-                    Log.Debug(self.tag, "Complete request all.")
+                    Log.debug(self.tag, "Complete request all.")
                 }
             })
         }
@@ -67,7 +67,7 @@ public class SearchPlaceCardsCacheService {
 
         return Task<Bool>.init(action: { handler in
 
-            Log.Debug(self.tag, "Try refresh data.")
+            Log.debug(self.tag, "Try refresh data.")
 
             let places = self.cache.all.map{ $0.ID }
             if (places.isEmpty) {
@@ -88,7 +88,7 @@ public class SearchPlaceCardsCacheService {
                 }
                 else if let update = response.data {
                     
-                    Log.Info(self.tag, "Complete refresh data.")
+                    Log.info(self.tag, "Complete refresh data.")
 
                     self.adapter.clear()
                     self.adapter.addOrUpdate(update)

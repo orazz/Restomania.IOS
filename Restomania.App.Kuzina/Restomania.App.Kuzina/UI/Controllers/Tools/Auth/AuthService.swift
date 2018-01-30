@@ -61,7 +61,7 @@ public class AuthService {
         _navigator.pushViewController(controller, animated: true)
         controller.authContainer = AuthContainer(login: String.empty, password: String.empty, rights: _rights)
 
-        Log.Info(_tag, "Open auth pages.")
+        Log.info(_tag, "Open auth pages.")
     }
 
     public func moveTo(_ page: AuthPage) {
@@ -106,6 +106,6 @@ public class AuthService {
         }
 
         _navigator.popToViewController(_root, animated: true)
-        Log.Info(_tag, "Close auth pages.")
+        Log.info(_tag, "Close auth pages.")
     }
 }

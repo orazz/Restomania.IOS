@@ -25,10 +25,10 @@ public class LogTests: XCTestCase {
         let tag = "TAG"
         let message = "MESSAGE"
 
-        Log.Debug(tag, message)
+        Log.debug(tag, message)
         CheckMessage(Log.messages.last!, .debug, tag, message)
 
-        Log.Info(tag, message)
+        Log.info(tag, message)
         CheckMessage(Log.messages.last!, .info, tag, message)
 
         Log.warning(tag, message)
@@ -44,12 +44,12 @@ public class LogTests: XCTestCase {
         let message = "MESSAGE"
 
         Log.isDebug = true
-        Log.Debug(tag, message)
+        Log.debug(tag, message)
         XCTAssertEqual(1, Log.messages.count)
         Log.messages.removeAll()
 
         Log.isDebug = false
-        Log.Debug(tag, message)
+        Log.debug(tag, message)
         XCTAssertEqual(0, Log.messages.count)
     }
 

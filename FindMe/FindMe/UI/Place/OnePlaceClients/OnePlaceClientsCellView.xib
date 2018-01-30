@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,21 +24,31 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfk-ql-4Gi" customClass="FMSubheadLabel" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="80" y="5" width="290" height="60"/>
+                    <rect key="frame" x="80" y="5" width="260" height="60"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="write-message" translatesAutoresizingMaskIntoConstraints="NO" id="RmV-57-IBn">
+                    <rect key="frame" x="350" y="25" width="20" height="20"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="WEr-dQ-mRI"/>
+                        <constraint firstAttribute="height" constant="20" id="qnZ-9e-VlK"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Jex-Iv-xMf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="2vC-fZ-fec"/>
                 <constraint firstItem="Bfk-ql-4Gi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FfE-Pk-PGc"/>
                 <constraint firstItem="Bfk-ql-4Gi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="IVM-hs-ozd"/>
+                <constraint firstItem="RmV-57-IBn" firstAttribute="leading" secondItem="Bfk-ql-4Gi" secondAttribute="trailing" constant="10" id="JBG-Le-pVW"/>
                 <constraint firstItem="Bfk-ql-4Gi" firstAttribute="leading" secondItem="Jex-Iv-xMf" secondAttribute="trailing" constant="15" id="Mue-Xo-dco"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bfk-ql-4Gi" secondAttribute="trailing" constant="5" id="RfI-R8-1Nz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RmV-57-IBn" secondAttribute="trailing" constant="5" id="Ofg-fz-WST"/>
                 <constraint firstItem="Jex-Iv-xMf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZPs-oh-0j8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Bfk-ql-4Gi" secondAttribute="bottom" constant="5" id="gzf-0g-m1N"/>
+                <constraint firstItem="RmV-57-IBn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oa3-rq-Cph"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -47,8 +57,12 @@
             <connections>
                 <outlet property="avatarImage" destination="Jex-Iv-xMf" id="XFo-OX-MtN"/>
                 <outlet property="nameLabel" destination="Bfk-ql-4Gi" id="Rs2-19-9Ht"/>
+                <outlet property="writeMessageImage" destination="RmV-57-IBn" id="ioa-bC-VMB"/>
             </connections>
             <point key="canvasLocation" x="25.5" y="-280"/>
         </view>
     </objects>
+    <resources>
+        <image name="write-message" width="40" height="40"/>
+    </resources>
 </document>

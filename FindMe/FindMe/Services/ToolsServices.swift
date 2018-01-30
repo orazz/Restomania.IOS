@@ -17,7 +17,7 @@ public class ToolsServices {
     public let configs: ConfigsStorage
     public let properties: PropertiesStorage<PropertiesKey>
     public let backgroundTasks: BackgroundTasksService
-    public let keys: IKeysStorage
+    public let keys: KeysStorage
 
     private init() {
 

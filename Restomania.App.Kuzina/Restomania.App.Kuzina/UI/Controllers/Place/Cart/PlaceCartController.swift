@@ -337,7 +337,7 @@ extension PlaceCartController: PlaceCartDelegate {
         }
     }
     public func tryAddOrder() {
-        Log.Info(_tag, "Try add order.")
+        Log.info(_tag, "Try add order.")
 
         guard let summary = takeSummary() else {
             return
@@ -362,7 +362,7 @@ extension PlaceCartController: PlaceCartDelegate {
                     let vc = PlaceCompleteOrderController.create(for: order)
                     self.navigationController?.pushViewController(vc, animated: true)
 
-                    Log.Debug(self._tag, "Add order #\(self.placeId)")
+                    Log.debug(self._tag, "Add order #\(self.placeId)")
                 }
 
                 if (response.isFail) {

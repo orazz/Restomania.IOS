@@ -16,6 +16,8 @@ public class ThemeSettings {
     public struct Colors {
         
         public static let main = UIColor(red: 246, green: 101, blue: 86)
+        public static let additional = UIColor(red: 154, green: 154, blue: 154)
+
         public static let divider = UIColor(red: 215, green: 216, blue: 218)
         public static let bullet = UIColor(red: 160, green: 161, blue: 165)
 
@@ -25,6 +27,7 @@ public class ThemeSettings {
 
         public static let blackText = UIColor(red: 57, green: 51, blue: 53)
         public static let whiteText = UIColor(red: 255, green: 255, blue: 255)
+
         
         public static let background = UIColor(red: 255, green: 255, blue: 255)
     }

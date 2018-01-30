@@ -28,7 +28,7 @@ public class PushesService {
     }
     public func processMessage(push: [AnyHashable: Any]) {
 
-        Log.Debug(tag, "Recieve push notification.")
+        Log.debug(tag, "Recieve push notification.")
         guard let container = NotificationContainer.tryParse(push) else {
             return
         }
@@ -37,11 +37,11 @@ public class PushesService {
 
             PushesHandler.process(container)
 
-            Log.Info(self.tag, "Notification is successful parse and process.")
+            Log.info(self.tag, "Notification is successful parse and process.")
         }
         task.async(processQueue)
 
-        Log.Debug(self.tag, "Complete process push-notification.")
+        Log.debug(self.tag, "Complete process push-notification.")
     }
 
     // MARK: Rquest permissions
@@ -63,7 +63,7 @@ public class PushesService {
 
         if let token = token {
 
-            Log.Info(tag, "Get device token for send push notifications.")
+            Log.info(tag, "Get device token for send push notifications.")
 
             let parsed = token.map ({ String(format: "%02.2hhx", $0) }).joined()
             register(parsed)
@@ -73,7 +73,7 @@ public class PushesService {
     // MARK: Remote access
     public func register(_ token: String) {
 
-        Log.Debug(tag, "Register device with token: \(token)")
+        Log.debug(tag, "Register device with token: \(token)")
 
         if (!apiKeysService.isAuth(for: .user)) {
             return
@@ -91,7 +91,7 @@ public class PushesService {
         task.async(processQueue, completion: { result in
 
             if (result.statusCode == .OK) {
-                Log.Info(self.tag, "Complete success register device for push notification.")
+                Log.info(self.tag, "Complete success register device for push notification.")
             }
 
             self.propertiesService.set(.devicePushToken, value: token)

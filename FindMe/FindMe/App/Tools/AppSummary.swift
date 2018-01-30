@@ -30,7 +30,7 @@ public class AppSummary {
     private init() {
         
         let configs = ToolsServices.shared.configs
-        self.serverUrl = configs.get(forKey: ConfigsKey.serverUrl).value as! String
+        self.serverUrl = configs.get(forKey: ConfigsKey.serverUrl)!
         
         //Version
         self.version = "1.0.0"
@@ -43,8 +43,8 @@ public class AppSummary {
         
         let configs = ConfigsStorage(plistName: "Info")
         
-        self.version = configs.get(forKey: "CFBundleShortVersionString").value as! String
-        self.build = Int(configs.get(forKey: "CFBundleVersion").value as! String)!
+        self.version = configs.get(forKey: "CFBundleShortVersionString")!
+        self.build = Int(configs.get(forKey: "CFBundleVersion")! as String)!
         
         
         let storage = PropertiesStorage<PropertiesKey>();
@@ -102,15 +102,15 @@ public class AppSummary {
 
     public func launchApp() {
 
-        Log.Info(tag, "Init AppSettings.")
-        Log.Info(tag, "App version: \(version)")
-        Log.Info(tag, "App build: \(build)")
+        Log.info(tag, "Init AppSettings.")
+        Log.info(tag, "App version: \(version)")
+        Log.info(tag, "App build: \(build)")
 
         if let prevVersion = prevVersion {
-            Log.Info(tag, "App previous version: \(prevVersion)")
+            Log.info(tag, "App previous version: \(prevVersion)")
         }
         if let prevBuild = prevBuild {
-            Log.Info(tag, "App previous build: \(prevBuild)")
+            Log.info(tag, "App previous build: \(prevBuild)")
         }
     }
 }

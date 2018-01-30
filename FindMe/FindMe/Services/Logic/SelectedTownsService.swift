@@ -53,14 +53,14 @@ public class SelectedTownsService {
     private func select(_ town: TownContainer) {
         adapter.addOrUpdate(town)
 
-        eventsAdapter.Trigger(action: { $0.selectedTownsService(self, select: town.ID) })
-        Log.Debug(tag, "Select town #\(town.ID)")
+        eventsAdapter.invoke({ $0.selectedTownsService(self, select: town.ID) })
+        Log.debug(tag, "Select town #\(town.ID)")
     }
     public func unselect(_ town: Town) {
         adapter.remove(TownContainer(for: town))
 
-        eventsAdapter.Trigger(action: { $0.selectedTownsService(self, unselect: town.ID) })
-        Log.Debug(tag, "Unselect town #\(town.ID)")
+        eventsAdapter.invoke({ $0.selectedTownsService(self, unselect: town.ID) })
+        Log.debug(tag, "Unselect town #\(town.ID)")
     }
     public func all() -> [Long] {
         return adapter.extender.all.map{ $0.ID }
@@ -74,11 +74,11 @@ public class SelectedTownsService {
 
             if response.isFail {
                 if (response.statusCode != .Forbidden && response.statusCode != .ConnectionError) {
-                    Log.Warning(self.tag, "Problem with update selected townss.")
+                    Log.warning(self.tag, "Problem with update selected townss.")
                 }
             }
             else if response.isSuccess {
-                Log.Info(self.tag, "Update selected towns.")
+                Log.info(self.tag, "Update selected towns.")
             }
         })
     }
@@ -89,11 +89,11 @@ public class SelectedTownsService {
 
             if response.isFail {
                 if (response.statusCode != .Forbidden && response.statusCode != .ConnectionError) {
-                    Log.Warning(self.tag, "Problem with take selected towns.")
+                    Log.warning(self.tag, "Problem with take selected towns.")
                 }
             }
             else if response.isSuccess {
-                Log.Info(self.tag, "Request selected towns.")
+                Log.info(self.tag, "Request selected towns.")
 
                 for townId in response.data! {
                     self.select(TownContainer(townId))

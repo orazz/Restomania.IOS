@@ -25,15 +25,15 @@ public class Migrations {
 
         let migrations = [
             305: to305,
-            329: to329
+            329: to329,
+            395: to395
             ]
-
-
+        
         for (build, migration) in migrations.sorted(by: { $0.key < $1.key }) {
 
             if (prevBuild < build) {
 
-                Log.Info(tag, "Apply migration for \(build) build.")
+                Log.info(tag, "Apply migration for \(build) build.")
                 migration()
             }
         }
@@ -47,5 +47,8 @@ public class Migrations {
     }
     private static func to329() {
         CacheServices.searchCards.cache.clear()
+    }
+    private static func to395() {
+        CacheServices.chatDialogs.clear()
     }
 }

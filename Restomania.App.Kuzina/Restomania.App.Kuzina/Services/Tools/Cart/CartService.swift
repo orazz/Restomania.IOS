@@ -35,7 +35,7 @@ public class CartService {
         }
 
         load()
-        Log.Info(_tag, "Complete load service.")
+        Log.info(_tag, "Complete load service.")
     }
 
     public func reservation() -> Reservation {
@@ -80,7 +80,7 @@ public class CartService {
                 self.file.save(data: data)
                 self.needSave = false
 
-                Log.Debug(self._tag, "Save cart's data to storage.")
+                Log.debug(self._tag, "Save cart's data to storage.")
             } catch {
                 Log.error(self._tag, "Problem with save cart to storage.")
                 Log.error(self._tag, "Error: \(error)")
@@ -104,7 +104,7 @@ public class CartService {
                 for place in self._cartContainer.places {
                     self._carts.append(Cart(place: place, cart: self._cartContainer, saver: self.needSaveTrigger))
                 }
-                Log.Debug(self._tag, "Load cart's data from storage")
+                Log.debug(self._tag, "Load cart's data from storage")
             } catch {
                 Log.warning(self._tag, "Problem with load cart from storage.")
                 Log.warning(self._tag, "Error: \(error)")

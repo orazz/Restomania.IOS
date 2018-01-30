@@ -12,10 +12,14 @@ import IOSLibrary
 
 public class TabBarController: UITabBarController {
 
+    public static var instance: TabBarController!
+
     @IBOutlet weak var TabBar: UITabBar!
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+
+        TabBarController.instance = self
 
         let mainColor = ThemeSettings.Colors.main
         for item in TabBar.items ?? [UITabBarItem]() {
@@ -31,5 +35,21 @@ public class TabBarController: UITabBarController {
         super.viewWillAppear(animated)
 
         self.navigationController?.setToolbarHidden(true, animated: false)
+    }
+
+    public enum Tabs: Int {
+        case search = 0
+        case map = 1
+        case chat = 2
+        case favourite = 3
+        case profile = 4
+    }
+
+    public func focusOn(_ tab: Tabs) {
+        self.selectedIndex = tab.rawValue
+    }
+
+    public var chat: ChatDialogsController {
+        return self.viewControllers![Tabs.chat.rawValue] as! ChatDialogsController
     }
 }

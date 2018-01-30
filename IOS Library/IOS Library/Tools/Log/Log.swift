@@ -14,12 +14,12 @@ public class Log {
     public static var isDebug = true
     private static let queue = DispatchQueue(label: "Log-Queue")
 
-    public static func Debug(_ tag: String, _ message: String) {
+    public static func debug(_ tag: String, _ message: String) {
         if (isDebug) {
             show(.debug, tag, message)
         }
     }
-    public static func Info(_ tag: String, _ message: String) {
+    public static func info(_ tag: String, _ message: String) {
         show(.info, tag, message)
     }
     public static func warning(_ tag: String, _ message: String) {

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +33,7 @@
                     <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                     <items>
                         <navigationItem id="k7e-ey-IlS">
-                            <barButtonItem key="leftBarButtonItem" title="Назад" style="done" id="iaI-38-fh7">
+                            <barButtonItem key="leftBarButtonItem" title="Назад" style="plain" id="iaI-38-fh7">
                                 <connections>
                                     <action selector="goBack" destination="-1" id="cpL-qX-8A0"/>
                                 </connections>

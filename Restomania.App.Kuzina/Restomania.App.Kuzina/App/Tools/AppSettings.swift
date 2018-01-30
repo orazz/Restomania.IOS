@@ -15,26 +15,26 @@ public class AppSettings {
     public static var shared = AppSettings()
     public static func launch() {
 
-        Log.Info(tag, "Launch app.")
+        Log.info(tag, "Launch app.")
 
         let summary = AppSettings.shared
 
-        Log.Info(tag, "Version: \(summary.version) (\(summary.build))")
-        Log.Info(tag, "App key: \(summary.appKey).")
+        Log.info(tag, "Version: \(summary.version) (\(summary.build))")
+        Log.info(tag, "App key: \(summary.appKey).")
 
-        Log.Info(tag, "Type: \(summary.type).")
+        Log.info(tag, "Type: \(summary.type).")
         switch summary.type {
             case .Single:
-                Log.Info(tag, "Place ID: \(summary.placeID!).")
+                Log.info(tag, "Place ID: \(summary.placeID!).")
             case .Network:
-                Log.Info(tag, "Places: \(summary.placeIDs!).")
+                Log.info(tag, "Places: \(summary.placeIDs!).")
             default:
-                Log.Info(tag, "App is agregator.")
+                Log.info(tag, "App is agregator.")
         }
 
-        Log.Info(tag, "User role: \(summary.clientType).")
-        Log.Info(tag, "Server url: \(summary.serverUrl).")
-        Log.Info(tag, "")
+        Log.info(tag, "User role: \(summary.clientType).")
+        Log.info(tag, "Server url: \(summary.serverUrl).")
+        Log.info(tag, "")
     }
 
     //Configs

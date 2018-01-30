@@ -18,7 +18,9 @@ open class SliderControl: UIView {
     private var _max: Int {
         return _slides.count
     }
-    private var _mainPosition: CGRect = CGRect()
+    private var presentPosition: CGRect {
+        return CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+    }
 
 
     public override init(frame: CGRect) {
@@ -40,8 +42,6 @@ open class SliderControl: UIView {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeRight))
         swipeRight.direction = .right
         self.addGestureRecognizer(swipeRight)
-
-        _mainPosition = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
     }
 
     //MARK: Public methods
@@ -50,19 +50,17 @@ open class SliderControl: UIView {
     }
     public func setup(slides: [UIView]) {
 
-        _slides = slides
-        _current = 0
-
         for slide in _slides {
-
-            slide.frame = _mainPosition
-            move(slide: slide, to: .left)
-            self.addSubview(slide)
+            slide.removeFromSuperview()
         }
+        _slides.removeAll()
 
-        if let slide = _slides.first {
-            slide.frame = _mainPosition
-        }
+        _slides = slides
+        _slides.each({ self.addSubview($0) })
+        
+        _current = -1
+
+        focusOn(slide: 0)
     }
     public func focusOn(slide newIndex: Int) {
 
@@ -72,12 +70,12 @@ open class SliderControl: UIView {
         }
 
         for slide in _slides {
-            slide.frame = _mainPosition
+            slide.frame = presentPosition
             move(slide: slide, to: .left)
         }
 
         _current = newIndex
-        slide(number: newIndex)?.frame = _mainPosition
+        slide(number: newIndex)?.frame = presentPosition
 
         delegate?.move(slider: self, focusOn: newIndex)
     }
@@ -100,7 +98,7 @@ open class SliderControl: UIView {
         let next = slide(number: nextIndex)!
 
 
-        next.frame = _mainPosition
+        next.frame = presentPosition
         if (direction == .left){
             move(slide: next, to: .right)
         }

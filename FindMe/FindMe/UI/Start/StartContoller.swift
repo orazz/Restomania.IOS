@@ -61,7 +61,7 @@ public class StartController: UIViewController {
 
             self.navigationController?.present(vc, animated: false, completion: {
 
-                Log.Info(self._tag, "Navigate to main storyboard.")
+                Log.info(self._tag, "Navigate to main storyboard.")
             })
         }
     }

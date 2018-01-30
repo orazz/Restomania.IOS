@@ -65,13 +65,13 @@ public class BackgroundPositionsServices: NSObject {
     //MARK: UI Circle
     @objc private func enterToForeground() {
 
-        Log.Info(_tag, "Turn off background location service.")
+        Log.info(_tag, "Turn off background location service.")
 
         reset()
     }
     @objc private func enterToBackground() {
 
-        Log.Info(_tag, "Turn on background location service.")
+        Log.info(_tag, "Turn on background location service.")
 
         _task = _tasksService.new()
         Timer.scheduledTimer(timeInterval: 10.0,
@@ -83,7 +83,7 @@ public class BackgroundPositionsServices: NSObject {
 
     @objc private func restartTracking() {
 
-        Log.Debug(_tag, "Restart location updates.")
+        Log.debug(_tag, "Restart location updates.")
 
         resetTimers()
         _circleTimer = Timer.scheduledTimer(timeInterval: _circlePeriod,
@@ -108,7 +108,7 @@ public class BackgroundPositionsServices: NSObject {
     }
     @objc private func stopTracking() {
 
-        Log.Debug(_tag, "Go to sleep updates of location.")
+        Log.debug(_tag, "Go to sleep updates of location.")
 
         _workTimer?.invalidate()
         _workTimer = nil
@@ -139,7 +139,7 @@ extension BackgroundPositionsServices: PositionServiceDelegate {
 
     public func updateLocation(positions: [PositionsService.Position]) {
 
-        Log.Debug(_tag, "Update location.")
+        Log.debug(_tag, "Update location.")
     }
 }
 

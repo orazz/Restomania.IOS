@@ -41,7 +41,7 @@ public class FirstLoginController: UIViewController {
 
     //MARK: Data & Services
     private let _tag = String.tag(FirstLoginController.self)
-    private var keysStorage: IKeysStorage!
+    private var keysStorage: KeysStorage!
     private var authApiService: UsersAuthApiService!
     private var usersApiService: UsersMainApiService!
     private var fieldsStorage: UIViewController.TextFieldsStorage?
@@ -51,6 +51,8 @@ public class FirstLoginController: UIViewController {
     //MARK: Controller circle
     public override func viewDidLoad() {
         super.viewDidLoad()
+
+        loadMarkup()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,14 +65,13 @@ public class FirstLoginController: UIViewController {
         super.viewDidAppear(animated)
 
         fieldsStorage = self.closeKeyboardWhenTapOnRootView()
-        initMarkup()
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         self.unsubscribefromScrollWhenKeyboardShow()
     }
-    private func initMarkup() {
+    private func loadMarkup() {
 
         self.view.backgroundColor = ThemeSettings.Colors.background 
 

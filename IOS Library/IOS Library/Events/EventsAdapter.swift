@@ -42,7 +42,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
         _subscribers[guid] = subscriber
 
         let message = "On \(sourceInstance) subscribe \(subscriber.Info)."
-        Log.Debug(self.tag, message)
+        Log.debug(self.tag, message)
 
         if (self._automatic && self._triggered) {
             notify(subscriber, action:  _defaultAction!)
@@ -53,7 +53,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
 
         if (nil != subscriber) {
             _subscribers.removeValue(forKey: guid)
-            Log.Debug(tag, "From \(sourceInstance) unsubscribe \(subscriber!.Info).")
+            Log.debug(tag, "From \(sourceInstance) unsubscribe \(subscriber!.Info).")
         }
     }
     private func ForceUnsubscribe(guid: String) {
@@ -72,7 +72,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
             }
         }
 
-        Log.Debug(tag, "Trigger \"\(sourceInstance)\" event.")
+        Log.debug(tag, "Trigger \"\(sourceInstance)\" event.")
         for (_, subscriber) in _subscribers {
             notify(subscriber, action: mainAction!)
         }

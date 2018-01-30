@@ -39,7 +39,7 @@ public class CacheImagesService {
         fileSystem = FileSystem()
         lastID = adapter.extender.all.max(by: {(left, right) in left.ID > right.ID })?.ID ?? 0
 
-        Log.Info(tag, "Complete load service.")
+        Log.info(tag, "Complete load service.")
     }
     public func load() {
         adapter.loadCached()
@@ -70,7 +70,7 @@ public class CacheImagesService {
                     image.lastUseDate = Date()
                     self.adapter.addOrUpdate(image)
 
-                    Log.Debug(self.tag, "Take image from cache: \(url)")
+                    Log.debug(self.tag, "Take image from cache: \(url)")
                     return
                 }
                 else {
@@ -99,7 +99,7 @@ public class CacheImagesService {
                 self.adapter.addOrUpdate(container)
 
                 handler(DownloadResult(data: data))
-                Log.Debug(self.tag, "Download and cache image for url: \(url)")
+                Log.debug(self.tag, "Download and cache image for url: \(url)")
             })
             request.resume()
         }
@@ -124,7 +124,7 @@ public class CacheImagesService {
         }
         adapter.remove(needRemove)
 
-        Log.Debug(tag, "Check cached images.")
+        Log.debug(tag, "Check cached images.")
     }
     private func removeOldImages() {
 
@@ -138,7 +138,7 @@ public class CacheImagesService {
                 self.fileSystem.remove(image.filename, fromCache: true)
             }
 
-            Log.Debug(self.tag, "Remove old cached images.")
+            Log.debug(self.tag, "Remove old cached images.")
         }
     }
 

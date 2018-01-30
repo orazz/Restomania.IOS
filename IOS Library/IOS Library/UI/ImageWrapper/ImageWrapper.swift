@@ -42,6 +42,10 @@ open class BaseImageWrapper: UIImageView {
         self.backgroundColor = UIColor.white
     }
 
+    public func clear() {
+        self._url = String.empty
+        self.image = delegate?.defaultImage
+    }
     public func setup(url: String) {
 
         let url = delegate?.prepare(url: url, width: frame.width)
@@ -61,7 +65,8 @@ open class BaseImageWrapper: UIImageView {
         if let task = delegate?.download(url: url!) {
             task.async(.background, completion: { result in
 
-                if let data = result {
+                if let data = result,
+                    url == self._url {
 
                     self.animatedSetupImage(data)
                 }
@@ -79,7 +84,7 @@ open class BaseImageWrapper: UIImageView {
                 return
             }
 
-            let duration = 0.1
+            let duration = 0.05
             UIView.animate(withDuration: duration, animations: { self.alpha = 0 }, completion: ({ _ in
 
                 self.image = image
