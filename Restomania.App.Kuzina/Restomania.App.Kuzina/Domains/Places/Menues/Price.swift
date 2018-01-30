@@ -25,6 +25,10 @@ public class Price: Glossy {
     public var decimal: Int
     public var float: Int
 
+    public var minorFormat: Int {
+        return decimal * 100 + float
+    }
+
     public convenience init() {
 
         self.init(decimal: 0, float: 0)
@@ -70,4 +74,7 @@ public class Price: Glossy {
 }
 func ==(left: Price, right: Price) -> Bool {
     return left.decimal == right.decimal && left.float == right.float
+}
+func <(left: Price, right: Price) -> Bool {
+    return left.minorFormat < right.minorFormat
 }

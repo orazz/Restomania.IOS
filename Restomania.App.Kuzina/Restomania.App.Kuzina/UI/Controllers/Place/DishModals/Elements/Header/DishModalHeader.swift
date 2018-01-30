@@ -48,6 +48,10 @@ public class DishModalHeader: UITableViewCell {
             }
         }
 
+        self.backgroundColor = ThemeSettings.Colors.additional
+        imageContainerView.backgroundColor = ThemeSettings.Colors.additional
+        nameContainerView.backgroundColor = ThemeSettings.Colors.additional
+
         dishImage.contentMode = .scaleAspectFit
 
         nameLabel.font = ThemeSettings.Fonts.bold(size: .title)
@@ -60,10 +64,10 @@ public class DishModalHeader: UITableViewCell {
 
         let hasImage = !String.isNullOrEmpty(dish.image)
 
-        imageContainerHeight?.constant = hasImage ? 150.0 : 0.0
+        imageContainerView.isHidden = !hasImage
+        imageContainerHeight?.constant = 20.0 + (hasImage ? 150.0 : 0.0)
         dishImage.setup(url: dish.image)
 
-        imageCloseButton.isHidden = !hasImage
         nameCloseButton.isHidden = hasImage
 
         nameLabel.text = dish.name
@@ -85,12 +89,7 @@ extension DishModalHeader: DishModalElementsProtocol {
 extension DishModalHeader: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-
-        if (imageContainerHeight?.constant == 0.0) {
-            return Int(nameContainerView.frame.height + 20.0)
-        } else {
-            return Int(nameContainerView.frame.height + imageContainerHeight!.constant)
-        }
+        return Int(nameContainerView.frame.height + imageContainerHeight!.constant)
     }
     public func prepareView() -> UITableViewCell {
         return self

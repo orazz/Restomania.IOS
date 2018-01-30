@@ -18,6 +18,7 @@ public class Variation: BaseDataType, ICached, IMenuDependent, ISortable {
 
         public static let parentDishId = "ParentDishId"
         public static let name = "Name"
+        public static let price = "Price"
         public static let size = "Size"
     }
 
@@ -26,6 +27,7 @@ public class Variation: BaseDataType, ICached, IMenuDependent, ISortable {
 
     public let parentDishId: Long
     public let name: String
+    public let price: Price
     public let size: Double
 
     public override init() {
@@ -35,6 +37,7 @@ public class Variation: BaseDataType, ICached, IMenuDependent, ISortable {
 
         self.parentDishId = 0
         self.name = String.empty
+        self.price = Price.zero
         self.size = 0.0
 
         super.init()
@@ -48,6 +51,7 @@ public class Variation: BaseDataType, ICached, IMenuDependent, ISortable {
 
         self.parentDishId = source.parentDishId
         self.name = source.name
+        self.price = source.price
         self.size = source.size
 
         super.init(source: source)
@@ -61,6 +65,7 @@ public class Variation: BaseDataType, ICached, IMenuDependent, ISortable {
 
         self.parentDishId = (Keys.parentDishId <~~ json)!
         self.name = (Keys.name <~~ json)!
+        self.price = (Keys.price <~~ json)!
         self.size = (Keys.size <~~ json)!
 
         super.init(json: json)
@@ -74,6 +79,7 @@ public class Variation: BaseDataType, ICached, IMenuDependent, ISortable {
 
             Keys.parentDishId ~~> self.parentDishId,
             Keys.name ~~> self.name,
+            Keys.price ~~> self.price,
             Keys.size ~~> self.size
             ])
     }

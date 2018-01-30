@@ -132,6 +132,8 @@
 		1FAC64AA2020F5C000B22411 /* DishModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FAC64A92020F5C000B22411 /* DishModalView.xib */; };
 		1FAC64AD2020F91200B22411 /* DishModalShortDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC64AC2020F91200B22411 /* DishModalShortDivider.swift */; };
 		1FAC64AF2020F92C00B22411 /* DishModalShortDividerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FAC64AE2020F92C00B22411 /* DishModalShortDividerView.xib */; };
+		1FAC64B220210D8C00B22411 /* DishModalPriceAndSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC64B120210D8C00B22411 /* DishModalPriceAndSize.swift */; };
+		1FAC64B420210DA200B22411 /* DishModalPriceAndSizeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FAC64B320210DA200B22411 /* DishModalPriceAndSizeView.xib */; };
 		1FB0BC861FEC42DE00EB4AE5 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0BC851FEC42DE00EB4AE5 /* LaunchController.swift */; };
 		1FB0BC881FEC430E00EB4AE5 /* GreetingControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB0BC871FEC430E00EB4AE5 /* GreetingControllerView.xib */; };
 		1FB3F24C1FD5712A0073640B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FB3F24A1FD5712A0073640B /* Localizable.strings */; };
@@ -438,6 +440,8 @@
 		1FAC64A92020F5C000B22411 /* DishModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalView.xib; path = UI/Controllers/Place/DishModals/DishModalView.xib; sourceTree = "<group>"; };
 		1FAC64AC2020F91200B22411 /* DishModalShortDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalShortDivider.swift; path = UI/Controllers/Place/DishModals/Elements/ShortDivider/DishModalShortDivider.swift; sourceTree = "<group>"; };
 		1FAC64AE2020F92C00B22411 /* DishModalShortDividerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalShortDividerView.xib; path = UI/Controllers/Place/DishModals/Elements/ShortDivider/DishModalShortDividerView.xib; sourceTree = "<group>"; };
+		1FAC64B120210D8C00B22411 /* DishModalPriceAndSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalPriceAndSize.swift; path = UI/Controllers/Place/DishModals/Elements/PriceAndSize/DishModalPriceAndSize.swift; sourceTree = "<group>"; };
+		1FAC64B320210DA200B22411 /* DishModalPriceAndSizeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalPriceAndSizeView.xib; path = UI/Controllers/Place/DishModals/Elements/PriceAndSize/DishModalPriceAndSizeView.xib; sourceTree = "<group>"; };
 		1FB0BC851FEC42DE00EB4AE5 /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchController.swift; path = UI/Controllers/Start/LaunchController.swift; sourceTree = "<group>"; };
 		1FB0BC871FEC430E00EB4AE5 /* GreetingControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GreetingControllerView.xib; path = UI/Controllers/Start/GreetingControllerView.xib; sourceTree = "<group>"; };
 		1FB3F24B1FD5712A0073640B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization/en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1069,6 +1073,7 @@
 			children = (
 				1F8CBDF82020E05300544513 /* Header */,
 				1FAC64AB2020F8E700B22411 /* ShortDivider */,
+				1FAC64B020210AF600B22411 /* PriceAndSize */,
 				1F8CBDFB2020E1AB00544513 /* DishModalElementsProtocol.swift */,
 			);
 			name = Elements;
@@ -1109,6 +1114,15 @@
 				1FAC64AE2020F92C00B22411 /* DishModalShortDividerView.xib */,
 			);
 			name = ShortDivider;
+			sourceTree = "<group>";
+		};
+		1FAC64B020210AF600B22411 /* PriceAndSize */ = {
+			isa = PBXGroup;
+			children = (
+				1FAC64B120210D8C00B22411 /* DishModalPriceAndSize.swift */,
+				1FAC64B320210DA200B22411 /* DishModalPriceAndSizeView.xib */,
+			);
+			name = PriceAndSize;
 			sourceTree = "<group>";
 		};
 		1FB3F24E1FD571C00073640B /* UI */ = {
@@ -1801,6 +1815,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F12EB561FB4166100EF9BEA /* ManagerOrdersControllerView.xib in Resources */,
+				1FAC64B420210DA200B22411 /* DishModalPriceAndSizeView.xib in Resources */,
 				1F8CBDFE2020E2D500544513 /* DishModalHeaderView.xib in Resources */,
 				1F5CF83B1FB3793800DDDC3F /* PlaceCartPaymentCardsContainerView.xib in Resources */,
 				1F279F611FB07C71003A2B47 /* ManagerEditProfileControllerView.xib in Resources */,
@@ -2177,6 +2192,7 @@
 				1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */,
 				1FB3F25F1FD573000073640B /* CommonCartContainer.swift in Sources */,
 				1F1D10531FEC21FE000F4F8F /* Localization.Tools.swift in Sources */,
+				1FAC64B220210D8C00B22411 /* DishModalPriceAndSize.swift in Sources */,
 				1FE3C76B1FB31702009CE542 /* PlaceCartTotalContainer.swift in Sources */,
 				1F36C8901F20C5E000232B9A /* PlaceSummary.swift in Sources */,
 				1F8CBDF12020B43B00544513 /* Migrations.swift in Sources */,

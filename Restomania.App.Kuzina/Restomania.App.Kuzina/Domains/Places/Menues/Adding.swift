@@ -60,8 +60,8 @@ public class Adding: BaseDataType, ICached, IMenuDependent, ISortable {
         self.orderNumber = (Keys.orderNumber <~~ json)!
 
         self.sourceDishId = (Keys.sourceDishId <~~ json)!
-        self.addedDishId = (Keys.addedDishId <~~ json)!
-        self.addedCategoryId = (Keys.addedCategoryId <~~ json)!
+        self.addedDishId = Keys.addedDishId <~~ json
+        self.addedCategoryId = Keys.addedCategoryId <~~ json
 
         super.init(json: json)
     }

@@ -58,6 +58,8 @@ public class PlaceMenuMenuContainer: UITableViewCell {
 
     private func setupMarkup() {
 
+        self.backgroundColor = ThemeSettings.Colors.background
+
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: BottomActions.height, right: 0.0)
         dishesTable.contentInset = contentInsets
         dishesTable.scrollIndicatorInsets = contentInsets

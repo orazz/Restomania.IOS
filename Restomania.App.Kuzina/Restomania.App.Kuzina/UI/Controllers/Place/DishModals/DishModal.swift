@@ -57,6 +57,10 @@ public class DishModal: UIViewController {
 
         result.append(DishModalHeader.create(for: dish, from: menu))
 
+        let price = DishModalPriceAndSize.create(for: dish, from: menu)
+        result.append(DishModalShortDivider.create(for: price))
+        result.append(price)
+
         return result
     }
 }

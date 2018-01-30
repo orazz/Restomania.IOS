@@ -21,7 +21,7 @@ public class Migrations {
         }
 
         let migrations = [
-            842: to842
+            882: to882
         ]
 
         for (build, migration) in migrations.sorted(by: { $0.key < $1.key }) {
@@ -33,7 +33,7 @@ public class Migrations {
             }
         }
     }
-    private static func to842() {
+    private static func to882() {
         CacheServices.menus.clear()
     }
 }

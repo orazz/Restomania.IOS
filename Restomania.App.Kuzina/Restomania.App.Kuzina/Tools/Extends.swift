@@ -8,6 +8,7 @@
 
 import Foundation
 import IOSLibrary
+import UIKit
 
 extension PartsLoadTypedContainer
     where TData: ICached {
@@ -18,6 +19,25 @@ extension PartsLoadTypedContainer
 
         if (cache.isFresh(update.ID)) {
             self.completeLoad()
+        }
+    }
+}
+extension UILabel {
+
+    public func setup(size: Double, units: UnitsOfSize) {
+
+        if (0.0 == size) {
+            self.text = String.empty
+        } else {
+
+            let integer = Int(floor(size))
+            let float = size - Double(integer)
+
+            if (float < 0.0001) {
+                self.text = "\(integer) \(units.shortName)"
+            } else {
+                self.text = "\(size) \(units.shortName)"
+            }
         }
     }
 }

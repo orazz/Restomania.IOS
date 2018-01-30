@@ -39,7 +39,7 @@ extension DishModalShortDivider: InterfaceTableCellProtocol {
         if (content?.viewHeight == 0) {
             return 0
         } else {
-            return 20
+            return 11
         }
     }
     public func prepareView() -> UITableViewCell {

@@ -46,7 +46,7 @@ public class PlaceMenuDishCell: UITableViewCell {
         dishDescription.text = dish.description
         dishImage.setup(url: dish.image)
 
-        dishWeight.text = buildWeight(for: dish)
+        dishWeight.setup(size: dish.size, units: dish.sizeUnits)
         dishPrice.setup(amount: dish.price.double, currency: currency)
 
         if (String.isNullOrEmpty(dish.image)) {
@@ -55,26 +55,7 @@ public class PlaceMenuDishCell: UITableViewCell {
             dishImage.setContraint(.width, to: dishImage.getConstant(.height)!)
         }
     }
-    private func buildWeight(for dish: BaseDish) -> String {
 
-        if (0.0 == dish.size) {
-            return String.empty
-        }
-
-        if (dish.type == .simpleDish) {
-
-            let integer = Int(floor(dish.size))
-            let float = dish.size - Double(integer)
-
-            if (float < 0.0001) {
-                return "\(integer) \(dish.sizeUnits.shortName)"
-            } else {
-                return "\(dish.size) \(dish.sizeUnits.shortName)"
-            }
-        }
-
-        return String.empty
-    }
     private func setupStyles() {
 
         //Name

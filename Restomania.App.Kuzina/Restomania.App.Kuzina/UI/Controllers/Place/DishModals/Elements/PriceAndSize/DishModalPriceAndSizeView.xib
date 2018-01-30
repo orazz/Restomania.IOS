@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DishModalPriceAndSize" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vv9-8M-OpN">
+                    <rect key="frame" x="182.5" y="3" width="10" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="ybI-J1-7Ta"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxW-GF-wX0">
+                    <rect key="frame" x="10" y="5" width="162.5" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222.22 P" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCn-AN-KDw" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="gCn-AN-KDw" firstAttribute="centerY" secondItem="kxW-GF-wX0" secondAttribute="centerY" id="XqO-HW-4xU"/>
+                        <constraint firstAttribute="trailing" secondItem="gCn-AN-KDw" secondAttribute="trailing" id="cZQ-9V-qDt"/>
+                        <constraint firstItem="gCn-AN-KDw" firstAttribute="leading" secondItem="kxW-GF-wX0" secondAttribute="leading" id="jMo-xR-85R"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pga-fr-EwW">
+                    <rect key="frame" x="202.5" y="5" width="162.5" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="220 ml" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYz-yZ-7zk">
+                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="SYz-yZ-7zk" secondAttribute="trailing" id="7eK-cy-PPw"/>
+                        <constraint firstItem="SYz-yZ-7zk" firstAttribute="centerY" secondItem="Pga-fr-EwW" secondAttribute="centerY" id="CtA-tm-QcY"/>
+                        <constraint firstItem="SYz-yZ-7zk" firstAttribute="leading" secondItem="Pga-fr-EwW" secondAttribute="leading" id="oY1-Bc-nrf"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Pga-fr-EwW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="4wQ-wo-kgc"/>
+                <constraint firstItem="Vv9-8M-OpN" firstAttribute="leading" secondItem="kxW-GF-wX0" secondAttribute="trailing" constant="10" id="B0a-Fh-ZPA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Pga-fr-EwW" secondAttribute="bottom" constant="5" id="MXs-E3-AWu"/>
+                <constraint firstItem="Vv9-8M-OpN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P7h-hp-gG3"/>
+                <constraint firstItem="kxW-GF-wX0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Rqj-l6-OXA"/>
+                <constraint firstItem="Vv9-8M-OpN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bFD-vS-ZF9"/>
+                <constraint firstItem="Pga-fr-EwW" firstAttribute="leading" secondItem="Vv9-8M-OpN" secondAttribute="trailing" constant="10" id="c19-8y-hoi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="kxW-GF-wX0" secondAttribute="bottom" constant="5" id="dci-mj-7UU"/>
+                <constraint firstItem="kxW-GF-wX0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="l9n-kP-ipS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pga-fr-EwW" secondAttribute="trailing" constant="10" id="zab-0M-X6z"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="priceLabel" destination="gCn-AN-KDw" id="FxY-xG-i5M"/>
+                <outlet property="sizeLabel" destination="SYz-yZ-7zk" id="PWj-u2-JYC"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="-264"/>
+        </view>
+    </objects>
+</document>
