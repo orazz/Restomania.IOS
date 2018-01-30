@@ -46,7 +46,7 @@ internal class KeysStorage: IKeysStorage {
         }
         catch {
 
-            Log.Error(_tag, "Problem with save keys to file.")
+            Log.error(_tag, "Problem with save keys to file.")
         }
     }
     

@@ -49,7 +49,7 @@ public class KeysStorage {
 
             file.save(data: data)
         } catch {
-            Log.Error(tag, "Problem with save keys to file")
+            Log.error(tag, "Problem with save keys to file")
         }
 
         Log.Debug(tag, "Save auth keys.")

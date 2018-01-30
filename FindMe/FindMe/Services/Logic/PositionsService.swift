@@ -110,7 +110,7 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
 
         if (isBlock) {
 
-            Log.Warning(_tag, "Location service disable. Can't start tracking.")
+            Log.warning(_tag, "Location service disable. Can't start tracking.")
             return
         }
 
@@ -174,7 +174,7 @@ public class PositionsService: NSObject, CLLocationManagerDelegate, IEventsEmitt
     }
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 
-        Log.Warning(_tag, "Error with update location: \(error)")
+        Log.warning(_tag, "Error with update location: \(error)")
     }
 
 

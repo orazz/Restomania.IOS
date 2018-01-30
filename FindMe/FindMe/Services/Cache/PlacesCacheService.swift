@@ -45,7 +45,7 @@ public class PlacesCacheService {
 
                 if response.isFail {
                     handler(nil)
-                    Log.Warning(self.tag, "Not found #\(placeId) place.")
+                    Log.warning(self.tag, "Not found #\(placeId) place.")
 
                 }
                 else if let update = response.data {

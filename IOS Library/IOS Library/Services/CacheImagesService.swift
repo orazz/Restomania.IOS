@@ -84,7 +84,7 @@ public class CacheImagesService {
 
                 guard let data = data, error == nil else {
                     handler(DownloadResult(data:nil))
-                    Log.Warning(self.tag, "Problem with download image from url: \(url).")
+                    Log.warning(self.tag, "Problem with download image from url: \(url).")
 
                     return
                 }

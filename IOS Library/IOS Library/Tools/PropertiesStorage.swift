@@ -79,7 +79,7 @@ public class PropertiesStorage<TKey: RawRepresentable> : NSObject {
             set(key, value: String(data:data, encoding: .utf8)!)
         } catch {
 
-            Log.Warning(tag, "Problem with save JSON for \(build(key)).")
+            Log.warning(tag, "Problem with save JSON for \(build(key)).")
         }
 
     }

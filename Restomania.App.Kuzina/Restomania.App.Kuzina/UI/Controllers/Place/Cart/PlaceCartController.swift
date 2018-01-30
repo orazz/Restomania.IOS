@@ -249,7 +249,7 @@ extension PlaceCartController {
 
                 if (self.loadAdapter.problemWithLoad) {
                     self.toast(Localization.Toasts.problemWithLoad)
-                    Log.Error(self._tag, "Problem with load data for page.")
+                    Log.error(self._tag, "Problem with load data for page.")
                 }
             }
         }
@@ -372,7 +372,7 @@ extension PlaceCartController: PlaceCartDelegate {
                         self.toast(for: response)
                     }
 
-                    Log.Warning(self._tag, "Problem with add order.")
+                    Log.warning(self._tag, "Problem with add order.")
                 }
 
                 self.interfaceLoader.hide()

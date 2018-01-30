@@ -124,7 +124,7 @@ public class FirstLoginController: UIViewController {
 
                     if (response.isFail) {
 
-                        Log.Warning(self._tag, "Problem with udpate user profile.")
+                        Log.warning(self._tag, "Problem with udpate user profile.")
                     }
                 })
             }

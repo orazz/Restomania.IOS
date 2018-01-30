@@ -39,7 +39,7 @@ public class RefreshManager {
             } else if (response.statusCode != .ConnectionError) {
 
                 self.keys.logout(for: .user)
-                Log.Warning(self.tag, "Remove old api keys.")
+                Log.warning(self.tag, "Remove old api keys.")
             }
         })
     }

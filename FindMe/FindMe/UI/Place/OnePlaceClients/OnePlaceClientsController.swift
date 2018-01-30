@@ -100,7 +100,7 @@ public class OnePlaceClientsController: UIViewController {
                     self.clients = response.data!
                 }
                 else {
-                    Log.Warning(self._tag, "Problem with getting clients data.")
+                    Log.warning(self._tag, "Problem with getting clients data.")
 
                     if (response.statusCode == .ConnectionError) {
 

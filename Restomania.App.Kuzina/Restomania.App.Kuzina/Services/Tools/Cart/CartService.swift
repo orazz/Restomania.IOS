@@ -82,8 +82,8 @@ public class CartService {
 
                 Log.Debug(self._tag, "Save cart's data to storage.")
             } catch {
-                Log.Error(self._tag, "Problem with save cart to storage.")
-                Log.Error(self._tag, "Error: \(error)")
+                Log.error(self._tag, "Problem with save cart to storage.")
+                Log.error(self._tag, "Error: \(error)")
             }
 
         }
@@ -106,8 +106,8 @@ public class CartService {
                 }
                 Log.Debug(self._tag, "Load cart's data from storage")
             } catch {
-                Log.Warning(self._tag, "Problem with load cart from storage.")
-                Log.Warning(self._tag, "Error: \(error)")
+                Log.warning(self._tag, "Problem with load cart from storage.")
+                Log.warning(self._tag, "Error: \(error)")
             }
 
         }

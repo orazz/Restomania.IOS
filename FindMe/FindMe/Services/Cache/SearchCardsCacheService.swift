@@ -50,7 +50,7 @@ public class SearchPlaceCardsCacheService {
 
                 if response.isFail {
                     handler(response)
-                    Log.Warning(self.tag, "Problem with request all search cards.")
+                    Log.warning(self.tag, "Problem with request all search cards.")
 
                 }
                 else if let update = response.data {
@@ -81,7 +81,7 @@ public class SearchPlaceCardsCacheService {
                 if (response.isFail) {
                     if (response.statusCode != .ConnectionError) {
 
-                        Log.Warning(self.tag, "Problem with refresh data.")
+                        Log.warning(self.tag, "Problem with refresh data.")
                         handler(false)
                     }
 

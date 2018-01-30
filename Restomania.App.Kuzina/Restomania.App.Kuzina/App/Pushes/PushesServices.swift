@@ -57,8 +57,8 @@ public class PushesService {
 
         if let error = error {
 
-            Log.Error(tag, "User not get permissions on send push notifications.")
-            Log.Error(tag, String(describing: error))
+            Log.error(tag, "User not get permissions on send push notifications.")
+            Log.error(tag, String(describing: error))
         }
 
         if let token = token {

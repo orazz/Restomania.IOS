@@ -137,8 +137,8 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
     }
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 
-        Log.Warning(_tag, "Problem with auth via vk.")
-        Log.Warning(_tag, "Error: \(error)")
+        Log.warning(_tag, "Problem with auth via vk.")
+        Log.warning(_tag, "Error: \(error)")
 
         showAlertAndClose()
     }

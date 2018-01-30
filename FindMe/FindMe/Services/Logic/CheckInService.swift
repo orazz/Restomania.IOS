@@ -123,7 +123,7 @@ public class CheckInService: NSObject, PositionServiceDelegate {
 
             if (response.isFail) {
                 
-                Log.Warning(self._tag, "Problem with checkin in #\(placeId).")
+                Log.warning(self._tag, "Problem with checkin in #\(placeId).")
             }
         })
     }

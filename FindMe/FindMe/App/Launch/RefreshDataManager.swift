@@ -99,7 +99,7 @@ public class RefreshDataManager {
 
                 if (response.statusCode == .Forbidden) {
                     keys.logout(.user)
-                    Log.Warning(self._tag, "Remove old api keys.")
+                    Log.warning(self._tag, "Remove old api keys.")
                 }
             }
         })

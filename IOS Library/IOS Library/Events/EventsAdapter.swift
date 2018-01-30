@@ -58,7 +58,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
     }
     private func ForceUnsubscribe(guid: String) {
         unsubscribe(guid: guid)
-        Log.Warning(tag, "Force remove subscriber with GUID: \(guid).")
+        Log.warning(tag, "Force remove subscriber with GUID: \(guid).")
     }
 
     public func invoke(_ action: Action<Handler>?) {
@@ -67,7 +67,7 @@ public class EventsAdapter<Handler> : ILoggable, IEventsEmitter {
             if (nil != _defaultAction) {
                 mainAction = _defaultAction
             } else {
-                Log.Warning(tag, "Can't trigger event without action.")
+                Log.warning(tag, "Can't trigger event without action.")
                 return
             }
         }

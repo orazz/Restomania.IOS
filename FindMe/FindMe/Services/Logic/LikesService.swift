@@ -96,7 +96,7 @@ public class LikesService: NSObject {
 
             if response.isFail {
                 if (response.statusCode != .Forbidden && response.statusCode != .ConnectionError) {
-                    Log.Warning(self._tag, "Problem with update pleasant places.")
+                    Log.warning(self._tag, "Problem with update pleasant places.")
                 }
             }
             else if response.isSuccess {
@@ -111,7 +111,7 @@ public class LikesService: NSObject {
 
             if response.isFail {
                 if (response.statusCode != .Forbidden && response.statusCode != .ConnectionError) {
-                    Log.Warning(self._tag, "Problem with take pleasant places.")
+                    Log.warning(self._tag, "Problem with take pleasant places.")
                 }
             }
             else if response.isSuccess {

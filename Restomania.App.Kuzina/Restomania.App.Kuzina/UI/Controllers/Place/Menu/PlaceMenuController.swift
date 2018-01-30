@@ -241,7 +241,7 @@ extension PlaceMenuController {
                 self.refreshControl.endRefreshing()
 
                 if (self.loadAdapter.problemWithLoad) {
-                    Log.Error(self._tag, "Problem with load data for page.")
+                    Log.error(self._tag, "Problem with load data for page.")
                     self.view.makeToast(Keys.AlertLoadErrorMessage.localized)
                 }
             }
@@ -290,7 +290,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
                 if (success) {
                     self.openCartPage()
                 } else {
-                    Log.Warning(self._tag, "Not authorize user.")
+                    Log.warning(self._tag, "Not authorize user.")
 
                     self.toast(Keys.AlertAuthErrorMessage)
                 }

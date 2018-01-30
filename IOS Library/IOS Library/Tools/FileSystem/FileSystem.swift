@@ -27,7 +27,7 @@ public class FileSystem {
             }
         }
 
-        Log.Warning(_tag, "Can't load file \(filename).")
+        Log.warning(_tag, "Can't load file \(filename).")
 
         return nil
     }
@@ -36,7 +36,7 @@ public class FileSystem {
             return OptionalValue(NSDictionary(contentsOfFile: path))
         }
 
-        Log.Warning(_tag, "Can't load plist file \(filename).")
+        Log.warning(_tag, "Can't load plist file \(filename).")
 
         return OptionalValue(nil)
     }
@@ -85,11 +85,11 @@ public class FileSystem {
             do {
                 try _client.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
             } catch {
-                Log.Error(_tag, "Problem with create directory \(url).")
-                Log.Error(_tag, String(describing: error))
+                Log.error(_tag, "Problem with create directory \(url).")
+                Log.error(_tag, String(describing: error))
             }
         } else {
-            Log.Warning(_tag, "Not found directory (\(root)).")
+            Log.warning(_tag, "Not found directory (\(root)).")
         }
     }
     public func loadData(_ filename: String, fromCache: Bool) -> Data? {
@@ -101,7 +101,7 @@ public class FileSystem {
             let url = dir.appendingPathComponent(filename)
 
             if (!_client.isReadableFile(atPath: url.path)) {
-                Log.Warning(_tag, "File is not readable (\(url)).")
+                Log.warning(_tag, "File is not readable (\(url)).")
                 return nil
             }
 
@@ -111,11 +111,11 @@ public class FileSystem {
                 return file.readDataToEndOfFile()
             } catch {
 
-                Log.Error(_tag, "Problem with read data from \(url).")
-                Log.Error(_tag, "\(String(describing: error))")
+                Log.error(_tag, "Problem with read data from \(url).")
+                Log.error(_tag, "\(String(describing: error))")
             }
         } else {
-            Log.Warning(_tag, "Not found directory (\(root)).")
+            Log.warning(_tag, "Not found directory (\(root)).")
         }
 
         return nil
@@ -129,18 +129,18 @@ public class FileSystem {
             let url = dir.appendingPathComponent(filename)
 
             if (!_client.isReadableFile(atPath: url.path)) {
-                Log.Warning(_tag, "File is not readable (\(url)).")
+                Log.warning(_tag, "File is not readable (\(url)).")
                 return nil
             }
 
             do {
                 return try String(contentsOf: url, encoding: String.Encoding.utf8)
             } catch {
-                Log.Error(_tag, "Problem with read data from \(url).")
-                Log.Error(_tag, String(describing: error))
+                Log.error(_tag, "Problem with read data from \(url).")
+                Log.error(_tag, String(describing: error))
             }
         } else {
-            Log.Warning(_tag, "Not found directory (\(root)).")
+            Log.warning(_tag, "Not found directory (\(root)).")
         }
 
         return nil
@@ -157,11 +157,11 @@ public class FileSystem {
                 try data.write(to: url)
             } catch {
 
-                Log.Error(_tag, "Problem with write data to \(url).")
-                Log.Error(_tag, String.init(describing: error))
+                Log.error(_tag, "Problem with write data to \(url).")
+                Log.error(_tag, String.init(describing: error))
             }
         } else {
-            Log.Warning(_tag, "Not found directory (\(root)).")
+            Log.warning(_tag, "Not found directory (\(root)).")
         }
     }
     public func saveTo(_ filename: String, data: String, toCache: Bool ) {
@@ -173,18 +173,18 @@ public class FileSystem {
             let url = dir.appendingPathComponent(filename)
 
             if (isExist(filename, inCache: toCache) && !_client.isWritableFile(atPath: url.path)) {
-                Log.Warning(_tag, "File is not writable (\(url)).")
+                Log.warning(_tag, "File is not writable (\(url)).")
                 return
             }
 
             do {
                 try data.write(to: url, atomically: false, encoding: .utf8)
             } catch {
-                Log.Error(_tag, "Problem with write data to \(url).")
-                Log.Error(_tag, String(describing: error))
+                Log.error(_tag, "Problem with write data to \(url).")
+                Log.error(_tag, String(describing: error))
             }
         } else {
-            Log.Warning(_tag, "Not found directory (\(root)).")
+            Log.warning(_tag, "Not found directory (\(root)).")
         }
     }
     public func remove(_ filename: String, fromCache: Bool ) {
@@ -198,12 +198,12 @@ public class FileSystem {
                 do {
                     try _client.removeItem(at: url)
                 } catch {
-                    Log.Warning(_tag, "Problem with remove file (\(url)).")
+                    Log.warning(_tag, "Problem with remove file (\(url)).")
                 }
 
             }
         } else {
-            Log.Warning(_tag, "Not found directory (\(root)).")
+            Log.warning(_tag, "Not found directory (\(root)).")
         }
     }
     private func getRoot(inCache: Bool) -> FileManager.SearchPathDirectory {
