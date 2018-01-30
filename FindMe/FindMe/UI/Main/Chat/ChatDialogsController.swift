@@ -145,9 +145,6 @@ extension ChatDialogsController: ChatDialogsCacheServiceDelegate {
     public func dialogsService(_ service: ChatDialogsCacheService, update dialog: ChatDialog) {
         _ = displayCached()
     }
-    public func dialogsService(_ service: ChatDialogsCacheService, updates dialogs: [ChatDialog]) {
-        _ = displayCached()
-    }
 }
 extension ChatDialogsController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -163,6 +160,7 @@ extension ChatDialogsController: UITableViewDataSource {
         return 1
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        Log.Error("Fuck", "\(dialogs.count)")
         return dialogs.count
     }
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
