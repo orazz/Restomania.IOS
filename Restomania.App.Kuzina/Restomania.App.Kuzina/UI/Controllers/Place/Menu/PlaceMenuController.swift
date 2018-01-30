@@ -274,10 +274,17 @@ extension PlaceMenuController: PlaceMenuDelegate {
     }
     public func select(category: Long) {
         Log.debug(_tag, "Select category #\(category)")
-
     }
-    public func select(dish: Long) {
-        Log.debug(_tag, "Select dish #\(dish)")
+    public func select(dish dishId: Long) {
+        Log.debug(_tag, "Select dish #\(dishId)")
+
+        guard let menu = takeMenu(),
+            let dish = menu.dishes.find({ $0.ID == dishId }) else {
+                return
+        }
+
+        let modal = DishModal(for: dish, from: menu)
+        self.present(modal, animated: true, completion: nil)
     }
 
     public func goToCart() {

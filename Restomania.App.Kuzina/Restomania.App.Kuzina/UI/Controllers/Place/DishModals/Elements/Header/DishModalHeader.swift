@@ -50,7 +50,7 @@ public class DishModalHeader: UITableViewCell {
         }
 
         let hasImage = !String.isNullOrEmpty(dish.image)
-        
+
         imageContainerHeight?.constant = hasImage ? 150.0 : 0.0
         dishImage.setup(url: dish.image)
 
