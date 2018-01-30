@@ -118,8 +118,14 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
         _delegate.scrollTo(offset: offset)
     }
 
+    public func goBack() {
+        _delegate.goBack()
+    }
     public func goToCart() {
         _delegate.goToCart()
+    }
+    public func goToPlace() {
+        _delegate.goToPlace()
     }
 }
 extension PlaceMenuMenuContainer: PlaceMenuCellsProtocol {

@@ -28,7 +28,9 @@ public protocol PlaceMenuDelegate {
     func select(dish: Long)
     func scrollTo(offset: CGFloat)
 
+    func goBack()
     func goToCart()
+    func goToPlace()
 }
 public class PlaceMenuController: UIViewController {
 
@@ -133,17 +135,8 @@ public class PlaceMenuController: UIViewController {
     }
 
     // MARK: Actions
-    @IBAction private func goBack() {
-        self.navigationController?.popViewController(animated: true)
-    }
     @IBAction private func goPlaceInfo() {
-
-//        guard let summary = summaryContainer.data else {
-//            return
-//        }
-
-//        let vc = PlaceInfoController(for: summary.ID)
-//        self.navigationController?.pushViewController(vc, animated: true)
+        goToPlace()
     }
 
     private func trigger(_ handler: Action<PlaceMenuCellsProtocol>) {
@@ -183,7 +176,7 @@ extension PlaceMenuController {
 
         var result = [PlaceMenuCellsProtocol]()
 
-        titleBlock = PlaceMenuTitleContainer.create(with: self.navigationController!)
+        titleBlock = PlaceMenuTitleContainer.create(with: self)
         result.append(titleBlock)
 
         menuBlock = PlaceMenuMenuContainer.create(with: self)
@@ -287,6 +280,9 @@ extension PlaceMenuController: PlaceMenuDelegate {
         self.present(modal, animated: true, completion: nil)
     }
 
+    @IBAction public func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
     public func goToCart() {
 
         if (enterService.isAuth(for: .user)) {
@@ -308,6 +304,15 @@ extension PlaceMenuController: PlaceMenuDelegate {
 
         let vc = PlaceCartController(for: placeId)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    public func goToPlace() {
+
+        guard let summary = takeSummary() else {
+            return
+        }
+
+//        let vc = PlaceInfoController(for: summary.ID)
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
