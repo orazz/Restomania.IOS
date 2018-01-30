@@ -35,6 +35,9 @@ public class DishModal: UIViewController {
     }
 
     //Load circle
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +47,7 @@ public class DishModal: UIViewController {
     private func loadMarkup() {
 
         interfaceRows = loadRows()
-        interfaceAdapter = InterfaceTable(source: interfaceTable, navigator: self.navigationController!, rows: interfaceRows)
+        interfaceAdapter = InterfaceTable(source: interfaceTable, rows: interfaceRows)
 
         interfaceRows.each({ $0.link(with: self) })
     }

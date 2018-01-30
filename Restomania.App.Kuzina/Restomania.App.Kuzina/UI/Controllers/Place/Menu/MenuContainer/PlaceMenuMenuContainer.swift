@@ -111,7 +111,9 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
             dishesTable.scrollToRow(at: path, at: .top, animated: true)
         }
     }
-    public func select(dish: Long) {}
+    public func select(dish: Long) {
+        _delegate.select(dish: dish)
+    }
     public func scrollTo(offset: CGFloat) {
         _delegate.scrollTo(offset: offset)
     }

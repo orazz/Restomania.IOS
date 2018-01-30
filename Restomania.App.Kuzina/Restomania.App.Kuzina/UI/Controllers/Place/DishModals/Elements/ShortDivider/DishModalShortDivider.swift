@@ -38,8 +38,7 @@ extension DishModalShortDivider: InterfaceTableCellProtocol {
     public var viewHeight: Int {
         if (content?.viewHeight == 0) {
             return 0
-        }
-        else {
+        } else {
             return 20
         }
     }

@@ -41,6 +41,15 @@ public class DishModalHeader: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
+        for constraint in imageContainerView.constraints {
+            if (constraint.identifier == "ImageHeight") {
+                imageContainerHeight = constraint
+                break
+            }
+        }
+
+        dishImage.contentMode = .scaleAspectFit
+
         nameLabel.font = ThemeSettings.Fonts.bold(size: .title)
         nameLabel.textColor = ThemeSettings.Colors.main
     }
@@ -76,7 +85,12 @@ extension DishModalHeader: DishModalElementsProtocol {
 extension DishModalHeader: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return Int(nameContainerView.frame.height + (imageContainerHeight?.constant ?? 0.0))
+
+        if (imageContainerHeight?.constant == 0.0) {
+            return Int(nameContainerView.frame.height + 20.0)
+        } else {
+            return Int(nameContainerView.frame.height + imageContainerHeight!.constant)
+        }
     }
     public func prepareView() -> UITableViewCell {
         return self

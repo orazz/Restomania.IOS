@@ -12,7 +12,7 @@ import UIKit
 public class InterfaceTable: NSObject {
 
     private var _tableView: UITableView
-    private var _navigator: UINavigationController
+    private var _navigator: UINavigationController?
 
     private var _rows: [InterfaceTableCellProtocol] = []
     public var rows: [InterfaceTableCellProtocol] {
@@ -20,7 +20,7 @@ public class InterfaceTable: NSObject {
     }
     public var delegate: UITableViewDelegate?
 
-    public init(source: UITableView, navigator: UINavigationController, rows: [InterfaceTableCellProtocol]) {
+    public init(source: UITableView, navigator: UINavigationController? = nil, rows: [InterfaceTableCellProtocol] = []) {
 
         _tableView = source
         _navigator = navigator
@@ -75,9 +75,11 @@ extension InterfaceTable: UITableViewDelegate {
 
         tableView.deselectRow(at: indexPath, animated: true)
 
-        if let cell = tableView.cellForRow(at: indexPath) as? InterfaceTableCellProtocol {
+        if let cell = tableView.cellForRow(at: indexPath) as? InterfaceTableCellProtocol,
+            let method = cell.select,
+            let navigator = _navigator {
 
-            cell.select?(with: _navigator)
+            method(navigator)
         }
     }
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
