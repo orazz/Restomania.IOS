@@ -15,7 +15,7 @@ public class RefreshManager {
 
     private let tag = String.tag(RefreshManager.self)
     private let authApi = ApiServices.Auth.main
-private let keys = ToolsServices.shared.keys
+    private let keys = ToolsServices.shared.keys
 
     private init() {}
 

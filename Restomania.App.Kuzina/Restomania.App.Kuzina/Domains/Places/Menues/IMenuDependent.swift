@@ -13,4 +13,3 @@ public protocol IMenuDependent {
 
     var menuId: Long { get }
 }
-    

@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            window?.rootViewController?.view.makeToast(identifier)
 //        }
 
-        Log.Info(tag, "Launch app with options.")
-
-        AppSummary.initialize()
+        AppSettings.launch()
         ThemeSettings.applyStyles()
+        Migrations.apply()
+
         CacheServices.load()
 
         PushesService.shared.requestPermissions()

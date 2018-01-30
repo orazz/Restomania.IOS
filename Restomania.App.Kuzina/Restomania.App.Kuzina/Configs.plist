@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>AppKey</key>
-	<string>123sadadase12-das-d-asdasd</string>
-	<key>AppType</key>
-	<string>Network</string>
-	<key>ClientAppType</key>
-	<string>User</string>
-	<key>PlacesIDs</key>
-	<string>[4,5,6]</string>
+	<string>7c9e6679-7425-40de-944b-e07fc1f90ae7</string>
 	<key>ServerUrl</key>
 	<string>http://restomania-test.azurewebsites.net</string>
+	<key>AppType</key>
+	<string>Network</string>
+	<key>AppUserRole</key>
+	<string>User</string>
+	<key>PlacesIds</key>
+	<string>[4,5,6]</string>
 </dict>
 </plist>

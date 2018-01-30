@@ -1,5 +1,5 @@
 //
-//  AppSummary.swift
+//  AppSettings.swift
 //  FindMe
 //
 //  Created by Алексей on 24.09.17.
@@ -102,7 +102,7 @@ public class AppSummary {
 
     public func launchApp() {
 
-        Log.Info(tag, "Init AppSummary.")
+        Log.Info(tag, "Init AppSettings.")
         Log.Info(tag, "App version: \(version)")
         Log.Info(tag, "App build: \(build)")
 

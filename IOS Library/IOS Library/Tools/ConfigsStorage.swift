@@ -24,16 +24,16 @@ public class ConfigsStorage {
         return _configs.hasValue
     }
 
-    public func get<TKey: RawRepresentable>(forKey key: TKey) -> OptionalValue<Any> {
+    public func get<TKey: RawRepresentable, TValue>(forKey key: TKey) -> TValue? {
 
         return get(forKey: "\(key.rawValue)")
     }
-    public func get(forKey key: String) -> OptionalValue<Any> {
+    public func get<TValue>(forKey key: String) -> TValue? {
 
         if (!IsLoaded) {
-            return OptionalValue(nil)
+            return nil
         }
 
-        return OptionalValue(_configs.value[key])
+        return _configs.value[key] as? TValue
     }
 }
