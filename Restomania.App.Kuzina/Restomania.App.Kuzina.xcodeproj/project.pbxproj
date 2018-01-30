@@ -122,6 +122,10 @@
 		1F8CBDF12020B43B00544513 /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CBDF02020B43B00544513 /* Migrations.swift */; };
 		1F8CBDF42020B47B00544513 /* RefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CBDF22020B47B00544513 /* RefreshManager.swift */; };
 		1F8CBDF52020B47B00544513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CBDF32020B47B00544513 /* AppDelegate.swift */; };
+		1F8CBDFA2020E08600544513 /* DishModalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CBDF92020E08600544513 /* DishModalHeader.swift */; };
+		1F8CBDFC2020E1AB00544513 /* DishModalElementsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CBDFB2020E1AB00544513 /* DishModalElementsProtocol.swift */; };
+		1F8CBDFE2020E2D500544513 /* DishModalHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8CBDFD2020E2D500544513 /* DishModalHeaderView.xib */; };
+		1F8CBE002020E42700544513 /* DishModalDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CBDFF2020E42700544513 /* DishModalDelegateProtocol.swift */; };
 		1FAA9F7A1FC2F8A600BB105D /* UserDependentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA9F791FC2F8A600BB105D /* UserDependentProtocol.swift */; };
 		1FB0BC861FEC42DE00EB4AE5 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0BC851FEC42DE00EB4AE5 /* LaunchController.swift */; };
 		1FB0BC881FEC430E00EB4AE5 /* GreetingControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB0BC871FEC430E00EB4AE5 /* GreetingControllerView.xib */; };
@@ -418,6 +422,10 @@
 		1F8CBDF02020B43B00544513 /* Migrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Migrations.swift; path = App/Launch/Migrations.swift; sourceTree = "<group>"; };
 		1F8CBDF22020B47B00544513 /* RefreshManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RefreshManager.swift; path = App/Launch/RefreshManager.swift; sourceTree = "<group>"; };
 		1F8CBDF32020B47B00544513 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/Launch/AppDelegate.swift; sourceTree = "<group>"; };
+		1F8CBDF92020E08600544513 /* DishModalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalHeader.swift; path = UI/Controllers/Place/DishModals/Elements/Header/DishModalHeader.swift; sourceTree = "<group>"; };
+		1F8CBDFB2020E1AB00544513 /* DishModalElementsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalElementsProtocol.swift; path = UI/Controllers/Place/DishModals/Elements/DishModalElementsProtocol.swift; sourceTree = "<group>"; };
+		1F8CBDFD2020E2D500544513 /* DishModalHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalHeaderView.xib; path = UI/Controllers/Place/DishModals/Elements/Header/DishModalHeaderView.xib; sourceTree = "<group>"; };
+		1F8CBDFF2020E42700544513 /* DishModalDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalDelegateProtocol.swift; path = UI/Controllers/Place/DishModals/DishModalDelegateProtocol.swift; sourceTree = "<group>"; };
 		1FAA9F711FC245F700BB105D /* RestomaniaAppKuzina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestomaniaAppKuzina.entitlements; sourceTree = "<group>"; };
 		1FAA9F791FC2F8A600BB105D /* UserDependentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDependentProtocol.swift; path = Domains/Users/UserDependentProtocol.swift; sourceTree = "<group>"; };
 		1FB0BC851FEC42DE00EB4AE5 /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchController.swift; path = UI/Controllers/Start/LaunchController.swift; sourceTree = "<group>"; };
@@ -849,6 +857,7 @@
 		1F68AF7E1F28CD97000614C9 /* Place */ = {
 			isa = PBXGroup;
 			children = (
+				1F8CBDF62020DF8E00544513 /* DishModals */,
 				1F279F561FB079A7003A2B47 /* Menu */,
 				1F279F581FB07A82003A2B47 /* Cart */,
 				1F279F5A1FB07A8C003A2B47 /* CompleteOrder */,
@@ -1031,6 +1040,33 @@
 				1F8CBDF02020B43B00544513 /* Migrations.swift */,
 			);
 			name = Launch;
+			sourceTree = "<group>";
+		};
+		1F8CBDF62020DF8E00544513 /* DishModals */ = {
+			isa = PBXGroup;
+			children = (
+				1F8CBDFF2020E42700544513 /* DishModalDelegateProtocol.swift */,
+				1F8CBDF72020DFB200544513 /* Elements */,
+			);
+			name = DishModals;
+			sourceTree = "<group>";
+		};
+		1F8CBDF72020DFB200544513 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				1F8CBDF82020E05300544513 /* Header */,
+				1F8CBDFB2020E1AB00544513 /* DishModalElementsProtocol.swift */,
+			);
+			name = Elements;
+			sourceTree = "<group>";
+		};
+		1F8CBDF82020E05300544513 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				1F8CBDF92020E08600544513 /* DishModalHeader.swift */,
+				1F8CBDFD2020E2D500544513 /* DishModalHeaderView.xib */,
+			);
+			name = Header;
 			sourceTree = "<group>";
 		};
 		1FA2607E1F14A02400C14886 /* Domains */ = {
@@ -1742,6 +1778,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F12EB561FB4166100EF9BEA /* ManagerOrdersControllerView.xib in Resources */,
+				1F8CBDFE2020E2D500544513 /* DishModalHeaderView.xib in Resources */,
 				1F5CF83B1FB3793800DDDC3F /* PlaceCartPaymentCardsContainerView.xib in Resources */,
 				1F279F611FB07C71003A2B47 /* ManagerEditProfileControllerView.xib in Resources */,
 				1F62E4681FAE464400D1C89D /* Launch.storyboard in Resources */,
@@ -2106,6 +2143,7 @@
 				1FC01CE11FB21D6600413ED7 /* DishOrderDish.swift in Sources */,
 				1FB3F28D1FD57D370073640B /* ToolsServices.swift in Sources */,
 				1FB62AB3200E998600FD56EE /* PlaceMenuSubcategoryHeader.swift in Sources */,
+				1F8CBDFA2020E08600544513 /* DishModalHeader.swift in Sources */,
 				1FB8EFCF1F1D41590090045E /* UserSex.swift in Sources */,
 				1F4B0E821FE84CFD006C0C58 /* ProblemAlert.swift in Sources */,
 				1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */,
@@ -2128,7 +2166,9 @@
 				1F691AA6200A35F000415F2F /* OneOrderSummaryContainer.swift in Sources */,
 				1FB3F2541FD572D60073640B /* KeysStorage.swift in Sources */,
 				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
+				1F8CBE002020E42700544513 /* DishModalDelegateProtocol.swift in Sources */,
 				1F1DA2CF1F688AFD00EFE5CE /* PlaceDependentProtocol.swift in Sources */,
+				1F8CBDFC2020E1AB00544513 /* DishModalElementsProtocol.swift in Sources */,
 				1FC6E9F5200D217E003B47E5 /* NotificationEvents.swift in Sources */,
 				1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */,
 				1F52B3EF1FEC2E04003B2420 /* ImageWrapper.swift in Sources */,
