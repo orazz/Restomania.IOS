@@ -12,12 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DishModalPriceAndSize" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="DishModalPriceAndSize" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vv9-8M-OpN">
-                    <rect key="frame" x="182.5" y="3" width="10" height="24"/>
+                    <rect key="frame" x="182.5" y="5" width="10" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="10" id="ybI-J1-7Ta"/>
                     </constraints>
@@ -29,7 +29,7 @@
                     <rect key="frame" x="10" y="5" width="162.5" height="20"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222.22 P" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCn-AN-KDw" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="21"/>
+                            <rect key="frame" x="0.0" y="0.0" width="162.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -37,9 +37,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="gCn-AN-KDw" firstAttribute="centerY" secondItem="kxW-GF-wX0" secondAttribute="centerY" id="XqO-HW-4xU"/>
-                        <constraint firstAttribute="trailing" secondItem="gCn-AN-KDw" secondAttribute="trailing" id="cZQ-9V-qDt"/>
-                        <constraint firstItem="gCn-AN-KDw" firstAttribute="leading" secondItem="kxW-GF-wX0" secondAttribute="leading" id="jMo-xR-85R"/>
+                        <constraint firstItem="gCn-AN-KDw" firstAttribute="leading" secondItem="kxW-GF-wX0" secondAttribute="leading" id="9Tw-8L-LS8"/>
+                        <constraint firstAttribute="trailing" secondItem="gCn-AN-KDw" secondAttribute="trailing" id="A4g-VV-ByV"/>
+                        <constraint firstItem="gCn-AN-KDw" firstAttribute="top" secondItem="kxW-GF-wX0" secondAttribute="top" id="CqR-e0-iwl"/>
+                        <constraint firstAttribute="bottom" secondItem="gCn-AN-KDw" secondAttribute="bottom" id="IOM-KD-OKb"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pga-fr-EwW">
@@ -59,18 +60,29 @@
                         <constraint firstItem="SYz-yZ-7zk" firstAttribute="leading" secondItem="Pga-fr-EwW" secondAttribute="leading" id="oY1-Bc-nrf"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222.22 P" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPs-1z-2AG" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="5" y="5" width="365" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="kxW-GF-wX0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="1H3-wK-nlb"/>
                 <constraint firstItem="Pga-fr-EwW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="4wQ-wo-kgc"/>
                 <constraint firstItem="Vv9-8M-OpN" firstAttribute="leading" secondItem="kxW-GF-wX0" secondAttribute="trailing" constant="10" id="B0a-Fh-ZPA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vv9-8M-OpN" secondAttribute="bottom" constant="5" id="HzN-b4-X26"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WPs-1z-2AG" secondAttribute="trailing" constant="5" id="K44-O8-zji"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Pga-fr-EwW" secondAttribute="bottom" constant="5" id="MXs-E3-AWu"/>
                 <constraint firstItem="Vv9-8M-OpN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P7h-hp-gG3"/>
-                <constraint firstItem="kxW-GF-wX0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Rqj-l6-OXA"/>
-                <constraint firstItem="Vv9-8M-OpN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bFD-vS-ZF9"/>
+                <constraint firstItem="WPs-1z-2AG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Ug8-ab-o6u"/>
                 <constraint firstItem="Pga-fr-EwW" firstAttribute="leading" secondItem="Vv9-8M-OpN" secondAttribute="trailing" constant="10" id="c19-8y-hoi"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="kxW-GF-wX0" secondAttribute="bottom" constant="5" id="dci-mj-7UU"/>
+                <constraint firstItem="WPs-1z-2AG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="dIf-xu-nJf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="kxW-GF-wX0" secondAttribute="bottom" constant="5" id="hpn-Xv-d3k"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WPs-1z-2AG" secondAttribute="bottom" constant="5" id="k66-SC-s4w"/>
                 <constraint firstItem="kxW-GF-wX0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="l9n-kP-ipS"/>
+                <constraint firstItem="Vv9-8M-OpN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="uGU-9d-0iX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pga-fr-EwW" secondAttribute="trailing" constant="10" id="zab-0M-X6z"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -78,6 +90,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="dividerLabel" destination="Vv9-8M-OpN" id="e7d-j1-f89"/>
+                <outlet property="onlyPriceLabel" destination="WPs-1z-2AG" id="YMf-5O-qK5"/>
                 <outlet property="priceLabel" destination="gCn-AN-KDw" id="FxY-xG-i5M"/>
                 <outlet property="sizeLabel" destination="SYz-yZ-7zk" id="PWj-u2-JYC"/>
             </connections>

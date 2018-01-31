@@ -57,9 +57,11 @@ public class DishModal: UIViewController {
 
         result.append(DishModalHeader.create(for: dish, from: menu))
 
-        let price = DishModalPriceAndSize.create(for: dish, from: menu)
-        result.append(DishModalShortDivider.create(for: price))
-        result.append(price)
+        result.append(DishModalPriceAndSize.create(for: dish, from: menu))
+
+        let description = DishModalDescription.create(for: dish, with: menu)
+        result.append(DishModalShortDivider.create(for: description))
+        result.append(description)
 
         return result
     }

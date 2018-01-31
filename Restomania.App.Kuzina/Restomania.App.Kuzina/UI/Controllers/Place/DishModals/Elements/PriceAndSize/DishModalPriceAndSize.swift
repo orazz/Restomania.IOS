@@ -21,7 +21,9 @@ public class DishModalPriceAndSize: UITableViewCell {
     }
 
     //UI
+    @IBOutlet private weak var onlyPriceLabel: PriceLabel!
     @IBOutlet private weak var priceLabel: PriceLabel!
+    @IBOutlet private weak var dividerLabel: UILabel!
     @IBOutlet private weak var sizeLabel: UILabel!
 
     //Data
@@ -32,6 +34,9 @@ public class DishModalPriceAndSize: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
+        onlyPriceLabel.font = ThemeSettings.Fonts.bold(size: .head)
+        onlyPriceLabel.textColor = ThemeSettings.Colors.main
+
         priceLabel.font = ThemeSettings.Fonts.bold(size: .head)
         priceLabel.textColor = ThemeSettings.Colors.main
 
@@ -41,29 +46,49 @@ public class DishModalPriceAndSize: UITableViewCell {
 
     fileprivate func refresh() {
 
+        isShowSizeAndPrice = false
+
         guard let dish = self.dish,
                 let menu = self.menu else {
                 return
         }
 
         if (dish.type == .simpleDish) {
-            priceLabel.setup(price: dish.price, currency: menu.currency)
-            sizeLabel.setup(size: dish.size, units: dish.sizeUnits)
-            isShowSizeAndPrice = true
-        } else if (dish.type == .variation) {
+            setup(price: dish.price, size: dish.size, units: dish.sizeUnits)
 
+        } else if (dish.type == .variation) {
             let variations = menu.variations.filter({ $0.parentDishId == dish.ID })
             if let variation = variations.min(by: { $0.price < $1.price }) {
 
-                priceLabel.setup(price: variation.price, currency: menu.currency)
-                sizeLabel.setup(size: variation.size, units: dish.sizeUnits)
-                isShowSizeAndPrice = true
-            } else {
-                isShowSizeAndPrice = false
+                setup(price: variation.price, size: variation.size, units: dish.sizeUnits)
             }
-        } else {
-            isShowSizeAndPrice = false
         }
+    }
+    private func setup(price: Price, size: Double, units: UnitsOfSize) {
+
+        guard let menu = self.menu else {
+            return
+        }
+
+        if (abs(size) <= 0.0001) {
+
+            onlyPriceLabel.isHidden = false
+            priceLabel.isHidden = true
+            dividerLabel.isHidden = true
+            sizeLabel.isHidden = true
+        } else {
+
+            onlyPriceLabel.isHidden = true
+            priceLabel.isHidden = false
+            dividerLabel.isHidden = false
+            sizeLabel.isHidden = false
+        }
+
+        onlyPriceLabel.setup(price: price, currency: menu.currency)
+        priceLabel.setup(price: price, currency: menu.currency)
+        sizeLabel.setup(size: size, units: units)
+
+        isShowSizeAndPrice = true
     }
 }
 extension DishModalPriceAndSize: DishModalElementsProtocol {
