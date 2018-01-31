@@ -24,7 +24,7 @@ public class DishModalPriceAndSize: UITableViewCell {
     @IBOutlet private weak var onlyPriceLabel: PriceLabel!
     @IBOutlet private weak var priceLabel: PriceLabel!
     @IBOutlet private weak var dividerLabel: UILabel!
-    @IBOutlet private weak var sizeLabel: UILabel!
+    @IBOutlet private weak var sizeLabel: SizeLabel!
 
     //Data
     private var isShowSizeAndPrice: Bool = false
@@ -56,15 +56,15 @@ public class DishModalPriceAndSize: UITableViewCell {
         if (dish.type == .simpleDish) {
             setup(price: dish.price, size: dish.size, units: dish.sizeUnits)
 
-        } else if (dish.type == .variation) {
+        } else if (dish.type == .variableDish) {
             let variations = menu.variations.filter({ $0.parentDishId == dish.ID })
             if let variation = variations.min(by: { $0.price < $1.price }) {
 
-                setup(price: variation.price, size: variation.size, units: dish.sizeUnits)
+                setup(price: variation.price, size: variation.size, units: dish.sizeUnits, dishType: dish.type)
             }
         }
     }
-    private func setup(price: Price, size: Double, units: UnitsOfSize) {
+    private func setup(price: Price, size: Double, units: UnitsOfSize, dishType: DishType = .simpleDish) {
 
         guard let menu = self.menu else {
             return
@@ -84,9 +84,10 @@ public class DishModalPriceAndSize: UITableViewCell {
             sizeLabel.isHidden = false
         }
 
-        onlyPriceLabel.setup(price: price, currency: menu.currency)
-        priceLabel.setup(price: price, currency: menu.currency)
-        sizeLabel.setup(size: size, units: units)
+        let useStartFrom = dishType == .variableDish
+        onlyPriceLabel.setup(price: price, currency: menu.currency, useStartFrom: useStartFrom)
+        priceLabel.setup(price: price, currency: menu.currency, useStartFrom: useStartFrom)
+        sizeLabel.setup(size: size, units: units, useStartFrom: useStartFrom)
 
         isShowSizeAndPrice = true
     }

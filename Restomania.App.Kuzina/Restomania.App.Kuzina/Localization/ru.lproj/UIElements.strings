@@ -26,3 +26,9 @@
 "Schedule.Thursday" = "Четверг";
 "Schedule.Friday" = "Пятница";
 "Schedule.Saturday" = "Суббота";
+
+//Price label
+"PriceLabel.StartFrom" = "от %@";
+
+//Weight label
+"WeightLabel.StartFrom" = "от %@";

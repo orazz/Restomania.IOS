@@ -117,6 +117,7 @@
 		1F6E07651FE4583B00B092B6 /* CacheServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6E07641FE4583B00B092B6 /* CacheServices.swift */; };
 		1F7413D520106DAD00E5CB7D /* ExternalTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7413D320106DAD00E5CB7D /* ExternalTextEditor.swift */; };
 		1F7413D620106DAD00E5CB7D /* ExternalTextEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F7413D420106DAD00E5CB7D /* ExternalTextEditorView.xib */; };
+		1F85EB10202179BA00DFFBC7 /* SizeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85EB0F202179BA00DFFBC7 /* SizeLabel.swift */; };
 		1F8CBDEC2020A1F200544513 /* Adding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CBDEB2020A1F200544513 /* Adding.swift */; };
 		1F8CBDEE2020ADCF00544513 /* Variation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CBDED2020ADCF00544513 /* Variation.swift */; };
 		1F8CBDF12020B43B00544513 /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CBDF02020B43B00544513 /* Migrations.swift */; };
@@ -426,6 +427,7 @@
 		1F6E07641FE4583B00B092B6 /* CacheServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheServices.swift; path = Services/CacheServices.swift; sourceTree = "<group>"; };
 		1F7413D320106DAD00E5CB7D /* ExternalTextEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalTextEditor.swift; path = UI/Controllers/Tools/ExternalTextEditor/ExternalTextEditor.swift; sourceTree = "<group>"; };
 		1F7413D420106DAD00E5CB7D /* ExternalTextEditorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExternalTextEditorView.xib; path = UI/Controllers/Tools/ExternalTextEditor/ExternalTextEditorView.xib; sourceTree = "<group>"; };
+		1F85EB0F202179BA00DFFBC7 /* SizeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SizeLabel.swift; path = UI/Elements/Labels/SizeLabel.swift; sourceTree = "<group>"; };
 		1F8CBDEB2020A1F200544513 /* Adding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Adding.swift; path = Domains/Places/Menues/Adding.swift; sourceTree = "<group>"; };
 		1F8CBDED2020ADCF00544513 /* Variation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Variation.swift; path = Domains/Places/Menues/Variation.swift; sourceTree = "<group>"; };
 		1F8CBDF02020B43B00544513 /* Migrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Migrations.swift; path = App/Launch/Migrations.swift; sourceTree = "<group>"; };
@@ -1050,6 +1052,15 @@
 			name = CompleteOrderContainer;
 			sourceTree = "<group>";
 		};
+		1F85EB11202179D700DFFBC7 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */,
+				1F85EB0F202179BA00DFFBC7 /* SizeLabel.swift */,
+			);
+			name = Labels;
+			sourceTree = "<group>";
+		};
 		1F8CBDEF2020B41100544513 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1659,10 +1670,10 @@
 		1FFA57C91F21EE0200E83463 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1F85EB11202179D700DFFBC7 /* Labels */,
 				1FC6E9F8200D2363003B47E5 /* Banner */,
 				1F6FE2BC1FB22CA70072D518 /* ScheduleDisplay */,
 				1F3C5A0A1FB15D5E0038EB97 /* BottomActions */,
-				1F62E4CC1FAE476E00D1C89D /* PriceLabel.swift */,
 				1F261C781F42BC4B004BFFCB /* Buttons */,
 				1F52B3EE1FEC2E03003B2420 /* ImageWrapper.swift */,
 				1F4B0E831FE8A8CD006C0C58 /* RefreshControl.swift */,
@@ -2161,6 +2172,7 @@
 				1F279F651FB07C82003A2B47 /* ManagerEditNotificationPreferencesController.swift in Sources */,
 				1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */,
 				1FD7E6A01F1D0E140023C033 /* BaseNotificationPreference.swift in Sources */,
+				1F85EB10202179BA00DFFBC7 /* SizeLabel.swift in Sources */,
 				1F691A862009BC8F00415F2F /* AuthContainer.swift in Sources */,
 				1F8CBDF42020B47B00544513 /* RefreshManager.swift in Sources */,
 				1FB6B9301FAE19A400CD0B17 /* PropertiesKey.swift in Sources */,

@@ -22,22 +22,3 @@ extension PartsLoadTypedContainer
         }
     }
 }
-extension UILabel {
-
-    public func setup(size: Double, units: UnitsOfSize) {
-
-        if (0.0 == size) {
-            self.text = String.empty
-        } else {
-
-            let integer = Int(floor(size))
-            let float = size - Double(integer)
-
-            if (float < 0.0001) {
-                self.text = "\(integer) \(units.shortName)"
-            } else {
-                self.text = "\(size) \(units.shortName)"
-            }
-        }
-    }
-}

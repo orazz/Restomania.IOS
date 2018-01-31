@@ -30,7 +30,7 @@ public class PlaceMenuDishCell: UITableViewCell {
     @IBOutlet weak var dishImage: ImageWrapper!
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishDescription: UILabel!
-    @IBOutlet weak var dishWeight: UILabel!
+    @IBOutlet weak var dishWeight: SizeLabel!
     @IBOutlet weak var dishPrice: PriceLabel!
 
     //Data
@@ -47,7 +47,23 @@ public class PlaceMenuDishCell: UITableViewCell {
         dishImage.setup(url: dish.image)
 
         dishWeight.setup(size: dish.size, units: dish.sizeUnits)
-        dishPrice.setup(amount: dish.price.double, currency: currency)
+        switch (dish.type) {
+            case .simpleDish:
+                dishPrice.setup(price: dish.price, currency: currency)
+
+            case .variableDish:
+                guard let menu = delegate.takeMenu(),
+                        let min = menu.variations.filter({ dish.ID == $0.parentDishId })
+                                                  .min(by: { $0.price < $1.price }) else {
+                    dishPrice.clear()
+                    break
+                }
+
+                dishPrice.setup(price: min.price, currency: currency, useStartFrom: true)
+
+            default:
+                dishPrice.clear()
+        }
 
         if (String.isNullOrEmpty(dish.image)) {
             dishImage.setContraint(.width, to: 0)

@@ -44,6 +44,18 @@ extension Localization {
             public static let friday = "\(space).Friday".localized(tableName: tableName)
             public static let saturday = "\(space).Saturday".localized(tableName: tableName)
         }
+
+        public class PriceLabel {
+            private static let space = "\(String.tag(PriceLabel.self))"
+
+            public static let startFrom = "\(space).StartFrom".localized(tableName: tableName)
+        }
+
+        public class WeightLabel {
+            private static let space = "\(String.tag(WeightLabel.self))"
+
+            public static let startFrom = "\(space).StartFrom".localized(tableName: tableName)
+        }
     }
 }
 extension String {
