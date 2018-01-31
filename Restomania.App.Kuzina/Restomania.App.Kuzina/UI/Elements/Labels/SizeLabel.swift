@@ -27,7 +27,6 @@ public class SizeLabel: UILabel {
         initialize()
     }
     private func initialize() {
-
         clear()
     }
 
@@ -37,11 +36,11 @@ public class SizeLabel: UILabel {
             return String.empty
         } else {
 
-            let integer = Int(floor(size))
-            let float = size - Double(integer)
+            let decimal = Int(floor(size))
+            let float = size - Double(decimal)
 
             if (float < 0.0001) {
-                return "\(integer) \(units.shortName)"
+                return "\(decimal) \(units.shortName)"
             } else {
                 return "\(size) \(units.shortName)"
             }

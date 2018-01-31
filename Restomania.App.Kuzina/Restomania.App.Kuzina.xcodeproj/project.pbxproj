@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */; };
+		1F05C75620218457005084B4 /* DishModalTryAddingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F05C75520218457005084B4 /* DishModalTryAddingAction.swift */; };
+		1F05C75820218472005084B4 /* DishModalTryAddingActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F05C75720218472005084B4 /* DishModalTryAddingActionView.xib */; };
 		1F0F2163200590EC008672DA /* TermsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2162200590EB008672DA /* TermsControllerView.xib */; };
 		1F0F2166200593FB008672DA /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2168200593FB008672DA /* TermsController.strings */; };
 		1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */; };
@@ -306,6 +308,8 @@
 
 /* Begin PBXFileReference section */
 		0A71E4697424BB89A1AA9DFA /* Pods-RestomaniaAppKuzina-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina-Tests/Pods-RestomaniaAppKuzina-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1F05C75520218457005084B4 /* DishModalTryAddingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalTryAddingAction.swift; path = UI/Controllers/Place/DishModals/Elements/TryAddingAction/DishModalTryAddingAction.swift; sourceTree = "<group>"; };
+		1F05C75720218472005084B4 /* DishModalTryAddingActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalTryAddingActionView.xib; path = UI/Controllers/Place/DishModals/Elements/TryAddingAction/DishModalTryAddingActionView.xib; sourceTree = "<group>"; };
 		1F0F2162200590EB008672DA /* TermsControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TermsControllerView.xib; path = UI/Controllers/Manager/Terms/TermsControllerView.xib; sourceTree = "<group>"; };
 		1F0F2167200593FB008672DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F0F2169200593FE008672DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
@@ -625,6 +629,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F05C7542021841C005084B4 /* TryAddingAction */ = {
+			isa = PBXGroup;
+			children = (
+				1F05C75520218457005084B4 /* DishModalTryAddingAction.swift */,
+				1F05C75720218472005084B4 /* DishModalTryAddingActionView.xib */,
+			);
+			name = TryAddingAction;
+			sourceTree = "<group>";
+		};
 		1F1D10371FEA72B0000F4F8F /* CartAction */ = {
 			isa = PBXGroup;
 			children = (
@@ -1090,6 +1103,7 @@
 				1FAC64AB2020F8E700B22411 /* ShortDivider */,
 				1FAC64B020210AF600B22411 /* PriceAndSize */,
 				1FAC64B52021231F00B22411 /* Description */,
+				1F05C7542021841C005084B4 /* TryAddingAction */,
 				1F8CBDFB2020E1AB00544513 /* DishModalElementsProtocol.swift */,
 			);
 			name = Elements;
@@ -1849,6 +1863,7 @@
 				1F691A852009BC8F00415F2F /* ForgetPasswordPage.xib in Resources */,
 				1F691AA8200A360700415F2F /* OneOrderSummaryContainerView.xib in Resources */,
 				1F691AAC200A4E9B00415F2F /* OneOrderDishesContainerView.xib in Resources */,
+				1F05C75820218472005084B4 /* DishModalTryAddingActionView.xib in Resources */,
 				1F279FA21FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib in Resources */,
 				1F279F9D1FB0EC11003A2B47 /* PlaceMenuDishCellView.xib in Resources */,
 				1F279F661FB07C82003A2B47 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */,
@@ -2197,6 +2212,7 @@
 				1FD7E6A21F1D0E140023C033 /* BaseBugReport.swift in Sources */,
 				1FD7E6A31F1D0E140023C033 /* RemoteBugReport.swift in Sources */,
 				1F68AF6B1F285A32000614C9 /* MenuCacheService.swift in Sources */,
+				1F05C75620218457005084B4 /* DishModalTryAddingAction.swift in Sources */,
 				1FD7E6A41F1D0E140023C033 /* BankClientType.swift in Sources */,
 				1F279FA41FB0ECD7003A2B47 /* PlaceMenuTitleContainer.swift in Sources */,
 				1FE3C7631FB3024F009CE542 /* PlaceCartCompleteOrderContainer.swift in Sources */,

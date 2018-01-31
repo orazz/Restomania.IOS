@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,8 +22,11 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-image" translatesAutoresizingMaskIntoConstraints="NO" id="zEo-gU-bnX" customClass="ImageWrapper" customModule="RestomaniaAppKuzina" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dark-filter" translatesAutoresizingMaskIntoConstraints="NO" id="lU3-WM-8sp">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="lU3-WM-8sp">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="85" id="Eej-NQ-esu"/>
+                            </constraints>
                         </imageView>
                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav-back" translatesAutoresizingMaskIntoConstraints="NO" id="Wl9-Oj-Oqe">
                             <rect key="frame" x="10" y="30" width="40" height="40"/>
@@ -56,7 +63,6 @@
                         <constraint firstAttribute="trailing" secondItem="lU3-WM-8sp" secondAttribute="trailing" id="gRm-g7-awi"/>
                         <constraint firstAttribute="trailing" secondItem="zEo-gU-bnX" secondAttribute="trailing" id="hnf-yW-hFs"/>
                         <constraint firstItem="zEo-gU-bnX" firstAttribute="top" secondItem="0LJ-AX-ANh" secondAttribute="top" id="lQe-vZ-hYR"/>
-                        <constraint firstAttribute="bottom" secondItem="lU3-WM-8sp" secondAttribute="bottom" id="pse-X2-HDx"/>
                         <constraint firstAttribute="bottom" secondItem="zEo-gU-bnX" secondAttribute="bottom" id="s4x-Yd-klQ"/>
                         <constraint firstAttribute="height" constant="205" id="uBg-kF-mw1"/>
                     </constraints>
@@ -120,6 +126,7 @@
                 <outlet property="titleView" destination="ydL-jh-Pt1" id="fhA-2S-OxU"/>
                 <outlet property="workingHoursLabel" destination="58Z-AT-4Eb" id="8C5-hY-V3v"/>
             </connections>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
         <tapGestureRecognizer id="Tc2-J6-3Uc" userLabel="goBack">
             <connections>
@@ -133,9 +140,9 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="dark-filter" width="50" height="50"/>
         <image name="default-image" width="500" height="333"/>
         <image name="icon-info" width="50" height="50"/>
         <image name="nav-back" width="50" height="50"/>
+        <image name="top-gradient" width="921" height="479"/>
     </resources>
 </document>

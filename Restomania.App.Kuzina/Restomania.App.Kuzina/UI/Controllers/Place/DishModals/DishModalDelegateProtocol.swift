@@ -12,4 +12,5 @@ import IOSLibrary
 public protocol DishModalDelegateProtocol {
 
     func closeModal()
+    func tryAddDish()
 }

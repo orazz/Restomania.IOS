@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DishModal" customModule="RestomaniaAppKuzina" customModuleProvider="target">
             <connections>
                 <outlet property="interfaceTable" destination="QQl-SL-cqu" id="2pL-hs-XcN"/>
+                <outlet property="tryAddDishAction" destination="bVn-EN-MdM" id="oul-bC-Gz7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="2qn-mn-VEu"/>
             </connections>
         </placeholder>
@@ -22,16 +23,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQl-SL-cqu">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="597"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVn-EN-MdM" customClass="DishModalTryAddingAction" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Gfz-O5-CmN"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="QQl-SL-cqu" secondAttribute="bottom" id="0pp-uq-yE6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bVn-EN-MdM" secondAttribute="trailing" id="9Xv-Hf-fmm"/>
                 <constraint firstAttribute="trailing" secondItem="QQl-SL-cqu" secondAttribute="trailing" id="RI1-bo-UIB"/>
+                <constraint firstAttribute="bottom" secondItem="bVn-EN-MdM" secondAttribute="bottom" id="RiO-IO-GjY"/>
                 <constraint firstItem="QQl-SL-cqu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VqN-08-odX"/>
                 <constraint firstItem="QQl-SL-cqu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ZND-se-lzO"/>
+                <constraint firstItem="bVn-EN-MdM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rHU-Jf-tiW"/>
+                <constraint firstItem="bVn-EN-MdM" firstAttribute="top" secondItem="QQl-SL-cqu" secondAttribute="bottom" id="spB-HE-fFt"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>

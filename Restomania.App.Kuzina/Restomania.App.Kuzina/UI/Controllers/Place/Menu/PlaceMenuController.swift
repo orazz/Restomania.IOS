@@ -23,7 +23,8 @@ public protocol PlaceMenuDelegate {
     func takeMenu() -> MenuSummary?
     func takeCart() -> Cart
 
-    func add(dish: Long)
+    func tryAdd(_ dishId: Long)
+    func add(_ dish: Dish, with addings: [Long], variation: Long? = nil)
     func select(category: Long)
     func select(dish: Long)
     func scrollTo(offset: CGFloat)
@@ -260,10 +261,31 @@ extension PlaceMenuController: PlaceMenuDelegate {
         return cartService
     }
 
-    public func add(dish: Long) {
-        Log.debug(_tag, "Add dish #\(dish)")
+    public func tryAdd(_ dishId: Long) {
 
-        cartService.add(dishId: dish)
+        Log.debug(_tag, "Try add dish #\(dishId)")
+
+        guard let menu = takeMenu(),
+                let dish = menu.dishes.find({ $0.ID == dishId }) else {
+            return
+        }
+
+        let addings = menu.addings.filter({ $0.sourceDishId == dishId })
+        let variations = menu.variations.filter({ $0.parentDishId == dishId })
+
+        if (addings.isEmpty && variations.isEmpty) {
+            add(dish, with: [], variation: nil)
+        }
+
+        let modal = AddDishToCartModal(for: dish, with: addings, and: variations, from: menu, with: self)
+        self.present(modal, animated: true, completion: nil)
+    }
+    public func add(_ dish: Dish, with addings: [Long], variation: Long? = nil) {
+
+        Log.debug(_tag, "Add dish #\(dish.ID)")
+
+        cartService.add(dishId: dish.ID)
+        self.toast(Keys.AlertAddDishToCart)
     }
     public func select(category: Long) {
         Log.debug(_tag, "Select category #\(category)")
@@ -276,7 +298,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
                 return
         }
 
-        let modal = DishModal(for: dish, from: menu)
+        let modal = DishModal(for: dish, from: menu, with: self)
         self.present(modal, animated: true, completion: nil)
     }
 
@@ -458,8 +480,9 @@ extension PlaceMenuController {
         }
 
         //Alerts
-        case AlertLoadErrorMessage = "Alerts.LoadError.Message"
-        case AlertAuthErrorMessage = "Alerts.AuthError.Message"
+        case AlertLoadErrorMessage = "Alerts.LoadError"
+        case AlertAuthErrorMessage = "Alerts.AuthError"
+        case AlertAddDishToCart = "Alerts.AddDishToCart"
 
         //Categories
         case AllDishesCategory = "Categories.AllDishes"

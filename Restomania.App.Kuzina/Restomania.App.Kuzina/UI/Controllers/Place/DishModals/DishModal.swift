@@ -16,16 +16,19 @@ public class DishModal: UIViewController {
     @IBOutlet private weak var interfaceTable: UITableView!
     private var interfaceAdapter: InterfaceTable!
     private var interfaceRows: [DishModalElementsProtocol] = []
+    @IBOutlet private weak var tryAddDishAction: DishModalTryAddingAction!
 
     //Data
     private let _tag = String.tag(DishModal.self)
     private let dish: BaseDish
     private let menu: MenuSummary
+    private let delegate: PlaceMenuDelegate
 
-    public init(for dish: BaseDish, from menu: MenuSummary) {
+    public init(for dish: BaseDish, from menu: MenuSummary, with delegate: PlaceMenuDelegate) {
 
         self.dish = dish
         self.menu = menu
+        self.delegate = delegate
 
         super.init(nibName: "\(String.tag(DishModal.self))View", bundle: Bundle.main)
     }
@@ -50,6 +53,8 @@ public class DishModal: UIViewController {
         interfaceAdapter = InterfaceTable(source: interfaceTable, rows: interfaceRows)
 
         interfaceRows.each({ $0.link(with: self) })
+
+        tryAddDishAction.link(with: self)
     }
     private func loadRows() -> [DishModalElementsProtocol] {
 
@@ -70,5 +75,9 @@ extension DishModal: DishModalDelegateProtocol {
 
     public func closeModal() {
         self.dismiss(animated: true, completion: nil)
+    }
+    public func tryAddDish() {
+        self.closeModal()
+        self.delegate.tryAdd(dish: dish.ID)
     }
 }

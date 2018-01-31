@@ -95,8 +95,8 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
         return _cart
     }
 
-    public func add(dish: Long) {
-        _delegate.add(dish: dish)
+    public func tryAdd(dish: Long) {
+        _delegate.tryAdd(dish: dish)
     }
 
     public func select(category: Long) {
