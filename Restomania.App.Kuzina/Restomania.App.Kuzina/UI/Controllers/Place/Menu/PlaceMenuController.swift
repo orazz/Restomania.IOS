@@ -275,10 +275,14 @@ extension PlaceMenuController: PlaceMenuDelegate {
 
         if (addings.isEmpty && variations.isEmpty) {
             add(dish, with: [], andUseVariationId: nil)
+
+            self.presentedViewController?.dismiss(animated: true, completion: nil)
+            return
         }
 
+        self.presentedViewController?.dismiss(animated: false, completion: nil)
         let modal = AddDishToCartModal(for: dish, with: addings, and: variations, from: menu, with: self)
-        self.present(modal, animated: true, completion: nil)
+        self.modal(modal, animated: true)
     }
     public func add(_ dish: Dish, with addings: [Long], andUseVariationId variation: Long? = nil) {
 
@@ -298,8 +302,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
                 return
         }
 
-        let modal = DishModal(for: dish, from: menu, with: self)
-        self.present(modal, animated: true, completion: nil)
+        self.modal(DishModal(for: dish, from: menu, with: self), animated: true)
     }
 
     @IBAction public func goBack() {

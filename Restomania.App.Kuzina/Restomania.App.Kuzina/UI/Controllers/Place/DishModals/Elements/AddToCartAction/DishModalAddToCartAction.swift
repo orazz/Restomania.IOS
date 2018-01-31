@@ -1,5 +1,5 @@
 //
-//  DishModalTryAddingAction.swift
+//  DishModalAddToCartAction.swift
 //  RestomaniaAppKuzina
 //
 //  Created by Алексей on 31.01.18.
@@ -10,20 +10,21 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class DishModalTryAddingAction: UIView {
+public class DishModalAddToCartAction: UIView {
 
     //UI
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var actionLabel: UILabel!
+    @IBOutlet private weak var totalLabel: PriceLabel!
 
     //Data
-    private var delegate: DishModalDelegateProtocol?
+    private var delegate: AddDishToCartModalDelegateProtocol?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
         self.backgroundColor = ThemeSettings.Colors.main
-        Bundle.main.loadNibNamed("\(String.tag(DishModalTryAddingAction.self))View", owner: self, options: nil)
+        Bundle.main.loadNibNamed("\(String.tag(DishModalAddToCartAction.self))View", owner: self, options: nil)
 
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -32,14 +33,23 @@ public class DishModalTryAddingAction: UIView {
 
         actionLabel.font = ThemeSettings.Fonts.default(size: .title)
         actionLabel.textColor = ThemeSettings.Colors.additional
-        actionLabel.text = Localization.DishModals.buttonsTryAddDish.localized
+        actionLabel.text = Localization.DishModals.buttonsAddToCart.localized
+
+        totalLabel.font = ThemeSettings.Fonts.default(size: .subhead)
+        totalLabel.textColor = ThemeSettings.Colors.additional
+        totalLabel.isHidden = true
     }
 
-    public func link(with delegate: DishModalDelegateProtocol) {
+    public func link(with delegate: AddDishToCartModalDelegateProtocol) {
         self.delegate = delegate
     }
+    public func refresh(total: Price, with currency: CurrencyType) {
 
-    @IBAction private func tryAddDish() {
+        totalLabel.isHidden = total.minorFormat == 0
+        totalLabel.setup(price: total, currency: currency)
+    }
+
+    @IBAction private func addToCart() {
         delegate?.addToCart()
     }
 }

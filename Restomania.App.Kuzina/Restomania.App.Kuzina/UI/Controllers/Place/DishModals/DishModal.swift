@@ -76,8 +76,8 @@ extension DishModal: DishModalDelegateProtocol {
     public func closeModal() {
         self.dismiss(animated: true, completion: nil)
     }
-    public func tryAddDish() {
-        self.closeModal()
+    public func addToCart() {
+//        self.closeModal()
         self.delegate.tryAdd(dish.ID)
     }
 }
