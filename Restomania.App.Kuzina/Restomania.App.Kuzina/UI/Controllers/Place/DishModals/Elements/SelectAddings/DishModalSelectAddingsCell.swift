@@ -1,5 +1,5 @@
 //
-//  DishModalSelectVariationsCell.swift
+//  DishModalSelectAddingsCell.swift
 //  RestomaniaAppKuzina
 //
 //  Created by Алексей on 31.01.18.
@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class DishModalSelectVariationsCell: UITableViewCell {
+public class DishModalSelectAddingsCell: UITableViewCell {
 
     public static var identifier = Guid.new
-    public static var height = CGFloat(45.0)
+    public static var height = CGFloat(45)
     public static func register(in table: UITableView) {
 
-        let nib = UINib(nibName: "\(String.tag(DishModalSelectVariationsCell.self))View", bundle: Bundle.main)
+        let nib = UINib(nibName: "\(String.tag(DishModalSelectAddingsCell.self))View", bundle: Bundle.main)
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 
@@ -46,8 +46,10 @@ public class DishModalSelectVariationsCell: UITableViewCell {
 
         markImage.isHidden = !selected
     }
-    public func setup(for variation: Variation, with menu: MenuSummary) {
-        nameLabel.text = variation.name
-        priceLabel.setup(price: variation.price, currency: menu.currency)
+
+    public func setup(dish: Dish, from menu: MenuSummary) {
+
+        nameLabel.text = dish.name
+        priceLabel.setup(price: dish.price, currency: menu.currency)
     }
 }

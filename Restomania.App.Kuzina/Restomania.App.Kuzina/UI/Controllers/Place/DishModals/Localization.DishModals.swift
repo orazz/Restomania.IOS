@@ -23,5 +23,6 @@ extension Localization {
 
         //Titles
         case labelsSelectVariations = "Labels.SelectVariations"
+        case labelsSelectAddings = "Labels.SelectAddings"
     }
 }

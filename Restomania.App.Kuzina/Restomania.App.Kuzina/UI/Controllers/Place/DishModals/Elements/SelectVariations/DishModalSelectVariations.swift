@@ -12,10 +12,11 @@ import IOSLibrary
 
 public class DishModalSelectVariations: UITableViewCell {
 
-    public static func create(for variations: [Variation], with delegate: AddDishToCartModalDelegateProtocol) -> DishModalSelectVariations {
+    public static func create(for variations: [Variation], from menu: MenuSummary, with delegate: AddDishToCartModalDelegateProtocol) -> DishModalSelectVariations {
 
         let cell: DishModalSelectVariations = UINib.instantiate(from: "\(String.tag(DishModalSelectVariations.self))View", bundle: Bundle.main)
         cell.variations = variations.ordered
+        cell.menu = menu
         cell.delegate = delegate
 
         cell.initialize()
@@ -28,6 +29,7 @@ public class DishModalSelectVariations: UITableViewCell {
 
     //Data
     private var variations: [Variation] = []
+    private var menu: MenuSummary!
     private var delegate: AddDishToCartModalDelegateProtocol?
 
     public override func awakeFromNib() {
@@ -64,7 +66,7 @@ extension DishModalSelectVariations: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: DishModalSelectVariationsCell.identifier, for: indexPath) as! DishModalSelectVariationsCell
-        cell.setup(for: variations[indexPath.row])
+        cell.setup(for: variations[indexPath.row], with: menu)
 
         return cell
     }

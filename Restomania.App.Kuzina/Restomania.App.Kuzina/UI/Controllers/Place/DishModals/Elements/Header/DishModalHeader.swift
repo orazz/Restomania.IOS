@@ -27,8 +27,7 @@ public class DishModalHeader: UITableViewCell {
     @IBOutlet private weak var dishImage: ImageWrapper!
     @IBOutlet private weak var nameContainerView: UIView!
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var imageCloseButton: UIButton!
-    @IBOutlet private weak var nameCloseButton: UIButton!
+    @IBOutlet private weak var closeButton: UIButton!
 
     //Data
     private var dish: BaseDish? = nil {
@@ -67,8 +66,6 @@ public class DishModalHeader: UITableViewCell {
         imageContainerView.isHidden = !hasImage
         imageContainerHeight?.constant = 20.0 + (hasImage ? 150.0 : 0.0)
         dishImage.setup(url: dish.image)
-
-        nameCloseButton.isHidden = hasImage
 
         nameLabel.text = dish.name
     }

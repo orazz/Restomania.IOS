@@ -12,6 +12,10 @@
 		1F05C75820218472005084B4 /* DishModalTryAddingActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F05C75720218472005084B4 /* DishModalTryAddingActionView.xib */; };
 		1F061F332021DFE900A7AD98 /* DishModalSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F322021DFE900A7AD98 /* DishModalSpace.swift */; };
 		1F061F352021E08700A7AD98 /* DishModalSpaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F061F342021E08700A7AD98 /* DishModalSpaceView.xib */; };
+		1F061F372021FA8400A7AD98 /* DishModalSelectAddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F362021FA8400A7AD98 /* DishModalSelectAddings.swift */; };
+		1F061F392021FA9B00A7AD98 /* DishModalSelectAddingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F061F382021FA9B00A7AD98 /* DishModalSelectAddingsView.xib */; };
+		1F061F3B2021FAB200A7AD98 /* DishModalSelectAddingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F3A2021FAB200A7AD98 /* DishModalSelectAddingsCell.swift */; };
+		1F061F3D2021FAC900A7AD98 /* DishModalSelectAddingsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F061F3C2021FAC900A7AD98 /* DishModalSelectAddingsCellView.xib */; };
 		1F0F2163200590EC008672DA /* TermsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2162200590EB008672DA /* TermsControllerView.xib */; };
 		1F0F2166200593FB008672DA /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2168200593FB008672DA /* TermsController.strings */; };
 		1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */; };
@@ -326,6 +330,10 @@
 		1F05C75720218472005084B4 /* DishModalTryAddingActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalTryAddingActionView.xib; path = UI/Controllers/Place/DishModals/Elements/TryAddingAction/DishModalTryAddingActionView.xib; sourceTree = "<group>"; };
 		1F061F322021DFE900A7AD98 /* DishModalSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalSpace.swift; path = UI/Controllers/Place/DishModals/Elements/Space/DishModalSpace.swift; sourceTree = "<group>"; };
 		1F061F342021E08700A7AD98 /* DishModalSpaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalSpaceView.xib; path = UI/Controllers/Place/DishModals/Elements/Space/DishModalSpaceView.xib; sourceTree = "<group>"; };
+		1F061F362021FA8400A7AD98 /* DishModalSelectAddings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalSelectAddings.swift; path = UI/Controllers/Place/DishModals/Elements/SelectAddings/DishModalSelectAddings.swift; sourceTree = "<group>"; };
+		1F061F382021FA9B00A7AD98 /* DishModalSelectAddingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalSelectAddingsView.xib; path = UI/Controllers/Place/DishModals/Elements/SelectAddings/DishModalSelectAddingsView.xib; sourceTree = "<group>"; };
+		1F061F3A2021FAB200A7AD98 /* DishModalSelectAddingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalSelectAddingsCell.swift; path = UI/Controllers/Place/DishModals/Elements/SelectAddings/DishModalSelectAddingsCell.swift; sourceTree = "<group>"; };
+		1F061F3C2021FAC900A7AD98 /* DishModalSelectAddingsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalSelectAddingsCellView.xib; path = UI/Controllers/Place/DishModals/Elements/SelectAddings/DishModalSelectAddingsCellView.xib; sourceTree = "<group>"; };
 		1F0F2162200590EB008672DA /* TermsControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TermsControllerView.xib; path = UI/Controllers/Manager/Terms/TermsControllerView.xib; sourceTree = "<group>"; };
 		1F0F2167200593FB008672DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F0F2169200593FE008672DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
@@ -1664,6 +1672,10 @@
 		1FF31FB92021B21E0019075B /* SelectAddings */ = {
 			isa = PBXGroup;
 			children = (
+				1F061F362021FA8400A7AD98 /* DishModalSelectAddings.swift */,
+				1F061F382021FA9B00A7AD98 /* DishModalSelectAddingsView.xib */,
+				1F061F3A2021FAB200A7AD98 /* DishModalSelectAddingsCell.swift */,
+				1F061F3C2021FAC900A7AD98 /* DishModalSelectAddingsCellView.xib */,
 			);
 			name = SelectAddings;
 			sourceTree = "<group>";
@@ -1945,6 +1957,7 @@
 				1F279F611FB07C71003A2B47 /* ManagerEditProfileControllerView.xib in Resources */,
 				1F62E4681FAE464400D1C89D /* Launch.storyboard in Resources */,
 				1F279F7F1FB07CFC003A2B47 /* ManagerOrdersControllerOrderCellView.xib in Resources */,
+				1F061F392021FA9B00A7AD98 /* DishModalSelectAddingsView.xib in Resources */,
 				1FF31FB32021B11D0019075B /* DishModals.strings in Resources */,
 				1F691A852009BC8F00415F2F /* ForgetPasswordPage.xib in Resources */,
 				1F691AA8200A360700415F2F /* OneOrderSummaryContainerView.xib in Resources */,
@@ -1953,6 +1966,7 @@
 				1F279FA21FB0EC63003A2B47 /* PlaceMenuMenuContainerView.xib in Resources */,
 				1F061F352021E08700A7AD98 /* DishModalSpaceView.xib in Resources */,
 				1F279F9D1FB0EC11003A2B47 /* PlaceMenuDishCellView.xib in Resources */,
+				1F061F3D2021FAC900A7AD98 /* DishModalSelectAddingsCellView.xib in Resources */,
 				1FF31FBE2021B2980019075B /* DishModalAddToCartActionView.xib in Resources */,
 				1F279F661FB07C82003A2B47 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */,
 				1FE3C7731FB31C2B009CE542 /* PlaceCartTotalContainerCellView.xib in Resources */,
@@ -2230,6 +2244,7 @@
 				1FB8F0641F1ECE990090045E /* DishOrderType.swift in Sources */,
 				1F279F9B1FB0EC11003A2B47 /* PlaceMenuDishCell.swift in Sources */,
 				1FE3C75F1FB2F03A009CE542 /* PlaceCartDivider.swift in Sources */,
+				1F061F372021FA8400A7AD98 /* DishModalSelectAddings.swift in Sources */,
 				1F3C5A0C1FB15D940038EB97 /* BottomActions.swift in Sources */,
 				1FC01CDF1FB21D6600413ED7 /* SubdishSummary.swift in Sources */,
 				1FD7E69D1F1D0E140023C033 /* ApiRole.swift in Sources */,
@@ -2372,6 +2387,7 @@
 				1FB3F2731FD5745F0073640B /* GetArgs.swift in Sources */,
 				1FB6B92F1FAE19A400CD0B17 /* AppUserRole.swift in Sources */,
 				1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */,
+				1F061F3B2021FAB200A7AD98 /* DishModalSelectAddingsCell.swift in Sources */,
 				1F8CBDEE2020ADCF00544513 /* Variation.swift in Sources */,
 				1FC6E9F3200D2154003B47E5 /* PushesServices.swift in Sources */,
 				1F691AB2200A53FB00415F2F /* OneOrderTotalContainer.swift in Sources */,

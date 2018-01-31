@@ -32,7 +32,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to cart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9b-ie-R3I">
-                    <rect key="frame" x="10" y="15" width="265" height="21"/>
+                    <rect key="frame" x="10" y="15" width="355" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -43,9 +43,9 @@
             <constraints>
                 <constraint firstItem="l71-Ug-Pa4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1uA-by-Bjx"/>
                 <constraint firstAttribute="trailing" secondItem="l71-Ug-Pa4" secondAttribute="trailing" constant="10" id="9lH-sg-M0L"/>
+                <constraint firstAttribute="trailing" secondItem="n9b-ie-R3I" secondAttribute="trailing" constant="10" id="jjl-Eh-PJv"/>
                 <constraint firstItem="n9b-ie-R3I" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nP3-3t-Xou"/>
                 <constraint firstItem="n9b-ie-R3I" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="w65-da-BxZ"/>
-                <constraint firstItem="l71-Ug-Pa4" firstAttribute="leading" secondItem="n9b-ie-R3I" secondAttribute="trailing" constant="10" id="xJf-ql-el3"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

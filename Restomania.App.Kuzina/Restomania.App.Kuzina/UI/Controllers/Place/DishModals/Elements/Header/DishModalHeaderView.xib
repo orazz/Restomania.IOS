@@ -19,36 +19,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="arP-e7-0HK" customClass="ImageWrapper" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="20" width="375" height="150"/>
+                            <rect key="frame" x="0.0" y="25" width="375" height="145"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="A65-0e-Wcs">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="75" id="2pX-g2-MpS"/>
-                            </constraints>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAb-5w-1x8">
-                            <rect key="frame" x="10" y="25" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="C2M-cj-33J"/>
-                                <constraint firstAttribute="height" constant="40" id="rXL-Xa-cip"/>
-                            </constraints>
-                            <state key="normal" image="icon-close-light"/>
-                            <connections>
-                                <action selector="closeModal" destination="iN0-l3-epB" eventType="touchUpInside" id="ozY-vc-6pz"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="arP-e7-0HK" firstAttribute="leading" secondItem="2sb-BP-Yos" secondAttribute="leading" id="6u8-pU-ipk"/>
-                        <constraint firstItem="FAb-5w-1x8" firstAttribute="leading" secondItem="2sb-BP-Yos" secondAttribute="leading" constant="10" id="GfJ-Pt-C0c"/>
                         <constraint firstAttribute="trailing" secondItem="arP-e7-0HK" secondAttribute="trailing" id="JZ3-AI-QNH"/>
-                        <constraint firstItem="A65-0e-Wcs" firstAttribute="leading" secondItem="2sb-BP-Yos" secondAttribute="leading" id="MAH-n3-njE"/>
-                        <constraint firstAttribute="trailing" secondItem="A65-0e-Wcs" secondAttribute="trailing" id="MW4-hW-ST0"/>
-                        <constraint firstItem="A65-0e-Wcs" firstAttribute="top" secondItem="2sb-BP-Yos" secondAttribute="top" id="QzX-Fw-T3J"/>
-                        <constraint firstItem="arP-e7-0HK" firstAttribute="top" secondItem="2sb-BP-Yos" secondAttribute="top" constant="20" id="TOs-fk-LxG"/>
-                        <constraint firstItem="FAb-5w-1x8" firstAttribute="top" secondItem="2sb-BP-Yos" secondAttribute="top" constant="25" id="ZHR-nO-wXR"/>
+                        <constraint firstItem="arP-e7-0HK" firstAttribute="top" secondItem="2sb-BP-Yos" secondAttribute="top" constant="25" id="TOs-fk-LxG"/>
                         <constraint firstAttribute="height" constant="170" identifier="ImageHeight" id="bcl-NE-0f2"/>
                         <constraint firstAttribute="bottom" secondItem="arP-e7-0HK" secondAttribute="bottom" id="gUk-BE-Nen"/>
                     </constraints>
@@ -62,32 +40,31 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bir-8G-du9">
-                            <rect key="frame" x="10" y="10" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="0WM-nj-24F"/>
-                                <constraint firstAttribute="width" constant="40" id="ChL-a8-TQF"/>
-                            </constraints>
-                            <state key="normal" image="icon-close"/>
-                            <connections>
-                                <action selector="closeModal" destination="iN0-l3-epB" eventType="touchUpInside" id="3Zr-fe-m9X"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="yG4-5A-x0k" firstAttribute="top" secondItem="93f-u9-wmW" secondAttribute="top" id="0sl-Lt-AaJ"/>
                         <constraint firstAttribute="height" constant="80" id="4Gw-87-isd"/>
                         <constraint firstAttribute="bottom" secondItem="yG4-5A-x0k" secondAttribute="bottom" constant="5" id="C70-s3-Hwr"/>
-                        <constraint firstItem="Bir-8G-du9" firstAttribute="top" secondItem="93f-u9-wmW" secondAttribute="top" constant="10" id="EIo-M5-tky"/>
                         <constraint firstItem="yG4-5A-x0k" firstAttribute="leading" secondItem="93f-u9-wmW" secondAttribute="leading" constant="50" id="O6c-FF-DCN"/>
-                        <constraint firstItem="Bir-8G-du9" firstAttribute="leading" secondItem="93f-u9-wmW" secondAttribute="leading" constant="10" id="wfE-0j-TG4"/>
                         <constraint firstAttribute="trailing" secondItem="yG4-5A-x0k" secondAttribute="trailing" constant="50" id="ymR-oq-MJr"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bir-8G-du9">
+                    <rect key="frame" x="10" y="20" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="0WM-nj-24F"/>
+                        <constraint firstAttribute="width" constant="40" id="ChL-a8-TQF"/>
+                    </constraints>
+                    <state key="normal" image="icon-close"/>
+                    <connections>
+                        <action selector="closeModal" destination="iN0-l3-epB" eventType="touchUpInside" id="3Zr-fe-m9X"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Bir-8G-du9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="K6W-Tp-2tP"/>
                 <constraint firstItem="2sb-BP-Yos" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ncu-Ns-dgk"/>
                 <constraint firstItem="93f-u9-wmW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Q0J-Sz-l5u"/>
                 <constraint firstItem="93f-u9-wmW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="VjM-OM-sLo"/>
@@ -95,15 +72,15 @@
                 <constraint firstAttribute="trailing" secondItem="93f-u9-wmW" secondAttribute="trailing" id="b71-lM-wXo"/>
                 <constraint firstItem="2sb-BP-Yos" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gjN-M0-gUf"/>
                 <constraint firstAttribute="trailing" secondItem="2sb-BP-Yos" secondAttribute="trailing" id="haT-eO-7qt"/>
+                <constraint firstItem="Bir-8G-du9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="uce-ax-GDC"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="closeButton" destination="Bir-8G-du9" id="8el-xt-Tx0"/>
                 <outlet property="dishImage" destination="arP-e7-0HK" id="oo2-7l-bVD"/>
-                <outlet property="imageCloseButton" destination="FAb-5w-1x8" id="R0q-z0-Ms2"/>
                 <outlet property="imageContainerView" destination="2sb-BP-Yos" id="FzE-VH-B13"/>
-                <outlet property="nameCloseButton" destination="Bir-8G-du9" id="Hie-f5-dLO"/>
                 <outlet property="nameContainerView" destination="93f-u9-wmW" id="T6S-Y1-lwI"/>
                 <outlet property="nameLabel" destination="yG4-5A-x0k" id="6T8-7p-Rpd"/>
             </connections>
@@ -112,7 +89,5 @@
     </objects>
     <resources>
         <image name="icon-close" width="50" height="50"/>
-        <image name="icon-close-light" width="50" height="50"/>
-        <image name="top-gradient" width="921" height="479"/>
     </resources>
 </document>
