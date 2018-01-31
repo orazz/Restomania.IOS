@@ -96,7 +96,7 @@ public class PlaceMenuDishCell: UITableViewCell {
         if let dish = _dish,
             let delegate = _delegate {
 
-            delegate.tryAdd(dish: dish.ID)
+            delegate.tryAdd(dish.ID)
         }
     }
 }

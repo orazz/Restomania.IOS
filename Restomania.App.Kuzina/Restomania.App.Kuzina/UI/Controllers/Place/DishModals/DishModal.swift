@@ -78,6 +78,6 @@ extension DishModal: DishModalDelegateProtocol {
     }
     public func tryAddDish() {
         self.closeModal()
-        self.delegate.tryAdd(dish: dish.ID)
+        self.delegate.tryAdd(dish.ID)
     }
 }
