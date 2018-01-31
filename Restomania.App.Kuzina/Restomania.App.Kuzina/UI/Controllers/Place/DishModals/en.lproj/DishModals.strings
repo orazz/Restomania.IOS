@@ -8,3 +8,5 @@
 
 "Buttons.TryAddDish" = "Add";
 "Buttons.AddToCart" = "Add to cart";
+
+"Labels.SelectVariations" = "Select size";

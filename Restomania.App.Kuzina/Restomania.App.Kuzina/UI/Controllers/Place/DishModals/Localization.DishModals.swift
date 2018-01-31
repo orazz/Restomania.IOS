@@ -20,5 +20,8 @@ extension Localization {
         //Actions
         case buttonsTryAddDish = "Buttons.TryAddDish"
         case buttonsAddToCart = "Buttons.AddToCart"
+
+        //Titles
+        case labelsSelectVariations = "Labels.SelectVariations"
     }
 }

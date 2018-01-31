@@ -35,7 +35,7 @@ public class DishModalAddToCartAction: UIView {
         actionLabel.textColor = ThemeSettings.Colors.additional
         actionLabel.text = Localization.DishModals.buttonsAddToCart.localized
 
-        totalLabel.font = ThemeSettings.Fonts.default(size: .subhead)
+        totalLabel.font = ThemeSettings.Fonts.bold(size: .head)
         totalLabel.textColor = ThemeSettings.Colors.additional
         totalLabel.isHidden = true
     }

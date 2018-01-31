@@ -8,3 +8,5 @@
 
 "Buttons.TryAddDish" = "Добавить";
 "Buttons.AddToCart" = "Добавить в заказ";
+
+"Labels.SelectVariations" = "Выберите размер";
