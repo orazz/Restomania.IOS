@@ -43,13 +43,17 @@ public class PlaceCartDishesContainer: UITableViewCell {
 
         let needReload = rows.count != cart.dishesCount
 
+        rows.each({ $0.viewDidDisappear() })
+        rows.each({ $0.removeFromSuperview() })
         rows.removeAll()
         if let menu = self.menu {
             for dish in cart.dishes {
                 rows.append(PlaceCartDishesContainerCell.create(for: dish, with: cart, and: menu))
             }
 
+            rows.each({ $0.viewDidAppear() })
             dishesAdapter = InterfaceTable(source: dishesTable, rows: rows)
+            dishesAdapter.reload()
         }
 
         if (needReload) {
@@ -96,7 +100,7 @@ extension PlaceCartDishesContainer: PlaceCartContainerCell {
 extension PlaceCartDishesContainer: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return Int(dishesTable.contentSize.height)
+        return rows.sum({ $0.viewHeight })
     }
     public func prepareView() -> UITableViewCell {
         return self

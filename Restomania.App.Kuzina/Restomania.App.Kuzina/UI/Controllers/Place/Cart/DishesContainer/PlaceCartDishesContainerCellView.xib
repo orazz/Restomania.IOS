@@ -92,8 +92,8 @@
             <connections>
                 <outlet property="addingsTable" destination="iKS-oG-7Qw" id="Z26-dh-2VB"/>
                 <outlet property="titleContainer" destination="elU-TZ-GzJ" id="NLs-1g-wUw"/>
-                <outlet property="titleLabel" destination="xlF-3C-y1c" id="hNy-Zr-bWx"/>
-                <outlet property="totalLabel" destination="vhI-il-YZq" id="viH-79-a44"/>
+                <outlet property="titleLabel" destination="xlF-3C-y1c" id="zfm-S0-8dx"/>
+                <outlet property="totalLabel" destination="vhI-il-YZq" id="rxa-LB-gYh"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="30"/>
         </view>
