@@ -12,11 +12,9 @@ import IOSLibrary
 
 public class PlaceCartTotalContainerCell: UITableViewCell {
 
-    private static let nibName = "PlaceCartTotalContainerCellView"
     public static func create(for delegate: PlaceCartDelegate, title: String, _ action: @escaping ((CartService, MenuSummary) -> Price)) -> PlaceCartTotalContainerCell {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
-        let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartTotalContainerCell
+        let cell: PlaceCartTotalContainerCell = UINib.instantiate(from: "\(String.tag(PlaceCartTotalContainerCell.self))View", bundle: Bundle.main)
 
         cell.title = title
         cell.action = action
@@ -63,10 +61,11 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
     }
 }
 extension PlaceCartTotalContainerCell: CartServiceDelegate {
-    public func cart(_ cart: CartService, changedDish: Long, newCount: Int) {
+
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
         changeCart()
     }
-    public func cart(_ cart: CartService, removedDish: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         changeCart()
     }
     private func changeCart() {

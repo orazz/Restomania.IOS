@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="PlaceCartDishesContainerCellMeta" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="238" height="20"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222.22 P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIF-k2-xZi" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="188" y="3.5" width="45" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="5Jl-TV-qxX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e65-B3-2ea">
+                    <rect key="frame" x="15" y="4" width="163" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gIF-k2-xZi" secondAttribute="trailing" constant="5" id="2pd-Jw-3AQ"/>
+                <constraint firstItem="e65-B3-2ea" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="drs-fL-gy7"/>
+                <constraint firstItem="e65-B3-2ea" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hTf-qN-pS0"/>
+                <constraint firstItem="gIF-k2-xZi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oWk-DS-od3"/>
+                <constraint firstItem="gIF-k2-xZi" firstAttribute="leading" secondItem="e65-B3-2ea" secondAttribute="trailing" constant="10" id="vK8-G3-AfE"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="nameLabel" destination="e65-B3-2ea" id="ATZ-qM-NIL"/>
+                <outlet property="priceLabel" destination="gIF-k2-xZi" id="Rnv-24-hMU"/>
+            </connections>
+            <point key="canvasLocation" x="-34" y="-270"/>
+        </view>
+    </objects>
+</document>

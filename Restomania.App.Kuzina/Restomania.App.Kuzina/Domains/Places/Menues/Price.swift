@@ -84,7 +84,10 @@ func += (left: Price, right: Price) {
     left.float = result.float
 }
 func +(left: Price, right: Price) -> Price {
-    return  Price(minor: left.minorFormat + right.minorFormat)
+    return Price(minor: left.minorFormat + right.minorFormat)
+}
+func *(left: Price, right: Int) -> Price {
+    return Price(minor: left.minorFormat * right)
 }
 func -(left: Price, right: Price) -> Price {
     return  Price(minor: left.minorFormat - right.minorFormat)

@@ -64,13 +64,12 @@ public class PlaceCartTotalContainer: UITableViewCell {
     }
 }
 extension PlaceCartTotalContainer: CartServiceDelegate {
-    public func cart(_ cart: CartService, changedDish dishId: Long, newCount: Int) {
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
         reload()
     }
-    public func cart(_ cart: CartService, removedDish dishId: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         reload()
     }
-
 }
 extension PlaceCartTotalContainer: PlaceCartContainerCell {
 

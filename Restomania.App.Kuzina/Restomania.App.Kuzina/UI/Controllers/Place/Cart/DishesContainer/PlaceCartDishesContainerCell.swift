@@ -12,7 +12,7 @@ import IOSLibrary
 
 public class PlaceCartDishesContainerCell: UITableViewCell {
 
-    public static let height = CGFloat(40)
+    public static let height = CGFloat(50)
     private static let nibName = "PlaceCartDishesContainerCellView"
     public static func create(for dish: AddedOrderDish, with cart: CartService, and menu: MenuSummary) -> PlaceCartDishesContainerCell {
 
@@ -33,7 +33,6 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
         cell.cart = cart
         cell.menu = menu
 
-        cart.subscribe(guid: cell.guid, handler: cell, tag: cell._tag)
         cell.refresh()
 
         return cell
@@ -42,15 +41,21 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
     //UI hooks
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
+    @IBOutlet private weak var titleContainer: UIView!
+    @IBOutlet private weak var addingsTable: UITableView!
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        titleLabel.font = ThemeSettings.Fonts.default(size: .subhead)
+        titleLabel.font = ThemeSettings.Fonts.default(size: .caption)
         titleLabel.textColor = ThemeSettings.Colors.main
 
         totalLabel.font = ThemeSettings.Fonts.default(size: .subhead)
         totalLabel.textColor = ThemeSettings.Colors.main
+
+        addingsTable.delegate = self
+        addingsTable.dataSource = self
+        PlaceCartDishesContainerCellMeta.register(in: addingsTable)
     }
 
     //Data
@@ -59,21 +64,19 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
 
     private var dish: AddedOrderDish!
     private var dishName: String = String.empty
+    private var addings: [Dish] = []
     private var menu: MenuSummary!
     private var cart: CartService!
 
     private func refresh() {
 
-        titleLabel.text = buildTitle()
+        titleLabel.text = "\(dish.count) x \(dishName)"
         totalLabel.setup(price: dish.total(with: menu), currency: menu.currency)
-    }
-    private func buildTitle() -> String {
 
-        return "\(dish.count) x \(dishName)"
-    }
-
-    public func dispose() {
-        cart.unsubscribe(guid: guid)
+        addings = dish.additions.map({ menu.dishes.find(id: $0) })
+                                 .filter({ nil != $0 })
+                                 .map({ $0! })
+        addingsTable.reloadData()
     }
 }
 // MARK: Actions
@@ -86,8 +89,43 @@ extension PlaceCartDishesContainerCell {
         cart.decrement(dish)
     }
 }
+extension PlaceCartDishesContainerCell: UITableViewDataSource, UITableViewDelegate {
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return addings.count
+    }
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return PlaceCartDishesContainerCellMeta.height
+    }
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-// MARK: Cart
+        let cell = tableView.dequeueReusableCell(withIdentifier: PlaceCartDishesContainerCellMeta.identifier, for: indexPath) as! PlaceCartDishesContainerCellMeta
+        cell.setup(dish: addings[indexPath.row], with: menu)
+
+        return cell
+    }
+}
+extension PlaceCartDishesContainerCell: PlaceCartContainerCell {
+    public func viewDidAppear() {
+        cart.subscribe(guid: guid, handler: self, tag: _tag)
+    }
+    public func viewDidDisappear() {
+        cart.unsubscribe(guid: guid)
+    }
+    public func updateData(with: PlaceCartDelegate) {}
+}
+extension PlaceCartDishesContainerCell: InterfaceTableCellProtocol {
+
+    public var viewHeight: Int {
+        return Int(titleContainer.frame.height) + addings.count * Int(PlaceCartDishesContainerCellMeta.height)
+    }
+    public func prepareView() -> UITableViewCell {
+        return self
+    }
+}
+//Cart
 extension PlaceCartDishesContainerCell: CartServiceDelegate {
 
     public func cart(_ cart: CartService, change dish: AddedOrderDish) {
@@ -96,7 +134,6 @@ extension PlaceCartDishesContainerCell: CartServiceDelegate {
     public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         change(dish)
     }
-
     private func change(_ dish: AddedOrderDish) {
 
         if (self.dish === dish) {

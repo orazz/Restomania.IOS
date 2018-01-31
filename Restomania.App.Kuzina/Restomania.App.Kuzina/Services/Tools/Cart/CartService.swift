@@ -45,7 +45,7 @@ public class CartService: ReservationService {
         return place.dishes.count({ $0.count > 0 })
     }
     public var dishes: [AddedOrderDish] {
-        return place.dishes.where({$0.count > 0}).map({ AddedOrderDish(source: $0) })
+        return place.dishes.where({$0.count > 0})
     }
 
     //Properties
@@ -71,10 +71,9 @@ public class CartService: ReservationService {
     //Methods
     public func total(with menu: MenuSummary) -> Price {
 
-        var result = Price.zero
-
+        let result = Price.zero
         for dish in dishes {
-            result = result + dish.total(with: menu)
+            result += dish.total(with: menu)
         }
 
         return result
@@ -109,7 +108,7 @@ public class CartService: ReservationService {
         dish.decrement()
 
         //Change count
-        if (dish.count > 1) {
+        if (dish.count >= 1) {
 
             save()
             trigger({ $0.cart(self, change: dish) })

@@ -56,7 +56,6 @@ public class AddedOrderDish: ICopying, Glossy {
         self.variationId = source.variationId
         self.additions = source.additions.map { $0 }
         self.subdishes = source.subdishes.map { $0 }
-
         self.count = source.count
     }
 
@@ -92,7 +91,7 @@ extension AddedOrderDish {
     }
     public func total(with menu: MenuSummary) -> Price {
 
-        guard let dish = menu.dishes.find({ $0.ID == dishId }) else {
+        guard let dish = menu.dishes.find(id: dishId) else {
             return Price.zero
         }
 
@@ -102,7 +101,8 @@ extension AddedOrderDish {
                 result += dish.price
 
             case .variableDish:
-                if let variation = menu.variations.find({ $0.ID == variationId }) {
+                if  let variationId = self.variationId,
+                     let variation = menu.variations.find(id: variationId) {
                     result += variation.price
                 }
 
@@ -111,12 +111,12 @@ extension AddedOrderDish {
         }
 
         for adding in additions {
-            if let dish = menu.dishes.find({ $0.ID == adding }),
+            if let dish = menu.dishes.find(id: adding),
                 dish.type == .simpleDish {
                 result += dish.price
             }
         }
 
-        return result
+        return result * count
     }
 }

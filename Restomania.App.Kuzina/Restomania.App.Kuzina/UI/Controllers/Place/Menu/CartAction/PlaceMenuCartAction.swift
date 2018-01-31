@@ -89,10 +89,10 @@ public class PlaceMenuCartAction: UIView {
 }
 
 extension PlaceMenuCartAction: CartServiceDelegate {
-    public func cart(_ cart: CartService, changedDish dishId: Long, newCount: Int) {
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
         apply()
     }
-    public func cart(_ cart: CartService, removedDish dishId: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         apply()
     }
 }

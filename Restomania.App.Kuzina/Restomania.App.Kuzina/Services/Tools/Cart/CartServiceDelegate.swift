@@ -13,7 +13,7 @@ public protocol CartServiceDelegate {
     func cart(_ cart: CartService, change dish: AddedOrderDish)
     func cart(_ cart: CartService, remove dish: AddedOrderDish)
 }
-extension CartServiceDelegate {
-    public func cart(_ cart: CartService, change dish: AddedOrderDish) {}
-    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {}
-}
+//extension CartServiceDelegate {
+//    public func cart(_ cart: CartService, change dish: AddedOrderDish) {}
+//    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {}
+//}

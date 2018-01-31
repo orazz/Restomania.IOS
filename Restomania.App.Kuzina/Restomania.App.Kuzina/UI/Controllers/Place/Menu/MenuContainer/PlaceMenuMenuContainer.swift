@@ -154,19 +154,15 @@ extension PlaceMenuMenuContainer: InterfaceTableCellProtocol {
     }
 }
 extension PlaceMenuMenuContainer: CartServiceDelegate {
-    public func cart(_ cart: CartService, changedDish dishId: Long, newCount: Int) {
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
         updateButtonOffset()
     }
-    public func cart(_ cart: CartService, removedDish dishId: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         updateButtonOffset()
     }
     private func updateButtonOffset() {
 
-        var offset = BottomActions.height
-
-        if (_cart.isEmpty) {
-            offset = CGFloat(0)
-        }
+        let offset = _cart.isEmpty ? CGFloat(0) : BottomActions.height
 
         DispatchQueue.main.async {
             self.dishesTable.setParentContraint(.bottom, to: offset)

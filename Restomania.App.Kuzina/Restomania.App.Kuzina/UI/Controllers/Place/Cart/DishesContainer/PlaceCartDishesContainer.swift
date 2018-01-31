@@ -12,26 +12,20 @@ import IOSLibrary
 
 public class PlaceCartDishesContainer: UITableViewCell {
 
-    private static let nibName = "PlaceCartDishesContainerView"
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartDishesContainer {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
-        let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartDishesContainer
+        let nibName = "PlaceCartDishesContainerView"
+        let cell: PlaceCartDishesContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
 
         cell.delegate = delegate
-        cell.setupMarkup()
 
         return cell
     }
 
     //UI elements
     @IBOutlet private weak var dishesTable: UITableView!
-    private var cachedCells: [Long: PlaceCartDishesContainerCell] = [:]
-    private func setupMarkup() {
-
-        dishesTable.delegate = self
-        dishesTable.dataSource = self
-    }
+    private var dishesAdapter: InterfaceTable!
+    private var rows: [PlaceCartDishesContainerCell] = []
 
     //Data
     private let _tag = String.tag(PlaceCartDishesContainer.self)
@@ -44,15 +38,18 @@ public class PlaceCartDishesContainer: UITableViewCell {
     private var cart: CartService {
         return delegate.takeCart()
     }
-    private var orderedDishes: [AddedOrderDish] = []
 
     private func update() {
 
-        let newDishes = cart.dishes
-        let needReload = orderedDishes.count != newDishes.count
-         orderedDishes = newDishes
-        if let _ = menu {
-            dishesTable.reloadData()
+        let needReload = rows.count != cart.dishesCount
+
+        rows.removeAll()
+        if let menu = self.menu {
+            for dish in cart.dishes {
+                rows.append(PlaceCartDishesContainerCell.create(for: dish, with: cart, and: menu))
+            }
+
+            dishesAdapter = InterfaceTable(source: dishesTable, rows: rows)
         }
 
         if (needReload) {
@@ -60,46 +57,15 @@ public class PlaceCartDishesContainer: UITableViewCell {
         }
     }
 }
-// MARK: Table
-extension PlaceCartDishesContainer: UITableViewDelegate {
-
-}
-extension PlaceCartDishesContainer: UITableViewDataSource {
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderedDishes.count
-    }
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let ordered = orderedDishes[indexPath.row]
-        guard let cached = cachedCells[ordered.dishId] else {
-
-            let cell = PlaceCartDishesContainerCell.create(for: ordered, with: self.cart, and: self.menu!)
-            cachedCells[ordered.dishId] = cell
-
-            return cell
-        }
-
-        return cached
-    }
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return PlaceCartDishesContainerCell.height
-    }
-}
 // MARK: Cart
 extension PlaceCartDishesContainer: CartServiceDelegate {
 
-    public func cart(_ cart: CartService, changedDish dishId: Long, newCount: Int) {
-
-        if nil == cachedCells[dishId] {
-            reload()
-        } else if (0 == newCount) {
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
+        if dish.count == 1 {
             reload()
         }
     }
-    public func cart(_ cart: CartService, removedDish dishId: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         reload()
     }
     private func reload() {
@@ -108,23 +74,23 @@ extension PlaceCartDishesContainer: CartServiceDelegate {
         }
     }
 }
-// MARK: Main
+// PlaceCartContainerCell
 extension PlaceCartDishesContainer: PlaceCartContainerCell {
 
     public func viewDidAppear() {
         cart.subscribe(guid: guid, handler: self, tag: _tag)
+
+        rows.each({ $0.viewDidAppear() })
     }
     public func viewDidDisappear() {
         cart.unsubscribe(guid: guid)
-        clearCache()
+
+        rows.each({ $0.viewDidDisappear() })
     }
     public func updateData(with delegate: PlaceCartDelegate) {
         update()
-    }
-    private func clearCache() {
 
-        _ = cachedCells.map({ $1.dispose() })
-        cachedCells.removeAll()
+        rows.each({ $0.updateData(with: delegate) })
     }
 }
 extension PlaceCartDishesContainer: InterfaceTableCellProtocol {

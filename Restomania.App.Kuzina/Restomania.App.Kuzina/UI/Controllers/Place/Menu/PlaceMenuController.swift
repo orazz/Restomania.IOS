@@ -462,16 +462,19 @@ extension PlaceMenuController: UITableViewDelegate {
 // MARK: Cart
 extension PlaceMenuController: CartServiceDelegate {
 
-    public func cart(_ cart: CartService, changedDish: Long, newCount: Int) {
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
+
         DispatchQueue.main.async {
             self.bottomAction.show()
         }
     }
-    public func cart(_ cart: CartService, removedDish: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
+
+        if cart.hasDishes {
+            return
+        }
         DispatchQueue.main.async {
-            if (self.cartService.isEmpty) {
-                self.bottomAction.hide()
-            }
+            self.bottomAction.hide()
         }
     }
 }

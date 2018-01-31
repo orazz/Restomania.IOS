@@ -19,6 +19,8 @@
 		1F061F3F20220D9000A7AD98 /* CartServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F3E20220D9000A7AD98 /* CartServiceDelegate.swift */; };
 		1F061F422022178A00A7AD98 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F402022178A00A7AD98 /* CartService.swift */; };
 		1F061F432022178A00A7AD98 /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F412022178A00A7AD98 /* ReservationService.swift */; };
+		1F061F45202236BE00A7AD98 /* PlaceCartDishesContainerCellMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F44202236BE00A7AD98 /* PlaceCartDishesContainerCellMeta.swift */; };
+		1F061F47202237F500A7AD98 /* PlaceCartDishesContainerCellMetaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F061F46202237F500A7AD98 /* PlaceCartDishesContainerCellMetaView.xib */; };
 		1F0F2163200590EC008672DA /* TermsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2162200590EB008672DA /* TermsControllerView.xib */; };
 		1F0F2166200593FB008672DA /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2168200593FB008672DA /* TermsController.strings */; };
 		1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */; };
@@ -338,6 +340,8 @@
 		1F061F3E20220D9000A7AD98 /* CartServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CartServiceDelegate.swift; path = Services/Tools/Cart/CartServiceDelegate.swift; sourceTree = "<group>"; };
 		1F061F402022178A00A7AD98 /* CartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartService.swift; path = Services/Tools/Cart/CartService.swift; sourceTree = "<group>"; };
 		1F061F412022178A00A7AD98 /* ReservationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationService.swift; path = Services/Tools/Cart/ReservationService.swift; sourceTree = "<group>"; };
+		1F061F44202236BE00A7AD98 /* PlaceCartDishesContainerCellMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartDishesContainerCellMeta.swift; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCellMeta.swift; sourceTree = "<group>"; };
+		1F061F46202237F500A7AD98 /* PlaceCartDishesContainerCellMetaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartDishesContainerCellMetaView.xib; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCellMetaView.xib; sourceTree = "<group>"; };
 		1F0F2162200590EB008672DA /* TermsControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TermsControllerView.xib; path = UI/Controllers/Manager/Terms/TermsControllerView.xib; sourceTree = "<group>"; };
 		1F0F2167200593FB008672DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F0F2169200593FE008672DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
@@ -1069,6 +1073,8 @@
 				1FE3C75B1FB2EE48009CE542 /* PlaceCartDishesContainerView.xib */,
 				1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */,
 				1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */,
+				1F061F44202236BE00A7AD98 /* PlaceCartDishesContainerCellMeta.swift */,
+				1F061F46202237F500A7AD98 /* PlaceCartDishesContainerCellMetaView.xib */,
 			);
 			name = DishesContainer;
 			sourceTree = "<group>";
@@ -1982,6 +1988,7 @@
 				1FB0BC881FEC430E00EB4AE5 /* GreetingControllerView.xib in Resources */,
 				1F4B0E871FEA6056006C0C58 /* UIElements.strings in Resources */,
 				1FC01CCA1FB2115000413ED7 /* PlaceCartControllerView.xib in Resources */,
+				1F061F47202237F500A7AD98 /* PlaceCartDishesContainerCellMetaView.xib in Resources */,
 				1FE3C76D1FB318E8009CE542 /* PlaceCartTotalContainerView.xib in Resources */,
 				1F62E4691FAE464400D1C89D /* LaunchScreen.storyboard in Resources */,
 				1FE3C75C1FB2EE48009CE542 /* PlaceCartDishesContainerView.xib in Resources */,
@@ -2365,6 +2372,7 @@
 				1FB6B92D1FAE19A400CD0B17 /* ThemeSettings.swift in Sources */,
 				1F691AA6200A35F000415F2F /* OneOrderSummaryContainer.swift in Sources */,
 				1FB3F2541FD572D60073640B /* KeysStorage.swift in Sources */,
+				1F061F45202236BE00A7AD98 /* PlaceCartDishesContainerCellMeta.swift in Sources */,
 				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
 				1F8CBE002020E42700544513 /* DishModalDelegateProtocol.swift in Sources */,
 				1F061F432022178A00A7AD98 /* ReservationService.swift in Sources */,
