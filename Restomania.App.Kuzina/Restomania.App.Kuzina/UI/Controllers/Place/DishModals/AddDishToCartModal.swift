@@ -86,6 +86,7 @@ public class AddDishToCartModal: UIViewController {
         result.append(DishModalPriceAndSize.create(for: dish, from: menu))
 
         if (vartiations.isFilled) {
+            result.append(DishModalSpace.create())
             result.append(DishModalSelectHeader.create(with: Localization.DishModals.labelsSelectVariations.localized))
             result.append(DishModalSelectVariations.create(for: self.vartiations, with: self))
         }

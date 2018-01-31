@@ -43,7 +43,7 @@ public class DishModalSelectHeader: UITableViewCell {
 extension DishModalSelectHeader: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return Int(title?.height(containerWidth: titleLabel.frame.width, font: titleLabel.font) ?? 0) + 25
+        return Int(title?.height(containerWidth: titleLabel.frame.width, font: titleLabel.font) ?? 0) + 20
     }
     public func prepareView() -> UITableViewCell {
         return self
