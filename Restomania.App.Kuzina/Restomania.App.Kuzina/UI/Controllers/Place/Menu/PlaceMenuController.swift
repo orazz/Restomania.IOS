@@ -24,7 +24,7 @@ public protocol PlaceMenuDelegate {
     func takeCart() -> CartService
 
     func tryAdd(_ dishId: Long)
-    func add(_ dish: Dish, with addings: [Long], andUseVariationId variation: Long?)
+    func add(_ dish: Dish, with addings: [Long], use variationId: Long?)
     func select(category: Long)
     func select(dish: Long)
     func scrollTo(offset: CGFloat)
@@ -274,7 +274,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
         let variations = menu.variations.filter({ $0.parentDishId == dishId })
 
         if (addings.isEmpty && variations.isEmpty) {
-            add(dish, with: [], andUseVariationId: nil)
+            add(dish, with: [], use: nil)
 
             self.presentedViewController?.dismiss(animated: true, completion: nil)
             return
@@ -284,11 +284,11 @@ extension PlaceMenuController: PlaceMenuDelegate {
         let modal = AddDishToCartModal(for: dish, with: addings, and: variations, from: menu, with: self)
         self.modal(modal, animated: true)
     }
-    public func add(_ dish: Dish, with addings: [Long], andUseVariationId variation: Long? = nil) {
+    public func add(_ dish: Dish, with addings: [Long], use variationId: Long? = nil) {
 
         Log.debug(_tag, "Add dish #\(dish.ID)")
 
-        cartService.add(dishId: dish.ID)
+        cartService.add(dishId: dish.ID, with: addings, use: variationId)
         self.toast(Keys.AlertAddDishToCart)
     }
     public func select(category: Long) {

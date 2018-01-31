@@ -20,11 +20,21 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartDishesContainerCell
 
         cell.dish = dish
-//        cell.dish = menu.dishes.find({ $0.ID == dishId }) ?? Dish()
+        if let source = menu.dishes.find({ $0.ID == dish.dishId }) {
+
+            if (source.type == .simpleDish) {
+                cell.dishName = source.name
+            } else if source.type == .variableDish,
+                    let variationiId = dish.variationId,
+                    let variation = menu.variations.find({ $0.ID == variationiId }) {
+                cell.dishName = variation.name
+            }
+        }
         cell.cart = cart
         cell.menu = menu
-        cell.setupMarkup()
-        cell.update(by: cart.find(dishId)?.count ?? 0)
+
+        cart.subscribe(guid: cell.guid, handler: cell, tag: cell._tag)
+        cell.refresh()
 
         return cell
     }
@@ -33,9 +43,8 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
 
-    private func setupMarkup() {
-
-        cart.subscribe(guid: guid, handler: self, tag: _tag)
+    public override func awakeFromNib() {
+        super.awakeFromNib()
 
         titleLabel.font = ThemeSettings.Fonts.default(size: .subhead)
         titleLabel.textColor = ThemeSettings.Colors.main
@@ -47,22 +56,20 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
     //Data
     private let _tag = String.tag(PlaceCartDishesContainerCell.self)
     private let guid = Guid.new
+
     private var dish: AddedOrderDish!
-//    private var dish: Dish!
-    private var count: Int!
-    private var cart: CartService!
+    private var dishName: String = String.empty
     private var menu: MenuSummary!
+    private var cart: CartService!
 
-    private func update(by newCount: Int) {
-
-        count =  newCount
+    private func refresh() {
 
         titleLabel.text = buildTitle()
-        totalLabel.setup(amount: dish.price.double * count, currency: menu.currency)
+        totalLabel.setup(price: dish.total(with: menu), currency: menu.currency)
     }
     private func buildTitle() -> String {
 
-        return "\(count!) x \(dish.name)"
+        return "\(dish.count) x \(dishName)"
     }
 
     public func dispose() {
@@ -83,18 +90,18 @@ extension PlaceCartDishesContainerCell {
 // MARK: Cart
 extension PlaceCartDishesContainerCell: CartServiceDelegate {
 
-    public func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int) {
-        change(dishId, on: newCount)
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
+        change(dish)
     }
-    public func cart(_ cart: Cart, removedDish dishId: Long) {
-        change(dishId, on: 0)
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
+        change(dish)
     }
-    private func change(_ dishId: Long, on newCount: Int) {
 
-        if (self.dishId == dishId) {
+    private func change(_ dish: AddedOrderDish) {
 
+        if (self.dish === dish) {
             DispatchQueue.main.async {
-                self.update(by: newCount)
+                self.refresh()
             }
         }
     }

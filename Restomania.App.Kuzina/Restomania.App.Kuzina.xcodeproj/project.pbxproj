@@ -17,6 +17,8 @@
 		1F061F3B2021FAB200A7AD98 /* DishModalSelectAddingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F3A2021FAB200A7AD98 /* DishModalSelectAddingsCell.swift */; };
 		1F061F3D2021FAC900A7AD98 /* DishModalSelectAddingsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F061F3C2021FAC900A7AD98 /* DishModalSelectAddingsCellView.xib */; };
 		1F061F3F20220D9000A7AD98 /* CartServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F3E20220D9000A7AD98 /* CartServiceDelegate.swift */; };
+		1F061F422022178A00A7AD98 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F402022178A00A7AD98 /* CartService.swift */; };
+		1F061F432022178A00A7AD98 /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F412022178A00A7AD98 /* ReservationService.swift */; };
 		1F0F2163200590EC008672DA /* TermsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2162200590EB008672DA /* TermsControllerView.xib */; };
 		1F0F2166200593FB008672DA /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F2168200593FB008672DA /* TermsController.strings */; };
 		1F12EB521FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12EB511FB3FAB200EF9BEA /* PlaceCompleteOrderController.swift */; };
@@ -153,9 +155,7 @@
 		1FB3F2541FD572D60073640B /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2531FD572D60073640B /* KeysStorage.swift */; };
 		1FB3F2571FD572EA0073640B /* PlaceCartsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2561FD572EA0073640B /* PlaceCartsFactory.swift */; };
 		1FB3F25D1FD573000073640B /* PlaceCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2591FD573000073640B /* PlaceCartContainer.swift */; };
-		1FB3F25E1FD573000073640B /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F25A1FD573000073640B /* Reservation.swift */; };
 		1FB3F25F1FD573000073640B /* CommonCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F25B1FD573000073640B /* CommonCartContainer.swift */; };
-		1FB3F2601FD573000073640B /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F25C1FD573000073640B /* CartService.swift */; };
 		1FB3F2621FD573B10073640B /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2611FD573B10073640B /* BaseApiService.swift */; };
 		1FB3F26A1FD573F80073640B /* AuthMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2691FD573F80073640B /* AuthMainApiService.swift */; };
 		1FB3F26C1FD574320073640B /* MenuSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F26B1FD574320073640B /* MenuSummariesApiService.swift */; };
@@ -336,6 +336,8 @@
 		1F061F3A2021FAB200A7AD98 /* DishModalSelectAddingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishModalSelectAddingsCell.swift; path = UI/Controllers/Place/DishModals/Elements/SelectAddings/DishModalSelectAddingsCell.swift; sourceTree = "<group>"; };
 		1F061F3C2021FAC900A7AD98 /* DishModalSelectAddingsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DishModalSelectAddingsCellView.xib; path = UI/Controllers/Place/DishModals/Elements/SelectAddings/DishModalSelectAddingsCellView.xib; sourceTree = "<group>"; };
 		1F061F3E20220D9000A7AD98 /* CartServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CartServiceDelegate.swift; path = Services/Tools/Cart/CartServiceDelegate.swift; sourceTree = "<group>"; };
+		1F061F402022178A00A7AD98 /* CartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartService.swift; path = Services/Tools/Cart/CartService.swift; sourceTree = "<group>"; };
+		1F061F412022178A00A7AD98 /* ReservationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationService.swift; path = Services/Tools/Cart/ReservationService.swift; sourceTree = "<group>"; };
 		1F0F2162200590EB008672DA /* TermsControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TermsControllerView.xib; path = UI/Controllers/Manager/Terms/TermsControllerView.xib; sourceTree = "<group>"; };
 		1F0F2167200593FB008672DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F0F2169200593FE008672DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
@@ -486,9 +488,7 @@
 		1FB3F2531FD572D60073640B /* KeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeysStorage.swift; path = Services/Tools/KeysStorage.swift; sourceTree = "<group>"; };
 		1FB3F2561FD572EA0073640B /* PlaceCartsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceCartsFactory.swift; path = Services/Tools/Cart/PlaceCartsFactory.swift; sourceTree = "<group>"; };
 		1FB3F2591FD573000073640B /* PlaceCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceCartContainer.swift; path = Services/Tools/Cart/Models/PlaceCartContainer.swift; sourceTree = "<group>"; };
-		1FB3F25A1FD573000073640B /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reservation.swift; path = Services/Tools/Cart/Models/Reservation.swift; sourceTree = "<group>"; };
 		1FB3F25B1FD573000073640B /* CommonCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonCartContainer.swift; path = Services/Tools/Cart/Models/CommonCartContainer.swift; sourceTree = "<group>"; };
-		1FB3F25C1FD573000073640B /* CartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartService.swift; path = Services/Tools/Cart/Models/CartService.swift; sourceTree = "<group>"; };
 		1FB3F2611FD573B10073640B /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiService.swift; path = Services/Api/BaseApiService.swift; sourceTree = "<group>"; };
 		1FB3F2691FD573F80073640B /* AuthMainApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthMainApiService.swift; path = Services/Api/Auth/AuthMainApiService.swift; sourceTree = "<group>"; };
 		1FB3F26B1FD574320073640B /* MenuSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSummariesApiService.swift; path = Services/Api/Menu/MenuSummariesApiService.swift; sourceTree = "<group>"; };
@@ -1258,8 +1258,8 @@
 			children = (
 				1FB3F2561FD572EA0073640B /* PlaceCartsFactory.swift */,
 				1F061F3E20220D9000A7AD98 /* CartServiceDelegate.swift */,
-				1FB3F25C1FD573000073640B /* CartService.swift */,
-				1FB3F25A1FD573000073640B /* Reservation.swift */,
+				1F061F402022178A00A7AD98 /* CartService.swift */,
+				1F061F412022178A00A7AD98 /* ReservationService.swift */,
 				1FB3F2581FD572EF0073640B /* Models */,
 			);
 			name = Cart;
@@ -2367,6 +2367,7 @@
 				1FB3F2541FD572D60073640B /* KeysStorage.swift in Sources */,
 				1FB8F00C1F1DF7500090045E /* RegularCustomerDiscount.swift in Sources */,
 				1F8CBE002020E42700544513 /* DishModalDelegateProtocol.swift in Sources */,
+				1F061F432022178A00A7AD98 /* ReservationService.swift in Sources */,
 				1F1DA2CF1F688AFD00EFE5CE /* PlaceDependentProtocol.swift in Sources */,
 				1FF31FAE2021AEC40019075B /* AddDishToCartModalDelegateProtocol.swift in Sources */,
 				1F8CBDFC2020E1AB00544513 /* DishModalElementsProtocol.swift in Sources */,
@@ -2388,6 +2389,7 @@
 				1FB3F2521FD572BE0073640B /* AddCardUIService.swift in Sources */,
 				1FB3F2801FD574A00073640B /* UserCardsApiService.swift in Sources */,
 				1FE3C7561FB2E88A009CE542 /* PlaceCartDateContainer.swift in Sources */,
+				1F061F422022178A00A7AD98 /* CartService.swift in Sources */,
 				1FB3F2731FD5745F0073640B /* GetArgs.swift in Sources */,
 				1FB6B92F1FAE19A400CD0B17 /* AppUserRole.swift in Sources */,
 				1FB8F00E1F1DFABF0090045E /* Loyalty.swift in Sources */,
@@ -2407,8 +2409,6 @@
 				1FB8EFCD1F1D41420090045E /* User.swift in Sources */,
 				1FB8EFEE1F1D4F480090045E /* RegistrationStatus.swift in Sources */,
 				1FB9DBCF200E1A1A00CB35E2 /* PlaceMenuMenuContainer+DIshes.swift in Sources */,
-				1FB3F2601FD573000073640B /* CartService.swift in Sources */,
-				1FB3F25E1FD573000073640B /* Reservation.swift in Sources */,
 				1F691AB6200A545100415F2F /* OneOrderFooterContainer.swift in Sources */,
 				1FB8F03F1F1EADFB0090045E /* PaymentCardStatus.swift in Sources */,
 				1F62E46E1FAE465700D1C89D /* ManagerController.swift in Sources */,

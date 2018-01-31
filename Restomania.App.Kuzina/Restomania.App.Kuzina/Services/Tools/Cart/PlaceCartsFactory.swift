@@ -38,8 +38,8 @@ public class PlaceCartsFactory {
         Log.info(_tag, "Complete load service.")
     }
 
-    public func reservation() -> Reservation {
-        return Reservation(cart: _cartContainer, saver: needSaveTrigger)
+    public func reservation() -> ReservationService {
+        return ReservationService(cart: _cartContainer, saver: needSaveTrigger)
     }
     public func get(for place: Long) -> CartService {
 

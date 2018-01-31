@@ -1,5 +1,5 @@
 //
-//  Reserve.swift
+//  ReservationService.swift
 //  Restomania.App.Kuzina
 //
 //  Created by Алексей on 24.07.17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Reservation {
+public class ReservationService {
 
     private let _cart: CommonCartContainer
     private let _saver: () -> Void

@@ -98,8 +98,8 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
     public func tryAdd(_ dishId: Long) {
         _delegate.tryAdd(dishId)
     }
-    public func add(_ dish: Dish, with addings: [Long], andUseVariationId variation: Long?) {
-        _delegate.add(dish, with: addings, andUseVariationId: variation)
+    public func add(_ dish: Dish, with addings: [Long], use variation: Long?) {
+        _delegate.add(dish, with: addings, use: variation)
     }
 
     public func select(category: Long) {

@@ -67,8 +67,7 @@ public class PlaceMenuCartAction: UIView {
             self.countLabel.text = "\(self.cart.dishes.sum({ $0.count }))"
 
             if let menu = self.menu {
-                self.totalLabel.setup(amount: self.cart.total(with: menu),
-                                     currency: self.currency)
+                self.totalLabel.setup(price: self.cart.total(with: menu), currency: self.currency)
             }
         }
     }

@@ -13,7 +13,7 @@ import IOSLibrary
 public class PlaceCartTotalContainerCell: UITableViewCell {
 
     private static let nibName = "PlaceCartTotalContainerCellView"
-    public static func create(for delegate: PlaceCartDelegate, title: String, _ action: @escaping ((CartService, MenuSummary) -> Double)) -> PlaceCartTotalContainerCell {
+    public static func create(for delegate: PlaceCartDelegate, title: String, _ action: @escaping ((CartService, MenuSummary) -> Price)) -> PlaceCartTotalContainerCell {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartTotalContainerCell
@@ -36,7 +36,7 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
     private let guid = Guid.new
     private var delegate: PlaceCartDelegate!
     private var title: String!
-    private var action: ((CartService, MenuSummary) -> Double)!
+    private var action: ((CartService, MenuSummary) -> Price)!
     private var cart: CartService {
         return delegate.takeCart()
     }
@@ -46,7 +46,7 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
         if let menu = delegate.takeMenu() {
 
             let sum = action(cart, menu)
-            totalLabel.setup(amount: sum, currency: menu.currency)
+            totalLabel.setup(price: sum, currency: menu.currency)
         }
     }
     private func setupMarkup() {
