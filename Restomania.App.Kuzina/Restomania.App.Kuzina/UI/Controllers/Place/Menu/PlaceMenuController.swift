@@ -21,7 +21,7 @@ public protocol PlaceMenuDelegate {
 
     func takeSummary() -> PlaceSummary?
     func takeMenu() -> MenuSummary?
-    func takeCart() -> Cart
+    func takeCart() -> CartService
 
     func tryAdd(_ dishId: Long)
     func add(_ dish: Dish, with addings: [Long], andUseVariationId variation: Long?)
@@ -53,7 +53,7 @@ public class PlaceMenuController: UIViewController {
     // MARK: Services
     private var menusService = CacheServices.menus
     private var placesService = CacheServices.places
-    private var cartService: Cart!
+    private var cartService: CartService!
     private var enterService: AuthService!
 
     // MARK: Tools
@@ -257,7 +257,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
     public func takeMenu() -> MenuSummary? {
         return menuContainer.data
     }
-    public func takeCart() -> Cart {
+    public func takeCart() -> CartService {
         return cartService
     }
 
@@ -460,14 +460,14 @@ extension PlaceMenuController: UITableViewDelegate {
 }
 
 // MARK: Cart
-extension PlaceMenuController: CartUpdateProtocol {
+extension PlaceMenuController: CartServiceDelegate {
 
-    public func cart(_ cart: Cart, changedDish: Long, newCount: Int) {
+    public func cart(_ cart: CartService, changedDish: Long, newCount: Int) {
         DispatchQueue.main.async {
             self.bottomAction.show()
         }
     }
-    public func cart(_ cart: Cart, removedDish: Long) {
+    public func cart(_ cart: CartService, removedDish: Long) {
         DispatchQueue.main.async {
             if (self.cartService.isEmpty) {
                 self.bottomAction.hide()

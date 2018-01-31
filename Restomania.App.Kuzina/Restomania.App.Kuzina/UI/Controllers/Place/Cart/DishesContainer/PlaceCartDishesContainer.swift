@@ -41,7 +41,7 @@ public class PlaceCartDishesContainer: UITableViewCell {
     private var menu: MenuSummary? {
         return delegate.takeMenu()
     }
-    private var cart: Cart {
+    private var cart: CartService {
         return delegate.takeCart()
     }
     private var orderedDishes: [AddedOrderDish] = []
@@ -76,7 +76,7 @@ extension PlaceCartDishesContainer: UITableViewDataSource {
         let ordered = orderedDishes[indexPath.row]
         guard let cached = cachedCells[ordered.dishId] else {
 
-            let cell = PlaceCartDishesContainerCell.create(for: ordered.dishId, with: self.cart, and: self.menu!)
+            let cell = PlaceCartDishesContainerCell.create(for: ordered, with: self.cart, and: self.menu!)
             cachedCells[ordered.dishId] = cell
 
             return cell
@@ -89,9 +89,9 @@ extension PlaceCartDishesContainer: UITableViewDataSource {
     }
 }
 // MARK: Cart
-extension PlaceCartDishesContainer: CartUpdateProtocol {
+extension PlaceCartDishesContainer: CartServiceDelegate {
 
-    public func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int) {
+    public func cart(_ cart: CartService, changedDish dishId: Long, newCount: Int) {
 
         if nil == cachedCells[dishId] {
             reload()
@@ -99,7 +99,7 @@ extension PlaceCartDishesContainer: CartUpdateProtocol {
             reload()
         }
     }
-    public func cart(_ cart: Cart, removedDish dishId: Long) {
+    public func cart(_ cart: CartService, removedDish dishId: Long) {
         reload()
     }
     private func reload() {

@@ -1,5 +1,5 @@
 //
-//  CartService.swift
+//  PlaceCartsFactory.swift
 //  Restomania.App.Kuzina
 //
 //  Created by Алексей on 24.07.17.
@@ -10,15 +10,15 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-public class CartService {
+public class PlaceCartsFactory {
 
-    private let _tag = String.tag(CartService.self)
+    private let _tag = String.tag(PlaceCartsFactory.self)
 
     private let file: FSOneFileClient
     private let loadQueue: DispatchQueue
 
     private var _cartContainer = CommonCartContainer()
-    private var _carts = [Cart]()
+    private var _carts = [CartService]()
     private var needSave = false
     private var saveTimer: Timer!
     private var needSaveTrigger: Trigger!
@@ -41,15 +41,15 @@ public class CartService {
     public func reservation() -> Reservation {
         return Reservation(cart: _cartContainer, saver: needSaveTrigger)
     }
-    public func get(for place: Long) -> Cart {
+    public func get(for place: Long) -> CartService {
 
-        if let cart = _carts.find({ place == $0.placeID }) {
+        if let cart = _carts.find({ place == $0.placeId }) {
             return cart
         }
 
         let place = PlaceCartContainer(placeID: place)
         _cartContainer.places.append(place)
-        let cart = Cart(place: place, cart: _cartContainer, saver: needSaveTrigger)
+        let cart = CartService(place: place, cart: _cartContainer, saver: needSaveTrigger)
         _carts.append(cart)
 
         return cart
@@ -102,7 +102,7 @@ public class CartService {
 
                 self._cartContainer = CommonCartContainer(json: json)!
                 for place in self._cartContainer.places {
-                    self._carts.append(Cart(place: place, cart: self._cartContainer, saver: self.needSaveTrigger))
+                    self._carts.append(CartService(place: place, cart: self._cartContainer, saver: self.needSaveTrigger))
                 }
                 Log.debug(self._tag, "Load cart's data from storage")
             } catch {

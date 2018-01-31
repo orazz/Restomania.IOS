@@ -9,14 +9,10 @@
 import Foundation
 import IOSLibrary
 
-public protocol CartUpdateProtocol {
-    func cart(_ cart: CartService, changedDish dishId: Long, newCount: Int)
-    func cart(_ cart: CartService, removedDish dishId: Long)
-}
 public class CartService: Reservation {
 
     private let place: PlaceCartContainer
-    private let eventsAdapter: EventsAdapter<CartUpdateProtocol>
+    private let eventsAdapter: EventsAdapter<CartServiceDelegate>
     private let cartQueue = DispatchQueue(label: Guid.new)
 
     internal init(place: PlaceCartContainer, cart: CommonCartContainer, saver: @escaping () -> Void) {
@@ -86,23 +82,46 @@ public class CartService: Reservation {
 
     public func add(dishId: Long, with addings: [Long], use variationId: Long? = nil) {
 
-//        var newCount = count
-//        if let ordered = find(dishId) {
-//            ordered.count += count
-//            newCount = ordered.count
-//        } else {
-//            place.dishes.append(AddedOrderDish(dishId: dishId, count: count))
-//        }
+        if addings.isEmpty,
+            let container = place.dishes.find({ $0.dishId == dishId &&
+                                                 $0.variationId == variationId &&
+                                                 $0.additions.isEmpty &&
+                                                 $0.subdishes.isEmpty }) {
+            increment(container)
+            return
+        }
 
-        trigger({ $0.cart(self, changedDish: dishId, newCount: newCount)})
+        let dish = AddedOrderDish(dishId: dishId, variationId: variationId, additions: addings)
+        place.dishes.append(dish)
 
         save()
+        trigger({ $0.cart(self, change: dish) })
     }
     public func increment(_ dish: AddedOrderDish) {
 
+        dish.increment()
+
+        save()
+        trigger({ $0.cart(self, change: dish) })
     }
     public func decrement(_ dish: AddedOrderDish) {
 
+        dish.decrement()
+
+        //Change count
+        if (dish.count > 1) {
+
+            save()
+            trigger({ $0.cart(self, change: dish) })
+            return
+        }
+
+        //Remove
+        if let index = place.dishes.index(where: { $0 === dish }) {
+            place.dishes.remove(at: index)
+        }
+        save()
+        trigger({ $0.cart(self, remove: dish) })
     }
 
     public func build(cardId: Long) -> AddedOrder {
@@ -118,34 +137,34 @@ public class CartService: Reservation {
 
         return result
     }
-    private func trigger(_ action: @escaping ((CartUpdateProtocol) -> Void)) {
-        cartQueue.async {
-            self.eventsAdapter.invoke(action)
-        }
-    }
     public override func clear() {
+        super.clear()
 
         place.takeaway = false
         place.comment = String.empty
         place.dishes.removeAll()
-
-        super.clear()
     }
-
-    public func find(_ dish: Dish) -> AddedOrderDish? {
-        return find(dish.ID)
-    }
-    public func find(_ dishID: Long) -> AddedOrderDish? {
-        return place.dishes.find({ dishID == $0.dishId })
-    }
+//
+//    public func find(_ dish: Dish) -> AddedOrderDish? {
+//        return find(dish.ID)
+//    }
+//    public func find(_ dishID: Long) -> AddedOrderDish? {
+//        return place.dishes.find({ dishID == $0.dishId })
+//    }
 }
 extension CartService: IEventsEmitter {
-    public typealias THandler = CartUpdateProtocol
+    public typealias THandler = CartServiceDelegate
 
     public func subscribe(guid: String, handler: CartService.THandler, tag: String) {
         eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
     }
     public func unsubscribe(guid: String) {
         eventsAdapter.unsubscribe(guid: guid)
+    }
+
+    fileprivate func trigger(_ action: @escaping ((CartServiceDelegate) -> Void)) {
+        cartQueue.async {
+            self.eventsAdapter.invoke(action)
+        }
     }
 }

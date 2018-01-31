@@ -86,7 +86,7 @@ public class CartServiceTests: XCTestCase {
         XCTAssertEqual(52.0, cart.totalPrice)
 
         sleep(3)
-        let queue = DispatchQueue(label: "CartService")
+        let queue = DispatchQueue(label: "PlaceCartsFactory")
         queue.sync {
             print("show")
         }

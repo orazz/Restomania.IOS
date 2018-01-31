@@ -22,8 +22,8 @@ public class Price: Glossy {
         return Price(decimal: 0, float: 0)
     }
 
-    public var decimal: Int
-    public var float: Int
+    public fileprivate(set) var decimal: Int
+    public fileprivate(set) var float: Int
 
     public var minorFormat: Int {
         return decimal * 100 + float
@@ -77,6 +77,12 @@ public class Price: Glossy {
     }
 }
 
+func += (left: Price, right: Price) {
+    let result = left + right
+
+    left.decimal = result.decimal
+    left.float = result.float
+}
 func +(left: Price, right: Price) -> Price {
     return  Price(minor: left.minorFormat + right.minorFormat)
 }

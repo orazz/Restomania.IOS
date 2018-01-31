@@ -13,7 +13,7 @@ import IOSLibrary
 public class PlaceCartTotalContainerCell: UITableViewCell {
 
     private static let nibName = "PlaceCartTotalContainerCellView"
-    public static func create(for delegate: PlaceCartDelegate, title: String, _ action: @escaping ((Cart, MenuSummary) -> Double)) -> PlaceCartTotalContainerCell {
+    public static func create(for delegate: PlaceCartDelegate, title: String, _ action: @escaping ((CartService, MenuSummary) -> Double)) -> PlaceCartTotalContainerCell {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartTotalContainerCell
@@ -36,8 +36,8 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
     private let guid = Guid.new
     private var delegate: PlaceCartDelegate!
     private var title: String!
-    private var action: ((Cart, MenuSummary) -> Double)!
-    private var cart: Cart {
+    private var action: ((CartService, MenuSummary) -> Double)!
+    private var cart: CartService {
         return delegate.takeCart()
     }
 
@@ -62,11 +62,11 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
         totalLabel.setup(amount: 0, currency: .RUB)
     }
 }
-extension PlaceCartTotalContainerCell: CartUpdateProtocol {
-    public func cart(_ cart: Cart, changedDish: Long, newCount: Int) {
+extension PlaceCartTotalContainerCell: CartServiceDelegate {
+    public func cart(_ cart: CartService, changedDish: Long, newCount: Int) {
         changeCart()
     }
-    public func cart(_ cart: Cart, removedDish: Long) {
+    public func cart(_ cart: CartService, removedDish: Long) {
         changeCart()
     }
     private func changeCart() {

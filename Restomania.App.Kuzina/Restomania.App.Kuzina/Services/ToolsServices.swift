@@ -16,7 +16,7 @@ public class ToolsServices {
     public let configs: ConfigsStorage
     public let properties: PropertiesStorage<PropertiesKey>
     public let keys: KeysStorage
-    public let cartsService: CartService
+    public let cartsService: PlaceCartsFactory
 
     private init() {
 
@@ -24,10 +24,10 @@ public class ToolsServices {
         properties = PropertiesStorage<PropertiesKey>()
         keys = KeysStorage()
 
-        cartsService = CartService()
+        cartsService = PlaceCartsFactory()
     }
 
-    public func cart(for placeId: Long) -> Cart {
+    public func cart(for placeId: Long) -> CartService {
         return cartsService.get(for: placeId)
     }
 }

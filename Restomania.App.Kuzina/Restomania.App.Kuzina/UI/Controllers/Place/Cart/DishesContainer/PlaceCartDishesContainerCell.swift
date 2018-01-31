@@ -14,13 +14,13 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
 
     public static let height = CGFloat(40)
     private static let nibName = "PlaceCartDishesContainerCellView"
-    public static func create(for dishId: Long, with cart: Cart, and menu: MenuSummary) -> PlaceCartDishesContainerCell {
+    public static func create(for dish: AddedOrderDish, with cart: CartService, and menu: MenuSummary) -> PlaceCartDishesContainerCell {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartDishesContainerCell
 
-        cell.dishId = dishId
-        cell.dish = menu.dishes.find({ $0.ID == dishId }) ?? Dish()
+        cell.dish = dish
+//        cell.dish = menu.dishes.find({ $0.ID == dishId }) ?? Dish()
         cell.cart = cart
         cell.menu = menu
         cell.setupMarkup()
@@ -47,10 +47,10 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
     //Data
     private let _tag = String.tag(PlaceCartDishesContainerCell.self)
     private let guid = Guid.new
-    private var dishId: Long!
-    private var dish: Dish!
+    private var dish: AddedOrderDish!
+//    private var dish: Dish!
     private var count: Int!
-    private var cart: Cart!
+    private var cart: CartService!
     private var menu: MenuSummary!
 
     private func update(by newCount: Int) {
@@ -73,15 +73,15 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
 extension PlaceCartDishesContainerCell {
 
     @IBAction private func increment() {
-        cart.add(dishId: dishId, count: 1)
+        cart.increment(dish)
     }
     @IBAction private func decrement() {
-        cart.add(dishId: dishId, count: -1)
+        cart.decrement(dish)
     }
 }
 
 // MARK: Cart
-extension PlaceCartDishesContainerCell: CartUpdateProtocol {
+extension PlaceCartDishesContainerCell: CartServiceDelegate {
 
     public func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int) {
         change(dishId, on: newCount)

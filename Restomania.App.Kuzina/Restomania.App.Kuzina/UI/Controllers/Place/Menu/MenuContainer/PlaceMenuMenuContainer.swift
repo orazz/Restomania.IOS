@@ -49,7 +49,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     private let _guid = Guid.new
     private var _delegate: PlaceMenuDelegate!
     private var _controller: UIViewController!
-    private var _cart: Cart!
+    private var _cart: CartService!
 
     private func apply(_ menu: MenuSummary) {
         _categoriesAdapter.update(by: menu)
@@ -91,7 +91,7 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
     public func takeMenu() -> MenuSummary? {
         return _delegate.takeMenu()
     }
-    public func takeCart() -> Cart {
+    public func takeCart() -> CartService {
         return _cart
     }
 
@@ -153,11 +153,11 @@ extension PlaceMenuMenuContainer: InterfaceTableCellProtocol {
         return self
     }
 }
-extension PlaceMenuMenuContainer: CartUpdateProtocol {
-    public func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int) {
+extension PlaceMenuMenuContainer: CartServiceDelegate {
+    public func cart(_ cart: CartService, changedDish dishId: Long, newCount: Int) {
         updateButtonOffset()
     }
-    public func cart(_ cart: Cart, removedDish dishId: Long) {
+    public func cart(_ cart: CartService, removedDish dishId: Long) {
         updateButtonOffset()
     }
     private func updateButtonOffset() {
