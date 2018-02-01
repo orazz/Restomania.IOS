@@ -13,7 +13,7 @@
 "Labels.SelectPaymentCard" = "Выберите карту для оплаты";
 "Labels.Comment" = "Комментарий";
 
-"Buttons.Now" = "Я скоро буд";
+"Buttons.Now" = "Скоро буду";
 "Buttons.Today" = "Сегодня";
 "Buttons.Tommorow" = "Завтра";
 "Buttons.AddNewCard" = "Добавить карту";
