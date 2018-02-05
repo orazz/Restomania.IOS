@@ -12,6 +12,9 @@ import IOSLibrary
 import AsyncTask
 
 public protocol ProfileControllerDelegate {
+
+    func takeController() -> UIViewController
+
     func changeName(on value: String)
     func changeSex(on value: UserSex)
     func changeAge(on value: String)
@@ -30,7 +33,6 @@ public class ProfileController: UIViewController {
     @IBOutlet public weak var acquaintancesStatusSwitch: FMSwitch!
     private var loader: InterfaceLoader!
     private var fieldsStorage: UIViewController.TextFieldsStorage?
-    private var imagePicker: UIImagePickerController!
 
 
     //MARK: Data & services
@@ -95,9 +97,6 @@ public class ProfileController: UIViewController {
 
         self.view.backgroundColor = ThemeSettings.Colors.background
         self.fieldsStorage = self.closeKeyboardWhenTapOnRootView()
-
-        imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
     }
     private func startLoadData() {
 
@@ -139,26 +138,14 @@ public class ProfileController: UIViewController {
         ageField.text = "\(account.age)"
         acquaintancesStatusSwitch.value = account.status == .readyForAcquaintance
     }
-
-
-
-    //MARK: Change profile
-
-}
-//MARK: Actions
-extension ProfileController {
-
-    @IBAction private func changeAvatar() {
-
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-
-        self.present(imagePicker, animated: true, completion: nil)
-    }
-
 }
 
 extension ProfileController: ProfileControllerDelegate {
+    
+    public func takeController() -> UIViewController {
+        return self
+    }
+
     public func changeName(on value: String) {
 
         if (String.isNullOrEmpty(value)) {
@@ -222,24 +209,4 @@ extension ProfileController: ProfileControllerDelegate {
     }
 }
 
-//Image picker
-extension ProfileController: UIImagePickerControllerDelegate {
-
-
-    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            avatarImage.contentMode = .scaleAspectFill
-            avatarImage.image = pickedImage
-
-            changeAvatar(on: pickedImage)
-        }
-
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
-extension ProfileController: UINavigationControllerDelegate {}
 

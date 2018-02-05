@@ -79,6 +79,8 @@
 		1F3E6BED2028E8050084C7C7 /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BEC2028E8050084C7C7 /* AvatarImage.swift */; };
 		1F3E6BEF2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BEE2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift */; };
 		1F3E6BF12028F3480084C7C7 /* ProfileControllerSelectTownsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */; };
+		1F3E6BF32028F4510084C7C7 /* ProfileControllerChangeAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF22028F4510084C7C7 /* ProfileControllerChangeAvatar.swift */; };
+		1F3E6BF52028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF42028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
 		1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */; };
 		1F451F9A1FCCA4070080C103 /* PlacesTownsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */; };
@@ -301,6 +303,8 @@
 		1F3E6BEC2028E8050084C7C7 /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvatarImage.swift; path = UI/Elements/AvatarImage.swift; sourceTree = "<group>"; };
 		1F3E6BEE2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileControllerSelectTowns.swift; path = UI/Main/Profile/SelectTowns/ProfileControllerSelectTowns.swift; sourceTree = "<group>"; };
 		1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerSelectTownsView.xib; path = UI/Main/Profile/SelectTowns/ProfileControllerSelectTownsView.xib; sourceTree = "<group>"; };
+		1F3E6BF22028F4510084C7C7 /* ProfileControllerChangeAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileControllerChangeAvatar.swift; path = UI/Main/Profile/ChangeAvatar/ProfileControllerChangeAvatar.swift; sourceTree = "<group>"; };
+		1F3E6BF42028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerChangeAvatarView.xib; path = UI/Main/Profile/ChangeAvatar/ProfileControllerChangeAvatarView.xib; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesTownsApiService.swift; path = Services/Api/Places/PlacesTownsApiService.swift; sourceTree = "<group>"; };
@@ -760,17 +764,19 @@
 			isa = PBXGroup;
 			children = (
 				1F3E6BE82028E2B30084C7C7 /* ProfileController.swift */,
-				1F3E6BEA2028E65B0084C7C7 /* Avatar */,
+				1F3E6BEA2028E65B0084C7C7 /* ChangeAvatar */,
 				1F3E6BEB2028E6640084C7C7 /* SelectTowns */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
 		};
-		1F3E6BEA2028E65B0084C7C7 /* Avatar */ = {
+		1F3E6BEA2028E65B0084C7C7 /* ChangeAvatar */ = {
 			isa = PBXGroup;
 			children = (
+				1F3E6BF22028F4510084C7C7 /* ProfileControllerChangeAvatar.swift */,
+				1F3E6BF42028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib */,
 			);
-			name = Avatar;
+			name = ChangeAvatar;
 			sourceTree = "<group>";
 		};
 		1F3E6BEB2028E6640084C7C7 /* SelectTowns */ = {
@@ -1443,6 +1449,7 @@
 				1FB0EE4C1FAF9C4500F64F1F /* ImagesControllerView.xib in Resources */,
 				1F4AD0791FD33EB400E6ADCC /* ExplainerBlock.xib in Resources */,
 				1F6B89381FA86DD300B7A99A /* OnePlaceClientsCellView.xib in Resources */,
+				1F3E6BF52028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib in Resources */,
 				1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */,
 				1F3382F71F97D45300E43596 /* FMSwitch.xib in Resources */,
 			);
@@ -1715,6 +1722,7 @@
 				1F1CA9111FCEF71A0006BE0B /* OnePlaceActionsController.swift in Sources */,
 				1FC548131F70325A007CE6AB /* Account.swift in Sources */,
 				1F6B21C11F881E310068E29A /* MapController.swift in Sources */,
+				1F3E6BF32028F4510084C7C7 /* ProfileControllerChangeAvatar.swift in Sources */,
 				1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */,
 				1F2E37711FCC9178003D24C1 /* PlacesActionsApiService.swift in Sources */,
 				1F3E6BED2028E8050084C7C7 /* AvatarImage.swift in Sources */,
