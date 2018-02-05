@@ -11,6 +11,7 @@ import UIKit
 import IOSLibrary
 import AsyncTask
 import Toast_Swift
+import Gloss
 
 public class OneDialogController: UIViewController {
 
@@ -102,7 +103,7 @@ public class OneDialogController: UIViewController {
             }
         }
 
-        controlsPanel.backgroundColor = UIColor(red: 230, green: 230, blue: 230)
+        controlsPanel.backgroundColor = UIColor(red: 245, green: 245, blue: 245)
         controlsPanel.layer.shadowColor = ThemeSettings.Colors.divider.cgColor
 
         inputField.placeholder = "Введите сообщение"
@@ -227,13 +228,13 @@ extension OneDialogController {
         Log.info(_tag, "Send message with attachment.")
 
         let text = inputField.text ?? String.empty
-        let message = SendingMessage(toDialog: dialog.ID, content: text, attachment: dataUrl )
-        send(message)
+        let message = SendingMessage(toDialog: dialog.ID, content: text, attachments: [dataUrl] )
+        send(message, stub: ChatMessageModel(source: message.createStub(), loadImages: [image]))
     }
     @IBAction private func sendMessage() {
 
         guard let text = inputField.text,
-            String.isNullOrEmpty(text) else {
+                    !String.isNullOrEmpty(text) else {
                 return
         }
         inputField.text = String.empty
@@ -242,9 +243,9 @@ extension OneDialogController {
         let message = SendingMessage(toDialog: dialog.ID, content: text)
         send(message)
     }
-    private func send(_ message: SendingMessage) {
+    private func send(_ message: SendingMessage, stub: ChatMessage? = nil) {
 
-        let stub = message.createStub()
+        let stub = stub ?? message.createStub()
         messages.append(stub)
         applyData()
         _ = dialogsService.updateLastMessage(for: stub.dialogId, by: stub)
@@ -324,6 +325,27 @@ extension OneDialogController {
     @objc private func keysboardClose(notification: NSNotification) {
         DispatchQueue.main.async {
             self.keyboardOffsetConstraint?.constant = 0.0
+        }
+    }
+}
+
+//Models
+extension OneDialogController {
+    fileprivate class ChatMessageModel: ChatMessage {
+
+        public var loadImages: [UIImage] = []
+
+        public init(source: ChatMessage, loadImages: [UIImage]) {
+            super.init(source: source)
+
+            self.loadImages = loadImages
+        }
+
+        public required init(source: ChatMessage) {
+            super.init(source: source)
+        }
+        public required init(json: JSON) {
+            super.init(json: json)
         }
     }
 }

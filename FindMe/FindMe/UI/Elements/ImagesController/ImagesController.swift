@@ -94,7 +94,12 @@ public class ImagesController: UIViewController {
         } )
     }
     private func updateTitle() {
-        navigationTitle?.title = "\(_current + 1) из \(_images.count)"
+        if (_images.isEmpty || _images.count == 1 ) {
+            navigationTitle?.title = String.empty
+        }
+        else {
+            navigationTitle?.title = "\(_current + 1) из \(_images.count)"
+        }
     }
 
     public class ImageContainer {

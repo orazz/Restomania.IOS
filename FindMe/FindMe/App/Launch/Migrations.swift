@@ -26,7 +26,8 @@ public class Migrations {
         let migrations = [
             305: to305,
             329: to329,
-            395: to395
+            395: to395,
+            536: to536,
             ]
         
         for (build, migration) in migrations.sorted(by: { $0.key < $1.key }) {
@@ -50,5 +51,8 @@ public class Migrations {
     }
     private static func to395() {
         CacheServices.chatDialogs.clear()
+    }
+    private static func to536() {
+        CacheServices.chatMessages.clear()
     }
 }

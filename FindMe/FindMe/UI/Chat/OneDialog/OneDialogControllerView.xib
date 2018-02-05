@@ -15,6 +15,7 @@
                 <outlet property="controlsPanel" destination="ssK-OR-oHm" id="E7D-as-hna"/>
                 <outlet property="inputField" destination="Gem-pb-KV9" id="QSg-gV-d1o"/>
                 <outlet property="messagesTable" destination="RPr-1I-BMt" id="Yeg-SI-iqi"/>
+                <outlet property="selectAttachmentButton" destination="e6a-xt-Dlw" id="Pp1-OZ-czt"/>
                 <outlet property="sendButton" destination="mxj-9S-9sg" id="D1C-sf-VI1"/>
                 <outlet property="view" destination="iN0-l3-epB" id="9Pp-Fp-Qob"/>
             </connections>
@@ -25,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RPr-1I-BMt">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="548"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="KVe-3J-1zd" appends="YES" id="oMa-1T-qhd"/>
@@ -81,7 +82,7 @@
             <constraints>
                 <constraint firstItem="ssK-OR-oHm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1ru-1P-THC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ssK-OR-oHm" secondAttribute="trailing" id="4pj-db-ldc"/>
-                <constraint firstItem="ssK-OR-oHm" firstAttribute="top" secondItem="RPr-1I-BMt" secondAttribute="bottom" id="6gp-MN-i1x"/>
+                <constraint firstItem="ssK-OR-oHm" firstAttribute="top" secondItem="RPr-1I-BMt" secondAttribute="bottom" constant="10" id="6gp-MN-i1x"/>
                 <constraint firstItem="RPr-1I-BMt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="7j1-2O-eHJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RPr-1I-BMt" secondAttribute="trailing" id="CTV-2p-VWp"/>
                 <constraint firstItem="RPr-1I-BMt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dqF-pk-ijN"/>
