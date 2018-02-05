@@ -117,7 +117,6 @@ public class ChatDialogsController: UIViewController {
         return cached
     }
     private func applyData() {
-
         dialogsTable.reloadData()
     }
 }
