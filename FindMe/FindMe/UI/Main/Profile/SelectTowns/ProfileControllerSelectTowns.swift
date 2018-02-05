@@ -21,11 +21,11 @@ public class ProfileControllerSelectTowns: UITableViewCell {
     }
 
     //Data
-    private var delegate: ProfileControllerSelectTowns!
+    private var delegate: ProfileControllerDelegate!
 
     //Actions
     @IBAction private func selectTown() {
-        delegate.selectTown()
+        delegate.selectTowns()
     }
 }
 extension ProfileControllerSelectTowns: InterfaceTableCellProtocol {

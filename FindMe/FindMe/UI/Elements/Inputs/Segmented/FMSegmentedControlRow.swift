@@ -1,5 +1,5 @@
 //
-//  FMTextFieldRow.swift
+//  FMSegmentedControlRow.swift
 //  FindMe
 //
 //  Created by Алексей on 06.02.18.
@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 import IOSLibrary
 
-public class FMTextFieldRow: UITableViewCell {
+public class FMSegmentedControlRow: UITableViewCell {
 
-    public static func create(for source: FMTextField) -> FMTextFieldRow {
+    public static func create(for source: FMSegmentedControl) -> FMSegmentedControlRow {
 
-        let cell: FMTextFieldRow = UINib.instantiate(from: "\(String.tag(FMTextFieldRow.self))View", bundle: Bundle.main)
+        let cell: FMSegmentedControlRow = UINib.instantiate(from: "\(String.tag(FMSegmentedControlRow.self))View", bundle: Bundle.main)
         cell.source = source
 
         return cell
     }
 
     //UI
-    public private(set) var source: FMTextField! {
+    public private(set) var source: FMSegmentedControl! {
         didSet {
             self.addSubview(source)
             source.frame = self.bounds
@@ -30,9 +30,9 @@ public class FMTextFieldRow: UITableViewCell {
         }
     }
 }
-extension FMTextFieldRow: InterfaceTableCellProtocol {
+extension FMSegmentedControlRow: InterfaceTableCellProtocol {
     public var viewHeight: Int {
-        return Int(FMTextField.height)
+        return Int(FMSegmentedControl.height)
     }
     public func prepareView() -> UITableViewCell {
         return self

@@ -16,7 +16,7 @@ import IOSLibrary
 }
 public class FMSegmentedControl: UIView {
 
-    public static let height = CGFloat(45)
+    public static let height = 45.0
     private let nibName = "FMSegmentedControl"
 
 
@@ -56,7 +56,9 @@ public class FMSegmentedControl: UIView {
     }
 
 
-
+    public convenience init(width: Double = 500.0) {
+        self.init(frame: CGRect.init(x: 0, y: 0, width: width, height: FMSegmentedControl.height))
+    }
     public override init(frame: CGRect) {
         super.init(frame: frame)
 

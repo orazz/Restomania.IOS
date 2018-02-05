@@ -26,12 +26,15 @@ public protocol ProfileControllerDelegate {
 public class ProfileController: UIViewController {
 
     //MARK: UI elements
-    @IBOutlet public weak var avatarImage: AvatarImage!
-    @IBOutlet public weak var nameField: FMTextField!
-    @IBOutlet public weak var sexSegment: FMSegmentedControl!
-    @IBOutlet public weak var ageField: FMTextField!
-    @IBOutlet public weak var acquaintancesStatusSwitch: FMSwitch!
+    @IBOutlet private weak var interfaceTable: UITableView!
+    private var interfaceAdapter: InterfaceTable!
     private var loader: InterfaceLoader!
+    private var refreshControl: UIRefreshControl!
+    private var avatarImage: ProfileControllerChangeAvatar!
+    private var nameField: FMTextField!
+    private var sexSegment: FMSegmentedControl!
+    private var ageField: FMTextField!
+    private var acquaintancesStatusSwitch: FMSwitch!
     private var fieldsStorage: UIViewController.TextFieldsStorage?
 
 
@@ -52,7 +55,7 @@ public class ProfileController: UIViewController {
         apiQueue = AsyncQueue.createForApi(for: tag)
 
         loadMarkup()
-        startLoadData()
+        loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -75,9 +78,12 @@ public class ProfileController: UIViewController {
     //MARK: Load data
     private func loadMarkup() {
 
+        let width = Double(interfaceTable.frame.width)
+        nameField = FMTextField(width: width)
         nameField.title = "Ваше имя"
         nameField.onCompleteChangeEvent =  { self.changeName(on: $1 ?? String.empty) }
 
+        sexSegment = FMSegmentedControl(width: width)
         sexSegment.title = "Кто вы?"
         sexSegment.values = [
             ("Девушка", UserSex.female),
@@ -85,29 +91,58 @@ public class ProfileController: UIViewController {
         ]
         sexSegment.onChangeEvent = { self.changeSex(on: ($2 as? UserSex) ?? .unknown) }
 
+        ageField = FMTextField(width: width)
         ageField.title = "Сколько вам лет"
         ageField.valueType = .number
         ageField.onCompleteChangeEvent = { self.changeAge(on: $1 ?? String.empty) }
 
+        acquaintancesStatusSwitch = FMSwitch(width: width)
         acquaintancesStatusSwitch.title = "Заинтересованы во встречах?"
         acquaintancesStatusSwitch.onChangeEvent = { self.changeStatus(on:  $1 ? .readyForAcquaintance : .hidden) }
 
-
+        let rows = loadRows()
+        interfaceAdapter = InterfaceTable(source: self.interfaceTable, rows: rows)
         loader = InterfaceLoader(for: self.view)
+        refreshControl = interfaceTable.addRefreshControl(target: self, selector: #selector(needReload))
 
         self.view.backgroundColor = ThemeSettings.Colors.background
-        self.fieldsStorage = self.closeKeyboardWhenTapOnRootView()
+        self.fieldsStorage = self.closeKeyboardWhenTapOnRootView(views: [interfaceTable as UIView] + rows.map({ $0 as! UIView }))
     }
-    private func startLoadData() {
+    private func loadRows() -> [InterfaceTableCellProtocol] {
+
+        var result = [InterfaceTableCellProtocol]()
+
+        avatarImage = ProfileControllerChangeAvatar.create(for: self)
+        result.append(avatarImage)
+        result.append(ProfileControllerSpace.create())
+
+        result.append(FMTextFieldRow.create(for: nameField))
+        result.append(ProfileControllerSpace.create())
+
+        result.append(FMSegmentedControlRow.create(for: sexSegment))
+        result.append(ProfileControllerSpace.create())
+
+        result.append(FMTextFieldRow.create(for: ageField))
+        result.append(ProfileControllerSpace.create())
+
+        result.append(FMSwitchRow.create(for: acquaintancesStatusSwitch))
+        result.append(ProfileControllerSpace.create())
+
+        result.append(ProfileControllerSpace.create())
+        result.append(ProfileControllerSelectTowns.create(for: self))
+
+        return result
+    }
+
+    private func loadData() {
 
         loader.show()
-
-        loadData()
+        requestData()
     }
-    @objc private func refreshData() {
-        loadData()
+    @objc private func needReload() {
+        requestData()
     }
-    private func loadData() {
+    private func requestData() {
 
         let request = accountApiService.find()
         request.async(loadQueue, completion: { response in
@@ -123,7 +158,8 @@ public class ProfileController: UIViewController {
     }
     private func completeLoad(_ account: User?) {
 
-        self.loader.hide()
+        loader.hide()
+        refreshControl.endRefreshing()
 
         self.account = account
         if let account = account {
@@ -132,7 +168,7 @@ public class ProfileController: UIViewController {
     }
     private func apply(account: User) {
 
-        avatarImage.setup(url: account.image)
+        avatarImage.update(avatar: account.image)
         nameField.text = account.name
         sexSegment.select(account.sex)
         ageField.text = "\(account.age)"

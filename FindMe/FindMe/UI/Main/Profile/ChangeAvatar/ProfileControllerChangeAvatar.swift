@@ -71,7 +71,7 @@ extension ProfileControllerChangeAvatar: UINavigationControllerDelegate {}
 extension ProfileControllerChangeAvatar: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 140
+        return 120
     }
     public func prepareView() -> UITableViewCell {
         return self

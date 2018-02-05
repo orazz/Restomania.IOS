@@ -85,6 +85,10 @@
 		1F3E6BFA2028F8690084C7C7 /* ProfileControllerSpaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF92028F8690084C7C7 /* ProfileControllerSpaceView.xib */; };
 		1F3E6BFC2028F8C50084C7C7 /* FMTextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BFB2028F8C50084C7C7 /* FMTextFieldRow.swift */; };
 		1F3E6BFE2028F9EC0084C7C7 /* FMTextFieldRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BFD2028F9EC0084C7C7 /* FMTextFieldRowView.xib */; };
+		1F3E6C002028FF250084C7C7 /* FMSwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BFF2028FF250084C7C7 /* FMSwitchRow.swift */; };
+		1F3E6C022028FF3C0084C7C7 /* FMSwitchRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C012028FF3C0084C7C7 /* FMSwitchRowView.xib */; };
+		1F3E6C042028FFA00084C7C7 /* FMSegmentedControlRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C032028FFA00084C7C7 /* FMSegmentedControlRow.swift */; };
+		1F3E6C062028FFB30084C7C7 /* FMSegmentedControlRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C052028FFB30084C7C7 /* FMSegmentedControlRowView.xib */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
 		1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */; };
 		1F451F9A1FCCA4070080C103 /* PlacesTownsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */; };
@@ -313,6 +317,10 @@
 		1F3E6BF92028F8690084C7C7 /* ProfileControllerSpaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerSpaceView.xib; path = UI/Main/Profile/Space/ProfileControllerSpaceView.xib; sourceTree = "<group>"; };
 		1F3E6BFB2028F8C50084C7C7 /* FMTextFieldRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMTextFieldRow.swift; path = UI/Elements/Inputs/TextField/FMTextFieldRow.swift; sourceTree = "<group>"; };
 		1F3E6BFD2028F9EC0084C7C7 /* FMTextFieldRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMTextFieldRowView.xib; path = UI/Elements/Inputs/TextField/FMTextFieldRowView.xib; sourceTree = "<group>"; };
+		1F3E6BFF2028FF250084C7C7 /* FMSwitchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMSwitchRow.swift; path = UI/Elements/Inputs/Switch/FMSwitchRow.swift; sourceTree = "<group>"; };
+		1F3E6C012028FF3C0084C7C7 /* FMSwitchRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSwitchRowView.xib; path = UI/Elements/Inputs/Switch/FMSwitchRowView.xib; sourceTree = "<group>"; };
+		1F3E6C032028FFA00084C7C7 /* FMSegmentedControlRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMSegmentedControlRow.swift; path = UI/Elements/Inputs/Segmented/FMSegmentedControlRow.swift; sourceTree = "<group>"; };
+		1F3E6C052028FFB30084C7C7 /* FMSegmentedControlRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSegmentedControlRowView.xib; path = UI/Elements/Inputs/Segmented/FMSegmentedControlRowView.xib; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesTownsApiService.swift; path = Services/Api/Places/PlacesTownsApiService.swift; sourceTree = "<group>"; };
@@ -737,6 +745,8 @@
 			children = (
 				1F3382F21F97D1C700E43596 /* FMSwitch.swift */,
 				1F3382F61F97D45300E43596 /* FMSwitch.xib */,
+				1F3E6BFF2028FF250084C7C7 /* FMSwitchRow.swift */,
+				1F3E6C012028FF3C0084C7C7 /* FMSwitchRowView.xib */,
 			);
 			name = Switch;
 			sourceTree = "<group>";
@@ -746,6 +756,8 @@
 			children = (
 				1F3382FB1F97DAD400E43596 /* FMSegmentedControl.swift */,
 				1F3382FD1F97DD5E00E43596 /* FMSegmentedControl.xib */,
+				1F3E6C032028FFA00084C7C7 /* FMSegmentedControlRow.swift */,
+				1F3E6C052028FFB30084C7C7 /* FMSegmentedControlRowView.xib */,
 			);
 			name = Segmented;
 			sourceTree = "<group>";
@@ -1437,9 +1449,11 @@
 				1F2D6D0E1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib in Resources */,
 				1F64C411201931C000F364CD /* OneDialogControllerView.xib in Resources */,
 				1F1CA9131FCF018F0006BE0B /* OnePlaceActionsView.xib in Resources */,
+				1F3E6C022028FF3C0084C7C7 /* FMSwitchRowView.xib in Resources */,
 				1FB0EE4E1FAFA0F700F64F1F /* ImageControllerSlideView.xib in Resources */,
 				1F2D6D0C1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib in Resources */,
 				1F6B89321FA8666F00B7A99A /* OnePlaceClientsView.xib in Resources */,
+				1F3E6C062028FFB30084C7C7 /* FMSegmentedControlRowView.xib in Resources */,
 				1F2D6D0A1FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib in Resources */,
 				1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */,
 				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
@@ -1656,6 +1670,7 @@
 				1F476A142018C6C70073A0A0 /* ChatDialogsCacheService.swift in Sources */,
 				1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */,
 				1F64C40B2018F17600F364CD /* RefreshControl.swift in Sources */,
+				1F3E6C002028FF250084C7C7 /* FMSwitchRow.swift in Sources */,
 				1F4C82D11F95C894004B294C /* OnePlaceMainLocationCell.swift in Sources */,
 				1F1A0E431F77E99E00FDBA97 /* LogicServices.swift in Sources */,
 				1F4AD0871FD34AEE00E6ADCC /* SelectTownCell.swift in Sources */,
@@ -1747,6 +1762,7 @@
 				1FC548131F70325A007CE6AB /* Account.swift in Sources */,
 				1F6B21C11F881E310068E29A /* MapController.swift in Sources */,
 				1F3E6BF32028F4510084C7C7 /* ProfileControllerChangeAvatar.swift in Sources */,
+				1F3E6C042028FFA00084C7C7 /* FMSegmentedControlRow.swift in Sources */,
 				1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */,
 				1F2E37711FCC9178003D24C1 /* PlacesActionsApiService.swift in Sources */,
 				1F3E6BED2028E8050084C7C7 /* AvatarImage.swift in Sources */,
