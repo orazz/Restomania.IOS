@@ -81,6 +81,10 @@
 		1F3E6BF12028F3480084C7C7 /* ProfileControllerSelectTownsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */; };
 		1F3E6BF32028F4510084C7C7 /* ProfileControllerChangeAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF22028F4510084C7C7 /* ProfileControllerChangeAvatar.swift */; };
 		1F3E6BF52028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF42028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib */; };
+		1F3E6BF82028F7A00084C7C7 /* ProfileControllerSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF72028F7A00084C7C7 /* ProfileControllerSpace.swift */; };
+		1F3E6BFA2028F8690084C7C7 /* ProfileControllerSpaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF92028F8690084C7C7 /* ProfileControllerSpaceView.xib */; };
+		1F3E6BFC2028F8C50084C7C7 /* FMTextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BFB2028F8C50084C7C7 /* FMTextFieldRow.swift */; };
+		1F3E6BFE2028F9EC0084C7C7 /* FMTextFieldRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BFD2028F9EC0084C7C7 /* FMTextFieldRowView.xib */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
 		1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */; };
 		1F451F9A1FCCA4070080C103 /* PlacesTownsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */; };
@@ -305,6 +309,10 @@
 		1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerSelectTownsView.xib; path = UI/Main/Profile/SelectTowns/ProfileControllerSelectTownsView.xib; sourceTree = "<group>"; };
 		1F3E6BF22028F4510084C7C7 /* ProfileControllerChangeAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileControllerChangeAvatar.swift; path = UI/Main/Profile/ChangeAvatar/ProfileControllerChangeAvatar.swift; sourceTree = "<group>"; };
 		1F3E6BF42028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerChangeAvatarView.xib; path = UI/Main/Profile/ChangeAvatar/ProfileControllerChangeAvatarView.xib; sourceTree = "<group>"; };
+		1F3E6BF72028F7A00084C7C7 /* ProfileControllerSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileControllerSpace.swift; path = UI/Main/Profile/Space/ProfileControllerSpace.swift; sourceTree = "<group>"; };
+		1F3E6BF92028F8690084C7C7 /* ProfileControllerSpaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerSpaceView.xib; path = UI/Main/Profile/Space/ProfileControllerSpaceView.xib; sourceTree = "<group>"; };
+		1F3E6BFB2028F8C50084C7C7 /* FMTextFieldRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMTextFieldRow.swift; path = UI/Elements/Inputs/TextField/FMTextFieldRow.swift; sourceTree = "<group>"; };
+		1F3E6BFD2028F9EC0084C7C7 /* FMTextFieldRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMTextFieldRowView.xib; path = UI/Elements/Inputs/TextField/FMTextFieldRowView.xib; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesTownsApiService.swift; path = Services/Api/Places/PlacesTownsApiService.swift; sourceTree = "<group>"; };
@@ -764,6 +772,7 @@
 			isa = PBXGroup;
 			children = (
 				1F3E6BE82028E2B30084C7C7 /* ProfileController.swift */,
+				1F3E6BF62028F77D0084C7C7 /* Space */,
 				1F3E6BEA2028E65B0084C7C7 /* ChangeAvatar */,
 				1F3E6BEB2028E6640084C7C7 /* SelectTowns */,
 			);
@@ -786,6 +795,15 @@
 				1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */,
 			);
 			name = SelectTowns;
+			sourceTree = "<group>";
+		};
+		1F3E6BF62028F77D0084C7C7 /* Space */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E6BF72028F7A00084C7C7 /* ProfileControllerSpace.swift */,
+				1F3E6BF92028F8690084C7C7 /* ProfileControllerSpaceView.xib */,
+			);
+			name = Space;
 			sourceTree = "<group>";
 		};
 		1F451F9F1FCCACED0080C103 /* Models */ = {
@@ -879,6 +897,8 @@
 			children = (
 				1F4E10FC1F970BFA00EB8391 /* FMTextField.swift */,
 				1F4E10FE1F970C4200EB8391 /* FMTextField.xib */,
+				1F3E6BFB2028F8C50084C7C7 /* FMTextFieldRow.swift */,
+				1F3E6BFD2028F9EC0084C7C7 /* FMTextFieldRowView.xib */,
 			);
 			name = TextField;
 			sourceTree = "<group>";
@@ -1444,11 +1464,13 @@
 				1F3E6BF12028F3480084C7C7 /* ProfileControllerSelectTownsView.xib in Resources */,
 				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
 				1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */,
+				1F3E6BFE2028F9EC0084C7C7 /* FMTextFieldRowView.xib in Resources */,
 				1F4AD0771FD33EB400E6ADCC /* GreetingController.xib in Resources */,
 				1F3382FE1F97DD5E00E43596 /* FMSegmentedControl.xib in Resources */,
 				1FB0EE4C1FAF9C4500F64F1F /* ImagesControllerView.xib in Resources */,
 				1F4AD0791FD33EB400E6ADCC /* ExplainerBlock.xib in Resources */,
 				1F6B89381FA86DD300B7A99A /* OnePlaceClientsCellView.xib in Resources */,
+				1F3E6BFA2028F8690084C7C7 /* ProfileControllerSpaceView.xib in Resources */,
 				1F3E6BF52028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib in Resources */,
 				1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */,
 				1F3382F71F97D45300E43596 /* FMSwitch.xib in Resources */,
@@ -1651,6 +1673,7 @@
 				1F2D6CFD1FD1585E00BF9E63 /* OnePlaceOneActionController.swift in Sources */,
 				1F451FA31FCCB0F20080C103 /* UsersPleasantPlacesApiService.swift in Sources */,
 				1F2E37851FCC91D2003D24C1 /* PositionsService.swift in Sources */,
+				1F3E6BF82028F7A00084C7C7 /* ProfileControllerSpace.swift in Sources */,
 				1F24A9131F896927000BD8F1 /* OnePlaceMainTitleCell.swift in Sources */,
 				1F1A0E381F77C12400FDBA97 /* AppSummary.swift in Sources */,
 				1FB0EE501FAFA10E00F64F1F /* ImageControllerSlide.swift in Sources */,
@@ -1700,6 +1723,7 @@
 				1F4DDE0B1F977646005CED0B /* User.swift in Sources */,
 				1F3E6BE92028E2B30084C7C7 /* ProfileController.swift in Sources */,
 				1F2E37621FCC8569003D24C1 /* ToolsServices.swift in Sources */,
+				1F3E6BFC2028F8C50084C7C7 /* FMTextFieldRow.swift in Sources */,
 				1F1CA90E1FCEEDE60006BE0B /* ActionsCacheService.swift in Sources */,
 				1F2E37861FCC91D2003D24C1 /* LikesService.swift in Sources */,
 				1F3E6BEF2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift in Sources */,
