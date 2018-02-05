@@ -25,7 +25,7 @@ public class ProfileControllerSpace: UITableViewCell {
 }
 extension ProfileControllerSpace: InterfaceTableCellProtocol {
     public var viewHeight: Int {
-        return isLarge ? 40 : 20
+        return isLarge ? 50 : 30
     }
     public func prepareView() -> UITableViewCell {
         return self
