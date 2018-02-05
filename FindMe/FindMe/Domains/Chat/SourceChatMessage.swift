@@ -16,20 +16,20 @@ public class SourceChatMessage: BaseDataType {
         fileprivate static let senderId = "SenderId"
         fileprivate static let dialogId = "DialogId"
         fileprivate static let content = "Content"
-        fileprivate static let attachments = "Attachments"
+        fileprivate static let attachment = "Attachment"
     }
 
     public var senderId: Long
     public var dialogId: Long
     public var content: String
-    public var attachments: [String]
+    public var attachment: String?
 
     public override init() {
 
         self.senderId = 0
         self.dialogId = 0
         self.content = String.empty
-        self.attachments = []
+        self.attachment = nil
 
         super.init()
     }
@@ -38,7 +38,7 @@ public class SourceChatMessage: BaseDataType {
         self.senderId = source.senderId
         self.dialogId = source.dialogId
         self.content = source.content
-        self.attachments = source.attachments.map{ $0 }
+        self.attachment = source.attachment
 
         super.init(source: source)
     }
@@ -49,7 +49,7 @@ public class SourceChatMessage: BaseDataType {
         self.senderId = (Keys.senderId <~~ json)!
         self.dialogId = (Keys.dialogId <~~ json)!
         self.content = (Keys.content <~~ json)!
-        self.attachments = (Keys.attachments <~~ json)!
+        self.attachment = Keys.attachment <~~ json
 
         super.init(json: json)
     }
@@ -59,7 +59,7 @@ public class SourceChatMessage: BaseDataType {
             Keys.senderId ~~> self.senderId,
             Keys.dialogId ~~> self.dialogId,
             Keys.content ~~> self.content,
-            Keys.attachments ~~> self.attachments,
+            Keys.attachment ~~> self.attachment,
 
             super.toJSON()
             ])

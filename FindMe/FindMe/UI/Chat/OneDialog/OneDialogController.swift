@@ -16,13 +16,15 @@ public class OneDialogController: UIViewController {
 
     //UI
     @IBOutlet private weak var messagesTable: UITableView!
-    @IBOutlet private weak var inputField: FMTextField!
+    @IBOutlet private weak var inputField: UITextField!
+    @IBOutlet private weak var selectAttachmentButton: UIButton!
     @IBOutlet private weak var sendButton: UIButton!
     @IBOutlet private weak var controlsPanel: UIView!
     private var keyboardOffsetConstraint: NSLayoutConstraint!
     private var interfaceLoader: InterfaceLoader!
     private var refreshControl: UIRefreshControl!
     private var messagesCache: [Long: OneDialogMessage] = [:]
+    private var imagePicker: UIImagePickerController!
 
     //Services
     private let dialogsService = CacheServices.chatDialogs
@@ -79,12 +81,12 @@ public class OneDialogController: UIViewController {
 
         subscribeOnOpenKeyboard()
     }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
 
-        unsubscribeOnOpenKeyboard()
         _ = messagesCache.values.map({ $0.viewWillDisappear() })
         messagesCache.removeAll()
+        unsubscribeOnOpenKeyboard()
     }
 
     private func loadMarkup() {
@@ -100,10 +102,17 @@ public class OneDialogController: UIViewController {
             }
         }
 
-        controlsPanel.backgroundColor = ThemeSettings.Colors.background
+        controlsPanel.backgroundColor = UIColor(red: 230, green: 230, blue: 230)
         controlsPanel.layer.shadowColor = ThemeSettings.Colors.divider.cgColor
 
+        inputField.placeholder = "Введите сообщение"
+        inputField.font = ThemeSettings.Fonts.default(size: .subhead)
+        inputField.textColor = ThemeSettings.Colors.blackText
+
         setupTable()
+
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
     }
     @objc private func needReload() {
         loadAdapter.startRequest()
@@ -193,41 +202,90 @@ extension OneDialogController: UITableViewDataSource {
 }
 //Write message
 extension OneDialogController {
-    @IBAction private func sendMessage() {
+    @IBAction private func selectAttachment() {
 
-        let message = inputField.text
-        if (String.isNullOrEmpty(message)) {
+        let alert = UIAlertController(title: "Отправить фото", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Сделать фото", style: .default, handler: { _ in self.openImagePicker(type: .camera) }))
+        alert.addAction(UIAlertAction(title: "Взять из галлереи", style: .default, handler: { _ in self.openImagePicker(type: .photoLibrary) }))
+        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    private func openImagePicker(type: UIImagePickerControllerSourceType) {
+
+        imagePicker.sourceType = type
+
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    private func sendAttachment(_ image: UIImage) {
+
+        guard let normalized = image.normalizeOrientation(),
+                let dataUrl = DataUrl.convert(normalized) else {
             return
         }
 
+        Log.info(_tag, "Send message with attachment.")
+
+        let text = inputField.text ?? String.empty
+        let message = SendingMessage(toDialog: dialog.ID, content: text, attachment: dataUrl )
+        send(message)
+    }
+    @IBAction private func sendMessage() {
+
+        guard let text = inputField.text,
+            String.isNullOrEmpty(text) else {
+                return
+        }
         inputField.text = String.empty
 
-        let container = SendingMessage(toDialog: dialog.ID, content: message!, and: [])
-        let stub = container.createStub()
+        Log.info(_tag, "Send simple message.")
+        let message = SendingMessage(toDialog: dialog.ID, content: text)
+        send(message)
+    }
+    private func send(_ message: SendingMessage) {
+
+        let stub = message.createStub()
         messages.append(stub)
         applyData()
         _ = dialogsService.updateLastMessage(for: stub.dialogId, by: stub)
 
-        let request = self.messagesService.send(container)
+        let request = self.messagesService.send(message)
         request.async(self.loadQueue, completion: { response in
 
             DispatchQueue.main.async {
                 if (response.isFail) {
-                    self.inputField.text = message
+                    self.inputField.text = message.content
                     self.view.makeToast("Проблемы с отправкой сообщения. Проверьте подключение к интернету.", position: .top)
                 }
                 else {
                     if let index = self.messages.index(where: { $0 === stub }),
                         let message = self.messagesService.cache.find({ $0.ID == response.data!.ID }) {
-                            self.messages[index] = message
-                            self.applyData()
-                            _ = self.dialogsService.updateLastMessage(for: message.dialogId, by: message)
+                        self.messages[index] = message
+                        self.applyData()
+                        _ = self.dialogsService.updateLastMessage(for: message.dialogId, by: message)
                     }
                 }
             }
         })
     }
 }
+//Pick image
+extension OneDialogController: UIImagePickerControllerDelegate {
+
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            sendAttachment(pickedImage)
+        }
+
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+extension OneDialogController: UINavigationControllerDelegate {}
+
 //Get messages
 extension OneDialogController: ChatMessagesCacheServiceDelegate {
     public func messagesService(_ service: ChatMessagesCacheService, new message: ChatMessage) {

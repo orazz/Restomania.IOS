@@ -15,18 +15,18 @@ public class SendingMessage: JSONEncodable {
     private struct Keys {
         fileprivate static let dialogId = "DialogId"
         fileprivate static let content = "Content"
-        fileprivate static let attachments = "Attachments"
+        fileprivate static let attachment = "Attachment"
     }
 
     public let dialogId: Long
     public let content: String
-    public var attachments: [Long]
+    public var attachment: String?
 
-    public init(toDialog dialogId: Long, content: String, and attachments: [Long]) {
+    public init(toDialog dialogId: Long, content: String, attachment: String? = nil) {
 
         self.dialogId = dialogId
         self.content = content
-        self.attachments = attachments
+        self.attachment = attachment
     }
 
     public func createStub() -> ChatMessage {
@@ -35,7 +35,7 @@ public class SendingMessage: JSONEncodable {
         source.senderId = -1
         source.dialogId = dialogId
         source.content = content
-        source.attachments = []
+        source.attachment = nil
 
         return ChatMessage(wrap: source)
     }
@@ -46,7 +46,7 @@ public class SendingMessage: JSONEncodable {
 
             Keys.dialogId ~~> self.dialogId,
             Keys.content ~~> self.content,
-            Keys.attachments ~~> self.attachments,
+            Keys.attachment ~~> self.attachment,
             ])
     }
 }

@@ -53,6 +53,7 @@ public class ProfileControllerChangeAvatar: UITableViewCell {
         if (!String.isNullOrEmpty(avatar)) {
             alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { _ in self.removeAvatar() }))
         }
+        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel))
 
         let vc = delegate.takeController()
         vc.present(alert, animated: true, completion: nil)
