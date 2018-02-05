@@ -77,6 +77,8 @@
 		1F3705851F7B811600E6CB0D /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F3705841F7B811600E6CB0D /* Configs.plist */; };
 		1F3E6BE92028E2B30084C7C7 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BE82028E2B30084C7C7 /* ProfileController.swift */; };
 		1F3E6BED2028E8050084C7C7 /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BEC2028E8050084C7C7 /* AvatarImage.swift */; };
+		1F3E6BEF2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BEE2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift */; };
+		1F3E6BF12028F3480084C7C7 /* ProfileControllerSelectTownsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
 		1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */; };
 		1F451F9A1FCCA4070080C103 /* PlacesTownsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */; };
@@ -297,6 +299,8 @@
 		1F3705841F7B811600E6CB0D /* Configs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		1F3E6BE82028E2B30084C7C7 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileController.swift; path = UI/Main/Profile/ProfileController.swift; sourceTree = "<group>"; };
 		1F3E6BEC2028E8050084C7C7 /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvatarImage.swift; path = UI/Elements/AvatarImage.swift; sourceTree = "<group>"; };
+		1F3E6BEE2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileControllerSelectTowns.swift; path = UI/Main/Profile/SelectTowns/ProfileControllerSelectTowns.swift; sourceTree = "<group>"; };
+		1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerSelectTownsView.xib; path = UI/Main/Profile/SelectTowns/ProfileControllerSelectTownsView.xib; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesTownsApiService.swift; path = Services/Api/Places/PlacesTownsApiService.swift; sourceTree = "<group>"; };
@@ -772,6 +776,8 @@
 		1F3E6BEB2028E6640084C7C7 /* SelectTowns */ = {
 			isa = PBXGroup;
 			children = (
+				1F3E6BEE2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift */,
+				1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */,
 			);
 			name = SelectTowns;
 			sourceTree = "<group>";
@@ -1429,6 +1435,7 @@
 				1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */,
 				1F24A9191F897239000BD8F1 /* OnePlaceMainSliderCell.xib in Resources */,
 				1F4E10FF1F970C4200EB8391 /* FMTextField.xib in Resources */,
+				1F3E6BF12028F3480084C7C7 /* ProfileControllerSelectTownsView.xib in Resources */,
 				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
 				1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */,
 				1F4AD0771FD33EB400E6ADCC /* GreetingController.xib in Resources */,
@@ -1688,6 +1695,7 @@
 				1F2E37621FCC8569003D24C1 /* ToolsServices.swift in Sources */,
 				1F1CA90E1FCEEDE60006BE0B /* ActionsCacheService.swift in Sources */,
 				1F2E37861FCC91D2003D24C1 /* LikesService.swift in Sources */,
+				1F3E6BEF2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift in Sources */,
 				1F64C4032018DD6400F364CD /* ChatDialogsController.swift in Sources */,
 				1FC5480B1F6FF8B4007CE6AB /* PlaceImage.swift in Sources */,
 				1FC5838C1F814CDB0045941A /* TabBarController.swift in Sources */,

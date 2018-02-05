@@ -111,7 +111,7 @@ public class ProfileController: UIViewController {
     private func loadData() {
 
         let request = accountApiService.find()
-        request.async(.background, completion: { response in
+        request.async(loadQueue, completion: { response in
             DispatchQueue.main.async {
 
                 if (response.isFail) {
