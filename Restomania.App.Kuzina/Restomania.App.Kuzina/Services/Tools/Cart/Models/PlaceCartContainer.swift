@@ -19,14 +19,14 @@ internal class PlaceCartContainer: Glossy {
         public static let takeaway = "takeaway"
     }
 
-    public var placeID: Long
+    public var placeId: Long
     public var takeaway: Bool
     public var dishes: [AddedOrderDish]
     public var comment: String
 
     internal init(placeID: Long) {
 
-        self.placeID = placeID
+        self.placeId = placeID
         self.takeaway = false
         self.dishes = []
         self.comment = String.empty
@@ -35,7 +35,7 @@ internal class PlaceCartContainer: Glossy {
     // MARK: Glossy
     public required init(json: JSON) {
 
-        self.placeID = (Keys.placeId <~~ json)!
+        self.placeId = (Keys.placeId <~~ json)!
         self.dishes = (Keys.dishes <~~ json)!
         self.comment = (Keys.comment <~~ json)!
         self.takeaway = (Keys.takeaway <~~ json)!
@@ -43,7 +43,7 @@ internal class PlaceCartContainer: Glossy {
     public func toJSON() -> JSON? {
 
         return jsonify([
-            Keys.placeId ~~> self.placeID,
+            Keys.placeId ~~> self.placeId,
             Keys.dishes ~~> self.dishes,
             Keys.comment ~~> self.comment,
             Keys.takeaway ~~> self.takeaway

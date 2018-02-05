@@ -8,8 +8,9 @@
 
 import Foundation
 import Gloss
+import IOSLibrary
 
-public class Dish: BaseDish {
+public class Dish: BaseDish, ICached {
 
     public struct Keys {
 
@@ -23,13 +24,19 @@ public class Dish: BaseDish {
 
         super.init()
     }
+    //ICopying
+    public required init(source: Dish) {
+        self.cookingTimeInMinutes = source.cookingTimeInMinutes
+
+        super.init(source: source)
+    }
+    //Glossy
     public required init(json: JSON) {
         self.cookingTimeInMinutes = (Keys.cookingTimeInMinutes <~~ json)!
 
         super.init(json: json)
     }
     public override func toJSON() -> JSON? {
-
         return jsonify([
 
             Keys.cookingTimeInMinutes ~~> self.cookingTimeInMinutes,

@@ -8,8 +8,9 @@
 
 "Title" = "Place's menu";
 
-"Alerts.LoadError.Message" = "Problem with load data. Check your internet connection.";
-"Alerts.AuthError.Message" = "For order via app you need login.";
+"Alerts.LoadError" = "Problem with load data. Check your internet connection.";
+"Alerts.AuthError" = "For order via app you need login.";
+"Alerts.AddDishToCart" = "Dish add to order.";
 
 "Categories.AllDishes" = "All";
 

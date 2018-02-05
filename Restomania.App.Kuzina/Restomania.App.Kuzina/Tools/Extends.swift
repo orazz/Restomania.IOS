@@ -8,6 +8,7 @@
 
 import Foundation
 import IOSLibrary
+import UIKit
 
 extension PartsLoadTypedContainer
     where TData: ICached {

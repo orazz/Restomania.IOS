@@ -103,7 +103,7 @@ public class OnePlaceClientsController: UIViewController {
                     self.clients = response.data!
                 }
                 else {
-                    Log.Warning(self._tag, "Problem with getting clients data.")
+                    Log.warning(self._tag, "Problem with getting clients data.")
 
                     if (response.statusCode == .ConnectionError) {
 
@@ -167,7 +167,7 @@ extension OnePlaceClientsController: OnePlaceClientsControllerDelegate {
         updateInterface()
     }
     public func writeMessageTo(_ userId: Long) {
-        Log.Debug(tag, "Try write message to user #\(userId).")
+        Log.debug(tag, "Try write message to user #\(userId).")
 
         let tabs = TabBarController.instance!
         let chat = tabs.chat

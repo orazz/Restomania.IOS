@@ -20,7 +20,7 @@ public class BaseApiService: NSObject {
     
     public init(area: String, configs: ConfigsStorage, tag: String, keys: KeysStorage? = nil) {
 
-        self._url = configs.get(forKey: ConfigsKey.serverUrl).value as! String
+        self._url = configs.get(forKey: ConfigsKey.serverUrl)!
         self.client = ApiClient(url: "\(_url)/api/\(area)", tag: tag)
         self._keys = keys
 

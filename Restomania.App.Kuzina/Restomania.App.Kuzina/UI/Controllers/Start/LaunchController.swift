@@ -39,7 +39,7 @@ public class LaunchController: UIViewController {
 
         navigationController?.present(controller, animated: false, completion: {
 
-            Log.Debug(self._tag, "Navigate to tabs storyboard.")
+            Log.debug(self._tag, "Navigate to tabs storyboard.")
         })
     }
 }

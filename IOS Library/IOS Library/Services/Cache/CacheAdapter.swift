@@ -143,9 +143,9 @@ open class CacheAdapter<TElement> where TElement: ICached {
                 let data = try JSONSerialization.serialize(data: self.data)
                 self.file.save(data: data)
 
-                Log.Debug(self.tag, "Save cached data.")
+                Log.debug(self.tag, "Save cached data.")
             } catch {
-                Log.Warning(self.tag, "Problem with save data.")
+                Log.warning(self.tag, "Problem with save data.")
             }
         }
     }
@@ -157,8 +157,8 @@ open class CacheAdapter<TElement> where TElement: ICached {
             }
         }
         catch {
-            Log.Warning(tag, "Problem with load data.")
-            Log.Warning(tag, "\(error)")
+            Log.warning(tag, "Problem with load data.")
+            Log.warning(tag, "\(error)")
         }
 
         return nil

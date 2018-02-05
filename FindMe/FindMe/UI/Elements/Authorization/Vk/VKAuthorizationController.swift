@@ -23,7 +23,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
         instance._keys = ToolsServices.shared.keys
         instance._auth = UsersAuthApiService(configs)
         instance._callback = callback
-        instance._appID = configs.get(forKey: ConfigsKey.vkAppID).value as! Int
+        instance._appID = configs.get(forKey: ConfigsKey.vkAppID)!
 
         return instance
     }
@@ -64,7 +64,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
     }
     public override func viewDidLoad() {
 
-        Log.Info(_tag, "Load auth controller.")
+        Log.info(_tag, "Load auth controller.")
 
         super.viewDidLoad()
     }
@@ -123,7 +123,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
     //MARK: WKNavigationDelegate
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 
-        Log.Debug(_tag, "Web view navigate to \(String(describing: webView.url?.absoluteString))")
+        Log.debug(_tag, "Web view navigate to \(String(describing: webView.url?.absoluteString))")
 
         _loader.hide()
 
@@ -137,8 +137,8 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
     }
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 
-        Log.Warning(_tag, "Problem with auth via vk.")
-        Log.Warning(_tag, "Error: \(error)")
+        Log.warning(_tag, "Problem with auth via vk.")
+        Log.warning(_tag, "Error: \(error)")
 
         showAlertAndClose()
     }
@@ -213,8 +213,7 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
 
             self.success = url.contains(Keys.accessToken)
 
-            let parameters = url.characters.split(whereSeparator:  {  "?#&".contains($0) })
-                                            .map(String.init)
+            let parameters = url.components(separatedBy: CharacterSet(charactersIn: "?#&"))
             for pair in parameters {
 
                 if (pair.contains(Keys.accessToken)) {
@@ -245,13 +244,12 @@ public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
         }
         private func getValue(pair: String) -> String {
 
-            if let range = pair.range(of: "=") {
-
-                return pair.substring(from: range.upperBound)
-                            .trimmingCharacters(in: .whitespacesAndNewlines)
+            let keyAndValue = pair.components(separatedBy: "=")
+            if (keyAndValue.count < 2) {
+                return String.empty
             }
 
-            return String.empty
+            return keyAndValue[1].trimmingCharacters(in: .whitespacesAndNewlines)
         }
     }
     public enum VKPermissions: Int {

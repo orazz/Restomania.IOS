@@ -12,3 +12,8 @@ public protocol IIdentified {
 
     var ID: Long { get }
 }
+extension Array where Element: IIdentified {
+    public func find(id: Long) -> Element? {
+        return self.find({ $0.ID == id })
+    }
+}

@@ -27,14 +27,14 @@ public class BackgroundTasksService {
 
         result = _application.beginBackgroundTask(expirationHandler: {
 
-            Log.Debug(self._tag, "Background task #\(result) expired.")
+            Log.debug(self._tag, "Background task #\(result) expired.")
 
             self.end(task: result)
         })
 
         if (result != UIBackgroundTaskInvalid) {
             self._tasksRange.append(result)
-            Log.Info(_tag, "Start background task #\(result).")
+            Log.info(_tag, "Start background task #\(result).")
         }
 
         return result
@@ -48,7 +48,7 @@ public class BackgroundTasksService {
         _application.endBackgroundTask(task)
         remove(task)
 
-        Log.Debug(_tag, "End background task #\(task).")
+        Log.debug(_tag, "End background task #\(task).")
     }
     public func endAllBackgroundTasks() {
 

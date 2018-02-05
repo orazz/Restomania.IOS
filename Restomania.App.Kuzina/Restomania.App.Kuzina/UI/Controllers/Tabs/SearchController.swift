@@ -74,7 +74,7 @@ extension SearchController {
 
     private func startLoadData() {
 
-        let ids = AppSummary.shared.placeIDs!
+        let ids = AppSettings.shared.placeIDs!
         let cached = service.cache.range(ids)
 
         if (cached.isEmpty) {
@@ -89,7 +89,7 @@ extension SearchController {
     }
     private func requestPlaces() {
 
-        let ids = AppSummary.shared.placeIDs!
+        let ids = AppSettings.shared.placeIDs!
         let task = service.range(ids)
         task.async(loadQueue, completion: { response in
 

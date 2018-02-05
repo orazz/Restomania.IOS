@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        Log.Info(_tag, "App launch with options.")
+        Log.info(_tag, "App launch with options.")
         start()
 
         return true
@@ -47,35 +47,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        Log.Info(_tag, "App will resign active.")
+        Log.info(_tag, "App will resign active.")
     }
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
-        Log.Info(_tag, "App perform fetch active.")
+        Log.info(_tag, "App perform fetch active.")
 
         RefreshDataManager.shared.refreshData(with: completionHandler)
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        Log.Info(_tag, "App did enter background.")
+        Log.info(_tag, "App did enter background.")
 
         LogicServices.shared.positions.stopTracking()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        Log.Info(_tag, "App will enter to refeground.")
+        Log.info(_tag, "App will enter to refeground.")
 
         LogicServices.shared.positions.startTracking()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        Log.Info(_tag, "App did become active.")
+        Log.info(_tag, "App did become active.")
 
         LogicServices.shared.positions.startTracking()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        Log.Info(_tag, "App will terminate.")
+        Log.info(_tag, "App will terminate.")
     }
 }
 

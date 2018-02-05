@@ -29,6 +29,9 @@ public class MenuCacheService {
     public func load() {
         adapter.loadCached()
     }
+    public func clear() {
+        adapter.clear()
+    }
 
     //Local
     public var cache: CacheAdapterExtender<MenuSummary> {

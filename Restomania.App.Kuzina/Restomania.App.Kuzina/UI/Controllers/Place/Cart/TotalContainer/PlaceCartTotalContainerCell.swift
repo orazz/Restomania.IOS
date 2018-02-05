@@ -12,11 +12,9 @@ import IOSLibrary
 
 public class PlaceCartTotalContainerCell: UITableViewCell {
 
-    private static let nibName = "PlaceCartTotalContainerCellView"
-    public static func create(for delegate: PlaceCartDelegate, title: String, _ action: @escaping ((Cart, MenuSummary) -> Double)) -> PlaceCartTotalContainerCell {
+    public static func create(for delegate: PlaceCartDelegate, title: String, _ action: @escaping ((CartService, MenuSummary) -> Price)) -> PlaceCartTotalContainerCell {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
-        let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartTotalContainerCell
+        let cell: PlaceCartTotalContainerCell = UINib.instantiate(from: "\(String.tag(PlaceCartTotalContainerCell.self))View", bundle: Bundle.main)
 
         cell.title = title
         cell.action = action
@@ -36,8 +34,8 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
     private let guid = Guid.new
     private var delegate: PlaceCartDelegate!
     private var title: String!
-    private var action: ((Cart, MenuSummary) -> Double)!
-    private var cart: Cart {
+    private var action: ((CartService, MenuSummary) -> Price)!
+    private var cart: CartService {
         return delegate.takeCart()
     }
 
@@ -46,7 +44,7 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
         if let menu = delegate.takeMenu() {
 
             let sum = action(cart, menu)
-            totalLabel.setup(amount: sum, currency: menu.currency)
+            totalLabel.setup(price: sum, currency: menu.currency)
         }
     }
     private func setupMarkup() {
@@ -62,11 +60,12 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
         totalLabel.setup(amount: 0, currency: .RUB)
     }
 }
-extension PlaceCartTotalContainerCell: CartUpdateProtocol {
-    public func cart(_ cart: Cart, changedDish: Long, newCount: Int) {
+extension PlaceCartTotalContainerCell: CartServiceDelegate {
+
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
         changeCart()
     }
-    public func cart(_ cart: Cart, removedDish: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         changeCart()
     }
     private func changeCart() {

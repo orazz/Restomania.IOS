@@ -137,12 +137,12 @@ public class ApiClient {
 
         return Task { (handler: @escaping (_:ApiResponse<TData>) -> Void) in
 
-            Log.Debug(self._tag, "Request to \(url)")
+            Log.debug(self._tag, "Request to \(url)")
 
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
-                    Log.Error(self._tag, "Fundamental problem with request.")
-                    Log.Error(self._tag, "Error: \(error)")
+                    Log.error(self._tag, "Fundamental problem with request.")
+                    Log.error(self._tag, "Error: \(error)")
 
                     handler(ApiResponse(statusCode: .ConnectionError, response: response))
                     return
@@ -151,14 +151,14 @@ public class ApiClient {
                 if let httpStatus = response as? HTTPURLResponse,
                     httpStatus.statusCode != 200 {
 
-                    Log.Warning(self._tag, "Response status code is \(httpStatus.statusCode)")
-                    Log.Error(self._tag, "Response status code is not success.")
+                    Log.warning(self._tag, "Response status code is \(httpStatus.statusCode)")
+                    Log.error(self._tag, "Response status code is not success.")
 
                     handler(ApiResponse(statusCode: .InternalServerError, response: response))
                     return
                 }
 
-                Log.Debug(self._tag, "Response from \(url)")
+                Log.debug(self._tag, "Response from \(url)")
                 do {
                     let content = String(data: data!, encoding: .utf8)!
                     let json =  try JSONSerialization.jsonObject(with: data!, options: []) as! JSON
@@ -171,7 +171,7 @@ public class ApiClient {
                     handler(apiResponse)
 
                 } catch {
-                    Log.Error(self._tag, "Problem with parse response from \(url).")
+                    Log.error(self._tag, "Problem with parse response from \(url).")
 
                     handler(ApiResponse(statusCode: .InternalServerError, response: response))
                 }
@@ -201,7 +201,7 @@ public class ApiClient {
             let parameters = try JSONSerialization.data(withJSONObject: builded, options: [])
             parametersContent = String(data: parameters, encoding: .utf8)!
         } catch {
-            Log.Error(_tag, "Problem with serialize parameters for request.")
+            Log.error(_tag, "Problem with serialize parameters for request.")
 
         }
         let body = "parameters=\(parametersContent.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)"

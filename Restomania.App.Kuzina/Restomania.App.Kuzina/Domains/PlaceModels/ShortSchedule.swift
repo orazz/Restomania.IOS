@@ -175,7 +175,7 @@ extension ShortSchedule {
             return "\(format(open)) - \(format(close))"
         }
         private func format(_ minutes: Int) -> String {
-            return "\(minutes / 60):\(minutes % 60)"
+            return "\(String(format: "%02d", minutes / 60)):\(String(format: "%02d", minutes % 60))"
         }
 
         fileprivate func canOrder(at date: Date) -> Bool {

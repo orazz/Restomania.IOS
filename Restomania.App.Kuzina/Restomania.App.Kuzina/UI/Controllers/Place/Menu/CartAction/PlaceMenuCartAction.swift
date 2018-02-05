@@ -47,7 +47,7 @@ public class PlaceMenuCartAction: UIView {
             }
         }
     }
-    private var cart: Cart!
+    private var cart: CartService!
 
     public func viewDidAppear() {
         cart.subscribe(guid: guid, handler: self, tag: _tag)
@@ -67,8 +67,7 @@ public class PlaceMenuCartAction: UIView {
             self.countLabel.text = "\(self.cart.dishes.sum({ $0.count }))"
 
             if let menu = self.menu {
-                self.totalLabel.setup(amount: self.cart.total(with: menu),
-                                     currency: self.currency)
+                self.totalLabel.setup(price: self.cart.total(with: menu), currency: self.currency)
             }
         }
     }
@@ -89,11 +88,11 @@ public class PlaceMenuCartAction: UIView {
     }
 }
 
-extension PlaceMenuCartAction: CartUpdateProtocol {
-    public func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int) {
+extension PlaceMenuCartAction: CartServiceDelegate {
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
         apply()
     }
-    public func cart(_ cart: Cart, removedDish dishId: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         apply()
     }
 }

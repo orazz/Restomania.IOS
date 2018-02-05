@@ -29,7 +29,7 @@ public class KeysStorage {
 
         load()
 
-        Log.Info(tag, "Service is load.")
+        Log.info(tag, "Service is load.")
     }
 
     private func load() {
@@ -49,10 +49,10 @@ public class KeysStorage {
 
             file.save(data: data)
         } catch {
-            Log.Error(tag, "Problem with save keys to file")
+            Log.error(tag, "Problem with save keys to file")
         }
 
-        Log.Debug(tag, "Save auth keys.")
+        Log.debug(tag, "Save auth keys.")
     }
 
     private class KeysContainer: Glossy {

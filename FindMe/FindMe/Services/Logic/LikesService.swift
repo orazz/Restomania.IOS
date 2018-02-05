@@ -63,7 +63,7 @@ public class LikesService: NSObject {
     }
     public func like(_ placeId: Long) {
 
-        Log.Debug(_tag, "Like place #\(placeId).")
+        Log.debug(_tag, "Like place #\(placeId).")
 
         adapter.addOrUpdate(LikeContainer(for: placeId))
 
@@ -74,7 +74,7 @@ public class LikesService: NSObject {
     }
     public func unlike(_ placeId: Long) {
 
-        Log.Debug(_tag, "Unlike place #\(placeId).")
+        Log.debug(_tag, "Unlike place #\(placeId).")
 
         adapter.remove(placeId)
 
@@ -96,11 +96,11 @@ public class LikesService: NSObject {
 
             if response.isFail {
                 if (response.statusCode != .Forbidden && response.statusCode != .ConnectionError) {
-                    Log.Warning(self._tag, "Problem with update pleasant places.")
+                    Log.warning(self._tag, "Problem with update pleasant places.")
                 }
             }
             else if response.isSuccess {
-                Log.Info(self._tag, "Update plesant places.")
+                Log.info(self._tag, "Update plesant places.")
             }
         })
     }
@@ -111,11 +111,11 @@ public class LikesService: NSObject {
 
             if response.isFail {
                 if (response.statusCode != .Forbidden && response.statusCode != .ConnectionError) {
-                    Log.Warning(self._tag, "Problem with take pleasant places.")
+                    Log.warning(self._tag, "Problem with take pleasant places.")
                 }
             }
             else if response.isSuccess {
-                Log.Info(self._tag, "Request pleasant places.")
+                Log.info(self._tag, "Request pleasant places.")
 
                 let likes = response.data!
                 for placeId in likes {

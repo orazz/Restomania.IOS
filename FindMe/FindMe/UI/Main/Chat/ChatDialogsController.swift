@@ -151,7 +151,7 @@ extension ChatDialogsController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let dialog = dialogs[indexPath.row]
-        Log.Debug(_tag, "Select dialog #\(dialog.ID)")
+        Log.debug(_tag, "Select dialog #\(dialog.ID)")
         open(dialog.ID)
     }
 }

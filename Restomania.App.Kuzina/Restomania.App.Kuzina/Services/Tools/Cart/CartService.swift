@@ -8,108 +8,162 @@
 
 import Foundation
 import IOSLibrary
-import Gloss
 
-public class CartService {
+public class CartService: ReservationService {
 
-    private let _tag = String.tag(CartService.self)
+    private let place: PlaceCartContainer
+    private let eventsAdapter: EventsAdapter<CartServiceDelegate>
+    private let cartQueue = DispatchQueue(label: Guid.new)
 
-    private let file: FSOneFileClient
-    private let loadQueue: DispatchQueue
+    internal init(place: PlaceCartContainer, cart: CommonCartContainer, saver: @escaping () -> Void) {
 
-    private var _cartContainer = CommonCartContainer()
-    private var _carts = [Cart]()
-    private var needSave = false
-    private var saveTimer: Timer!
-    private var needSaveTrigger: Trigger!
+        self.place = place
+        self.eventsAdapter = EventsAdapter(tag: "\(String.tag(CartService.self))#\(place.placeId)")
 
-     public init() {
+        super.init(cart: cart, saver: saver)
 
-        file = FSOneFileClient(filename: "cart.json", inCache: false, tag: _tag)
-        loadQueue = DispatchQueue(label: _tag)
+        while (true) {
+            guard let index = self.place.dishes.index(where: { $0.count == 0 }) else {
+                break
+            }
 
-        saveTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(checkNeedSave), userInfo: nil, repeats: true)
-        NotificationCenter.default.addObserver(self, selector: #selector(checkNeedSave), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
-        needSaveTrigger = {
-            self.needSave = true
+            self.place.dishes.remove(at: index)
         }
-
-        load()
-        Log.Info(_tag, "Complete load service.")
     }
 
-    public func reservation() -> Reservation {
-        return Reservation(cart: _cartContainer, saver: needSaveTrigger)
+    //Tools
+    public var placeId: Long {
+        return place.placeId
     }
-    public func get(for place: Long) -> Cart {
+    public var isEmpty: Bool {
+        return place.dishes.notAny({ $0.count > 0 })
+    }
+    public var hasDishes: Bool {
+        return place.dishes.any({ $0.count > 0 })
+    }
+    public var dishesCount: Int {
+        return place.dishes.count({ $0.count > 0 })
+    }
+    public var dishes: [AddedOrderDish] {
+        return place.dishes.where({$0.count > 0})
+    }
 
-        if let cart = _carts.find({ place == $0.placeID }) {
-            return cart
+    //Properties
+    public var takeaway: Bool {
+        get {
+            return place.takeaway
         }
-
-        let place = PlaceCartContainer(placeID: place)
-        _cartContainer.places.append(place)
-        let cart = Cart(place: place, cart: _cartContainer, saver: needSaveTrigger)
-        _carts.append(cart)
-
-        return cart
-    }
-    public func clear() {
-
-        _cartContainer.clear()
-
-        for cart in _carts {
-            cart.clear()
-        }
-        _carts.removeAll()
-
-        needSaveTrigger()
-    }
-
-    @objc private func checkNeedSave() {
-        if (needSave) {
+        set {
+            place.takeaway = newValue
             save()
         }
     }
-    private func save() {
-
-        loadQueue.async {
-            do {
-
-                let data = try JSONSerialization.data(withJSONObject: self._cartContainer.toJSON()!, options: [])
-                self.file.save(data: data)
-                self.needSave = false
-
-                Log.Debug(self._tag, "Save cart's data to storage.")
-            } catch {
-                Log.Error(self._tag, "Problem with save cart to storage.")
-                Log.Error(self._tag, "Error: \(error)")
-            }
-
+    public var comment: String {
+        get {
+            return place.comment
+        }
+        set {
+            place.comment = newValue
+            save()
         }
     }
-    private func load() {
 
-        loadQueue.sync {
+    //Methods
+    public func total(with menu: MenuSummary) -> Price {
 
-            do {
-                if (!self.file.isExist) {
-                    return
-                }
+        let result = Price.zero
+        for dish in dishes {
+            result += dish.total(with: menu)
+        }
 
-                let content = self.file.loadData()
-                let json = try JSONSerialization.jsonObject(with: content!, options: []) as! JSON
+        return result
+    }
 
-                self._cartContainer = CommonCartContainer(json: json)!
-                for place in self._cartContainer.places {
-                    self._carts.append(Cart(place: place, cart: self._cartContainer, saver: self.needSaveTrigger))
-                }
-                Log.Debug(self._tag, "Load cart's data from storage")
-            } catch {
-                Log.Warning(self._tag, "Problem with load cart from storage.")
-                Log.Warning(self._tag, "Error: \(error)")
-            }
+    public func add(dishId: Long, with addings: [Long], use variationId: Long? = nil) {
 
+        if addings.isEmpty,
+            let container = place.dishes.find({ $0.dishId == dishId &&
+                                                 $0.variationId == variationId &&
+                                                 $0.additions.isEmpty &&
+                                                 $0.subdishes.isEmpty }) {
+            increment(container)
+            return
+        }
+
+        let dish = AddedOrderDish(dishId: dishId, variationId: variationId, additions: addings)
+        place.dishes.append(dish)
+
+        save()
+        trigger({ $0.cart(self, change: dish) })
+    }
+    public func increment(_ dish: AddedOrderDish) {
+
+        dish.increment()
+
+        save()
+        trigger({ $0.cart(self, change: dish) })
+    }
+    public func decrement(_ dish: AddedOrderDish) {
+
+        dish.decrement()
+
+        //Change count
+        if (dish.count >= 1) {
+
+            save()
+            trigger({ $0.cart(self, change: dish) })
+            return
+        }
+
+        //Remove
+        if let index = place.dishes.index(where: { $0 === dish }) {
+            place.dishes.remove(at: index)
+        }
+        save()
+        trigger({ $0.cart(self, remove: dish) })
+    }
+
+    public func build(cardId: Long) -> AddedOrder {
+
+        let result = AddedOrder()
+
+        result.placeId = placeId
+        result.cardId = cardId
+        result.dishes = dishes
+        result.completeAt = buildCompleteAt()
+        result.comment = comment
+        result.takeaway = takeaway
+
+        return result
+    }
+    public override func clear() {
+        super.clear()
+
+        place.takeaway = false
+        place.comment = String.empty
+        place.dishes.removeAll()
+    }
+//
+//    public func find(_ dish: Dish) -> AddedOrderDish? {
+//        return find(dish.ID)
+//    }
+//    public func find(_ dishID: Long) -> AddedOrderDish? {
+//        return place.dishes.find({ dishID == $0.dishId })
+//    }
+}
+extension CartService: IEventsEmitter {
+    public typealias THandler = CartServiceDelegate
+
+    public func subscribe(guid: String, handler: CartService.THandler, tag: String) {
+        eventsAdapter.subscribe(guid: guid, handler: handler, tag: tag)
+    }
+    public func unsubscribe(guid: String) {
+        eventsAdapter.unsubscribe(guid: guid)
+    }
+
+    fileprivate func trigger(_ action: @escaping ((CartServiceDelegate) -> Void)) {
+        cartQueue.async {
+            self.eventsAdapter.invoke(action)
         }
     }
 }

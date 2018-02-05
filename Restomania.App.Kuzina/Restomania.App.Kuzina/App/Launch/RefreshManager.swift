@@ -15,7 +15,7 @@ public class RefreshManager {
 
     private let tag = String.tag(RefreshManager.self)
     private let authApi = ApiServices.Auth.main
-private let keys = ToolsServices.shared.keys
+    private let keys = ToolsServices.shared.keys
 
     private init() {}
 
@@ -33,13 +33,13 @@ private let keys = ToolsServices.shared.keys
 
                 if (keys != update) {
                     self.keys.set(keys: update, for: .user)
-                    Log.Info(self.tag, "Successful update keys for \(ApiRole.user)")
+                    Log.info(self.tag, "Successful update keys for \(ApiRole.user)")
                 }
 
             } else if (response.statusCode != .ConnectionError) {
 
                 self.keys.logout(for: .user)
-                Log.Warning(self.tag, "Remove old api keys.")
+                Log.warning(self.tag, "Remove old api keys.")
             }
         })
     }

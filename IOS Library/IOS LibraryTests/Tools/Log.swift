@@ -13,8 +13,8 @@ public class LogTests: XCTestCase {
     public override func setUp() {
         super.setUp()
 
-        Log.Messages.removeAll()
-        Log.IsDebug = true
+        Log.messages.removeAll()
+        Log.isDebug = true
     }
 
     public override func tearDown() {
@@ -25,32 +25,32 @@ public class LogTests: XCTestCase {
         let tag = "TAG"
         let message = "MESSAGE"
 
-        Log.Debug(tag, message)
-        CheckMessage(Log.Messages.last!, .debug, tag, message)
+        Log.debug(tag, message)
+        CheckMessage(Log.messages.last!, .debug, tag, message)
 
-        Log.Info(tag, message)
-        CheckMessage(Log.Messages.last!, .info, tag, message)
+        Log.info(tag, message)
+        CheckMessage(Log.messages.last!, .info, tag, message)
 
-        Log.Warning(tag, message)
-        CheckMessage(Log.Messages.last!, .warning, tag, message)
+        Log.warning(tag, message)
+        CheckMessage(Log.messages.last!, .warning, tag, message)
 
-        Log.Error(tag, message)
-        CheckMessage(Log.Messages.last!, .error, tag, message)
+        Log.error(tag, message)
+        CheckMessage(Log.messages.last!, .error, tag, message)
 
-        XCTAssertEqual(4, Log.Messages.count)
+        XCTAssertEqual(4, Log.messages.count)
     }
     public func testDebugLog() {
         let tag = "TAG"
         let message = "MESSAGE"
 
-        Log.IsDebug = true
-        Log.Debug(tag, message)
-        XCTAssertEqual(1, Log.Messages.count)
-        Log.Messages.removeAll()
+        Log.isDebug = true
+        Log.debug(tag, message)
+        XCTAssertEqual(1, Log.messages.count)
+        Log.messages.removeAll()
 
-        Log.IsDebug = false
-        Log.Debug(tag, message)
-        XCTAssertEqual(0, Log.Messages.count)
+        Log.isDebug = false
+        Log.debug(tag, message)
+        XCTAssertEqual(0, Log.messages.count)
     }
 
     private func CheckMessage(_ expected: LogMessage, _ type: LogMessageType, _ tag: String, _ message: String) {

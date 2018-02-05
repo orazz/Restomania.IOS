@@ -61,13 +61,13 @@ public class OnePlaceMainStatisticCell: UITableViewCell {
 
     //MARK: Actions
     @IBAction private func selectMales() {
-        Log.Debug(_tag, "Select males statistic.")
+        Log.debug(_tag, "Select males statistic.")
 
         let vc = OnePlaceClientsController.build(for: .male, in: _place!)
         _navigator.pushViewController(vc, animated: true)
     }
     @IBAction private func selectFemales() {
-        Log.Debug(_tag, "Select females statistic.")
+        Log.debug(_tag, "Select females statistic.")
 
         let vc = OnePlaceClientsController.build(for: .female, in: _place!)
         _navigator.pushViewController(vc, animated: true)

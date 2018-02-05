@@ -57,6 +57,24 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
         super.init()
     }
 
+    // ICopying
+    public init(source: BaseDish) {
+
+        self.menuId = source.menuId
+        self.orderNumber = source.orderNumber
+
+        self.categoryId = source.categoryId
+        self.name = source.name
+        self.description = source.description
+        self.type = source.type
+        self.price = source.price
+        self.image = source.image
+        self.size = source.size
+        self.sizeUnits = source.sizeUnits
+
+        super.init(source: source)
+    }
+
     // MARK: Glossy
     public required init(json: JSON) {
 

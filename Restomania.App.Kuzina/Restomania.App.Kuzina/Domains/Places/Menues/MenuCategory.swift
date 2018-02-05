@@ -10,7 +10,7 @@ import Foundation
 import IOSLibrary
 import Gloss
 
-public class MenuCategory: BaseDataType, IMenuDependent, ISortable {
+public class MenuCategory: BaseDataType, ICopying, IMenuDependent, ISortable {
 
     public struct Keys {
 
@@ -46,6 +46,18 @@ public class MenuCategory: BaseDataType, IMenuDependent, ISortable {
     }
     public var isBase: Bool {
         return nil == parentId
+    }
+    // ICopying
+    public required init(source: MenuCategory) {
+
+        self.menuId = source.menuId
+        self.orderNumber = source.orderNumber
+
+        self.parentId = source.parentId
+        self.name = source.name
+        self.isHidden = source.isHidden
+
+        super.init(source: source)
     }
 
     // MARK: Glossy

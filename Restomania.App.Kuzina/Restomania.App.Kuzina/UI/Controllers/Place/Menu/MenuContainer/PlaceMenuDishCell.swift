@@ -30,7 +30,7 @@ public class PlaceMenuDishCell: UITableViewCell {
     @IBOutlet weak var dishImage: ImageWrapper!
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishDescription: UILabel!
-    @IBOutlet weak var dishWeight: UILabel!
+    @IBOutlet weak var dishWeight: SizeLabel!
     @IBOutlet weak var dishPrice: PriceLabel!
 
     //Data
@@ -46,8 +46,24 @@ public class PlaceMenuDishCell: UITableViewCell {
         dishDescription.text = dish.description
         dishImage.setup(url: dish.image)
 
-        dishWeight.text = buildWeight(for: dish)
-        dishPrice.setup(amount: dish.price.double, currency: currency)
+        dishWeight.setup(size: dish.size, units: dish.sizeUnits)
+        switch (dish.type) {
+            case .simpleDish:
+                dishPrice.setup(price: dish.price, currency: currency)
+
+            case .variableDish:
+                guard let menu = delegate.takeMenu(),
+                        let min = menu.variations.filter({ dish.ID == $0.parentDishId })
+                                                  .min(by: { $0.price < $1.price }) else {
+                    dishPrice.clear()
+                    break
+                }
+
+                dishPrice.setup(price: min.price, currency: currency, useStartFrom: true)
+
+            default:
+                dishPrice.clear()
+        }
 
         if (String.isNullOrEmpty(dish.image)) {
             dishImage.setContraint(.width, to: 0)
@@ -55,26 +71,7 @@ public class PlaceMenuDishCell: UITableViewCell {
             dishImage.setContraint(.width, to: dishImage.getConstant(.height)!)
         }
     }
-    private func buildWeight(for dish: BaseDish) -> String {
 
-        if (0.0 == dish.size) {
-            return String.empty
-        }
-
-        if (dish.type == .simpleDish) {
-
-            let integer = Int(floor(dish.size))
-            let float = dish.size - Double(integer)
-
-            if (float < 0.0001) {
-                return "\(integer) \(dish.sizeUnits.shortName)"
-            } else {
-                return "\(dish.size) \(dish.sizeUnits.shortName)"
-            }
-        }
-
-        return String.empty
-    }
     private func setupStyles() {
 
         //Name
@@ -99,7 +96,7 @@ public class PlaceMenuDishCell: UITableViewCell {
         if let dish = _dish,
             let delegate = _delegate {
 
-            delegate.add(dish: dish.ID)
+            delegate.tryAdd(dish.ID)
         }
     }
 }

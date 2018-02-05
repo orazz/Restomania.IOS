@@ -21,14 +21,17 @@ public protocol PlaceMenuDelegate {
 
     func takeSummary() -> PlaceSummary?
     func takeMenu() -> MenuSummary?
-    func takeCart() -> Cart
+    func takeCart() -> CartService
 
-    func add(dish: Long)
+    func tryAdd(_ dishId: Long)
+    func add(_ dish: Dish, with addings: [Long], use variationId: Long?)
     func select(category: Long)
     func select(dish: Long)
     func scrollTo(offset: CGFloat)
 
+    func goBack()
     func goToCart()
+    func goToPlace()
 }
 public class PlaceMenuController: UIViewController {
 
@@ -50,7 +53,7 @@ public class PlaceMenuController: UIViewController {
     // MARK: Services
     private var menusService = CacheServices.menus
     private var placesService = CacheServices.places
-    private var cartService: Cart!
+    private var cartService: CartService!
     private var enterService: AuthService!
 
     // MARK: Tools
@@ -102,7 +105,7 @@ public class PlaceMenuController: UIViewController {
         loadMarkup()
         loadData()
 
-        Log.Info(_tag, "Load place #\(placeId!) menu page.")
+        Log.info(_tag, "Load place #\(placeId!) menu page.")
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -133,17 +136,8 @@ public class PlaceMenuController: UIViewController {
     }
 
     // MARK: Actions
-    @IBAction private func goBack() {
-        self.navigationController?.popViewController(animated: true)
-    }
     @IBAction private func goPlaceInfo() {
-
-//        guard let summary = summaryContainer.data else {
-//            return
-//        }
-
-//        let vc = PlaceInfoController(for: summary.ID)
-//        self.navigationController?.pushViewController(vc, animated: true)
+        goToPlace()
     }
 
     private func trigger(_ handler: Action<PlaceMenuCellsProtocol>) {
@@ -183,7 +177,7 @@ extension PlaceMenuController {
 
         var result = [PlaceMenuCellsProtocol]()
 
-        titleBlock = PlaceMenuTitleContainer.create(with: self.navigationController!)
+        titleBlock = PlaceMenuTitleContainer.create(with: self)
         result.append(titleBlock)
 
         menuBlock = PlaceMenuMenuContainer.create(with: self)
@@ -241,7 +235,7 @@ extension PlaceMenuController {
                 self.refreshControl.endRefreshing()
 
                 if (self.loadAdapter.problemWithLoad) {
-                    Log.Error(self._tag, "Problem with load data for page.")
+                    Log.error(self._tag, "Problem with load data for page.")
                     self.view.makeToast(Keys.AlertLoadErrorMessage.localized)
                 }
             }
@@ -263,23 +257,57 @@ extension PlaceMenuController: PlaceMenuDelegate {
     public func takeMenu() -> MenuSummary? {
         return menuContainer.data
     }
-    public func takeCart() -> Cart {
+    public func takeCart() -> CartService {
         return cartService
     }
 
-    public func add(dish: Long) {
-        Log.Debug(_tag, "Add dish #\(dish)")
+    public func tryAdd(_ dishId: Long) {
 
-        cartService.add(dishId: dish)
+        Log.debug(_tag, "Try add dish #\(dishId)")
+
+        guard let menu = takeMenu(),
+                let dish = menu.dishes.find({ $0.ID == dishId }) else {
+            return
+        }
+
+        let addings = menu.addings.filter({ $0.sourceDishId == dishId })
+        let variations = menu.variations.filter({ $0.parentDishId == dishId })
+
+        if (addings.isEmpty && variations.isEmpty) {
+            add(dish, with: [], use: nil)
+
+            self.presentedViewController?.dismiss(animated: true, completion: nil)
+            return
+        }
+
+        self.presentedViewController?.dismiss(animated: false, completion: nil)
+        let modal = AddDishToCartModal(for: dish, with: addings, and: variations, from: menu, with: self)
+        self.modal(modal, animated: true)
+    }
+    public func add(_ dish: Dish, with addings: [Long], use variationId: Long? = nil) {
+
+        Log.debug(_tag, "Add dish #\(dish.ID)")
+
+        cartService.add(dishId: dish.ID, with: addings, use: variationId)
+        self.toast(Keys.AlertAddDishToCart)
     }
     public func select(category: Long) {
-        Log.Debug(_tag, "Select category #\(category)")
-
+        Log.debug(_tag, "Select category #\(category)")
     }
-    public func select(dish: Long) {
-        Log.Debug(_tag, "Select dish #\(dish)")
+    public func select(dish dishId: Long) {
+        Log.debug(_tag, "Select dish #\(dishId)")
+
+        guard let menu = takeMenu(),
+            let dish = menu.dishes.find({ $0.ID == dishId }) else {
+                return
+        }
+
+        self.modal(DishModal(for: dish, from: menu, with: self), animated: true)
     }
 
+    @IBAction public func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
     public func goToCart() {
 
         if (enterService.isAuth(for: .user)) {
@@ -290,7 +318,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
                 if (success) {
                     self.openCartPage()
                 } else {
-                    Log.Warning(self._tag, "Not authorize user.")
+                    Log.warning(self._tag, "Not authorize user.")
 
                     self.toast(Keys.AlertAuthErrorMessage)
                 }
@@ -301,6 +329,15 @@ extension PlaceMenuController: PlaceMenuDelegate {
 
         let vc = PlaceCartController(for: placeId)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    public func goToPlace() {
+
+        guard let summary = takeSummary() else {
+            return
+        }
+
+//        let vc = PlaceInfoController(for: summary.ID)
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -423,18 +460,21 @@ extension PlaceMenuController: UITableViewDelegate {
 }
 
 // MARK: Cart
-extension PlaceMenuController: CartUpdateProtocol {
+extension PlaceMenuController: CartServiceDelegate {
 
-    public func cart(_ cart: Cart, changedDish: Long, newCount: Int) {
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
+
         DispatchQueue.main.async {
             self.bottomAction.show()
         }
     }
-    public func cart(_ cart: Cart, removedDish: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
+
+        if cart.hasDishes {
+            return
+        }
         DispatchQueue.main.async {
-            if (self.cartService.isEmpty) {
-                self.bottomAction.hide()
-            }
+            self.bottomAction.hide()
         }
     }
 }
@@ -446,8 +486,9 @@ extension PlaceMenuController {
         }
 
         //Alerts
-        case AlertLoadErrorMessage = "Alerts.LoadError.Message"
-        case AlertAuthErrorMessage = "Alerts.AuthError.Message"
+        case AlertLoadErrorMessage = "Alerts.LoadError"
+        case AlertAuthErrorMessage = "Alerts.AuthError"
+        case AlertAddDishToCart = "Alerts.AddDishToCart"
 
         //Categories
         case AllDishesCategory = "Categories.AllDishes"

@@ -9,30 +9,30 @@
 import Foundation
 
 public class Log {
-    public static var Messages: [LogMessage] = [LogMessage]()
-    public static var IsDebug: Bool = true
-    private static let _queue: DispatchQueue = DispatchQueue(label: "Log-Queue")
 
-    public static func Debug(_ tag: String, _ message: String) {
-        if (IsDebug) {
-            Show(.debug, tag, message)
+    public static var messages = [LogMessage]()
+    public static var isDebug = true
+    private static let queue = DispatchQueue(label: "Log-Queue")
+
+    public static func debug(_ tag: String, _ message: String) {
+        if (isDebug) {
+            show(.debug, tag, message)
         }
     }
-    public static func Info(_ tag: String, _ message: String) {
-        Show(.info, tag, message)
+    public static func info(_ tag: String, _ message: String) {
+        show(.info, tag, message)
     }
-    public static func Warning(_ tag: String, _ message: String) {
-        Show(.warning, tag, message)
+    public static func warning(_ tag: String, _ message: String) {
+        show(.warning, tag, message)
     }
-    public static func Error(_ tag: String, _ message: String) {
-        Show(.error, tag, message)
+    public static func error(_ tag: String, _ message: String) {
+        show(.error, tag, message)
     }
-
-    private static func Show(_ type: LogMessageType, _ tag: String, _ message: String) {
+    private static func show(_ type: LogMessageType, _ tag: String, _ message: String) {
         let logMessage = LogMessage(Date(), type, tag, message)
 
-        _queue.async {
-            Messages.append(logMessage)
+        queue.async {
+            messages.append(logMessage)
             print(logMessage.description, terminator: "\n")
         }
     }

@@ -27,3 +27,8 @@
 "Schedule.Friday" = "Friday";
 "Schedule.Saturday" = "Saturday";
 
+//Price label
+"PriceLabel.StartFrom" = "from %@";
+
+//Weight label
+"WeightLabel.StartFrom" = "from %@";

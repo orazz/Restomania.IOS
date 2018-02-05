@@ -57,7 +57,7 @@ public class ChatDialogsCacheService {
     //MARK: Methods
     public func all(with parameters: SelectParameters) -> RequestResult<[ChatDialog]> {
 
-        Log.Debug(tag, "Request all dialogs (\(parameters.skip):\(parameters.take))")
+        Log.debug(tag, "Request all dialogs (\(parameters.skip):\(parameters.take))")
         return RequestResult { handler in
 
             let request = self.api.all(with: parameters)
@@ -75,7 +75,7 @@ public class ChatDialogsCacheService {
     }
     public func find(_ dialogId: Long) -> RequestResult<ChatDialog> {
 
-        Log.Debug(tag, "Request dialog #\(dialogId).")
+        Log.debug(tag, "Request dialog #\(dialogId).")
         return RequestResult { handler in
 
             let request = self.api.find(dialogId)
@@ -94,7 +94,7 @@ public class ChatDialogsCacheService {
 
     public func partnersStatus(in dialogId: Long) -> RequestResult<[PartnerStatus]> {
 
-        Log.Debug(tag, "Refresh statuses of partners for dialog #\(dialogId).")
+        Log.debug(tag, "Refresh statuses of partners for dialog #\(dialogId).")
         return RequestResult { handler in
 
             let request = self.api.partnersStatus(in: dialogId)
@@ -115,7 +115,7 @@ public class ChatDialogsCacheService {
 
     public func add(for recipientId: Long) -> RequestResult<ChatDialog> {
 
-        Log.Debug(tag, "Create new dialog for user #\(recipientId).")
+        Log.debug(tag, "Create new dialog for user #\(recipientId).")
         return RequestResult { handler in
 
             let request = self.api.add(for: recipientId)
@@ -133,7 +133,7 @@ public class ChatDialogsCacheService {
     }
     public func edit(_ dialogId: Long, by updates: [PartialUpdateContainer]) -> RequestResult<Bool> {
 
-        Log.Debug(tag, "Update dialog #\(dialogId).")
+        Log.debug(tag, "Update dialog #\(dialogId).")
         return RequestResult { handler in
 
             let request = self.api.edit(dialogId, by: updates)

@@ -32,7 +32,7 @@ public class ChatConnection {
         self.eventsAdapter = EventsAdapter<ChatConnectionDelegate>(tag: tag)
 
 
-        let url = configs.get(forKey: ConfigsKey.serverUrl).value as! String
+        let url: String = configs.get(forKey: ConfigsKey.serverUrl)!
         self.connection = SignalR("\(url)/connections")
         self.chatHub = Hub("ChatHub")
 
@@ -71,16 +71,16 @@ public class ChatConnection {
 
         connection.disconnected = {
 
-            Log.Warning(self.tag, "Stream disconnected.")
+            Log.warning(self.tag, "Stream disconnected.")
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5)) {
                 self.connection.start()
             }
         }
         connection.connected = {
-            Log.Info(self.tag, "Stream connected.")
+            Log.info(self.tag, "Stream connected.")
         }
 
-        Log.Debug(self.tag, "Launch chat stream connection.")
+        Log.debug(self.tag, "Launch chat stream connection.")
         DispatchQueue.main.async {
             self.connection.start()
         }
@@ -103,7 +103,7 @@ public class ChatConnection {
 
     @objc func refreshSession() {
 
-        Log.Debug(tag, "Send ping pong message.")
+        Log.debug(tag, "Send ping pong message.")
 
         let token = Guid.new
         pingPingTokens.append(token)
@@ -139,18 +139,18 @@ extension ChatConnection {
 
             guard let container = self.tryParseArgs(args),
                 let model: PingPongContainer = container.model() else {
-                Log.Warning(self.tag, "Problem with parse data.")
+                Log.warning(self.tag, "Problem with parse data.")
                 return
             }
 
 
 
             if let index = self.pingPingTokens.index(where: { $0 == model.token }) {
-                Log.Debug(self.tag, "Server confirm connection.")
+                Log.debug(self.tag, "Server confirm connection.")
                 self.pingPingTokens.remove(at: index)
             }
             else if (model.needAnswer) {
-                Log.Debug(self.tag, "Resendr server ping pings.")
+                Log.debug(self.tag, "Resendr server ping pings.")
                 self.sendPingPong(with: model.token, needAnswer: false)
             }
         }
@@ -169,7 +169,7 @@ extension ChatConnection {
         chatHub.on("Messages") { args in
 
             guard let container = self.tryParseArgs(args) else {
-                Log.Warning(self.tag, "Problem with parse message data.")
+                Log.warning(self.tag, "Problem with parse message data.")
                 return
             }
 
@@ -179,13 +179,13 @@ extension ChatConnection {
                 let model: ChatMessage = container.model() {
 
                 self.eventsAdapter.invoke({ $0.chatConnection(self, new: model) })
-                Log.Info(self.tag, "Process new message.")
+                Log.info(self.tag, "Process new message.")
             }
             else if container.command == .newMessage,
                 let model: ChangeMessageStatus = container.model() {
 
                 self.eventsAdapter.invoke({ $0.chatConnection(self, message: model.id, changeStatusOn: model.deliveryStatus) })
-                Log.Info(self.tag, "Process change status of message.")
+                Log.info(self.tag, "Process change status of message.")
             }
         }
     }

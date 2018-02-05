@@ -33,7 +33,7 @@ public class Migrations {
 
             if (prevBuild < build) {
 
-                Log.Info(tag, "Apply migration for \(build) build.")
+                Log.info(tag, "Apply migration for \(build) build.")
                 migration()
             }
         }

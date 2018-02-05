@@ -47,7 +47,7 @@ public class PlaceCartTotalContainer: UITableViewCell {
             reload()
         }
     }
-    private var cart: Cart {
+    private var cart: CartService {
         return delegate.takeCart()
     }
     private var menu: MenuSummary? {
@@ -63,14 +63,13 @@ public class PlaceCartTotalContainer: UITableViewCell {
         contentAdapter = InterfaceTable(source: rowsTable, navigator: UINavigationController(), rows: cells)
     }
 }
-extension PlaceCartTotalContainer: CartUpdateProtocol {
-    public func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int) {
+extension PlaceCartTotalContainer: CartServiceDelegate {
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
         reload()
     }
-    public func cart(_ cart: Cart, removedDish dishId: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         reload()
     }
-
 }
 extension PlaceCartTotalContainer: PlaceCartContainerCell {
 

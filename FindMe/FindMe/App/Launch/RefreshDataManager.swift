@@ -93,13 +93,13 @@ public class RefreshDataManager {
 
             if (response.isSuccess) {
                 keys.set(for: .user, keys: response.data!)
-                Log.Debug(self._tag, "Refresh api keys.")
+                Log.debug(self._tag, "Refresh api keys.")
             }
             else if (response.isFail) {
 
                 if (response.statusCode == .Forbidden) {
                     keys.logout(.user)
-                    Log.Warning(self._tag, "Remove old api keys.")
+                    Log.warning(self._tag, "Remove old api keys.")
                 }
             }
         })

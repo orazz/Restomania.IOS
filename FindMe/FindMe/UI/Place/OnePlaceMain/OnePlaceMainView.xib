@@ -33,7 +33,7 @@
                     <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                     <items>
                         <navigationItem id="k7e-ey-IlS">
-                            <barButtonItem key="leftBarButtonItem" title="Назад" id="iaI-38-fh7">
+                            <barButtonItem key="leftBarButtonItem" title="Назад" style="plain" id="iaI-38-fh7">
                                 <connections>
                                     <action selector="goBack" destination="-1" id="cpL-qX-8A0"/>
                                 </connections>

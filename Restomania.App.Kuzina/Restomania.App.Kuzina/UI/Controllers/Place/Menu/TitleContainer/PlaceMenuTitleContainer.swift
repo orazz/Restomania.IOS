@@ -13,12 +13,12 @@ import IOSLibrary
 public class PlaceMenuTitleContainer: UITableViewCell {
 
     private static let nibName = "PlaceMenuTitleContainerView"
-    public static func create(with navigator: UINavigationController) -> PlaceMenuTitleContainer {
+    public static func create(with delegate: PlaceMenuDelegate) -> PlaceMenuTitleContainer {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.main)
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceMenuTitleContainer
 
-        instance._navigator = navigator
+        instance.delegate = delegate
         instance._summary = nil
         instance.setupMarkup()
 
@@ -33,7 +33,7 @@ public class PlaceMenuTitleContainer: UITableViewCell {
     @IBOutlet private var workingHoursLabel: UILabel!
 
     // MARK: Data & Services
-    private var _navigator: UINavigationController!
+    private var delegate: PlaceMenuDelegate!
     private var _summary: PlaceSummary? {
         didSet {
             if let summary = _summary {
@@ -80,16 +80,10 @@ public class PlaceMenuTitleContainer: UITableViewCell {
 // MARK: Actions
 extension PlaceMenuTitleContainer {
     @IBAction private func goBack() {
-        _navigator.popViewController(animated: true)
+        delegate.goBack()
     }
     @IBAction private func goPlaceInfo() {
-
-        guard let summary = _summary else {
-            return
-        }
-
-        let vc = PlaceInfoController(for: summary.ID)
-        _navigator.pushViewController(vc, animated: true)
+        delegate.goToPlace()
     }
 }
 

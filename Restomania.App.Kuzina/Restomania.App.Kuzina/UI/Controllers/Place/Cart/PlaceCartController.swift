@@ -22,7 +22,7 @@ public protocol PlaceCartDelegate {
     func takeCartContainer() -> PlaceCartController.CartContainer
     func takeSummary() -> PlaceSummary?
     func takeMenu() -> MenuSummary?
-    func takeCart() -> Cart
+    func takeCart() -> CartService
     func takeCards() -> [PaymentCard]?
     func takeController() -> UIViewController
 
@@ -52,7 +52,7 @@ public class PlaceCartController: UIViewController {
     private let _tag = String.tag(PlaceCartController.self)
     private var loadQueue: AsyncQueue!
     private var placeId: Long!
-    private var cart: Cart!
+    private var cart: CartService!
     private var cartContaier: CartContainer!
 
     // MARK: Loading
@@ -249,7 +249,7 @@ extension PlaceCartController {
 
                 if (self.loadAdapter.problemWithLoad) {
                     self.toast(Localization.Toasts.problemWithLoad)
-                    Log.Error(self._tag, "Problem with load data for page.")
+                    Log.error(self._tag, "Problem with load data for page.")
                 }
             }
         }
@@ -281,7 +281,7 @@ extension PlaceCartController: PlaceCartDelegate {
     public func takeMenu() -> MenuSummary? {
         return menuContainer.data
     }
-    public func takeCart() -> Cart {
+    public func takeCart() -> CartService {
         return cart
     }
     public func takeCards() -> [PaymentCard]? {
@@ -337,7 +337,7 @@ extension PlaceCartController: PlaceCartDelegate {
         }
     }
     public func tryAddOrder() {
-        Log.Info(_tag, "Try add order.")
+        Log.info(_tag, "Try add order.")
 
         guard let summary = takeSummary() else {
             return
@@ -362,7 +362,7 @@ extension PlaceCartController: PlaceCartDelegate {
                     let vc = PlaceCompleteOrderController.create(for: order)
                     self.navigationController?.pushViewController(vc, animated: true)
 
-                    Log.Debug(self._tag, "Add order #\(self.placeId)")
+                    Log.debug(self._tag, "Add order #\(self.placeId)")
                 }
 
                 if (response.isFail) {
@@ -372,7 +372,7 @@ extension PlaceCartController: PlaceCartDelegate {
                         self.toast(for: response)
                     }
 
-                    Log.Warning(self._tag, "Problem with add order.")
+                    Log.warning(self._tag, "Problem with add order.")
                 }
 
                 self.interfaceLoader.hide()
@@ -386,9 +386,9 @@ extension PlaceCartController: PlaceCartDelegate {
         public var cardId: Long?
         public var isValidDateTime: Bool = false
 
-        private let cart: Cart
+        private let cart: CartService
 
-        public init(for placeId: Long, with cart: Cart) {
+        public init(for placeId: Long, with cart: CartService) {
             self.placeId = placeId
             self.cart = cart
         }

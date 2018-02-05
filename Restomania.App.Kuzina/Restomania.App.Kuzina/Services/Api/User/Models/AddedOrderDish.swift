@@ -21,12 +21,12 @@ public class AddedOrderDish: ICopying, Glossy {
         public static let count = "Count"
     }
 
-    public var dishId: Long
-    public var variationId: Long?
-    public var additions: [Long]
-    public var subdishes: [Long]
+    public fileprivate(set) var dishId: Long
+    public fileprivate(set) var variationId: Long?
+    public fileprivate(set) var additions: [Long]
+    public fileprivate(set) var subdishes: [Long]
 
-    public var count: Int
+    public fileprivate(set) var count: Int
 
     public init() {
 
@@ -37,12 +37,16 @@ public class AddedOrderDish: ICopying, Glossy {
 
         self.count = 0
     }
-    public convenience init(dishId: Long, count: Int) {
-
-        self.init()
+    public init(dishId: Long,
+                variationId: Long? = nil,
+                additions: [Long] = [],
+                subdishes: [Long] = []) {
 
         self.dishId = dishId
-        self.count = count
+        self.variationId = variationId
+        self.additions = additions
+        self.subdishes = subdishes
+        self.count = 1
     }
 
     // MARK: ICopyng
@@ -52,7 +56,6 @@ public class AddedOrderDish: ICopying, Glossy {
         self.variationId = source.variationId
         self.additions = source.additions.map { $0 }
         self.subdishes = source.subdishes.map { $0 }
-
         self.count = source.count
     }
 
@@ -76,5 +79,44 @@ public class AddedOrderDish: ICopying, Glossy {
 
             Keys.count ~~> self.count
             ])
+    }
+}
+
+extension AddedOrderDish {
+    public func increment() {
+        count += 1
+    }
+    public func decrement() {
+        count -= 1
+    }
+    public func total(with menu: MenuSummary) -> Price {
+
+        guard let dish = menu.dishes.find(id: dishId) else {
+            return Price.zero
+        }
+
+        let result = Price.zero
+        switch dish.type {
+            case .simpleDish:
+                result += dish.price
+
+            case .variableDish:
+                if  let variationId = self.variationId,
+                     let variation = menu.variations.find(id: variationId) {
+                    result += variation.price
+                }
+
+            default:
+                break
+        }
+
+        for adding in additions {
+            if let dish = menu.dishes.find(id: adding),
+                dish.type == .simpleDish {
+                result += dish.price
+            }
+        }
+
+        return result * count
     }
 }

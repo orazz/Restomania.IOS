@@ -114,11 +114,11 @@ extension ManagerPaymentCardsController {
 extension ManagerPaymentCardsController: IPaymentCardsDelegate {
 
     @IBAction public func addCard() {
-        Log.Debug(_tag, "Try add new payment card.")
+        Log.debug(_tag, "Try add new payment card.")
 
         addCardUIService.addCard(for: self.mainCurrency, on: self) { success, _ in
 
-            Log.Debug(self._tag, "Adding new card is \(success)")
+            Log.debug(self._tag, "Adding new card is \(success)")
 
             DispatchQueue.main.async {
                 if (success) {
@@ -132,7 +132,7 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
     }
     public func removeCard(_ cardId: Long) {
 
-        Log.Debug(_tag, "Try remove #\(cardId) payment card.")
+        Log.debug(_tag, "Try remove #\(cardId) payment card.")
 
         guard var cards = cardsContainer.data,
               let index = cards.index(where: { cardId == $0.ID }) else {

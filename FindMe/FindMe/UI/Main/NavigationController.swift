@@ -17,7 +17,7 @@ public class NavigationController: UINavigationController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        Log.Info(_tag, "Main navigation controller load.")
+        Log.info(_tag, "Main navigation controller load.")
         navigationBar.isTranslucent = false
         navigationBar.backgroundColor = ThemeSettings.Colors.background
     }

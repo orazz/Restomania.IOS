@@ -50,7 +50,7 @@ public class ImagesController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        Log.Debug(_tag, "Open modal for \(_images.count) images.")
+        Log.debug(_tag, "Open modal for \(_images.count) images.")
     }
     private func setup() {
         if (_isSetup){
@@ -90,7 +90,7 @@ public class ImagesController: UIViewController {
         delegate?.close?(vc: self)
 
         self.dismiss(animated: false, completion: {
-            Log.Debug(self._tag, "Close modal.")
+            Log.debug(self._tag, "Close modal.")
         } )
     }
     private func updateTitle() {

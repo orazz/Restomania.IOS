@@ -36,7 +36,7 @@ public class ActionsCacheService {
     //MARK: Methods
     public func find(place: Long, with parameters: SelectParameters) -> Task<ApiResponse<[Action]>> {
 
-        Log.Debug(tag, "Request actions for place #\(place)")
+        Log.debug(tag, "Request actions for place #\(place)")
 
         return Task<ApiResponse<[Action]>>(action: { handler in
 
@@ -54,7 +54,7 @@ public class ActionsCacheService {
     }
     public func find(action: Long) -> Task<ApiResponse<Action>> {
 
-        Log.Debug(tag, "Request action #\(action)")
+        Log.debug(tag, "Request action #\(action)")
 
         return Task<ApiResponse<Action>>(action: { handler in
 

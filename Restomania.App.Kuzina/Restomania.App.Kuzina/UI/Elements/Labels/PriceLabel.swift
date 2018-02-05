@@ -11,12 +11,12 @@ import UIKit
 public class PriceLabel: UILabel {
 
     //UI
-    private var _font: UIFont!
     private var currencyFont: UIFont!
 
     //Data
     public private(set) var price = Price.zero
     public private(set) var currency = CurrencyType.All
+    public private(set) var useStartFrom: Bool = false
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,17 +34,18 @@ public class PriceLabel: UILabel {
         refresh()
     }
 
-    public func setup(price: Price, currency: CurrencyType) {
+    public func setup(price: Price, currency: CurrencyType, useStartFrom: Bool = false) {
         self.price = price
         self.currency = currency
+        self.useStartFrom = useStartFrom
 
         refresh()
     }
-    public func setup(amount: Double, currency: CurrencyType) {
-        self.price = Price(double: amount)
-        self.currency = currency
-
-        refresh()
+    public func setup(amount: Double, currency: CurrencyType, useStartFrom: Bool = false) {
+        setup(price: Price(double: amount), currency: currency, useStartFrom: useStartFrom)
+    }
+    public func clear() {
+        self.text = String.empty
     }
     private func refresh() {
 
@@ -54,12 +55,15 @@ public class PriceLabel: UILabel {
 
         let amount = format(price)
         let symbol = getSymbol(currency: currency)
-        let text = "\(amount) \(symbol)"
+        var text = "\(amount) \(symbol)"
+        if (useStartFrom) {
+            text = String(format: Localization.UIElements.PriceLabel.startFrom, text)
+        }
 
         let characters = Array(text)
         let attributed = NSMutableAttributedString(string: text)
         attributed.addAttribute(NSAttributedStringKey.font,
-                                value: currencyFont.withSize(floor(0.8 * font.pointSize)),
+                                value: currencyFont.withSize(floor(0.9 * font.pointSize)),
                                 range: NSRange(location: characters.count - 1, length: 1))
 
         self.attributedText = attributed

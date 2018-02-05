@@ -49,7 +49,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     private let _guid = Guid.new
     private var _delegate: PlaceMenuDelegate!
     private var _controller: UIViewController!
-    private var _cart: Cart!
+    private var _cart: CartService!
 
     private func apply(_ menu: MenuSummary) {
         _categoriesAdapter.update(by: menu)
@@ -57,6 +57,8 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     }
 
     private func setupMarkup() {
+
+        self.backgroundColor = ThemeSettings.Colors.background
 
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: BottomActions.height, right: 0.0)
         dishesTable.contentInset = contentInsets
@@ -89,12 +91,15 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
     public func takeMenu() -> MenuSummary? {
         return _delegate.takeMenu()
     }
-    public func takeCart() -> Cart {
+    public func takeCart() -> CartService {
         return _cart
     }
 
-    public func add(dish: Long) {
-        _delegate.add(dish: dish)
+    public func tryAdd(_ dishId: Long) {
+        _delegate.tryAdd(dishId)
+    }
+    public func add(_ dish: Dish, with addings: [Long], use variation: Long?) {
+        _delegate.add(dish, with: addings, use: variation)
     }
 
     public func select(category: Long) {
@@ -111,13 +116,21 @@ extension PlaceMenuMenuContainer: PlaceMenuDelegate {
             dishesTable.scrollToRow(at: path, at: .top, animated: true)
         }
     }
-    public func select(dish: Long) {}
+    public func select(dish: Long) {
+        _delegate.select(dish: dish)
+    }
     public func scrollTo(offset: CGFloat) {
         _delegate.scrollTo(offset: offset)
     }
 
+    public func goBack() {
+        _delegate.goBack()
+    }
     public func goToCart() {
         _delegate.goToCart()
+    }
+    public func goToPlace() {
+        _delegate.goToPlace()
     }
 }
 extension PlaceMenuMenuContainer: PlaceMenuCellsProtocol {
@@ -140,20 +153,16 @@ extension PlaceMenuMenuContainer: InterfaceTableCellProtocol {
         return self
     }
 }
-extension PlaceMenuMenuContainer: CartUpdateProtocol {
-    public func cart(_ cart: Cart, changedDish dishId: Long, newCount: Int) {
+extension PlaceMenuMenuContainer: CartServiceDelegate {
+    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
         updateButtonOffset()
     }
-    public func cart(_ cart: Cart, removedDish dishId: Long) {
+    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
         updateButtonOffset()
     }
     private func updateButtonOffset() {
 
-        var offset = BottomActions.height
-
-        if (_cart.isEmpty) {
-            offset = CGFloat(0)
-        }
+        let offset = _cart.isEmpty ? CGFloat(0) : BottomActions.height
 
         DispatchQueue.main.async {
             self.dishesTable.setParentContraint(.bottom, to: offset)

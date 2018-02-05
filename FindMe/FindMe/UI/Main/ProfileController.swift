@@ -169,7 +169,7 @@ public class ProfileController: UIViewController {
             DispatchQueue.main.async {
                 if (response.isFail) {
 
-                    Log.Warning(self._tag, "Problem with update profile. Try update 'User.\(update.property)' on '\(update.update)'")
+                    Log.warning(self._tag, "Problem with update profile. Try update 'User.\(update.property)' on '\(update.update)'")
 
                     self.present(ProblemAlerts.NotConnection, animated: true, completion: nil)
                 }
@@ -187,7 +187,7 @@ public class ProfileController: UIViewController {
                 DispatchQueue.main.async {
                     if (response.isFail) {
 
-                        Log.Warning(self._tag, "Problem with chage avatar.")
+                        Log.warning(self._tag, "Problem with chage avatar.")
 
                         self.present(ProblemAlerts.Error(for: response.statusCode), animated: true, completion: nil)
                     }

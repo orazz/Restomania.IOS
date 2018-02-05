@@ -11,5 +11,5 @@ import IOSLibrary
 
 public protocol IMenuDependent {
 
-    var menuId: Long { get set }
+    var menuId: Long { get }
 }

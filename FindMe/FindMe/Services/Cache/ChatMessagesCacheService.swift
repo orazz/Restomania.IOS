@@ -43,7 +43,7 @@ public class ChatMessagesCacheService {
     //MARK: Methods
     public func new(with parameters: SelectParameters) -> RequestResult<[ChatMessage]> {
 
-        Log.Debug(tag, "Request new messages.")
+        Log.debug(tag, "Request new messages.")
         return RequestResult<[ChatMessage]> { handler in
 
             let request = self.api.new(with: parameters)
@@ -60,7 +60,7 @@ public class ChatMessagesCacheService {
     }
     public func all(from dialogId: Long, with parameters: SelectParameters) -> RequestResult<[ChatMessage]> {
 
-        Log.Debug(tag, "Request messages for dialog #\(dialogId) (\(parameters.skip):\(parameters.take))")
+        Log.debug(tag, "Request messages for dialog #\(dialogId) (\(parameters.skip):\(parameters.take))")
         return RequestResult<[ChatMessage]> { handler in
 
             let request = self.api.all(from: dialogId, with: parameters)
@@ -79,7 +79,7 @@ public class ChatMessagesCacheService {
 
     public func send(_ message: SendingMessage) -> RequestResult<SourceChatMessage> {
 
-        Log.Debug(tag, "Sending new message to dialog #\(message.dialogId).")
+        Log.debug(tag, "Sending new message to dialog #\(message.dialogId).")
         return RequestResult<SourceChatMessage> { handler in
 
             let request = self.api.send(message)
@@ -98,7 +98,7 @@ public class ChatMessagesCacheService {
 
     public func markAsDelivery(_ messageId: Long) -> RequestResult<Bool> {
 
-        Log.Debug(tag, "Mark message #\(messageId) like delivered.")
+        Log.debug(tag, "Mark message #\(messageId) like delivered.")
         return RequestResult<Bool> { handler in
 
             let request = self.api.markAsDelivery(messageId)
@@ -118,7 +118,7 @@ public class ChatMessagesCacheService {
     }
     public func markAsRead(_ messageId: Long) -> RequestResult<Bool> {
 
-        Log.Debug(tag, "Mark message #\(messageId) like read.")
+        Log.debug(tag, "Mark message #\(messageId) like read.")
         return RequestResult<Bool> { handler in
 
             let request = self.api.markAsRead(messageId)

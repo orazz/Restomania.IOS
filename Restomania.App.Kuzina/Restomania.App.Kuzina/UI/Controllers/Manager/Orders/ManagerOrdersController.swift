@@ -105,7 +105,7 @@ public class ManagerOrdersController: UIViewController {
     }
     private func displayOrders(_ orders: [DishOrder]) {
 
-        let placeIds = AppSummary.shared.placeIDs!
+        let placeIds = AppSettings.shared.placeIDs!
         self.orders = orders.filter({ placeIds.contains($0.placeId) })
                             .sorted(by: self.sorter)
 

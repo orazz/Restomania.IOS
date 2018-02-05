@@ -28,7 +28,7 @@ public class KeysStorage {
         fileAdapter = FSOneFileClient(filename: "keys.json", inCache: false, tag: tag)
         data = load()
 
-        Log.Info(tag, "Load service.")
+        Log.info(tag, "Load service.")
     }
     private func load() -> [KeysContainer] {
 
@@ -53,7 +53,7 @@ public class KeysStorage {
         }
         catch {
 
-            Log.Error(tag, "Problem with save keys to file.")
+            Log.error(tag, "Problem with save keys to file.")
         }
     }
     
