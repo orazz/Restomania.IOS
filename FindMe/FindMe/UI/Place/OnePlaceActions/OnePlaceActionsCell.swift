@@ -27,7 +27,7 @@ public class OnePlaceActionsCell: UITableViewCell {
 
     //MARK: UI
     @IBOutlet private weak var NameLabel: UILabel!
-    @IBOutlet private weak var ImageView: ImageWrapper!
+    @IBOutlet private weak var ImageView: CachedImage!
 
     //MARK: Data & services
     private var action: Action! {

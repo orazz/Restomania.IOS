@@ -22,7 +22,7 @@ public class OnePlaceClientsCell: UITableViewCell {
     }
 
     //MARK: UI elements
-    @IBOutlet private weak var avatarImage: ImageWrapper!
+    @IBOutlet private weak var avatarImage: CachedImage!
     @IBOutlet private weak var nameLabel: FMSubheadLabel!
     @IBOutlet private weak var writeMessageImage: UIImageView!
 

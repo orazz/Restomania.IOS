@@ -11,16 +11,25 @@ import UIKit
 import IOSLibrary
 import AsyncTask
 
+public protocol ProfileControllerDelegate {
+    func changeName(on value: String)
+    func changeSex(on value: UserSex)
+    func changeAge(on value: String)
+    func changeStatus(on value: UserStatus)
+    func changeAvatar(on image: UIImage?)
+
+    func selectTowns()
+}
 public class ProfileController: UIViewController {
 
     //MARK: UI elements
-    @IBOutlet public weak var avatarImage: ImageWrapper!
+    @IBOutlet public weak var avatarImage: AvatarImage!
     @IBOutlet public weak var nameField: FMTextField!
     @IBOutlet public weak var sexSegment: FMSegmentedControl!
     @IBOutlet public weak var ageField: FMTextField!
     @IBOutlet public weak var acquaintancesStatusSwitch: FMSwitch!
-    private var _loader: InterfaceLoader!
-    private var _fieldsStorage: UIViewController.TextFieldsStorage?
+    private var loader: InterfaceLoader!
+    private var fieldsStorage: UIViewController.TextFieldsStorage?
     private var imagePicker: UIImagePickerController!
 
 
@@ -28,6 +37,7 @@ public class ProfileController: UIViewController {
     private let _tag = String.tag(ProfileController.self)
     private var account: User?
     private var loadQueue: AsyncQueue!
+    private var apiQueue: AsyncQueue!
     private let accountApiService = ApiServices.Users.main
 
 
@@ -37,6 +47,7 @@ public class ProfileController: UIViewController {
         super.viewDidLoad()
 
         loadQueue = AsyncQueue.createForControllerLoad(for: tag)
+        apiQueue = AsyncQueue.createForApi(for: tag)
 
         loadMarkup()
         startLoadData()
@@ -62,40 +73,35 @@ public class ProfileController: UIViewController {
     //MARK: Load data
     private func loadMarkup() {
 
-        avatarImage.clipsToBounds = true
-        avatarImage.layer.cornerRadius = avatarImage.frame.width / 2
-        avatarImage.layer.borderColor = ThemeSettings.Colors.main.cgColor
-        avatarImage.layer.borderWidth = 3.0
-
         nameField.title = "Ваше имя"
-        nameField.onCompleteChangeEvent = changeName(_:value:)
+        nameField.onCompleteChangeEvent =  { self.changeName(on: $1 ?? String.empty) }
 
         sexSegment.title = "Кто вы?"
         sexSegment.values = [
             ("Девушка", UserSex.female),
             ("Парень", UserSex.male)
         ]
-        sexSegment.onChangeEvent = changeSex(_:index:value:)
+        sexSegment.onChangeEvent = { self.changeSex(on: ($2 as? UserSex) ?? .unknown) }
 
         ageField.title = "Сколько вам лет"
         ageField.valueType = .number
-        ageField.onCompleteChangeEvent = changeAge(_:value:)
+        ageField.onCompleteChangeEvent = { self.changeAge(on: $1 ?? String.empty) }
 
         acquaintancesStatusSwitch.title = "Заинтересованы во встречах?"
-        acquaintancesStatusSwitch.onChangeEvent = changeStatus(_:value:)
+        acquaintancesStatusSwitch.onChangeEvent = { self.changeStatus(on:  $1 ? .readyForAcquaintance : .hidden) }
 
 
-        _loader = InterfaceLoader(for: self.view)
+        loader = InterfaceLoader(for: self.view)
 
         self.view.backgroundColor = ThemeSettings.Colors.background
-        self._fieldsStorage = self.closeKeyboardWhenTapOnRootView()
+        self.fieldsStorage = self.closeKeyboardWhenTapOnRootView()
 
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
     }
     private func startLoadData() {
 
-        _loader.show()
+        loader.show()
 
         loadData()
     }
@@ -118,7 +124,7 @@ public class ProfileController: UIViewController {
     }
     private func completeLoad(_ account: User?) {
 
-        self._loader.hide()
+        self.loader.hide()
 
         self.account = account
         if let account = account {
@@ -137,64 +143,7 @@ public class ProfileController: UIViewController {
 
 
     //MARK: Change profile
-    public func changeName(_ textField: UITextField, value: String?) {
 
-        if (String.isNullOrEmpty(value)) {
-            return
-        }
-
-        sendChanges(PartialUpdateContainer(property: Account.Keys.name, update: value!))
-    }
-    public func changeSex(_ segment: UISegmentedControl, index: Int, value: Any ) {
-
-        sendChanges(PartialUpdateContainer(property: User.Keys.sex, update: (value as! UserSex).rawValue))
-    }
-    public func changeAge(_ textField: UITextField, value: String?) {
-
-        if (String.isNullOrEmpty(value)) {
-            return
-        }
-
-        sendChanges(PartialUpdateContainer(property: User.Keys.age, update: value!))
-    }
-    public func changeStatus(_ switch: UISwitch, value: Bool) {
-
-        let newStatus = value ? UserStatus.readyForAcquaintance : UserStatus.hidden
-        sendChanges(PartialUpdateContainer(property: User.Keys.status, update: newStatus.rawValue))
-    }
-    private func sendChanges(_ update: PartialUpdateContainer) {
-
-        let request = accountApiService.change(updates: [update])
-        request.async(.background, completion: { response in
-            DispatchQueue.main.async {
-                if (response.isFail) {
-
-                    Log.warning(self._tag, "Problem with update profile. Try update 'User.\(update.property)' on '\(update.update)'")
-
-                    self.present(ProblemAlerts.NotConnection, animated: true, completion: nil)
-                }
-            }
-        })
-    }
-    private func changeAvatar(by image: UIImage) {
-
-
-        if  let normalized = image.normalizeOrientation(),
-            let dataUrl = DataUrl.convert(normalized) {
-
-            let request = accountApiService.changeAvatar(dataUrl: dataUrl)
-            request.async(.background, completion: { response in
-                DispatchQueue.main.async {
-                    if (response.isFail) {
-
-                        Log.warning(self._tag, "Problem with chage avatar.")
-
-                        self.present(ProblemAlerts.Error(for: response.statusCode), animated: true, completion: nil)
-                    }
-                }
-            })
-        }
-    }
 }
 //MARK: Actions
 extension ProfileController {
@@ -207,13 +156,73 @@ extension ProfileController {
         self.present(imagePicker, animated: true, completion: nil)
     }
 
-    @IBAction private func selectTowns() {
+}
+
+extension ProfileController: ProfileControllerDelegate {
+    public func changeName(on value: String) {
+
+        if (String.isNullOrEmpty(value)) {
+            return
+        }
+
+        change(Account.Keys.name, on: value)
+    }
+    public func changeSex(on value: UserSex) {
+        change(User.Keys.sex, on: value.rawValue)
+    }
+    public func changeAge(on value: String) {
+
+        if (String.isNullOrEmpty(value)) {
+            return
+        }
+
+        change(User.Keys.age, on: value)
+    }
+    public func changeStatus(on value: UserStatus) {
+        change(User.Keys.status, on: value.rawValue)
+    }
+    private func change(_ property: String, on value: Any) {
+
+        let update = PartialUpdateContainer(property: property, update: value)
+        let request = accountApiService.change(updates: [update])
+        request.async(apiQueue, completion: { response in
+            DispatchQueue.main.async {
+                if (response.isFail) {
+
+                    Log.warning(self._tag, "Problem with update profile. Try update 'User.\(update.property)' on '\(update.update)'")
+                    self.present(ProblemAlerts.NotConnection, animated: true, completion: nil)
+                }
+            }
+        })
+    }
+    public func changeAvatar(on image: UIImage?) {
+
+        var dataUrl = String.empty
+        if let normalized = image?.normalizeOrientation(),
+            let url = DataUrl.convert(normalized){
+            dataUrl = url
+        }
+
+        let request = accountApiService.changeAvatar(dataUrl: dataUrl)
+        request.async(apiQueue, completion: { response in
+            DispatchQueue.main.async {
+                if (response.isFail) {
+
+                    Log.warning(self._tag, "Problem with chage avatar.")
+                    self.present(ProblemAlerts.Error(for: response.statusCode), animated: true, completion: nil)
+                }
+            }
+        })
+    }
+
+    public func selectTowns() {
 
         let vc = SelectTownsUIService.initialController
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
+//Image picker
 extension ProfileController: UIImagePickerControllerDelegate {
 
 
@@ -226,13 +235,11 @@ extension ProfileController: UIImagePickerControllerDelegate {
             avatarImage.contentMode = .scaleAspectFill
             avatarImage.image = pickedImage
 
-            changeAvatar(by: pickedImage)
+            changeAvatar(on: pickedImage)
         }
 
         picker.dismiss(animated: true, completion: nil)
     }
 }
-extension ProfileController: UINavigationControllerDelegate {
-
-}
+extension ProfileController: UINavigationControllerDelegate {}
 

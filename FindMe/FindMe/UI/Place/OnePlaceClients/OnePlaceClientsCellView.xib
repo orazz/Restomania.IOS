@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jex-Iv-xMf" customClass="ImageWrapper" customModule="FindMe" customModuleProvider="target">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jex-Iv-xMf" customClass="CachedImage" customModule="FindMe" customModuleProvider="target">
                     <rect key="frame" x="5" y="5" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="bLh-fv-Uqb"/>
