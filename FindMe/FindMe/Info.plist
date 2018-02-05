@@ -30,7 +30,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.50-b</string>
 	<key>CFBundleVersion</key>
-	<string>525</string>
+	<string>527</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -68,6 +68,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>мы хотим, чтобы вы загружали и обменивались фотографиями.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Нам необходимо отслеживать ваше местоположения, для автоматического определения количества человек в заведении.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

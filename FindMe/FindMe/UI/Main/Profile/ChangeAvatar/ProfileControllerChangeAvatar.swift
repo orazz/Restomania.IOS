@@ -26,9 +26,13 @@ public class ProfileControllerChangeAvatar: UITableViewCell {
 
     //Data
     private var delegate: ProfileControllerDelegate!
+    private var avatar: String? = nil
 
     public override func awakeFromNib() {
         super.awakeFromNib()
+
+        avatarImage.contentMode = .scaleAspectFill
+        avatarImage.clear()
 
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -37,14 +41,34 @@ public class ProfileControllerChangeAvatar: UITableViewCell {
     //Actions
     public func update(avatar: String) {
         avatarImage.setup(url: avatar)
+
+        self.avatar = avatar
     }
     @IBAction private func tryChangeAvatar() {
 
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
+        let alert = UIAlertController(title: "Изменить аватар", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Сделать фото", style: .default, handler: { _ in self.openImagePicker(type: .camera) }))
+        alert.addAction(UIAlertAction(title: "Взять из галлереи", style: .default, handler: { _ in self.openImagePicker(type: .photoLibrary) }))
+
+        if (!String.isNullOrEmpty(avatar)) {
+            alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { _ in self.removeAvatar() }))
+        }
+
+        let vc = delegate.takeController()
+        vc.present(alert, animated: true, completion: nil)
+    }
+    private func openImagePicker(type: UIImagePickerControllerSourceType) {
+
+        imagePicker.sourceType = type
 
         let vc = delegate.takeController()
         vc.present(imagePicker, animated: true, completion: nil)
+    }
+    private func removeAvatar() {
+
+        avatar = nil
+        avatarImage.clear()
+        delegate.changeAvatar(on: nil)
     }
 }
 
@@ -58,9 +82,7 @@ extension ProfileControllerChangeAvatar: UIImagePickerControllerDelegate {
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            avatarImage.contentMode = .scaleAspectFill
             avatarImage.image = pickedImage
-
             delegate.changeAvatar(on: pickedImage)
         }
 
