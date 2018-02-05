@@ -1,5 +1,5 @@
 //
-//  Fuck.swift
+//  LogTests.swift
 //  IOS library
 //
 //  Created by Алексей on 10.07.17.

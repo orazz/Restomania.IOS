@@ -128,14 +128,19 @@ extension ChatDialogsController {
     public func start(with userId: Long) -> RequestResult<ChatDialog> {
         return dialogsService.add(for: userId)
     }
-    public func open(_ dialogId: Long) {
+    public func controllerFor(dialogId: Long) -> OneDialogController? {
 
         guard let dialog = dialogsService.cache.find(dialogId) else {
-            return
+            return nil
         }
 
-        let vc = OneDialogController(for: dialog)
-        self.navigationController?.pushViewController(vc, animated: true)
+        return OneDialogController(for: dialog)
+    }
+    public func open(_ dialogId: Long) {
+
+        if let vc = controllerFor(dialogId: dialogId) {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 extension ChatDialogsController: ChatDialogsCacheServiceDelegate {
@@ -160,7 +165,6 @@ extension ChatDialogsController: UITableViewDataSource {
         return 1
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Log.Error("Fuck", "\(dialogs.count)")
         return dialogs.count
     }
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

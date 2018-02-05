@@ -23,6 +23,7 @@ public class OnePlaceClientsController: UIViewController {
         vc.place = place
         vc.selectedSex = sex
         vc.apiClient = ApiServices.Places.clients
+        vc.currentUserId = ToolsServices.shared.keys.keys(for: .user)?.id ?? -1
 
         return vc
     }
@@ -36,6 +37,7 @@ public class OnePlaceClientsController: UIViewController {
     //MARK: Data & services
     private var _tag = String.tag(OnePlaceClientsController.self)
     private var apiClient: PlacesClientsApiService!
+    private var currentUserId: Long!
     private var place: DisplayPlaceInfo!
     private var selectedSex: UserSex! {
         didSet {
@@ -69,21 +71,13 @@ public class OnePlaceClientsController: UIViewController {
     private func setupMarkup() {
 
         loader = InterfaceLoader(for: self.view)
-
-        self.title = place.name
-
-        refreshControl = UIRefreshControl()
-        refreshControl.backgroundColor = ThemeSettings.Colors.background
-        refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
-        refreshControl.addTarget(self, action: #selector(needRefreshData), for: .valueChanged)
-        clientsTable.addSubview(refreshControl)
+        refreshControl = clientsTable.addRefreshControl(target: self, selector: #selector(needRefreshData))
+        OnePlaceClientsCell.register(in: clientsTable)
 
         updateSegmentControl()
         sexSegment.onChangeEvent = changeSex(_:index:value:)
 
         self.navigationController?.navigationBar.backgroundColor = ThemeSettings.Colors.background
-
-        OnePlaceClientsCell.register(in: clientsTable)
     }
     @objc private func needRefreshData() {
         loadData(refresh: true)
@@ -106,7 +100,6 @@ public class OnePlaceClientsController: UIViewController {
                     Log.warning(self._tag, "Problem with getting clients data.")
 
                     if (response.statusCode == .ConnectionError) {
-
                         self.show(ProblemAlerts.NotConnection, sender: nil)
                     }
                 }
@@ -121,10 +114,7 @@ public class OnePlaceClientsController: UIViewController {
         updateInterface()
 
         loader.hide()
-
-        if (refreshControl.isRefreshing) {
-            refreshControl.endRefreshing()
-        }
+        refreshControl.endRefreshing()
     }
 
     private func updateFiltered() {
@@ -167,20 +157,34 @@ extension OnePlaceClientsController: OnePlaceClientsControllerDelegate {
         updateInterface()
     }
     public func writeMessageTo(_ userId: Long) {
+
         Log.debug(tag, "Try write message to user #\(userId).")
 
         let tabs = TabBarController.instance!
         let chat = tabs.chat
-        if let dialog = chat.dialog(with: userId) {
+        if let dialog = chat.dialog(with: userId),
+            let dialogController = chat.controllerFor(dialogId: dialog.ID),
+            let navigator = self.navigationController {
             DispatchQueue.main.async {
-                self.navigationController?.popToViewController(tabs, animated: true)
-                tabs.focusOn(.chat)
 
-                chat.open(dialog.ID)
+                var history: [UIViewController] = []
+                for vc in navigator.viewControllers {
+                    history.append(vc)
+                    if (tabs === vc) {
+                        break
+                    }
+                }
+                history.append(dialogController)
+
+                navigator.setViewControllers(history, animated: true)
+                tabs.focusOn(.chat)
             }
+
             return
         }
 
+
+        Log.info(tag, "Create new dialogs with user #\(userId)")
         loader.show()
         let request = chat.start(with: userId)
         request.async(.background, completion: { response in
@@ -206,7 +210,8 @@ extension OnePlaceClientsController: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let cell = tableView.cellForRow(at: indexPath) as? OnePlaceClientsCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? OnePlaceClientsCell,
+            cell.allowMessages {
             writeMessageTo(cell.userId)
         }
     }
@@ -224,7 +229,9 @@ extension OnePlaceClientsController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: OnePlaceClientsCell.identifier, for: indexPath) as! OnePlaceClientsCell
-        cell.update(by: filtered[indexPath.row])
+
+        let update = filtered[indexPath.row]
+        cell.update(by: update, allowMessages: currentUserId != update.ID)
 
         return cell
     }

@@ -100,6 +100,9 @@
                         <constraint firstAttribute="bottom" secondItem="SGg-pi-VhI" secondAttribute="bottom" constant="2" id="Yps-Lg-PHy"/>
                         <constraint firstAttribute="trailing" secondItem="SGg-pi-VhI" secondAttribute="trailing" constant="5" id="yi8-D5-CnK"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="nAI-HD-X2Z" appends="YES" id="9Sk-lf-OlI"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hi-1t-5pv">
                     <rect key="frame" x="175.5" y="95" width="114.5" height="40"/>
@@ -203,9 +206,6 @@
                         <constraint firstItem="wQE-3q-tTh" firstAttribute="leading" secondItem="9k9-AT-JKy" secondAttribute="trailing" id="w0O-uy-Ahz"/>
                         <constraint firstItem="9k9-AT-JKy" firstAttribute="leading" secondItem="rNs-Yd-qcu" secondAttribute="leading" id="yTD-Ds-ine"/>
                     </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="KgW-Ni-reW" appends="YES" id="rU8-Um-xVH"/>
-                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jk0-M6-tf1">
                     <rect key="frame" x="117" y="6" width="86" height="40"/>
@@ -313,24 +313,12 @@
                 <outlet property="MenLabel" destination="ai2-WT-NAg" id="VpX-FO-hCB"/>
                 <outlet property="WomenAcquaintanceLabel" destination="HbA-tV-026" id="zhp-y3-My4"/>
                 <outlet property="WomenLabel" destination="lkP-by-BgL" id="6ao-jT-MyY"/>
-                <outletCollection property="gestureRecognizers" destination="rFO-2s-DZJ" appends="YES" id="Z0t-WF-Tsy"/>
-                <outletCollection property="gestureRecognizers" destination="nAI-HD-X2Z" appends="YES" id="vc1-qa-enL"/>
             </connections>
             <point key="canvasLocation" x="26" y="-217"/>
         </view>
-        <tapGestureRecognizer id="rFO-2s-DZJ" userLabel="selectFemales">
-            <connections>
-                <action selector="selectFemales" destination="iN0-l3-epB" id="PIB-ot-HNO"/>
-            </connections>
-        </tapGestureRecognizer>
         <tapGestureRecognizer id="nAI-HD-X2Z" userLabel="selectFemalesForAcquaintance">
             <connections>
                 <action selector="selectFemales" destination="iN0-l3-epB" id="NC5-41-u9h"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="KgW-Ni-reW" userLabel="selectMales">
-            <connections>
-                <action selector="selectMales" destination="iN0-l3-epB" id="jcF-Ev-SXs"/>
             </connections>
         </tapGestureRecognizer>
         <tapGestureRecognizer id="YIg-o7-lEo" userLabel="selectMalesForAcquaintance">

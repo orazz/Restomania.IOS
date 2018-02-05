@@ -34,7 +34,7 @@ public class OneDialogMessage: UITableViewCell {
         backgroundWrapperView.layer.borderWidth = 0.0
         backgroundWrapperView.layer.borderColor = UIColor.clear.cgColor
 
-        messageLabel.font = ThemeSettings.Fonts.default(size: .caption)
+        messageLabel.font = ThemeSettings.Fonts.default(size: .subhead)
         messageLabel.textColor = ThemeSettings.Colors.blackText
 
         timeLabel.font = ThemeSettings.Fonts.default(size: .substring)
