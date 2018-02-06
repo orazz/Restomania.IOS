@@ -105,12 +105,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AsyncTask/AsyncTask.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Smile/Smile.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftR/SwiftR.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AsyncTask/AsyncTask.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Smile/Smile.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftR/SwiftR.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

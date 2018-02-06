@@ -12,10 +12,10 @@ import UIKit
 public class OneDialogSendingMessage: OneDialogMessage {
 
     private static let nibName = "\(String.tag(OneDialogSendingMessage.self))View"
-    public static func create(for message: ChatMessage) -> OneDialogSendingMessage  {
+    public static func create(for message: DialogMessageModelProtocol) -> OneDialogSendingMessage  {
 
         let cell: OneDialogSendingMessage = UINib.instantiate(from: nibName, bundle: Bundle.main)
-        cell.update(by: message)
+        cell.apply(message)
 
         return cell
     }

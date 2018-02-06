@@ -89,6 +89,9 @@
 		1F3E6C022028FF3C0084C7C7 /* FMSwitchRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C012028FF3C0084C7C7 /* FMSwitchRowView.xib */; };
 		1F3E6C042028FFA00084C7C7 /* FMSegmentedControlRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C032028FFA00084C7C7 /* FMSegmentedControlRow.swift */; };
 		1F3E6C062028FFB30084C7C7 /* FMSegmentedControlRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C052028FFB30084C7C7 /* FMSegmentedControlRowView.xib */; };
+		1F3E6C0B2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C0A2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift */; };
+		1F3E6C0F2029CC6C0084C7C7 /* DialogMessageModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C0E2029CC6B0084C7C7 /* DialogMessageModelProtocol.swift */; };
+		1F3E6C112029D41E0084C7C7 /* SendingDialogMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C102029D41E0084C7C7 /* SendingDialogMessageModel.swift */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
 		1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */; };
 		1F451F9A1FCCA4070080C103 /* PlacesTownsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */; };
@@ -321,6 +324,9 @@
 		1F3E6C012028FF3C0084C7C7 /* FMSwitchRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSwitchRowView.xib; path = UI/Elements/Inputs/Switch/FMSwitchRowView.xib; sourceTree = "<group>"; };
 		1F3E6C032028FFA00084C7C7 /* FMSegmentedControlRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMSegmentedControlRow.swift; path = UI/Elements/Inputs/Segmented/FMSegmentedControlRow.swift; sourceTree = "<group>"; };
 		1F3E6C052028FFB30084C7C7 /* FMSegmentedControlRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSegmentedControlRowView.xib; path = UI/Elements/Inputs/Segmented/FMSegmentedControlRowView.xib; sourceTree = "<group>"; };
+		1F3E6C0A2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimpleDialogMessageModel.swift; path = UI/Chat/OneDialog/Models/SimpleDialogMessageModel.swift; sourceTree = "<group>"; };
+		1F3E6C0E2029CC6B0084C7C7 /* DialogMessageModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DialogMessageModelProtocol.swift; path = UI/Chat/OneDialog/Models/DialogMessageModelProtocol.swift; sourceTree = "<group>"; };
+		1F3E6C102029D41E0084C7C7 /* SendingDialogMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendingDialogMessageModel.swift; path = UI/Chat/OneDialog/Models/SendingDialogMessageModel.swift; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesTownsApiService.swift; path = Services/Api/Places/PlacesTownsApiService.swift; sourceTree = "<group>"; };
@@ -818,6 +824,35 @@
 			name = Space;
 			sourceTree = "<group>";
 		};
+		1F3E6C07202982B70084C7C7 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				1F64C4162019C11300F364CD /* OneDialogMessage.swift */,
+				1F64C412201954CC00F364CD /* OneDialogReceivedMessage.swift */,
+				1F64C414201958BD00F364CD /* OneDialogReceivedMessageView.xib */,
+				1F64C418201B0F7500F364CD /* OneDialogSendingMessage.swift */,
+				1F64C41A201B0FA200F364CD /* OneDialogSendingMessageView.xib */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		1F3E6C08202982C70084C7C7 /* InputControl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = InputControl;
+			sourceTree = "<group>";
+		};
+		1F3E6C092029C8800084C7C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E6C0E2029CC6B0084C7C7 /* DialogMessageModelProtocol.swift */,
+				1F3E6C0A2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift */,
+				1F3E6C102029D41E0084C7C7 /* SendingDialogMessageModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		1F451F9F1FCCACED0080C103 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -938,11 +973,9 @@
 			children = (
 				1F64C40E20192F1E00F364CD /* OneDialogController.swift */,
 				1F64C410201931C000F364CD /* OneDialogControllerView.xib */,
-				1F64C4162019C11300F364CD /* OneDialogMessage.swift */,
-				1F64C412201954CC00F364CD /* OneDialogReceivedMessage.swift */,
-				1F64C414201958BD00F364CD /* OneDialogReceivedMessageView.xib */,
-				1F64C418201B0F7500F364CD /* OneDialogSendingMessage.swift */,
-				1F64C41A201B0FA200F364CD /* OneDialogSendingMessageView.xib */,
+				1F3E6C092029C8800084C7C7 /* Models */,
+				1F3E6C08202982C70084C7C7 /* InputControl */,
+				1F3E6C07202982B70084C7C7 /* Messages */,
 			);
 			name = OneDialog;
 			sourceTree = "<group>";
@@ -1598,6 +1631,7 @@
 				"${BUILT_PRODUCTS_DIR}/AsyncTask/AsyncTask.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Smile/Smile.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftR/SwiftR.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1605,6 +1639,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncTask.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Smile.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftR.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1745,10 +1780,12 @@
 				1F64C4032018DD6400F364CD /* ChatDialogsController.swift in Sources */,
 				1FC5480B1F6FF8B4007CE6AB /* PlaceImage.swift in Sources */,
 				1FC5838C1F814CDB0045941A /* TabBarController.swift in Sources */,
+				1F3E6C112029D41E0084C7C7 /* SendingDialogMessageModel.swift in Sources */,
 				1F4AD08B1FD354FA00E6ADCC /* SelectTownsUIServiceController.swift in Sources */,
 				1FC583A01F827F360045941A /* SliderControlDelegate.swift in Sources */,
 				1F4DDE091F977613005CED0B /* UserStatus.swift in Sources */,
 				1F4AD0801FD3447900E6ADCC /* FirstLoginController.swift in Sources */,
+				1F3E6C0F2029CC6C0084C7C7 /* DialogMessageModelProtocol.swift in Sources */,
 				1F451F9E1FCCAAA60080C103 /* UsersTownsApiService.swift in Sources */,
 				1F24A91C1F8976B1000BD8F1 /* OnePlaceMainAddressCell.swift in Sources */,
 				1FEF08491FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift in Sources */,
@@ -1778,6 +1815,7 @@
 				1F2E37881FCC91D2003D24C1 /* CheckInService.swift in Sources */,
 				1FB0EE4A1FAF9C2E00F64F1F /* ImagesController.swift in Sources */,
 				1F4AD07C1FD343B100E6ADCC /* SelectTownsUIService.swift in Sources */,
+				1F3E6C0B2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

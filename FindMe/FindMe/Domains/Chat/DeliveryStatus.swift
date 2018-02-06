@@ -10,6 +10,7 @@ import Foundation
 
 public enum DeliveryStatus: Int
 {
+    case sending = 0
     case processing = 1
     case isDelivered = 2
     case isRead = 3
