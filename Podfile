@@ -5,7 +5,7 @@ platform :ios, '9.1'
 def shared_pods
     use_frameworks!
     pod 'Gloss', '~> 2.0'
-    pod 'AsyncTask'
+    pod 'MdsKit'
 end
 
 
@@ -29,15 +29,5 @@ target 'FindMe' do
 end
 target 'FindMe-Tests' do
     project './FindMe/FindMe.xcodeproj'
-    shared_pods
-end
-
-
-target 'IOSLibrary' do
-  project './IOS Library/IOS Library.xcodeproj'
-  shared_pods
-end
-target 'IOSLibraryTests' do
-    project './IOS Library/IOS Library.xcodeproj'
     shared_pods
 end

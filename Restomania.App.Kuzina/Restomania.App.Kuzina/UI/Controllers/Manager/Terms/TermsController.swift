@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import IOSLibrary
+import MdsKit
 import Toast_Swift
 
 public class TermsController: UIViewController {

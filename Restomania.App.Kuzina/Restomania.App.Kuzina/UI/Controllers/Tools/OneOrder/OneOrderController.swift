@@ -8,8 +8,7 @@
 
 import Foundation
 import UIKit
-import AsyncTask
-import IOSLibrary
+import MdsKit
 
 public protocol OneOrderInterfacePart: InterfaceTableCellProtocol {
     func update(by: DishOrder)

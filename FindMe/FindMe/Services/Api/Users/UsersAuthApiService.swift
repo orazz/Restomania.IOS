@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import AsyncTask
-import IOSLibrary
+import MdsKit
 
 public class UsersAuthApiService: BaseApiService {
 

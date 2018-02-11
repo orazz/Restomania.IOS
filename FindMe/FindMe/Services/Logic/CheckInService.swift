@@ -8,8 +8,7 @@
 
 import UIKit
 import Foundation
-import IOSLibrary
-import AsyncTask
+import MdsKit
 
 public class CheckInService: NSObject, PositionServiceDelegate {
 

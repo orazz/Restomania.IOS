@@ -7,8 +7,7 @@
 //
 
 import XCTest
-import IOSLibrary
-import AsyncTask
+import MdsKit
 @testable import RestomaniaAppKuzina
 
 public class OpenPlaceSummariesApiServiceTests: XCTestCase {

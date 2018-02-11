@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IOSLibrary
+import MdsKit
 import Gloss
 
 public class MenuCategory: BaseDataType, ICopying, IMenuDependent, ISortable {

@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import AsyncTask
-import IOSLibrary
+import MdsKit
 
 public class SearchController: UIViewController {
 

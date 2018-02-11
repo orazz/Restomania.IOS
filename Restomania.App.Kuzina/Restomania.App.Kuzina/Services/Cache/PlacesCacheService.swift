@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import AsyncTask
 import Gloss
-import IOSLibrary
+import MdsKit
 
 public class PlacesCacheService {
 

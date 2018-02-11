@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import IOSLibrary
+import MdsKit
 
 @objc public protocol ImagesControllerDelegate {
     @objc optional func move(vc: ImagesController, to slide: Int)

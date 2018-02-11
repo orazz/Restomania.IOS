@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import IOSLibrary
+import MdsKit
 import MapKit
 
 public class OnePlaceLocationController: UIViewController {

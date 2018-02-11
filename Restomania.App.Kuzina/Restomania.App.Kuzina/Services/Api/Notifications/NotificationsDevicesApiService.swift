@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import IOSLibrary
-import AsyncTask
+import MdsKit
 
 public class NotificationsDevicesApiService: BaseApiService {
 

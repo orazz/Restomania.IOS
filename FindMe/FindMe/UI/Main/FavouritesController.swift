@@ -8,8 +8,7 @@
 
 import Foundation
 import UIKit
-import IOSLibrary
-import AsyncTask
+import MdsKit
 
 public class FavouritesController: UIViewController {
 

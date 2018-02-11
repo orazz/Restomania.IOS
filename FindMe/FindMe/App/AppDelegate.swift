@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IOSLibrary
+import MdsKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

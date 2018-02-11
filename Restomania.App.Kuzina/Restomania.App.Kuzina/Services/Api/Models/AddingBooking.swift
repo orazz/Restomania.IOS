@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MdsKit
 
 public class AddingBooking {
 

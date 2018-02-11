@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IOSLibrary
+import MdsKit
 
 public class PaymentCardCell: UITableViewCell {
 

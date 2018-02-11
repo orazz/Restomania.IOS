@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IOSLibrary
+import MdsKit
 import Gloss
 
 public class Contacts: BaseDataType, IPlaceDependent, ICopying {

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import IOSLibrary
+import MdsKit
 @testable import RestomaniaAppKuzina
 
 class Restomania_App_KuzinaTests: XCTestCase {

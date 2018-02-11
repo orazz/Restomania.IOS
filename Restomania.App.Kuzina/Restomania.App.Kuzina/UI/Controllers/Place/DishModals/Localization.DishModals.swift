@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IOSLibrary
+import MdsKit
 
 extension Localization {
 

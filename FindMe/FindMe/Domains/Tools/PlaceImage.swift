@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IOSLibrary
+import MdsKit
 import Gloss
 
 public class PlaceImage: Attachment, IPlaceDependent, ICached, ISortable  {

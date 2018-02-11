@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import IOSLibrary
+import MdsKit
 import Gloss
 @testable import RestomaniaAppKuzina
 

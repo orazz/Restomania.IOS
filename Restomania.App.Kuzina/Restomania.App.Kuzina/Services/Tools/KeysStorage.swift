@@ -8,7 +8,7 @@
 
 import Foundation
 import Gloss
-import IOSLibrary
+import MdsKit
 
 public protocol KeysStorageDelegate {
     func set(keys: ApiKeys, for role: ApiRole)

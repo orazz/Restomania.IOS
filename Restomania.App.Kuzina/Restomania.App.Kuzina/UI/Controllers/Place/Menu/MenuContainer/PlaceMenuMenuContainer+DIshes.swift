@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import IOSLibrary
+import MdsKit
 
 extension PlaceMenuMenuContainer {
     internal class DishesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {

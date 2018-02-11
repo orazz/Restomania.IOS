@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import IOSLibrary
-import AsyncTask
+import MdsKit
 
 public protocol OrdersCacheServiceDelegate {
     func update(_: Long, update: DishOrder)

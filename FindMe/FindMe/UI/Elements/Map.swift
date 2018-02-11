@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 import UIKit
-import IOSLibrary
+import MdsKit
 
 public class FMMap: MKMapView {
 

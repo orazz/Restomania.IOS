@@ -8,7 +8,7 @@
 
 import Foundation
 import Gloss
-import IOSLibrary
+import MdsKit
 
 public class Version: BaseDataType {
     public var Number: String

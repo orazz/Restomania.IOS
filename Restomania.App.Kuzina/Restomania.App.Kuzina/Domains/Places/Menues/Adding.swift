@@ -8,7 +8,7 @@
 
 import Foundation
 import Gloss
-import IOSLibrary
+import MdsKit
 
 public class Adding: BaseDataType, ICached, IMenuDependent, ISortable {
 

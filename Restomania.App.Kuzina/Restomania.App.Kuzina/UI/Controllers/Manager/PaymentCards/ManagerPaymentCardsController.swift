@@ -8,8 +8,7 @@
 
 import Foundation
 import UIKit
-import IOSLibrary
-import AsyncTask
+import MdsKit
 import Toast_Swift
 
 public protocol IPaymentCardsDelegate {

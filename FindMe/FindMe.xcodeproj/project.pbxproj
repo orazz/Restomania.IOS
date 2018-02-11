@@ -136,7 +136,6 @@
 		1F6B89321FA8666F00B7A99A /* OnePlaceClientsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B89311FA8666F00B7A99A /* OnePlaceClientsView.xib */; };
 		1F6B89361FA86D7100B7A99A /* OnePlaceClientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B89351FA86D7100B7A99A /* OnePlaceClientsCell.swift */; };
 		1F6B89381FA86DD300B7A99A /* OnePlaceClientsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B89371FA86DD300B7A99A /* OnePlaceClientsCellView.xib */; };
-		1F9DDAAB1F8A7A7600F4618D /* IOSLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */; };
 		1FACBA781F965AA4004CEED0 /* OnePlaceMainLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */; };
 		1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */; };
@@ -217,7 +216,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1F9DDAAB1F8A7A7600F4618D /* IOSLibrary.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +353,6 @@
 		1F6B89311FA8666F00B7A99A /* OnePlaceClientsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceClientsView.xib; path = UI/Place/OnePlaceClients/OnePlaceClientsView.xib; sourceTree = "<group>"; };
 		1F6B89351FA86D7100B7A99A /* OnePlaceClientsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceClientsCell.swift; path = UI/Place/OnePlaceClients/OnePlaceClientsCell.swift; sourceTree = "<group>"; };
 		1F6B89371FA86DD300B7A99A /* OnePlaceClientsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceClientsCellView.xib; path = UI/Place/OnePlaceClients/OnePlaceClientsCellView.xib; sourceTree = "<group>"; };
-		1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IOSLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FACBA751F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnePlaceMainLocationCellOneLine.swift; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.swift; sourceTree = "<group>"; };
 		1FACBA771F965AA4004CEED0 /* OnePlaceMainLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePlaceMainLocationCell.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCell.xib; sourceTree = "<group>"; };
 		1FACBA791F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLocationCellOneLine.xib; path = UI/Place/OnePlaceMain/Locaiton/OnePlaceMainLocationCellOneLine.xib; sourceTree = "<group>"; };
@@ -1015,7 +1012,6 @@
 		1FC5A7071F138B5100ABE1A6 = {
 			isa = PBXGroup;
 			children = (
-				1F9DDAA91F8A7A7600F4618D /* IOSLibrary.framework */,
 				1FC5A7121F138B5100ABE1A6 /* FindMe */,
 				1FC5A7271F138B5100ABE1A6 /* FindMeTests */,
 				1FC5A7321F138B5100ABE1A6 /* FindMeUITests */,
@@ -1526,15 +1522,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-FindMe/Pods-FindMe-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AsyncTask/AsyncTask.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/MdsKit/MdsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftR/SwiftR.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncTask.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MdsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftR.framework",
 			);
@@ -1550,13 +1546,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-FindMe-Tests/Pods-FindMe-Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AsyncTask/AsyncTask.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/MdsKit/MdsKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncTask.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MdsKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

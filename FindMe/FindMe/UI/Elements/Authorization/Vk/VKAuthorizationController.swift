@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import WebKit
-import IOSLibrary
+import MdsKit
 
 public class VKAuthorizationController: UIViewController, WKNavigationDelegate {
     public typealias Handler = (Bool, VKAuthorizationResult?) -> Void

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IOSLibrary
+import MdsKit
 
 public class MenuSummariesApiService: BaseApiService {
 

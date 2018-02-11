@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import IOSLibrary
+import MdsKit
 @testable import RestomaniaAppKuzina
 
 public class ConfigsStorageTests: XCTestCase {

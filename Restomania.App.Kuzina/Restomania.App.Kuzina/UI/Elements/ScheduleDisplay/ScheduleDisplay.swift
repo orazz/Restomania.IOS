@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import IOSLibrary
+import MdsKit
 import Gloss
 
 public class ScheduleDisplay: UIView {

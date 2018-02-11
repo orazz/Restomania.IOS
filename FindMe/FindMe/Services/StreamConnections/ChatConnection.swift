@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftR
-import IOSLibrary
+import MdsKit
 
 public class ChatConnection {
 

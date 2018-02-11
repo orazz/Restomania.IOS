@@ -12,9 +12,6 @@
       location = "group:FindMe/FindMe.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:IOS Library/IOS Library.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

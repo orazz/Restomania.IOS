@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IOSLibrary
+import MdsKit
 import Toast_Swift
 import NotificationBannerSwift
 

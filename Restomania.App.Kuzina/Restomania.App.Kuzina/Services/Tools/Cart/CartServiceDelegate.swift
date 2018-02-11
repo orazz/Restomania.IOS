@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IOSLibrary
+import MdsKit
 
 public protocol CartServiceDelegate {
     func cart(_ cart: CartService, change dish: AddedOrderDish)

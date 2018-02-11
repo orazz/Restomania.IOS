@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import IOSLibrary
+import MdsKit
 
 public typealias AddPaymentCardCallback = ((Bool, Long) -> Void)
 public class AddCardUIService: NSObject, UIWebViewDelegate {
