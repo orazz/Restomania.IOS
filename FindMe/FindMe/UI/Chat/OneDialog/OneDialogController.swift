@@ -15,6 +15,8 @@ import Gloss
 
 public class OneDialogController: UIViewController {
 
+    private static var tempIdSource: Long = Long(-Date().timeIntervalSince1970)
+
     //UI
     @IBOutlet private weak var messagesTable: UITableView!
     @IBOutlet private weak var inputField: UITextField!
@@ -84,7 +86,7 @@ public class OneDialogController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.edgesForExtendedLayout = []
 
         subscribeOnOpenKeyboard()
@@ -243,8 +245,8 @@ extension OneDialogController {
         Log.info(_tag, "Send message with attachment.")
 
         let text = inputField.text ?? String.empty
-//        let message = SendingMessage(toDialog: dialog.ID, content: text, attachments: [dataUrl] )
-//        send(message, model: ChatMessageModel(source: message.createStub(), loadImages: [image]))
+        let message = SendingMessage(toDialog: dialog.ID, content: text, attachments: [dataUrl] )
+        send(message, model: SendingDialogMessageModel(for: message, id: tempUniqId))
     }
     @IBAction private func sendMessage() {
 
@@ -256,7 +258,14 @@ extension OneDialogController {
 
         Log.info(_tag, "Send simple message.")
         let message = SendingMessage(toDialog: dialog.ID, content: text)
-        send(message, model: SendingDialogMessageModel(for: message, id: Long(-messages.count - 1)))
+        send(message, model: SendingDialogMessageModel(for: message, id: tempUniqId))
+    }
+    private var tempUniqId: Long {
+
+        let id = OneDialogController.tempIdSource
+        OneDialogController.tempIdSource -= 1
+
+        return id
     }
     private func send(_ message: SendingMessage, model: DialogMessageModelProtocol) {
 

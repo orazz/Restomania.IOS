@@ -92,6 +92,12 @@
 		1F3E6C0B2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C0A2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift */; };
 		1F3E6C0F2029CC6C0084C7C7 /* DialogMessageModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C0E2029CC6B0084C7C7 /* DialogMessageModelProtocol.swift */; };
 		1F3E6C112029D41E0084C7C7 /* SendingDialogMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C102029D41E0084C7C7 /* SendingDialogMessageModel.swift */; };
+		1F3E6C13202A1A4B0084C7C7 /* OneDialogInputPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C12202A1A4B0084C7C7 /* OneDialogInputPanel.swift */; };
+		1F3E6C15202A1A650084C7C7 /* OneDialogInputPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C14202A1A650084C7C7 /* OneDialogInputPanel.xib */; };
+		1F3E6C17202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C16202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift */; };
+		1F3E6C19202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C18202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib */; };
+		1F3E6C1B202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C1A202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift */; };
+		1F3E6C1D202C58030084C7C7 /* OneDialogInputPanelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C1C202C58030084C7C7 /* OneDialogInputPanelDelegate.swift */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
 		1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */; };
 		1F451F9A1FCCA4070080C103 /* PlacesTownsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */; };
@@ -327,6 +333,12 @@
 		1F3E6C0A2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimpleDialogMessageModel.swift; path = UI/Chat/OneDialog/Models/SimpleDialogMessageModel.swift; sourceTree = "<group>"; };
 		1F3E6C0E2029CC6B0084C7C7 /* DialogMessageModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DialogMessageModelProtocol.swift; path = UI/Chat/OneDialog/Models/DialogMessageModelProtocol.swift; sourceTree = "<group>"; };
 		1F3E6C102029D41E0084C7C7 /* SendingDialogMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendingDialogMessageModel.swift; path = UI/Chat/OneDialog/Models/SendingDialogMessageModel.swift; sourceTree = "<group>"; };
+		1F3E6C12202A1A4B0084C7C7 /* OneDialogInputPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogInputPanel.swift; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanel.swift; sourceTree = "<group>"; };
+		1F3E6C14202A1A650084C7C7 /* OneDialogInputPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OneDialogInputPanel.xib; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanel.xib; sourceTree = "<group>"; };
+		1F3E6C16202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogInputPanelEmojiCell.swift; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanelEmojiCell.swift; sourceTree = "<group>"; };
+		1F3E6C18202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OneDialogInputPanelEmojiCell.xib; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanelEmojiCell.xib; sourceTree = "<group>"; };
+		1F3E6C1A202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogInputPanelEmojiPicker.swift; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanelEmojiPicker.swift; sourceTree = "<group>"; };
+		1F3E6C1C202C58030084C7C7 /* OneDialogInputPanelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogInputPanelDelegate.swift; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanelDelegate.swift; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesTownsApiService.swift; path = Services/Api/Places/PlacesTownsApiService.swift; sourceTree = "<group>"; };
@@ -836,11 +848,17 @@
 			name = Messages;
 			sourceTree = "<group>";
 		};
-		1F3E6C08202982C70084C7C7 /* InputControl */ = {
+		1F3E6C08202982C70084C7C7 /* InputPanel */ = {
 			isa = PBXGroup;
 			children = (
+				1F3E6C12202A1A4B0084C7C7 /* OneDialogInputPanel.swift */,
+				1F3E6C1C202C58030084C7C7 /* OneDialogInputPanelDelegate.swift */,
+				1F3E6C14202A1A650084C7C7 /* OneDialogInputPanel.xib */,
+				1F3E6C1A202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift */,
+				1F3E6C16202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift */,
+				1F3E6C18202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib */,
 			);
-			name = InputControl;
+			name = InputPanel;
 			sourceTree = "<group>";
 		};
 		1F3E6C092029C8800084C7C7 /* Models */ = {
@@ -974,7 +992,7 @@
 				1F64C40E20192F1E00F364CD /* OneDialogController.swift */,
 				1F64C410201931C000F364CD /* OneDialogControllerView.xib */,
 				1F3E6C092029C8800084C7C7 /* Models */,
-				1F3E6C08202982C70084C7C7 /* InputControl */,
+				1F3E6C08202982C70084C7C7 /* InputPanel */,
 				1F3E6C07202982B70084C7C7 /* Messages */,
 			);
 			name = OneDialog;
@@ -1481,6 +1499,7 @@
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
 				1F2D6D0E1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib in Resources */,
 				1F64C411201931C000F364CD /* OneDialogControllerView.xib in Resources */,
+				1F3E6C19202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib in Resources */,
 				1F1CA9131FCF018F0006BE0B /* OnePlaceActionsView.xib in Resources */,
 				1F3E6C022028FF3C0084C7C7 /* FMSwitchRowView.xib in Resources */,
 				1FB0EE4E1FAFA0F700F64F1F /* ImageControllerSlideView.xib in Resources */,
@@ -1510,6 +1529,7 @@
 				1F4E10FF1F970C4200EB8391 /* FMTextField.xib in Resources */,
 				1F3E6BF12028F3480084C7C7 /* ProfileControllerSelectTownsView.xib in Resources */,
 				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
+				1F3E6C15202A1A650084C7C7 /* OneDialogInputPanel.xib in Resources */,
 				1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */,
 				1F3E6BFE2028F9EC0084C7C7 /* FMTextFieldRowView.xib in Resources */,
 				1F4AD0771FD33EB400E6ADCC /* GreetingController.xib in Resources */,
@@ -1729,6 +1749,7 @@
 				1FB0EE501FAFA10E00F64F1F /* ImageControllerSlide.swift in Sources */,
 				1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */,
 				1FC548191F703FBB007CE6AB /* Contacts.swift in Sources */,
+				1F3E6C1D202C58030084C7C7 /* OneDialogInputPanelDelegate.swift in Sources */,
 				1F2E37871FCC91D2003D24C1 /* BackgroundPositionsServices.swift in Sources */,
 				1F4E10FD1F970BFA00EB8391 /* FMTextField.swift in Sources */,
 				1F64C413201954CC00F364CD /* OneDialogReceivedMessage.swift in Sources */,
@@ -1753,6 +1774,7 @@
 				1FE0B71C20186409008EAFD2 /* PingPongContainer.swift in Sources */,
 				1F64C40F20192F1E00F364CD /* OneDialogController.swift in Sources */,
 				1F6B89361FA86D7100B7A99A /* OnePlaceClientsCell.swift in Sources */,
+				1F3E6C17202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift in Sources */,
 				1FE0B70320176114008EAFD2 /* StreamServices.swift in Sources */,
 				1F3382F31F97D1C700E43596 /* FMSwitch.swift in Sources */,
 				1FE0B71020181CC0008EAFD2 /* ChatDialog.swift in Sources */,
@@ -1786,9 +1808,11 @@
 				1F4DDE091F977613005CED0B /* UserStatus.swift in Sources */,
 				1F4AD0801FD3447900E6ADCC /* FirstLoginController.swift in Sources */,
 				1F3E6C0F2029CC6C0084C7C7 /* DialogMessageModelProtocol.swift in Sources */,
+				1F3E6C1B202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift in Sources */,
 				1F451F9E1FCCAAA60080C103 /* UsersTownsApiService.swift in Sources */,
 				1F24A91C1F8976B1000BD8F1 /* OnePlaceMainAddressCell.swift in Sources */,
 				1FEF08491FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift in Sources */,
+				1F3E6C13202A1A4B0084C7C7 /* OneDialogInputPanel.swift in Sources */,
 				1F2E37721FCC9178003D24C1 /* PlacesMainApiService.swift in Sources */,
 				1F4DDE071F977573005CED0B /* UserSex.swift in Sources */,
 				1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */,
