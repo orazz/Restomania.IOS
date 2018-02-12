@@ -9,16 +9,19 @@
 import Foundation
 import MdsKit
 import CoreDomains
+import CoreApiServices
 
 public class MenuCacheService {
 
     public let tag = String.tag(MenuCacheService.self)
 
-    private let api = ApiServices.Menu.summaries
+    private let api: MenuSummariesApiService
     private let apiQueue: AsyncQueue
     private let adapter: CacheAdapter<MenuSummary>
 
-    public init() {
+    public init(_ api: MenuSummariesApiService) {
+
+        self.api = api
         apiQueue = AsyncQueue.createForApi(for: tag)
         adapter = CacheAdapter<MenuSummary>(tag: tag,
                                             filename: "menues-summaries.json",

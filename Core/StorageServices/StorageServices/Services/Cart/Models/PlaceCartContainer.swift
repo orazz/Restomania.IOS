@@ -10,6 +10,7 @@ import Foundation
 import MdsKit
 import Gloss
 import CoreDomains
+import CoreApiServices
 
 internal class PlaceCartContainer: Glossy {
 

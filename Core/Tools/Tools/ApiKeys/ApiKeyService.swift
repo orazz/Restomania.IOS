@@ -7,13 +7,23 @@
 //
 
 import Foundation
+import MdsKit
 
 public protocol ApiKeyService {
-
-    var isAuth: Bool { get }
+    
     var role: ApiRole { get }
     var keys: ApiKeys? { get }
 
     func update(by keys: ApiKeys)
     func logout()
+
+
+    func subscribe(guid: String, handler: ApiKeyServiceDelegate, tag: String)
+    func unsubscribe(guid: String)
+}
+extension ApiKeyService {
+
+    public var isAuth: Bool {
+        return nil != keys
+    }
 }

@@ -10,16 +10,19 @@ import Foundation
 import Gloss
 import MdsKit
 import CoreDomains
+import CoreApiServices
 
 public class PlacesCacheService {
 
     public let tag = String.tag(PlacesCacheService.self)
 
-    private let api = ApiServices.Places.summaries
+    private let api: PlaceSummariesApiService
     private let apiQueue: AsyncQueue
     private let adapter: CacheAdapter<PlaceSummary>
 
-    public init() {
+    public init(_ api: PlaceSummariesApiService) {
+
+        self.api = api
         apiQueue = AsyncQueue.createForApi(for: tag)
         adapter = CacheAdapter<PlaceSummary>(tag: tag,
                                              filename: "places-summaries.json",

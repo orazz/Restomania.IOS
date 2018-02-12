@@ -7,7 +7,9 @@ def shared_pods
     pod 'Gloss', '~> 2.0'
     pod 'MdsKit'
 end
-
+def injections
+    pod 'Swinject', '~> 2.1.0'
+end
 
 target 'Kuzina' do
     project './Apps/Kuzina/Kuzina.xcodeproj'
@@ -16,16 +18,22 @@ target 'Kuzina' do
     pod 'NotificationBannerSwift', '~> 1.5.4'
 end
 
+target 'CoreStorageServices' do
+    project './Core/StorageServices/StorageServices.xcodeproj'
+    shared_pods
+    injections
+end
+
 target 'CoreApiServices' do
     project './Core/ApiServices/ApiServices.xcodeproj'
     shared_pods
-    pod 'Swinject', '~> 2.1.0'
+    injections
 end
 
 target 'CoreToolsServices' do
     project './Core/ToolsServices/ToolsServices.xcodeproj'
     shared_pods
-    pod 'Swinject', '~> 2.1.0'
+    injections
 end
 
 target 'CoreDomains' do

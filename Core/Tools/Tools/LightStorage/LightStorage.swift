@@ -21,4 +21,6 @@ public protocol LightStorage {
     func get(_ key: LightStorageKey) -> Double?
     func get(_ key: LightStorageKey) -> Date?
     func get<TType: JSONDecodable>(_ key: LightStorageKey) -> TType?
+
+    func remove(_ key: LightStorageKey)
 }

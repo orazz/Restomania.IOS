@@ -8,7 +8,9 @@
 
 import Foundation
 import MdsKit
+import CoreTools
 import CoreDomains
+import CoreApiServices
 
 public protocol OrdersCacheServiceDelegate {
     func update(_: Long, update: DishOrder)
@@ -19,14 +21,16 @@ public class OrdersCacheService {
     private let tag = String.tag(OrdersCacheService.self)
     private let guid = Guid.new
 
-    private let api = ApiServices.Users.orders
+    private let api: UserOrdersApiService
     private let apiQueue: AsyncQueue
     private let eventsAdapter: EventsAdapter<OrdersCacheServiceDelegate>
     private let cacheAdapter: CacheAdapter<DishOrder>
+    private let keys: ApiKeyService
 
-    private let keys = ToolsServices.shared.keys
+    public init(_ api: UserOrdersApiService, _ keys: ApiKeyService) {
 
-    public init() {
+        self.api = api
+        self.keys = keys
         apiQueue = AsyncQueue.createForApi(for: tag)
         eventsAdapter = EventsAdapter<OrdersCacheServiceDelegate>(tag: tag)
         cacheAdapter = CacheAdapter(tag: tag,
@@ -132,13 +136,13 @@ extension OrdersCacheService : IEventsEmitter {
         eventsAdapter.unsubscribe(guid: guid)
     }
 }
-extension OrdersCacheService: KeysStorageDelegate {
-    public func set(keys: ApiKeys, for role: ApiRole) {
+extension OrdersCacheService: ApiKeyServiceDelegate {
+    public func apiKeyService(_ service: ApiKeyService, update keys: ApiKeys, for role: ApiRole) {
         if (role == .user) {
             clear()
         }
     }
-    public func remove(for role: ApiRole) {
+    public func apiKeyService(_ service: ApiKeyService, logout role: ApiRole) {
         if (role == .user) {
             clear()
         }

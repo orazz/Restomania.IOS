@@ -8,19 +8,24 @@
 
 import Foundation
 import MdsKit
+import CoreTools
 import CoreDomains
+import CoreApiServices
 
 public class CardsCacheService {
 
     private let tag = String.tag(CardsCacheService.self)
     private let guid = Guid.new
 
-    private let api = ApiServices.Users.cards
+    private let api: UserCardsApiService
     private let apiQueue: AsyncQueue
     private let adapter: CacheAdapter<PaymentCard>
-    private let keys = ToolsServices.shared.keys
+    private let keys: ApiKeyService
 
-    public init() {
+    public init(_ api: UserCardsApiService, _ keys: ApiKeyService) {
+
+        self.api = api
+        self.keys = keys
         apiQueue = AsyncQueue.createForApi(for: tag)
         adapter = CacheAdapter(tag: tag,
                                filename: "payment-cards.json",
@@ -83,14 +88,14 @@ public class CardsCacheService {
     }
 }
 
-extension CardsCacheService: KeysStorageDelegate {
-    public func set(keys: ApiKeys, for role: ApiRole) {
+extension CardsCacheService: ApiKeyServiceDelegate {
+    public func apiKeyService(update keys: ApiKeys, for role: ApiRole) {
 
         if (role == .user) {
             adapter.clear()
         }
     }
-    public func remove(for role: ApiRole) {
+    public func apiKeyService(logout role: ApiRole) {
 
         if (role == .user) {
             adapter.clear()

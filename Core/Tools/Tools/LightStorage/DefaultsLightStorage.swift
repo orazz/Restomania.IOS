@@ -71,4 +71,8 @@ open class DefaultsLightStorage: LightStorage {
     public func get<TType>(_ key: LightStorageKey) -> TType? where TType : JSONDecodable {
         return storage.get(TType.self, key: key).unwrapped
     }
+
+    public func remove(_ key: LightStorageKey) {
+        storage.remove(key)
+    }
 }

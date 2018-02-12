@@ -9,6 +9,7 @@
 import Foundation
 import MdsKit
 import CoreDomains
+import CoreApiServices
 
 public class CartService: ReservationService {
 
