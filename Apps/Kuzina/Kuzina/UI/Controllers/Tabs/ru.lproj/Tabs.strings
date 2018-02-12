@@ -1,0 +1,33 @@
+
+/* Class = "UIButton"; normalTitle = "Платежные карты"; ObjectID = "BHs-Ww-9na"; */
+"BHs-Ww-9na.normalTitle" = "Платежные карты";
+
+/* Class = "UIButton"; normalTitle = "Заказы"; ObjectID = "HXn-eB-bc6"; */
+"HXn-eB-bc6.normalTitle" = "Заказы";
+
+/* Class = "UIButton"; normalTitle = "Выйти"; ObjectID = "LIJ-RG-sxZ"; */
+"LIJ-RG-sxZ.normalTitle" = "Выйти";
+
+/* Class = "UIButton"; normalTitle = "Уведомления"; ObjectID = "MXb-rF-Khr"; */
+"MXb-rF-Khr.normalTitle" = "Уведомления";
+
+/* Class = "UIButton"; normalTitle = "Изменить пароль"; ObjectID = "j1p-ka-1eM"; */
+"j1p-ka-1eM.normalTitle" = "Изменить пароль";
+
+/* Class = "UIButton"; normalTitle = "Профиль"; ObjectID = "k7x-qw-HAV"; */
+"k7x-qw-HAV.normalTitle" = "Профиль";
+
+/* Class = "UISearchBar"; placeholder = "Искать"; ObjectID = "usP-9a-Hrq"; */
+"usP-9a-Hrq.placeholder" = "Искать";
+
+/* Class = "UISearchBar"; usP-9a-Hrq.scopeButtonTitles[0] = "Title"; ObjectID = "usP-9a-Hrq"; */
+"usP-9a-Hrq.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; usP-9a-Hrq.scopeButtonTitles[1] = "Title"; ObjectID = "usP-9a-Hrq"; */
+"usP-9a-Hrq.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Пользовательское соглашение"; ObjectID = "v0w-Dd-wXa"; */
+"v0w-Dd-wXa.normalTitle" = "Пользовательское соглашение";
+
+/* Class = "UIViewController"; title = "Search"; ObjectID = "xB3-ji-Ctu"; */
+"xB3-ji-Ctu.title" = "Поиск";

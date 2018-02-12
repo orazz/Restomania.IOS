@@ -1,0 +1,18 @@
+/* 
+  Localization.Page.PlaceMenu.strings
+  Restomania.App.Kuzina
+
+  Created by Алексей on 21.12.17.
+  Copyright © 2017 Medved-Studio. All rights reserved.
+*/
+
+
+"Title" = "Меню заведения";
+
+"Alerts.LoadError" = "Проблема с загрузкой данных. Проверьте ваше подклюение к интернету.";
+"Alerts.AuthError" = "Для заказа через приложение необходима авторизация.";
+"Alerts.AddDishToCart" = "Блюдо добавлено в заказ.";
+
+"Categories.AllDishes" = "Все";
+
+"Buttons.ToCart" = "В корзину";

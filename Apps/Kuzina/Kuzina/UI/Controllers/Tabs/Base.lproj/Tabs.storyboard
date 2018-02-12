@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kws-xe-E2y">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="ZDD-2p-ome">
+            <objects>
+                <viewController title="Search" id="xB3-ji-Ctu" customClass="SearchController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sE1-mN-ezO"/>
+                        <viewControllerLayoutGuide type="bottom" id="XE8-Yg-Dh7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zS3-rJ-5eO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Искать" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usP-9a-Hrq">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K53-jc-DwB">
+                                <rect key="frame" x="0.0" y="76" width="375" height="542"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="K53-jc-DwB" secondAttribute="trailing" id="57y-2f-XjF"/>
+                            <constraint firstItem="K53-jc-DwB" firstAttribute="top" secondItem="usP-9a-Hrq" secondAttribute="bottom" id="8Ux-RR-Pi1"/>
+                            <constraint firstItem="XE8-Yg-Dh7" firstAttribute="top" secondItem="K53-jc-DwB" secondAttribute="bottom" id="JKb-1t-62j"/>
+                            <constraint firstItem="K53-jc-DwB" firstAttribute="leading" secondItem="zS3-rJ-5eO" secondAttribute="leading" id="Poc-a9-PiA"/>
+                            <constraint firstAttribute="trailing" secondItem="usP-9a-Hrq" secondAttribute="trailing" id="bHL-49-gJc"/>
+                            <constraint firstItem="XE8-Yg-Dh7" firstAttribute="top" secondItem="K53-jc-DwB" secondAttribute="bottom" id="chE-R4-HOa"/>
+                            <constraint firstItem="usP-9a-Hrq" firstAttribute="top" secondItem="sE1-mN-ezO" secondAttribute="bottom" id="fhl-Fg-Oln"/>
+                            <constraint firstItem="usP-9a-Hrq" firstAttribute="leading" secondItem="zS3-rJ-5eO" secondAttribute="leading" id="rjf-dB-8GW"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabs_search" selectedImage="tabs_search_selected" id="5Pr-dM-r8C"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="placesTable" destination="K53-jc-DwB" id="rlf-sn-A2r"/>
+                        <outlet property="searchBar" destination="usP-9a-Hrq" id="dRw-Xw-UAf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SX0-qj-1LF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-276" y="1025.9370314842579"/>
+        </scene>
+        <!--Manager Controller-->
+        <scene sceneID="sjp-Uy-0Pp">
+            <objects>
+                <viewController id="6zb-zD-LkU" customClass="ManagerController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oTb-8T-Fv3"/>
+                        <viewControllerLayoutGuide type="bottom" id="2ZQ-3c-QG2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uni-J0-zG3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7x-qw-HAV" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="32" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="tTR-wX-iQU"/>
+                                    <constraint firstAttribute="height" constant="50" id="vLS-oM-Ipv"/>
+                                </constraints>
+                                <state key="normal" title="Profile"/>
+                                <connections>
+                                    <action selector="goToEditProfile" destination="6zb-zD-LkU" eventType="touchUpInside" id="PM8-nx-kTk"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-rF-Khr" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="94" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1Mj-hJ-BiN"/>
+                                    <constraint firstAttribute="height" constant="50" id="VJj-z2-wOu"/>
+                                </constraints>
+                                <state key="normal" title="Notifications"/>
+                                <connections>
+                                    <action selector="goToEditNotificationPreferences" destination="6zb-zD-LkU" eventType="touchUpInside" id="KPh-vm-NiF"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-ka-1eM" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="156" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="E4d-q3-5Xg"/>
+                                    <constraint firstAttribute="height" constant="50" id="TwG-3N-I3S"/>
+                                </constraints>
+                                <state key="normal" title="Change password"/>
+                                <connections>
+                                    <action selector="goToChangePassword" destination="6zb-zD-LkU" eventType="touchUpInside" id="gkV-ef-Udn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHs-Ww-9na" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="218" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="NaV-UL-BX9"/>
+                                    <constraint firstAttribute="height" constant="50" id="jfU-pC-t7f"/>
+                                </constraints>
+                                <state key="normal" title="Payment cards"/>
+                                <connections>
+                                    <action selector="goToPaymentCards" destination="6zb-zD-LkU" eventType="touchUpInside" id="4e8-rr-Ms4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXn-eB-bc6" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="298" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EtH-ey-qAE"/>
+                                    <constraint firstAttribute="width" constant="300" id="pJi-ut-WmU"/>
+                                </constraints>
+                                <state key="normal" title="Orders"/>
+                                <connections>
+                                    <action selector="goToOrders" destination="6zb-zD-LkU" eventType="touchUpInside" id="7nP-zW-e7K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0w-Dd-wXa" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="378" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="WNY-TB-a7D"/>
+                                    <constraint firstAttribute="height" constant="50" id="hD8-x8-Neg"/>
+                                </constraints>
+                                <state key="normal" title="Terms"/>
+                                <connections>
+                                    <action selector="goToTerms" destination="6zb-zD-LkU" eventType="touchUpInside" id="kge-nt-MAm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIJ-RG-sxZ" customClass="BlackButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="458" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UX5-xC-4AI"/>
+                                    <constraint firstAttribute="width" constant="300" id="YX2-gI-UAm"/>
+                                </constraints>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="Logout" destination="6zb-zD-LkU" eventType="touchUpInside" id="Eru-m4-sH1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BHs-Ww-9na" firstAttribute="top" secondItem="j1p-ka-1eM" secondAttribute="bottom" constant="12" id="1Wy-Ea-MS9"/>
+                            <constraint firstItem="LIJ-RG-sxZ" firstAttribute="top" secondItem="v0w-Dd-wXa" secondAttribute="bottom" constant="30" id="7yD-VU-KdZ"/>
+                            <constraint firstItem="v0w-Dd-wXa" firstAttribute="top" secondItem="HXn-eB-bc6" secondAttribute="bottom" constant="30" id="Fq4-1Z-Nwi"/>
+                            <constraint firstItem="BHs-Ww-9na" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="N2C-aY-kY5"/>
+                            <constraint firstItem="LIJ-RG-sxZ" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="UbG-xs-Cfd"/>
+                            <constraint firstItem="k7x-qw-HAV" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="VQ2-8q-spI"/>
+                            <constraint firstItem="v0w-Dd-wXa" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="VR5-1B-F8q"/>
+                            <constraint firstItem="k7x-qw-HAV" firstAttribute="top" secondItem="oTb-8T-Fv3" secondAttribute="bottom" constant="12" id="b6a-YD-8By"/>
+                            <constraint firstItem="MXb-rF-Khr" firstAttribute="top" secondItem="k7x-qw-HAV" secondAttribute="bottom" constant="12" id="bxb-LI-e9G"/>
+                            <constraint firstItem="j1p-ka-1eM" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="fro-ec-zmh"/>
+                            <constraint firstItem="HXn-eB-bc6" firstAttribute="top" secondItem="BHs-Ww-9na" secondAttribute="bottom" constant="30" id="hPO-Ju-tDq"/>
+                            <constraint firstItem="MXb-rF-Khr" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="k6l-Hn-PZQ"/>
+                            <constraint firstItem="j1p-ka-1eM" firstAttribute="top" secondItem="MXb-rF-Khr" secondAttribute="bottom" constant="12" id="odr-lD-aw6"/>
+                            <constraint firstItem="HXn-eB-bc6" firstAttribute="centerX" secondItem="uni-J0-zG3" secondAttribute="centerX" id="yUT-ca-Ptp"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="tabs_manager" selectedImage="tabs_manager_selected" id="569-TW-49m"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="LogoutButton" destination="LIJ-RG-sxZ" id="4Xy-kZ-oYX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5KH-dR-zY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317.5999999999999" y="1025.9370314842579"/>
+        </scene>
+        <!--Tabs Controller-->
+        <scene sceneID="ENK-du-PfL">
+            <objects>
+                <tabBarController id="Zd2-NH-uD3" customClass="TabsController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mEb-c3-5Fo"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="fill" id="sh7-EZ-KrA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <outlet property="tabbar" destination="sh7-EZ-KrA" id="T4E-gx-wwm"/>
+                        <segue destination="xB3-ji-Ctu" kind="relationship" relationship="viewControllers" id="BkW-wp-h2m"/>
+                        <segue destination="6zb-zD-LkU" kind="relationship" relationship="viewControllers" id="NJo-UJ-u8v"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="khu-Gc-iDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="478" y="245"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5XN-0B-hed">
+            <objects>
+                <navigationController id="kws-xe-E2y" customClass="NavigationController" customModule="RestomaniaAppKuzina" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" backIndicatorImage="tabs_search" id="f2X-cd-Z9j">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Zd2-NH-uD3" kind="relationship" relationship="rootViewController" id="0a7-lT-BCD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bvs-bp-DvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="478" y="-563"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabs_manager" width="25" height="25"/>
+        <image name="tabs_manager_selected" width="25" height="25"/>
+        <image name="tabs_search" width="25" height="25"/>
+        <image name="tabs_search_selected" width="25" height="25"/>
+    </resources>
+    <color key="tintColor" red="0.11818788199999999" green="0.098173700269999997" blue="0.093623720110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

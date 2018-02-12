@@ -3,19 +3,16 @@
    version = "1.0">
    <Group
       location = "container:"
-      name = "Core">
+      name = "Apps">
+      <FileRef
+         location = "group:Apps/Kuzina/Kuzina.xcodeproj">
+      </FileRef>
    </Group>
    <Group
       location = "container:"
-      name = "Apps">
-      <FileRef
-         location = "group:/Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Kuzina.xcodeproj">
-      </FileRef>
+      name = "Core">
    </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Apps/Kuzina/Kuzina.xcodeproj">
    </FileRef>
 </Workspace>

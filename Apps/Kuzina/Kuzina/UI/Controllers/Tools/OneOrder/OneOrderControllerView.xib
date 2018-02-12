@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OneOrderController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="XbW-9M-ZMl" id="APM-dO-9eW"/>
+                <outlet property="interfaceTable" destination="yKL-hq-eDg" id="86F-H3-kuZ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="uGM-GW-nMe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yKL-hq-eDg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbW-9M-ZMl" customClass="BlackBottomButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="0lc-lH-E49"/>
+                    </constraints>
+                    <state key="normal" title="Отменить заказ"/>
+                    <connections>
+                        <action selector="cancelOrder" destination="-1" eventType="touchUpInside" id="2FN-oa-SkV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.82473429568527923" green="0.82473429568527923" blue="0.82473429568527923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yKL-hq-eDg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2WL-52-EPx"/>
+                <constraint firstAttribute="trailing" secondItem="XbW-9M-ZMl" secondAttribute="trailing" id="4ga-ir-2IT"/>
+                <constraint firstAttribute="trailing" secondItem="yKL-hq-eDg" secondAttribute="trailing" id="AYf-e4-Gbt"/>
+                <constraint firstItem="yKL-hq-eDg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="n2G-9W-wSE"/>
+                <constraint firstItem="XbW-9M-ZMl" firstAttribute="top" secondItem="yKL-hq-eDg" secondAttribute="bottom" id="oEq-zk-x3D"/>
+                <constraint firstAttribute="bottom" secondItem="XbW-9M-ZMl" secondAttribute="bottom" id="oaI-2k-OKD"/>
+                <constraint firstItem="XbW-9M-ZMl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pSn-yG-HpI"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="132.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

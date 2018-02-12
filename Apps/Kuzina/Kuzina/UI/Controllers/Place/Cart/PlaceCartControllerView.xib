@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceCartController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <connections>
+                <outlet property="backNavigationItem" destination="kDs-NY-VrT" id="rl6-Jt-Knm"/>
+                <outlet property="interfaceTable" destination="Bkn-CQ-iXs" id="Ig6-VS-sYY"/>
+                <outlet property="navigationBar" destination="lpu-8G-T8N" id="bVE-CO-Ai4"/>
+                <outlet property="navigationBarStubDimmer" destination="XAr-Ms-Ood" id="Yvb-9P-jpe"/>
+                <outlet property="view" destination="iN0-l3-epB" id="aIa-jO-FP1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAr-Ms-Ood" userLabel="Dimmer">
+                    <rect key="frame" x="0.0" y="-10" width="375" height="20"/>
+                    <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="SRv-eT-OPX"/>
+                    </constraints>
+                </view>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpu-8G-T8N">
+                    <rect key="frame" x="0.0" y="10" width="375" height="44"/>
+                    <color key="barTintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Корзина" id="AqP-am-7Dc">
+                            <barButtonItem key="leftBarButtonItem" style="plain" id="kDs-NY-VrT">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wy5-eQ-4lH">
+                                    <rect key="frame" x="16" y="7" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <gestureRecognizers/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="zhV-DR-fLG" appends="YES" id="m2i-MG-YEp"/>
+                                    </connections>
+                                </button>
+                                <connections>
+                                    <action selector="goBack" destination="-1" id="0Yw-rG-gu8"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bkn-CQ-iXs">
+                    <rect key="frame" x="0.0" y="54" width="375" height="613"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XAr-Ms-Ood" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-10" id="1CU-Mj-U1L"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Bkn-CQ-iXs" secondAttribute="bottom" id="2rr-9R-xfv"/>
+                <constraint firstItem="lpu-8G-T8N" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FPR-jR-7eb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bkn-CQ-iXs" secondAttribute="trailing" id="GqD-0H-eoz"/>
+                <constraint firstItem="XAr-Ms-Ood" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="OgG-Qy-bBF"/>
+                <constraint firstItem="Bkn-CQ-iXs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Vix-WM-6wc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XAr-Ms-Ood" secondAttribute="trailing" id="W8Z-eK-NFU"/>
+                <constraint firstItem="Bkn-CQ-iXs" firstAttribute="top" secondItem="lpu-8G-T8N" secondAttribute="bottom" id="gKs-7C-9eQ"/>
+                <constraint firstItem="lpu-8G-T8N" firstAttribute="top" secondItem="XAr-Ms-Ood" secondAttribute="bottom" id="jDr-o2-BeU"/>
+                <constraint firstItem="lpu-8G-T8N" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="koH-hr-AjB"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+        <tapGestureRecognizer id="zhV-DR-fLG" userLabel="goBack">
+            <connections>
+                <action selector="goBack" destination="-1" id="8P5-qG-lP6"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

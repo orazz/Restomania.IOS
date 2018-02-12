@@ -72,6 +72,7 @@
 		1F4B0E921FEA69E4006C0C58 /* SearchPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B0E901FEA69E4006C0C58 /* SearchPlaceCard.swift */; };
 		1F4B0E931FEA69E4006C0C58 /* SearchPlaceCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B0E911FEA69E4006C0C58 /* SearchPlaceCardCell.xib */; };
 		1F52B3EF1FEC2E04003B2420 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F52B3EE1FEC2E03003B2420 /* ImageWrapper.swift */; };
+		1F55C4742031924500200620 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F55C4732031924500200620 /* fontawesome-webfont.ttf */; };
 		1F5CF82F1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */; };
 		1F5CF8331FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */; };
 		1F5CF8371FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF8361FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift */; };
@@ -225,7 +226,6 @@
 		1FB8F06A1F1ECF980090045E /* DishOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8F0691F1ECF980090045E /* DishOrder.swift */; };
 		1FB9DBCF200E1A1A00CB35E2 /* PlaceMenuMenuContainer+DIshes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9DBCE200E1A1A00CB35E2 /* PlaceMenuMenuContainer+DIshes.swift */; };
 		1FB9DBD1200E1A5400CB35E2 /* PlaceMenuMenuContainer+Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9DBD0200E1A5400CB35E2 /* PlaceMenuMenuContainer+Categories.swift */; };
-		1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1FBE83F01F2554BB0002F0B5 /* _fonts */; };
 		1FC01CC81FB20F4100413ED7 /* PlaceCartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CC71FB20F4100413ED7 /* PlaceCartController.swift */; };
 		1FC01CCA1FB2115000413ED7 /* PlaceCartControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FC01CC91FB2115000413ED7 /* PlaceCartControllerView.xib */; };
 		1FC01CDF1FB21D6600413ED7 /* SubdishSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC01CDC1FB21D6600413ED7 /* SubdishSummary.swift */; };
@@ -354,6 +354,7 @@
 		1F4B0E901FEA69E4006C0C58 /* SearchPlaceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPlaceCard.swift; path = UI/Controllers/Tabs/Cells/SearchPlaceCard.swift; sourceTree = "<group>"; };
 		1F4B0E911FEA69E4006C0C58 /* SearchPlaceCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchPlaceCardCell.xib; path = UI/Controllers/Tabs/Cells/SearchPlaceCardCell.xib; sourceTree = "<group>"; };
 		1F52B3EE1FEC2E03003B2420 /* ImageWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWrapper.swift; path = UI/Elements/ImageWrapper.swift; sourceTree = "<group>"; };
+		1F55C4732031924500200620 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartDishesContainerCell.swift; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCell.swift; sourceTree = "<group>"; };
 		1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartDishesContainerCellView.xib; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCellView.xib; sourceTree = "<group>"; };
 		1F5CF8361FB373DA00DDDC3F /* PlaceCartPaymentCardsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartPaymentCardsContainer.swift; path = UI/Controllers/Place/Cart/PaymentCardContainer/PlaceCartPaymentCardsContainer.swift; sourceTree = "<group>"; };
@@ -514,20 +515,18 @@
 		1FB8F0691F1ECF980090045E /* DishOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrder.swift; path = Domains/Orders/DishOrders/DishOrder.swift; sourceTree = "<group>"; };
 		1FB9DBCE200E1A1A00CB35E2 /* PlaceMenuMenuContainer+DIshes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PlaceMenuMenuContainer+DIshes.swift"; path = "UI/Controllers/Place/Menu/MenuContainer/PlaceMenuMenuContainer+DIshes.swift"; sourceTree = "<group>"; };
 		1FB9DBD0200E1A5400CB35E2 /* PlaceMenuMenuContainer+Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PlaceMenuMenuContainer+Categories.swift"; path = "UI/Controllers/Place/Menu/MenuContainer/PlaceMenuMenuContainer+Categories.swift"; sourceTree = "<group>"; };
-		1FBE83F01F2554BB0002F0B5 /* _fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _fonts; path = Restomania.App.Kuzina/_fonts; sourceTree = "<group>"; };
 		1FC01CC71FB20F4100413ED7 /* PlaceCartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartController.swift; path = UI/Controllers/Place/Cart/PlaceCartController.swift; sourceTree = "<group>"; };
 		1FC01CC91FB2115000413ED7 /* PlaceCartControllerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartControllerView.xib; path = UI/Controllers/Place/Cart/PlaceCartControllerView.xib; sourceTree = "<group>"; };
 		1FC01CDC1FB21D6600413ED7 /* SubdishSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubdishSummary.swift; path = Domains/Orders/DishOrders/SubdishSummary.swift; sourceTree = "<group>"; };
 		1FC01CDD1FB21D6600413ED7 /* AdditionSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdditionSummary.swift; path = Domains/Orders/DishOrders/AdditionSummary.swift; sourceTree = "<group>"; };
 		1FC01CDE1FB21D6600413ED7 /* DishOrderDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishOrderDish.swift; path = Domains/Orders/DishOrders/DishOrderDish.swift; sourceTree = "<group>"; };
-		1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestomaniaAppKuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FC5A69C1F138A8600ABE1A6 /* Kuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FC5A6AB1F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FC6E9F2200D2154003B47E5 /* PushesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PushesServices.swift; path = App/Pushes/PushesServices.swift; sourceTree = "<group>"; };
 		1FC6E9F4200D217E003B47E5 /* NotificationEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationEvents.swift; path = App/Pushes/NotificationEvents.swift; sourceTree = "<group>"; };
 		1FC6E9F6200D2343003B47E5 /* PushesHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PushesHandler.swift; path = App/Pushes/PushesHandler.swift; sourceTree = "<group>"; };
 		1FC6E9F9200D23DD003B47E5 /* NotificationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationContainer.swift; path = App/Pushes/NotificationContainer.swift; sourceTree = "<group>"; };
-		1FC6E9FB200D75C4003B47E5 /* AddOrder.apns */ = {isa = PBXFileReference; lastKnownFileType = text; name = AddOrder.apns; path = Notifications/AddOrder.apns; sourceTree = "<group>"; };
 		1FD9A09D1F2323FF0026BDF8 /* PlacesCacheService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesCacheService.swift; path = Services/Cache/PlacesCacheService.swift; sourceTree = "<group>"; };
 		1FE3C7551FB2E88A009CE542 /* PlaceCartDateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartDateContainer.swift; path = UI/Controllers/Place/Cart/CompleteDateContainer/PlaceCartDateContainer.swift; sourceTree = "<group>"; };
 		1FE3C7571FB2EA88009CE542 /* PlaceCartDateContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartDateContainerView.xib; path = UI/Controllers/Place/Cart/CompleteDateContainer/PlaceCartDateContainerView.xib; sourceTree = "<group>"; };
@@ -574,7 +573,6 @@
 		1FF79A581FB22DB8008F3FCC /* ScheduleDisplayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScheduleDisplayView.xib; path = UI/Elements/ScheduleDisplay/ScheduleDisplayView.xib; sourceTree = "<group>"; };
 		1FF79A5A1FB22E2E008F3FCC /* ScheduleDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleDisplayCell.swift; path = UI/Elements/ScheduleDisplay/ScheduleDisplayCell.swift; sourceTree = "<group>"; };
 		1FF79A5E1FB22E55008F3FCC /* ScheduleDisplayCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScheduleDisplayCellView.xib; path = UI/Elements/ScheduleDisplay/ScheduleDisplayCellView.xib; sourceTree = "<group>"; };
-		1FFA57EE1F225FA000E83463 /* _markup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _markup; path = Restomania.App.Kuzina/_markup; sourceTree = "<group>"; };
 		32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.release.xcconfig"; sourceTree = "<group>"; };
 		569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestomaniaAppKuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.debug.xcconfig"; sourceTree = "<group>"; };
@@ -821,6 +819,15 @@
 				1F4B0E911FEA69E4006C0C58 /* SearchPlaceCardCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		1F55C4722031924400200620 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1F55C4732031924500200620 /* fontawesome-webfont.ttf */,
+			);
+			name = fonts;
+			path = Kuzina/fonts;
 			sourceTree = "<group>";
 		};
 		1F68AF7E1F28CD97000614C9 /* Place */ = {
@@ -1411,11 +1418,9 @@
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
-				1FC6E9FB200D75C4003B47E5 /* AddOrder.apns */,
+				1F55C4722031924400200620 /* fonts */,
 				1FAA9F711FC245F700BB105D /* RestomaniaAppKuzina.entitlements */,
-				1FBE83F01F2554BB0002F0B5 /* _fonts */,
-				1FFA57EE1F225FA000E83463 /* _markup */,
-				1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */,
+				1FC5A69E1F138A8600ABE1A6 /* Kuzina */,
 				1FC5A69D1F138A8600ABE1A6 /* Products */,
 				1FC5A7411F138C9400ABE1A6 /* Frameworks */,
 				669C3AFDA7F4F79423497066 /* Pods */,
@@ -1425,12 +1430,12 @@
 		1FC5A69D1F138A8600ABE1A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */,
+				1FC5A69C1F138A8600ABE1A6 /* Kuzina.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1FC5A69E1F138A8600ABE1A6 /* Restomania.App.Kuzina */ = {
+		1FC5A69E1F138A8600ABE1A6 /* Kuzina */ = {
 			isa = PBXGroup;
 			children = (
 				1FC5A6AB1F138A8600ABE1A6 /* Info.plist */,
@@ -1443,7 +1448,7 @@
 				1F36C8951F20CE0A00232B9A /* Tools */,
 				1FA2607E1F14A02400C14886 /* Domains */,
 			);
-			path = Restomania.App.Kuzina;
+			path = Kuzina;
 			sourceTree = "<group>";
 		};
 		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
@@ -1675,9 +1680,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1FC5A69B1F138A8600ABE1A6 /* RestomaniaAppKuzina */ = {
+		1FC5A69B1F138A8600ABE1A6 /* Kuzina */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FC5A6C41F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "RestomaniaAppKuzina" */;
+			buildConfigurationList = 1FC5A6C41F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "Kuzina" */;
 			buildPhases = (
 				2B6D488FC3D8A5255D366BF2 /* [CP] Check Pods Manifest.lock */,
 				1F33A50C1F1D1BEF00BF469B /* Swiftlint */,
@@ -1692,9 +1697,9 @@
 			);
 			dependencies = (
 			);
-			name = RestomaniaAppKuzina;
+			name = Kuzina;
 			productName = Restomania.App.Kuzina;
-			productReference = 1FC5A69C1F138A8600ABE1A6 /* RestomaniaAppKuzina.app */;
+			productReference = 1FC5A69C1F138A8600ABE1A6 /* Kuzina.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1736,7 +1741,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1FC5A69B1F138A8600ABE1A6 /* RestomaniaAppKuzina */,
+				1FC5A69B1F138A8600ABE1A6 /* Kuzina */,
 			);
 		};
 /* End PBXProject section */
@@ -1785,7 +1790,6 @@
 				1F7413D620106DAD00E5CB7D /* ExternalTextEditorView.xib in Resources */,
 				1F0F2163200590EC008672DA /* TermsControllerView.xib in Resources */,
 				1FF31FC62021C6020019075B /* DishModalSelectVariationsCellView.xib in Resources */,
-				1FBE83F11F2554BB0002F0B5 /* _fonts in Resources */,
 				1F691AB8200A546B00415F2F /* OneOrderFooterContainerView.xib in Resources */,
 				1F279F931FB07D51003A2B47 /* PlaceInfoControllerView.xib in Resources */,
 				1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */,
@@ -1810,6 +1814,7 @@
 				1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */,
 				1F691A842009BC8F00415F2F /* SignupPage.xib in Resources */,
 				1F5CF83F1FB386A700DDDC3F /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
+				1F55C4742031924500200620 /* fontawesome-webfont.ttf in Resources */,
 				1F279F691FB07CA6003A2B47 /* ManagerChangePasswordControllerView.xib in Resources */,
 				1F691AA2200A2B7A00415F2F /* OneOrderSpaceContainerView.xib in Resources */,
 				1F691AB4200A541700415F2F /* OneOrderTotalContainerView.xib in Resources */,
@@ -2356,11 +2361,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RestomaniaAppKuzina.entitlements;
 				DEVELOPMENT_TEAM = 686FXGC24W;
-				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Kuzina/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = MDS.Restomania.Mobile.Custom.Kuzina;
+				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2374,11 +2379,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RestomaniaAppKuzina.entitlements;
 				DEVELOPMENT_TEAM = 686FXGC24W;
-				INFOPLIST_FILE = Restomania.App.Kuzina/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Kuzina/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = MDS.Restomania.Mobile.Custom.Kuzina;
+				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2397,7 +2402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FC5A6C41F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "RestomaniaAppKuzina" */ = {
+		1FC5A6C41F138A8600ABE1A6 /* Build configuration list for PBXNativeTarget "Kuzina" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FC5A6C51F138A8600ABE1A6 /* Debug */,

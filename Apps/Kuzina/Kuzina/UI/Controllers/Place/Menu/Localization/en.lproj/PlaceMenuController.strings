@@ -1,0 +1,17 @@
+/* 
+  Localization.Page.PlaceMenu.strings
+  Restomania.App.Kuzina
+
+  Created by Алексей on 21.12.17.
+  Copyright © 2017 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Place's menu";
+
+"Alerts.LoadError" = "Problem with load data. Check your internet connection.";
+"Alerts.AuthError" = "For order via app you need login.";
+"Alerts.AddDishToCart" = "Dish add to order.";
+
+"Categories.AllDishes" = "All";
+
+"Buttons.ToCart" = "Сart";

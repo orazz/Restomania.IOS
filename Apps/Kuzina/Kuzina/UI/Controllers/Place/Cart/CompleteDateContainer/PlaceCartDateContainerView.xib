@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlaceCartDateContainer" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAl-CQ-0ew" customClass="ScheduleDisplay" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="5" width="375" height="45"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="2w2-Qe-hJo"/>
+                    </constraints>
+                </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="qQl-bR-dnG">
+                    <rect key="frame" x="10" y="55" width="355" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="nS1-x1-TUx"/>
+                    </constraints>
+                    <segments>
+                        <segment title="Я уже рядом"/>
+                        <segment title="Сегодня"/>
+                        <segment title="На завтра"/>
+                    </segments>
+                </segmentedControl>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAY-Z9-r0W">
+                    <rect key="frame" x="137.5" y="94" width="100" height="117"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="117" id="V7F-we-fxE"/>
+                        <constraint firstAttribute="width" constant="100" id="gf7-nm-PW0"/>
+                    </constraints>
+                </pickerView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заказ на 22.22  22.22.2222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leJ-P0-36y">
+                    <rect key="frame" x="81" y="221" width="213" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qQl-bR-dnG" firstAttribute="top" secondItem="RAl-CQ-0ew" secondAttribute="bottom" constant="5" id="1uE-nx-2Sx"/>
+                <constraint firstItem="RAl-CQ-0ew" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="C7T-hU-hO7"/>
+                <constraint firstItem="RAl-CQ-0ew" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DFz-gM-zyq"/>
+                <constraint firstItem="leJ-P0-36y" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PPW-bO-s8o"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qQl-bR-dnG" secondAttribute="trailing" constant="10" id="ViF-UU-VKB"/>
+                <constraint firstItem="qQl-bR-dnG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="e9b-ry-uh7"/>
+                <constraint firstItem="leJ-P0-36y" firstAttribute="top" secondItem="EAY-Z9-r0W" secondAttribute="bottom" constant="10" id="gGy-ur-5ZE"/>
+                <constraint firstItem="EAY-Z9-r0W" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="kcd-wK-Pft"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RAl-CQ-0ew" secondAttribute="trailing" id="qzh-gj-vH2"/>
+                <constraint firstItem="EAY-Z9-r0W" firstAttribute="top" secondItem="qQl-bR-dnG" secondAttribute="bottom" constant="11" id="rSR-t4-dyN"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="dateChecker" destination="qQl-bR-dnG" id="vkU-0E-Hph"/>
+                <outlet property="dateTimeLabel" destination="leJ-P0-36y" id="bLg-lm-j9R"/>
+                <outlet property="scheduleView" destination="RAl-CQ-0ew" id="KgN-19-FNd"/>
+                <outlet property="timePicker" destination="EAY-Z9-r0W" id="eSJ-QK-T2s"/>
+            </connections>
+            <point key="canvasLocation" x="-21.5" y="-173"/>
+        </view>
+    </objects>
+</document>

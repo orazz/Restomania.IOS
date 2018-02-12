@@ -1,0 +1,25 @@
+/* 
+  PlaceCartController.strings
+  Restomania.App.Kuzina
+
+  Created by Алексей on 22.12.17.
+  Copyright © 2017 Medved-Studio. All rights reserved.
+*/
+
+"Labels.Title" = "Cart";
+"Labels.OrderOn" = "Order at %@ on %@";
+"Labels.Total" = "Total";
+"Labels.SelectPaymentCard" = "Select payment card";
+"Labels.Comment" = "Comment";
+
+"Buttons.Now" = "I'm soon";
+"Buttons.Today" = "Today";
+"Buttons.Tommorow" = "Tommorow";
+"Buttons.AddNewCard" = "Add new card";
+"Buttons.EditComment" = "Edit comment";
+"Buttons.AddNewOrder" = "Add order";
+
+"Toasts.NotWorkTime" = "The cafe doesn't work at that time. Change order time.";
+"Toasts.NotAddOrder" = "Problem with adding order. Refresh page and try again.";
+"Toasts.ProblemWithLoad" = "Problem with load data. Check internet connection.";
+"Toasts.ProblemWithAddCard" = "Problem with adding payment card.";

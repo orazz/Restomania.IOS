@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppKey</key>
+	<string>7c9e6679-7425-40de-944b-e07fc1f90ae7</string>
+	<key>ServerUrl</key>
+	<string>http://restomania-test.azurewebsites.net</string>
+	<key>AppType</key>
+	<string>Network</string>
+	<key>AppUserRole</key>
+	<string>User</string>
+	<key>PlacesIds</key>
+	<string>[4,5,6]</string>
+</dict>
+</plist>

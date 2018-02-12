@@ -1,0 +1,17 @@
+/* 
+  ManagerPaymentCardsController.strings
+  Restomania.App.Kuzina
+
+  Created by Алексей on 12.01.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+
+"Title" = "Платежные карты";
+
+"Buttons.Add" = "Добавить карту";
+
+"Messages.ProblemWithLoad" = "Проблемы с обновлением платежных карт. Проверьте подключение к интернету.";
+"Messages.SuccessAdd" = "Новая карта добавлена.";
+"Messages.ProblemWithAdd" = "Проблемы с добавлением карты. Проверьте данные вашей карты и подключение к интернету.";
+"Messages.ProblemWithRemove" = "Проблема с удалением платежной карты. Попробуйте повторить поднее.";

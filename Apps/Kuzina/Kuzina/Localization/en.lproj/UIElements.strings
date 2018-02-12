@@ -1,0 +1,34 @@
+/* 
+  strings
+  Restomania.App.Kuzina
+
+  Created by Алексей on 20.12.17.
+  Copyright © 2017 Medved-Studio. All rights reserved.
+*/
+
+//RefreshControl
+"RefreshControl.Title" = "Pull for refresh";
+
+//ProblemAlerts
+"ProblemAlerts.OK" = "OK";
+"ProblemAlerts.ErrorTitle" = "Error";
+"ProblemAlerts.ConnectionErrorTitle" = "No connection";
+"ProblemAlerts.NoConnectionMessage" = "No connection with server. Check internet connection.";
+"ProblemAlerts.ServerErrorMessage" = "Problem on server side. Try repeat later.";
+
+//Schedule
+"Schedule.Holiday" = "holiday";
+"Schedule.WeekStartFrom" = "0";
+"Schedule.Sunday" = "Sunday";
+"Schedule.Monday" = "Monday";
+"Schedule.Tuesday" = "Tuesday";
+"Schedule.Wednesday" = "Wednesday";
+"Schedule.Thursday" = "Thursday";
+"Schedule.Friday" = "Friday";
+"Schedule.Saturday" = "Saturday";
+
+//Price label
+"PriceLabel.StartFrom" = "from %@";
+
+//Weight label
+"WeightLabel.StartFrom" = "from %@";

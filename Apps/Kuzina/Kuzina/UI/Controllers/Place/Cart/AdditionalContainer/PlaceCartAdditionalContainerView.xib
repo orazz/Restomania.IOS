@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlaceCartAdditionalContainer" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комментарий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlc-jA-lah" userLabel="title">
+                    <rect key="frame" x="10" y="5" width="355" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="ftS-Ef-ljB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDP-a5-gbF">
+                    <rect key="frame" x="10" y="30" width="355" height="80"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="igh-Jk-I2C"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="vbl-Ll-2UB" appends="YES" id="Fcs-LL-Gbv"/>
+                    </connections>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acs-tR-K8v" customClass="BlackButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                    <rect key="frame" x="107.5" y="120" width="160" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="mzn-KE-9xz"/>
+                    </constraints>
+                    <state key="normal" title="Редактировать"/>
+                    <connections>
+                        <action selector="changeComment" destination="iN0-l3-epB" eventType="touchUpInside" id="bn9-aI-jMj"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="HDP-a5-gbF" secondAttribute="trailing" constant="10" id="5wJ-vj-Axq"/>
+                <constraint firstItem="HDP-a5-gbF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="8zS-hI-cH2"/>
+                <constraint firstItem="HDP-a5-gbF" firstAttribute="top" secondItem="nlc-jA-lah" secondAttribute="bottom" constant="5" id="OHD-AL-cyw"/>
+                <constraint firstItem="acs-tR-K8v" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Pgd-nD-PNP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nlc-jA-lah" secondAttribute="trailing" constant="10" id="blz-aR-70Y"/>
+                <constraint firstItem="acs-tR-K8v" firstAttribute="top" secondItem="HDP-a5-gbF" secondAttribute="bottom" constant="10" id="fxr-aR-gYY"/>
+                <constraint firstItem="nlc-jA-lah" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="hTZ-qS-geG"/>
+                <constraint firstItem="nlc-jA-lah" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="rYx-Gg-uuc"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="changeButton" destination="acs-tR-K8v" id="3dj-sm-TWi"/>
+                <outlet property="commentLabel" destination="HDP-a5-gbF" id="g7F-VV-CP8"/>
+                <outlet property="titleLabel" destination="nlc-jA-lah" id="ueC-4y-rvs"/>
+            </connections>
+            <point key="canvasLocation" x="-57.5" y="-237.5"/>
+        </view>
+        <tapGestureRecognizer id="vbl-Ll-2UB" userLabel="changeComment">
+            <connections>
+                <action selector="changeComment" destination="iN0-l3-epB" id="wbU-77-gev"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>
