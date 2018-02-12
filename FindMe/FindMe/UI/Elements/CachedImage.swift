@@ -10,29 +10,29 @@ import Foundation
 import MdsKit
 import UIKit
 
-public class ImageWrapper: ZeroCdnImageWrapper {
+public class CachedImage: ZeroCdnImageWrapper {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
 
-        initialize()
+        afterInit()
     }
 
     public required init(coder: NSCoder) {
         super.init(coder: coder)
 
-        initialize()
+        afterInit()
     }
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        initialize()
+        afterInit()
     }
-    private func initialize() {
+    public func afterInit() {
         super.setup(delegate: self)
     }
 }
-extension ImageWrapper: ZeroCdnImageWrapperDelegate {
+extension CachedImage: ZeroCdnImageWrapperDelegate {
 
     public var defaultImage: UIImage {
         return ThemeSettings.Images.default
@@ -41,7 +41,7 @@ extension ImageWrapper: ZeroCdnImageWrapperDelegate {
         return CacheServices.images
     }
     public var sizes: [CGFloat: String] {
-        return ImageWrapper.sizes
+        return CachedImage.sizes
     }
     private static let sizes = [
         CGFloat(50): "t",

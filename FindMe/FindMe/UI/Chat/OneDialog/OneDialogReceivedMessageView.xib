@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8H-UK-vZb">
-                    <rect key="frame" x="10" y="5" width="104.5" height="99"/>
+                    <rect key="frame" x="5" y="5" width="104.5" height="99"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сообщение" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="99999999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rk-7M-jjW">
                             <rect key="frame" x="5" y="5" width="94.5" height="20.5"/>
@@ -45,7 +45,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="t8H-UK-vZb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="SGN-LQ-xCS"/>
+                <constraint firstItem="t8H-UK-vZb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="SGN-LQ-xCS"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="t8H-UK-vZb" secondAttribute="trailing" constant="90" id="caX-Fa-sY4"/>
                 <constraint firstItem="t8H-UK-vZb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="ifN-hM-mMb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="t8H-UK-vZb" secondAttribute="bottom" id="tE8-6W-GQm"/>

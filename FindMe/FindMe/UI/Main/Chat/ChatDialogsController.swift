@@ -116,7 +116,6 @@ public class ChatDialogsController: UIViewController {
         return cached
     }
     private func applyData() {
-
         dialogsTable.reloadData()
     }
 }
@@ -127,14 +126,19 @@ extension ChatDialogsController {
     public func start(with userId: Long) -> RequestResult<ChatDialog> {
         return dialogsService.add(for: userId)
     }
-    public func open(_ dialogId: Long) {
+    public func controllerFor(dialogId: Long) -> OneDialogController? {
 
         guard let dialog = dialogsService.cache.find(dialogId) else {
-            return
+            return nil
         }
 
-        let vc = OneDialogController(for: dialog)
-        self.navigationController?.pushViewController(vc, animated: true)
+        return OneDialogController(for: dialog)
+    }
+    public func open(_ dialogId: Long) {
+
+        if let vc = controllerFor(dialogId: dialogId) {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 extension ChatDialogsController: ChatDialogsCacheServiceDelegate {
@@ -142,9 +146,6 @@ extension ChatDialogsController: ChatDialogsCacheServiceDelegate {
         _ = displayCached()
     }
     public func dialogsService(_ service: ChatDialogsCacheService, update dialog: ChatDialog) {
-        _ = displayCached()
-    }
-    public func dialogsService(_ service: ChatDialogsCacheService, updates dialogs: [ChatDialog]) {
         _ = displayCached()
     }
 }

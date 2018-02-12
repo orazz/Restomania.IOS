@@ -24,7 +24,7 @@
                         <constraint firstAttribute="width" constant="30" id="Ehz-59-1ey"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N80-dI-ubo" customClass="ImageWrapper" customModule="FindMe" customModuleProvider="target">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N80-dI-ubo" customClass="AvatarImage" customModule="FindMe" customModuleProvider="target">
                     <rect key="frame" x="5" y="12.5" width="45" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="45" id="GYp-VH-eAM"/>

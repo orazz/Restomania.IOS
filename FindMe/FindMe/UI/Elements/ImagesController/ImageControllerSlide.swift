@@ -24,7 +24,7 @@ public class ImageControllerSlide: UIView {
     }
 
     //UI elements
-    @IBOutlet private weak var imageView: ImageWrapper!
+    @IBOutlet private weak var imageView: CachedImage!
     @IBOutlet private weak var descriptionLabel: UILabel!
 
     //Data & services

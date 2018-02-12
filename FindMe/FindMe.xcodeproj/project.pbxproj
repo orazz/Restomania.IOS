@@ -18,7 +18,7 @@
 		1F1A0E431F77E99E00FDBA97 /* LogicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E421F77E99E00FDBA97 /* LogicServices.swift */; };
 		1F1A0E4F1F78EA0300FDBA97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1A0E4E1F78EA0300FDBA97 /* Assets.xcassets */; };
 		1F1A0E671F79568900FDBA97 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E661F79568900FDBA97 /* Buttons.swift */; };
-		1F1A0E6E1F795FBF00FDBA97 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E6D1F795FBF00FDBA97 /* ImageWrapper.swift */; };
+		1F1A0E6E1F795FBF00FDBA97 /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A0E6D1F795FBF00FDBA97 /* CachedImage.swift */; };
 		1F1CA9071FCE78840006BE0B /* OnePlaceMainLastActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */; };
 		1F1CA90C1FCEE5A20006BE0B /* AuthMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */; };
 		1F1CA90E1FCEEDE60006BE0B /* ActionsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CA90D1FCEEDE60006BE0B /* ActionsCacheService.swift */; };
@@ -73,9 +73,31 @@
 		1F3382F71F97D45300E43596 /* FMSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3382F61F97D45300E43596 /* FMSwitch.xib */; };
 		1F3382FC1F97DAD400E43596 /* FMSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3382FB1F97DAD400E43596 /* FMSegmentedControl.swift */; };
 		1F3382FE1F97DD5E00E43596 /* FMSegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3382FD1F97DD5E00E43596 /* FMSegmentedControl.xib */; };
-		1F3383001F9870B700E43596 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3382FF1F9870B700E43596 /* ProfileController.swift */; };
 		1F37057F1F7B68B500E6CB0D /* SearchCardsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */; };
 		1F3705851F7B811600E6CB0D /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F3705841F7B811600E6CB0D /* Configs.plist */; };
+		1F3E6BE92028E2B30084C7C7 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BE82028E2B30084C7C7 /* ProfileController.swift */; };
+		1F3E6BED2028E8050084C7C7 /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BEC2028E8050084C7C7 /* AvatarImage.swift */; };
+		1F3E6BEF2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BEE2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift */; };
+		1F3E6BF12028F3480084C7C7 /* ProfileControllerSelectTownsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */; };
+		1F3E6BF32028F4510084C7C7 /* ProfileControllerChangeAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF22028F4510084C7C7 /* ProfileControllerChangeAvatar.swift */; };
+		1F3E6BF52028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF42028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib */; };
+		1F3E6BF82028F7A00084C7C7 /* ProfileControllerSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF72028F7A00084C7C7 /* ProfileControllerSpace.swift */; };
+		1F3E6BFA2028F8690084C7C7 /* ProfileControllerSpaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BF92028F8690084C7C7 /* ProfileControllerSpaceView.xib */; };
+		1F3E6BFC2028F8C50084C7C7 /* FMTextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BFB2028F8C50084C7C7 /* FMTextFieldRow.swift */; };
+		1F3E6BFE2028F9EC0084C7C7 /* FMTextFieldRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6BFD2028F9EC0084C7C7 /* FMTextFieldRowView.xib */; };
+		1F3E6C002028FF250084C7C7 /* FMSwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6BFF2028FF250084C7C7 /* FMSwitchRow.swift */; };
+		1F3E6C022028FF3C0084C7C7 /* FMSwitchRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C012028FF3C0084C7C7 /* FMSwitchRowView.xib */; };
+		1F3E6C042028FFA00084C7C7 /* FMSegmentedControlRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C032028FFA00084C7C7 /* FMSegmentedControlRow.swift */; };
+		1F3E6C062028FFB30084C7C7 /* FMSegmentedControlRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C052028FFB30084C7C7 /* FMSegmentedControlRowView.xib */; };
+		1F3E6C0B2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C0A2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift */; };
+		1F3E6C0F2029CC6C0084C7C7 /* DialogMessageModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C0E2029CC6B0084C7C7 /* DialogMessageModelProtocol.swift */; };
+		1F3E6C112029D41E0084C7C7 /* SendingDialogMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C102029D41E0084C7C7 /* SendingDialogMessageModel.swift */; };
+		1F3E6C13202A1A4B0084C7C7 /* OneDialogInputPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C12202A1A4B0084C7C7 /* OneDialogInputPanel.swift */; };
+		1F3E6C15202A1A650084C7C7 /* OneDialogInputPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C14202A1A650084C7C7 /* OneDialogInputPanel.xib */; };
+		1F3E6C17202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C16202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift */; };
+		1F3E6C19202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E6C18202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib */; };
+		1F3E6C1B202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C1A202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift */; };
+		1F3E6C1D202C58030084C7C7 /* OneDialogInputPanelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E6C1C202C58030084C7C7 /* OneDialogInputPanelDelegate.swift */; };
 		1F41CE6D1F13BF75000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */; };
 		1F41CE6F1F13BF79000B92E1 /* IOS Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */; };
 		1F451F9A1FCCA4070080C103 /* PlacesTownsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */; };
@@ -235,7 +257,7 @@
 		1F1A0E421F77E99E00FDBA97 /* LogicServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogicServices.swift; path = Services/LogicServices.swift; sourceTree = "<group>"; };
 		1F1A0E4E1F78EA0300FDBA97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F1A0E661F79568900FDBA97 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buttons.swift; path = UI/Elements/Buttons.swift; sourceTree = "<group>"; };
-		1F1A0E6D1F795FBF00FDBA97 /* ImageWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWrapper.swift; path = UI/Elements/ImageWrapper.swift; sourceTree = "<group>"; };
+		1F1A0E6D1F795FBF00FDBA97 /* CachedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CachedImage.swift; path = UI/Elements/CachedImage.swift; sourceTree = "<group>"; };
 		1F1CA9061FCE78840006BE0B /* OnePlaceMainLastActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OnePlaceMainLastActionCell.xib; path = UI/Place/OnePlaceMain/Actions/OnePlaceMainLastActionCell.xib; sourceTree = "<group>"; };
 		1F1CA90B1FCEE5A20006BE0B /* AuthMainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthMainApiService.swift; path = Services/Api/Auth/AuthMainApiService.swift; sourceTree = "<group>"; };
 		1F1CA90D1FCEEDE60006BE0B /* ActionsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActionsCacheService.swift; path = Services/Cache/ActionsCacheService.swift; sourceTree = "<group>"; };
@@ -290,9 +312,31 @@
 		1F3382F61F97D45300E43596 /* FMSwitch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSwitch.xib; path = UI/Elements/Inputs/Switch/FMSwitch.xib; sourceTree = "<group>"; };
 		1F3382FB1F97DAD400E43596 /* FMSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMSegmentedControl.swift; path = UI/Elements/Inputs/Segmented/FMSegmentedControl.swift; sourceTree = "<group>"; };
 		1F3382FD1F97DD5E00E43596 /* FMSegmentedControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSegmentedControl.xib; path = UI/Elements/Inputs/Segmented/FMSegmentedControl.xib; sourceTree = "<group>"; };
-		1F3382FF1F9870B700E43596 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileController.swift; path = UI/Main/ProfileController.swift; sourceTree = "<group>"; };
 		1F37057E1F7B68B500E6CB0D /* SearchCardsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCardsCacheService.swift; path = Services/Cache/SearchCardsCacheService.swift; sourceTree = "<group>"; };
 		1F3705841F7B811600E6CB0D /* Configs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
+		1F3E6BE82028E2B30084C7C7 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileController.swift; path = UI/Main/Profile/ProfileController.swift; sourceTree = "<group>"; };
+		1F3E6BEC2028E8050084C7C7 /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvatarImage.swift; path = UI/Elements/AvatarImage.swift; sourceTree = "<group>"; };
+		1F3E6BEE2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileControllerSelectTowns.swift; path = UI/Main/Profile/SelectTowns/ProfileControllerSelectTowns.swift; sourceTree = "<group>"; };
+		1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerSelectTownsView.xib; path = UI/Main/Profile/SelectTowns/ProfileControllerSelectTownsView.xib; sourceTree = "<group>"; };
+		1F3E6BF22028F4510084C7C7 /* ProfileControllerChangeAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileControllerChangeAvatar.swift; path = UI/Main/Profile/ChangeAvatar/ProfileControllerChangeAvatar.swift; sourceTree = "<group>"; };
+		1F3E6BF42028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerChangeAvatarView.xib; path = UI/Main/Profile/ChangeAvatar/ProfileControllerChangeAvatarView.xib; sourceTree = "<group>"; };
+		1F3E6BF72028F7A00084C7C7 /* ProfileControllerSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileControllerSpace.swift; path = UI/Main/Profile/Space/ProfileControllerSpace.swift; sourceTree = "<group>"; };
+		1F3E6BF92028F8690084C7C7 /* ProfileControllerSpaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileControllerSpaceView.xib; path = UI/Main/Profile/Space/ProfileControllerSpaceView.xib; sourceTree = "<group>"; };
+		1F3E6BFB2028F8C50084C7C7 /* FMTextFieldRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMTextFieldRow.swift; path = UI/Elements/Inputs/TextField/FMTextFieldRow.swift; sourceTree = "<group>"; };
+		1F3E6BFD2028F9EC0084C7C7 /* FMTextFieldRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMTextFieldRowView.xib; path = UI/Elements/Inputs/TextField/FMTextFieldRowView.xib; sourceTree = "<group>"; };
+		1F3E6BFF2028FF250084C7C7 /* FMSwitchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMSwitchRow.swift; path = UI/Elements/Inputs/Switch/FMSwitchRow.swift; sourceTree = "<group>"; };
+		1F3E6C012028FF3C0084C7C7 /* FMSwitchRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSwitchRowView.xib; path = UI/Elements/Inputs/Switch/FMSwitchRowView.xib; sourceTree = "<group>"; };
+		1F3E6C032028FFA00084C7C7 /* FMSegmentedControlRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMSegmentedControlRow.swift; path = UI/Elements/Inputs/Segmented/FMSegmentedControlRow.swift; sourceTree = "<group>"; };
+		1F3E6C052028FFB30084C7C7 /* FMSegmentedControlRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FMSegmentedControlRowView.xib; path = UI/Elements/Inputs/Segmented/FMSegmentedControlRowView.xib; sourceTree = "<group>"; };
+		1F3E6C0A2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimpleDialogMessageModel.swift; path = UI/Chat/OneDialog/Models/SimpleDialogMessageModel.swift; sourceTree = "<group>"; };
+		1F3E6C0E2029CC6B0084C7C7 /* DialogMessageModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DialogMessageModelProtocol.swift; path = UI/Chat/OneDialog/Models/DialogMessageModelProtocol.swift; sourceTree = "<group>"; };
+		1F3E6C102029D41E0084C7C7 /* SendingDialogMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendingDialogMessageModel.swift; path = UI/Chat/OneDialog/Models/SendingDialogMessageModel.swift; sourceTree = "<group>"; };
+		1F3E6C12202A1A4B0084C7C7 /* OneDialogInputPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogInputPanel.swift; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanel.swift; sourceTree = "<group>"; };
+		1F3E6C14202A1A650084C7C7 /* OneDialogInputPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OneDialogInputPanel.xib; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanel.xib; sourceTree = "<group>"; };
+		1F3E6C16202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogInputPanelEmojiCell.swift; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanelEmojiCell.swift; sourceTree = "<group>"; };
+		1F3E6C18202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OneDialogInputPanelEmojiCell.xib; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanelEmojiCell.xib; sourceTree = "<group>"; };
+		1F3E6C1A202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogInputPanelEmojiPicker.swift; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanelEmojiPicker.swift; sourceTree = "<group>"; };
+		1F3E6C1C202C58030084C7C7 /* OneDialogInputPanelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OneDialogInputPanelDelegate.swift; path = UI/Chat/OneDialog/InputPanel/OneDialogInputPanelDelegate.swift; sourceTree = "<group>"; };
 		1F41CE6C1F13BF75000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F41CE6E1F13BF79000B92E1 /* IOS Library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "IOS Library.framework"; path = "../IOS Library/build/Debug-iphoneos/IOS Library.framework"; sourceTree = "<group>"; };
 		1F451F991FCCA4070080C103 /* PlacesTownsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesTownsApiService.swift; path = Services/Api/Places/PlacesTownsApiService.swift; sourceTree = "<group>"; };
@@ -576,7 +620,8 @@
 				1F2F4B1F1F81263F002FE39B /* Slider */,
 				1F1A0E6B1F795DD400FDBA97 /* Cards */,
 				1F1A0E661F79568900FDBA97 /* Buttons.swift */,
-				1F1A0E6D1F795FBF00FDBA97 /* ImageWrapper.swift */,
+				1F3E6BEC2028E8050084C7C7 /* AvatarImage.swift */,
+				1F1A0E6D1F795FBF00FDBA97 /* CachedImage.swift */,
 				1F09EE5A1F865D7900694D8D /* Labels.swift */,
 				1FACBA7D1F966BEF004CEED0 /* Map.swift */,
 				1F64C40A2018F17600F364CD /* RefreshControl.swift */,
@@ -715,6 +760,8 @@
 			children = (
 				1F3382F21F97D1C700E43596 /* FMSwitch.swift */,
 				1F3382F61F97D45300E43596 /* FMSwitch.xib */,
+				1F3E6BFF2028FF250084C7C7 /* FMSwitchRow.swift */,
+				1F3E6C012028FF3C0084C7C7 /* FMSwitchRowView.xib */,
 			);
 			name = Switch;
 			sourceTree = "<group>";
@@ -724,6 +771,8 @@
 			children = (
 				1F3382FB1F97DAD400E43596 /* FMSegmentedControl.swift */,
 				1F3382FD1F97DD5E00E43596 /* FMSegmentedControl.xib */,
+				1F3E6C032028FFA00084C7C7 /* FMSegmentedControlRow.swift */,
+				1F3E6C052028FFB30084C7C7 /* FMSegmentedControlRowView.xib */,
 			);
 			name = Segmented;
 			sourceTree = "<group>";
@@ -738,12 +787,85 @@
 				1F6B21B81F881D540068E29A /* Map */,
 				1F64C4012018DD0000F364CD /* Chat */,
 				1F49A0411F86BF980001768F /* FavouritesController.swift */,
-				1F3382FF1F9870B700E43596 /* ProfileController.swift */,
+				1F3E6BE72028E2550084C7C7 /* Profile */,
 				1F6B21BB1F881DCF0068E29A /* Adapters */,
 				1F46907A1F86A5B60056F9B0 /* SearchPlaceCard */,
 				1F2223351FBA4EE8003ABD23 /* DisplayPlacesFlag.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		1F3E6BE72028E2550084C7C7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E6BE82028E2B30084C7C7 /* ProfileController.swift */,
+				1F3E6BF62028F77D0084C7C7 /* Space */,
+				1F3E6BEA2028E65B0084C7C7 /* ChangeAvatar */,
+				1F3E6BEB2028E6640084C7C7 /* SelectTowns */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		1F3E6BEA2028E65B0084C7C7 /* ChangeAvatar */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E6BF22028F4510084C7C7 /* ProfileControllerChangeAvatar.swift */,
+				1F3E6BF42028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib */,
+			);
+			name = ChangeAvatar;
+			sourceTree = "<group>";
+		};
+		1F3E6BEB2028E6640084C7C7 /* SelectTowns */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E6BEE2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift */,
+				1F3E6BF02028F3480084C7C7 /* ProfileControllerSelectTownsView.xib */,
+			);
+			name = SelectTowns;
+			sourceTree = "<group>";
+		};
+		1F3E6BF62028F77D0084C7C7 /* Space */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E6BF72028F7A00084C7C7 /* ProfileControllerSpace.swift */,
+				1F3E6BF92028F8690084C7C7 /* ProfileControllerSpaceView.xib */,
+			);
+			name = Space;
+			sourceTree = "<group>";
+		};
+		1F3E6C07202982B70084C7C7 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				1F64C4162019C11300F364CD /* OneDialogMessage.swift */,
+				1F64C412201954CC00F364CD /* OneDialogReceivedMessage.swift */,
+				1F64C414201958BD00F364CD /* OneDialogReceivedMessageView.xib */,
+				1F64C418201B0F7500F364CD /* OneDialogSendingMessage.swift */,
+				1F64C41A201B0FA200F364CD /* OneDialogSendingMessageView.xib */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		1F3E6C08202982C70084C7C7 /* InputPanel */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E6C12202A1A4B0084C7C7 /* OneDialogInputPanel.swift */,
+				1F3E6C1C202C58030084C7C7 /* OneDialogInputPanelDelegate.swift */,
+				1F3E6C14202A1A650084C7C7 /* OneDialogInputPanel.xib */,
+				1F3E6C1A202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift */,
+				1F3E6C16202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift */,
+				1F3E6C18202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib */,
+			);
+			name = InputPanel;
+			sourceTree = "<group>";
+		};
+		1F3E6C092029C8800084C7C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E6C0E2029CC6B0084C7C7 /* DialogMessageModelProtocol.swift */,
+				1F3E6C0A2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift */,
+				1F3E6C102029D41E0084C7C7 /* SendingDialogMessageModel.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		1F451F9F1FCCACED0080C103 /* Models */ = {
@@ -828,16 +950,8 @@
 				1F3382FA1F97DAA000E43596 /* Segmented */,
 				1F3382F11F97C5C300E43596 /* Switch */,
 				1F4E10FB1F970A7500EB8391 /* TextField */,
-				1F4E10FA1F970A6200EB8391 /* InputCell */,
 			);
 			name = Inputs;
-			sourceTree = "<group>";
-		};
-		1F4E10FA1F970A6200EB8391 /* InputCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = InputCell;
 			sourceTree = "<group>";
 		};
 		1F4E10FB1F970A7500EB8391 /* TextField */ = {
@@ -845,6 +959,8 @@
 			children = (
 				1F4E10FC1F970BFA00EB8391 /* FMTextField.swift */,
 				1F4E10FE1F970C4200EB8391 /* FMTextField.xib */,
+				1F3E6BFB2028F8C50084C7C7 /* FMTextFieldRow.swift */,
+				1F3E6BFD2028F9EC0084C7C7 /* FMTextFieldRowView.xib */,
 			);
 			name = TextField;
 			sourceTree = "<group>";
@@ -872,11 +988,9 @@
 			children = (
 				1F64C40E20192F1E00F364CD /* OneDialogController.swift */,
 				1F64C410201931C000F364CD /* OneDialogControllerView.xib */,
-				1F64C4162019C11300F364CD /* OneDialogMessage.swift */,
-				1F64C412201954CC00F364CD /* OneDialogReceivedMessage.swift */,
-				1F64C414201958BD00F364CD /* OneDialogReceivedMessageView.xib */,
-				1F64C418201B0F7500F364CD /* OneDialogSendingMessage.swift */,
-				1F64C41A201B0FA200F364CD /* OneDialogSendingMessageView.xib */,
+				1F3E6C092029C8800084C7C7 /* Models */,
+				1F3E6C08202982C70084C7C7 /* InputPanel */,
+				1F3E6C07202982B70084C7C7 /* Messages */,
 			);
 			name = OneDialog;
 			sourceTree = "<group>";
@@ -966,10 +1080,10 @@
 		1FC547FF1F6FBA11007CE6AB /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1F64C40C20192EE700F364CD /* Chat */,
 				1F1A0E501F78EA3300FDBA97 /* Start */,
 				1F3705861F7B880700E6CB0D /* Main */,
 				1F1A0E521F78EA4600FDBA97 /* Place */,
+				1F64C40C20192EE700F364CD /* Chat */,
 				1F1A0E5E1F7951AF00FDBA97 /* Elements */,
 			);
 			name = UI;
@@ -1381,10 +1495,13 @@
 				1F3705851F7B811600E6CB0D /* Configs.plist in Resources */,
 				1F2D6D0E1FD16F8F00BF9E63 /* OnePlaceOneActionImageCell.xib in Resources */,
 				1F64C411201931C000F364CD /* OneDialogControllerView.xib in Resources */,
+				1F3E6C19202A1ACB0084C7C7 /* OneDialogInputPanelEmojiCell.xib in Resources */,
 				1F1CA9131FCF018F0006BE0B /* OnePlaceActionsView.xib in Resources */,
+				1F3E6C022028FF3C0084C7C7 /* FMSwitchRowView.xib in Resources */,
 				1FB0EE4E1FAFA0F700F64F1F /* ImageControllerSlideView.xib in Resources */,
 				1F2D6D0C1FD16D5600BF9E63 /* OnePlaceOneActionNameCell.xib in Resources */,
 				1F6B89321FA8666F00B7A99A /* OnePlaceClientsView.xib in Resources */,
+				1F3E6C062028FFB30084C7C7 /* FMSegmentedControlRowView.xib in Resources */,
 				1F2D6D0A1FD16AF200BF9E63 /* OnePlaceOneActionDetailsCell.xib in Resources */,
 				1FACBA7A1F965C5A004CEED0 /* OnePlaceMainLocationCellOneLine.xib in Resources */,
 				1F09EE541F862F5C00694D8D /* VKAuthorizationView.xib in Resources */,
@@ -1406,13 +1523,18 @@
 				1FC5838E1F814E5C0045941A /* Start.storyboard in Resources */,
 				1F24A9191F897239000BD8F1 /* OnePlaceMainSliderCell.xib in Resources */,
 				1F4E10FF1F970C4200EB8391 /* FMTextField.xib in Resources */,
+				1F3E6BF12028F3480084C7C7 /* ProfileControllerSelectTownsView.xib in Resources */,
 				1F4677151F951605007E426D /* OnePlaceMainDividerCell.xib in Resources */,
+				1F3E6C15202A1A650084C7C7 /* OneDialogInputPanel.xib in Resources */,
 				1F24A9201F897CCF000BD8F1 /* OnePlaceMainStatisticCell.xib in Resources */,
+				1F3E6BFE2028F9EC0084C7C7 /* FMTextFieldRowView.xib in Resources */,
 				1F4AD0771FD33EB400E6ADCC /* GreetingController.xib in Resources */,
 				1F3382FE1F97DD5E00E43596 /* FMSegmentedControl.xib in Resources */,
 				1FB0EE4C1FAF9C4500F64F1F /* ImagesControllerView.xib in Resources */,
 				1F4AD0791FD33EB400E6ADCC /* ExplainerBlock.xib in Resources */,
 				1F6B89381FA86DD300B7A99A /* OnePlaceClientsCellView.xib in Resources */,
+				1F3E6BFA2028F8690084C7C7 /* ProfileControllerSpaceView.xib in Resources */,
+				1F3E6BF52028F51B0084C7C7 /* ProfileControllerChangeAvatarView.xib in Resources */,
 				1F6B21BA1F881DAD0068E29A /* MapPopupView.xib in Resources */,
 				1F3382F71F97D45300E43596 /* FMSwitch.xib in Resources */,
 			);
@@ -1525,6 +1647,7 @@
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/MdsKit/MdsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Smile/Smile.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftR/SwiftR.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1532,6 +1655,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MdsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Smile.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftR.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1571,7 +1695,6 @@
 				1FC5481B1F70443B007CE6AB /* PlaceStatus.swift in Sources */,
 				1FACBA7E1F966BEF004CEED0 /* Map.swift in Sources */,
 				1F1A0E3A1F77C14600FDBA97 /* ThemeSettings.swift in Sources */,
-				1F3383001F9870B700E43596 /* ProfileController.swift in Sources */,
 				1FC5839E1F827C5D0045941A /* SliderControl.swift in Sources */,
 				1FE0B707201764D1008EAFD2 /* CommandContainer.swift in Sources */,
 				1F2E376C1FCC9169003D24C1 /* DisplayPlaceInfo.swift in Sources */,
@@ -1598,6 +1721,7 @@
 				1F476A142018C6C70073A0A0 /* ChatDialogsCacheService.swift in Sources */,
 				1F09EE5B1F865D7900694D8D /* Labels.swift in Sources */,
 				1F64C40B2018F17600F364CD /* RefreshControl.swift in Sources */,
+				1F3E6C002028FF250084C7C7 /* FMSwitchRow.swift in Sources */,
 				1F4C82D11F95C894004B294C /* OnePlaceMainLocationCell.swift in Sources */,
 				1F1A0E431F77E99E00FDBA97 /* LogicServices.swift in Sources */,
 				1F4AD0871FD34AEE00E6ADCC /* SelectTownCell.swift in Sources */,
@@ -1615,11 +1739,13 @@
 				1F2D6CFD1FD1585E00BF9E63 /* OnePlaceOneActionController.swift in Sources */,
 				1F451FA31FCCB0F20080C103 /* UsersPleasantPlacesApiService.swift in Sources */,
 				1F2E37851FCC91D2003D24C1 /* PositionsService.swift in Sources */,
+				1F3E6BF82028F7A00084C7C7 /* ProfileControllerSpace.swift in Sources */,
 				1F24A9131F896927000BD8F1 /* OnePlaceMainTitleCell.swift in Sources */,
 				1F1A0E381F77C12400FDBA97 /* AppSummary.swift in Sources */,
 				1FB0EE501FAFA10E00F64F1F /* ImageControllerSlide.swift in Sources */,
 				1F1A0E2B1F77C05C00FDBA97 /* AppDelegate.swift in Sources */,
 				1FC548191F703FBB007CE6AB /* Contacts.swift in Sources */,
+				1F3E6C1D202C58030084C7C7 /* OneDialogInputPanelDelegate.swift in Sources */,
 				1F2E37871FCC91D2003D24C1 /* BackgroundPositionsServices.swift in Sources */,
 				1F4E10FD1F970BFA00EB8391 /* FMTextField.swift in Sources */,
 				1F64C413201954CC00F364CD /* OneDialogReceivedMessage.swift in Sources */,
@@ -1637,13 +1763,14 @@
 				1FE0B72120186FD4008EAFD2 /* ChatMessagesCacheService.swift in Sources */,
 				1FC548171F703442007CE6AB /* Location.swift in Sources */,
 				1F2E37771FCC9193003D24C1 /* BaseApiService.swift in Sources */,
-				1F1A0E6E1F795FBF00FDBA97 /* ImageWrapper.swift in Sources */,
+				1F1A0E6E1F795FBF00FDBA97 /* CachedImage.swift in Sources */,
 				1F46770B1F910003007E426D /* OnePlaceMainDescriptionCell.swift in Sources */,
 				1F2E376D1FCC9169003D24C1 /* SearchPlaceCard.swift in Sources */,
 				1F4677131F950F21007E426D /* OnePlaceMainSpaceCell.swift in Sources */,
 				1FE0B71C20186409008EAFD2 /* PingPongContainer.swift in Sources */,
 				1F64C40F20192F1E00F364CD /* OneDialogController.swift in Sources */,
 				1F6B89361FA86D7100B7A99A /* OnePlaceClientsCell.swift in Sources */,
+				1F3E6C17202A1AB80084C7C7 /* OneDialogInputPanelEmojiCell.swift in Sources */,
 				1FE0B70320176114008EAFD2 /* StreamServices.swift in Sources */,
 				1F3382F31F97D1C700E43596 /* FMSwitch.swift in Sources */,
 				1FE0B71020181CC0008EAFD2 /* ChatDialog.swift in Sources */,
@@ -1662,19 +1789,26 @@
 				1F2E37731FCC9178003D24C1 /* PlacesClientsApiService.swift in Sources */,
 				1FC548151F7033FF007CE6AB /* ApiRole.swift in Sources */,
 				1F4DDE0B1F977646005CED0B /* User.swift in Sources */,
+				1F3E6BE92028E2B30084C7C7 /* ProfileController.swift in Sources */,
 				1F2E37621FCC8569003D24C1 /* ToolsServices.swift in Sources */,
+				1F3E6BFC2028F8C50084C7C7 /* FMTextFieldRow.swift in Sources */,
 				1F1CA90E1FCEEDE60006BE0B /* ActionsCacheService.swift in Sources */,
 				1F2E37861FCC91D2003D24C1 /* LikesService.swift in Sources */,
+				1F3E6BEF2028F21E0084C7C7 /* ProfileControllerSelectTowns.swift in Sources */,
 				1F64C4032018DD6400F364CD /* ChatDialogsController.swift in Sources */,
 				1FC5480B1F6FF8B4007CE6AB /* PlaceImage.swift in Sources */,
 				1FC5838C1F814CDB0045941A /* TabBarController.swift in Sources */,
+				1F3E6C112029D41E0084C7C7 /* SendingDialogMessageModel.swift in Sources */,
 				1F4AD08B1FD354FA00E6ADCC /* SelectTownsUIServiceController.swift in Sources */,
 				1FC583A01F827F360045941A /* SliderControlDelegate.swift in Sources */,
 				1F4DDE091F977613005CED0B /* UserStatus.swift in Sources */,
 				1F4AD0801FD3447900E6ADCC /* FirstLoginController.swift in Sources */,
+				1F3E6C0F2029CC6C0084C7C7 /* DialogMessageModelProtocol.swift in Sources */,
+				1F3E6C1B202A1CD20084C7C7 /* OneDialogInputPanelEmojiPicker.swift in Sources */,
 				1F451F9E1FCCAAA60080C103 /* UsersTownsApiService.swift in Sources */,
 				1F24A91C1F8976B1000BD8F1 /* OnePlaceMainAddressCell.swift in Sources */,
 				1FEF08491FCD0DF300FFD9FD /* OnePlaceMainLastActionCell.swift in Sources */,
+				1F3E6C13202A1A4B0084C7C7 /* OneDialogInputPanel.swift in Sources */,
 				1F2E37721FCC9178003D24C1 /* PlacesMainApiService.swift in Sources */,
 				1F4DDE071F977573005CED0B /* UserSex.swift in Sources */,
 				1F6B21BF1F881E270068E29A /* PlacesListTableAdapter.swift in Sources */,
@@ -1684,8 +1818,11 @@
 				1F1CA9111FCEF71A0006BE0B /* OnePlaceActionsController.swift in Sources */,
 				1FC548131F70325A007CE6AB /* Account.swift in Sources */,
 				1F6B21C11F881E310068E29A /* MapController.swift in Sources */,
+				1F3E6BF32028F4510084C7C7 /* ProfileControllerChangeAvatar.swift in Sources */,
+				1F3E6C042028FFA00084C7C7 /* FMSegmentedControlRow.swift in Sources */,
 				1FACBA761F965A64004CEED0 /* OnePlaceMainLocationCellOneLine.swift in Sources */,
 				1F2E37711FCC9178003D24C1 /* PlacesActionsApiService.swift in Sources */,
+				1F3E6BED2028E8050084C7C7 /* AvatarImage.swift in Sources */,
 				1F4AD0781FD33EB400E6ADCC /* GreetingController.swift in Sources */,
 				1FE0B71620181FED008EAFD2 /* ChatDialogsApiService.swift in Sources */,
 				1F2D6D081FD169AA00BF9E63 /* OnePlaceOneActionDetailsCell.swift in Sources */,
@@ -1698,6 +1835,7 @@
 				1F2E37881FCC91D2003D24C1 /* CheckInService.swift in Sources */,
 				1FB0EE4A1FAF9C2E00F64F1F /* ImagesController.swift in Sources */,
 				1F4AD07C1FD343B100E6ADCC /* SelectTownsUIService.swift in Sources */,
+				1F3E6C0B2029C8AD0084C7C7 /* SimpleDialogMessageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

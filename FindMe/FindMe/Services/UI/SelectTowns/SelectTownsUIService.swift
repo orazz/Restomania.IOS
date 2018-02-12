@@ -15,6 +15,4 @@ public class SelectTownsUIService {
     public static var initialController: UIViewController {
         return SelectTownsUIServiceController.instance
     }
-
-
 }

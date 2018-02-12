@@ -22,12 +22,13 @@ public class OnePlaceClientsCell: UITableViewCell {
     }
 
     //MARK: UI elements
-    @IBOutlet private weak var avatarImage: ImageWrapper!
+    @IBOutlet private weak var avatarImage: CachedImage!
     @IBOutlet private weak var nameLabel: FMSubheadLabel!
     @IBOutlet private weak var writeMessageImage: UIImageView!
 
     //MARK: Data
     private var client: PlaceClient?
+    public private(set) var allowMessages: Bool = false
     public var userId: Long {
         return client?.ID ?? 0
     }
@@ -40,11 +41,26 @@ public class OnePlaceClientsCell: UITableViewCell {
         avatarImage.layer.borderWidth = 3.0
         avatarImage.layer.borderColor = ThemeSettings.Colors.main.cgColor
     }
-    public func update(by update: PlaceClient) {
+    public override func prepareForReuse() {
+        super.prepareForReuse()
 
-        avatarImage.setup(url: update.image)
-        nameLabel.text = update.name
+        avatarImage.clear()
+    }
+    public func update(by update: PlaceClient, allowMessages: Bool) {
+
+        self.avatarImage.setup(url: update.image)
+        self.nameLabel.text = update.name
 
         self.client = update
+        self.allowMessages = allowMessages
+
+        if (allowMessages) {
+            self.writeMessageImage.isHidden = false
+            self.selectionStyle = .default
+        }
+        else {
+            self.writeMessageImage.isHidden = true
+            self.selectionStyle = .none
+        }
     }
 }

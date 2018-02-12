@@ -22,7 +22,7 @@ public class ChatDialogsDialogRow: UITableViewCell {
     }
 
     //UI
-    @IBOutlet private weak var logoImage: ImageWrapper!
+    @IBOutlet private weak var logoImage: AvatarImage!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var lastMessageLabel: UILabel!
 
@@ -33,20 +33,12 @@ public class ChatDialogsDialogRow: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        logoImage.layer.cornerRadius = logoImage.frame.width/2
-        logoImage.layer.borderWidth = 3.0
-        logoImage.layer.borderColor = ThemeSettings.Colors.main.cgColor
-
         nameLabel.font = ThemeSettings.Fonts.bold(size: .subhead)
         nameLabel.textColor = ThemeSettings.Colors.blackText
 
         lastMessageLabel.font = ThemeSettings.Fonts.default(size: .caption)
         lastMessageLabel.textColor = ThemeSettings.Colors.blackText
     }
-//    public override func prepareForReuse() {
-//        super.prepareForReuse()
-//
-//    }
     public func update(by update: ChatDialog) {
 
         self.dialog = update

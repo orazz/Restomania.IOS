@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jex-Iv-xMf" customClass="ImageWrapper" customModule="FindMe" customModuleProvider="target">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jex-Iv-xMf" customClass="CachedImage" customModule="FindMe" customModuleProvider="target">
                     <rect key="frame" x="5" y="5" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="bLh-fv-Uqb"/>
@@ -24,17 +24,17 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfk-ql-4Gi" customClass="FMSubheadLabel" customModule="FindMe" customModuleProvider="target">
-                    <rect key="frame" x="80" y="5" width="260" height="60"/>
+                    <rect key="frame" x="80" y="5" width="265" height="60"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="write-message" translatesAutoresizingMaskIntoConstraints="NO" id="RmV-57-IBn">
-                    <rect key="frame" x="350" y="25" width="20" height="20"/>
+                    <rect key="frame" x="355" y="27.5" width="15" height="15"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="20" id="WEr-dQ-mRI"/>
-                        <constraint firstAttribute="height" constant="20" id="qnZ-9e-VlK"/>
+                        <constraint firstAttribute="width" constant="15" id="WEr-dQ-mRI"/>
+                        <constraint firstAttribute="height" constant="15" id="qnZ-9e-VlK"/>
                     </constraints>
                 </imageView>
             </subviews>

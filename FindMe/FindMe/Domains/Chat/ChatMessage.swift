@@ -19,7 +19,7 @@ public class ChatMessage: SourceChatMessage, ICached {
     }
 
     public let sourceMessageId: Long
-    public let recipientId: Long
+    public private(set) var recipientId: Long
     public var deliveryStatus: DeliveryStatus
 
     public override init() {
@@ -34,13 +34,18 @@ public class ChatMessage: SourceChatMessage, ICached {
     public init(wrap source: SourceChatMessage) {
 
         self.sourceMessageId = source.ID
-        self.recipientId = -1
+        self.recipientId = 0
         self.deliveryStatus = .processing
 
         super.init(source: source)
+
+        markLikeOutgoing()
     }
 
-    public var isSended: Bool {
+    public func markLikeOutgoing() {
+        self.recipientId = -1
+    }
+    public var isOutgoing: Bool {
         return -1 == recipientId
     }
 

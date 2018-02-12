@@ -16,7 +16,7 @@ import MdsKit
 }
 public class FMSwitch: UIView {
 
-    public static let height = CGFloat(35)
+    public static let height = 35.0
     private let nibName = "FMSwitch"
 
 
@@ -51,8 +51,15 @@ public class FMSwitch: UIView {
             switchControl.isOn = newValue
         }
     }
+    public override var frame: CGRect {
+        didSet {
+            contentView?.frame = self.bounds
+        }
+    }
 
-
+    public convenience init(width: Double = 500.0) {
+        self.init(frame: CGRect(x: 0, y: 0, width: width, height: FMSwitch.height))
+    }
     public override init(frame: CGRect) {
         super.init(frame: frame)
 

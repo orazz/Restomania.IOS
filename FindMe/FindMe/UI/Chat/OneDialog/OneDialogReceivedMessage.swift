@@ -14,10 +14,10 @@ import UIKit
 public class OneDialogReceivedMessage: OneDialogMessage {
 
     private static let nibName = "\(String.tag(OneDialogReceivedMessage.self))View"
-    public static func create(for message: ChatMessage) -> OneDialogReceivedMessage  {
+    public static func create(for message: DialogMessageModelProtocol) -> OneDialogReceivedMessage  {
 
         let cell: OneDialogReceivedMessage = UINib.instantiate(from: nibName, bundle: Bundle.main)
-        cell.update(by: message)
+        cell.apply(message)
 
         return cell
     }
@@ -36,7 +36,7 @@ public class OneDialogReceivedMessage: OneDialogMessage {
 
         if let message = message {
             if (message.deliveryStatus != .isRead) {
-                let request = messagesService.markAsRead(message.ID)
+                let request = messagesService.markAsRead(message.id)
                 request.async(.background, completion: { _ in })
             }
         }

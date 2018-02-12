@@ -18,7 +18,7 @@ import CoreGraphics
 }
 public class FMTextField: UIView {
 
-    public static let height = 35.0
+    public static let height = 40.0
     private let scaleFactor = CGFloat(1/1.3)
     private let nibName = "FMTextField"
 
@@ -53,6 +53,11 @@ public class FMTextField: UIView {
             contentField.text = newValue
 
             updateTitleLabel()
+        }
+    }
+    public override var frame: CGRect {
+        didSet {
+            contentView?.frame = self.bounds
         }
     }
     public var valueType: ValueType! {
@@ -91,7 +96,9 @@ public class FMTextField: UIView {
 
     public private (set) var titleIsFocused: Bool = false
 
-
+    public convenience init(width: Double = 500) {
+        self.init(frame: CGRect(x: 0, y: 0, width: width, height: FMTextField.height))
+    }
     public override init(frame: CGRect) {
         super.init(frame: frame)
 

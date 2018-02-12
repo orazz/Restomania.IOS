@@ -47,9 +47,9 @@ public class OnePlaceMainSliderCell: UITableViewCell {
             images.append(PlaceImage())
         }
 
-        var slides = [ImageWrapper]()
+        var slides = [CachedImage]()
         for image in images {
-            let wrapper = ImageWrapper(frame: sliderView.frame)
+            let wrapper = CachedImage(frame: sliderView.frame)
             wrapper.setup(url: image.link)
             wrapper.clipsToBounds = true
             wrapper.contentMode = .scaleAspectFill

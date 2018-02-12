@@ -24,7 +24,7 @@ public class SearchPlaceCardCell: UITableViewCell {
     }
 
     //MARK: UIElements
-    @IBOutlet public weak var PlaceImage: ImageWrapper!
+    @IBOutlet public weak var PlaceImage: CachedImage!
     @IBOutlet public weak var PlaceNameLabel: FMHeadlineLabel!
     @IBOutlet public weak var PlaceDescriptionLabel: FMCaptionLabel!
     @IBOutlet public weak var PlacePeopleCountLabel: FMSubstringLabel!

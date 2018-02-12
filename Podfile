@@ -26,6 +26,7 @@ target 'FindMe' do
     shared_pods
     pod 'Toast-Swift', '~> 3.0.1'
     pod 'SwiftR', '~> 0.14.0'
+    pod 'Smile', '~> 1.3.0'
 end
 target 'FindMe-Tests' do
     project './FindMe/FindMe.xcodeproj'

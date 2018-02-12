@@ -20,9 +20,9 @@ public class SendingMessage: JSONEncodable {
 
     public let dialogId: Long
     public let content: String
-    public var attachments: [Long]
+    public var attachments: [String]
 
-    public init(toDialog dialogId: Long, content: String, and attachments: [Long]) {
+    public init(toDialog dialogId: Long, content: String, attachments: [String] = []) {
 
         self.dialogId = dialogId
         self.content = content

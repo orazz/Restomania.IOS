@@ -90,12 +90,12 @@ public class AppSummary {
         self.prevBuild = prevBuild.value
     }
     private func parseVersion(_ version: String) -> (Int, Int, Int) {
-        
-        let range = version.components(separatedBy: ".").map{ String($0) }
+
+        let range = version.components(separatedBy: CharacterSet(charactersIn: " .-"))
         
         return (Int(range[0])!,
-                Int(range[1])!,
-                Int(range[2])!)
+                Int(range[1]) ?? 0,
+                Int(range[2]) ?? 0)
     }
 
 

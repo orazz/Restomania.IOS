@@ -24,7 +24,7 @@ public class OnePlaceOneActionImageCell: UITableViewCell {
     }
 
     //MARK: UI elements
-    @IBOutlet private weak var ImageView: ImageWrapper!
+    @IBOutlet private weak var ImageView: CachedImage!
 
     //MARK: Data
     private var place: DisplayPlaceInfo!

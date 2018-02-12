@@ -113,7 +113,7 @@ extension UIViewController {
 
 
     //MARK: Hide keyboard by tap by root view
-    open func closeKeyboardWhenTapOnRootView(_ selector: Selector? = nil) -> TextFieldsStorage {
+    open func closeKeyboardWhenTapOnRootView(_ selector: Selector? = nil, views: [UIView] = []) -> TextFieldsStorage {
 
         let storage = TextFieldsStorage(vc: self)
 
@@ -121,23 +121,32 @@ extension UIViewController {
         if let selector = selector {
             tap.addTarget(self, action: selector)
         }
-        self.view.addGestureRecognizer(tap)
-        self.view.isUserInteractionEnabled = true
+
+        for view in views + [self.view] {
+            view.addGestureRecognizer(tap)
+            view.isUserInteractionEnabled = true
+        }
 
         return storage
     }
     open class TextFieldsStorage {
 
         public var fields: [UITextField]
+        private var view: UIView!
 
         public init(vc: UIViewController) {
 
             self.fields = []
+            self.view = vc.view
 
-            collectFields(root: vc.view, range: &fields)
+            collectFields(root: view, range: &fields)
         }
 
         @objc public func closeKeyboard() {
+
+            if (fields.isEmpty) {
+                collectFields(root: view, range: &fields)
+            }
 
             for field in fields {
                 if (field.isFirstResponder) {

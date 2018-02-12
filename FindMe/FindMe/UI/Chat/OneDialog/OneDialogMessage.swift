@@ -16,6 +16,7 @@ public class OneDialogMessage: UITableViewCell {
     @IBOutlet internal weak var backgroundWrapperView: UIView!
     @IBOutlet internal weak var messageLabel: UILabel!
     @IBOutlet internal weak var timeLabel: UILabel!
+    private var countedHeight: CGFloat? = nil
 
     //Services
     internal let messagesService = CacheServices.chatMessages
@@ -23,8 +24,7 @@ public class OneDialogMessage: UITableViewCell {
     //Data
     private let _tag = String.tag(OneDialogReceivedMessage.self)
     internal let guid = Guid.new
-    internal var message: ChatMessage?
-    internal var timeFormatter = DateFormatter(for: "HH:mm")
+    public var message: DialogMessageModelProtocol!
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +34,7 @@ public class OneDialogMessage: UITableViewCell {
         backgroundWrapperView.layer.borderWidth = 0.0
         backgroundWrapperView.layer.borderColor = UIColor.clear.cgColor
 
-        messageLabel.font = ThemeSettings.Fonts.default(size: .caption)
+        messageLabel.font = ThemeSettings.Fonts.default(size: .subhead)
         messageLabel.textColor = ThemeSettings.Colors.blackText
 
         timeLabel.font = ThemeSettings.Fonts.default(size: .substring)
@@ -49,14 +49,25 @@ public class OneDialogMessage: UITableViewCell {
         messagesService.unsubscribe(guid: guid)
     }
     public func willDisplay() {}
-    public func update(by message: ChatMessage) {
+    public func apply(_ message: DialogMessageModelProtocol) {
 
         self.message = message
 
-        messageLabel.text = message.content
-        timeLabel.text = timeFormatter.string(from: message.CreateAt)
+        self.messageLabel.text = message.content
+        self.timeLabel.text = message.formattedCreateAt
     }
-    public func countHeight() -> CGFloat {
+    public var height: CGFloat {
+
+        if let height = countedHeight {
+            return height
+        }
+
+        let counted = countHeight()
+        countedHeight = counted
+
+        return counted
+    }
+    private func countHeight() -> CGFloat {
 
         let width = UIScreen.main.bounds.width - CGFloat(5.0 + 5.0) - CGFloat(100)
         let containerHeight = message!.content.height(containerWidth: width, font: messageLabel.font)
@@ -65,21 +76,22 @@ public class OneDialogMessage: UITableViewCell {
     }
 }
 extension OneDialogMessage: ChatMessagesCacheServiceDelegate {
-    public func messagesService(_ service: ChatMessagesCacheService, new message: ChatMessage) {
-        applyChanges(for: message)
-    }
     public func messagesService(_ service: ChatMessagesCacheService, change message: ChatMessage) {
         applyChanges(for: message)
     }
     public func messagesService(_ service: ChatMessagesCacheService, updates messages: [ChatMessage]) {
-        applyChanges(for: messages.find({ $0.ID == self.message?.ID }))
+        applyChanges(for: messages.find({ $0.ID == self.message?.id }))
     }
     private func applyChanges(for message: ChatMessage?) {
-        if let update = message,
-            update.ID == self.message?.ID {
 
+        if let update = message,
+            let source = self.message,
+            update.ID == self.message?.id {
+
+            source.update(by: update)
+            
             DispatchQueue.main.async {
-                self.update(by: update)
+                self.apply(source)
             }
         }
     }
