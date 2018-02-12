@@ -1,6 +1,6 @@
 //
 //  SignupController.swift
-//  Restomania.App.Kuzina
+//  Kuzina
 //
 //  Created by Алексей on 15.08.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
