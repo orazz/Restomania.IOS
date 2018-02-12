@@ -27,6 +27,9 @@
          location = "group:Core/ApiServices/ApiServices.xcodeproj">
       </FileRef>
       <FileRef
+         location = "group:Core/ToolsServices/ToolsServices.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Core/Domains/Domains.xcodeproj">
       </FileRef>
       <FileRef

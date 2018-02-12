@@ -7,9 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3B3F1E2031C3DD0042ADCD /* CoreToolsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3B3F1F2031C3DD0042ADCD /* CoreToolsServices.framework */; };
+		1F42FC5A2031C189001E0F3C /* AuthMainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC452031C188001E0F3C /* AuthMainApiService.swift */; };
+		1F42FC5B2031C189001E0F3C /* AddedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC482031C189001E0F3C /* AddedOrder.swift */; };
+		1F42FC5C2031C189001E0F3C /* AddedOrderDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC492031C189001E0F3C /* AddedOrderDish.swift */; };
+		1F42FC5D2031C189001E0F3C /* UserAccountApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC4A2031C189001E0F3C /* UserAccountApiService.swift */; };
+		1F42FC5E2031C189001E0F3C /* UserCardsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC4B2031C189001E0F3C /* UserCardsApiService.swift */; };
+		1F42FC5F2031C189001E0F3C /* UserChangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC4C2031C189001E0F3C /* UserChangeApiService.swift */; };
+		1F42FC602031C189001E0F3C /* UserOrdersApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC4D2031C189001E0F3C /* UserOrdersApiService.swift */; };
+		1F42FC612031C189001E0F3C /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC4E2031C189001E0F3C /* BaseApiService.swift */; };
+		1F42FC622031C189001E0F3C /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC4F2031C189001E0F3C /* ApiServices.swift */; };
+		1F42FC632031C189001E0F3C /* PlaceSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC512031C189001E0F3C /* PlaceSummariesApiService.swift */; };
+		1F42FC642031C189001E0F3C /* MenuSummariesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC532031C189001E0F3C /* MenuSummariesApiService.swift */; };
+		1F42FC652031C189001E0F3C /* AddingBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC552031C189001E0F3C /* AddingBooking.swift */; };
+		1F42FC662031C189001E0F3C /* AddingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC562031C189001E0F3C /* AddingCard.swift */; };
+		1F42FC672031C189001E0F3C /* GetArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC572031C189001E0F3C /* GetArgs.swift */; };
+		1F42FC682031C189001E0F3C /* NotificationsDevicesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC592031C189001E0F3C /* NotificationsDevicesApiService.swift */; };
+		1F42FC6A2031C19A001E0F3C /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F42FC6B2031C19A001E0F3C /* CoreDomains.framework */; };
 		1FCDCF9E2031B1F800321E3E /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCF942031B1F800321E3E /* CoreApiServices.framework */; };
 		1FCDCFA32031B1F800321E3E /* ApiServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCFA22031B1F800321E3E /* ApiServicesTests.swift */; };
-		1FCDCFA52031B1F800321E3E /* ApiServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCDCF972031B1F800321E3E /* ApiServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BB2E9172B1A67674C78598C /* Pods_CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2FE5BE2AEC31477A53CF70 /* Pods_CoreApiServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +40,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02DA6E3851B96756EB56BD32 /* Pods-CoreApiServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreApiServices.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreApiServices/Pods-CoreApiServices.release.xcconfig"; sourceTree = "<group>"; };
+		1F3B3F1F2031C3DD0042ADCD /* CoreToolsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreToolsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F42FC452031C188001E0F3C /* AuthMainApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthMainApiService.swift; sourceTree = "<group>"; };
+		1F42FC482031C189001E0F3C /* AddedOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedOrder.swift; sourceTree = "<group>"; };
+		1F42FC492031C189001E0F3C /* AddedOrderDish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedOrderDish.swift; sourceTree = "<group>"; };
+		1F42FC4A2031C189001E0F3C /* UserAccountApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountApiService.swift; sourceTree = "<group>"; };
+		1F42FC4B2031C189001E0F3C /* UserCardsApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardsApiService.swift; sourceTree = "<group>"; };
+		1F42FC4C2031C189001E0F3C /* UserChangeApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserChangeApiService.swift; sourceTree = "<group>"; };
+		1F42FC4D2031C189001E0F3C /* UserOrdersApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOrdersApiService.swift; sourceTree = "<group>"; };
+		1F42FC4E2031C189001E0F3C /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseApiService.swift; sourceTree = "<group>"; };
+		1F42FC4F2031C189001E0F3C /* ApiServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
+		1F42FC512031C189001E0F3C /* PlaceSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSummariesApiService.swift; sourceTree = "<group>"; };
+		1F42FC532031C189001E0F3C /* MenuSummariesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSummariesApiService.swift; sourceTree = "<group>"; };
+		1F42FC552031C189001E0F3C /* AddingBooking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingBooking.swift; sourceTree = "<group>"; };
+		1F42FC562031C189001E0F3C /* AddingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingCard.swift; sourceTree = "<group>"; };
+		1F42FC572031C189001E0F3C /* GetArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetArgs.swift; sourceTree = "<group>"; };
+		1F42FC592031C189001E0F3C /* NotificationsDevicesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsDevicesApiService.swift; sourceTree = "<group>"; };
+		1F42FC6B2031C19A001E0F3C /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCF942031B1F800321E3E /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FCDCF972031B1F800321E3E /* ApiServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiServices.h; sourceTree = "<group>"; };
 		1FCDCF982031B1F800321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FCDCF9D2031B1F800321E3E /* CoreApiServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreApiServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCFA22031B1F800321E3E /* ApiServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServicesTests.swift; sourceTree = "<group>"; };
 		1FCDCFA42031B1F800321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C2FE5BE2AEC31477A53CF70 /* Pods_CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8997C2F321C9AE43FAFE8EB /* Pods-CoreApiServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreApiServices.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreApiServices/Pods-CoreApiServices.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3B3F1E2031C3DD0042ADCD /* CoreToolsServices.framework in Frameworks */,
+				1F42FC6A2031C19A001E0F3C /* CoreDomains.framework in Frameworks */,
+				8BB2E9172B1A67674C78598C /* Pods_CoreApiServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,12 +89,101 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F3B3F1D2031C3B50042ADCD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1F42FC4E2031C189001E0F3C /* BaseApiService.swift */,
+				1F42FC442031C188001E0F3C /* Auth */,
+				1F42FC522031C189001E0F3C /* Menu */,
+				1F42FC542031C189001E0F3C /* Models */,
+				1F42FC582031C189001E0F3C /* Notifications */,
+				1F42FC502031C189001E0F3C /* Places */,
+				1F42FC462031C189001E0F3C /* User */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1F42FC442031C188001E0F3C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				1F42FC452031C188001E0F3C /* AuthMainApiService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		1F42FC462031C189001E0F3C /* User */ = {
+			isa = PBXGroup;
+			children = (
+				1F42FC472031C189001E0F3C /* Models */,
+				1F42FC4A2031C189001E0F3C /* UserAccountApiService.swift */,
+				1F42FC4B2031C189001E0F3C /* UserCardsApiService.swift */,
+				1F42FC4C2031C189001E0F3C /* UserChangeApiService.swift */,
+				1F42FC4D2031C189001E0F3C /* UserOrdersApiService.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		1F42FC472031C189001E0F3C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F42FC482031C189001E0F3C /* AddedOrder.swift */,
+				1F42FC492031C189001E0F3C /* AddedOrderDish.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1F42FC502031C189001E0F3C /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				1F42FC512031C189001E0F3C /* PlaceSummariesApiService.swift */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
+		1F42FC522031C189001E0F3C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				1F42FC532031C189001E0F3C /* MenuSummariesApiService.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		1F42FC542031C189001E0F3C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F42FC552031C189001E0F3C /* AddingBooking.swift */,
+				1F42FC562031C189001E0F3C /* AddingCard.swift */,
+				1F42FC572031C189001E0F3C /* GetArgs.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1F42FC582031C189001E0F3C /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				1F42FC592031C189001E0F3C /* NotificationsDevicesApiService.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		1F42FC692031C19A001E0F3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F3B3F1F2031C3DD0042ADCD /* CoreToolsServices.framework */,
+				1F42FC6B2031C19A001E0F3C /* CoreDomains.framework */,
+				7C2FE5BE2AEC31477A53CF70 /* Pods_CoreApiServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1FCDCF8A2031B1F800321E3E = {
 			isa = PBXGroup;
 			children = (
 				1FCDCF962031B1F800321E3E /* ApiServices */,
 				1FCDCFA12031B1F800321E3E /* ApiServicesTests */,
 				1FCDCF952031B1F800321E3E /* Products */,
+				1F42FC692031C19A001E0F3C /* Frameworks */,
+				727A4EE6D2C29A31DC8CBA94 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +199,8 @@
 		1FCDCF962031B1F800321E3E /* ApiServices */ = {
 			isa = PBXGroup;
 			children = (
-				1FCDCF972031B1F800321E3E /* ApiServices.h */,
+				1F42FC4F2031C189001E0F3C /* ApiServices.swift */,
+				1F3B3F1D2031C3B50042ADCD /* Services */,
 				1FCDCF982031B1F800321E3E /* Info.plist */,
 			);
 			path = ApiServices;
@@ -86,6 +215,15 @@
 			path = ApiServicesTests;
 			sourceTree = "<group>";
 		};
+		727A4EE6D2C29A31DC8CBA94 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B8997C2F321C9AE43FAFE8EB /* Pods-CoreApiServices.debug.xcconfig */,
+				02DA6E3851B96756EB56BD32 /* Pods-CoreApiServices.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +231,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FCDCFA52031B1F800321E3E /* ApiServices.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,10 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FCDCFA82031B1F800321E3E /* Build configuration list for PBXNativeTarget "CoreApiServices" */;
 			buildPhases = (
+				C931F724B8887352D8CC0428 /* [CP] Check Pods Manifest.lock */,
 				1FCDCF8F2031B1F800321E3E /* Sources */,
 				1FCDCF902031B1F800321E3E /* Frameworks */,
 				1FCDCF912031B1F800321E3E /* Headers */,
 				1FCDCF922031B1F800321E3E /* Resources */,
+				0A9FDB00B4A6A24850381F10 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +287,7 @@
 				TargetAttributes = {
 					1FCDCF932031B1F800321E3E = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					1FCDCF9C2031B1F800321E3E = {
@@ -191,11 +331,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A9FDB00B4A6A24850381F10 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-CoreApiServices/Pods-CoreApiServices-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C931F724B8887352D8CC0428 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoreApiServices-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1FCDCF8F2031B1F800321E3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F42FC602031C189001E0F3C /* UserOrdersApiService.swift in Sources */,
+				1F42FC682031C189001E0F3C /* NotificationsDevicesApiService.swift in Sources */,
+				1F42FC632031C189001E0F3C /* PlaceSummariesApiService.swift in Sources */,
+				1F42FC5A2031C189001E0F3C /* AuthMainApiService.swift in Sources */,
+				1F42FC5E2031C189001E0F3C /* UserCardsApiService.swift in Sources */,
+				1F42FC5D2031C189001E0F3C /* UserAccountApiService.swift in Sources */,
+				1F42FC5F2031C189001E0F3C /* UserChangeApiService.swift in Sources */,
+				1F42FC612031C189001E0F3C /* BaseApiService.swift in Sources */,
+				1F42FC662031C189001E0F3C /* AddingCard.swift in Sources */,
+				1F42FC622031C189001E0F3C /* ApiServices.swift in Sources */,
+				1F42FC672031C189001E0F3C /* GetArgs.swift in Sources */,
+				1F42FC5C2031C189001E0F3C /* AddedOrderDish.swift in Sources */,
+				1F42FC5B2031C189001E0F3C /* AddedOrder.swift in Sources */,
+				1F42FC652031C189001E0F3C /* AddingBooking.swift in Sources */,
+				1F42FC642031C189001E0F3C /* MenuSummariesApiService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +524,9 @@
 		};
 		1FCDCFA92031B1F800321E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8997C2F321C9AE43FAFE8EB /* Pods-CoreApiServices.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -348,6 +541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.core.apservices;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,7 +549,9 @@
 		};
 		1FCDCFAA2031B1F800321E3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02DA6E3851B96756EB56BD32 /* Pods-CoreApiServices.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -378,6 +574,7 @@
 		1FCDCFAC2031B1F800321E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = ApiServicesTests/Info.plist;
@@ -392,6 +589,7 @@
 		1FCDCFAD2031B1F800321E3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = ApiServicesTests/Info.plist;
