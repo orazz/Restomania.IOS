@@ -12,7 +12,6 @@ public class NavigationController: UINavigationController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

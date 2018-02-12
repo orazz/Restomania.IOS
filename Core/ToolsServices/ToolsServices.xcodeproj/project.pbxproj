@@ -7,17 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F3B3F152031C3AB0042ADCD /* ToolsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F0A2031C3AB0042ADCD /* ToolsServices.swift */; };
-		1F3B3F162031C3AB0042ADCD /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F0D2031C3AB0042ADCD /* CartService.swift */; };
-		1F3B3F172031C3AB0042ADCD /* CartServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F0E2031C3AB0042ADCD /* CartServiceDelegate.swift */; };
-		1F3B3F182031C3AB0042ADCD /* CommonCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F102031C3AB0042ADCD /* CommonCartContainer.swift */; };
-		1F3B3F192031C3AB0042ADCD /* PlaceCartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F112031C3AB0042ADCD /* PlaceCartContainer.swift */; };
-		1F3B3F1A2031C3AB0042ADCD /* PlaceCartsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F122031C3AB0042ADCD /* PlaceCartsFactory.swift */; };
-		1F3B3F1B2031C3AC0042ADCD /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F132031C3AB0042ADCD /* ReservationService.swift */; };
-		1F3B3F1C2031C3AC0042ADCD /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F142031C3AB0042ADCD /* KeysStorage.swift */; };
 		1F3B3F212031C3FD0042ADCD /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3B3F222031C3FD0042ADCD /* CoreDomains.framework */; };
 		1F42FC822031C2DB001E0F3C /* CoreToolsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F42FC782031C2DB001E0F3C /* CoreToolsServices.framework */; };
 		1F42FC872031C2DB001E0F3C /* ToolsServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC862031C2DB001E0F3C /* ToolsServicesTests.swift */; };
+		1F8105E620321EA000B197F8 /* ToolsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105E520321EA000B197F8 /* ToolsServices.swift */; };
 		76918AE9B5E2ED281CD624F9 /* Pods_CoreToolsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C8B3CC1C6FF5124ABD81F6 /* Pods_CoreToolsServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,20 +25,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F3B3F0A2031C3AB0042ADCD /* ToolsServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsServices.swift; sourceTree = "<group>"; };
-		1F3B3F0D2031C3AB0042ADCD /* CartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
-		1F3B3F0E2031C3AB0042ADCD /* CartServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartServiceDelegate.swift; sourceTree = "<group>"; };
-		1F3B3F102031C3AB0042ADCD /* CommonCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonCartContainer.swift; sourceTree = "<group>"; };
-		1F3B3F112031C3AB0042ADCD /* PlaceCartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartContainer.swift; sourceTree = "<group>"; };
-		1F3B3F122031C3AB0042ADCD /* PlaceCartsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartsFactory.swift; sourceTree = "<group>"; };
-		1F3B3F132031C3AB0042ADCD /* ReservationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationService.swift; sourceTree = "<group>"; };
-		1F3B3F142031C3AB0042ADCD /* KeysStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysStorage.swift; sourceTree = "<group>"; };
 		1F3B3F222031C3FD0042ADCD /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F42FC782031C2DB001E0F3C /* CoreToolsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreToolsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F42FC7C2031C2DB001E0F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F42FC812031C2DB001E0F3C /* CoreToolsServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreToolsServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F42FC862031C2DB001E0F3C /* ToolsServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsServicesTests.swift; sourceTree = "<group>"; };
 		1F42FC882031C2DB001E0F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F8105E520321EA000B197F8 /* ToolsServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsServices.swift; sourceTree = "<group>"; };
 		B6230781D9794E7D69483AE0 /* Pods-CoreToolsServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreToolsServices.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreToolsServices/Pods-CoreToolsServices.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C8B3CC1C6FF5124ABD81F6 /* Pods_CoreToolsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreToolsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB09835E6857CFE433077334 /* Pods-CoreToolsServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreToolsServices.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreToolsServices/Pods-CoreToolsServices.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,36 +58,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F3B3F0B2031C3AB0042ADCD /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				1F3B3F0C2031C3AB0042ADCD /* Cart */,
-				1F3B3F142031C3AB0042ADCD /* KeysStorage.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		1F3B3F0C2031C3AB0042ADCD /* Cart */ = {
-			isa = PBXGroup;
-			children = (
-				1F3B3F0D2031C3AB0042ADCD /* CartService.swift */,
-				1F3B3F0E2031C3AB0042ADCD /* CartServiceDelegate.swift */,
-				1F3B3F0F2031C3AB0042ADCD /* Models */,
-				1F3B3F122031C3AB0042ADCD /* PlaceCartsFactory.swift */,
-				1F3B3F132031C3AB0042ADCD /* ReservationService.swift */,
-			);
-			path = Cart;
-			sourceTree = "<group>";
-		};
-		1F3B3F0F2031C3AB0042ADCD /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1F3B3F102031C3AB0042ADCD /* CommonCartContainer.swift */,
-				1F3B3F112031C3AB0042ADCD /* PlaceCartContainer.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		1F3B3F202031C3FD0042ADCD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,8 +90,7 @@
 		1F42FC7A2031C2DB001E0F3C /* ToolsServices */ = {
 			isa = PBXGroup;
 			children = (
-				1F3B3F0A2031C3AB0042ADCD /* ToolsServices.swift */,
-				1F3B3F0B2031C3AB0042ADCD /* Services */,
+				1F8105E520321EA000B197F8 /* ToolsServices.swift */,
 				1F42FC7C2031C2DB001E0F3C /* Info.plist */,
 			);
 			path = ToolsServices;
@@ -307,14 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F3B3F1B2031C3AC0042ADCD /* ReservationService.swift in Sources */,
-				1F3B3F1A2031C3AB0042ADCD /* PlaceCartsFactory.swift in Sources */,
-				1F3B3F152031C3AB0042ADCD /* ToolsServices.swift in Sources */,
-				1F3B3F172031C3AB0042ADCD /* CartServiceDelegate.swift in Sources */,
-				1F3B3F182031C3AB0042ADCD /* CommonCartContainer.swift in Sources */,
-				1F3B3F1C2031C3AC0042ADCD /* KeysStorage.swift in Sources */,
-				1F3B3F162031C3AB0042ADCD /* CartService.swift in Sources */,
-				1F3B3F192031C3AB0042ADCD /* PlaceCartContainer.swift in Sources */,
+				1F8105E620321EA000B197F8 /* ToolsServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

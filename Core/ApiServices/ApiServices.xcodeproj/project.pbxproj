@@ -24,6 +24,7 @@
 		1F42FC672031C189001E0F3C /* GetArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC572031C189001E0F3C /* GetArgs.swift */; };
 		1F42FC682031C189001E0F3C /* NotificationsDevicesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC592031C189001E0F3C /* NotificationsDevicesApiService.swift */; };
 		1F42FC6A2031C19A001E0F3C /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F42FC6B2031C19A001E0F3C /* CoreDomains.framework */; };
+		1F8105E9203220D900B197F8 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8105EA203220D900B197F8 /* CoreTools.framework */; };
 		1FCDCF9E2031B1F800321E3E /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCF942031B1F800321E3E /* CoreApiServices.framework */; };
 		1FCDCFA32031B1F800321E3E /* ApiServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCFA22031B1F800321E3E /* ApiServicesTests.swift */; };
 		8BB2E9172B1A67674C78598C /* Pods_CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2FE5BE2AEC31477A53CF70 /* Pods_CoreApiServices.framework */; };
@@ -58,6 +59,7 @@
 		1F42FC572031C189001E0F3C /* GetArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetArgs.swift; sourceTree = "<group>"; };
 		1F42FC592031C189001E0F3C /* NotificationsDevicesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsDevicesApiService.swift; sourceTree = "<group>"; };
 		1F42FC6B2031C19A001E0F3C /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F8105EA203220D900B197F8 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCF942031B1F800321E3E /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCF982031B1F800321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FCDCF9D2031B1F800321E3E /* CoreApiServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreApiServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8105E9203220D900B197F8 /* CoreTools.framework in Frameworks */,
 				1F3B3F1E2031C3DD0042ADCD /* CoreToolsServices.framework in Frameworks */,
 				1F42FC6A2031C19A001E0F3C /* CoreDomains.framework in Frameworks */,
 				8BB2E9172B1A67674C78598C /* Pods_CoreApiServices.framework in Frameworks */,
@@ -169,6 +172,7 @@
 		1F42FC692031C19A001E0F3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F8105EA203220D900B197F8 /* CoreTools.framework */,
 				1F3B3F1F2031C3DD0042ADCD /* CoreToolsServices.framework */,
 				1F42FC6B2031C19A001E0F3C /* CoreDomains.framework */,
 				7C2FE5BE2AEC31477A53CF70 /* Pods_CoreApiServices.framework */,

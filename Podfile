@@ -19,17 +19,23 @@ end
 target 'CoreApiServices' do
     project './Core/ApiServices/ApiServices.xcodeproj'
     shared_pods
-    pod 'Swinject', '~> 1.1.4'
+    pod 'Swinject', '~> 2.1.0'
 end
 
 target 'CoreToolsServices' do
     project './Core/ToolsServices/ToolsServices.xcodeproj'
     shared_pods
-    pod 'Swinject', '~> 1.1.4'
+    pod 'Swinject', '~> 2.1.0'
 end
 
 target 'CoreDomains' do
     project './Core/Domains/Domains.xcodeproj'
+    use_frameworks!
+    shared_pods
+end
+
+target 'CoreTools' do
+    project './Core/Tools/Tools.xcodeproj'
     use_frameworks!
     shared_pods
 end

@@ -8,26 +8,14 @@
 
 import Foundation
 import MdsKit
+import CoreTools
+import Swinject
 
 public class ToolsServices {
 
-    public static let shared = ToolsServices()
+    open func register(in container: Container) {
 
-    public let configs: ConfigsStorage
-    public let properties: PropertiesStorage<PropertiesKey>
-    public let keys: KeysStorage
-    public let cartsService: PlaceCartsFactory
-
-    private init() {
-
-        configs = ConfigsStorage(plistName: "Configs")
-        properties = PropertiesStorage<PropertiesKey>()
-        keys = KeysStorage()
-
-        cartsService = PlaceCartsFactory()
-    }
-
-    public func cart(for placeId: Long) -> CartService {
-        return cartsService.get(for: placeId)
+        container.register(ConfigsContainer.self) { _ in FileConfigsContainer(plistName: "Configs") }.inObjectScope(.container)
+        container.register(LightStorage.self) { _ in DefaultsLightStorage() }.inObjectScope(.container)
     }
 }

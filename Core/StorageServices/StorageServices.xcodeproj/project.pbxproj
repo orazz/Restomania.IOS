@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FCDCFC22031B21D00321E3E /* CoreCacheServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCFB82031B21D00321E3E /* CoreCacheServices.framework */; };
+		1FCDCFC22031B21D00321E3E /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCFB82031B21D00321E3E /* CoreStorageServices.framework */; };
 		1FCDCFC72031B21D00321E3E /* CacheServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCFC62031B21D00321E3E /* CacheServicesTests.swift */; };
 		1FCDCFC92031B21D00321E3E /* CacheServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCDCFBB2031B21D00321E3E /* CacheServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -23,10 +23,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1FCDCFB82031B21D00321E3E /* CoreCacheServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreCacheServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCDCFB82031B21D00321E3E /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCFBB2031B21D00321E3E /* CacheServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacheServices.h; sourceTree = "<group>"; };
 		1FCDCFBC2031B21D00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FCDCFC12031B21D00321E3E /* CoreCacheServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreCacheServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCDCFC12031B21D00321E3E /* CoreStorageServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreStorageServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCFC62031B21D00321E3E /* CacheServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheServicesTests.swift; sourceTree = "<group>"; };
 		1FCDCFC82031B21D00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FCDCFC22031B21D00321E3E /* CoreCacheServices.framework in Frameworks */,
+				1FCDCFC22031B21D00321E3E /* CoreStorageServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,8 +53,8 @@
 		1FCDCFAE2031B21C00321E3E = {
 			isa = PBXGroup;
 			children = (
-				1FCDCFBA2031B21D00321E3E /* CacheServices */,
-				1FCDCFC52031B21D00321E3E /* CacheServicesTests */,
+				1FCDCFBA2031B21D00321E3E /* StorageServices */,
+				1FCDCFC52031B21D00321E3E /* StorageServicesTests */,
 				1FCDCFB92031B21D00321E3E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,28 +62,28 @@
 		1FCDCFB92031B21D00321E3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FCDCFB82031B21D00321E3E /* CoreCacheServices.framework */,
-				1FCDCFC12031B21D00321E3E /* CoreCacheServicesTests.xctest */,
+				1FCDCFB82031B21D00321E3E /* CoreStorageServices.framework */,
+				1FCDCFC12031B21D00321E3E /* CoreStorageServicesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1FCDCFBA2031B21D00321E3E /* CacheServices */ = {
+		1FCDCFBA2031B21D00321E3E /* StorageServices */ = {
 			isa = PBXGroup;
 			children = (
 				1FCDCFBB2031B21D00321E3E /* CacheServices.h */,
 				1FCDCFBC2031B21D00321E3E /* Info.plist */,
 			);
-			path = CacheServices;
+			path = StorageServices;
 			sourceTree = "<group>";
 		};
-		1FCDCFC52031B21D00321E3E /* CacheServicesTests */ = {
+		1FCDCFC52031B21D00321E3E /* StorageServicesTests */ = {
 			isa = PBXGroup;
 			children = (
 				1FCDCFC62031B21D00321E3E /* CacheServicesTests.swift */,
 				1FCDCFC82031B21D00321E3E /* Info.plist */,
 			);
-			path = CacheServicesTests;
+			path = StorageServicesTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,9 +100,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1FCDCFB72031B21D00321E3E /* CoreCacheServices */ = {
+		1FCDCFB72031B21D00321E3E /* CoreStorageServices */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FCDCFCC2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreCacheServices" */;
+			buildConfigurationList = 1FCDCFCC2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreStorageServices" */;
 			buildPhases = (
 				1FCDCFB32031B21D00321E3E /* Sources */,
 				1FCDCFB42031B21D00321E3E /* Frameworks */,
@@ -113,14 +113,14 @@
 			);
 			dependencies = (
 			);
-			name = CoreCacheServices;
+			name = CoreStorageServices;
 			productName = CacheServices;
-			productReference = 1FCDCFB82031B21D00321E3E /* CoreCacheServices.framework */;
+			productReference = 1FCDCFB82031B21D00321E3E /* CoreStorageServices.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		1FCDCFC02031B21D00321E3E /* CoreCacheServicesTests */ = {
+		1FCDCFC02031B21D00321E3E /* CoreStorageServicesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FCDCFCF2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreCacheServicesTests" */;
+			buildConfigurationList = 1FCDCFCF2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreStorageServicesTests" */;
 			buildPhases = (
 				1FCDCFBD2031B21D00321E3E /* Sources */,
 				1FCDCFBE2031B21D00321E3E /* Frameworks */,
@@ -131,9 +131,9 @@
 			dependencies = (
 				1FCDCFC42031B21D00321E3E /* PBXTargetDependency */,
 			);
-			name = CoreCacheServicesTests;
+			name = CoreStorageServicesTests;
 			productName = CacheServicesTests;
-			productReference = 1FCDCFC12031B21D00321E3E /* CoreCacheServicesTests.xctest */;
+			productReference = 1FCDCFC12031B21D00321E3E /* CoreStorageServicesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -156,7 +156,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1FCDCFB22031B21C00321E3E /* Build configuration list for PBXProject "CacheServices" */;
+			buildConfigurationList = 1FCDCFB22031B21C00321E3E /* Build configuration list for PBXProject "StorageServices" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -168,8 +168,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1FCDCFB72031B21D00321E3E /* CoreCacheServices */,
-				1FCDCFC02031B21D00321E3E /* CoreCacheServicesTests */,
+				1FCDCFB72031B21D00321E3E /* CoreStorageServices */,
+				1FCDCFC02031B21D00321E3E /* CoreStorageServicesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -212,7 +212,7 @@
 /* Begin PBXTargetDependency section */
 		1FCDCFC42031B21D00321E3E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1FCDCFB72031B21D00321E3E /* CoreCacheServices */;
+			target = 1FCDCFB72031B21D00321E3E /* CoreStorageServices */;
 			targetProxy = 1FCDCFC32031B21D00321E3E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -406,7 +406,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FCDCFB22031B21C00321E3E /* Build configuration list for PBXProject "CacheServices" */ = {
+		1FCDCFB22031B21C00321E3E /* Build configuration list for PBXProject "StorageServices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FCDCFCA2031B21D00321E3E /* Debug */,
@@ -415,7 +415,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FCDCFCC2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreCacheServices" */ = {
+		1FCDCFCC2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreStorageServices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FCDCFCD2031B21D00321E3E /* Debug */,
@@ -424,7 +424,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FCDCFCF2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreCacheServicesTests" */ = {
+		1FCDCFCF2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreStorageServicesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FCDCFD02031B21D00321E3E /* Debug */,

@@ -29,7 +29,6 @@
 		1F42FAD72031B9BB001E0F3C /* AppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9732031B9BB001E0F3C /* AppType.swift */; };
 		1F42FAD82031B9BB001E0F3C /* AppUserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9742031B9BB001E0F3C /* AppUserRole.swift */; };
 		1F42FAD92031B9BB001E0F3C /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9752031B9BB001E0F3C /* ConfigKeys.swift */; };
-		1F42FADA2031B9BB001E0F3C /* PropertiesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9762031B9BB001E0F3C /* PropertiesKey.swift */; };
 		1F42FADB2031B9BB001E0F3C /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9772031B9BB001E0F3C /* ThemeSettings.swift */; };
 		1F42FB1A2031B9BB001E0F3C /* Extends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9C92031B9BB001E0F3C /* Extends.swift */; };
 		1F42FB1B2031B9BB001E0F3C /* ManagerChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9D12031B9BB001E0F3C /* ManagerChangePasswordController.swift */; };
@@ -234,7 +233,6 @@
 		1F42F9732031B9BB001E0F3C /* AppType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppType.swift; sourceTree = "<group>"; };
 		1F42F9742031B9BB001E0F3C /* AppUserRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserRole.swift; sourceTree = "<group>"; };
 		1F42F9752031B9BB001E0F3C /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigKeys.swift; sourceTree = "<group>"; };
-		1F42F9762031B9BB001E0F3C /* PropertiesKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesKey.swift; sourceTree = "<group>"; };
 		1F42F9772031B9BB001E0F3C /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSettings.swift; sourceTree = "<group>"; };
 		1F42F9C92031B9BB001E0F3C /* Extends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extends.swift; sourceTree = "<group>"; };
 		1F42F9D12031B9BB001E0F3C /* ManagerChangePasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerChangePasswordController.swift; sourceTree = "<group>"; };
@@ -498,7 +496,6 @@
 				1F42F9732031B9BB001E0F3C /* AppType.swift */,
 				1F42F9742031B9BB001E0F3C /* AppUserRole.swift */,
 				1F42F9752031B9BB001E0F3C /* ConfigKeys.swift */,
-				1F42F9762031B9BB001E0F3C /* PropertiesKey.swift */,
 				1F42F9772031B9BB001E0F3C /* ThemeSettings.swift */,
 			);
 			path = Tools;
@@ -1526,7 +1523,6 @@
 				1F42FB762031B9BB001E0F3C /* PlaceMenuMenuContainer.swift in Sources */,
 				1F42FAD42031B9BB001E0F3C /* PushesServices.swift in Sources */,
 				1F42FB7A2031B9BB001E0F3C /* PlaceMenuController.swift in Sources */,
-				1F42FADA2031B9BB001E0F3C /* PropertiesKey.swift in Sources */,
 				1F42FB702031B9BB001E0F3C /* PlaceMenuCategoryCell.swift in Sources */,
 				1F42FAD82031B9BB001E0F3C /* AppUserRole.swift in Sources */,
 				1F42FAD22031B9BB001E0F3C /* NotificationEvents.swift in Sources */,

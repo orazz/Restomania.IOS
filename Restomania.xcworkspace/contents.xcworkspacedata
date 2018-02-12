@@ -7,6 +7,9 @@
       <FileRef
          location = "group:Apps/Kuzina/Kuzina.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:Apps/SimpleRecipes/SimpleRecipes.xcodeproj">
+      </FileRef>
    </Group>
    <Group
       location = "container:"
@@ -21,7 +24,7 @@
          location = "group:Core/UIServices/UIServices.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Core/CacheServices/CacheServices.xcodeproj">
+         location = "group:Core/StorageServices/StorageServices.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Core/ApiServices/ApiServices.xcodeproj">

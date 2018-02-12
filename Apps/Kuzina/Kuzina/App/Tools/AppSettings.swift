@@ -102,26 +102,4 @@ public class AppSettings {
                 Int(range[1]) ?? 0,
                 Int(range[2]) ?? 0)
     }
-    private func parseIds(from configs: ConfigsStorage) {
-        if (type == .Single) {
-            let value: String = configs.get(forKey: ConfigKeys.placeId)!
-
-            self.placeID = Long(value)!
-            self.placeIDs = nil
-
-        } else if (type == .Network) {
-            self.placeID = nil
-
-            do {
-                let ids: String = configs.get(forKey: ConfigKeys.placesIds)!
-                let data = ids.data(using: .utf8)!
-                let range = try JSONSerialization.jsonObject(with: data, options: []) as! [Long]
-
-                self.placeIDs = range
-            } catch {
-                self.placeIDs = [Long]()
-            }
-
-        }
-    }
 }
