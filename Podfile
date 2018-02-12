@@ -10,7 +10,7 @@ end
 
 
 target 'RestomaniaAppKuzina' do
-    project './Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj'
+    project './Apps/Kuzina/Kuzina.xcodeproj'
     shared_pods
     pod 'Toast-Swift', '~> 3.0.1'
     pod 'NotificationBannerSwift', '~> 1.5.4'

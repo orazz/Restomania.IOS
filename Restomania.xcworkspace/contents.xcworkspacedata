@@ -15,4 +15,7 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Apps/Kuzina/Kuzina.xcodeproj">
+   </FileRef>
 </Workspace>
