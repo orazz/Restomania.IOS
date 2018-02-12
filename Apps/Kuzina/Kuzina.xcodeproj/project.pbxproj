@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */; };
 		1F05C75620218457005084B4 /* DishModalTryAddingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F05C75520218457005084B4 /* DishModalTryAddingAction.swift */; };
 		1F05C75820218472005084B4 /* DishModalTryAddingActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F05C75720218472005084B4 /* DishModalTryAddingActionView.xib */; };
 		1F061F332021DFE900A7AD98 /* DishModalSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061F322021DFE900A7AD98 /* DishModalSpace.swift */; };
@@ -71,7 +70,7 @@
 		1F4B0E8E1FEA60A7006C0C58 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B0E8D1FEA60A7006C0C58 /* Localization.swift */; };
 		1F4B0E921FEA69E4006C0C58 /* SearchPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B0E901FEA69E4006C0C58 /* SearchPlaceCard.swift */; };
 		1F4B0E931FEA69E4006C0C58 /* SearchPlaceCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B0E911FEA69E4006C0C58 /* SearchPlaceCardCell.xib */; };
-		1F52B3EF1FEC2E04003B2420 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F52B3EE1FEC2E03003B2420 /* ImageWrapper.swift */; };
+		1F52B3EF1FEC2E04003B2420 /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F52B3EE1FEC2E03003B2420 /* CachedImage.swift */; };
 		1F55C4742031924500200620 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F55C4732031924500200620 /* fontawesome-webfont.ttf */; };
 		1F5CF82F1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */; };
 		1F5CF8331FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */; };
@@ -126,6 +125,7 @@
 		1F691AB4200A541700415F2F /* OneOrderTotalContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F691AB3200A541700415F2F /* OneOrderTotalContainerView.xib */; };
 		1F691AB6200A545100415F2F /* OneOrderFooterContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F691AB5200A545100415F2F /* OneOrderFooterContainer.swift */; };
 		1F691AB8200A546B00415F2F /* OneOrderFooterContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F691AB7200A546B00415F2F /* OneOrderFooterContainerView.xib */; };
+		1F6D3B81203198250074B5C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6AB1F138A8600ABE1A6 /* Info.plist */; };
 		1F6E07651FE4583B00B092B6 /* CacheServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6E07641FE4583B00B092B6 /* CacheServices.swift */; };
 		1F7413D520106DAD00E5CB7D /* ExternalTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7413D320106DAD00E5CB7D /* ExternalTextEditor.swift */; };
 		1F7413D620106DAD00E5CB7D /* ExternalTextEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F7413D420106DAD00E5CB7D /* ExternalTextEditorView.xib */; };
@@ -281,6 +281,7 @@
 		1FF79A591FB22DB8008F3FCC /* ScheduleDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF79A581FB22DB8008F3FCC /* ScheduleDisplayView.xib */; };
 		1FF79A5B1FB22E2E008F3FCC /* ScheduleDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF79A5A1FB22E2E008F3FCC /* ScheduleDisplayCell.swift */; };
 		1FF79A5F1FB22E55008F3FCC /* ScheduleDisplayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF79A5E1FB22E55008F3FCC /* ScheduleDisplayCellView.xib */; };
+		4E841B366310D8FBDC31DBAB /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -353,7 +354,7 @@
 		1F4B0E8D1FEA60A7006C0C58 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Localization/Localization.swift; sourceTree = "<group>"; };
 		1F4B0E901FEA69E4006C0C58 /* SearchPlaceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPlaceCard.swift; path = UI/Controllers/Tabs/Cells/SearchPlaceCard.swift; sourceTree = "<group>"; };
 		1F4B0E911FEA69E4006C0C58 /* SearchPlaceCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchPlaceCardCell.xib; path = UI/Controllers/Tabs/Cells/SearchPlaceCardCell.xib; sourceTree = "<group>"; };
-		1F52B3EE1FEC2E03003B2420 /* ImageWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWrapper.swift; path = UI/Elements/ImageWrapper.swift; sourceTree = "<group>"; };
+		1F52B3EE1FEC2E03003B2420 /* CachedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CachedImage.swift; path = UI/Elements/CachedImage.swift; sourceTree = "<group>"; };
 		1F55C4732031924500200620 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		1F5CF82E1FB3445E00DDDC3F /* PlaceCartDishesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceCartDishesContainerCell.swift; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCell.swift; sourceTree = "<group>"; };
 		1F5CF8321FB34A5C00DDDC3F /* PlaceCartDishesContainerCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceCartDishesContainerCellView.xib; path = UI/Controllers/Place/Cart/DishesContainer/PlaceCartDishesContainerCellView.xib; sourceTree = "<group>"; };
@@ -573,9 +574,9 @@
 		1FF79A581FB22DB8008F3FCC /* ScheduleDisplayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScheduleDisplayView.xib; path = UI/Elements/ScheduleDisplay/ScheduleDisplayView.xib; sourceTree = "<group>"; };
 		1FF79A5A1FB22E2E008F3FCC /* ScheduleDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleDisplayCell.swift; path = UI/Elements/ScheduleDisplay/ScheduleDisplayCell.swift; sourceTree = "<group>"; };
 		1FF79A5E1FB22E55008F3FCC /* ScheduleDisplayCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScheduleDisplayCellView.xib; path = UI/Elements/ScheduleDisplay/ScheduleDisplayCellView.xib; sourceTree = "<group>"; };
-		32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.release.xcconfig"; sourceTree = "<group>"; };
-		569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestomaniaAppKuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestomaniaAppKuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina.debug.xcconfig"; sourceTree = "<group>"; };
+		3557BDF02335A47F03851CD6 /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
+		6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A286D3A48B5E08E92612C693 /* Pods-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,7 +584,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1896B820A0145335649534AC /* Pods_RestomaniaAppKuzina.framework in Frameworks */,
+				4E841B366310D8FBDC31DBAB /* Pods_Kuzina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1455,7 +1456,7 @@
 			isa = PBXGroup;
 			children = (
 				1F36C87F1F207C8300232B9A /* XCTest.framework */,
-				569A246FD5FA8E45CFBE0778 /* Pods_RestomaniaAppKuzina.framework */,
+				6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1646,7 +1647,7 @@
 				1F6FE2BC1FB22CA70072D518 /* ScheduleDisplay */,
 				1F3C5A0A1FB15D5E0038EB97 /* BottomActions */,
 				1F261C781F42BC4B004BFFCB /* Buttons */,
-				1F52B3EE1FEC2E03003B2420 /* ImageWrapper.swift */,
+				1F52B3EE1FEC2E03003B2420 /* CachedImage.swift */,
 				1F4B0E831FE8A8CD006C0C58 /* RefreshControl.swift */,
 			);
 			name = Elements;
@@ -1671,8 +1672,8 @@
 		669C3AFDA7F4F79423497066 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */,
-				32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */,
+				3557BDF02335A47F03851CD6 /* Pods-Kuzina.debug.xcconfig */,
+				A286D3A48B5E08E92612C693 /* Pods-Kuzina.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1774,6 +1775,7 @@
 				1F279F661FB07C82003A2B47 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */,
 				1FE3C7731FB31C2B009CE542 /* PlaceCartTotalContainerCellView.xib in Resources */,
 				1F691AAF200A4EB100415F2F /* OneOrderDishesContainerDishCellView.xib in Resources */,
+				1F6D3B81203198250074B5C0 /* Info.plist in Resources */,
 				1FE3C7651FB303E3009CE542 /* PlaceCartCompleteOrderContainerView.xib in Resources */,
 				1F691A902009BC9E00415F2F /* OneOrderControllerView.xib in Resources */,
 				1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */,
@@ -1843,7 +1845,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 		1F33A50C1F1D1BEF00BF469B /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1870,7 +1872,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RestomaniaAppKuzina-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Kuzina-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1883,7 +1885,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina-frameworks.sh",
+				"${SRCROOT}/../../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MdsKit/MdsKit.framework",
@@ -1902,7 +1904,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A3A8C19DFFEA0485696358E6 /* [CP] Copy Pods Resources */ = {
@@ -1917,7 +1919,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-RestomaniaAppKuzina/Pods-RestomaniaAppKuzina-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2080,7 +2082,7 @@
 				1F8CBDFC2020E1AB00544513 /* DishModalElementsProtocol.swift in Sources */,
 				1FC6E9F5200D217E003B47E5 /* NotificationEvents.swift in Sources */,
 				1F1DA2CD1F688AAE00EFE5CE /* UnitsOfSize.swift in Sources */,
-				1F52B3EF1FEC2E04003B2420 /* ImageWrapper.swift in Sources */,
+				1F52B3EF1FEC2E04003B2420 /* CachedImage.swift in Sources */,
 				1F62E4A91FAE46D300D1C89D /* ManagerPaymentCardsController.swift in Sources */,
 				1F4B0E8C1FEA607E006C0C58 /* Localization.UIElements.swift in Sources */,
 				1FF31FC42021C5EB0019075B /* DishModalSelectVariationsCell.swift in Sources */,
@@ -2356,12 +2358,12 @@
 		};
 		1FC5A6C51F138A8600ABE1A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CE014E503EC25888FF44136 /* Pods-RestomaniaAppKuzina.debug.xcconfig */;
+			baseConfigurationReference = 3557BDF02335A47F03851CD6 /* Pods-Kuzina.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RestomaniaAppKuzina.entitlements;
 				DEVELOPMENT_TEAM = 686FXGC24W;
-				INFOPLIST_FILE = "$(SRCROOT)/Kuzina/Info.plist";
+				INFOPLIST_FILE = ./Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -2374,12 +2376,12 @@
 		};
 		1FC5A6C61F138A8600ABE1A6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32F39B49DB18610917E47C53 /* Pods-RestomaniaAppKuzina.release.xcconfig */;
+			baseConfigurationReference = A286D3A48B5E08E92612C693 /* Pods-Kuzina.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RestomaniaAppKuzina.entitlements;
 				DEVELOPMENT_TEAM = 686FXGC24W;
-				INFOPLIST_FILE = "$(SRCROOT)/Kuzina/Info.plist";
+				INFOPLIST_FILE = ./Kuzina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";

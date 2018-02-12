@@ -26,7 +26,7 @@ public class PlaceMenuTitleContainer: UITableViewCell {
     }
 
     // MARK: UI Elements
-    @IBOutlet private var placeImage: ImageWrapper!
+    @IBOutlet private var placeImage: CachedImage!
     @IBOutlet private var dimmerView: UIView!
     @IBOutlet private var titleView: UIView!
     @IBOutlet private var nameLabel: UILabel!

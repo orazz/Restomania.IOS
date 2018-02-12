@@ -24,7 +24,7 @@ public class DishModalHeader: UITableViewCell {
     //UI
     @IBOutlet private weak var imageContainerView: UIView!
     private var imageContainerHeight: NSLayoutConstraint?
-    @IBOutlet private weak var dishImage: ImageWrapper!
+    @IBOutlet private weak var dishImage: CachedImage!
     @IBOutlet private weak var nameContainerView: UIView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var closeButton: UIButton!

@@ -10,7 +10,7 @@ import Foundation
 import MdsKit
 import UIKit
 
-public class CachedIMage: ZeroCdnImageWrapper {
+public class CachedImage: ZeroCdnImageWrapper {
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +19,7 @@ public class CachedIMage: ZeroCdnImageWrapper {
     }
 }
 
-extension CachedIMage: ZeroCdnImageWrapperDelegate {
+extension CachedImage: ZeroCdnImageWrapperDelegate {
 
     public var defaultImage: UIImage {
         return ThemeSettings.Images.default
@@ -28,7 +28,7 @@ extension CachedIMage: ZeroCdnImageWrapperDelegate {
         return CacheServices.images
     }
     public var sizes: [CGFloat: String] {
-        return CachedIMage.sizes
+        return CachedImage.sizes
     }
     private static let sizes = [
         CGFloat(40): "xss",

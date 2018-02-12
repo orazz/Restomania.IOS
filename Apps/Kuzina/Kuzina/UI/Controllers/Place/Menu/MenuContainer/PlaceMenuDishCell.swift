@@ -27,7 +27,7 @@ public class PlaceMenuDishCell: UITableViewCell {
     }
 
     //UI elements
-    @IBOutlet weak var dishImage: ImageWrapper!
+    @IBOutlet weak var dishImage: CachedImage!
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishDescription: UILabel!
     @IBOutlet weak var dishWeight: SizeLabel!
