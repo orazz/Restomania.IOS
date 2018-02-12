@@ -9,6 +9,7 @@
 import Foundation
 import Gloss
 import MdsKit
+import CoreDomains
 
 public class PlacesCacheService {
 

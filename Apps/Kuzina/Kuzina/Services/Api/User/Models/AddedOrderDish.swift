@@ -9,6 +9,7 @@
 import Foundation
 import MdsKit
 import Gloss
+import CoreDomains
 
 public class AddedOrderDish: ICopying, Glossy {
 

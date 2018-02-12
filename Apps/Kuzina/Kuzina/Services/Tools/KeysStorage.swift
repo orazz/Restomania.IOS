@@ -9,6 +9,7 @@
 import Foundation
 import Gloss
 import MdsKit
+import CoreDomains
 
 public protocol KeysStorageDelegate {
     func set(keys: ApiKeys, for role: ApiRole)

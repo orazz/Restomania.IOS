@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreDomains
 
 public class PlaceCartTotalContainer: UITableViewCell {
 

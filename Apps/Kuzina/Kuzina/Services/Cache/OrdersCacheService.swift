@@ -8,6 +8,7 @@
 
 import Foundation
 import MdsKit
+import CoreDomains
 
 public protocol OrdersCacheServiceDelegate {
     func update(_: Long, update: DishOrder)

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreDomains
 
 extension PlaceMenuMenuContainer {
     internal class DishesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {

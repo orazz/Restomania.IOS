@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MdsKit
 import Toast_Swift
+import CoreDomains
 
 public protocol IPaymentCardsDelegate {
 

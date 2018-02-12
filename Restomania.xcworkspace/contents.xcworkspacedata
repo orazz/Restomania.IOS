@@ -11,6 +11,27 @@
    <Group
       location = "container:"
       name = "Core">
+      <FileRef
+         location = "group:Core/App/App.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Core/Localization/Localization.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Core/UIServices/UIServices.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Core/CacheServices/CacheServices.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Core/ApiServices/ApiServices.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Core/Domains/Domains.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Core/Tools/Tools.xcodeproj">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreDomains
 
 public class AuthContainer {
 

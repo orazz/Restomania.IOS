@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MdsKit
 import Gloss
+import CoreDomains
 
 public class ScheduleDisplay: UIView {
 

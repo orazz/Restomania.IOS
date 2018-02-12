@@ -15,3 +15,10 @@ target 'Kuzina' do
     project './Apps/Kuzina/Kuzina.xcodeproj'
     shared_pods
 end
+
+target 'CoreDomains' do
+    project './Core/Domains/Domains.xcodeproj'
+    use_frameworks!
+    pod 'Gloss', '~> 2.0'
+    pod 'MdsKit'
+end

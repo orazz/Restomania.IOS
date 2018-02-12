@@ -8,6 +8,7 @@
 
 import UIKit
 import MdsKit
+import CoreDomains
 
 public protocol PlaceMenuCellsProtocol: InterfaceTableCellProtocol {
 

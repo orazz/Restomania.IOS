@@ -11,6 +11,7 @@ import MdsKit
 import UIKit
 import NotificationBannerSwift
 import Gloss
+import CoreDomains
 
 public class PushesHandler {
 

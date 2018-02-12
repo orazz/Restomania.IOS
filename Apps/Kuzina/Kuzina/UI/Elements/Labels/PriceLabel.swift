@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreDomains
 
 public class PriceLabel: UILabel {
 
