@@ -15,20 +15,3 @@ target 'RestomaniaAppKuzina' do
     pod 'Toast-Swift', '~> 3.0.1'
     pod 'NotificationBannerSwift', '~> 1.5.4'
 end
-target 'RestomaniaAppKuzina-Tests' do
-    project './Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj'
-    shared_pods
-end
-
-
-target 'FindMe' do
-    project './FindMe/FindMe.xcodeproj'
-    shared_pods
-    pod 'Toast-Swift', '~> 3.0.1'
-    pod 'SwiftR', '~> 0.14.0'
-    pod 'Smile', '~> 1.3.0'
-end
-target 'FindMe-Tests' do
-    project './FindMe/FindMe.xcodeproj'
-    shared_pods
-end

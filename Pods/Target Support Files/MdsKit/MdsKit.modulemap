@@ -1,6 +1,0 @@
-framework module MdsKit {
-  umbrella header "MdsKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

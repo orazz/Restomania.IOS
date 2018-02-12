@@ -3,14 +3,15 @@
    version = "1.0">
    <Group
       location = "container:"
-      name = "RestomaniaCustom">
+      name = "Core">
+   </Group>
+   <Group
+      location = "container:"
+      name = "Apps">
       <FileRef
-         location = "group:Restomania.App.Kuzina/Restomania.App.Kuzina.xcodeproj">
+         location = "group:/Users/aleksej/Documents/_dev/Restomania.IOS/Restomania.App.Kuzina/Kuzina.xcodeproj">
       </FileRef>
    </Group>
-   <FileRef
-      location = "group:FindMe/FindMe.xcodeproj">
-   </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

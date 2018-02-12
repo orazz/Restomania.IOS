@@ -11,7 +11,6 @@ import MdsKit
 
 public protocol PlaceMenuCellsProtocol: InterfaceTableCellProtocol {
 
-//    @objc optional func setup(parent: UITableView, controller: PlaceMenuController, delegate: )
     func viewDidAppear()
     func viewDidDisappear()
     func dataDidLoad(delegate: PlaceMenuDelegate)
