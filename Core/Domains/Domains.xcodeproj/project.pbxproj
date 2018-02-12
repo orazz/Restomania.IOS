@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1F42FC022031BA12001E0F3C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBB42031BA11001E0F3C /* Account.swift */; };
-		1F42FC032031BA12001E0F3C /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBB52031BA11001E0F3C /* ApiKeys.swift */; };
-		1F42FC042031BA12001E0F3C /* ApiRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBB62031BA11001E0F3C /* ApiRole.swift */; };
 		1F42FC052031BA12001E0F3C /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBB82031BA11001E0F3C /* Device.swift */; };
 		1F42FC062031BA12001E0F3C /* NotificationPlatformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBB92031BA11001E0F3C /* NotificationPlatformType.swift */; };
 		1F42FC072031BA12001E0F3C /* BaseNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBBC2031BA11001E0F3C /* BaseNotificationPreference.swift */; };
@@ -86,8 +84,6 @@
 
 /* Begin PBXFileReference section */
 		1F42FBB42031BA11001E0F3C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		1F42FBB52031BA11001E0F3C /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
-		1F42FBB62031BA11001E0F3C /* ApiRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRole.swift; sourceTree = "<group>"; };
 		1F42FBB82031BA11001E0F3C /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		1F42FBB92031BA11001E0F3C /* NotificationPlatformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPlatformType.swift; sourceTree = "<group>"; };
 		1F42FBBC2031BA11001E0F3C /* BaseNotificationPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotificationPreference.swift; sourceTree = "<group>"; };
@@ -189,8 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				1F42FBB42031BA11001E0F3C /* Account.swift */,
-				1F42FBB52031BA11001E0F3C /* ApiKeys.swift */,
-				1F42FBB62031BA11001E0F3C /* ApiRole.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -595,7 +589,6 @@
 				1F42FC292031BA12001E0F3C /* Bonuses.swift in Sources */,
 				1F42FC272031BA12001E0F3C /* Location.swift in Sources */,
 				1F42FC142031BA12001E0F3C /* DishOrderDish.swift in Sources */,
-				1F42FC032031BA12001E0F3C /* ApiKeys.swift in Sources */,
 				1F42FC3C2031BA12001E0F3C /* MenuCategory.swift in Sources */,
 				1F42FC2F2031BA12001E0F3C /* Place.swift in Sources */,
 				1F42FC372031BA12001E0F3C /* BaseDish.swift in Sources */,
@@ -608,7 +601,6 @@
 				1F42FC132031BA12001E0F3C /* DishOrder.swift in Sources */,
 				1F42FC0E2031BA12001E0F3C /* CurrencyType.swift in Sources */,
 				1F42FC252031BA12001E0F3C /* LinkType.swift in Sources */,
-				1F42FC042031BA12001E0F3C /* ApiRole.swift in Sources */,
 				1F42FC062031BA12001E0F3C /* NotificationPlatformType.swift in Sources */,
 				1F42FC0B2031BA12001E0F3C /* PaymentCard.swift in Sources */,
 				1F42FC1D2031BA12001E0F3C /* CountedLoyaltyDiscounts.swift in Sources */,

@@ -9,10 +9,11 @@
 import Foundation
 import MdsKit
 import CoreDomains
+import CoreTools
 
 public class MenuSummariesApiService: BaseApiService {
 
-    public init(configs: ConfigsStorage) {
+    public init(_ configs: ConfigsContainer) {
         super.init(area: "Menu/Summaries", type: MenuSummariesApiService.self, configs: configs)
     }
 

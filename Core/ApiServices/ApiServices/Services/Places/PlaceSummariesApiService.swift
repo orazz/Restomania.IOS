@@ -9,10 +9,11 @@
 import Foundation
 import MdsKit
 import CoreDomains
+import CoreTools
 
 public class PlaceSummariesApiService: BaseApiService {
 
-    public init(configs: ConfigsStorage) {
+    public init(_ configs: ConfigsContainer) {
         super.init(area: "Place/Summaries", type: PlaceSummariesApiService.self, configs: configs)
     }
 

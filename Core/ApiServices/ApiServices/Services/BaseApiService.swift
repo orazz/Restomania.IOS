@@ -10,33 +10,23 @@ import Foundation
 import MdsKit
 import Gloss
 import CoreDomains
+import CoreTools
 
 public class BaseApiService {
 
     internal var tag: String
     internal let client: ApiClient
-    internal let configs: ConfigsStorage
-    private let keysStorage: KeysStorage?
+    internal let configs: ConfigsContainer
+    internal let keysStorage: ApiKeyService?
 
-    public init(area: String, type: AnyObject.Type, configs: ConfigsStorage, keys: KeysStorage? = nil) {
+    public init(area: String, type: AnyObject.Type, configs: ConfigsContainer, keys: ApiKeyService? = nil) {
 
         self.tag = String.tag(type)
-        let url: String = configs.get(forKey: ConfigKeys.serverUrl)!
-        self.client = ApiClient(url: "\(url)/api/\(area)", tag: tag)
+        self.client = ApiClient(url: "\(configs.serverUrl)/api/\(area)", tag: tag)
         self.configs = configs
         self.keysStorage = keys
     }
 
-    internal func CollectParameters(for role: ApiRole, _ values: Parameters? = nil) -> Parameters {
-        var result = CollectParameters(values)
-
-        if let storage = keysStorage {
-            let keys = storage.keys(for: role)
-            result["keys"] = keys?.toJSON()
-        }
-
-        return result
-    }
     internal func CollectParameters(_ values: Parameters? = nil) -> Parameters {
         var result = Parameters()
 
@@ -49,6 +39,10 @@ public class BaseApiService {
                     result[key] = value
                 }
             }
+        }
+
+        if let keys = keysStorage?.keys {
+            result["keys"] = keys.toJSON()
         }
 
         return result

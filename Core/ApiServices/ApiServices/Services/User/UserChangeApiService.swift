@@ -8,10 +8,11 @@
 
 import Foundation
 import MdsKit
+import CoreTools
 
 public class UserChangeApiService: BaseApiService {
 
-    public init(configs: ConfigsStorage, keys: KeysStorage) {
+    public init(_ configs: ConfigsContainer, _ keys: ApiKeyService) {
         super.init(area: "User/Change", type: UserChangeApiService.self, configs: configs, keys: keys)
     }
 

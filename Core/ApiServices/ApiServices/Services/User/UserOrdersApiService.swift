@@ -9,16 +9,17 @@
 import Foundation
 import MdsKit
 import CoreDomains
+import CoreTools
 
 public class UserOrdersApiService: BaseApiService {
 
-    public init(configs: ConfigsStorage, keys: KeysStorage) {
+    public init(_ configs: ConfigsContainer, _ keys: ApiKeyService) {
         super.init(area: "User/DishOrders", type: UserOrdersApiService.self, configs: configs, keys: keys)
     }
 
     public func all(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {
 
-        let parameters = CollectParameters(for: .user, [
+        let parameters = CollectParameters([
                 "time": args?.time
             ])
 
@@ -27,21 +28,21 @@ public class UserOrdersApiService: BaseApiService {
 
     public func find(_ orderId: Long) -> RequestResult<DishOrder> {
 
-        let parameters = CollectParameters(for: .user, [
+        let parameters = CollectParameters([
                 "orderId": orderId
             ])
 
         return client.Get(action: "Find", type: DishOrder.self, parameters: parameters)
     }
     public func add(_ order: AddedOrder) -> RequestResult<DishOrder> {
-        let parameters = CollectParameters(for: .user, [
+        let parameters = CollectParameters([
                 "container": order
             ])
 
         return client.Post(action: "Add", type: DishOrder.self, parameters: parameters)
     }
     public func cancel(_ orderId: Long) -> RequestResult<DishOrder> {
-        let parameters = CollectParameters(for: .user, [
+        let parameters = CollectParameters([
                 "orderId": orderId
             ])
 

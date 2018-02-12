@@ -9,21 +9,22 @@
 import Foundation
 import MdsKit
 import CoreDomains
+import CoreTools
 
 public class UserCardsApiService: BaseApiService {
 
-    public init(configs: ConfigsStorage, keys: KeysStorage) {
+    public init(_ configs: ConfigsContainer, _ keys: ApiKeyService) {
         super.init(area: "User/Cards", type: UserCardsApiService.self, configs: configs, keys: keys)
     }
 
     // MARK: Methods
     public func all(args: GetArgs? = nil) -> RequestResult<[PaymentCard]> {
-        let parameters = CollectParameters(for: .user)
+        let parameters = CollectParameters()
 
         return client.GetRange(action: "All", type: PaymentCard.self, parameters: parameters)
     }
     public func find(by cardId: Long) -> RequestResult<PaymentCard> {
-        let parameters = CollectParameters(for: .user, [
+        let parameters = CollectParameters([
                 "cardId": cardId
             ])
 
@@ -31,7 +32,7 @@ public class UserCardsApiService: BaseApiService {
     }
 
     public func add(currency: CurrencyType) -> RequestResult<AddingCard> {
-        let parameters = CollectParameters(for: .user, [
+        let parameters = CollectParameters([
                 "currency": currency.rawValue,
                 "mobile": true
             ])
@@ -39,7 +40,7 @@ public class UserCardsApiService: BaseApiService {
         return client.Post(action: "Add", type: AddingCard.self, parameters: parameters)
     }
     public func remove(cardId: Long) -> RequestResult<Bool> {
-        let parameters = CollectParameters(for: .user, [
+        let parameters = CollectParameters([
                 "cardId": cardId
             ])
 

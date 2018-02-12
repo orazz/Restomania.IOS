@@ -67,7 +67,7 @@ open class LaunchInfo {
 
 
         guard let prevVersion = self.prevVersion,
-            let prevBuild = self.prevBuild else {
+            let _ = self.prevBuild else {
                 return
         }
         if (!isUpdate) {

@@ -8,48 +8,37 @@
 
 import Foundation
 import MdsKit
+import CoreTools
+import Swinject
 
-public class ApiServices {
+open class ApiServices {
 
-    public struct Auth {
-        public static var main: AuthMainApiService {
-            return AuthMainApiService(configs: configs)
-        }
-    }
-    public struct Menu {
-        public static var summaries: MenuSummariesApiService {
-            return MenuSummariesApiService(configs: configs)
-        }
-    }
-    public struct Notifications {
-        public static var devices: NotificationsDevicesApiService {
-            return NotificationsDevicesApiService(configs: configs, keys: keys)
-        }
-    }
-    public struct Places {
-        public static var summaries: PlaceSummariesApiService {
-            return PlaceSummariesApiService(configs: configs)
-        }
-    }
-    public struct Users {
-        public static var account: UserAccountApiService {
-            return UserAccountApiService(configs: configs, keys: keys)
-        }
-        public static var cards: UserCardsApiService {
-            return UserCardsApiService(configs: configs, keys: keys)
-        }
-        public static var change: UserChangeApiService {
-            return UserChangeApiService(configs: configs, keys: keys)
-        }
-        public static var orders: UserOrdersApiService {
-            return UserOrdersApiService(configs: configs, keys: keys)
-        }
-    }
+    open func register(in container: Container) {
 
-    private static var configs: ConfigsStorage {
-        return ToolsServices.shared.configs
+        //Auth
+        container.register(AuthMainApiService.self, factory: { r in AuthMainApiService(r.configs) })
+
+        //Menu
+        container.register(MenuSummariesApiService.self, factory: { r in MenuSummariesApiService(r.configs) })
+
+        //Notifications
+        container.register(NotificationsDevicesApiService.self, factory: { r in NotificationsDevicesApiService(r.configs, r.keys) })
+
+        //Places
+        container.register(PlaceSummariesApiService.self, factory: { r in PlaceSummariesApiService(r.configs) })
+
+        //Users
+        container.register(UserAccountApiService.self, factory: { r in UserAccountApiService(r.configs, r.keys) })
+        container.register(UserChangeApiService.self, factory: { r in UserChangeApiService(r.configs, r.keys) })
+        container.register(UserCardsApiService.self, factory: { r in UserCardsApiService(r.configs, r.keys) })
+        container.register(UserOrdersApiService.self, factory: { r in UserOrdersApiService(r.configs, r.keys) })
     }
-    private static var keys: KeysStorage {
-        return ToolsServices.shared.keys
+}
+extension Resolver {
+    fileprivate var configs: ConfigsContainer {
+        return self.resolve(ConfigsContainer.self)!
+    }
+    fileprivate var keys: ApiKeyService {
+        return self.resolve(ApiKeyService.self)!
     }
 }

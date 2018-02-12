@@ -9,10 +9,11 @@
 import Foundation
 import MdsKit
 import CoreDomains
+import CoreTools
 
 public class AuthMainApiService: BaseApiService {
 
-    public init(configs: ConfigsStorage) {
+    public init(_ configs: ConfigsContainer) {
         super.init(area: "Auth", type: AuthMainApiService.self, configs: configs)
     }
 

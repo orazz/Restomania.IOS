@@ -9,16 +9,17 @@
 import Foundation
 import MdsKit
 import CoreDomains
+import CoreTools
 
 public class NotificationsDevicesApiService: BaseApiService {
 
-    public init(configs: ConfigsStorage, keys: KeysStorage) {
+    public init(_ configs: ConfigsContainer, _ keys: ApiKeyService) {
         super.init(area: "Notifications/Devices", type: NotificationsDevicesApiService.self, configs: configs, keys: keys)
     }
 
-    public func Register(role: ApiRole, token: String, locale: String) -> RequestResult<Device> {
-        let parameters = CollectParameters(for: role, [
-                "appKey": configs.get(forKey: ConfigKeys.appKey),
+    public func Register(token: String, locale: String) -> RequestResult<Device> {
+        let parameters = CollectParameters([
+                "appKey": configs.appKey,
                 "token": token,
                 "platform": NotificationPlatformType.apple.rawValue,
                 "locale": locale
