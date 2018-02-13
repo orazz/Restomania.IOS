@@ -8,6 +8,7 @@
 
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 
 public enum AuthPage {

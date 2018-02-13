@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F56A9DD2032A87F0090562E /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F56A9DC2032A87F0090562E /* UIServices.swift */; };
+		1F74692F2032AA9600CC7BC9 /* AddCardUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74692D2032AA9500CC7BC9 /* AddCardUIService.swift */; };
+		1F7469302032AA9600CC7BC9 /* ProblemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74692E2032AA9500CC7BC9 /* ProblemAlert.swift */; };
+		1F7469322032AAAA00CC7BC9 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469332032AAAA00CC7BC9 /* CoreTools.framework */; };
+		1F7469342032AAB000CC7BC9 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469352032AAB000CC7BC9 /* CoreDomains.framework */; };
+		1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */; };
+		1F7469382032AAC200CC7BC9 /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */; };
 		1FCDCFE62031B24D00321E3E /* CoreUIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCFDC2031B24D00321E3E /* CoreUIServices.framework */; };
 		1FCDCFEB2031B24D00321E3E /* UIServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCFEA2031B24D00321E3E /* UIServicesTests.swift */; };
-		1FCDCFED2031B24D00321E3E /* UIServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCDCFDF2031B24D00321E3E /* UIServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAA1EC18E8A8A821B3557DFF /* Pods_CoreUIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24339628AB89B2AF2591682D /* Pods_CoreUIServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +30,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17B04D1DFDB9C89C6E5F6F61 /* Pods-CoreUIServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreUIServices.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreUIServices/Pods-CoreUIServices.release.xcconfig"; sourceTree = "<group>"; };
+		1F56A9DC2032A87F0090562E /* UIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIServices.swift; sourceTree = "<group>"; };
+		1F74692D2032AA9500CC7BC9 /* AddCardUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardUIService.swift; sourceTree = "<group>"; };
+		1F74692E2032AA9500CC7BC9 /* ProblemAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemAlert.swift; sourceTree = "<group>"; };
+		1F7469332032AAAA00CC7BC9 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F7469352032AAB000CC7BC9 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCFDC2031B24D00321E3E /* CoreUIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreUIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FCDCFDF2031B24D00321E3E /* UIServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIServices.h; sourceTree = "<group>"; };
 		1FCDCFE02031B24D00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FCDCFE52031B24D00321E3E /* CoreUIServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreUIServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCFEA2031B24D00321E3E /* UIServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIServicesTests.swift; sourceTree = "<group>"; };
 		1FCDCFEC2031B24D00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24339628AB89B2AF2591682D /* Pods_CoreUIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreUIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		615D2A5D2F99A96DF35E1EC0 /* Pods-CoreUIServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreUIServices.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreUIServices/Pods-CoreUIServices.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +52,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7469382032AAC200CC7BC9 /* CoreStorageServices.framework in Frameworks */,
+				1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */,
+				1F7469342032AAB000CC7BC9 /* CoreDomains.framework in Frameworks */,
+				1F7469322032AAAA00CC7BC9 /* CoreTools.framework in Frameworks */,
+				DAA1EC18E8A8A821B3557DFF /* Pods_CoreUIServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,12 +71,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F74692C2032AA9500CC7BC9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1F74692D2032AA9500CC7BC9 /* AddCardUIService.swift */,
+				1F74692E2032AA9500CC7BC9 /* ProblemAlert.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1F7469312032AAAA00CC7BC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */,
+				1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */,
+				1F7469352032AAB000CC7BC9 /* CoreDomains.framework */,
+				1F7469332032AAAA00CC7BC9 /* CoreTools.framework */,
+				24339628AB89B2AF2591682D /* Pods_CoreUIServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1FCDCFD22031B24D00321E3E = {
 			isa = PBXGroup;
 			children = (
 				1FCDCFDE2031B24D00321E3E /* UIServices */,
 				1FCDCFE92031B24D00321E3E /* UIServicesTests */,
 				1FCDCFDD2031B24D00321E3E /* Products */,
+				1F7469312032AAAA00CC7BC9 /* Frameworks */,
+				BF693C8B8B5E5518C61EC2B6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +115,8 @@
 		1FCDCFDE2031B24D00321E3E /* UIServices */ = {
 			isa = PBXGroup;
 			children = (
-				1FCDCFDF2031B24D00321E3E /* UIServices.h */,
+				1F56A9DC2032A87F0090562E /* UIServices.swift */,
+				1F74692C2032AA9500CC7BC9 /* Services */,
 				1FCDCFE02031B24D00321E3E /* Info.plist */,
 			);
 			path = UIServices;
@@ -86,6 +131,15 @@
 			path = UIServicesTests;
 			sourceTree = "<group>";
 		};
+		BF693C8B8B5E5518C61EC2B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				615D2A5D2F99A96DF35E1EC0 /* Pods-CoreUIServices.debug.xcconfig */,
+				17B04D1DFDB9C89C6E5F6F61 /* Pods-CoreUIServices.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +147,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FCDCFED2031B24D00321E3E /* UIServices.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,10 +157,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FCDCFF02031B24D00321E3E /* Build configuration list for PBXNativeTarget "CoreUIServices" */;
 			buildPhases = (
+				CC42846FBC8CD7BB985B2C9E /* [CP] Check Pods Manifest.lock */,
 				1FCDCFD72031B24D00321E3E /* Sources */,
 				1FCDCFD82031B24D00321E3E /* Frameworks */,
 				1FCDCFD92031B24D00321E3E /* Headers */,
 				1FCDCFDA2031B24D00321E3E /* Resources */,
+				8F3D11AD43CB1A87F13F5C8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +203,7 @@
 				TargetAttributes = {
 					1FCDCFDB2031B24D00321E3E = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					1FCDCFE42031B24D00321E3E = {
@@ -191,11 +247,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8F3D11AD43CB1A87F13F5C8C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-CoreUIServices/Pods-CoreUIServices-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC42846FBC8CD7BB985B2C9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoreUIServices-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1FCDCFD72031B24D00321E3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F56A9DD2032A87F0090562E /* UIServices.swift in Sources */,
+				1F74692F2032AA9600CC7BC9 /* AddCardUIService.swift in Sources */,
+				1F7469302032AA9600CC7BC9 /* ProblemAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +428,9 @@
 		};
 		1FCDCFF12031B24D00321E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 615D2A5D2F99A96DF35E1EC0 /* Pods-CoreUIServices.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -348,6 +445,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.core.uiservices;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,7 +453,9 @@
 		};
 		1FCDCFF22031B24D00321E3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17B04D1DFDB9C89C6E5F6F61 /* Pods-CoreUIServices.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -378,6 +478,7 @@
 		1FCDCFF42031B24D00321E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = UIServicesTests/Info.plist;
@@ -392,6 +493,7 @@
 		1FCDCFF52031B24D00321E3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = UIServicesTests/Info.plist;

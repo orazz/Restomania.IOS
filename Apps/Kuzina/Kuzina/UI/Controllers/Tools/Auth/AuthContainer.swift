@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreTools
 import CoreDomains
 
 public class AuthContainer {

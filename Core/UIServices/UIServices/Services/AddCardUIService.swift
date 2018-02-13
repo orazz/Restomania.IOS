@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MdsKit
 import CoreDomains
+import CoreApiServices
 
 public typealias AddPaymentCardCallback = ((Bool, Long) -> Void)
 public class AddCardUIService: NSObject, UIWebViewDelegate {
@@ -18,13 +19,15 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
     private let _controller: UIViewController
     private let _loader: InterfaceLoader
 
-    private let _cardsService = ApiServices.Users.cards
+    private let cardsApi: UserCardsApiService
 
     private var _isBusy: Bool = false
     private var _complete: AddPaymentCardCallback?
     private var cardId: Long?
 
-    public override init() {
+    public init(_ cardsApi: UserCardsApiService) {
+
+        self.cardsApi = cardsApi
 
         //Interface
         let screen = UIScreen.main.bounds
@@ -62,7 +65,7 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
             complete(success, cardId)
         }
 
-        let request = _cardsService.add(currency: currency)
+        let request = cardsApi.add(currency: currency)
         request.async(.background, completion: { response in
 
             if (!response.isSuccess) {

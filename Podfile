@@ -14,9 +14,15 @@ end
 target 'Kuzina' do
     project './Apps/Kuzina/Kuzina.xcodeproj'
     shared_pods
-    pod 'Toast-Swift', '~> 3.0.1'
     pod 'NotificationBannerSwift', '~> 1.5.4'
 end
+
+target 'CoreUIServices' do
+    project './Core/UIServices/UIServices.xcodeproj'
+    shared_pods
+    injections
+    pod 'Toast-Swift', '~> 3.0.1'
+end 
 
 target 'CoreStorageServices' do
     project './Core/StorageServices/StorageServices.xcodeproj'

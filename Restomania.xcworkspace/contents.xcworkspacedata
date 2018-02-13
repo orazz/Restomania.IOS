@@ -18,10 +18,10 @@
          location = "group:Core/App/App.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Core/Localization/Localization.xcodeproj">
+         location = "group:Core/UIServices/UIServices.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Core/UIServices/UIServices.xcodeproj">
+         location = "group:Core/Localization/Localization.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Core/StorageServices/StorageServices.xcodeproj">
