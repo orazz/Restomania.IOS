@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F56A9DD2032A87F0090562E /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F56A9DC2032A87F0090562E /* UIServices.swift */; };
-		1F74692F2032AA9600CC7BC9 /* AddCardUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74692D2032AA9500CC7BC9 /* AddCardUIService.swift */; };
-		1F7469302032AA9600CC7BC9 /* ProblemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74692E2032AA9500CC7BC9 /* ProblemAlert.swift */; };
 		1F7469322032AAAA00CC7BC9 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469332032AAAA00CC7BC9 /* CoreTools.framework */; };
 		1F7469342032AAB000CC7BC9 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469352032AAB000CC7BC9 /* CoreDomains.framework */; };
 		1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */; };
 		1F7469382032AAC200CC7BC9 /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */; };
-		1FCDCFE62031B24D00321E3E /* CoreUIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCFDC2031B24D00321E3E /* CoreUIServices.framework */; };
-		1FCDCFEB2031B24D00321E3E /* UIServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCFEA2031B24D00321E3E /* UIServicesTests.swift */; };
-		DAA1EC18E8A8A821B3557DFF /* Pods_CoreUIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24339628AB89B2AF2591682D /* Pods_CoreUIServices.framework */; };
+		1F8D3574203890DD007EA4C8 /* Localization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D3575203890DD007EA4C8 /* Localization.framework */; };
+		1F980B8D20388DC20017A0A2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F980B8820388DC20017A0A2 /* Info.plist */; };
+		1F980B8E20388DC20017A0A2 /* AddCardUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8A20388DC20017A0A2 /* AddCardUIService.swift */; };
+		1F980B8F20388DC20017A0A2 /* ProblemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8B20388DC20017A0A2 /* ProblemAlert.swift */; };
+		1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8C20388DC20017A0A2 /* UIServices.swift */; };
+		1FCDCFE62031B24D00321E3E /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCFDC2031B24D00321E3E /* UIServices.framework */; };
+		B94122ED4EB8EEA84E02043B /* Pods_UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2321BE8D61F8084A90DF9ADA /* Pods_UIServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,19 +32,21 @@
 
 /* Begin PBXFileReference section */
 		17B04D1DFDB9C89C6E5F6F61 /* Pods-CoreUIServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreUIServices.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreUIServices/Pods-CoreUIServices.release.xcconfig"; sourceTree = "<group>"; };
-		1F56A9DC2032A87F0090562E /* UIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIServices.swift; sourceTree = "<group>"; };
-		1F74692D2032AA9500CC7BC9 /* AddCardUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardUIService.swift; sourceTree = "<group>"; };
-		1F74692E2032AA9500CC7BC9 /* ProblemAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemAlert.swift; sourceTree = "<group>"; };
 		1F7469332032AAAA00CC7BC9 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469352032AAB000CC7BC9 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FCDCFDC2031B24D00321E3E /* CoreUIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreUIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FCDCFE02031B24D00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FCDCFE52031B24D00321E3E /* CoreUIServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreUIServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FCDCFEA2031B24D00321E3E /* UIServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIServicesTests.swift; sourceTree = "<group>"; };
-		1FCDCFEC2031B24D00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F8D3575203890DD007EA4C8 /* Localization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Localization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F980B8820388DC20017A0A2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F980B8A20388DC20017A0A2 /* AddCardUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardUIService.swift; sourceTree = "<group>"; };
+		1F980B8B20388DC20017A0A2 /* ProblemAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemAlert.swift; sourceTree = "<group>"; };
+		1F980B8C20388DC20017A0A2 /* UIServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIServices.swift; sourceTree = "<group>"; };
+		1FCDCFDC2031B24D00321E3E /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCDCFE52031B24D00321E3E /* UIServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2321BE8D61F8084A90DF9ADA /* Pods_UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24339628AB89B2AF2591682D /* Pods_CoreUIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreUIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E338A4113A3F7C8627568F8 /* Pods-UIServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIServices.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-UIServices/Pods-UIServices.debug.xcconfig"; sourceTree = "<group>"; };
+		5831E5B8DDC9E446AC3FE111 /* Pods-UIServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIServices.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-UIServices/Pods-UIServices.release.xcconfig"; sourceTree = "<group>"; };
 		615D2A5D2F99A96DF35E1EC0 /* Pods-CoreUIServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreUIServices.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreUIServices/Pods-CoreUIServices.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,11 +55,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8D3574203890DD007EA4C8 /* Localization.framework in Frameworks */,
 				1F7469382032AAC200CC7BC9 /* CoreStorageServices.framework in Frameworks */,
 				1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */,
 				1F7469342032AAB000CC7BC9 /* CoreDomains.framework in Frameworks */,
 				1F7469322032AAAA00CC7BC9 /* CoreTools.framework in Frameworks */,
-				DAA1EC18E8A8A821B3557DFF /* Pods_CoreUIServices.framework in Frameworks */,
+				B94122ED4EB8EEA84E02043B /* Pods_UIServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,39 +68,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FCDCFE62031B24D00321E3E /* CoreUIServices.framework in Frameworks */,
+				1FCDCFE62031B24D00321E3E /* UIServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F74692C2032AA9500CC7BC9 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				1F74692D2032AA9500CC7BC9 /* AddCardUIService.swift */,
-				1F74692E2032AA9500CC7BC9 /* ProblemAlert.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		1F7469312032AAAA00CC7BC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F8D3575203890DD007EA4C8 /* Localization.framework */,
 				1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */,
 				1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */,
 				1F7469352032AAB000CC7BC9 /* CoreDomains.framework */,
 				1F7469332032AAAA00CC7BC9 /* CoreTools.framework */,
 				24339628AB89B2AF2591682D /* Pods_CoreUIServices.framework */,
+				2321BE8D61F8084A90DF9ADA /* Pods_UIServices.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F980B8720388DC20017A0A2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1F980B8820388DC20017A0A2 /* Info.plist */,
+				1F980B8C20388DC20017A0A2 /* UIServices.swift */,
+				1F980B8920388DC20017A0A2 /* Services */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1F980B8920388DC20017A0A2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1F980B8A20388DC20017A0A2 /* AddCardUIService.swift */,
+				1F980B8B20388DC20017A0A2 /* ProblemAlert.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		1FCDCFD22031B24D00321E3E = {
 			isa = PBXGroup;
 			children = (
-				1FCDCFDE2031B24D00321E3E /* UIServices */,
-				1FCDCFE92031B24D00321E3E /* UIServicesTests */,
+				1F980B8720388DC20017A0A2 /* Services */,
 				1FCDCFDD2031B24D00321E3E /* Products */,
 				1F7469312032AAAA00CC7BC9 /* Frameworks */,
 				BF693C8B8B5E5518C61EC2B6 /* Pods */,
@@ -106,29 +121,10 @@
 		1FCDCFDD2031B24D00321E3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FCDCFDC2031B24D00321E3E /* CoreUIServices.framework */,
-				1FCDCFE52031B24D00321E3E /* CoreUIServicesTests.xctest */,
+				1FCDCFDC2031B24D00321E3E /* UIServices.framework */,
+				1FCDCFE52031B24D00321E3E /* UIServicesTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1FCDCFDE2031B24D00321E3E /* UIServices */ = {
-			isa = PBXGroup;
-			children = (
-				1F56A9DC2032A87F0090562E /* UIServices.swift */,
-				1F74692C2032AA9500CC7BC9 /* Services */,
-				1FCDCFE02031B24D00321E3E /* Info.plist */,
-			);
-			path = UIServices;
-			sourceTree = "<group>";
-		};
-		1FCDCFE92031B24D00321E3E /* UIServicesTests */ = {
-			isa = PBXGroup;
-			children = (
-				1FCDCFEA2031B24D00321E3E /* UIServicesTests.swift */,
-				1FCDCFEC2031B24D00321E3E /* Info.plist */,
-			);
-			path = UIServicesTests;
 			sourceTree = "<group>";
 		};
 		BF693C8B8B5E5518C61EC2B6 /* Pods */ = {
@@ -136,6 +132,8 @@
 			children = (
 				615D2A5D2F99A96DF35E1EC0 /* Pods-CoreUIServices.debug.xcconfig */,
 				17B04D1DFDB9C89C6E5F6F61 /* Pods-CoreUIServices.release.xcconfig */,
+				2E338A4113A3F7C8627568F8 /* Pods-UIServices.debug.xcconfig */,
+				5831E5B8DDC9E446AC3FE111 /* Pods-UIServices.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -153,9 +151,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1FCDCFDB2031B24D00321E3E /* CoreUIServices */ = {
+		1FCDCFDB2031B24D00321E3E /* UIServices */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FCDCFF02031B24D00321E3E /* Build configuration list for PBXNativeTarget "CoreUIServices" */;
+			buildConfigurationList = 1FCDCFF02031B24D00321E3E /* Build configuration list for PBXNativeTarget "UIServices" */;
 			buildPhases = (
 				CC42846FBC8CD7BB985B2C9E /* [CP] Check Pods Manifest.lock */,
 				1FCDCFD72031B24D00321E3E /* Sources */,
@@ -168,14 +166,14 @@
 			);
 			dependencies = (
 			);
-			name = CoreUIServices;
+			name = UIServices;
 			productName = UIServices;
-			productReference = 1FCDCFDC2031B24D00321E3E /* CoreUIServices.framework */;
+			productReference = 1FCDCFDC2031B24D00321E3E /* UIServices.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		1FCDCFE42031B24D00321E3E /* CoreUIServicesTests */ = {
+		1FCDCFE42031B24D00321E3E /* UIServicesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FCDCFF32031B24D00321E3E /* Build configuration list for PBXNativeTarget "CoreUIServicesTests" */;
+			buildConfigurationList = 1FCDCFF32031B24D00321E3E /* Build configuration list for PBXNativeTarget "UIServicesTests" */;
 			buildPhases = (
 				1FCDCFE12031B24D00321E3E /* Sources */,
 				1FCDCFE22031B24D00321E3E /* Frameworks */,
@@ -186,9 +184,9 @@
 			dependencies = (
 				1FCDCFE82031B24D00321E3E /* PBXTargetDependency */,
 			);
-			name = CoreUIServicesTests;
+			name = UIServicesTests;
 			productName = UIServicesTests;
-			productReference = 1FCDCFE52031B24D00321E3E /* CoreUIServicesTests.xctest */;
+			productReference = 1FCDCFE52031B24D00321E3E /* UIServicesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1FCDCFD62031B24D00321E3E /* Build configuration list for PBXProject "UIServices" */;
+			buildConfigurationList = 1FCDCFD62031B24D00321E3E /* Build configuration list for PBXProject "Services" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -224,8 +222,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1FCDCFDB2031B24D00321E3E /* CoreUIServices */,
-				1FCDCFE42031B24D00321E3E /* CoreUIServicesTests */,
+				1FCDCFDB2031B24D00321E3E /* UIServices */,
+				1FCDCFE42031B24D00321E3E /* UIServicesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F980B8D20388DC20017A0A2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +259,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-CoreUIServices/Pods-CoreUIServices-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-UIServices/Pods-UIServices-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CC42846FBC8CD7BB985B2C9E /* [CP] Check Pods Manifest.lock */ = {
@@ -274,7 +273,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CoreUIServices-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-UIServices-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -288,9 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F56A9DD2032A87F0090562E /* UIServices.swift in Sources */,
-				1F74692F2032AA9600CC7BC9 /* AddCardUIService.swift in Sources */,
-				1F7469302032AA9600CC7BC9 /* ProblemAlert.swift in Sources */,
+				1F980B8F20388DC20017A0A2 /* ProblemAlert.swift in Sources */,
+				1F980B8E20388DC20017A0A2 /* AddCardUIService.swift in Sources */,
+				1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +297,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FCDCFEB2031B24D00321E3E /* UIServicesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +305,7 @@
 /* Begin PBXTargetDependency section */
 		1FCDCFE82031B24D00321E3E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1FCDCFDB2031B24D00321E3E /* CoreUIServices */;
+			target = 1FCDCFDB2031B24D00321E3E /* UIServices */;
 			targetProxy = 1FCDCFE72031B24D00321E3E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -428,7 +426,7 @@
 		};
 		1FCDCFF12031B24D00321E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 615D2A5D2F99A96DF35E1EC0 /* Pods-CoreUIServices.debug.xcconfig */;
+			baseConfigurationReference = 2E338A4113A3F7C8627568F8 /* Pods-UIServices.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -438,7 +436,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = UIServices/Info.plist;
+				INFOPLIST_FILE = Services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -453,7 +451,7 @@
 		};
 		1FCDCFF22031B24D00321E3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17B04D1DFDB9C89C6E5F6F61 /* Pods-CoreUIServices.release.xcconfig */;
+			baseConfigurationReference = 5831E5B8DDC9E446AC3FE111 /* Pods-UIServices.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -463,7 +461,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = UIServices/Info.plist;
+				INFOPLIST_FILE = Services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -508,7 +506,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FCDCFD62031B24D00321E3E /* Build configuration list for PBXProject "UIServices" */ = {
+		1FCDCFD62031B24D00321E3E /* Build configuration list for PBXProject "Services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FCDCFEE2031B24D00321E3E /* Debug */,
@@ -517,7 +515,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FCDCFF02031B24D00321E3E /* Build configuration list for PBXNativeTarget "CoreUIServices" */ = {
+		1FCDCFF02031B24D00321E3E /* Build configuration list for PBXNativeTarget "UIServices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FCDCFF12031B24D00321E3E /* Debug */,
@@ -526,7 +524,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FCDCFF32031B24D00321E3E /* Build configuration list for PBXNativeTarget "CoreUIServicesTests" */ = {
+		1FCDCFF32031B24D00321E3E /* Build configuration list for PBXNativeTarget "UIServicesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FCDCFF42031B24D00321E3E /* Debug */,

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreDomains
 
 internal enum StringApiRole: String {
 

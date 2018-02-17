@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FBCFC992031B39C0058CF9E /* CoreLocalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBCFC8F2031B39B0058CF9E /* CoreLocalization.framework */; };
-		1FBCFC9E2031B39C0058CF9E /* LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBCFC9D2031B39C0058CF9E /* LocalizationTests.swift */; };
-		1FBCFCA02031B39C0058CF9E /* Localization.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FBCFC922031B39B0058CF9E /* Localization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F8D35682038908A007EA4C8 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D355B2038908A007EA4C8 /* Localization.swift */; };
+		1F8D35692038908A007EA4C8 /* Localization.Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D355C2038908A007EA4C8 /* Localization.Tools.swift */; };
+		1F8D356A2038908A007EA4C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D355E2038908A007EA4C8 /* Localizable.strings */; };
+		1F8D356B2038908A007EA4C8 /* Tools.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D35602038908A007EA4C8 /* Tools.strings */; };
+		1F8D356C2038908A007EA4C8 /* UIElements.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D35622038908A007EA4C8 /* UIElements.strings */; };
+		1F8D356D2038908A007EA4C8 /* Localization.UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D35672038908A007EA4C8 /* Localization.UIElements.swift */; };
+		1F8D357620389195007EA4C8 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357720389195007EA4C8 /* CoreDomains.framework */; };
+		1FBCFC992031B39C0058CF9E /* Localization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBCFC8F2031B39B0058CF9E /* Localization.framework */; };
+		CFA9C91E9305F00CDE919AB9 /* Pods_Localization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5E4642189814F180B8B10E /* Pods_Localization.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +29,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1FBCFC8F2031B39B0058CF9E /* CoreLocalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreLocalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FBCFC922031B39B0058CF9E /* Localization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Localization.h; sourceTree = "<group>"; };
+		1F8D355B2038908A007EA4C8 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		1F8D355C2038908A007EA4C8 /* Localization.Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.Tools.swift; sourceTree = "<group>"; };
+		1F8D355F2038908A007EA4C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1F8D35612038908A007EA4C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tools.strings; sourceTree = "<group>"; };
+		1F8D35632038908A007EA4C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UIElements.strings; sourceTree = "<group>"; };
+		1F8D35642038908A007EA4C8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1F8D35652038908A007EA4C8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Tools.strings; sourceTree = "<group>"; };
+		1F8D35662038908A007EA4C8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/UIElements.strings; sourceTree = "<group>"; };
+		1F8D35672038908A007EA4C8 /* Localization.UIElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.UIElements.swift; sourceTree = "<group>"; };
+		1F8D357720389195007EA4C8 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FBCFC8F2031B39B0058CF9E /* Localization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Localization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBCFC932031B39B0058CF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FBCFC982031B39C0058CF9E /* CoreLocalizationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreLocalizationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FBCFC9D2031B39C0058CF9E /* LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTests.swift; sourceTree = "<group>"; };
-		1FBCFC9F2031B39C0058CF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FBCFC982031B39C0058CF9E /* LocalizationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalizationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA85877CA9067833B490F32 /* Pods-Localization.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Localization.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Localization/Pods-Localization.debug.xcconfig"; sourceTree = "<group>"; };
+		8F5E4642189814F180B8B10E /* Pods_Localization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Localization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4C49AF0923078076B19FD5B /* Pods-Localization.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Localization.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Localization/Pods-Localization.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8D357620389195007EA4C8 /* CoreDomains.framework in Frameworks */,
+				CFA9C91E9305F00CDE919AB9 /* Pods_Localization.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,27 +61,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FBCFC992031B39C0058CF9E /* CoreLocalization.framework in Frameworks */,
+				1FBCFC992031B39C0058CF9E /* Localization.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		001D12A60215A71718C5D28B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4FA85877CA9067833B490F32 /* Pods-Localization.debug.xcconfig */,
+				E4C49AF0923078076B19FD5B /* Pods-Localization.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1F8D355D2038908A007EA4C8 /* Translates */ = {
+			isa = PBXGroup;
+			children = (
+				1F8D355E2038908A007EA4C8 /* Localizable.strings */,
+				1F8D35602038908A007EA4C8 /* Tools.strings */,
+				1F8D35622038908A007EA4C8 /* UIElements.strings */,
+			);
+			path = Translates;
+			sourceTree = "<group>";
+		};
 		1FBCFC852031B39B0058CF9E = {
 			isa = PBXGroup;
 			children = (
 				1FBCFC912031B39B0058CF9E /* Localization */,
-				1FBCFC9C2031B39C0058CF9E /* LocalizationTests */,
 				1FBCFC902031B39B0058CF9E /* Products */,
+				001D12A60215A71718C5D28B /* Pods */,
+				48A4649CA7A5ABD621F79FE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		1FBCFC902031B39B0058CF9E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FBCFC8F2031B39B0058CF9E /* CoreLocalization.framework */,
-				1FBCFC982031B39C0058CF9E /* CoreLocalizationTests.xctest */,
+				1FBCFC8F2031B39B0058CF9E /* Localization.framework */,
+				1FBCFC982031B39C0058CF9E /* LocalizationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,19 +109,22 @@
 		1FBCFC912031B39B0058CF9E /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				1FBCFC922031B39B0058CF9E /* Localization.h */,
+				1F8D355B2038908A007EA4C8 /* Localization.swift */,
+				1F8D355C2038908A007EA4C8 /* Localization.Tools.swift */,
+				1F8D35672038908A007EA4C8 /* Localization.UIElements.swift */,
+				1F8D355D2038908A007EA4C8 /* Translates */,
 				1FBCFC932031B39B0058CF9E /* Info.plist */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
 		};
-		1FBCFC9C2031B39C0058CF9E /* LocalizationTests */ = {
+		48A4649CA7A5ABD621F79FE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1FBCFC9D2031B39C0058CF9E /* LocalizationTests.swift */,
-				1FBCFC9F2031B39C0058CF9E /* Info.plist */,
+				1F8D357720389195007EA4C8 /* CoreDomains.framework */,
+				8F5E4642189814F180B8B10E /* Pods_Localization.framework */,
 			);
-			path = LocalizationTests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,34 +134,35 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FBCFCA02031B39C0058CF9E /* Localization.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1FBCFC8E2031B39B0058CF9E /* CoreLocalization */ = {
+		1FBCFC8E2031B39B0058CF9E /* Localization */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FBCFCA32031B39C0058CF9E /* Build configuration list for PBXNativeTarget "CoreLocalization" */;
+			buildConfigurationList = 1FBCFCA32031B39C0058CF9E /* Build configuration list for PBXNativeTarget "Localization" */;
 			buildPhases = (
+				1439C3DB416453F56713600F /* [CP] Check Pods Manifest.lock */,
 				1FBCFC8A2031B39B0058CF9E /* Sources */,
 				1FBCFC8B2031B39B0058CF9E /* Frameworks */,
 				1FBCFC8C2031B39B0058CF9E /* Headers */,
 				1FBCFC8D2031B39B0058CF9E /* Resources */,
+				753A54631A16A5098B54AA48 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CoreLocalization;
+			name = Localization;
 			productName = Localization;
-			productReference = 1FBCFC8F2031B39B0058CF9E /* CoreLocalization.framework */;
+			productReference = 1FBCFC8F2031B39B0058CF9E /* Localization.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		1FBCFC972031B39C0058CF9E /* CoreLocalizationTests */ = {
+		1FBCFC972031B39C0058CF9E /* LocalizationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FBCFCA62031B39C0058CF9E /* Build configuration list for PBXNativeTarget "CoreLocalizationTests" */;
+			buildConfigurationList = 1FBCFCA62031B39C0058CF9E /* Build configuration list for PBXNativeTarget "LocalizationTests" */;
 			buildPhases = (
 				1FBCFC942031B39C0058CF9E /* Sources */,
 				1FBCFC952031B39C0058CF9E /* Frameworks */,
@@ -131,9 +173,9 @@
 			dependencies = (
 				1FBCFC9B2031B39C0058CF9E /* PBXTargetDependency */,
 			);
-			name = CoreLocalizationTests;
+			name = LocalizationTests;
 			productName = LocalizationTests;
-			productReference = 1FBCFC982031B39C0058CF9E /* CoreLocalizationTests.xctest */;
+			productReference = 1FBCFC982031B39C0058CF9E /* LocalizationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -148,6 +190,7 @@
 				TargetAttributes = {
 					1FBCFC8E2031B39B0058CF9E = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					1FBCFC972031B39C0058CF9E = {
@@ -162,14 +205,15 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 			);
 			mainGroup = 1FBCFC852031B39B0058CF9E;
 			productRefGroup = 1FBCFC902031B39B0058CF9E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1FBCFC8E2031B39B0058CF9E /* CoreLocalization */,
-				1FBCFC972031B39C0058CF9E /* CoreLocalizationTests */,
+				1FBCFC8E2031B39B0058CF9E /* Localization */,
+				1FBCFC972031B39C0058CF9E /* LocalizationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -179,6 +223,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8D356C2038908A007EA4C8 /* UIElements.strings in Resources */,
+				1F8D356B2038908A007EA4C8 /* Tools.strings in Resources */,
+				1F8D356A2038908A007EA4C8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,11 +238,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1439C3DB416453F56713600F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Localization-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		753A54631A16A5098B54AA48 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Localization/Pods-Localization-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1FBCFC8A2031B39B0058CF9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8D35682038908A007EA4C8 /* Localization.swift in Sources */,
+				1F8D356D2038908A007EA4C8 /* Localization.UIElements.swift in Sources */,
+				1F8D35692038908A007EA4C8 /* Localization.Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +289,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FBCFC9E2031B39C0058CF9E /* LocalizationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,10 +297,40 @@
 /* Begin PBXTargetDependency section */
 		1FBCFC9B2031B39C0058CF9E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1FBCFC8E2031B39B0058CF9E /* CoreLocalization */;
+			target = 1FBCFC8E2031B39B0058CF9E /* Localization */;
 			targetProxy = 1FBCFC9A2031B39C0058CF9E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F8D355E2038908A007EA4C8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8D355F2038908A007EA4C8 /* en */,
+				1F8D35642038908A007EA4C8 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1F8D35602038908A007EA4C8 /* Tools.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8D35612038908A007EA4C8 /* en */,
+				1F8D35652038908A007EA4C8 /* ru */,
+			);
+			name = Tools.strings;
+			sourceTree = "<group>";
+		};
+		1F8D35622038908A007EA4C8 /* UIElements.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8D35632038908A007EA4C8 /* en */,
+				1F8D35662038908A007EA4C8 /* ru */,
+			);
+			name = UIElements.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1FBCFCA12031B39C0058CF9E /* Debug */ = {
@@ -333,7 +448,9 @@
 		};
 		1FBCFCA42031B39C0058CF9E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FA85877CA9067833B490F32 /* Pods-Localization.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -345,9 +462,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.core.localization;
+				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.localization;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,7 +473,9 @@
 		};
 		1FBCFCA52031B39C0058CF9E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4C49AF0923078076B19FD5B /* Pods-Localization.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -367,7 +487,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.core.localization;
+				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.localization;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -378,6 +498,7 @@
 		1FBCFCA72031B39C0058CF9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = LocalizationTests/Info.plist;
@@ -392,6 +513,7 @@
 		1FBCFCA82031B39C0058CF9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				INFOPLIST_FILE = LocalizationTests/Info.plist;
@@ -415,7 +537,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FBCFCA32031B39C0058CF9E /* Build configuration list for PBXNativeTarget "CoreLocalization" */ = {
+		1FBCFCA32031B39C0058CF9E /* Build configuration list for PBXNativeTarget "Localization" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FBCFCA42031B39C0058CF9E /* Debug */,
@@ -424,7 +546,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FBCFCA62031B39C0058CF9E /* Build configuration list for PBXNativeTarget "CoreLocalizationTests" */ = {
+		1FBCFCA62031B39C0058CF9E /* Build configuration list for PBXNativeTarget "LocalizationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FBCFCA72031B39C0058CF9E /* Debug */,

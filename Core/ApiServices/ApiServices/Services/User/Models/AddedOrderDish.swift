@@ -16,7 +16,7 @@ public class AddedOrderDish: ICopying, Glossy {
     public struct Keys {
         public static let dishId = "DishId"
         public static let variationId = "VariationId"
-        public static let additions = "Additions"
+        public static let addings = "Addings"
         public static let subdishes = "Subdishes"
 
         public static let count = "Count"
@@ -24,7 +24,7 @@ public class AddedOrderDish: ICopying, Glossy {
 
     public fileprivate(set) var dishId: Long
     public fileprivate(set) var variationId: Long?
-    public fileprivate(set) var additions: [Long]
+    public fileprivate(set) var addings: [Long]
     public fileprivate(set) var subdishes: [Long]
 
     public fileprivate(set) var count: Int
@@ -33,7 +33,7 @@ public class AddedOrderDish: ICopying, Glossy {
 
         self.dishId = 0
         self.variationId = nil
-        self.additions = []
+        self.addings = []
         self.subdishes = []
 
         self.count = 0
@@ -45,7 +45,7 @@ public class AddedOrderDish: ICopying, Glossy {
 
         self.dishId = dishId
         self.variationId = variationId
-        self.additions = additions
+        self.addings = additions
         self.subdishes = subdishes
         self.count = 1
     }
@@ -55,7 +55,7 @@ public class AddedOrderDish: ICopying, Glossy {
 
         self.dishId = source.dishId
         self.variationId = source.variationId
-        self.additions = source.additions.map { $0 }
+        self.addings = source.addings.map { $0 }
         self.subdishes = source.subdishes.map { $0 }
         self.count = source.count
     }
@@ -65,7 +65,7 @@ public class AddedOrderDish: ICopying, Glossy {
 
         self.dishId = (Keys.dishId <~~ json)!
         self.variationId = Keys.variationId <~~ json
-        self.additions = (Keys.additions <~~ json)!
+        self.addings = (Keys.addings <~~ json)!
         self.subdishes = (Keys.subdishes <~~ json)!
 
         self.count = (Keys.count <~~ json)!
@@ -75,7 +75,7 @@ public class AddedOrderDish: ICopying, Glossy {
 
             Keys.dishId ~~> self.dishId,
             Keys.variationId ~~> self.variationId,
-            Keys.additions ~~> self.additions,
+            Keys.addings ~~> self.addings,
             Keys.subdishes ~~> self.subdishes,
 
             Keys.count ~~> self.count
@@ -111,7 +111,7 @@ extension AddedOrderDish {
                 break
         }
 
-        for adding in additions {
+        for adding in addings {
             if let dish = menu.dishes.find(id: adding),
                 dish.type == .simpleDish {
                 result += dish.price

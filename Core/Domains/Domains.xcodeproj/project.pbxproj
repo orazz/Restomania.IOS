@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2007AF20388A24007E8994 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2007B020388A24007E8994 /* CoreTools.framework */; };
 		1F42FC022031BA12001E0F3C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBB42031BA11001E0F3C /* Account.swift */; };
 		1F42FC052031BA12001E0F3C /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBB82031BA11001E0F3C /* Device.swift */; };
 		1F42FC062031BA12001E0F3C /* NotificationPlatformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBB92031BA11001E0F3C /* NotificationPlatformType.swift */; };
@@ -83,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F2007B020388A24007E8994 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F42FBB42031BA11001E0F3C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1F42FBB82031BA11001E0F3C /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		1F42FBB92031BA11001E0F3C /* NotificationPlatformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPlatformType.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2007AF20388A24007E8994 /* CoreTools.framework in Frameworks */,
 				84300A03B8B771901ED31E0C /* Pods_CoreDomains.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +179,7 @@
 		19C2EA4681A3BC56504C9204 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F2007B020388A24007E8994 /* CoreTools.framework */,
 				894510DC300BA5D2D54252C2 /* Pods_CoreDomains.framework */,
 			);
 			name = Frameworks;

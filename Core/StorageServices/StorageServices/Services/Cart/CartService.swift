@@ -86,7 +86,7 @@ public class CartService: ReservationService {
         if addings.isEmpty,
             let container = place.dishes.find({ $0.dishId == dishId &&
                                                  $0.variationId == variationId &&
-                                                 $0.additions.isEmpty &&
+                                                 $0.addings.isEmpty &&
                                                  $0.subdishes.isEmpty }) {
             increment(container)
             return

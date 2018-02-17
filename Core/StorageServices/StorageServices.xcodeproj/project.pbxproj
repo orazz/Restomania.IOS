@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2007B120388A36007E8994 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2007B220388A36007E8994 /* CoreDomains.framework */; };
+		1F2007B320388A4D007E8994 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2007B420388A4D007E8994 /* CoreApiServices.framework */; };
 		1F8105F92032299500B197F8 /* PlacesCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105EC2032299400B197F8 /* PlacesCacheService.swift */; };
 		1F8105FA2032299500B197F8 /* OrdersCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105ED2032299400B197F8 /* OrdersCacheService.swift */; };
 		1F8105FB2032299500B197F8 /* CardsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105EE2032299400B197F8 /* CardsCacheService.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F2007B220388A36007E8994 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2007B420388A4D007E8994 /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8105EC2032299400B197F8 /* PlacesCacheService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCacheService.swift; sourceTree = "<group>"; };
 		1F8105ED2032299400B197F8 /* OrdersCacheService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersCacheService.swift; sourceTree = "<group>"; };
 		1F8105EE2032299400B197F8 /* CardsCacheService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsCacheService.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2007B320388A4D007E8994 /* CoreApiServices.framework in Frameworks */,
+				1F2007B120388A36007E8994 /* CoreDomains.framework in Frameworks */,
 				FBDBE67E9C2E974BF51B85E9 /* Pods_CoreStorageServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +176,8 @@
 		E410EC6BDB9972D67B08A14F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F2007B420388A4D007E8994 /* CoreApiServices.framework */,
+				1F2007B220388A36007E8994 /* CoreDomains.framework */,
 				215C56C46A5805D68F5FFA37 /* Pods_CoreStorageServices.framework */,
 			);
 			name = Frameworks;

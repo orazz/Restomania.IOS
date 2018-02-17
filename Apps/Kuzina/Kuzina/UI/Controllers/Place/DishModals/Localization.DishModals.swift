@@ -8,6 +8,7 @@
 
 import Foundation
 import MdsKit
+import Localization
 
 extension Localization {
 
