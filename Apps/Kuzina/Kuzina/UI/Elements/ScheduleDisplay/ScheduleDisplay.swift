@@ -11,6 +11,7 @@ import UIKit
 import MdsKit
 import Gloss
 import CoreDomains
+import Localization
 
 public class ScheduleDisplay: UIView {
 

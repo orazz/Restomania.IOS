@@ -11,6 +11,7 @@ import MdsKit
 
 open class FileConfigsContainer: ConfigsContainer {
 
+    private let tag = String.tag(ConfigsContainer.self)
     public var appKey: String
     public var serverUrl: String
 
@@ -48,5 +49,23 @@ open class FileConfigsContainer: ConfigsContainer {
 
         placeId = storage.get(forKey: ConfigKey.placeId)
         wedId = storage.get(forKey: ConfigKey.webId)
+    }
+
+    public func displayToLog() {
+
+        Log.info(tag, "App key: \(appKey).")
+        Log.info(tag, "Server url: \(serverUrl).")
+
+        Log.info(tag, "User role: \(appUserRole).")
+        Log.info(tag, "Type: \(appType).")
+        switch appType {
+            case .Single:
+                Log.info(tag, "Place ID: \(placeId!).")
+            case .Network:
+                Log.info(tag, "WebId: \(wedId!).")
+            default:
+                Log.info(tag, "App is agregator.")
+        }
+        Log.info(tag, "")
     }
 }

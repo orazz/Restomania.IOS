@@ -11,6 +11,7 @@ import UIKit
 import MdsKit
 import CoreDomains
 import CoreStorageServices
+import BaseApp
 
 public protocol OneOrderInterfacePart: InterfaceTableCellProtocol {
     func update(by: DishOrder)
@@ -26,7 +27,7 @@ public class OneOrderController: UIViewController {
     private var refreshControl: RefreshControl!
 
     //Services
-    private let  ordersService = CacheServices.orders
+    private let ordersService = DependencyResolver.resolve(OrdersCacheService.self)
     private var orderContainer: PartsLoadTypedContainer<DishOrder>!
     private var partsLoader: PartsLoader!
 

@@ -195,7 +195,7 @@ extension PlaceCartController {
 extension PlaceCartController {
 
     private func loadData() {
-        if (!keysService.isAuth(for: .user)) {
+        if (!keysService.isAuth) {
             closePage()
             return
         }

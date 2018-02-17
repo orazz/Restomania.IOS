@@ -9,7 +9,9 @@
 import UIKit
 import MdsKit
 import CoreDomains
+import CoreApiServices
 import CoreStorageServices
+import BaseApp
 
 public protocol PlaceMenuCellsProtocol: InterfaceTableCellProtocol {
 
@@ -51,8 +53,8 @@ public class PlaceMenuController: UIViewController {
     private var _lastOverOffset = CGFloat(0)
 
     // MARK: Services
-    private var menusService = CacheServices.menus
-    private var placesService = CacheServices.places
+    private let menusService = DependencyResolver.resolve(MenuCacheService.self)
+    private let placesService = DependencyResolver.resolve(PlacesCacheService.self)
     private var cartService: CartService!
     private var enterService: AuthService!
 
@@ -73,7 +75,7 @@ public class PlaceMenuController: UIViewController {
 
         self.placeId = placeId
         self.loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
-        self.cartService = ToolsServices.shared.cart(for: placeId)
+        self.cartService = DependencyResolver.resolve(PlaceCartsFactory.self).get(for: placeId)
 
         //Loaders
         self.summaryContainer = PartsLoadTypedContainer<PlaceSummary>(completeLoadHandler: self.completeLoad)
@@ -100,7 +102,7 @@ public class PlaceMenuController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.enterService = AuthService(open: .login, with: self.navigationController!, rights: .user)
+        self.enterService = AuthService(open: .login, with: self.navigationController!)
 
         loadMarkup()
         loadData()
@@ -310,7 +312,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
     }
     public func goToCart() {
 
-        if (enterService.isAuth(for: .user)) {
+        if (enterService.isAuth) {
             openCartPage()
         } else {
              enterService.show(complete: { success in

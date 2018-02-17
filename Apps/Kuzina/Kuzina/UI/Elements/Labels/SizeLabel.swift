@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreDomains
+import Localization
 
 public class SizeLabel: UILabel {
 

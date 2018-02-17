@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MdsKit
 import CoreDomains
+import Localization
 
 public class DishModalAddToCartAction: UIView {
 

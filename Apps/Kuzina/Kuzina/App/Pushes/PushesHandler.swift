@@ -12,6 +12,8 @@ import UIKit
 import NotificationBannerSwift
 import Gloss
 import CoreDomains
+import CoreStorageServices
+import BaseApp
 
 public class PushesHandler {
 
@@ -67,7 +69,8 @@ public class PushesHandler {
             }
         }
 
-        let request = CacheServices.orders.find(model.id)
+        let orders = DependencyResolver.resolve(OrdersCacheService.self)
+        let request = orders.find(model.id)
         request.async(AsyncQueue.background, completion: { _ in complete(banner)})
     }
     private class DishOrderModel: JSONDecodable {

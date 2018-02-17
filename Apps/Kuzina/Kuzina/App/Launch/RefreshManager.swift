@@ -8,21 +8,24 @@
 
 import Foundation
 import MdsKit
+import CoreTools
 import CoreDomains
+import CoreApiServices
+import BaseApp
 
 public class RefreshManager {
 
     public static var shared = RefreshManager()
 
     private let tag = String.tag(RefreshManager.self)
-    private let authApi = ApiServices.Auth.main
-    private let keys = ToolsServices.shared.keys
+    private let authApi = DependencyResolver.resolve(AuthMainApiService.self)
+    private let keys = DependencyResolver.resolve(ApiKeyService.self)
 
     private init() {}
 
     public func checkApiKeys() {
 
-        guard let keys = keys.keys(for: .user) else {
+        guard let keys = keys.keys else {
             return
         }
 
@@ -33,13 +36,13 @@ public class RefreshManager {
                 let update = response.data {
 
                 if (keys != update) {
-                    self.keys.set(keys: update, for: .user)
+                    self.keys.update(by: update)
                     Log.info(self.tag, "Successful update keys for \(ApiRole.user)")
                 }
 
             } else if (response.statusCode != .ConnectionError) {
 
-                self.keys.logout(for: .user)
+                self.keys.logout()
                 Log.warning(self.tag, "Remove old api keys.")
             }
         })

@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
+import BaseApp
 
 public class LaunchController: UIViewController {
 
@@ -18,8 +20,8 @@ public class LaunchController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let keys = ToolsServices.shared.keys
-        if (!isShow) && (!keys.isAuth(for: .user)) {
+        let keys = DependencyResolver.resolve(ApiKeyService.self)
+        if (!isShow) && (!keys.isAuth) {
             goToGreeting()
         } else {
             goToSearch()

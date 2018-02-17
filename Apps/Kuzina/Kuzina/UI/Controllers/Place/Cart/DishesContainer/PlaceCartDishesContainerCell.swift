@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import MdsKit
 import CoreDomains
+import CoreApiServices
+import CoreStorageServices
 
 public class PlaceCartDishesContainerCell: UITableViewCell {
 
@@ -74,7 +76,7 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
         titleLabel.text = "\(dish.count) x \(dishName)"
         totalLabel.setup(price: dish.total(with: menu), currency: menu.currency)
 
-        addings = dish.additions.map({ menu.dishes.find(id: $0) })
+        addings = dish.addings.map({ menu.dishes.find(id: $0) })
                                  .filter({ nil != $0 })
                                  .map({ $0! })
         addingsTable.reloadData()

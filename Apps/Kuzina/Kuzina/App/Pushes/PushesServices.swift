@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
+import CoreApiServices
+import BaseApp
 
 public class PushesService {
 
@@ -17,9 +20,9 @@ public class PushesService {
     private let tag = String.tag(PushesService.self)
     private var token: String?
     private let processQueue: AsyncQueue
-    private let devicesApi = ApiServices.Notifications.devices
-    private let apiKeysService = ToolsServices.shared.keys
-    private let propertiesService = ToolsServices.shared.properties
+    private let devicesApi = DependencyResolver.resolve(NotificationsDevicesApiService.self)
+    private let apiKeysService = DependencyResolver.resolve(ApiKeyService.self)
+    private let lightStorage = DependencyResolver.resolve(LightStorage.self)
 
     private init() {
 
@@ -74,7 +77,7 @@ public class PushesService {
 
         Log.debug(tag, "Register device with token: \(token)")
 
-        if (!apiKeysService.isAuth(for: .user)) {
+        if (!apiKeysService.isAuth) {
             return
         }
 
@@ -86,14 +89,14 @@ public class PushesService {
 
         self.token = token
 
-        let task = devicesApi.Register(role: .user, token: token, locale: locale)
+        let task = devicesApi.Register(token: token, locale: locale)
         task.async(processQueue, completion: { result in
 
             if (result.statusCode == .OK) {
                 Log.info(self.tag, "Complete success register device for push notification.")
             }
 
-            self.propertiesService.set(.devicePushToken, value: token)
+            self.lightStorage.set(.devicePushToken, value: token)
         })
     }
 }

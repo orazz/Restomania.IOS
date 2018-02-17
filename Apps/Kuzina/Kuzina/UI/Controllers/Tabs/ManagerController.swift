@@ -8,6 +8,8 @@
 
 import UIKit
 import MdsKit
+import CoreTools
+import BaseApp
 
 public class ManagerController: UIViewController {
 
@@ -18,18 +20,17 @@ public class ManagerController: UIViewController {
 
     private var _theme: ThemeSettings!
     private var _authService: AuthService!
-    private var _keysStorage = ToolsServices.shared.keys
+    private var _keysStorage = DependencyResolver.resolve(ApiKeyService.self)
 
     //Properties
     private var _isAuth: Bool {
-
-        return nil != _keysStorage.keys(for: .user)
+        return _keysStorage.isAuth
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _authService = AuthService(open: .signup, with: self.navigationController!, rights: .user)
+        _authService = AuthService(open: .signup, with: self.navigationController!)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,7 +53,7 @@ public class ManagerController: UIViewController {
 
     @IBAction public func Logout() {
 
-        _keysStorage.logout(for: .user)
+        _keysStorage.logout()
         LogoutButton.isHidden = true
     }
 

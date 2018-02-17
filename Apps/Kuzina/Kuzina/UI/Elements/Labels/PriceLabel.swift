@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreDomains
+import Localization
 
 public class PriceLabel: UILabel {
 

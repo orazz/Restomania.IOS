@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import MdsKit
 import CoreDomains
+import CoreApiServices
+import CoreStorageServices
 
 public class PlaceMenuCartAction: UIView {
 

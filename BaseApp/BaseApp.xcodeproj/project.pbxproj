@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0D083F2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */; };
 		1F8D357A2038956F007EA4C8 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357B2038956F007EA4C8 /* CoreTools.framework */; };
 		1F8D357C20389577007EA4C8 /* Pods_CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357D20389577007EA4C8 /* Pods_CoreTools.framework */; };
 		1F8D357E2038957D007EA4C8 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357F2038957D007EA4C8 /* CoreDomains.framework */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		05228FCBAF9E259915264ED7 /* Pods-BaseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseApp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaseApp/Pods-BaseApp.release.xcconfig"; sourceTree = "<group>"; };
 		1AB00E217B51C0F5F931E0E0 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestomaniaAppDelegate.swift; sourceTree = "<group>"; };
 		1F8D357B2038956F007EA4C8 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D357D20389577007EA4C8 /* Pods_CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D357F2038957D007EA4C8 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 		1F8D35882038967C007EA4C8 /* BaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */,
 				1F8D35892038967C007EA4C8 /* DependencyResolver.swift */,
 				1F8D358A2038967C007EA4C8 /* Info.plist */,
 			);
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F8D358B2038967C007EA4C8 /* DependencyResolver.swift in Sources */,
+				1F0D083F2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

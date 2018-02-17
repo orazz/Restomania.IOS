@@ -11,30 +11,7 @@ import MdsKit
 
 open class LaunchInfo {
 
-//    private static let tag = String.tag(LaunchInfo.self)
-//    public static func launch() {
-//
-//        Log.info(tag, "Launch app.")
-//
-//        let summary = AppSettings.shared
-//
-//        Log.info(tag, "Version: \(summary.version) (\(summary.build))")
-//        Log.info(tag, "App key: \(summary.appKey).")
-//
-//        Log.info(tag, "Type: \(summary.type).")
-//        switch summary.type {
-//        case .Single:
-//            Log.info(tag, "Place ID: \(summary.placeID!).")
-//        case .Network:
-//            Log.info(tag, "Places: \(summary.placeIDs!).")
-//        default:
-//            Log.info(tag, "App is agregator.")
-//        }
-//
-//        Log.info(tag, "User role: \(summary.clientType).")
-//        Log.info(tag, "Server url: \(summary.serverUrl).")
-//        Log.info(tag, "")
-//    }
+    private let tag = String.tag(LaunchInfo.self)
 
     //Base
     public var version: String = "1.0.0"
@@ -91,5 +68,10 @@ open class LaunchInfo {
         return (Int(splitted[0])!,
                 Int(splitted[1]) ?? 0,
                 Int(splitted[2]) ?? 0)
+    }
+
+
+    public func displayToLog() {
+        Log.info(tag, "Version: \(version) (\(build))")
     }
 }

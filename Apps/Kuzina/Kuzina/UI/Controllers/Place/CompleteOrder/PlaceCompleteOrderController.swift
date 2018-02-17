@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import MdsKit
 import CoreDomains
+import CoreStorageServices
+import BaseApp
 
 public class PlaceCompleteOrderController: UIViewController {
 
@@ -19,7 +21,8 @@ public class PlaceCompleteOrderController: UIViewController {
         let instance = PlaceCompleteOrderController(nibName: nibName, bundle: Bundle.main)
 
         instance.order = order
-        let cart = ToolsServices.shared.cart(for: order.placeId)
+
+        let cart = DependencyResolver.resolve(PlaceCartsFactory.self).get(for: order.placeId)
         cart.clear()
 
         return instance

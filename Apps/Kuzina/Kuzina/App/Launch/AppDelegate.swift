@@ -8,23 +8,16 @@
 
 import UIKit
 import MdsKit
+import BaseApp
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-    var options: [UIApplicationLaunchOptionsKey: Any]?
+class AppDelegate: BaseAppDelegate {
 
     private let _tag = String.tag(AppDelegate.self)
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    public override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        self.options = launchOptions
-////
-//        if let payload = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary,
-//            let identifier = payload["event"] as? String {
-//            window?.rootViewController?.view.makeToast(identifier)
-//        }
+        super.app
 
         AppSettings.launch()
         ThemeSettings.applyStyles()

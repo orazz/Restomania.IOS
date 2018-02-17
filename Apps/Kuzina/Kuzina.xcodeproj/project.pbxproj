@@ -15,10 +15,6 @@
 		1F42FAD22031B9BB001E0F3C /* NotificationEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F96D2031B9BB001E0F3C /* NotificationEvents.swift */; };
 		1F42FAD32031B9BB001E0F3C /* PushesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F96E2031B9BB001E0F3C /* PushesHandler.swift */; };
 		1F42FAD42031B9BB001E0F3C /* PushesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F96F2031B9BB001E0F3C /* PushesServices.swift */; };
-		1F42FAD52031B9BB001E0F3C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9712031B9BB001E0F3C /* AppSettings.swift */; };
-		1F42FAD72031B9BB001E0F3C /* AppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9732031B9BB001E0F3C /* AppType.swift */; };
-		1F42FAD82031B9BB001E0F3C /* AppUserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9742031B9BB001E0F3C /* AppUserRole.swift */; };
-		1F42FAD92031B9BB001E0F3C /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9752031B9BB001E0F3C /* ConfigKeys.swift */; };
 		1F42FADB2031B9BB001E0F3C /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9772031B9BB001E0F3C /* ThemeSettings.swift */; };
 		1F42FB1B2031B9BB001E0F3C /* ManagerChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9D12031B9BB001E0F3C /* ManagerChangePasswordController.swift */; };
 		1F42FB1C2031B9BB001E0F3C /* ManagerChangePasswordControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F42F9D22031B9BB001E0F3C /* ManagerChangePasswordControllerView.xib */; };
@@ -210,10 +206,6 @@
 		1F42F96D2031B9BB001E0F3C /* NotificationEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationEvents.swift; sourceTree = "<group>"; };
 		1F42F96E2031B9BB001E0F3C /* PushesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushesHandler.swift; sourceTree = "<group>"; };
 		1F42F96F2031B9BB001E0F3C /* PushesServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushesServices.swift; sourceTree = "<group>"; };
-		1F42F9712031B9BB001E0F3C /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		1F42F9732031B9BB001E0F3C /* AppType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppType.swift; sourceTree = "<group>"; };
-		1F42F9742031B9BB001E0F3C /* AppUserRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserRole.swift; sourceTree = "<group>"; };
-		1F42F9752031B9BB001E0F3C /* ConfigKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigKeys.swift; sourceTree = "<group>"; };
 		1F42F9772031B9BB001E0F3C /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSettings.swift; sourceTree = "<group>"; };
 		1F42F9D12031B9BB001E0F3C /* ManagerChangePasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerChangePasswordController.swift; sourceTree = "<group>"; };
 		1F42F9D22031B9BB001E0F3C /* ManagerChangePasswordControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerChangePasswordControllerView.xib; sourceTree = "<group>"; };
@@ -447,10 +439,6 @@
 		1F42F9702031B9BB001E0F3C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				1F42F9712031B9BB001E0F3C /* AppSettings.swift */,
-				1F42F9732031B9BB001E0F3C /* AppType.swift */,
-				1F42F9742031B9BB001E0F3C /* AppUserRole.swift */,
-				1F42F9752031B9BB001E0F3C /* ConfigKeys.swift */,
 				1F42F9772031B9BB001E0F3C /* ThemeSettings.swift */,
 			);
 			path = Tools;
@@ -1418,7 +1406,6 @@
 				1F42FB5A2031B9BB001E0F3C /* DishModalSelectAddingsCell.swift in Sources */,
 				1F42FB632031B9BB001E0F3C /* DishModalShortDivider.swift in Sources */,
 				1F42FB592031B9BB001E0F3C /* DishModalSelectAddings.swift in Sources */,
-				1F42FAD72031B9BB001E0F3C /* AppType.swift in Sources */,
 				1F42FB7E2031B9BB001E0F3C /* GreetingController.swift in Sources */,
 				1F42FB9A2031B9BB001E0F3C /* OneOrderFooterContainer.swift in Sources */,
 				1F42FB4E2031B9BB001E0F3C /* DishModalDelegateProtocol.swift in Sources */,
@@ -1456,7 +1443,6 @@
 				1F42FAD42031B9BB001E0F3C /* PushesServices.swift in Sources */,
 				1F42FB7A2031B9BB001E0F3C /* PlaceMenuController.swift in Sources */,
 				1F42FB702031B9BB001E0F3C /* PlaceMenuCategoryCell.swift in Sources */,
-				1F42FAD82031B9BB001E0F3C /* AppUserRole.swift in Sources */,
 				1F42FAD22031B9BB001E0F3C /* NotificationEvents.swift in Sources */,
 				1F42FB8F2031B9BB001E0F3C /* LoginController.swift in Sources */,
 				1F42FB222031B9BB001E0F3C /* ManagerOrdersController.swift in Sources */,
@@ -1468,7 +1454,6 @@
 				1F42FB442031B9BB001E0F3C /* PlaceCartTotalContainer.swift in Sources */,
 				1F42FB962031B9BB001E0F3C /* OneOrderDishesContainerDishCell.swift in Sources */,
 				1F42FB352031B9BB001E0F3C /* PlaceCartDishesContainer.swift in Sources */,
-				1F42FAD52031B9BB001E0F3C /* AppSettings.swift in Sources */,
 				1F42FB752031B9BB001E0F3C /* PlaceMenuMenuContainer+DIshes.swift in Sources */,
 				1F42FB932031B9BB001E0F3C /* ExternalTextEditor.swift in Sources */,
 				1F42FB272031B9BB001E0F3C /* ManagerPaymentCardCell.swift in Sources */,
@@ -1490,7 +1475,6 @@
 				1F42FBA62031B9BB001E0F3C /* BlackBottomButton.swift in Sources */,
 				1F42FB5D2031B9BB001E0F3C /* DishModalSelectHeader.swift in Sources */,
 				1F42FB2F2031B9BB001E0F3C /* PlaceCartAdditionalContainer.swift in Sources */,
-				1F42FAD92031B9BB001E0F3C /* ConfigKeys.swift in Sources */,
 				1F42FB6B2031B9BB001E0F3C /* PlaceInfoController.swift in Sources */,
 				1F42FB452031B9BB001E0F3C /* PlaceCartTotalContainerCell.swift in Sources */,
 				1F42FB9E2031B9BB001E0F3C /* OneOrderSpaceContainer.swift in Sources */,

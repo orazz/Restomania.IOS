@@ -22,4 +22,6 @@ public protocol ConfigsContainer {
 
     func get<TConfig>(_ key: String) -> TConfig?
     func get<TConfig>(_ key: ConfigKey) -> TConfig?
+
+    func displayToLog()
 }
