@@ -9,6 +9,7 @@
 import UIKit
 import MdsKit
 import CoreDomains
+import CoreStorageServices
 
 public protocol PlaceMenuCellsProtocol: InterfaceTableCellProtocol {
 

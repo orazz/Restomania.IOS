@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F36C88A1F20C1F900232B9A /* Configs.plist */; };
-		1F42F9382031B8A2001E0F3C /* CoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F42F9392031B8A2001E0F3C /* CoreApp.framework */; };
 		1F42FACE2031B9BB001E0F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9682031B9BB001E0F3C /* AppDelegate.swift */; };
 		1F42FACF2031B9BB001E0F3C /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9692031B9BB001E0F3C /* Migrations.swift */; };
 		1F42FAD02031B9BB001E0F3C /* RefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F96A2031B9BB001E0F3C /* RefreshManager.swift */; };
@@ -182,6 +181,7 @@
 		1F8D356F203890B5007EA4C8 /* Translates in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D356E203890B5007EA4C8 /* Translates */; };
 		1F8D3570203890CD007EA4C8 /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D3571203890CD007EA4C8 /* UIServices.framework */; };
 		1F8D3572203890D3007EA4C8 /* Localization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D3573203890D3007EA4C8 /* Localization.framework */; };
+		1F8D358D203896C6007EA4C8 /* BaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D358E203896C6007EA4C8 /* BaseApp.framework */; };
 		1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */; };
 		4E841B366310D8FBDC31DBAB /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
@@ -384,6 +384,7 @@
 		1F8D356E203890B5007EA4C8 /* Translates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Translates; path = ../../../Localization/Localization/Translates; sourceTree = "<group>"; };
 		1F8D3571203890CD007EA4C8 /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D3573203890D3007EA4C8 /* Localization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Localization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F8D358E203896C6007EA4C8 /* BaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAA9F711FC245F700BB105D /* RestomaniaAppKuzina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestomaniaAppKuzina.entitlements; sourceTree = "<group>"; };
 		1FC5A69C1F138A8600ABE1A6 /* Kuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -398,13 +399,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8D358D203896C6007EA4C8 /* BaseApp.framework in Frameworks */,
 				1F8D3572203890D3007EA4C8 /* Localization.framework in Frameworks */,
 				1F8D3570203890CD007EA4C8 /* UIServices.framework in Frameworks */,
 				1F56A9D72032A6B10090562E /* CoreTools.framework in Frameworks */,
 				1F56A9D52032A6AA0090562E /* CoreStorageServices.framework in Frameworks */,
 				1F42FC6C2031C1A6001E0F3C /* CoreApiServices.framework in Frameworks */,
 				1F42FC402031BA1E001E0F3C /* CoreDomains.framework in Frameworks */,
-				1F42F9382031B8A2001E0F3C /* CoreApp.framework in Frameworks */,
 				4E841B366310D8FBDC31DBAB /* Pods_Kuzina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1139,6 +1140,7 @@
 		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F8D358E203896C6007EA4C8 /* BaseApp.framework */,
 				1F8D3573203890D3007EA4C8 /* Localization.framework */,
 				1F8D3571203890CD007EA4C8 /* UIServices.framework */,
 				1F56A9DA2032A6B90090562E /* CoreUIServices.framework */,

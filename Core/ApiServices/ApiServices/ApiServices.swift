@@ -13,7 +13,7 @@ import Swinject
 
 open class ApiServices {
 
-    open func register(in container: Container) {
+    open static func register(in container: Container) {
 
         //Auth
         container.register(AuthMainApiService.self, factory: { r in AuthMainApiService(r.configs) })

@@ -10,6 +10,7 @@ import UIKit
 import MdsKit
 import CoreTools
 import CoreDomains
+import BaseApp
 
 public enum AuthPage {
     case login
@@ -27,13 +28,12 @@ public class AuthService {
     private var _navigator: UINavigationController
     private var _root: UIViewController
 
-    private var _rights: ApiRole!
     private var _currentPage: AuthPage!
 
-    private var authKeys: KeysStorage!
+    private var authKeys: ApiKeyService!
     private var _complete: ((Bool) -> Void)?
 
-    public init(open firstPage: AuthPage, with navigator: UINavigationController, rights: ApiRole) {
+    public init(open firstPage: AuthPage, with navigator: UINavigationController) {
 
         _login = LoginController(nibName: LoginController.nibName, bundle: Bundle.main)
         _signup = SignupController(nibName: SignupController.nibName, bundle: Bundle.main)
@@ -43,17 +43,16 @@ public class AuthService {
         _navigator = navigator
         _root = navigator.topViewController!
 
-        _rights = rights
         _currentPage = firstPage
 
-        authKeys = ToolsServices.shared.keys
+        authKeys = DependencyResolver.resolve(ApiKeyService.self)
 
         for controller in _controllers {
             controller.root = self
         }
     }
-    public func isAuth(for role: ApiRole) -> Bool {
-        return authKeys.isAuth(for: role)
+    public var isAuth: Bool {
+        return authKeys.isAuth
     }
     public func show(complete: ((Bool) -> Void)? ) {
 
@@ -61,7 +60,7 @@ public class AuthService {
 
         let controller = take(for: _currentPage)
         _navigator.pushViewController(controller, animated: true)
-        controller.authContainer = AuthContainer(login: String.empty, password: String.empty, rights: _rights)
+        controller.authContainer = AuthContainer(login: String.empty, password: String.empty)
 
         Log.info(_tag, "Open auth pages.")
     }
@@ -102,10 +101,7 @@ public class AuthService {
     }
     public func close() {
 
-        if let done = _complete {
-
-            done(nil != authKeys.keys(for: _rights))
-        }
+        _complete?(authKeys.isAuth)
 
         _navigator.popToViewController(_root, animated: true)
         Log.info(_tag, "Close auth pages.")

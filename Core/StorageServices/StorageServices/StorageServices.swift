@@ -14,7 +14,6 @@ import CoreApiServices
 
 open class StorageServices {
 
-
     open static func register(in container: Container) {
 
         //Cache

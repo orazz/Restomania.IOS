@@ -8,18 +8,20 @@
 
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import CoreApiServices
+import BaseApp
 
 public class BaseAuthController: UIViewController {
 
     internal var root: AuthService!
-    internal var client = ApiServices.Auth.main
-    internal var storage = ToolsServices.shared.keys
+    internal var client = DependencyResolver.resolve(AuthMainApiService.self)
+    internal var storage = DependencyResolver.resolve(ApiKeyService.self)
     internal var loader: InterfaceLoader!
 
     private var login = String.empty
     private var password = String.empty
-    private var rights = ApiRole.user
 
     @IBOutlet weak var Navbar: UINavigationBar!
 
@@ -36,13 +38,12 @@ public class BaseAuthController: UIViewController {
     public var authContainer: AuthContainer {
 
         get {
-            return AuthContainer(login: login, password: password, rights: rights)
+            return AuthContainer(login: login, password: password)
         }
         set(update) {
 
             login = update.login
             password = update.password
-            rights = update.role
         }
     }
 

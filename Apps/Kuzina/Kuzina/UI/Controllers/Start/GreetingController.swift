@@ -38,7 +38,7 @@ public class GreetingController: UIViewController {
         goToAuth(page: .signup)
     }
     private func goToAuth(page: AuthPage) {
-        let auth = AuthService(open: .signup, with: self.navigationController!, rights: .user)
+        let auth = AuthService(open: .signup, with: self.navigationController!)
         auth.show(complete: { success in
                 if (success) {
                     self.goBack()

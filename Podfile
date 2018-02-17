@@ -21,6 +21,11 @@ target 'Kuzina' do
 end
 
 #App
+target 'BaseApp' do
+    project './BaseApp/BaseApp.xcodeproj'
+    shared_pods
+    injections
+end
 
 #UI
 target 'UIServices' do

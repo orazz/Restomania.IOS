@@ -9,6 +9,9 @@
 import UIKit
 import MdsKit
 import CoreDomains
+import CoreStorageServices
+import BaseApp
+import UIServices
 
 public class SearchController: UIViewController {
 
@@ -22,7 +25,7 @@ public class SearchController: UIViewController {
     private let _tag = String.tag(SearchController.self)
     private var loadQueue: AsyncQueue!
     private var searchAdapter: SearchAdapter<PlaceSummary>!
-    private var service = CacheServices.places
+    private let service = DependencyResolver.resolve(PlacesCacheService.self)
     private var places: [PlaceSummary]! {
         didSet {
             updateFiltered()

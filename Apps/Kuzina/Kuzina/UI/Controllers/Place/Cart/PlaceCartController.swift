@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
+import CoreToolsServices
 import CoreDomains
+import CoreApiServices
+import CoreStorageServices
+import UIServices
+import BaseApp
 
 public protocol PlaceCartContainerCell: InterfaceTableCellProtocol {
 
@@ -44,9 +50,12 @@ public class PlaceCartController: UIViewController {
     private var refreshControl: RefreshControl!
 
     // MARK: Services
-    private var addPaymentCardsService = AddCardUIService()
-    private var keysService = ToolsServices.shared.keys
-    private var ordersService = CacheServices.orders
+    private var addPaymentCardsService = DependencyResolver.resolve(AddCardUIService.self)
+    private var keysService = DependencyResolver.resolve(ApiKeyService.self)
+    private var ordersService = DependencyResolver.resolve(OrdersCacheService.self)
+    private var placesService = DependencyResolver.resolve(PlacesCacheService.self)
+    private var menusService = DependencyResolver.resolve(MenuCacheService.self)
+    private var cardsService = DependencyResolver.resolve(CardsCacheService.self)
 
     // MARK: Data
     private let _tag = String.tag(PlaceCartController.self)
@@ -59,9 +68,6 @@ public class PlaceCartController: UIViewController {
     private var summaryContainer: PartsLoadTypedContainer<PlaceSummary>!
     private var menuContainer: PartsLoadTypedContainer<MenuSummary>!
     private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
-    private var placesService = CacheServices.places
-    private var menusService = CacheServices.menus
-    private var cardsService = CacheServices.cards
     private var loadAdapter: PartsLoader!
 
     public init(for placeId: Long) {
@@ -69,7 +75,7 @@ public class PlaceCartController: UIViewController {
 
         self.loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
         self.placeId = placeId
-        self.cart = ToolsServices.shared.cart(for: placeId)
+        self.cart = DependencyResolver.resolve(PlaceCartsFactory.self).get(for: placeId)
         self.cartContaier = CartContainer(for: placeId, with: cart)
 
         //Loaders

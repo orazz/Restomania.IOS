@@ -11,6 +11,9 @@ import UIKit
 import MdsKit
 import Toast_Swift
 import CoreDomains
+import CoreStorageServices
+import UIServices
+import BaseApp
 
 public protocol IPaymentCardsDelegate {
 
@@ -23,14 +26,14 @@ public class ManagerPaymentCardsController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     private var interfaceLoader: InterfaceLoader!
     private var refreshControl: RefreshControl!
-    private var addCardUIService: AddCardUIService!
+    private let addCardUIService = DependencyResolver.resolve(AddCardUIService.self)
 
     // MARK: Tools
     private let _tag = String.tag(ManagerPaymentCardsController.self)
     private var loadQueue: AsyncQueue!
 
     // MARK: Data & service
-    private var cardsService = CacheServices.cards
+    private let cardsService = DependencyResolver.resolve(CardsCacheService.self)
     private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
     private var loaderAdapter: PartsLoader!
     private let mainCurrency = CurrencyType.RUB
@@ -55,7 +58,6 @@ extension ManagerPaymentCardsController {
 
         interfaceLoader = InterfaceLoader(for: view)
         refreshControl = cardsTable.addRefreshControl(for: self, action: #selector(needReload))
-        addCardUIService = AddCardUIService()
 
         cardsContainer = PartsLoadTypedContainer<[PaymentCard]>(completeLoadHandler: self.completeLoad)
         cardsContainer.updateHandler = { update in

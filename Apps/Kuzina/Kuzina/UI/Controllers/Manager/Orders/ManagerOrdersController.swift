@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import MdsKit
 import CoreDomains
+import CoreStorageServices
+import BaseApp
 
 public class ManagerOrdersController: UIViewController {
 
@@ -24,7 +26,7 @@ public class ManagerOrdersController: UIViewController {
     private var loadQueue: AsyncQueue!
 
     // MARK: Loaders
-    private let ordersService = CacheServices.orders
+    private let ordersService = DependencyResolver.resolve(OrdersCacheService.self)
     private var ordersContainer: PartsLoadTypedContainer<[DishOrder]>!
     private var orders = [DishOrder]()
     private var loaderAdapter: PartsLoader!

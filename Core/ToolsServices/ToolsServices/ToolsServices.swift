@@ -13,7 +13,7 @@ import Swinject
 
 public class ToolsServices {
 
-    open func register(in container: Container) {
+    open static func register(in container: Container) {
 
         container.register(ConfigsContainer.self) { _ in FileConfigsContainer(plistName: "Configs") }.inObjectScope(.container)
         container.register(LightStorage.self) { _ in DefaultsLightStorage() }.inObjectScope(.container)
