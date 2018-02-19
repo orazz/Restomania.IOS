@@ -33,7 +33,12 @@ target 'UIServices' do
     shared_pods
     injections
     pod 'Toast-Swift', '~> 3.0.1'
-end 
+end
+target 'UITools' do
+    project './UI/Tools/Tools.xcodeproj'
+    shared_pods
+    injections
+end
 
 # Localization
 target 'Localization' do

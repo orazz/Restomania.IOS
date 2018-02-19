@@ -18,7 +18,7 @@ public class UserCardsApiService: BaseApiService {
     }
 
     // MARK: Methods
-    public func all(args: GetArgs? = nil) -> RequestResult<[PaymentCard]> {
+    public func all(args: SelectArguments? = nil) -> RequestResult<[PaymentCard]> {
         let parameters = CollectParameters()
 
         return client.GetRange(action: "All", type: PaymentCard.self, parameters: parameters)

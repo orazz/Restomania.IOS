@@ -17,18 +17,34 @@ public class PlaceSummariesApiService: BaseApiService {
         super.init(area: "Place/Summaries", type: PlaceSummariesApiService.self, configs: configs)
     }
 
-    public func find(placeId: Long) -> RequestResult<PlaceSummary> {
+    public func all(arguments: SelectArguments? = nil) -> RequestResult<[PlaceSummary]> {
         let parameters = CollectParameters([
-            "placeId": placeId
+                "arguments": arguments
             ])
 
-        return client.Get(action: "Find", type: PlaceSummary.self, parameters: parameters)
+        return client.GetRange(action: "Index", type: PlaceSummary.self, parameters: parameters)
     }
-    public func all(placeIDs: [Long]) -> RequestResult<[PlaceSummary]> {
+    public func chain(_ chainId: Long, includeHidden: Bool = false) -> RequestResult<[PlaceSummary]> {
+        let parameters = CollectParameters([
+                "chainId": chainId,
+                "includeHidden": includeHidden
+            ])
+
+        return client.GetRange(action: "Chain", type: PlaceSummary.self, parameters: parameters)
+    }
+    public func range(placeIDs: [Long]) -> RequestResult<[PlaceSummary]> {
         let parameters = CollectParameters([
                 "placeIDs": placeIDs
             ])
 
         return client.GetRange(action: "Range", type: PlaceSummary.self, parameters: parameters)
+    }
+
+    public func find(placeId: Long) -> RequestResult<PlaceSummary> {
+        let parameters = CollectParameters([
+                "placeId": placeId
+            ])
+
+        return client.Get(action: "Find", type: PlaceSummary.self, parameters: parameters)
     }
 }

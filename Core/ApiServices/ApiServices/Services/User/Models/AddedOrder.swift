@@ -16,6 +16,8 @@ public class AddedOrder {
     public var placeId: Long
     public var cardId: Long
     public var loyaltyId: Long?
+    public var appKey: String
+
     public var completeAt: Date
     public var comment: String
     public var takeaway: Bool
@@ -26,6 +28,7 @@ public class AddedOrder {
         self.placeId = 0
         self.cardId = 0
         self.loyaltyId = nil
+        self.appKey = String.empty
 
         self.completeAt = Date()
         self.comment = String.empty
@@ -40,6 +43,8 @@ extension AddedOrder: JSONEncodable {
         public static let placeId = "PlaceId"
         public static let cardId = "CardId"
         public static let loyaltyId = "LoyaltyId"
+        public static let appKey = "AppKey"
+
         public static let completeDate = "CompleteAt"
         public static let comment = "Comment"
         public static let takeaway = "Takeaway"
@@ -52,6 +57,8 @@ extension AddedOrder: JSONEncodable {
             Keys.placeId ~~> self.placeId,
             Keys.cardId ~~> self.cardId,
             Keys.loyaltyId ~~> self.loyaltyId,
+            Keys.appKey ~~> self.appKey,
+
             Keys.completeDate  ~~> self.completeAt.prepareForJson(),
             Keys.comment ~~> self.comment,
             Keys.takeaway ~~> self.takeaway,

@@ -19,7 +19,7 @@ open class ConfigKey: RawRepresentable {
     public static let appUserRole = ConfigKey(rawValue: "AppUserRole")
 
     public static let placeId = ConfigKey(rawValue: "PlaceId")
-    public static let webId = ConfigKey(rawValue: "WebId")
+    public static let chainId = ConfigKey(rawValue: "ChainId")
 
 
 

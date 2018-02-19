@@ -18,7 +18,7 @@ public protocol ConfigsContainer {
     var appUserRole: ApiRole { get }
     
     var placeId: Long? { get }
-    var wedId: Long? { get }
+    var chainId: Long? { get }
 
     func get<TConfig>(_ key: String) -> TConfig?
     func get<TConfig>(_ key: ConfigKey) -> TConfig?

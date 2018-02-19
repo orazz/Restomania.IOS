@@ -17,10 +17,14 @@ public class UserOrdersApiService: BaseApiService {
         super.init(area: "User/DishOrders", type: UserOrdersApiService.self, configs: configs, keys: keys)
     }
 
-    public func all(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {
+    public func all(chainId: Long? = nil, placeId: Long? = nil, status: DishOrderStatus? = nil, updatedAfter: Date? = nil, arguments: SelectArguments? = nil) -> RequestResult<[DishOrder]> {
 
         let parameters = CollectParameters([
-                "time": args?.time
+                "chainId": chainId,
+                "placeId": placeId,
+                "status": status,
+                "updatedAfter": updatedAfter,
+                "arguments": arguments,
             ])
 
         return client.GetRange(action: "All", type: DishOrder.self, parameters: parameters)
@@ -35,6 +39,9 @@ public class UserOrdersApiService: BaseApiService {
         return client.Get(action: "Find", type: DishOrder.self, parameters: parameters)
     }
     public func add(_ order: AddedOrder) -> RequestResult<DishOrder> {
+
+        order.appKey = configs.appKey
+        
         let parameters = CollectParameters([
                 "container": order
             ])

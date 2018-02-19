@@ -11,6 +11,6 @@ import Foundation
 public enum AppType: String {
     
     case Aggregator = "Aggregator"
-    case Network = "Network"
+    case chain = "Chain"
     case Single = "Single"
 }

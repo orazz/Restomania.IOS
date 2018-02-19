@@ -54,7 +54,7 @@ public class OrdersCacheService {
     }
 
     //Remote
-    public func all(args: GetArgs? = nil) -> RequestResult<[DishOrder]> {
+    public func all(args: SelectArguments? = nil) -> RequestResult<[DishOrder]> {
         return RequestResult<[DishOrder]> { handler in
 
             let request = self.api.all(args: args)

@@ -19,7 +19,7 @@ open class FileConfigsContainer: ConfigsContainer {
     public var appUserRole: ApiRole
 
     public var placeId: Long?
-    public var wedId: Long?
+    public var chainId: Long?
 
     public func get<TConfig>(_ key: String) -> TConfig? {
         return storage.get(forKey: key)
@@ -48,7 +48,7 @@ open class FileConfigsContainer: ConfigsContainer {
 
 
         placeId = storage.get(forKey: ConfigKey.placeId)
-        wedId = storage.get(forKey: ConfigKey.webId)
+        chainId = storage.get(forKey: ConfigKey.chainId)
     }
 
     public func displayToLog() {
@@ -61,8 +61,8 @@ open class FileConfigsContainer: ConfigsContainer {
         switch appType {
             case .Single:
                 Log.info(tag, "Place ID: \(placeId!).")
-            case .Network:
-                Log.info(tag, "WebId: \(wedId!).")
+            case .chain:
+                Log.info(tag, "ChainId: \(chainId!).")
             default:
                 Log.info(tag, "App is agregator.")
         }

@@ -20,6 +20,9 @@
       <FileRef
          location = "group:UI/Services/Services.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:UI/Tools/Tools.xcodeproj">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:Localization/Localization.xcodeproj">
