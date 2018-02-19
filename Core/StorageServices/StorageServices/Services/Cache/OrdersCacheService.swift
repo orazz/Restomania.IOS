@@ -54,10 +54,10 @@ public class OrdersCacheService {
     }
 
     //Remote
-    public func all(args: SelectArguments? = nil) -> RequestResult<[DishOrder]> {
+    public func all(chainId: Long? = nil, placeId: Long? = nil, status: DishOrderStatus? = nil, updatedAfter: Date? = nil, arguments: SelectArguments? = nil) -> RequestResult<[DishOrder]> {
         return RequestResult<[DishOrder]> { handler in
 
-            let request = self.api.all(args: args)
+            let request = self.api.all(chainId: chainId, placeId: placeId, status: status, updatedAfter: updatedAfter, arguments: arguments)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {

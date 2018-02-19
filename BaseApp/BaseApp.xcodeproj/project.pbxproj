@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0C1E3D203B6ACD00098810 /* CustomAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C1E3C203B6ACD00098810 /* CustomAppDelegate.swift */; };
 		1F0D083F2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */; };
 		1F8D357A2038956F007EA4C8 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357B2038956F007EA4C8 /* CoreTools.framework */; };
 		1F8D357C20389577007EA4C8 /* Pods_CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357D20389577007EA4C8 /* Pods_CoreTools.framework */; };
@@ -15,7 +16,6 @@
 		1F8D358220389589007EA4C8 /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D358320389589007EA4C8 /* CoreStorageServices.framework */; };
 		1F8D35842038958E007EA4C8 /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D35852038958E007EA4C8 /* UIServices.framework */; };
 		1F8D358B2038967C007EA4C8 /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D35892038967C007EA4C8 /* DependencyResolver.swift */; };
-		1F8D358C2038967C007EA4C8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D358A2038967C007EA4C8 /* Info.plist */; };
 		1FCDD00A2031B27B00321E3E /* BaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDD0002031B27B00321E3E /* BaseApp.framework */; };
 		43B9EA3D6CBB986F069C072D /* Pods_BaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CBF58B8027FC7371668D39B /* Pods_BaseApp.framework */; };
 /* End PBXBuildFile section */
@@ -33,6 +33,7 @@
 /* Begin PBXFileReference section */
 		05228FCBAF9E259915264ED7 /* Pods-BaseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseApp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaseApp/Pods-BaseApp.release.xcconfig"; sourceTree = "<group>"; };
 		1AB00E217B51C0F5F931E0E0 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0C1E3C203B6ACD00098810 /* CustomAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppDelegate.swift; sourceTree = "<group>"; };
 		1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestomaniaAppDelegate.swift; sourceTree = "<group>"; };
 		1F8D357B2038956F007EA4C8 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D357D20389577007EA4C8 /* Pods_CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */,
+				1F0C1E3C203B6ACD00098810 /* CustomAppDelegate.swift */,
 				1F8D35892038967C007EA4C8 /* DependencyResolver.swift */,
 				1F8D358A2038967C007EA4C8 /* Info.plist */,
 			);
@@ -189,7 +191,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Medved-Studio";
 				TargetAttributes = {
 					1FCDCFFF2031B27B00321E3E = {
@@ -226,7 +228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F8D358C2038967C007EA4C8 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0C1E3D203B6ACD00098810 /* CustomAppDelegate.swift in Sources */,
 				1F8D358B2038967C007EA4C8 /* DependencyResolver.swift in Sources */,
 				1F0D083F2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift in Sources */,
 			);

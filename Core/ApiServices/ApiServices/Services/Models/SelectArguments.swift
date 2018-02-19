@@ -38,8 +38,8 @@ extension SelectArguments: JSONEncodable {
 
     public func toJSON() -> JSON? {
         return jsonify([
-            Keys.skip ~~> skip,
-            Keys.time ~~> time?.prepareForJson()
+            Keys.take ~~> self.take,
+            Keys.skip ~~> self.skip
             ])
     }
 }

@@ -16,6 +16,7 @@ end
 target 'Kuzina' do
     project './Apps/Kuzina/Kuzina.xcodeproj'
     shared_pods
+    injections
     pod 'NotificationBannerSwift', '~> 1.5.4'
     pod 'Toast-Swift', '~> 3.0.1'
 end

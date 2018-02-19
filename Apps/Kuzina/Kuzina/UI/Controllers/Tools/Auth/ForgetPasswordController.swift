@@ -31,7 +31,7 @@ public class  ForgetPasswordController: BaseAuthController {
         loader.show()
 
         let container = authContainer
-        let task = client.RecoverPassword(email: container.login, role: container.role)
+        let task = client.RecoverPassword(email: container.login, role: configs.appUserRole)
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {

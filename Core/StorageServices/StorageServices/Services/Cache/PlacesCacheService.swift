@@ -40,6 +40,36 @@ public class PlacesCacheService {
     }
 
     //Remote
+    public func all(_ arguments: SelectArguments? = nil) -> RequestResult<[PlaceSummary]> {
+        return RequestResult<[PlaceSummary]> { handler in
+
+            let request = self.api.all(arguments: arguments)
+            request.async(self.apiQueue) { response in
+
+                if (response.isSuccess) {
+                    self.adapter.addOrUpdate(response.data!)
+                    self.adapter.clearOldCached()
+                }
+
+                handler(response)
+            }
+        }
+    }
+    public func chain(_ chainId: Long, includeHidden: Bool = false) -> RequestResult<[PlaceSummary]> {
+        return RequestResult<[PlaceSummary]> { handler in
+
+            let request = self.api.chain(chainId, includeHidden: includeHidden)
+            request.async(self.apiQueue) { response in
+
+                if (response.isSuccess) {
+                    self.adapter.addOrUpdate(response.data!)
+                    self.adapter.clearOldCached()
+                }
+
+                handler(response)
+            }
+        }
+    }
     public func find(_ id: Long) -> RequestResult<PlaceSummary> {
         return RequestResult<PlaceSummary> { handler in
 
@@ -54,20 +84,4 @@ public class PlacesCacheService {
             })
         }
     }
-    public func range(_ ids: [Long]) -> RequestResult<[PlaceSummary]> {
-        return RequestResult<[PlaceSummary]> { handler in
-
-            let request = self.api.all(placeIDs: ids)
-            request.async(self.apiQueue) { response in
-
-                if (response.isSuccess) {
-                    self.adapter.addOrUpdate(response.data!)
-                    self.adapter.clearOldCached()
-                }
-
-                handler(response)
-            }
-        }
-    }
-
 }

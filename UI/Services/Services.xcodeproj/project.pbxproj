@@ -12,7 +12,6 @@
 		1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */; };
 		1F7469382032AAC200CC7BC9 /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */; };
 		1F8D3574203890DD007EA4C8 /* Localization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D3575203890DD007EA4C8 /* Localization.framework */; };
-		1F980B8D20388DC20017A0A2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F980B8820388DC20017A0A2 /* Info.plist */; };
 		1F980B8E20388DC20017A0A2 /* AddCardUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8A20388DC20017A0A2 /* AddCardUIService.swift */; };
 		1F980B8F20388DC20017A0A2 /* ProblemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8B20388DC20017A0A2 /* ProblemAlert.swift */; };
 		1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8C20388DC20017A0A2 /* UIServices.swift */; };
@@ -196,7 +195,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Medved-Studio";
 				TargetAttributes = {
 					1FCDCFDB2031B24D00321E3E = {
@@ -233,7 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F980B8D20388DC20017A0A2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

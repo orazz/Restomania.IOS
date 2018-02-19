@@ -12,29 +12,32 @@ import CoreTools
 
 open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
 
-    private let tag = String.tag(RestomaniaAppDelegate.self)
+    private let _tag = String.tag(RestomaniaAppDelegate.self)
     public var window: UIWindow?
+    public var delegate: CustomAppDelegate?
 
-    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        delegate?.beforeLoad()
 
+        DependencyResolver.buildContainer({ container in
+            delegate?.register(in: container)
+        })
 
         let info = DependencyResolver.resolve(LaunchInfo.self)
-        let configs = DependencyResolver.resolve(ConfigsContainer.self)
-
         info.displayToLog()
+
+        let configs = DependencyResolver.resolve(ConfigsContainer.self)
         configs.displayToLog()
-        
 
-        AppSettings.launch()
-        ThemeSettings.applyStyles()
-        Migrations.apply()
+        delegate?.migrate(info)
+        delegate?.customizeTheme()
 
-        CacheServices.load()
-
-        PushesService.shared.requestPermissions()
-        RefreshManager.shared.checkApiKeys()
+        delegate?.afterLoad()
 
         return true
+    }
+    private func loadCache() {
+        
     }
 }

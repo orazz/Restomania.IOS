@@ -8,22 +8,19 @@
 
 import Foundation
 import MdsKit
+import CoreTools
 
 public class Migrations {
 
     private static let tag = String.tag(Migrations.self)
 
-    public static func apply() {
+    public static func apply(with info: LaunchInfo) {
 
-        let summary = AppSettings.shared
-        guard let prevBuild = summary.prevBuild else {
+        guard let prevBuild = info.prevBuild else {
             return
         }
 
-        let migrations = [
-            882: to882,
-            962: to962
-        ]
+        let migrations: [Int: Trigger] = [:]
 
         for (build, migration) in migrations.sorted(by: { $0.key < $1.key }) {
 
@@ -33,11 +30,5 @@ public class Migrations {
                 migration()
             }
         }
-    }
-    private static func to882() {
-        CacheServices.menus.clear()
-    }
-    private static func to962() {
-        ToolsServices.shared.cartsService.clear()
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MdsKit
 import Swinject
 import CoreTools
 import CoreToolsServices
@@ -16,9 +17,8 @@ import UIServices
 
 public class DependencyResolver {
 
-    private static let container: Container = buildContainer()
-
-    private static func buildContainer() -> Container {
+    private static var container: Container = Container()
+    public static func buildContainer(_ action: Action<Container>) {
 
         let container = Container()
 
@@ -26,9 +26,11 @@ public class DependencyResolver {
         ApiServices.register(in: container)
         StorageServices.register(in: container)
 
+        action(container)
+
         UIServices.register(in: container)
 
-        return container
+        self.container = container
     }
 
     open static func resolve<T>(_ type: T.Type) -> T {

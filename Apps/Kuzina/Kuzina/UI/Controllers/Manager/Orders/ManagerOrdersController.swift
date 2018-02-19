@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 import CoreStorageServices
 import BaseApp
@@ -30,6 +31,7 @@ public class ManagerOrdersController: UIViewController {
     private var ordersContainer: PartsLoadTypedContainer<[DishOrder]>!
     private var orders = [DishOrder]()
     private var loaderAdapter: PartsLoader!
+    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
 
     // MARK: Life circle
     public init() {
@@ -89,7 +91,8 @@ public class ManagerOrdersController: UIViewController {
         requestOrders()
     }
     private func requestOrders() {
-        let request = ordersService.all()
+
+        let request = ordersService.all(chainId: configs.chainId, placeId: configs.placeId)
         request.async(loadQueue, completion: ordersContainer.completeLoad)
     }
     private func completeLoad() {
@@ -107,9 +110,7 @@ public class ManagerOrdersController: UIViewController {
     }
     private func displayOrders(_ orders: [DishOrder]) {
 
-        let placeIds = AppSettings.shared.placeIDs!
-        self.orders = orders.filter({ placeIds.contains($0.placeId) })
-                            .sorted(by: self.sorter)
+        self.orders = orders.sorted(by: self.sorter)
 
         DispatchQueue.main.async {
             self.ordersTable.reloadData()

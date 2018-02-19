@@ -9,6 +9,7 @@
 import UIKit
 import MdsKit
 import CoreDomains
+import Localization
 
 public class SearchPlaceCard: UITableViewCell {
 

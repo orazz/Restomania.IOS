@@ -9,6 +9,7 @@
 import Foundation
 import MdsKit
 import UIKit
+import BaseApp
 
 public class CachedIMage: ZeroCdnImageWrapper {
 
@@ -25,7 +26,7 @@ extension CachedIMage: ZeroCdnImageWrapperDelegate {
         return ThemeSettings.Images.default
     }
     public var cache: CacheImagesService {
-        return CacheServices.images
+        return DependencyResolver.resolve(CacheImagesService.self)
     }
     public var sizes: [CGFloat: String] {
         return CachedIMage.sizes

@@ -8,6 +8,7 @@
 
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 import CoreStorageServices
 import BaseApp
@@ -21,11 +22,14 @@ public class SearchController: UIViewController {
     private var loader: InterfaceLoader!
     private var refreshControl: RefreshControl!
 
+    // MARK: Services
+    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
+    private let service = DependencyResolver.resolve(PlacesCacheService.self)
+    private var searchAdapter: SearchAdapter<PlaceSummary>!
+
     // MARK: Data & services
     private let _tag = String.tag(SearchController.self)
     private var loadQueue: AsyncQueue!
-    private var searchAdapter: SearchAdapter<PlaceSummary>!
-    private let service = DependencyResolver.resolve(PlacesCacheService.self)
     private var places: [PlaceSummary]! {
         didSet {
             updateFiltered()
@@ -77,9 +81,7 @@ extension SearchController {
 
     private func startLoadData() {
 
-        let ids = AppSettings.shared.placeIDs!
-        let cached = service.cache.range(ids)
-
+        let cached = service.cache.all
         if (cached.isEmpty) {
             loader.show()
         }
@@ -92,9 +94,14 @@ extension SearchController {
     }
     private func requestPlaces() {
 
-        let ids = AppSettings.shared.placeIDs!
-        let task = service.range(ids)
-        task.async(loadQueue, completion: { response in
+        var request: RequestResult<[PlaceSummary]>? = nil
+        if let chainId = configs.chainId {
+            request = service.chain(chainId)
+        } else {
+            request = service.all()
+        }
+
+        request?.async(loadQueue, completion: { response in
 
             DispatchQueue.main.async {
 

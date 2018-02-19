@@ -18,6 +18,7 @@ public class BaseAuthController: UIViewController {
     internal var root: AuthService!
     internal var client = DependencyResolver.resolve(AuthMainApiService.self)
     internal var storage = DependencyResolver.resolve(ApiKeyService.self)
+    internal var configs = DependencyResolver.resolve(ConfigsContainer.self)
     internal var loader: InterfaceLoader!
 
     private var login = String.empty

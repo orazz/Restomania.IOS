@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0C1E3A203B697500098810 /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0C1E3B203B697500098810 /* UITools.framework */; };
 		1F36C88B1F20C1F900232B9A /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F36C88A1F20C1F900232B9A /* Configs.plist */; };
 		1F42FACE2031B9BB001E0F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9682031B9BB001E0F3C /* AppDelegate.swift */; };
 		1F42FACF2031B9BB001E0F3C /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42F9692031B9BB001E0F3C /* Migrations.swift */; };
@@ -173,7 +174,6 @@
 		1F55C4742031924500200620 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F55C4732031924500200620 /* fontawesome-webfont.ttf */; };
 		1F56A9D52032A6AA0090562E /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F56A9D62032A6AA0090562E /* CoreStorageServices.framework */; };
 		1F56A9D72032A6B10090562E /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F56A9D82032A6B10090562E /* CoreTools.framework */; };
-		1F6D3B81203198250074B5C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6AB1F138A8600ABE1A6 /* Info.plist */; };
 		1F8D356F203890B5007EA4C8 /* Translates in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D356E203890B5007EA4C8 /* Translates */; };
 		1F8D3570203890CD007EA4C8 /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D3571203890CD007EA4C8 /* UIServices.framework */; };
 		1F8D3572203890D3007EA4C8 /* Localization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D3573203890D3007EA4C8 /* Localization.framework */; };
@@ -196,6 +196,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F0C1E3B203B697500098810 /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F36C87F1F207C8300232B9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F36C88A1F20C1F900232B9A /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		1F42F9392031B8A2001E0F3C /* CoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,6 +392,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0C1E3A203B697500098810 /* UITools.framework in Frameworks */,
 				1F8D358D203896C6007EA4C8 /* BaseApp.framework in Frameworks */,
 				1F8D3572203890D3007EA4C8 /* Localization.framework in Frameworks */,
 				1F8D3570203890CD007EA4C8 /* UIServices.framework in Frameworks */,
@@ -1128,6 +1130,7 @@
 		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F0C1E3B203B697500098810 /* UITools.framework */,
 				1F8D358E203896C6007EA4C8 /* BaseApp.framework */,
 				1F8D3573203890D3007EA4C8 /* Localization.framework */,
 				1F8D3571203890CD007EA4C8 /* UIServices.framework */,
@@ -1185,7 +1188,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Medved-Studio";
 				TargetAttributes = {
 					1FC5A69B1F138A8600ABE1A6 = {
@@ -1230,7 +1233,6 @@
 				1F42FB992031B9BB001E0F3C /* OneOrderController.strings in Resources */,
 				1F42FB3D2031B9BB001E0F3C /* PlaceCartController.strings in Resources */,
 				1F42FB3C2031B9BB001E0F3C /* PlaceCartDividerView.xib in Resources */,
-				1F6D3B81203198250074B5C0 /* Info.plist in Resources */,
 				1F42FB732031B9BB001E0F3C /* PlaceMenuDishCellView.xib in Resources */,
 				1F42FB462031B9BB001E0F3C /* PlaceCartTotalContainerCellView.xib in Resources */,
 				1F42FB302031B9BB001E0F3C /* PlaceCartAdditionalContainerView.xib in Resources */,
@@ -1365,6 +1367,7 @@
 				"${BUILT_PRODUCTS_DIR}/MdsKit/MdsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1374,6 +1377,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MdsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
