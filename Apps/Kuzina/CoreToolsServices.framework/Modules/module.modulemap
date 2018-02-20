@@ -1,4 +1,0 @@
-framework module CoreToolsServices {
-    header "CoreToolsServices-Swift.h"
-    requires objc
-}

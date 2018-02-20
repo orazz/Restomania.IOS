@@ -11,6 +11,8 @@ import UIKit
 
 public protocol ThemeColors {
 
+    var defaultStatusBar: UIStatusBarStyle { get }
+
     var navigationMain: UIColor { get }
     var navigationContent: UIColor { get }
 

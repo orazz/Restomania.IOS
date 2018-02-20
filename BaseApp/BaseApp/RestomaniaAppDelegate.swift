@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreTools
 import CoreStorageServices
+import UITools
 
 open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -32,18 +33,21 @@ open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
         configs.displayToLog()
 
         delegate?.migrate(info)
-        delegate?.customizeTheme()
-
+        customizeTheme()
         loadCache()
 
         delegate?.afterLoad()
 
         return true
     }
+    private func customizeTheme() {
+
+        UITools.customizeTheme(from: DependencyResolver.container)
+        delegate?.customizeTheme()
+    }
     private func loadCache() {
 
         StorageServices.load(from: DependencyResolver.container)
-
         delegate?.loadCache()
     }
 }

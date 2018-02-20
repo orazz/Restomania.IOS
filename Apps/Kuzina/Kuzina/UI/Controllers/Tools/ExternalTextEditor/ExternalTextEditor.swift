@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import MdsKit
+import UITools
+import BaseApp
 
 public class ExternalTextEditor: UIViewController {
 
@@ -19,6 +21,9 @@ public class ExternalTextEditor: UIViewController {
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var textField: UITextView!
+
+    //Service
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
 
     //Data
     public override var title: String? {
@@ -55,9 +60,9 @@ public class ExternalTextEditor: UIViewController {
     }
     public func setupMarkup() {
 
-        self.view.backgroundColor = ThemeSettings.Colors.main
+        self.view.backgroundColor = themeColors.contentDivider
 
-        containerView.backgroundColor = ThemeSettings.Colors.background
+        containerView.backgroundColor = themeColors.contentBackground
 
         navigationBar.isTranslucent = false
         navigationBar.isOpaque = true

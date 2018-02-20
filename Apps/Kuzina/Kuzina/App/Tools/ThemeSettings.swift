@@ -40,6 +40,7 @@ public class ThemeSettings {
         private static let pink = UIColor(red: 223, green: 25, blue: 149)
 
         // MARK: ThemeColors
+        public var defaultStatusBar = UIStatusBarStyle.lightContent
         public var navigationMain = Colors.black
         public var navigationContent = Colors.white
 
