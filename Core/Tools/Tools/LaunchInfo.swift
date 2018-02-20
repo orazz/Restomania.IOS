@@ -29,7 +29,7 @@ open class LaunchInfo {
     }
     public var isCriticalUpdate: Bool = false
 
-    private init(storage: LightStorage) {
+    public init(_ storage: LightStorage) {
 
         prevVersion = storage.get(LightStorageKey.appVersion)
         prevBuild = storage.get(LightStorageKey.appBuild)

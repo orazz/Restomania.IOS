@@ -34,15 +34,19 @@ public class KeysStorage: ApiKeyService {
     }
     public var keys: ApiKeys?
 
-    public func update(by keys: ApiKeys) {
+    public func update(by update: ApiKeys) {
 
-        self.keys = keys
+        keys = update
         save()
+
+        eventsAdapter.invoke({ $0.apiKeyService(self, update: update, for: self.role) })
     }
     public func logout() {
 
         keys = nil
         save()
+
+        eventsAdapter.invoke({ $0.apiKeyService(self, logout: self.role) })
     }
     private func save() {
 

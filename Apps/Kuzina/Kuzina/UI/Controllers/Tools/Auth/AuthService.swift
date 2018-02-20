@@ -54,7 +54,7 @@ public class AuthService {
     public var isAuth: Bool {
         return authKeys.isAuth
     }
-    public func show(complete: ((Bool) -> Void)? ) {
+    public func show(complete: ((Bool) -> Void)? = nil ) {
 
         _complete = complete
 

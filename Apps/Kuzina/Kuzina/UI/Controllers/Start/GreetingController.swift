@@ -8,10 +8,16 @@
 
 import UIKit
 import MdsKit
+import CoreTools
+import BaseApp
 
 public class GreetingController: UIViewController {
 
+    //UI
     @IBOutlet weak var DemoButton: UIButton!
+
+    //Services
+    private let keys = DependencyResolver.resolve(ApiKeyService.self)
 
     public init() {
         super.init(nibName: "GreetingControllerView", bundle: Bundle.main)
@@ -21,6 +27,11 @@ public class GreetingController: UIViewController {
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        if (keys.isAuth) {
+            goWithoutAuth()
+            return
+        }
 
         navigationController?.hideNavigationBar()
 
@@ -39,14 +50,10 @@ public class GreetingController: UIViewController {
     }
     private func goToAuth(page: AuthPage) {
         let auth = AuthService(open: .signup, with: self.navigationController!)
-        auth.show(complete: { success in
-                if (success) {
-                    self.goBack()
-                }
-            })
+        auth.show()
     }
 
-    @IBAction func goWithoutAuth(_ sender: Any) {
+    @IBAction func goWithoutAuth() {
         goBack()
     }
     private func goBack() {

@@ -17,7 +17,7 @@ import UIServices
 
 public class DependencyResolver {
 
-    private static var container: Container = Container()
+    public private(set) static var container: Container = Container()
     public static func buildContainer(_ action: Action<Container>) {
 
         let container = Container()

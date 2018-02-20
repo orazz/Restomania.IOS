@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreTools
+import CoreStorageServices
 
 open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -33,11 +34,16 @@ open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
         delegate?.migrate(info)
         delegate?.customizeTheme()
 
+        loadCache()
+
         delegate?.afterLoad()
 
         return true
     }
     private func loadCache() {
-        
+
+        StorageServices.load(from: DependencyResolver.container)
+
+        delegate?.loadCache()
     }
 }

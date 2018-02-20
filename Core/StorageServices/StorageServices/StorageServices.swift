@@ -39,8 +39,17 @@ open class StorageServices {
         container.register(PlaceCartsFactory.self, factory: { _ in PlaceCartsFactory() }).inObjectScope(.container)
 
         //Keys
-        container.register(KeysStorage.self, factory: { r in
+        container.register(ApiKeyService.self, factory: { r in
             KeysStorage(r.resolve(ConfigsContainer.self)!,
                         r.resolve(LightStorage.self)!) }).inObjectScope(.container)
+    }
+
+    open static func load(from container: Container) {
+
+        container.resolve(PlacesCacheService.self)!.load()
+        container.resolve(MenuCacheService.self)!.load()
+        container.resolve(CardsCacheService.self)!.load()
+        container.resolve(OrdersCacheService.self)!.load()
+        container.resolve(CacheImagesService.self)!.load()
     }
 }

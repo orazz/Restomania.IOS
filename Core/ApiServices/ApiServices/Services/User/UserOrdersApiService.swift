@@ -27,7 +27,7 @@ public class UserOrdersApiService: BaseApiService {
                 "arguments": arguments,
             ])
 
-        return client.GetRange(action: "All", type: DishOrder.self, parameters: parameters)
+        return client.GetRange(action: "Index", type: DishOrder.self, parameters: parameters)
     }
 
     public func find(_ orderId: Long) -> RequestResult<DishOrder> {

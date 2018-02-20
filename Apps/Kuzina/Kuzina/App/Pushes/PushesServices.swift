@@ -18,15 +18,20 @@ public class PushesService {
     public static let shared = PushesService()
 
     private let tag = String.tag(PushesService.self)
+    private let guid = Guid.new
     private var token: String?
     private let processQueue: AsyncQueue
+
     private let devicesApi = DependencyResolver.resolve(NotificationsDevicesApiService.self)
-    private let apiKeysService = DependencyResolver.resolve(ApiKeyService.self)
+    private let keyService = DependencyResolver.resolve(ApiKeyService.self)
     private let lightStorage = DependencyResolver.resolve(LightStorage.self)
 
     private init() {
 
+        token = lightStorage.get(.devicePushToken)
         processQueue = AsyncQueue.background
+
+        keyService.subscribe(guid: guid, handler: self, tag: tag)
     }
     public func processMessage(push: [AnyHashable: Any]) {
 
@@ -76,27 +81,37 @@ public class PushesService {
     public func register(_ token: String) {
 
         Log.debug(tag, "Register device with token: \(token)")
+        self.token = token
 
-        if (!apiKeysService.isAuth) {
+        if (!keyService.isAuth) {
+            return
+        }
+        if (lightStorage.get(.devicePushToken) == token) {
             return
         }
 
         let locale = Locale.preferredLanguages.first ?? "en"
-
-        if (self.token == token) {
-            return
-        }
-
-        self.token = token
-
         let task = devicesApi.Register(token: token, locale: locale)
         task.async(processQueue, completion: { result in
 
-            if (result.statusCode == .OK) {
+            if (result.isSuccess) {
                 Log.info(self.tag, "Complete success register device for push notification.")
             }
 
             self.lightStorage.set(.devicePushToken, value: token)
         })
+    }
+    public func clear() {
+        lightStorage.remove(.devicePushToken)
+    }
+}
+extension PushesService: ApiKeyServiceDelegate {
+    public func apiKeyService(_ service: ApiKeyService, update keys: ApiKeys, for role: ApiRole) {
+
+        guard let token = token else {
+            return
+        }
+
+        register(token)
     }
 }

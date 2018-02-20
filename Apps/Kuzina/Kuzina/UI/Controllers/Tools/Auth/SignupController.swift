@@ -34,7 +34,7 @@ public class SignupController: BaseAuthController {
         loader.show()
 
         let container = authContainer
-        let task = client.SignUp(email: container.login, password: container.password, role: storage.role)
+        let task = client.SignUp(email: container.login, password: container.password, role: configs.appUserRole)
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -44,7 +44,7 @@ public class SignupController: BaseAuthController {
                 //Success result
                 if (response.isSuccess) {
 
-                    self.storage.update(by: response.data!)
+                    self.keys.update(by: response.data!)
                     self.root!.close()
 
                     return
@@ -78,7 +78,7 @@ public class SignupController: BaseAuthController {
         loader.show()
 
         let container = authContainer
-        let task = client.Login(email: container.login, password: container.password, role: storage.role)
+        let task = client.Login(email: container.login, password: container.password, role: configs.appUserRole)
         task.async(.background, completion: { response in
 
             DispatchQueue.main.async {
@@ -88,7 +88,7 @@ public class SignupController: BaseAuthController {
                 //Success result
                 if (response.isSuccess) {
 
-                    self.storage.update(by: response.data!)
+                    self.keys.update(by: response.data!)
                     self.root!.close()
 
                     return

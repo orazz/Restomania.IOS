@@ -15,7 +15,8 @@ public class ToolsServices {
 
     open static func register(in container: Container) {
 
-        container.register(ConfigsContainer.self) { _ in FileConfigsContainer(plistName: "Configs") }.inObjectScope(.container)
         container.register(LightStorage.self) { _ in DefaultsLightStorage() }.inObjectScope(.container)
+        container.register(ConfigsContainer.self) { _ in FileConfigsContainer(plistName: "Configs") }.inObjectScope(.container)
+        container.register(LaunchInfo.self) { r in LaunchInfo(r.resolve(LightStorage.self)!) }.inObjectScope(.container)
     }
 }

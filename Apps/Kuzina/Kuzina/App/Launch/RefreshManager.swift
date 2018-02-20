@@ -21,7 +21,8 @@ public class RefreshManager {
     private let authApi = DependencyResolver.resolve(AuthMainApiService.self)
     private let keys = DependencyResolver.resolve(ApiKeyService.self)
 
-    private init() {}
+    private init() {
+    }
 
     public func checkApiKeys() {
 
