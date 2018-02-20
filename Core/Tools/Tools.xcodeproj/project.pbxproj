@@ -20,6 +20,7 @@
 		1F8105E420321D8200B197F8 /* ApiKeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105E320321D8200B197F8 /* ApiKeyService.swift */; };
 		1F8105E820321F1100B197F8 /* DefaultsLightStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105E720321F1100B197F8 /* DefaultsLightStorage.swift */; };
 		1F81060820322CF500B197F8 /* ApiKeyServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81060720322CF500B197F8 /* ApiKeyServiceDelegate.swift */; };
+		1F9B4A1B203CB39000979AF2 /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B4A1A203CB39000979AF2 /* DependencyResolver.swift */; };
 		1FCDCF562031B12E00321E3E /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCF4C2031B12E00321E3E /* CoreTools.framework */; };
 		1FCDCF5B2031B12E00321E3E /* ToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCF5A2031B12E00321E3E /* ToolsTests.swift */; };
 		B9898F65703CD3D94A5EA6DB /* Pods_CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60115D8B233892077176D129 /* Pods_CoreTools.framework */; };
@@ -50,6 +51,7 @@
 		1F8105E320321D8200B197F8 /* ApiKeyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyService.swift; sourceTree = "<group>"; };
 		1F8105E720321F1100B197F8 /* DefaultsLightStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsLightStorage.swift; sourceTree = "<group>"; };
 		1F81060720322CF500B197F8 /* ApiKeyServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyServiceDelegate.swift; sourceTree = "<group>"; };
+		1F9B4A1A203CB39000979AF2 /* DependencyResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyResolver.swift; sourceTree = "<group>"; };
 		1FCDCF4C2031B12E00321E3E /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCF502031B12E00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FCDCF552031B12E00321E3E /* CoreToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,14 @@
 			path = LightStorage;
 			sourceTree = "<group>";
 		};
+		1F9B4A19203CB37D00979AF2 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				1F9B4A1A203CB39000979AF2 /* DependencyResolver.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
 		1FCDCF422031B12D00321E3E = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 		1FCDCF4E2031B12E00321E3E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1F9B4A19203CB37D00979AF2 /* Dependencies */,
 				1F8105E0203218E700B197F8 /* LightStorage */,
 				1F3B3F2F2031F67A0042ADCD /* ApiKeys */,
 				1F3B3F2A2031F5350042ADCD /* Configs */,
@@ -330,6 +341,7 @@
 				1F3B3F3B2031FE590042ADCD /* LaunchInfo.swift in Sources */,
 				1F3B3F262031F3890042ADCD /* ConfigKey.swift in Sources */,
 				1F3B3F372031F6E20042ADCD /* ApiRole.swift in Sources */,
+				1F9B4A1B203CB39000979AF2 /* DependencyResolver.swift in Sources */,
 				1F3B3F2C2031F5770042ADCD /* AppType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

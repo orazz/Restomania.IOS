@@ -29,11 +29,20 @@ target 'BaseApp' do
 end
 
 #UI
+target 'ToolsPages' do
+    project './UI/ToolsPages/ToolsPages.xcodeproj'
+    shared_pods
+    injections
+end
 target 'UIServices' do
     project './UI/Services/Services.xcodeproj'
     shared_pods
     injections
     pod 'Toast-Swift', '~> 3.0.1'
+end
+target 'UIElements' do
+    project './UI/Elements/Elements.xcodeproj'
+    shared_pods
 end
 target 'UITools' do
     project './UI/Tools/Tools.xcodeproj'
@@ -77,5 +86,6 @@ target 'CoreTools' do
     project './Core/Tools/Tools.xcodeproj'
     use_frameworks!
     shared_pods
+    injections
 end
 

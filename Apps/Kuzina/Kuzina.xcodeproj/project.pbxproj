@@ -188,6 +188,10 @@
 		1F42FBB22031B9BB001E0F3C /* ScheduleDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F42FAAF2031B9BB001E0F3C /* ScheduleDisplayView.xib */; };
 		1F55C4742031924500200620 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F55C4732031924500200620 /* fontawesome-webfont.ttf */; };
 		1F8D356F203890B5007EA4C8 /* Translates in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D356E203890B5007EA4C8 /* Translates */; };
+		1F9B49D3203CB23C00979AF2 /* UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B49D4203CB23C00979AF2 /* UIElements.framework */; };
+		1F9B49D5203CB24300979AF2 /* ToolsPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B49D6203CB24300979AF2 /* ToolsPages.framework */; };
+		1F9B49D7203CB25000979AF2 /* ToolsPages.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B49D6203CB24300979AF2 /* ToolsPages.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F9B49D8203CB25000979AF2 /* UIElements.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B49D4203CB23C00979AF2 /* UIElements.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FC5A6A71F138A8600ABE1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */; };
 		4E841B366310D8FBDC31DBAB /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
@@ -199,6 +203,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1F9B49D7203CB25000979AF2 /* ToolsPages.framework in Embed Frameworks */,
+				1F9B49D8203CB25000979AF2 /* UIElements.framework in Embed Frameworks */,
 				1F15617B203CA34D00D214C6 /* BaseApp.framework in Embed Frameworks */,
 				1F15617C203CA34D00D214C6 /* CoreApiServices.framework in Embed Frameworks */,
 				1F15617D203CA34D00D214C6 /* CoreDomains.framework in Embed Frameworks */,
@@ -397,6 +403,8 @@
 		1F55C4732031924500200620 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		1F82D0D9203BA3D5002FDCB9 /* Kuzina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kuzina.entitlements; sourceTree = "<group>"; };
 		1F8D356E203890B5007EA4C8 /* Translates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Translates; path = ../../../Localization/Localization/Translates; sourceTree = "<group>"; };
+		1F9B49D4203CB23C00979AF2 /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9B49D6203CB24300979AF2 /* ToolsPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolsPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A69C1F138A8600ABE1A6 /* Kuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FC5A6AB1F138A8600ABE1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -410,6 +418,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9B49D5203CB24300979AF2 /* ToolsPages.framework in Frameworks */,
+				1F9B49D3203CB23C00979AF2 /* UIElements.framework in Frameworks */,
 				1F156169203CA33B00D214C6 /* BaseApp.framework in Frameworks */,
 				1F15616A203CA33B00D214C6 /* CoreApiServices.framework in Frameworks */,
 				1F15616B203CA33B00D214C6 /* CoreDomains.framework in Frameworks */,
@@ -1149,6 +1159,8 @@
 		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F9B49D6203CB24300979AF2 /* ToolsPages.framework */,
+				1F9B49D4203CB23C00979AF2 /* UIElements.framework */,
 				1F156172203CA33B00D214C6 /* BaseApp.framework */,
 				1F156173203CA33B00D214C6 /* CoreApiServices.framework */,
 				1F156174203CA33B00D214C6 /* CoreDomains.framework */,

@@ -18,7 +18,13 @@
       location = "container:"
       name = "UI">
       <FileRef
+         location = "group:UI/ToolsPages/ToolsPages.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:UI/Services/Services.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:UI/Elements/Elements.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:UI/Tools/Tools.xcodeproj">

@@ -22,10 +22,7 @@ public  class BaseButton: UIButton {
         stylize()
     }
 
-    internal func stylize() {
-
-        stylize(textColor: ThemeSettings.Colors.main, backgroundColor: ThemeSettings.Colors.background)
-    }
+    internal func stylize() {}
     internal func stylize(textColor: UIColor, backgroundColor: UIColor, borderColor: UIColor? = nil) {
 
         //Sizes

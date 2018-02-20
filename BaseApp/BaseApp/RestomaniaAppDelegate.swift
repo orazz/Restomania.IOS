@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Swinject
 import CoreTools
 import CoreStorageServices
 import UITools
@@ -22,10 +23,6 @@ open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
 
         delegate?.beforeLoad()
 
-        DependencyResolver.buildContainer({ container in
-            delegate?.register(in: container)
-        })
-
         let info = DependencyResolver.resolve(LaunchInfo.self)
         info.displayToLog()
 
@@ -39,6 +36,19 @@ open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
         delegate?.afterLoad()
 
         return true
+    }
+    private func loadInjections() {
+
+        let container = Container()
+
+        ToolsServices.register(in: container)
+        ApiServices.register(in: container)
+        StorageServices.register(in: container)
+        UIServices.register(in: container)
+
+        delegate?.register(in: container)
+
+        DependencyResolver.setup(container)
     }
     private func customizeTheme() {
 

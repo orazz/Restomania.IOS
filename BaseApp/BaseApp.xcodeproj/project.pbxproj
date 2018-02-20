@@ -15,7 +15,6 @@
 		1F8D358020389584007EA4C8 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D358120389584007EA4C8 /* CoreApiServices.framework */; };
 		1F8D358220389589007EA4C8 /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D358320389589007EA4C8 /* CoreStorageServices.framework */; };
 		1F8D35842038958E007EA4C8 /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D35852038958E007EA4C8 /* UIServices.framework */; };
-		1F8D358B2038967C007EA4C8 /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D35892038967C007EA4C8 /* DependencyResolver.swift */; };
 		1FCDD00A2031B27B00321E3E /* BaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDD0002031B27B00321E3E /* BaseApp.framework */; };
 		43B9EA3D6CBB986F069C072D /* Pods_BaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CBF58B8027FC7371668D39B /* Pods_BaseApp.framework */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		1F8D358120389584007EA4C8 /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D358320389589007EA4C8 /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D35852038958E007EA4C8 /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F8D35892038967C007EA4C8 /* DependencyResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyResolver.swift; sourceTree = "<group>"; };
 		1F8D358A2038967C007EA4C8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FCDD0002031B27B00321E3E /* BaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDD0092031B27B00321E3E /* BaseAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaseAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +80,6 @@
 			children = (
 				1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */,
 				1F0C1E3C203B6ACD00098810 /* CustomAppDelegate.swift */,
-				1F8D35892038967C007EA4C8 /* DependencyResolver.swift */,
 				1F8D358A2038967C007EA4C8 /* Info.plist */,
 			);
 			path = BaseApp;
@@ -282,7 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F0C1E3D203B6ACD00098810 /* CustomAppDelegate.swift in Sources */,
-				1F8D358B2038967C007EA4C8 /* DependencyResolver.swift in Sources */,
 				1F0D083F2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

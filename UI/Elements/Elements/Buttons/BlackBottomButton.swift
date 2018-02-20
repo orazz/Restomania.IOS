@@ -6,14 +6,18 @@
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
-import Foundation
+import CoreTools
+import UITools
 
 public class BlackBottomButton: BlackButton {
 
     override func stylize() {
-        super.stylize(textColor: ThemeSettings.Colors.additional,
-                      backgroundColor: ThemeSettings.Colors.main,
-                      borderColor: ThemeSettings.Colors.border)
+
+        let colors = DependencyResolver.resolve(ThemeColors.self)
+
+        super.stylize(textColor: colors.actionContent,
+                      backgroundColor: colors.actionMain,
+                      borderColor: colors.actionMain)
 
         self.layer.cornerRadius = 0
         self.layer.borderWidth = 0
