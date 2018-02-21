@@ -9,28 +9,32 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
 
 public class OneOrderFooterContainer: UITableViewCell {
 
     private static var nibName = "\(String.tag(OneOrderFooterContainer.self))View"
     public static var instance: OneOrderFooterContainer {
-
-        let cell: OneOrderFooterContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
-
-        return cell
+        return UINib.instantiate(from: nibName, bundle: Bundle.main)
     }
 
     //UI
     @IBOutlet private weak var createAtLabel: UILabel!
 
+    //Theme
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = ThemeSettings.Colors.background
+        backgroundColor = themeColors.contentBackground
 
         createAtLabel.text = String.empty
-        createAtLabel.font = ThemeSettings.Fonts.default(size: .subhead)
+        createAtLabel.textColor = themeColors.contentBackgroundText
+        createAtLabel.font = themeFonts.default(size: .subhead)
     }
 }
 extension OneOrderFooterContainer: OneOrderInterfacePart {

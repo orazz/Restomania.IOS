@@ -11,7 +11,6 @@ import UIKit
 import MdsKit
 import CoreTools
 import CoreApiServices
-import BaseApp
 
 public class NotificationsServices {
 

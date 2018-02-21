@@ -12,7 +12,7 @@ import CoreDomains
 import Localization
 import UITools
 
-public class PriceLabel: UILabel {
+open class PriceLabel: UILabel {
 
     //UI
     private var currencyFont: UIFont!

@@ -24,10 +24,20 @@ open class UITools {
         
         //Navigation bar
         let navigationBar = UINavigationBar.appearance()
+        navigationBar.isTranslucent = false
+        navigationBar.isOpaque = true
         navigationBar.backgroundColor = colors.navigationMain
         navigationBar.barTintColor = colors.navigationMain
         navigationBar.tintColor = colors.navigationContent
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: colors.navigationContent]
+
+        //Table
+        let table = UITableView.appearance()
+        table.backgroundColor = colors.contentBackground
+
+        //Cell
+        let cell = UITableViewCell.appearance()
+        cell.backgroundColor = colors.contentBackground
 
         stylizeToasts(fonts)
         stylizeBanner(colors, fonts)

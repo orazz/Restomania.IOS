@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import UITools
-import BaseApp
 
 public class ExternalTextEditor: UIViewController {
 
@@ -24,6 +24,7 @@ public class ExternalTextEditor: UIViewController {
 
     //Service
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
     public override var title: String? {
@@ -64,14 +65,7 @@ public class ExternalTextEditor: UIViewController {
 
         containerView.backgroundColor = themeColors.contentBackground
 
-        navigationBar.isTranslucent = false
-        navigationBar.isOpaque = true
-        navigationBar.backgroundColor = ThemeSettings.Colors.main
-        navigationBar.barTintColor = ThemeSettings.Colors.main
-        navigationBar.tintColor = ThemeSettings.Colors.additional
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: ThemeSettings.Colors.additional]
-
-        textField.font = ThemeSettings.Fonts.default(size: .subhead)
+        textField.font = themeFonts.default(size: .subhead)
         textField.delegate = self
     }
     public override func viewWillAppear(_ animated: Bool) {
@@ -95,10 +89,10 @@ public class ExternalTextEditor: UIViewController {
     private func refresh() {
         if (String.isNullOrEmpty(text)) {
             textField.text = title
-            textField.textColor = ThemeSettings.Colors.grey
+            textField.textColor = themeColors.contentTempText
         } else {
             textField.text = text
-            textField.textColor = ThemeSettings.Colors.main
+            textField.textColor = themeColors.contentBackgroundText
         }
     }
     @IBAction private func closeKeyboard() {
@@ -131,9 +125,9 @@ public class ExternalTextEditor: UIViewController {
 }
 extension ExternalTextEditor: UITextViewDelegate {
     public func textViewDidBeginEditing(_ textView: UITextView) {
-        if (textView.textColor == ThemeSettings.Colors.grey) {
+        if (textView.textColor == themeColors.contentTempText) {
             textView.text = String.empty
-            textView.textColor = ThemeSettings.Colors.main
+            textView.textColor = themeColors.contentBackgroundText
         }
     }
     public func textViewDidChange(_ textView: UITextView) {

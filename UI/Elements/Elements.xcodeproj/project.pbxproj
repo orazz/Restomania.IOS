@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1CA5FE200738B840317B37CB /* Pods_UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CDDCB5B5B400C19E91AB70 /* Pods_UIElements.framework */; };
+		1F78E72D203E36430006B845 /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E72E203E36430006B845 /* CoreStorageServices.framework */; };
 		1F9B49C4203CB1DF00979AF2 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49B0203CB1DE00979AF2 /* BaseButton.swift */; };
 		1F9B49C5203CB1DF00979AF2 /* BlackBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49B1203CB1DE00979AF2 /* BlackBottomButton.swift */; };
 		1F9B49C6203CB1DF00979AF2 /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49B2203CB1DE00979AF2 /* BlackButton.swift */; };
 		1F9B49C7203CB1DF00979AF2 /* GreyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49B3203CB1DE00979AF2 /* GreyButton.swift */; };
 		1F9B49C8203CB1DF00979AF2 /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49B4203CB1DE00979AF2 /* WhiteButton.swift */; };
 		1F9B49C9203CB1DF00979AF2 /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49B5203CB1DE00979AF2 /* CachedImage.swift */; };
-		1F9B49CA203CB1DF00979AF2 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49B6203CB1DE00979AF2 /* ImageWrapper.swift */; };
 		1F9B49CB203CB1DF00979AF2 /* ScheduleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49BA203CB1DF00979AF2 /* ScheduleDisplay.swift */; };
 		1F9B49CC203CB1DF00979AF2 /* ScheduleDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49BB203CB1DF00979AF2 /* ScheduleDisplayCell.swift */; };
 		1F9B49CD203CB1DF00979AF2 /* ScheduleDisplayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B49BC203CB1DF00979AF2 /* ScheduleDisplayCellView.xib */; };
@@ -32,13 +32,13 @@
 		19CDDCB5B5B400C19E91AB70 /* Pods_UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F33382D203CB10D00D992FF /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F333831203CB10D00D992FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F78E72E203E36430006B845 /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B49B0203CB1DE00979AF2 /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		1F9B49B1203CB1DE00979AF2 /* BlackBottomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBottomButton.swift; sourceTree = "<group>"; };
 		1F9B49B2203CB1DE00979AF2 /* BlackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackButton.swift; sourceTree = "<group>"; };
 		1F9B49B3203CB1DE00979AF2 /* GreyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreyButton.swift; sourceTree = "<group>"; };
 		1F9B49B4203CB1DE00979AF2 /* WhiteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhiteButton.swift; sourceTree = "<group>"; };
 		1F9B49B5203CB1DE00979AF2 /* CachedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
-		1F9B49B6203CB1DE00979AF2 /* ImageWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWrapper.swift; sourceTree = "<group>"; };
 		1F9B49BA203CB1DF00979AF2 /* ScheduleDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDisplay.swift; sourceTree = "<group>"; };
 		1F9B49BB203CB1DF00979AF2 /* ScheduleDisplayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDisplayCell.swift; sourceTree = "<group>"; };
 		1F9B49BC203CB1DF00979AF2 /* ScheduleDisplayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDisplayCellView.xib; sourceTree = "<group>"; };
@@ -57,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F78E72D203E36430006B845 /* CoreStorageServices.framework in Frameworks */,
 				1F9B4A2E203CB57D00979AF2 /* UITools.framework in Frameworks */,
 				1F9B4A1C203CB48C00979AF2 /* CoreTools.framework in Frameworks */,
 				1CA5FE200738B840317B37CB /* Pods_UIElements.framework in Frameworks */,
@@ -91,7 +92,6 @@
 				1F9B49AF203CB1DE00979AF2 /* Buttons */,
 				1F9B49B5203CB1DE00979AF2 /* CachedImage.swift */,
 				1F9B49B7203CB1DF00979AF2 /* Cards */,
-				1F9B49B6203CB1DE00979AF2 /* ImageWrapper.swift */,
 				1F9B49C1203CB1DF00979AF2 /* Labels */,
 				1F9B49C0203CB1DF00979AF2 /* RefreshControl.swift */,
 				1F9B49B9203CB1DF00979AF2 /* ScheduleDisplay */,
@@ -158,6 +158,7 @@
 		98E77CAD0D5CBB83EB8B091D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F78E72E203E36430006B845 /* CoreStorageServices.framework */,
 				1F9B4A2F203CB57D00979AF2 /* UITools.framework */,
 				1F9B4A1D203CB48C00979AF2 /* CoreTools.framework */,
 				19CDDCB5B5B400C19E91AB70 /* Pods_UIElements.framework */,
@@ -298,7 +299,6 @@
 				1F9B49C5203CB1DF00979AF2 /* BlackBottomButton.swift in Sources */,
 				1F9B49C7203CB1DF00979AF2 /* GreyButton.swift in Sources */,
 				1F9B49CB203CB1DF00979AF2 /* ScheduleDisplay.swift in Sources */,
-				1F9B49CA203CB1DF00979AF2 /* ImageWrapper.swift in Sources */,
 				1F9B49C4203CB1DF00979AF2 /* BaseButton.swift in Sources */,
 				1F9B49D1203CB1DF00979AF2 /* PriceLabel.swift in Sources */,
 				1F9B49CF203CB1DF00979AF2 /* BottomActions.swift in Sources */,

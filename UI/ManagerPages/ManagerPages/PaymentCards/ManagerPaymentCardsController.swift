@@ -13,7 +13,6 @@ import Toast_Swift
 import CoreDomains
 import CoreStorageServices
 import UIServices
-import BaseApp
 
 public protocol IPaymentCardsDelegate {
 

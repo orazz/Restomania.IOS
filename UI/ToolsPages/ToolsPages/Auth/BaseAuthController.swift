@@ -11,7 +11,6 @@ import MdsKit
 import CoreTools
 import CoreDomains
 import CoreApiServices
-import BaseApp
 
 public class BaseAuthController: UIViewController {
 

@@ -11,7 +11,6 @@ import UIKit
 import MdsKit
 import CoreDomains
 import CoreStorageServices
-import BaseApp
 
 public class PlaceCompleteOrderController: UIViewController {
 

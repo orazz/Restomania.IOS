@@ -11,7 +11,6 @@ import MdsKit
 import CoreDomains
 import CoreApiServices
 import CoreStorageServices
-import BaseApp
 
 public protocol PlaceMenuCellsProtocol: InterfaceTableCellProtocol {
 

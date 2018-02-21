@@ -13,7 +13,6 @@ import NotificationBannerSwift
 import Gloss
 import CoreDomains
 import CoreStorageServices
-import BaseApp
 
 public class PushesHandler {
 

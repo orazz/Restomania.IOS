@@ -25,7 +25,7 @@ public class CachedImage: ZeroCdnImageWrapper {
 extension CachedImage: ZeroCdnImageWrapperDelegate {
 
     public var defaultImage: UIImage {
-        return DependencyResolver.resolve(ThemeImages.self).default
+        return DependencyResolver.resolve(ThemeImages.self).toolsDefaultImage
     }
     public var cache: CacheImagesService {
         return DependencyResolver.resolve(CacheImagesService.self)

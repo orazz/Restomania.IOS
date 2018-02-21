@@ -12,7 +12,6 @@ import MdsKit
 import CoreTools
 import CoreDomains
 import CoreStorageServices
-import BaseApp
 
 public class ManagerOrdersController: UIViewController {
 

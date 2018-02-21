@@ -9,7 +9,6 @@
 import UIKit
 import MdsKit
 import CoreTools
-import BaseApp
 
 public class ManagerController: UIViewController {
 

@@ -148,14 +148,14 @@
 		1F9B49DC203CB28F00979AF2 /* OneOrder */ = {
 			isa = PBXGroup;
 			children = (
-				1F9B49DD203CB28F00979AF2 /* DishesContainer */,
 				1F9B49E2203CB28F00979AF2 /* OneOrderController.strings */,
-				1F9B49E4203CB28F00979AF2 /* FooterContainer */,
-				1F9B49E7203CB28F00979AF2 /* OneOrderController.swift */,
-				1F9B49E8203CB28F00979AF2 /* OneOrderControllerView.xib */,
 				1F9B49EA203CB28F00979AF2 /* SpaceContainer */,
 				1F9B49ED203CB28F00979AF2 /* SummaryContainer */,
 				1F9B49F0203CB28F00979AF2 /* TotalContainer */,
+				1F9B49DD203CB28F00979AF2 /* DishesContainer */,
+				1F9B49E4203CB28F00979AF2 /* FooterContainer */,
+				1F9B49E7203CB28F00979AF2 /* OneOrderController.swift */,
+				1F9B49E8203CB28F00979AF2 /* OneOrderControllerView.xib */,
 			);
 			path = OneOrder;
 			sourceTree = "<group>";

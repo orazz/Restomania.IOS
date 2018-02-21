@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class OneOrderTotalContainer: UITableViewCell {
 
@@ -25,18 +28,22 @@ public class OneOrderTotalContainer: UITableViewCell {
     @IBOutlet private weak var totalTitleLabel: UILabel!
     @IBOutlet private weak var totalValueLabel: PriceLabel!
 
+    //Theme
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     public override func awakeFromNib() {
         super.awakeFromNib()
 
         totalTitleLabel.text = OneOrderController.Keys.totalLabel.localized
-        totalTitleLabel.font = ThemeSettings.Fonts.default(size: .head)
-        totalTitleLabel.textColor = ThemeSettings.Colors.main
+        totalTitleLabel.font = themeFonts.default(size: .head)
+        totalTitleLabel.textColor = themeColors.contentBackgroundText
 
         totalValueLabel.text = String.empty
-        totalValueLabel.font = ThemeSettings.Fonts.bold(size: .head)
-        totalValueLabel.textColor = ThemeSettings.Colors.main
+        totalValueLabel.font = themeFonts.bold(size: .head)
+        totalValueLabel.textColor = themeColors.contentBackgroundText
 
-        backgroundColor = ThemeSettings.Colors.additional
+        backgroundColor = themeColors.contentBackground
     }
 }
 extension OneOrderTotalContainer: OneOrderInterfacePart {
@@ -45,7 +52,6 @@ extension OneOrderTotalContainer: OneOrderInterfacePart {
     }
 }
 extension OneOrderTotalContainer: InterfaceTableCellProtocol {
-
     public var viewHeight: Int {
         return 30
     }

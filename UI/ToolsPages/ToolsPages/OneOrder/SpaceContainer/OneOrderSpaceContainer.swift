@@ -9,22 +9,22 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
 
 public class OneOrderSpaceContainer: UITableViewCell {
 
     private static var nibName = "\(String.tag(OneOrderSpaceContainer.self))View"
     public static func create() -> OneOrderSpaceContainer {
-
-        let cell: OneOrderSpaceContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
-
-        cell.loadStyles()
-
-        return cell
+        return UINib.instantiate(from: nibName, bundle: Bundle.main)
     }
 
-    private func loadStyles() {
-        backgroundColor = ThemeSettings.Colors.background
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+
+        let colors = DependencyResolver.resolve(ThemeColors.self)
+        backgroundColor = colors.contentBackground
     }
 }
 extension OneOrderSpaceContainer: OneOrderInterfacePart {

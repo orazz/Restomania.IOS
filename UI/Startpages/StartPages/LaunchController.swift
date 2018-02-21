@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import MdsKit
 import CoreTools
-import BaseApp
 
 public class LaunchController: UIViewController {
 

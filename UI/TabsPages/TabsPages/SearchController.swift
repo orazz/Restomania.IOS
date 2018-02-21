@@ -11,7 +11,6 @@ import MdsKit
 import CoreTools
 import CoreDomains
 import CoreStorageServices
-import BaseApp
 import UIServices
 
 public class SearchController: UIViewController {

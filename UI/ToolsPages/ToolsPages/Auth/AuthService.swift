@@ -10,7 +10,6 @@ import UIKit
 import MdsKit
 import CoreTools
 import CoreDomains
-import BaseApp
 
 public enum AuthPage {
     case login
