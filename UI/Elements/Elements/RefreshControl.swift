@@ -10,15 +10,25 @@ import Foundation
 import UIKit
 import MdsKit
 import Localization
+import CoreTools
+import UITools
 
 public class RefreshControl: UIRefreshControl {
+
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     public init(_ target: Any, action: Selector) {
 
         super.init()
 
-        self.backgroundColor = ThemeSettings.Colors.background
-        self.attributedTitle = NSAttributedString(string: Localization.UIElements.RefreshControl.title)
+        self.backgroundColor = themeColors.contentBackground
+        let attributes = [
+            NSAttributedStringKey.foregroundColor: themeColors.contentBackgroundText,
+            NSAttributedStringKey.font: themeFonts.default(size: .subhead)
+            ]
+        self.attributedTitle = NSAttributedString(string: Localization.UIElements.RefreshControl.title, attributes: attributes)
+        
         self.addTarget(target, action: action, for: .valueChanged)
     }
     public required init?(coder aDecoder: NSCoder) {

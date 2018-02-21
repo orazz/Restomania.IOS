@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import CoreTools
 import CoreDomains
 import Localization
+import UITools
 
 public class PriceLabel: UILabel {
 
     //UI
     private var currencyFont: UIFont!
+
+    //Services
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
     public private(set) var price = Price.zero
@@ -31,8 +36,8 @@ public class PriceLabel: UILabel {
         initialize()
     }
     private func initialize() {
-        currencyFont = ThemeSettings.Fonts.icons(size: UIFont.systemFontSize)
-
+        currencyFont = themeFonts.icons(size: UIFont.systemFontSize)
+        
         refresh()
     }
 

@@ -18,6 +18,18 @@
       location = "container:"
       name = "UI">
       <FileRef
+         location = "group:UI/StartPages/StartPages.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:UI/TabsPages/TabsPages.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:UI/ManagerPages/ManagerPages.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:UI/PlacePages/PlacePages.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:UI/ToolsPages/ToolsPages.xcodeproj">
       </FileRef>
       <FileRef
@@ -30,6 +42,9 @@
          location = "group:UI/Tools/Tools.xcodeproj">
       </FileRef>
    </Group>
+   <FileRef
+      location = "group:Notifications/Notifications.xcodeproj">
+   </FileRef>
    <FileRef
       location = "group:Localization/Localization.xcodeproj">
    </FileRef>

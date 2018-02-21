@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreTools
+import UITools
 
-public  class BaseButton: UIButton {
+open class BaseButton: UIButton {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,11 +27,13 @@ public  class BaseButton: UIButton {
     internal func stylize() {}
     internal func stylize(textColor: UIColor, backgroundColor: UIColor, borderColor: UIColor? = nil) {
 
+        let fonts = DependencyResolver.resolve(ThemeFonts.self)
+
         //Sizes
 //        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
 
         //Styles
-        self.titleLabel?.font = ThemeSettings.Fonts.default(size: .subhead)
+        self.titleLabel?.font = fonts.default(size: .subhead)
         self.tintColor = textColor
         self.backgroundColor = backgroundColor
 

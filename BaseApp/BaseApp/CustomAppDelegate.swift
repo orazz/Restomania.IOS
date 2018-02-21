@@ -8,6 +8,7 @@
 
 import Foundation
 import Swinject
+import MdsKit
 import CoreTools
 
 public protocol CustomAppDelegate {
@@ -15,8 +16,8 @@ public protocol CustomAppDelegate {
     func beforeLoad()
     func afterLoad()
 
-    func register(in container: Container)
-    func migrate(_ info: LaunchInfo)
-    func loadCache()
+    func registerInjections(_ container: Container)
+    func coolectMigrations() -> [Int: Trigger]
     func customizeTheme()
+
 }

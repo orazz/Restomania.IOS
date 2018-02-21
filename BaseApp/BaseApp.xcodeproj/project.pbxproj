@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		1F0C1E3D203B6ACD00098810 /* CustomAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C1E3C203B6ACD00098810 /* CustomAppDelegate.swift */; };
 		1F0D083F2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */; };
+		1F5607FD203E121B00DA2F78 /* ApiKeysRefreshser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5607FC203E121B00DA2F78 /* ApiKeysRefreshser.swift */; };
+		1F78E706203E1A9D0006B845 /* Notifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E707203E1A9D0006B845 /* Notifications.framework */; };
+		1F78E708203E1AA50006B845 /* ManagerPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E70C203E1AA50006B845 /* ManagerPages.framework */; };
+		1F78E709203E1AA50006B845 /* StartPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E70D203E1AA50006B845 /* StartPages.framework */; };
+		1F78E70A203E1AA50006B845 /* TabsPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E70E203E1AA50006B845 /* TabsPages.framework */; };
+		1F78E70B203E1AA50006B845 /* ToolsPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E70F203E1AA50006B845 /* ToolsPages.framework */; };
 		1F8D357A2038956F007EA4C8 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357B2038956F007EA4C8 /* CoreTools.framework */; };
 		1F8D357C20389577007EA4C8 /* Pods_CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357D20389577007EA4C8 /* Pods_CoreTools.framework */; };
 		1F8D357E2038957D007EA4C8 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357F2038957D007EA4C8 /* CoreDomains.framework */; };
@@ -34,6 +40,12 @@
 		1AB00E217B51C0F5F931E0E0 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0C1E3C203B6ACD00098810 /* CustomAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppDelegate.swift; sourceTree = "<group>"; };
 		1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestomaniaAppDelegate.swift; sourceTree = "<group>"; };
+		1F5607FC203E121B00DA2F78 /* ApiKeysRefreshser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeysRefreshser.swift; sourceTree = "<group>"; };
+		1F78E707203E1A9D0006B845 /* Notifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Notifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F78E70C203E1AA50006B845 /* ManagerPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ManagerPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F78E70D203E1AA50006B845 /* StartPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StartPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F78E70E203E1AA50006B845 /* TabsPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TabsPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F78E70F203E1AA50006B845 /* ToolsPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolsPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D357B2038956F007EA4C8 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D357D20389577007EA4C8 /* Pods_CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D357F2038957D007EA4C8 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +66,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F78E708203E1AA50006B845 /* ManagerPages.framework in Frameworks */,
+				1F78E709203E1AA50006B845 /* StartPages.framework in Frameworks */,
+				1F78E70A203E1AA50006B845 /* TabsPages.framework in Frameworks */,
+				1F78E70B203E1AA50006B845 /* ToolsPages.framework in Frameworks */,
+				1F78E706203E1A9D0006B845 /* Notifications.framework in Frameworks */,
 				1F8D35842038958E007EA4C8 /* UIServices.framework in Frameworks */,
 				1F8D358220389589007EA4C8 /* CoreStorageServices.framework in Frameworks */,
 				1F8D358020389584007EA4C8 /* CoreApiServices.framework in Frameworks */,
@@ -75,11 +92,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F5607FA203E119300DA2F78 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				1F5607FC203E121B00DA2F78 /* ApiKeysRefreshser.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		1F5607FB203E11A300DA2F78 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
 		1F8D35882038967C007EA4C8 /* BaseApp */ = {
 			isa = PBXGroup;
 			children = (
 				1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */,
 				1F0C1E3C203B6ACD00098810 /* CustomAppDelegate.swift */,
+				1F5607FB203E11A300DA2F78 /* Routing */,
+				1F5607FA203E119300DA2F78 /* Handlers */,
 				1F8D358A2038967C007EA4C8 /* Info.plist */,
 			);
 			path = BaseApp;
@@ -107,6 +141,11 @@
 		B94044403F35784C60DE5A45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F78E70C203E1AA50006B845 /* ManagerPages.framework */,
+				1F78E70D203E1AA50006B845 /* StartPages.framework */,
+				1F78E70E203E1AA50006B845 /* TabsPages.framework */,
+				1F78E70F203E1AA50006B845 /* ToolsPages.framework */,
+				1F78E707203E1A9D0006B845 /* Notifications.framework */,
 				1F8D35852038958E007EA4C8 /* UIServices.framework */,
 				1F8D358320389589007EA4C8 /* CoreStorageServices.framework */,
 				1F8D358120389584007EA4C8 /* CoreApiServices.framework */,
@@ -279,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F0C1E3D203B6ACD00098810 /* CustomAppDelegate.swift in Sources */,
+				1F5607FD203E121B00DA2F78 /* ApiKeysRefreshser.swift in Sources */,
 				1F0D083F2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,20 +8,29 @@
 
 import UIKit
 import Foundation
+import CoreTools
+import UITools
+import UIElements
 
 public class SignupController: BaseAuthController {
 
     public static let nibName = "SignupPage"
 
-    @IBOutlet weak var Signup: BlackButton!
-    @IBOutlet weak var Login: WhiteButton!
-    @IBOutlet weak var ForgetPassword: UIButton!
+    //UI
+    @IBOutlet private weak var Signup: BlackButton!
+    @IBOutlet private weak var Login: WhiteButton!
+    @IBOutlet private weak var ForgetPassword: UIButton!
+
+    //Theme
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        ForgetPassword.tintColor = ThemeSettings.Colors.main
-        ForgetPassword.titleLabel?.font = ThemeSettings.Fonts.default(size: .subhead)
+        ForgetPassword.tintColor = themeColors.actionMain
+        ForgetPassword.backgroundColor = themeColors.actionContent
+        ForgetPassword.titleLabel?.font = themeFonts.default(size: .subhead)
     }
 
     //Sign up

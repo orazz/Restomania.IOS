@@ -9,7 +9,7 @@
 import CoreTools
 import UITools
 
-public class BlackBottomButton: BlackButton {
+open class BlackBottomButton: BlackButton {
 
     override func stylize() {
 

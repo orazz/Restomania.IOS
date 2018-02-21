@@ -9,7 +9,7 @@
 import CoreTools
 import UITools
 
-public class WhiteButton: BaseButton {
+open class WhiteButton: BaseButton {
 
     override func stylize() {
 

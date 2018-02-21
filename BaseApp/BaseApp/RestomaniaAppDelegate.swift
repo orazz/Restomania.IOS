@@ -9,31 +9,47 @@
 import Foundation
 import UIKit
 import Swinject
+import MdsKit
 import CoreTools
+import CoreToolsServices
+import CoreApiServices
 import CoreStorageServices
 import UITools
+import UIServices
 
 open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
 
-    private let _tag = String.tag(RestomaniaAppDelegate.self)
     public var window: UIWindow?
-    public var delegate: CustomAppDelegate?
+    public private(set) var delegate: CustomAppDelegate!
 
-    open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    private let _tag = String.tag(RestomaniaAppDelegate.self)
+    private var info: LaunchInfo!
+    private var configs: ConfigsContainer!
 
-        delegate?.beforeLoad()
+    override public init() {
+        super.init()
 
-        let info = DependencyResolver.resolve(LaunchInfo.self)
+        loadInjections()
+
+        info = DependencyResolver.resolve(LaunchInfo.self)
+        configs = DependencyResolver.resolve(ConfigsContainer.self)
+    }
+
+    open func application(_ delegate: CustomAppDelegate, for application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.delegate = delegate
+
+        delegate.beforeLoad()
+
         info.displayToLog()
-
-        let configs = DependencyResolver.resolve(ConfigsContainer.self)
         configs.displayToLog()
 
-        delegate?.migrate(info)
-        customizeTheme()
+        migrate()
+        
+        loadTheme()
         loadCache()
+        launchServices()
 
-        delegate?.afterLoad()
+        delegate.afterLoad()
 
         return true
     }
@@ -46,11 +62,27 @@ open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
         StorageServices.register(in: container)
         UIServices.register(in: container)
 
-        delegate?.register(in: container)
+        delegate?.registerInjections(container)
 
         DependencyResolver.setup(container)
     }
-    private func customizeTheme() {
+    private func migrate() {
+
+        guard let prevBuild = info.prevBuild else {
+            return
+        }
+
+        let migrations = delegate.coolectMigrations()
+        for (build, migration) in migrations.sorted(by: { $0.key < $1.key }) {
+
+            if (prevBuild < build) {
+
+                Log.info(tag, "Apply migration for \(build) build.")
+                migration()
+            }
+        }
+    }
+    private func loadTheme() {
 
         UITools.customizeTheme(from: DependencyResolver.container)
         delegate?.customizeTheme()
@@ -58,6 +90,9 @@ open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
     private func loadCache() {
 
         StorageServices.load(from: DependencyResolver.container)
-        delegate?.loadCache()
+    }
+    private func launchServices() {
+
+        ApiKeysRefreshser.launch()
     }
 }

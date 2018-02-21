@@ -11,14 +11,16 @@ def injections
     pod 'Swinject', '~> 2.1.0'
 end
 
+
+
+
+
 #Custom
 #Kuzina
 target 'Kuzina' do
     project './Apps/Kuzina/Kuzina.xcodeproj'
     shared_pods
     injections
-    pod 'NotificationBannerSwift', '~> 1.5.4'
-    pod 'Toast-Swift', '~> 3.0.1'
 end
 
 #App
@@ -28,12 +30,67 @@ target 'BaseApp' do
     injections
 end
 
-#UI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Pages
+target 'StartPages' do
+    project './UI/StartPages/StartPages.xcodeproj'
+    shared_pods
+    injections
+end
+target 'TabsPages' do
+    project './UI/TabsPages/TabsPages.xcodeproj'
+    shared_pods
+    injections
+end
+target 'ManagerPages' do
+    project './UI/ManagerPages/ManagerPages.xcodeproj'
+    shared_pods
+    injections
+end
+target 'PlacePages' do
+    project './UI/PlacePages/PlacePages.xcodeproj'
+    shared_pods
+    injections
+end
 target 'ToolsPages' do
     project './UI/ToolsPages/ToolsPages.xcodeproj'
     shared_pods
     injections
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#UI
 target 'UIServices' do
     project './UI/Services/Services.xcodeproj'
     shared_pods
@@ -48,14 +105,48 @@ target 'UITools' do
     project './UI/Tools/Tools.xcodeproj'
     shared_pods
     injections
+    pod 'NotificationBannerSwift', '~> 1.5.4'
+    pod 'Toast-Swift', '~> 3.0.1'
 end
 
-# Localization
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Common
+target 'Notifications' do
+    project './Notifications/Notifications.xcodeproj'
+    shared_pods
+end
 target 'Localization' do
     project './Localization/Localization.xcodeproj'
     shared_pods
     injections
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Core
 target 'CoreStorageServices' do

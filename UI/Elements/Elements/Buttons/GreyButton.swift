@@ -9,7 +9,7 @@
 import CoreTools
 import UITools
 
-public class GreyButton: BaseButton {
+open class GreyButton: BaseButton {
 
     override func stylize() {
 

@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import MdsKit
 import Localization
+import CoreTools
+import UITools
 
 public class ScheduleDisplayCell: UICollectionViewCell {
 
@@ -28,6 +30,8 @@ public class ScheduleDisplayCell: UICollectionViewCell {
     @IBOutlet private weak var valueLabel: UILabel!
 
     //Service
+    private static let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let fonts = ScheduleDisplayCell.themeFonts
 
     //Data
     private static let today = Date().dayOfWeek()
@@ -54,11 +58,11 @@ public class ScheduleDisplayCell: UICollectionViewCell {
 
         titleLabel.text = ScheduleDisplayCell.title(for: day).uppercased()
         if (isToday) {
-            titleLabel.font = ThemeSettings.Fonts.bold(size: .subhead)
-            valueLabel.font = ThemeSettings.Fonts.bold(size: .caption)
+            titleLabel.font = fonts.bold(size: .subhead)
+            valueLabel.font = fonts.bold(size: .caption)
         } else {
-            titleLabel.font = ThemeSettings.Fonts.default(size: .subhead)
-            valueLabel.font = ThemeSettings.Fonts.default(size: .caption)
+            titleLabel.font = fonts.default(size: .subhead)
+            valueLabel.font = fonts.default(size: .caption)
         }
     }
 
@@ -85,6 +89,6 @@ public class ScheduleDisplayCell: UICollectionViewCell {
 
         let title = ScheduleDisplayCell.title(for: day).uppercased()
 
-        return title.width(containerHeight: ScheduleDisplayCell.height, font: ThemeSettings.Fonts.bold(size: .title)) + 5 + 5
+        return title.width(containerHeight: ScheduleDisplayCell.height, font: themeFonts.bold(size: .title)) + 5 + 5
     }
 }
