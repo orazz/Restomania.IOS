@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 import CoreStorageServices
-import BaseApp
+import UIElements
 
 public protocol OneOrderInterfacePart: InterfaceTableCellProtocol {
     func update(by: DishOrder)

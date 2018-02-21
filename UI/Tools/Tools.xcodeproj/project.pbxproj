@@ -14,6 +14,7 @@
 		1F5607A1203E0BE300DA2F78 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5607A0203E0BE300DA2F78 /* Router.swift */; };
 		1F5607A2203E0CC200DA2F78 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5607A4203E0CC200DA2F78 /* CoreDomains.framework */; };
 		1F5607A3203E0CC200DA2F78 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5607A5203E0CC200DA2F78 /* CoreTools.framework */; };
+		1F78E72C203E2B6D0006B845 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E72B203E2B6D0006B845 /* UIImage.swift */; };
 		E5ADCDE6B829341B492B1C0E /* Pods_UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917D2F30A6211D71E16E4B29 /* Pods_UITools.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		1F5607A0203E0BE300DA2F78 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		1F5607A4203E0CC200DA2F78 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607A5203E0CC200DA2F78 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F78E72B203E2B6D0006B845 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		3D8B6E9FC042CD6B897DF417 /* Pods-UITools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITools.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-UITools/Pods-UITools.release.xcconfig"; sourceTree = "<group>"; };
 		917D2F30A6211D71E16E4B29 /* Pods_UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A901147460A379DFB3262DEA /* Pods-UITools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITools.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-UITools/Pods-UITools.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				1F0C1E38203B64B400098810 /* UITools.swift */,
 				1F56079F203E0BCD00DA2F78 /* Routing */,
 				1F0C1E37203B647400098810 /* Theme */,
+				1F78E72A203E2B570006B845 /* Extensions */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -91,6 +94,14 @@
 				1F5607A0203E0BE300DA2F78 /* Router.swift */,
 			);
 			path = Routing;
+			sourceTree = "<group>";
+		};
+		1F78E72A203E2B570006B845 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F78E72B203E2B6D0006B845 /* UIImage.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E3AAC32212F2C73438387441 /* Pods */ = {
@@ -232,6 +243,7 @@
 				1F56079E203E01B500DA2F78 /* ThemeFonts.swift in Sources */,
 				1F56079C203E012F00DA2F78 /* ThemeImages.swift in Sources */,
 				1F5607A1203E0BE300DA2F78 /* Router.swift in Sources */,
+				1F78E72C203E2B6D0006B845 /* UIImage.swift in Sources */,
 				1F0C1E36203B63A800098810 /* ThemeColors.swift in Sources */,
 				1F0C1E39203B64B400098810 /* UITools.swift in Sources */,
 			);

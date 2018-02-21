@@ -11,8 +11,22 @@ import UIKit
 
 public protocol ThemeImages {
 
-    var logo: UIImage { get }
-    var `default`: UIImage { get }
-    var navigationBackward: UIImage { get }
-    var icon: UIImage { get }
+    var iconCheckmark: UIImage { get }
+    var iconCloseOnFilter: UIImage { get }
+    var iconCloseOnContent: UIImage { get }
+    var iconInfo: UIImage { get }
+    var iconMinus: UIImage { get }
+    var iconPlus: UIImage { get }
+    var iconBack: UIImage { get }
+    var iconForward: UIImage { get }
+
+    var tabSearch: UIImage { get }
+    var tabMap: UIImage { get }
+    var tabManager: UIImage { get }
+
+    var toolsLogo: UIImage { get }
+    var toolsDefaultImage: UIImage { get }
+    var toolsBottomGradient: UIImage { get }
+    var toolsTopGradient: UIImage { get }
+    var toolsDarkFilter: UIImage { get }
 }

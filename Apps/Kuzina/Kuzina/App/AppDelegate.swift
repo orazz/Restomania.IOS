@@ -34,21 +34,5 @@ class AppDelegate: RestomaniaAppDelegate, CustomAppDelegate {
     }
     public func customizeTheme() {}
 
-    public func afterLoad() {
-
-        PushesService.shared.requestPermissions()
-    }
-
-    // MARK: Push notifications
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        PushesService.shared.completeRequestToPushNotifications(token: deviceToken)
-    }
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        PushesService.shared.completeRequestToPushNotifications(token: nil, error: error)
-    }
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        PushesService.shared.processMessage(push: userInfo)
-
-        completionHandler(.newData)
-    }
+    public func afterLoad() {}
 }

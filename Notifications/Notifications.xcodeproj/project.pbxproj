@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1F78E5EE203E19FF0006B845 /* PushesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5EA203E19FE0006B845 /* PushesHandler.swift */; };
-		1F78E5EF203E19FF0006B845 /* NotificationEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5EB203E19FF0006B845 /* NotificationEvents.swift */; };
-		1F78E5F0203E19FF0006B845 /* NotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5EC203E19FF0006B845 /* NotificationContainer.swift */; };
-		1F78E5F1203E19FF0006B845 /* PushesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5ED203E19FF0006B845 /* PushesServices.swift */; };
+		1F78E5EF203E19FF0006B845 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5EB203E19FF0006B845 /* Events.swift */; };
+		1F78E5F0203E19FF0006B845 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5EC203E19FF0006B845 /* Container.swift */; };
+		1F78E5F1203E19FF0006B845 /* NotificationsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5ED203E19FF0006B845 /* NotificationsServices.swift */; };
+		1F78E726203E1D1A0006B845 /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E727203E1D1A0006B845 /* UITools.framework */; };
+		1F78E729203E1E300006B845 /* NotificationsIgnore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E728203E1E300006B845 /* NotificationsIgnore.swift */; };
 		BCACF50E5F55463957B3E70F /* Pods_Notifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860679F93953D4D948A12EB2 /* Pods_Notifications.framework */; };
 /* End PBXBuildFile section */
 
@@ -18,9 +20,11 @@
 		1F560809203E186200DA2F78 /* Notifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Notifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F56080D203E186200DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F78E5EA203E19FE0006B845 /* PushesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushesHandler.swift; sourceTree = "<group>"; };
-		1F78E5EB203E19FF0006B845 /* NotificationEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationEvents.swift; sourceTree = "<group>"; };
-		1F78E5EC203E19FF0006B845 /* NotificationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationContainer.swift; sourceTree = "<group>"; };
-		1F78E5ED203E19FF0006B845 /* PushesServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushesServices.swift; sourceTree = "<group>"; };
+		1F78E5EB203E19FF0006B845 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		1F78E5EC203E19FF0006B845 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		1F78E5ED203E19FF0006B845 /* NotificationsServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsServices.swift; sourceTree = "<group>"; };
+		1F78E727203E1D1A0006B845 /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F78E728203E1E300006B845 /* NotificationsIgnore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsIgnore.swift; sourceTree = "<group>"; };
 		46E1C78AC4911618275C3994 /* Pods-Notifications.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notifications.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Notifications/Pods-Notifications.debug.xcconfig"; sourceTree = "<group>"; };
 		6718675250729E362941DB4C /* Pods-Notifications.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notifications.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Notifications/Pods-Notifications.release.xcconfig"; sourceTree = "<group>"; };
 		860679F93953D4D948A12EB2 /* Pods_Notifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F78E726203E1D1A0006B845 /* UITools.framework in Frameworks */,
 				BCACF50E5F55463957B3E70F /* Pods_Notifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,13 +64,30 @@
 		1F56080B203E186200DA2F78 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				1F78E5EC203E19FF0006B845 /* NotificationContainer.swift */,
-				1F78E5EB203E19FF0006B845 /* NotificationEvents.swift */,
-				1F78E5EA203E19FE0006B845 /* PushesHandler.swift */,
-				1F78E5ED203E19FF0006B845 /* PushesServices.swift */,
 				1F56080D203E186200DA2F78 /* Info.plist */,
+				1F78E5ED203E19FF0006B845 /* NotificationsServices.swift */,
+				1F78E728203E1E300006B845 /* NotificationsIgnore.swift */,
+				1F78E725203E1CD00006B845 /* Handlers */,
+				1F78E724203E1C260006B845 /* Models */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		1F78E724203E1C260006B845 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F78E5EB203E19FF0006B845 /* Events.swift */,
+				1F78E5EC203E19FF0006B845 /* Container.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1F78E725203E1CD00006B845 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				1F78E5EA203E19FE0006B845 /* PushesHandler.swift */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 		3A04376DD25EC98527E564F6 /* Pods */ = {
@@ -80,6 +102,7 @@
 		3D7897D37A6A2B2B992C41DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F78E727203E1D1A0006B845 /* UITools.framework */,
 				860679F93953D4D948A12EB2 /* Pods_Notifications.framework */,
 			);
 			name = Frameworks;
@@ -202,10 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F78E729203E1E300006B845 /* NotificationsIgnore.swift in Sources */,
 				1F78E5EE203E19FF0006B845 /* PushesHandler.swift in Sources */,
-				1F78E5EF203E19FF0006B845 /* NotificationEvents.swift in Sources */,
-				1F78E5F0203E19FF0006B845 /* NotificationContainer.swift in Sources */,
-				1F78E5F1203E19FF0006B845 /* PushesServices.swift in Sources */,
+				1F78E5EF203E19FF0006B845 /* Events.swift in Sources */,
+				1F78E5F0203E19FF0006B845 /* Container.swift in Sources */,
+				1F78E5F1203E19FF0006B845 /* NotificationsServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

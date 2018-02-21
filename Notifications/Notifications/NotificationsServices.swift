@@ -13,9 +13,9 @@ import CoreTools
 import CoreApiServices
 import BaseApp
 
-public class PushesService {
+public class NotificationsServices {
 
-    public static let shared = PushesService()
+    public static let shared = NotificationsServices()
 
     private let tag = String.tag(PushesService.self)
     private let guid = Guid.new
@@ -51,34 +51,7 @@ public class PushesService {
         Log.debug(self.tag, "Complete process push-notification.")
     }
 
-    // MARK: Rquest permissions
-    public func requestPermissions() {
-
-        let application = UIApplication.shared
-
-        let settings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
-        application.registerUserNotificationSettings(settings)
-        application.registerForRemoteNotifications()
-    }
-    public func completeRequestToPushNotifications(token: Data?, error: Error? = nil) {
-
-        if let error = error {
-
-            Log.error(tag, "User not get permissions on send push notifications.")
-            Log.error(tag, String(describing: error))
-        }
-
-        if let token = token {
-
-            Log.info(tag, "Get device token for send push notifications.")
-
-            let parsed = token.map ({ String(format: "%02.2hhx", $0) }).joined()
-            register(parsed)
-        }
-    }
-
-    // MARK: Remote access
-    public func register(_ token: String) {
+    public func saveAndRegister(_ token: String) {
 
         Log.debug(tag, "Register device with token: \(token)")
         self.token = token
@@ -105,13 +78,42 @@ public class PushesService {
         lightStorage.remove(.devicePushToken)
     }
 }
-extension PushesService: ApiKeyServiceDelegate {
+
+// Permissons
+extension NotificationsServices {
+    public func requestPermissions() {
+
+        let application = UIApplication.shared
+
+        let settings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+    }
+    public func completeRequestToPushNotifications(token: Data?, error: Error? = nil) {
+
+        if let error = error {
+
+            Log.error(tag, "User not get permissions on send push notifications.")
+            Log.error(tag, String(describing: error))
+        }
+
+        if let token = token {
+
+            Log.info(tag, "Get device token for send push notifications.")
+
+            let parsed = token.map ({ String(format: "%02.2hhx", $0) }).joined()
+            saveAndRegister(parsed)
+        }
+    }
+}
+
+extension NotificationsServices: ApiKeyServiceDelegate {
     public func apiKeyService(_ service: ApiKeyService, update keys: ApiKeys, for role: ApiRole) {
 
         guard let token = token else {
             return
         }
 
-        register(token)
+        saveAndRegister(token)
     }
 }
