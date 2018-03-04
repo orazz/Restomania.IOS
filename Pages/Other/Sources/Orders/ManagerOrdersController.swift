@@ -36,7 +36,7 @@ public class ManagerOrdersController: UIViewController {
 
     // MARK: Life circle
     public init() {
-        super.init(nibName: "ManagerOrdersControllerView", bundle: Bundle.main)
+        super.init(nibName: "ManagerOrdersControllerView", bundle: Bundle.otherPages)
 
         loadQueue = AsyncQueue.createForControllerLoad(for: tag)
 
@@ -182,6 +182,9 @@ extension ManagerOrdersController {
 
         public var tableName: String {
             return String.tag(ManagerOrdersController.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.otherPages
         }
 
         case title = "Title"

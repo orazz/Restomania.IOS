@@ -17,29 +17,29 @@ public protocol Router {
     func initialize(with controller: UITabBarController)
 
     var navigator: UINavigationController? { get }
-    var search: UIViewController { get }
-    var map: UIViewController { get }
-    var favourite: UIViewController { get }
-    var manager: UIViewController { get }
-
-    func goBack()
-
-    func goToGreeting()
-    func goToTabs()
-
-    func goToPlaceMenu(placeId: Long)
-    func goToPlaceInfo(summary: PlaceSummary)
-    func goToPlaceCart(placeId: Long)
-    func goToCompleteOrder(order: DishOrder)
-
-    func goToOrder(orderId: Long, reset: Bool)
-    func goToOrder(order: DishOrder, reset: Bool)
-
-    func goToAction()
-
-    func selectTabSearch()
-    func selectTabMap()
-    func selectTabFavourite()
-    func selectFeeds()
-    func selectTabManager()
+//    var search: UIViewController { get }
+//    var map: UIViewController { get }
+//    var favourite: UIViewController { get }
+//    var manager: UIViewController { get }
+//
+//    func goBack()
+//
+//    func goToGreeting()
+//    func goToTabs()
+//
+//    func goToPlaceMenu(placeId: Long)
+//    func goToPlaceInfo(summary: PlaceSummary)
+//    func goToPlaceCart(placeId: Long)
+//    func goToCompleteOrder(order: DishOrder)
+//
+//    func goToOrder(orderId: Long, reset: Bool)
+//    func goToOrder(order: DishOrder, reset: Bool)
+//
+//    func goToAction()
+//
+//    func selectTabSearch()
+//    func selectTabMap()
+//    func selectTabFavourite()
+//    func selectFeeds()
+//    func selectTabManager()
 }

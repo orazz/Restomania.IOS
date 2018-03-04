@@ -14,7 +14,7 @@ public class ManagerEditNotificationPreferencesController: UIViewController {
     private static let nibName = "ManagerEditNotificationPreferencesControllerView"
     public static func create() -> ManagerEditNotificationPreferencesController {
 
-        let vc = ManagerEditNotificationPreferencesController(nibName: nibName, bundle: Bundle.main)
+        let vc = ManagerEditNotificationPreferencesController(nibName: nibName, bundle: Bundle.otherPages)
 
         return vc
     }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignupController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignupController" customModule="UIServices" customModuleProvider="target">
             <connections>
                 <outlet property="ForgetPassword" destination="VOK-3E-29B" id="amJ-uc-PjZ"/>
                 <outlet property="Login" destination="DxJ-Az-35v" id="g9p-be-j0D"/>
@@ -109,7 +109,7 @@
                         <constraint firstAttribute="bottom" secondItem="c4y-ID-xjY" secondAttribute="bottom" id="xlx-rt-4Vk"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ue5-cS-JPi" customClass="BlackButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ue5-cS-JPi" customClass="BlackButton" customModule="UIServices" customModuleProvider="target">
                     <rect key="frame" x="10" y="204" width="355" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Nhz-ii-ali"/>
@@ -129,7 +129,7 @@
                         <action selector="forgetPasswordAction" destination="-1" eventType="touchUpInside" id="QGQ-FR-fUb"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxJ-Az-35v" customClass="WhiteButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxJ-Az-35v" customClass="WhiteButton" customModule="UIServices" customModuleProvider="target">
                     <rect key="frame" x="10" y="264" width="355" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Wx9-Xe-Fw1"/>

@@ -1,5 +1,5 @@
 //
-//  ManagerController.swift
+//  OtherController.swift
 //  Kuzina
 //
 //  Created by Алексей on 24.07.17.
@@ -13,9 +13,9 @@ import UITools
 import UIElements
 import UIServices
 
-public class ManagerController: UIViewController {
+public class OtherController: UIViewController {
 
-    private let _tag = String.tag(ManagerController.self)
+    private let _tag = String.tag(OtherController.self)
 
     //UI
     @IBOutlet private weak var LogoutButton: UIButton!
@@ -27,6 +27,14 @@ public class ManagerController: UIViewController {
     //Properties
     private var isAuth: Bool {
         return keysService.isAuth
+    }
+
+
+    public init() {
+        super.init(nibName: String.tag(OtherController.self), bundle: Bundle.otherPages)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError()
     }
 
     public override func viewDidLoad() {

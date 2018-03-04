@@ -28,8 +28,8 @@ public class AuthUIService {
 
         authKeys = keys
 
-        _signup = SignupController(nibName: SignupController.nibName, bundle: Bundle.main)
-        _forgetPassword = ForgetPasswordController(nibName: ForgetPasswordController.nibName, bundle: Bundle.main)
+        _signup = SignupController()
+        _forgetPassword = ForgetPasswordController()
 
         _controllers = [_signup, _forgetPassword]
         _root = UIViewController()
@@ -45,8 +45,10 @@ public class AuthUIService {
         return authKeys.isAuth
     }
     public func show(on controller: UIViewController, complete: ((Bool) -> Void)? = nil ) {
-//
-//        _complete = complete
+
+        _complete = complete
+
+        controller.present(_navigator, animated: false, completion: nil)
 //
 //        let controller = take(for: _currentPage)
 //        _navigator.pushViewController(controller, animated: true)

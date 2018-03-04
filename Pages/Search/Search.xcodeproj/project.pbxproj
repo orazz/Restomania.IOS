@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F636410204C714B00A39109 /* SearchPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F63640D204C714B00A39109 /* SearchPlaceCard.swift */; };
+		1F636411204C714B00A39109 /* SearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F63640E204C714B00A39109 /* SearchPlaceCard.xib */; };
+		1F636412204C714B00A39109 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F63640F204C714B00A39109 /* SearchController.swift */; };
+		1F636418204C731500A39109 /* SearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F636417204C731500A39109 /* SearchController.xib */; };
+		1F63641A204C73D600A39109 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F636419204C73D600A39109 /* Extensions.swift */; };
+		1FC33E92204C873700FF5181 /* SearchController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FC33E94204C873700FF5181 /* SearchController.strings */; };
 		91310F3EE9CA86BCAE01FDB7 /* Pods_PagesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00B156424C3B12423C79A56 /* Pods_PagesSearch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F63640D204C714B00A39109 /* SearchPlaceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlaceCard.swift; sourceTree = "<group>"; };
+		1F63640E204C714B00A39109 /* SearchPlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPlaceCard.xib; sourceTree = "<group>"; };
+		1F63640F204C714B00A39109 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		1F636417204C731500A39109 /* SearchController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchController.xib; sourceTree = "<group>"; };
+		1F636419204C73D600A39109 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1F693878204BEBE600854292 /* PagesSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PagesSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F69387C204BEBE600854292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FC33E93204C873700FF5181 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SearchController.strings; sourceTree = "<group>"; };
+		1FC33E95204C874500FF5181 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchController.strings; sourceTree = "<group>"; };
 		2A047775E20FB08D8CBCBDCA /* Pods-SearchPages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchPages.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-SearchPages/Pods-SearchPages.release.xcconfig"; sourceTree = "<group>"; };
 		330E8F45AE0BEFE2074FA4E9 /* Pods_SearchPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5129B8BE6437499B2F05CE98 /* Pods-PagesSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PagesSearch.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-PagesSearch/Pods-PagesSearch.release.xcconfig"; sourceTree = "<group>"; };
@@ -33,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F63640C204C714B00A39109 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1F63640D204C714B00A39109 /* SearchPlaceCard.swift */,
+				1F63640E204C714B00A39109 /* SearchPlaceCard.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		1F69386E204BEBE600854292 = {
 			isa = PBXGroup;
 			children = (
@@ -54,7 +76,12 @@
 		1F69387A204BEBE600854292 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1F63640F204C714B00A39109 /* SearchController.swift */,
+				1F636417204C731500A39109 /* SearchController.xib */,
+				1FC33E94204C873700FF5181 /* SearchController.strings */,
+				1F63640C204C714B00A39109 /* Cells */,
 				1F69387C204BEBE600854292 /* Info.plist */,
+				1F636419204C73D600A39109 /* Extensions.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -123,6 +150,7 @@
 				TargetAttributes = {
 					1F693877204BEBE600854292 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -133,6 +161,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 			);
 			mainGroup = 1F69386E204BEBE600854292;
 			productRefGroup = 1F693879204BEBE600854292 /* Products */;
@@ -149,6 +178,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FC33E92204C873700FF5181 /* SearchController.strings in Resources */,
+				1F636411204C714B00A39109 /* SearchPlaceCard.xib in Resources */,
+				1F636418204C731500A39109 /* SearchController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,16 +227,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F636410204C714B00A39109 /* SearchPlaceCard.swift in Sources */,
+				1F63641A204C73D600A39109 /* Extensions.swift in Sources */,
+				1F636412204C714B00A39109 /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1FC33E94204C873700FF5181 /* SearchController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FC33E93204C873700FF5181 /* en */,
+				1FC33E95204C874500FF5181 /* ru */,
+			);
+			name = SearchController.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1F69387E204BEBE600854292 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -265,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -318,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 586BC9A12CA7651EDC9A78D4 /* Pods-PagesSearch.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -332,6 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.pages.search;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -341,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5129B8BE6437499B2F05CE98 /* Pods-PagesSearch.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

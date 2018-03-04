@@ -15,13 +15,15 @@
 		1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8C20388DC20017A0A2 /* UIServices.swift */; };
 		1FAC79DC204BC23000A66A53 /* UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FAC79DE204BC23000A66A53 /* UIElements.framework */; };
 		1FAC79DD204BC23000A66A53 /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FAC79DF204BC23000A66A53 /* UITools.framework */; };
+		1FC33E9C204C8DFB00FF5181 /* EmailAuth.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FC33E9E204C8DFB00FF5181 /* EmailAuth.strings */; };
+		1FC33EA7204C902800FF5181 /* EmailAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC33EA6204C902800FF5181 /* EmailAuth.swift */; };
 		1FCA6A932049729700D99879 /* AuthContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8A2049729400D99879 /* AuthContainer.swift */; };
 		1FCA6A942049729700D99879 /* AuthUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8B2049729400D99879 /* AuthUIService.swift */; };
 		1FCA6A952049729700D99879 /* BaseAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8C2049729400D99879 /* BaseAuthController.swift */; };
 		1FCA6A962049729700D99879 /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8D2049729400D99879 /* ForgetPasswordController.swift */; };
-		1FCA6A972049729700D99879 /* ForgetPasswordPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8E2049729400D99879 /* ForgetPasswordPage.xib */; };
+		1FCA6A972049729700D99879 /* ForgetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8E2049729400D99879 /* ForgetPasswordController.xib */; };
 		1FCA6A9A2049729700D99879 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A912049729400D99879 /* SignupController.swift */; };
-		1FCA6A9B2049729700D99879 /* SignupPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FCA6A922049729400D99879 /* SignupPage.xib */; };
+		1FCA6A9B2049729700D99879 /* SignupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FCA6A922049729400D99879 /* SignupController.xib */; };
 		1FCA6A9D2049741400D99879 /* AddCardUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A9C2049741300D99879 /* AddCardUIService.swift */; };
 		1FCDCFE62031B24D00321E3E /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCFDC2031B24D00321E3E /* UIServices.framework */; };
 		B94122ED4EB8EEA84E02043B /* Pods_UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2321BE8D61F8084A90DF9ADA /* Pods_UIServices.framework */; };
@@ -48,13 +50,16 @@
 		1F980B8C20388DC20017A0A2 /* UIServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIServices.swift; sourceTree = "<group>"; };
 		1FAC79DE204BC23000A66A53 /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAC79DF204BC23000A66A53 /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FC33E9D204C8DFB00FF5181 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmailAuth.strings; sourceTree = "<group>"; };
+		1FC33E9F204C8E0900FF5181 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EmailAuth.strings; sourceTree = "<group>"; };
+		1FC33EA6204C902800FF5181 /* EmailAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuth.swift; sourceTree = "<group>"; };
 		1FCA6A8A2049729400D99879 /* AuthContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthContainer.swift; sourceTree = "<group>"; };
 		1FCA6A8B2049729400D99879 /* AuthUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUIService.swift; sourceTree = "<group>"; };
 		1FCA6A8C2049729400D99879 /* BaseAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAuthController.swift; sourceTree = "<group>"; };
 		1FCA6A8D2049729400D99879 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
-		1FCA6A8E2049729400D99879 /* ForgetPasswordPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordPage.xib; sourceTree = "<group>"; };
+		1FCA6A8E2049729400D99879 /* ForgetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordController.xib; sourceTree = "<group>"; };
 		1FCA6A912049729400D99879 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
-		1FCA6A922049729400D99879 /* SignupPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupPage.xib; sourceTree = "<group>"; };
+		1FCA6A922049729400D99879 /* SignupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupController.xib; sourceTree = "<group>"; };
 		1FCA6A9C2049741300D99879 /* AddCardUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardUIService.swift; sourceTree = "<group>"; };
 		1FCDCFDC2031B24D00321E3E /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCFE52031B24D00321E3E /* UIServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				1FCA6A8D2049729400D99879 /* ForgetPasswordController.swift */,
-				1FCA6A8E2049729400D99879 /* ForgetPasswordPage.xib */,
+				1FCA6A8E2049729400D99879 /* ForgetPasswordController.xib */,
 			);
 			path = ForgetPassword;
 			sourceTree = "<group>";
@@ -180,10 +185,12 @@
 		1FCA6AA3204976CC00D99879 /* EmailAuth */ = {
 			isa = PBXGroup;
 			children = (
-				1FCA6A8A2049729400D99879 /* AuthContainer.swift */,
-				1FCA6A8C2049729400D99879 /* BaseAuthController.swift */,
+				1FC33EA6204C902800FF5181 /* EmailAuth.swift */,
+				1FC33E9E204C8DFB00FF5181 /* EmailAuth.strings */,
 				1FCA6A912049729400D99879 /* SignupController.swift */,
-				1FCA6A922049729400D99879 /* SignupPage.xib */,
+				1FCA6A922049729400D99879 /* SignupController.xib */,
+				1FCA6A8C2049729400D99879 /* BaseAuthController.swift */,
+				1FCA6A8A2049729400D99879 /* AuthContainer.swift */,
 				1FCA6A9E204975F800D99879 /* ForgetPassword */,
 			);
 			path = EmailAuth;
@@ -297,6 +304,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 			);
 			mainGroup = 1FCDCFD22031B24D00321E3E;
 			productRefGroup = 1FCDCFDD2031B24D00321E3E /* Products */;
@@ -314,8 +322,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FCA6A9B2049729700D99879 /* SignupPage.xib in Resources */,
-				1FCA6A972049729700D99879 /* ForgetPasswordPage.xib in Resources */,
+				1FCA6A9B2049729700D99879 /* SignupController.xib in Resources */,
+				1FC33E9C204C8DFB00FF5181 /* EmailAuth.strings in Resources */,
+				1FCA6A972049729700D99879 /* ForgetPasswordController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +382,7 @@
 				1FCA6A942049729700D99879 /* AuthUIService.swift in Sources */,
 				1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */,
 				1FCA6A9D2049741400D99879 /* AddCardUIService.swift in Sources */,
+				1FC33EA7204C902800FF5181 /* EmailAuth.swift in Sources */,
 				1FCA6A9A2049729700D99879 /* SignupController.swift in Sources */,
 				1FCA6A932049729700D99879 /* AuthContainer.swift in Sources */,
 				1FCA6A962049729700D99879 /* ForgetPasswordController.swift in Sources */,
@@ -396,11 +406,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		1FC33E9E204C8DFB00FF5181 /* EmailAuth.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FC33E9D204C8DFB00FF5181 /* en */,
+				1FC33E9F204C8E0900FF5181 /* ru */,
+			);
+			name = EmailAuth.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		1FCDCFEE2031B24D00321E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -461,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

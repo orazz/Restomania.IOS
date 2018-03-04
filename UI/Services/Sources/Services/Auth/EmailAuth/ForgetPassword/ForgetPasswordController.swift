@@ -12,8 +12,6 @@ import UITools
 
 public class  ForgetPasswordController: BaseAuthController {
 
-    public static let nibName = "ForgetPasswordPage"
-
     //UI
     @IBOutlet public weak var ResetPaaswordButton: UIButton!
     @IBOutlet public weak var ToAuthButton: UIButton!
@@ -21,6 +19,13 @@ public class  ForgetPasswordController: BaseAuthController {
     //Theme
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
     private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
+    public init() {
+        super.init(nibName: String.tag(ForgetPasswordController.self), bundle: Bundle.uiServices)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,23 +53,23 @@ public class  ForgetPasswordController: BaseAuthController {
                 //Success result
                 if (response.isSuccess) {
 
-                    self.showAlert(about: NSLocalizedString("Your new password send to you via your connection method.", comment: "Auth"),
-                                   title: NSLocalizedString("Success", comment: "Auth"))
+                    self.showAlert(about: EmailAuth.Localization.alertSendResetPassword.localized,
+                                   title: EmailAuth.Localization.alertsSuccessTitle.localized)
 //                    self.root.moveTo(.login)
 
                     return
                 }
 
                 //Process errors
-                let title = NSLocalizedString("Reset password error", comment: "Auth")
+                let title = EmailAuth.Localization.alertsResetPasswordTitle.localized
                 if (response.statusCode == .ConnectionError) {
-                    self.showAlert(about: NSLocalizedString("No internet connection.", comment: "Network"), title: title)
+                    self.showAlert(about: EmailAuth.Localization.alertsNoConnection.localized, title: title)
 
                 } else if (response.statusCode == .NotFound) {
-                    self.showAlert(about: NSLocalizedString("User with same email not found.", comment: "Auth"), title: title)
+                    self.showAlert(about: EmailAuth.Localization.alertsNotFoundByEmail.localized, title: title)
 
                 } else {
-                    self.showAlert(about: NSLocalizedString("Try recovery password later.", comment: "Auth"), title: title)
+                    self.showAlert(about: EmailAuth.Localization.alertsPromlemOnServer.localized, title: title)
                 }
             }
         })

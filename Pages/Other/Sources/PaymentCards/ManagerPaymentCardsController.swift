@@ -39,7 +39,7 @@ public class ManagerPaymentCardsController: UIViewController {
     private let mainCurrency = CurrencyType.RUB
 
     public init() {
-        super.init(nibName: "ManagerPaymentCardsControllerView", bundle: Bundle.main)
+        super.init(nibName: "ManagerPaymentCardsControllerView", bundle: Bundle.otherPages)
 
         loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
     }
@@ -191,6 +191,9 @@ extension ManagerPaymentCardsController {
 
         public var tableName: String {
             return String.tag(ManagerPaymentCardsController.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.otherPages
         }
 
         case title = "Title"

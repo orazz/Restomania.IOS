@@ -57,8 +57,8 @@ public class PushesHandler {
         let subtitle = String(format: push.message.localized, arguments: push.messageArgs)
         let banner = BannerAlert(title: title, subtitle: subtitle)
         banner.onTap = {
-            let router = DependencyResolver.resolve(Router.self)
-            router.goToOrder(orderId: model.id, reset: false)
+//            let router = DependencyResolver.resolve(Router.self)
+//            router.goToOrder(orderId: model.id, reset: false)
         }
 
         let orders = DependencyResolver.resolve(OrdersCacheService.self)

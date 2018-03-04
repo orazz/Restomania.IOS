@@ -21,6 +21,11 @@
 		1F4C351B204BB985003798AD /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3520204BB985003798AD /* CoreStorageServices.framework */; };
 		1F4C351C204BB985003798AD /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3521204BB985003798AD /* CoreTools.framework */; };
 		1F4C351D204BB985003798AD /* CoreToolsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3522204BB985003798AD /* CoreToolsServices.framework */; };
+		1F636403204C6B7600A39109 /* RoutingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F636402204C6B7600A39109 /* RoutingSystem.swift */; };
+		1F636404204C707C00A39109 /* PagesOther.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F636408204C707C00A39109 /* PagesOther.framework */; };
+		1F636405204C707C00A39109 /* PagesPlace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F636409204C707C00A39109 /* PagesPlace.framework */; };
+		1F636406204C707C00A39109 /* PagesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F63640A204C707C00A39109 /* PagesSearch.framework */; };
+		1F636407204C707C00A39109 /* PagesTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F63640B204C707C00A39109 /* PagesTools.framework */; };
 		1F693884204BED1600854292 /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F693883204BED1500854292 /* TabsController.swift */; };
 		1F78E702203E1A840006B845 /* GreetingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6FD203E1A830006B845 /* GreetingController.xib */; };
 		1F78E703203E1A840006B845 /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6FE203E1A840006B845 /* GreetingController.swift */; };
@@ -47,6 +52,11 @@
 		1F4C3522204BB985003798AD /* CoreToolsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreToolsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607EF203E10FF00DA2F78 /* Launcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Launcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607F3203E10FF00DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F636402204C6B7600A39109 /* RoutingSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingSystem.swift; sourceTree = "<group>"; };
+		1F636408204C707C00A39109 /* PagesOther.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesOther.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F636409204C707C00A39109 /* PagesPlace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesPlace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F63640A204C707C00A39109 /* PagesSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F63640B204C707C00A39109 /* PagesTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F693883204BED1500854292 /* TabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsController.swift; sourceTree = "<group>"; };
 		1F78E6FD203E1A830006B845 /* GreetingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GreetingController.xib; sourceTree = "<group>"; };
 		1F78E6FE203E1A840006B845 /* GreetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingController.swift; sourceTree = "<group>"; };
@@ -66,6 +76,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F636404204C707C00A39109 /* PagesOther.framework in Frameworks */,
+				1F636405204C707C00A39109 /* PagesPlace.framework in Frameworks */,
+				1F636406204C707C00A39109 /* PagesSearch.framework in Frameworks */,
+				1F636407204C707C00A39109 /* PagesTools.framework in Frameworks */,
 				1F4C3519204BB985003798AD /* CoreApiServices.framework in Frameworks */,
 				1F4C351A204BB985003798AD /* CoreDomains.framework in Frameworks */,
 				1F4C351B204BB985003798AD /* CoreStorageServices.framework in Frameworks */,
@@ -86,6 +100,7 @@
 			children = (
 				1F693883204BED1500854292 /* TabsController.swift */,
 				1F47DBDA204C45E7007340CE /* NavigationController.swift */,
+				1F636402204C6B7600A39109 /* RoutingSystem.swift */,
 			);
 			path = Navigations;
 			sourceTree = "<group>";
@@ -156,6 +171,10 @@
 		6904A87BE280A869333C046E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F636408204C707C00A39109 /* PagesOther.framework */,
+				1F636409204C707C00A39109 /* PagesPlace.framework */,
+				1F63640A204C707C00A39109 /* PagesSearch.framework */,
+				1F63640B204C707C00A39109 /* PagesTools.framework */,
 				1F4C351E204BB985003798AD /* CoreApiServices.framework */,
 				1F4C351F204BB985003798AD /* CoreDomains.framework */,
 				1F4C3520204BB985003798AD /* CoreStorageServices.framework */,
@@ -292,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F636403204C6B7600A39109 /* RoutingSystem.swift in Sources */,
 				1F693884204BED1600854292 /* TabsController.swift in Sources */,
 				1F47DBDB204C45E7007340CE /* NavigationController.swift in Sources */,
 				1F78E703203E1A840006B845 /* GreetingController.swift in Sources */,

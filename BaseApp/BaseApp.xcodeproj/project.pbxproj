@@ -14,6 +14,7 @@
 		1F47DB18204C3BEE007340CE /* PagesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DB1B204C3BEE007340CE /* PagesSearch.framework */; };
 		1F47DB19204C3BEE007340CE /* PagesTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DB1C204C3BEE007340CE /* PagesTools.framework */; };
 		1F5607FD203E121B00DA2F78 /* ApiKeysRefreshser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5607FC203E121B00DA2F78 /* ApiKeysRefreshser.swift */; };
+		1F636413204C71AB00A39109 /* Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F636414204C71AB00A39109 /* Launcher.framework */; };
 		1F78E706203E1A9D0006B845 /* Notifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E707203E1A9D0006B845 /* Notifications.framework */; };
 		1F8D357A2038956F007EA4C8 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357B2038956F007EA4C8 /* CoreTools.framework */; };
 		1F8D357C20389577007EA4C8 /* Pods_CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357D20389577007EA4C8 /* Pods_CoreTools.framework */; };
@@ -45,6 +46,7 @@
 		1F47DB1B204C3BEE007340CE /* PagesSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F47DB1C204C3BEE007340CE /* PagesTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607FC203E121B00DA2F78 /* ApiKeysRefreshser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeysRefreshser.swift; sourceTree = "<group>"; };
+		1F636414204C71AB00A39109 /* Launcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Launcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F78E707203E1A9D0006B845 /* Notifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Notifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F78E70C203E1AA50006B845 /* ManagerPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ManagerPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F78E70D203E1AA50006B845 /* StartPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StartPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F636413204C71AB00A39109 /* Launcher.framework in Frameworks */,
 				1F47DB17204C3BEE007340CE /* PagesPlace.framework in Frameworks */,
 				1F47DB18204C3BEE007340CE /* PagesSearch.framework in Frameworks */,
 				1F47DB19204C3BEE007340CE /* PagesTools.framework in Frameworks */,
@@ -137,6 +140,7 @@
 		B94044403F35784C60DE5A45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F636414204C71AB00A39109 /* Launcher.framework */,
 				1F47DB1A204C3BEE007340CE /* PagesPlace.framework */,
 				1F47DB1B204C3BEE007340CE /* PagesSearch.framework */,
 				1F47DB1C204C3BEE007340CE /* PagesTools.framework */,

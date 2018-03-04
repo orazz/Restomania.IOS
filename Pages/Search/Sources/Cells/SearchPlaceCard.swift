@@ -16,12 +16,11 @@ import UIElements
 
 public class SearchPlaceCard: UITableViewCell {
 
-    public static let height = CGFloat(150)
-    public static let identifier = "\(String.tag(SearchPlaceCard.self))-\(Guid.new)"
-    private static let nibName = "SearchPlaceCardCell"
+    public static let height = CGFloat(100)
+    public static let identifier = Guid.new
     public static func register(in table: UITableView) {
 
-        let nib = UINib.init(nibName: SearchPlaceCard.nibName, bundle: nil)
+        let nib = UINib.init(nibName: String.tag(SearchPlaceCard.self), bundle: Bundle.search)
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 
@@ -32,13 +31,14 @@ public class SearchPlaceCard: UITableViewCell {
 
     private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
     private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeImages = DependencyResolver.resolve(ThemeImages.self)
 
     private var _summary: PlaceSummary!
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.backgroundColor = colorsTheme.contentBackground
+        backgroundColor = colorsTheme.contentBackground
 
         name.font = fontsTheme.bold(size: .head)
         name.textColor = colorsTheme.contentBackgroundText

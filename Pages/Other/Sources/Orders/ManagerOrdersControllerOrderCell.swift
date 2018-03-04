@@ -21,7 +21,7 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
     private static let nibName = "ManagerOrdersControllerOrderCellView"
     public static func register(in tableView: UITableView) {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.otherPages)
         tableView.register(nib, forCellReuseIdentifier: identifier)
     }
 

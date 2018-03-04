@@ -18,7 +18,7 @@ public class TermsController: UIViewController {
 
     // MARK: Life circle
     public init() {
-        super.init(nibName: "TermsControllerView", bundle: Bundle.main)
+        super.init(nibName: "TermsControllerView", bundle: Bundle.otherPages)
     }
     public convenience required init?(coder aDecoder: NSCoder) {
         self.init()
@@ -55,6 +55,9 @@ extension TermsController {
 
         public var tableName: String {
             return String.tag(TermsController.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.otherPages
         }
 
         case title = "Title"

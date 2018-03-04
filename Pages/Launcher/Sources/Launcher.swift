@@ -107,7 +107,7 @@ public class Launcher {
         }
     }
     private func display(_ vc: UIViewController) {
-        navigator.present(vc, animated: true, completion: nil)
+        navigator.present(vc, animated: false, completion: nil)
     }
     private func complete() {
         if (completeLaunch) {

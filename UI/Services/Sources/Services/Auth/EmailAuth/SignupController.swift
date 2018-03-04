@@ -8,13 +8,12 @@
 
 import UIKit
 import Foundation
+import MdsKit
 import CoreTools
 import UITools
 import UIElements
 
 public class SignupController: BaseAuthController {
-
-    public static let nibName = "SignupPage"
 
     //UI
     @IBOutlet private weak var Signup: BlackButton!
@@ -25,6 +24,13 @@ public class SignupController: BaseAuthController {
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
     private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
+
+    public init() {
+        super.init(nibName: String.tag(SignupController.self), bundle: Bundle.uiServices)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
     override public func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,16 +66,15 @@ public class SignupController: BaseAuthController {
                 }
 
                 //Process errors
-                let title = NSLocalizedString("Authorization error", comment: "Auth")
+                let title = EmailAuth.Localization.alertsAuthTitle.localized
                 if (response.statusCode == .ConnectionError) {
-
-                    self.showAlert(about: NSLocalizedString("No internet connection.", comment: "Network"), title: title)
+                    self.showAlert(about: EmailAuth.Localization.alertsNoConnection.localized, title: title)
+                    
                 } else if (response.statusCode == .BadRequest) {
+                    self.showAlert(about: EmailAuth.Localization.alertsSameEmail.localized, title: title)
 
-                    self.showAlert(about: NSLocalizedString("Account with same email founded. Maybe you have an account?", comment: "Auth"), title: title)
                 } else {
-
-                    self.showAlert(about: NSLocalizedString("Try signup later.", comment: "Auth"), title: title)
+                    self.showAlert(about: EmailAuth.Localization.alertsPromlemOnServer.localized, title: title)
                 }
             }
         })
@@ -104,16 +109,15 @@ public class SignupController: BaseAuthController {
                 }
 
                 //Process errors
-                let title = NSLocalizedString("Authorization error", comment: "Auth")
+                let title = EmailAuth.Localization.alertTitle.localized
                 if (response.statusCode == .ConnectionError) {
+                    self.showAlert(about: EmailAuth.Localization.alertsNoConnection.localized, title: title)
 
-                    self.showAlert(about: NSLocalizedString("No internet connection.", comment: "Network"), title: title)
                 } else if (response.statusCode == .Forbidden) {
+                    self.showAlert(about: EmailAuth.Localization.alertsNotValid.localized, title: title)
 
-                    self.showAlert(about: NSLocalizedString("Not valid login or password.", comment: "Auth"), title: title)
                 } else {
-
-                    self.showAlert(about: NSLocalizedString("Try login later.", comment: "Auth"), title: title)
+                    self.showAlert(about: EmailAuth.Localization.alertsPromlemOnServer.localized, title: title)
                 }
             }
         })

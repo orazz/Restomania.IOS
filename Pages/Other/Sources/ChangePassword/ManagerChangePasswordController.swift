@@ -14,7 +14,7 @@ public class ManagerChangePasswordController: UIViewController {
     private static let nibName = "ManagerChangePasswordControllerView"
     public static func create() -> ManagerChangePasswordController {
 
-        let vc = ManagerChangePasswordController(nibName: ManagerChangePasswordController.nibName, bundle: Bundle.main)
+        let vc = ManagerChangePasswordController(nibName: ManagerChangePasswordController.nibName, bundle: Bundle.otherPages)
 
         return vc
     }

@@ -13,7 +13,7 @@ import CoreDomains
 import CoreStorageServices
 import UIElements
 import UIServices
-import PlacePages
+import PagesPlace
 
 public class SearchController: UIViewController {
 
@@ -22,6 +22,7 @@ public class SearchController: UIViewController {
     @IBOutlet private weak var placesTable: UITableView!
     private var loader: InterfaceLoader!
     private var refreshControl: RefreshControl!
+
 
     // MARK: Services
     private let configs = DependencyResolver.resolve(ConfigsContainer.self)
@@ -32,11 +33,18 @@ public class SearchController: UIViewController {
     private let _tag = String.tag(SearchController.self)
     private var loadQueue: AsyncQueue!
     private var places: [PlaceSummary]! {
-        didSet {
-            updateFiltered()
-        }
+        didSet { updateFiltered() }
     }
     private var filtered: [PlaceSummary]!
+    private let searchController = UISearchController(searchResultsController: nil)
+
+
+    public init(){
+        super.init(nibName: String.tag(SearchController.self), bundle: Bundle.search)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +55,10 @@ public class SearchController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setToolbarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationItem.title = Localization.labelsTitle.localized
+        self.edgesForExtendedLayout = []
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 }
 
@@ -56,7 +67,14 @@ extension SearchController {
 
     private func loadMarkup() {
 
-        searchBar.delegate = self
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = Localization.labelsSearchBarPlaceholder.localized
+        definesPresentationContext = true
+
+        // Setup the Scope Bar
+        searchController.searchBar.delegate = self
+
 
         placesTable.delegate = self
         placesTable.dataSource = self
@@ -127,14 +145,20 @@ extension SearchController {
 }
 
 // MARK: Search delegate
-extension SearchController: UISearchBarDelegate {
-
-    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+extension SearchController: UISearchResultsUpdating, UISearchBarDelegate {
+    public func updateSearchResults(for searchController: UISearchController) {
         updateFiltered()
     }
     private func updateFiltered() {
 
-        filtered = searchAdapter.filter(phrase: searchBar.text, for: places)
+        if let phrase = searchController.searchBar.text,
+            !String.isNullOrEmpty(phrase) {
+            filtered = searchAdapter.filter(phrase: searchBar.text, for: places)
+        }
+        else {
+            filtered = places
+        }
+
         placesTable.reloadData()
     }
 }
@@ -145,7 +169,7 @@ extension SearchController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
 
         let place = filtered[indexPath.row]
-        let vc = PlaceMenuController(for: place.ID)
+        let vc = PlaceMenuController(for: place.id)
         self.navigationController!.pushViewController(vc, animated: true)
     }
 }
@@ -165,5 +189,20 @@ extension SearchController: UITableViewDataSource {
         cell.update(summary: filtered[indexPath.row])
 
         return cell
+    }
+}
+extension SearchController {
+    public enum Localization: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(SearchController.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.search
+        }
+
+        //Status
+        case labelsTitle = "Labels.Title"
+        case labelsSearchBarPlaceholder = "Labels.SearchPlaceHolder"
     }
 }

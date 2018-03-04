@@ -19,7 +19,7 @@ public class PaymentCardCell: UITableViewCell {
     private static let nibName = String.tag(PaymentCardCell.self)
     public static func register(in table: UITableView) {
 
-        let nib = UINib.init(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib.init(nibName: nibName, bundle: Bundle.otherPages)
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 
