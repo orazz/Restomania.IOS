@@ -16,22 +16,26 @@
    </FileRef>
    <Group
       location = "container:"
+      name = "Pages">
+      <FileRef
+         location = "group:Pages/Launcher/Launcher.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/aleksej/Documents/_dev/Restomania.IOS/Pages/Search/Search.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Pages/Other/Other.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/aleksej/Documents/_dev/Restomania.IOS/Pages/Place/Place.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/aleksej/Documents/_dev/Restomania.IOS/Pages/Tools/Tools.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
       name = "UI">
-      <FileRef
-         location = "group:UI/StartPages/StartPages.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:UI/SearchPages/SearchPages.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:UI/ManagerPages/ManagerPages.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:UI/PlacePages/PlacePages.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:UI/ToolsPages/ToolsPages.xcodeproj">
-      </FileRef>
       <FileRef
          location = "group:UI/Services/Services.xcodeproj">
       </FileRef>
@@ -69,5 +73,17 @@
    </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pages/Place/Place.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pages/Search/Search.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pages/Tools/Tools.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Apps/Custom.xcodeproj">
    </FileRef>
 </Workspace>

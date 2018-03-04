@@ -14,6 +14,10 @@ def notifications
     pod 'NotificationBannerSwift', '~> 1.5.4'
     pod 'Toast-Swift', '~> 3.0.1'
 end
+def custom_app
+    shared_pods
+    injections
+end
 
 
 
@@ -22,10 +26,26 @@ end
 #Custom
 #Kuzina
 target 'Kuzina' do
-    project './Apps/Kuzina/Kuzina.xcodeproj'
-    shared_pods
-    injections
+    project './Apps/Custom.xcodeproj'
+#    target 'Kuzina'
+    custom_app
 end
+#target 'SimpleRecipes' do
+#    project './Apps/Custom.xcodeproj'
+#    custom_app
+#end
+
+
+
+
+
+
+
+
+
+
+
+
 
 #App
 target 'BaseApp' do
@@ -33,46 +53,25 @@ target 'BaseApp' do
     shared_pods
     injections
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #Pages
-target 'StartPages' do
-    project './UI/StartPages/StartPages.xcodeproj'
+target 'Launcher' do
+    project './Pages/Launcher/Launcher.xcodeproj'
     shared_pods
 end
-target 'TabsPages' do
-    project './UI/TabsPages/TabsPages.xcodeproj'
+target 'PagesSearch' do
+    project './Pages/Search/Search.xcodeproj'
     shared_pods
 end
-target 'SearchPages' do
-    project './UI/SearchPages/SearchPages.xcodeproj'
+target 'PagesOther' do
+    project './Pages/Other/Other.xcodeproj'
     shared_pods
 end
-target 'ManagerPages' do
-    project './UI/ManagerPages/ManagerPages.xcodeproj'
+target 'PagesPlace' do
+    project './Pages/Place/Place.xcodeproj'
     shared_pods
 end
-target 'PlacePages' do
-    project './UI/PlacePages/PlacePages.xcodeproj'
-    shared_pods
-end
-target 'ToolsPages' do
-    project './UI/ToolsPages/ToolsPages.xcodeproj'
+target 'PagesTools' do
+    project './Pages/Tools/Tools.xcodeproj'
     shared_pods
 end
 

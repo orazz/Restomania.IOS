@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		1F0C1E3D203B6ACD00098810 /* CustomAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C1E3C203B6ACD00098810 /* CustomAppDelegate.swift */; };
 		1F0D083F2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */; };
+		1F47DB15204C3BD6007340CE /* PagesOther.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DB16204C3BD6007340CE /* PagesOther.framework */; };
+		1F47DB17204C3BEE007340CE /* PagesPlace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DB1A204C3BEE007340CE /* PagesPlace.framework */; };
+		1F47DB18204C3BEE007340CE /* PagesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DB1B204C3BEE007340CE /* PagesSearch.framework */; };
+		1F47DB19204C3BEE007340CE /* PagesTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DB1C204C3BEE007340CE /* PagesTools.framework */; };
 		1F5607FD203E121B00DA2F78 /* ApiKeysRefreshser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5607FC203E121B00DA2F78 /* ApiKeysRefreshser.swift */; };
 		1F78E706203E1A9D0006B845 /* Notifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E707203E1A9D0006B845 /* Notifications.framework */; };
-		1F78E708203E1AA50006B845 /* ManagerPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E70C203E1AA50006B845 /* ManagerPages.framework */; };
-		1F78E709203E1AA50006B845 /* StartPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E70D203E1AA50006B845 /* StartPages.framework */; };
-		1F78E70A203E1AA50006B845 /* TabsPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E70E203E1AA50006B845 /* TabsPages.framework */; };
-		1F78E70B203E1AA50006B845 /* ToolsPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E70F203E1AA50006B845 /* ToolsPages.framework */; };
 		1F8D357A2038956F007EA4C8 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357B2038956F007EA4C8 /* CoreTools.framework */; };
 		1F8D357C20389577007EA4C8 /* Pods_CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357D20389577007EA4C8 /* Pods_CoreTools.framework */; };
 		1F8D357E2038957D007EA4C8 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D357F2038957D007EA4C8 /* CoreDomains.framework */; };
@@ -40,6 +40,10 @@
 		1AB00E217B51C0F5F931E0E0 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0C1E3C203B6ACD00098810 /* CustomAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppDelegate.swift; sourceTree = "<group>"; };
 		1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestomaniaAppDelegate.swift; sourceTree = "<group>"; };
+		1F47DB16204C3BD6007340CE /* PagesOther.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesOther.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F47DB1A204C3BEE007340CE /* PagesPlace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesPlace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F47DB1B204C3BEE007340CE /* PagesSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F47DB1C204C3BEE007340CE /* PagesTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607FC203E121B00DA2F78 /* ApiKeysRefreshser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeysRefreshser.swift; sourceTree = "<group>"; };
 		1F78E707203E1A9D0006B845 /* Notifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Notifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F78E70C203E1AA50006B845 /* ManagerPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ManagerPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,10 +70,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F78E708203E1AA50006B845 /* ManagerPages.framework in Frameworks */,
-				1F78E709203E1AA50006B845 /* StartPages.framework in Frameworks */,
-				1F78E70A203E1AA50006B845 /* TabsPages.framework in Frameworks */,
-				1F78E70B203E1AA50006B845 /* ToolsPages.framework in Frameworks */,
+				1F47DB17204C3BEE007340CE /* PagesPlace.framework in Frameworks */,
+				1F47DB18204C3BEE007340CE /* PagesSearch.framework in Frameworks */,
+				1F47DB19204C3BEE007340CE /* PagesTools.framework in Frameworks */,
+				1F47DB15204C3BD6007340CE /* PagesOther.framework in Frameworks */,
 				1F78E706203E1A9D0006B845 /* Notifications.framework in Frameworks */,
 				1F8D35842038958E007EA4C8 /* UIServices.framework in Frameworks */,
 				1F8D358220389589007EA4C8 /* CoreStorageServices.framework in Frameworks */,
@@ -107,7 +111,7 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
-		1F8D35882038967C007EA4C8 /* BaseApp */ = {
+		1F8D35882038967C007EA4C8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				1F0D083E2038A33D00DFD5C2 /* RestomaniaAppDelegate.swift */,
@@ -116,13 +120,13 @@
 				1F5607FA203E119300DA2F78 /* Handlers */,
 				1F8D358A2038967C007EA4C8 /* Info.plist */,
 			);
-			path = BaseApp;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		1FCDCFF62031B27B00321E3E = {
 			isa = PBXGroup;
 			children = (
-				1F8D35882038967C007EA4C8 /* BaseApp */,
+				1F8D35882038967C007EA4C8 /* Sources */,
 				1FCDD0012031B27B00321E3E /* Products */,
 				EBABA977432698A1342550DB /* Pods */,
 				B94044403F35784C60DE5A45 /* Frameworks */,
@@ -141,6 +145,10 @@
 		B94044403F35784C60DE5A45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F47DB1A204C3BEE007340CE /* PagesPlace.framework */,
+				1F47DB1B204C3BEE007340CE /* PagesSearch.framework */,
+				1F47DB1C204C3BEE007340CE /* PagesTools.framework */,
+				1F47DB16204C3BD6007340CE /* PagesOther.framework */,
 				1F78E70C203E1AA50006B845 /* ManagerPages.framework */,
 				1F78E70D203E1AA50006B845 /* StartPages.framework */,
 				1F78E70E203E1AA50006B845 /* TabsPages.framework */,
@@ -466,7 +474,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = BaseApp/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -491,7 +499,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = BaseApp/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -21,20 +21,8 @@
 		1F8106022032299500B197F8 /* KeysStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105F72032299400B197F8 /* KeysStorage.swift */; };
 		1F8106032032299500B197F8 /* MenuCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105F82032299500B197F8 /* MenuCacheService.swift */; };
 		1F8106052032299B00B197F8 /* StorageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8106042032299B00B197F8 /* StorageServices.swift */; };
-		1FCDCFC22031B21D00321E3E /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCFB82031B21D00321E3E /* CoreStorageServices.framework */; };
-		1FCDCFC72031B21D00321E3E /* CacheServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCFC62031B21D00321E3E /* CacheServicesTests.swift */; };
 		FBDBE67E9C2E974BF51B85E9 /* Pods_CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C56C46A5805D68F5FFA37 /* Pods_CoreStorageServices.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1FCDCFC32031B21D00321E3E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1FCDCFAF2031B21C00321E3E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1FCDCFB72031B21D00321E3E;
-			remoteInfo = CacheServices;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1F2007B220388A36007E8994 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,9 +41,6 @@
 		1F8106042032299B00B197F8 /* StorageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageServices.swift; sourceTree = "<group>"; };
 		1FCDCFB82031B21D00321E3E /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCFBC2031B21D00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FCDCFC12031B21D00321E3E /* CoreStorageServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreStorageServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FCDCFC62031B21D00321E3E /* CacheServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheServicesTests.swift; sourceTree = "<group>"; };
-		1FCDCFC82031B21D00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		215C56C46A5805D68F5FFA37 /* Pods_CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E45C6AC366286C59BDC6C35 /* Pods-CoreStorageServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreStorageServices.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreStorageServices/Pods-CoreStorageServices.release.xcconfig"; sourceTree = "<group>"; };
 		D0296872DA02ECBA90915D9F /* Pods-CoreStorageServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreStorageServices.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreStorageServices/Pods-CoreStorageServices.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,14 +54,6 @@
 				1F2007B320388A4D007E8994 /* CoreApiServices.framework in Frameworks */,
 				1F2007B120388A36007E8994 /* CoreDomains.framework in Frameworks */,
 				FBDBE67E9C2E974BF51B85E9 /* Pods_CoreStorageServices.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1FCDCFBE2031B21D00321E3E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FCDCFC22031B21D00321E3E /* CoreStorageServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,8 +105,7 @@
 		1FCDCFAE2031B21C00321E3E = {
 			isa = PBXGroup;
 			children = (
-				1FCDCFBA2031B21D00321E3E /* StorageServices */,
-				1FCDCFC52031B21D00321E3E /* StorageServicesTests */,
+				1FCDCFBA2031B21D00321E3E /* Sources */,
 				1FCDCFB92031B21D00321E3E /* Products */,
 				46C56BFEF21745E6AC1D0F1E /* Pods */,
 				E410EC6BDB9972D67B08A14F /* Frameworks */,
@@ -140,28 +116,18 @@
 			isa = PBXGroup;
 			children = (
 				1FCDCFB82031B21D00321E3E /* CoreStorageServices.framework */,
-				1FCDCFC12031B21D00321E3E /* CoreStorageServicesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1FCDCFBA2031B21D00321E3E /* StorageServices */ = {
+		1FCDCFBA2031B21D00321E3E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				1F8106042032299B00B197F8 /* StorageServices.swift */,
 				1F8105EB203228FE00B197F8 /* Services */,
 				1FCDCFBC2031B21D00321E3E /* Info.plist */,
 			);
-			path = StorageServices;
-			sourceTree = "<group>";
-		};
-		1FCDCFC52031B21D00321E3E /* StorageServicesTests */ = {
-			isa = PBXGroup;
-			children = (
-				1FCDCFC62031B21D00321E3E /* CacheServicesTests.swift */,
-				1FCDCFC82031B21D00321E3E /* Info.plist */,
-			);
-			path = StorageServicesTests;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		46C56BFEF21745E6AC1D0F1E /* Pods */ = {
@@ -216,24 +182,6 @@
 			productReference = 1FCDCFB82031B21D00321E3E /* CoreStorageServices.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		1FCDCFC02031B21D00321E3E /* CoreStorageServicesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1FCDCFCF2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreStorageServicesTests" */;
-			buildPhases = (
-				1FCDCFBD2031B21D00321E3E /* Sources */,
-				1FCDCFBE2031B21D00321E3E /* Frameworks */,
-				1FCDCFBF2031B21D00321E3E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1FCDCFC42031B21D00321E3E /* PBXTargetDependency */,
-			);
-			name = CoreStorageServicesTests;
-			productName = CacheServicesTests;
-			productReference = 1FCDCFC12031B21D00321E3E /* CoreStorageServicesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -248,10 +196,6 @@
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Manual;
-					};
-					1FCDCFC02031B21D00321E3E = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -268,20 +212,12 @@
 			projectRoot = "";
 			targets = (
 				1FCDCFB72031B21D00321E3E /* CoreStorageServices */,
-				1FCDCFC02031B21D00321E3E /* CoreStorageServicesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1FCDCFB62031B21D00321E3E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1FCDCFBF2031B21D00321E3E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -346,23 +282,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1FCDCFBD2031B21D00321E3E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FCDCFC72031B21D00321E3E /* CacheServicesTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1FCDCFC42031B21D00321E3E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1FCDCFB72031B21D00321E3E /* CoreStorageServices */;
-			targetProxy = 1FCDCFC32031B21D00321E3E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1FCDCFCA2031B21D00321E3E /* Debug */ = {
@@ -490,7 +410,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = StorageServices/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -516,7 +436,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = StorageServices/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -524,36 +444,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		1FCDCFD02031B21D00321E3E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 686FXGC24W;
-				INFOPLIST_FILE = StorageServicesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.core.CacheServicesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		1FCDCFD12031B21D00321E3E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 686FXGC24W;
-				INFOPLIST_FILE = StorageServicesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.core.CacheServicesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -576,15 +466,6 @@
 			buildConfigurations = (
 				1FCDCFCD2031B21D00321E3E /* Debug */,
 				1FCDCFCE2031B21D00321E3E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1FCDCFCF2031B21D00321E3E /* Build configuration list for PBXNativeTarget "CoreStorageServicesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1FCDCFD02031B21D00321E3E /* Debug */,
-				1FCDCFD12031B21D00321E3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

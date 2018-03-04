@@ -183,8 +183,8 @@
 		1FCDCF8A2031B1F800321E3E = {
 			isa = PBXGroup;
 			children = (
-				1FCDCF962031B1F800321E3E /* ApiServices */,
-				1FCDCFA12031B1F800321E3E /* ApiServicesTests */,
+				1FCDCF962031B1F800321E3E /* Sources */,
+				1FCDCFA12031B1F800321E3E /* Tests */,
 				1FCDCF952031B1F800321E3E /* Products */,
 				1F42FC692031C19A001E0F3C /* Frameworks */,
 				727A4EE6D2C29A31DC8CBA94 /* Pods */,
@@ -200,23 +200,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1FCDCF962031B1F800321E3E /* ApiServices */ = {
+		1FCDCF962031B1F800321E3E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				1F42FC4F2031C189001E0F3C /* ApiServices.swift */,
 				1F3B3F1D2031C3B50042ADCD /* Services */,
 				1FCDCF982031B1F800321E3E /* Info.plist */,
 			);
-			path = ApiServices;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		1FCDCFA12031B1F800321E3E /* ApiServicesTests */ = {
+		1FCDCFA12031B1F800321E3E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				1FCDCFA22031B1F800321E3E /* ApiServicesTests.swift */,
 				1FCDCFA42031B1F800321E3E /* Info.plist */,
 			);
-			path = ApiServicesTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		727A4EE6D2C29A31DC8CBA94 /* Pods */ = {
@@ -538,7 +538,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ApiServices/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -564,7 +564,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ApiServices/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

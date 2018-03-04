@@ -70,8 +70,8 @@
 		1F42FC6E2031C2DB001E0F3C = {
 			isa = PBXGroup;
 			children = (
-				1F42FC7A2031C2DB001E0F3C /* ToolsServices */,
-				1F42FC852031C2DB001E0F3C /* ToolsServicesTests */,
+				1F42FC7A2031C2DB001E0F3C /* Sources */,
+				1F42FC852031C2DB001E0F3C /* Tests */,
 				1F42FC792031C2DB001E0F3C /* Products */,
 				1F3B3F202031C3FD0042ADCD /* Frameworks */,
 				94CFC5FE8B1CE8639668385D /* Pods */,
@@ -87,22 +87,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1F42FC7A2031C2DB001E0F3C /* ToolsServices */ = {
+		1F42FC7A2031C2DB001E0F3C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				1F8105E520321EA000B197F8 /* ToolsServices.swift */,
 				1F42FC7C2031C2DB001E0F3C /* Info.plist */,
 			);
-			path = ToolsServices;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		1F42FC852031C2DB001E0F3C /* ToolsServicesTests */ = {
+		1F42FC852031C2DB001E0F3C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				1F42FC862031C2DB001E0F3C /* ToolsServicesTests.swift */,
 				1F42FC882031C2DB001E0F3C /* Info.plist */,
 			);
-			path = ToolsServicesTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		94CFC5FE8B1CE8639668385D /* Pods */ = {
@@ -410,7 +410,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ToolsServices/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -436,7 +436,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ToolsServices/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
