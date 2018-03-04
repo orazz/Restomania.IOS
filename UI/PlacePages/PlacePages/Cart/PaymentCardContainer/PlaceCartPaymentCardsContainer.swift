@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class PlaceCartPaymentCardsContainer: UITableViewCell {
 
@@ -31,11 +34,16 @@ public class PlaceCartPaymentCardsContainer: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var addCardButton: UIButton!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        titleLabel.font = ThemeSettings.Fonts.bold(size: .head)
-        titleLabel.textColor = ThemeSettings.Colors.main
+        backgroundColor = themeColors.contentBackground
+
+        titleLabel.font = themeFonts.bold(size: .head)
+        titleLabel.textColor = themeColors.contentBackgroundText
         titleLabel.text = PlaceCartController.Localization.Labels.selectPaymentCard.localized
 
         cardsTable.dataSource = self

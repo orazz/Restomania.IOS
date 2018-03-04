@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
+import UITools
 
 public class DishModalShortDivider: UITableViewCell {
 
@@ -23,13 +25,16 @@ public class DishModalShortDivider: UITableViewCell {
     //UI
     @IBOutlet private var dividerView: UIView!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var content: InterfaceTableCellProtocol?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        dividerView.backgroundColor = ThemeSettings.Colors.main
+        dividerView.backgroundColor = themeColors.contentDivider
     }
 }
 extension DishModalShortDivider: DishModalElementsProtocol {

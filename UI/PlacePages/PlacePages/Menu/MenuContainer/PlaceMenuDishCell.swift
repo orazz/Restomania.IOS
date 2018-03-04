@@ -94,7 +94,7 @@ public class PlaceMenuDishCell: UITableViewCell {
         dishWeight.textColor = themeColors.contentBackgroundText
 
         //Price
-        dishPrice.font = TthemeFonts.default(size: .subhead)
+        dishPrice.font = themeFonts.default(size: .subhead)
         dishPrice.textColor = themeColors.contentBackgroundText
 
         backgroundColor = themeColors.contentSelection

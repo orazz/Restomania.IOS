@@ -9,8 +9,11 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 import CoreStorageServices
+import UITools
+import ToolsPages
 
 public class PlaceCompleteOrderController: UIViewController {
 
@@ -31,6 +34,9 @@ public class PlaceCompleteOrderController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var dataLabel: UILabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var order: DishOrder!
 
@@ -40,26 +46,26 @@ public class PlaceCompleteOrderController: UIViewController {
 extension PlaceCompleteOrderController {
     @IBAction private func goToOrder() {
 
-        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
-
-            DispatchQueue.main.async {
-                self.navigationController?.popToViewController(tabs, animated: false)
-                let navigator = tabs.navigationController
-//                self.navigationController?.pushViewController(ManagerOrdersController.create(), animated: true)
-                DispatchQueue.main.async {
-                    let vc = OneOrderController(for: self.order.ID)
-                    navigator?.pushViewController(vc, animated: true)
-                }
-            }
-        }
+//        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
+//
+//            DispatchQueue.main.async {
+//                self.navigationController?.popToViewController(tabs, animated: false)
+//                let navigator = tabs.navigationController
+////                self.navigationController?.pushViewController(ManagerOrdersController.create(), animated: true)
+//                DispatchQueue.main.async {
+//                    let vc = OneOrderController(for: self.order.ID)
+//                    navigator?.pushViewController(vc, animated: true)
+//                }
+//            }
+//        }
 
     }
     @IBAction private func goToSearch() {
 
-        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
-
-            navigationController?.popToViewController(tabs, animated: true)
-        }
+//        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
+//
+//            navigationController?.popToViewController(tabs, animated: true)
+//        }
     }
 }
 
@@ -79,17 +85,18 @@ extension PlaceCompleteOrderController {
     }
     private func setupMarkup() {
 
-        self.view.backgroundColor = ThemeSettings.Colors.background
+        view.backgroundColor = themeColors.contentBackground
 
         titleLabel.text = "Поздравляем, вы успешно добавлили новый заказ"
-        titleLabel.font = ThemeSettings.Fonts.default(size: .head)
-        titleLabel.textColor = ThemeSettings.Colors.main
+        titleLabel.font = themeFonts.default(size: .head)
+        titleLabel.textColor = themeColors.contentBackgroundText
 
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.utc
         formatter.dateFormat = "HH:mm dd/MM"
+        
         dataLabel.text = "#\(order.ID) на \(formatter.string(from: order.summary.completeAt))"
-        dataLabel.font = ThemeSettings.Fonts.bold(size: .head)
-        dataLabel.textColor = ThemeSettings.Colors.main
+        dataLabel.font = themeFonts.bold(size: .head)
+        dataLabel.textColor = themeColors.contentBackgroundText
     }
 }

@@ -27,6 +27,7 @@
 		1F9B49D2203CB1DF00979AF2 /* SizeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49C3203CB1DF00979AF2 /* SizeLabel.swift */; };
 		1F9B4A1C203CB48C00979AF2 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B4A1D203CB48C00979AF2 /* CoreTools.framework */; };
 		1F9B4A2E203CB57D00979AF2 /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B4A2F203CB57D00979AF2 /* UITools.framework */; };
+		1FAC79E1204BE3DF00A66A53 /* ProblemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC79E0204BE3DF00A66A53 /* ProblemAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		1F9B49C3203CB1DF00979AF2 /* SizeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeLabel.swift; sourceTree = "<group>"; };
 		1F9B4A1D203CB48C00979AF2 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B4A2F203CB57D00979AF2 /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FAC79E0204BE3DF00A66A53 /* ProblemAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemAlert.swift; sourceTree = "<group>"; };
 		CFDA7DF6FDAB67E8025FD87C /* Pods-UIElements.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIElements.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-UIElements/Pods-UIElements.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 		1F4C350E204BB6F4003798AD /* Toasts */ = {
 			isa = PBXGroup;
 			children = (
+				1FAC79E0204BE3DF00A66A53 /* ProblemAlert.swift */,
 				1F4C350F204BB70A003798AD /* Toast.swift */,
 			);
 			path = Toasts;
@@ -311,6 +314,7 @@
 				1F9B49CF203CB1DF00979AF2 /* BottomActions.swift in Sources */,
 				1F9B49CC203CB1DF00979AF2 /* ScheduleDisplayCell.swift in Sources */,
 				1F9B49C8203CB1DF00979AF2 /* WhiteButton.swift in Sources */,
+				1FAC79E1204BE3DF00A66A53 /* ProblemAlert.swift in Sources */,
 				1F9B49C9203CB1DF00979AF2 /* CachedImage.swift in Sources */,
 				1F9B49D0203CB1DF00979AF2 /* RefreshControl.swift in Sources */,
 				1F4C3510204BB70A003798AD /* Toast.swift in Sources */,

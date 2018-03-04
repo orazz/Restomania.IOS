@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 import CoreApiServices
 import CoreStorageServices
+import UITools
 import UIElements
 
 public class PlaceCartDishesContainerCell: UITableViewCell {
@@ -48,14 +50,19 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
     @IBOutlet private weak var titleContainer: UIView!
     @IBOutlet private weak var addingsTable: UITableView!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        titleLabel.font = ThemeSettings.Fonts.default(size: .caption)
-        titleLabel.textColor = ThemeSettings.Colors.main
+        backgroundColor = themeColors.contentBackground
 
-        totalLabel.font = ThemeSettings.Fonts.default(size: .subhead)
-        totalLabel.textColor = ThemeSettings.Colors.main
+        titleLabel.font = themeFonts.default(size: .caption)
+        titleLabel.textColor = themeColors.contentBackgroundText
+
+        totalLabel.font = themeFonts.default(size: .subhead)
+        totalLabel.textColor = themeColors.contentBackgroundText
 
         addingsTable.delegate = self
         addingsTable.dataSource = self

@@ -9,22 +9,23 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
+import UITools
 
 public class PlaceCartDivider: UITableViewCell {
 
-    private static let nibName = "PlaceCartDividerView"
+    private static let nibName = String.tag(PlaceCartDivider.self)
     public static func create() -> PlaceCartDivider {
-
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
-        let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartDivider
-
-        cell.setupMarkup()
-
-        return cell
+        return  UINib.instantiate(from: nibName, bundle: Bundle.main)
     }
 
-    private func setupMarkup() {
-        self.backgroundColor = ThemeSettings.Colors.background
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+
+        backgroundColor = themeColors.contentBackground
     }
 }
 extension PlaceCartDivider: PlaceCartContainerCell {

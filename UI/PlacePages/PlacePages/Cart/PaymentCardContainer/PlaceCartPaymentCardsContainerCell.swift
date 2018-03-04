@@ -9,19 +9,18 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
 
 public class PlaceCartPaymentCardsContainerCell: UITableViewCell {
 
     public static let height = CGFloat(35)
-    private static let nibName = "PlaceCartPaymentCardsContainerCellView"
+    private static let nibName = String.tag(PlaceCartPaymentCardsContainerCell.self)
     public static func create(for card: PaymentCard) -> PlaceCartPaymentCardsContainerCell {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
-        let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartPaymentCardsContainerCell
-
+        let cell: PlaceCartPaymentCardsContainerCell  =  UINib.instantiate(from: nibName, bundle: Bundle.main)
         cell.card = card
-        cell.setupMarkup()
 
         return cell
     }
@@ -29,9 +28,14 @@ public class PlaceCartPaymentCardsContainerCell: UITableViewCell {
     //UI
     @IBOutlet private weak var indicator: UIImageView!
     @IBOutlet private weak var numberLabel: UILabel!
-    private func setupMarkup() {
 
-        numberLabel.font = ThemeSettings.Fonts.default(size: .head)
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+
+        numberLabel.font = themeFonts.default(size: .head)
         deselect()
     }
 

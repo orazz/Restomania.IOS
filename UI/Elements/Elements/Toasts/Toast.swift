@@ -15,8 +15,10 @@ open class Toast {
 
 }
 extension UIViewController {
-
-    open func showToast(_ title: Localizable) {
-        self.view.makeToast(title.localized)
+    open func showToast(_ message: Localizable, complettion: ((Bool) -> Void)? = nil) {
+        self.showToast(message.localized, completion: complettion)
+    }
+    open func showToast(_ message: String, completion: ((Bool) -> Void)? = nil) {
+        self.view.makeToast(message, completion: completion)
     }
 }

@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
+import UITools
+import UIElements
 
 public class PlaceCartCompleteOrderContainer: UITableViewCell {
 
@@ -19,7 +22,6 @@ public class PlaceCartCompleteOrderContainer: UITableViewCell {
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartCompleteOrderContainer
 
         cell.delegate = delegate
-        cell.setupMarkup()
 
         return cell
     }
@@ -27,15 +29,19 @@ public class PlaceCartCompleteOrderContainer: UITableViewCell {
     //UI hooks
     @IBOutlet private weak var titleLabel: UILabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var delegate: PlaceCartDelegate!
 
-    private func setupMarkup() {
+    public override func awakeFromNib() {
+        super.awakeFromNib()
 
-        self.backgroundColor = ThemeSettings.Colors.main
+        backgroundColor = themeColors.actionMain
 
-        titleLabel.font = ThemeSettings.Fonts.default(size: .title)
-        titleLabel.textColor = ThemeSettings.Colors.additional
+        titleLabel.font = themeFonts.default(size: .title)
+        titleLabel.textColor = themeColors.actionContent
         titleLabel.text = PlaceCartController.Localization.Buttons.addNewOrder.localized.uppercased()
     }
 }

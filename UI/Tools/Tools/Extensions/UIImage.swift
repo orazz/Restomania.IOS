@@ -12,7 +12,7 @@ import CoreGraphics
 
 extension UIImage
 {
-    func tint(color: UIColor) -> UIImage
+    open func tint(color: UIColor) -> UIImage
     {
         let ciImage = CIImage(image: self)
         let filter = CIFilter(name: "CIMultiplyCompositing")

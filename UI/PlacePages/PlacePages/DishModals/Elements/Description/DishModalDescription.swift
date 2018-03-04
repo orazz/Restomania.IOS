@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class DishModalDescription: UITableViewCell {
 
@@ -23,6 +26,9 @@ public class DishModalDescription: UITableViewCell {
     //UI
     @IBOutlet private var descriptionLabel: UILabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var dish: BaseDish? {
         didSet {
@@ -33,8 +39,10 @@ public class DishModalDescription: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        descriptionLabel.font = ThemeSettings.Fonts.default(size: .caption)
-        descriptionLabel.textColor = ThemeSettings.Colors.main
+        descriptionLabel.font = themeFonts.default(size: .caption)
+        descriptionLabel.textColor = themeColors.contentBackgroundText
+
+        backgroundColor = themeColors.contentBackground
     }
 
     private func refresh() {

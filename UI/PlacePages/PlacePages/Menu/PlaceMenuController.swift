@@ -12,6 +12,7 @@ import CoreTools
 import CoreDomains
 import CoreApiServices
 import CoreStorageServices
+import UITools
 import UIElements
 import UIServices
 
@@ -53,6 +54,10 @@ public class PlaceMenuController: UIViewController {
     private var _isInitFadeInPanel: Bool = false
     private var _recheckOffset = CGFloat(100)
     private var _lastOverOffset = CGFloat(0)
+
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeImages = DependencyResolver.resolve(ThemeImages.self)
 
     // MARK: Services
     private let menusService = DependencyResolver.resolve(MenuCacheService.self)
@@ -104,8 +109,6 @@ public class PlaceMenuController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.enterService = AuthService(open: .login, with: self.navigationController!)
-
         loadMarkup()
         loadData()
 
@@ -114,9 +117,8 @@ public class PlaceMenuController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         cartService.subscribe(guid: guid, handler: self, tag: _tag)
-
-        self.hideNavigationBar()
     }
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -168,7 +170,7 @@ extension PlaceMenuController {
         cartAction = PlaceMenuCartAction.create(with: self)
         bottomAction.setup(content: cartAction)
 
-        view.backgroundColor = ThemeSettings.Colors.background
+        view.backgroundColor = themeColors.contentBackground
 
         setupFadeOutPanel()
         resetScrolling()
@@ -240,7 +242,7 @@ extension PlaceMenuController {
 
                 if (self.loadAdapter.problemWithLoad) {
                     Log.error(self._tag, "Problem with load data for page.")
-                    self.view.makeToast(Keys.AlertLoadErrorMessage.localized)
+                    self.showToast(Keys.AlertLoadErrorMessage)
                 }
             }
         }
@@ -293,7 +295,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
         Log.debug(_tag, "Add dish #\(dish.ID)")
 
         cartService.add(dishId: dish.ID, with: addings, use: variationId)
-        self.toast(Keys.AlertAddDishToCart)
+        showToast(Keys.AlertAddDishToCart)
     }
     public func select(category: Long) {
         Log.debug(_tag, "Select category #\(category)")
@@ -317,14 +319,14 @@ extension PlaceMenuController: PlaceMenuDelegate {
         if (enterService.isAuth) {
             openCartPage()
         } else {
-             enterService.show(complete: { success in
+            show(enterService, complete: { success in
 
                 if (success) {
                     self.openCartPage()
                 } else {
                     Log.warning(self._tag, "Not authorize user.")
 
-                    self.toast(Keys.AlertAuthErrorMessage)
+                    self.showToast(Keys.AlertAuthErrorMessage)
                 }
             })
         }
@@ -406,12 +408,12 @@ extension PlaceMenuController: UITableViewDelegate {
         _isInitFadeInPanel = true
 
         fadeInPanel.translatesAutoresizingMaskIntoConstraints = false
-        fadeInPanel.backgroundColor = ThemeSettings.Colors.main
-        fadeInPanel.barTintColor = ThemeSettings.Colors.main
-        fadeInPanel.tintColor = ThemeSettings.Colors.additional
+        fadeInPanel.backgroundColor = themeColors.navigationMain
+        fadeInPanel.barTintColor = themeColors.navigationMain
+        fadeInPanel.tintColor = themeColors.navigationContent
         fadeInPanel.titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: ThemeSettings.Colors.additional,
-            NSAttributedStringKey.font: ThemeSettings.Fonts.default(size: .head)
+            NSAttributedStringKey.foregroundColor: themeColors.navigationContent,
+            NSAttributedStringKey.font: themeFonts.default(size: .head)
         ]
         self.view.addSubview(fadeInPanel)
 
@@ -429,12 +431,14 @@ extension PlaceMenuController: UITableViewDelegate {
 
         let size = CGFloat(35)
         let leftAction = fadeInPanel.topItem?.leftBarButtonItem?.customView as! UIButton
-        let back = UIImageView(image: ThemeSettings.Images.navigationBackward)
+        let backIcon = themeImages.iconBack.tint(color: themeColors.navigationContent)
+        let back = UIImageView(image: backIcon)
         back.frame = CGRect(x: -11, y: leftAction.center.y - size/2, width: size, height: size)
         leftAction.addSubview(back)
 
         let rightAction = fadeInPanel.topItem?.rightBarButtonItem?.customView as! UIButton
-        let info = UIImageView(image: ThemeSettings.Images.iconInfo)
+        let infoIcon = themeImages.iconInfo.tint(color: themeColors.navigationContent)
+        let info = UIImageView(image: infoIcon)
         info.frame = CGRect(x: 22, y: rightAction.center.y - size/2, width: size, height: size)
         rightAction.addSubview(info)
 

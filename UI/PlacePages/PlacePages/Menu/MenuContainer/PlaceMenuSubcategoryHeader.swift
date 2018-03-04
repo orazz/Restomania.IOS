@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
+import UITools
 
 public class PlaceMenuSubcategoryHeader: UITableViewCell {
 
@@ -29,6 +31,9 @@ public class PlaceMenuSubcategoryHeader: UITableViewCell {
     //UI
     @IBOutlet private var titleLabel: UILabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var title: String? {
         didSet {
@@ -39,11 +44,11 @@ public class PlaceMenuSubcategoryHeader: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.backgroundColor = ThemeSettings.Colors.background
+        backgroundColor = themeColors.contentBackground
 
-        self.titleLabel.textColor = ThemeSettings.Colors.main
-        self.titleLabel.font = ThemeSettings.Fonts.bold(size: .head)
+        titleLabel.textColor = themeColors.contentBackgroundText
+        titleLabel.font = themeFonts.bold(size: .head)
 
-        self.title = String.empty
+        title = String.empty
     }
 }

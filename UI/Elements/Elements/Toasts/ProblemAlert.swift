@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import MdsKit
-import Toast_Swift
 import Localization
 
 public class ProblemAlerts {
@@ -55,15 +54,9 @@ public class ProblemAlerts {
 
 extension UIViewController {
 
-    public func toast<T>(for response: ApiResponse<T>, complettion: Trigger? = nil) {
+    open func alert<T>(about response: ApiResponse<T>, complettion: Trigger? = nil) {
 
         let alert = ProblemAlerts.error(for: response)
         self.present(alert, animated: true, completion: complettion)
-    }
-    public func toast(_ message: Localizable, complettion: Trigger? = nil) {
-        self.toast(message.localized, completion: complettion)
-    }
-    public func toast(_ message: String, completion: Trigger? = nil) {
-        self.view.makeToast(message)
     }
 }

@@ -14,6 +14,7 @@ import CoreToolsServices
 import CoreDomains
 import CoreApiServices
 import CoreStorageServices
+import UITools
 import UIElements
 import UIServices
 
@@ -48,6 +49,10 @@ public class PlaceCartController: UIViewController {
     private var interfaceBuilder: InterfaceTable?
     private var interfaceParts: [PlaceCartContainerCell] = []
     private var refreshControl: RefreshControl!
+
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeImages = DependencyResolver.resolve(ThemeImages.self)
 
     // MARK: Services
     private var addPaymentCardsService = DependencyResolver.resolve(AddCardUIService.self)
@@ -138,13 +143,14 @@ extension PlaceCartController {
     }
     private func loadMarkup() {
 
-        navigationBarStubDimmer.backgroundColor = ThemeSettings.Colors.main
-        navigationBar.barTintColor = ThemeSettings.Colors.main
+        navigationBarStubDimmer.backgroundColor = themeColors.navigationMain
+        navigationBar.barTintColor = themeColors.navigationMain
         navigationBar.topItem?.title = Localization.Labels.title.localized
 
         let backButton = backNavigationItem.customView as! UIButton
         let size = CGFloat(35)
-        let back = UIImageView(image: ThemeSettings.Images.navigationBackward)
+        let icon = themeImages.iconBack.tint(color: themeColors.navigationContent)
+        let back = UIImageView(image: icon)
         back.frame = CGRect(x: -11, y: 0 /*backButton.center.y - size/2*/, width: size, height: size)
         backButton.addSubview(back)
 
@@ -254,7 +260,7 @@ extension PlaceCartController {
                 self.refreshControl.endRefreshing()
 
                 if (self.loadAdapter.problemWithLoad) {
-                    self.toast(Localization.Toasts.problemWithLoad)
+                    self.showToast(Localization.Toasts.problemWithLoad)
                     Log.error(self._tag, "Problem with load data for page.")
                 }
             }
@@ -317,7 +323,7 @@ extension PlaceCartController: PlaceCartDelegate {
         addPaymentCardsService.addCard(for: menu.currency, on: self) { success, cardId in
 
             if (!success) {
-                self.toast(Localization.Toasts.problemWithAddCard)
+                self.showToast(Localization.Toasts.problemWithAddCard)
                 return
             }
 
@@ -334,7 +340,7 @@ extension PlaceCartController: PlaceCartDelegate {
                         self.trigger({ $0.updateData(with: self) })
                         self.reloadInterface()
                     } else {
-                        self.toast(Localization.Toasts.problemWithAddCard)
+                        self.showToast(Localization.Toasts.problemWithAddCard)
                     }
 
                     self.interfaceLoader.hide()
@@ -351,7 +357,7 @@ extension PlaceCartController: PlaceCartDelegate {
 
         let order = cartContaier.prepareOrder()
         if (!summary.Schedule.canOrder(on: order.completeAt)) {
-            self.toast(Localization.Toasts.notWorkTime)
+            self.showToast(Localization.Toasts.notWorkTime)
             return
         }
 
@@ -373,9 +379,9 @@ extension PlaceCartController: PlaceCartDelegate {
 
                 if (response.isFail) {
                     if (response.statusCode == .BadRequest) {
-                        self.toast(Localization.Toasts.badAddOrder)
+                        self.showToast(Localization.Toasts.badAddOrder)
                     } else {
-                        self.toast(for: response)
+                        self.alert(about: response)
                     }
 
                     Log.warning(self._tag, "Problem with add order.")
