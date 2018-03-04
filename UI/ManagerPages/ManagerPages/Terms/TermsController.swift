@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import MdsKit
-import Toast_Swift
 
 public class TermsController: UIViewController {
 
@@ -48,7 +47,7 @@ extension TermsController: UIWebViewDelegate {
     public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         interfaceLoader.hide()
 
-        self.view.makeToast(Keys.problemWithLoadMessage.localized)
+        self.showToast(Keys.problemWithLoadMessage)
     }
 }
 extension TermsController {

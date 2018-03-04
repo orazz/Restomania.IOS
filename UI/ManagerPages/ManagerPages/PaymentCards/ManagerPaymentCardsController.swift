@@ -53,8 +53,7 @@ extension ManagerPaymentCardsController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        let nib = UINib(nibName: PaymentCardCell.nibName, bundle: nil)
-        cardsTable.register(nib, forCellReuseIdentifier: PaymentCardCell.identifier)
+        PaymentCardCell.register(in: cardsTable)
 
         interfaceLoader = InterfaceLoader(for: view)
         refreshControl = cardsTable.addRefreshControl(for: self, action: #selector(needReload))
@@ -106,7 +105,7 @@ extension ManagerPaymentCardsController {
                 self.refreshControl.endRefreshing()
 
                 if (self.loaderAdapter.problemWithLoad) {
-                    self.view.makeToast(Keys.loadError.localized)
+                    self.showToast(Keys.loadError)
                 }
             }
         }
@@ -124,10 +123,10 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
 
             DispatchQueue.main.async {
                 if (success) {
-                    self.view.makeToast(Keys.addSuccess.localized)
+                    self.showToast(Keys.addSuccess)
                     self.loadData()
                 } else {
-                    self.view.makeToast(Keys.addError.localized)
+                    self.showToast(Keys.addError)
                 }
             }
         }
@@ -153,7 +152,7 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
 
                 self.cardsContainer.update(backup)
                 DispatchQueue.main.async {
-                    self.view.makeToast(Keys.removeError.localized)
+                    self.showToast(Keys.removeError)
                 }
             }
         }

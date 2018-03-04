@@ -103,7 +103,7 @@ public class ManagerOrdersController: UIViewController {
                 self.refreshControl.endRefreshing()
 
                 if (self.loaderAdapter.problemWithLoad) {
-                    self.view.makeToast(Keys.loadError.localized)
+                    self.showToast(Keys.loadError)
                 }
             }
         }

@@ -8,21 +8,47 @@
 
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
 
 public class PaymentCardCell: UITableViewCell {
 
-    public static let identifier = "PaymentCardCell-\(Guid.new)"
-    public static let nibName = "ManagerPaymentCardCellView"
+    public static let identifier = Guid.new
     public static let height: CGFloat = 50
+    private static let nibName = String.tag(PaymentCardCell.self)
+    public static func register(in table: UITableView) {
 
+        let nib = UINib.init(nibName: nibName, bundle: Bundle.main)
+        table.register(nib, forCellReuseIdentifier: identifier)
+    }
+
+    //UI
     @IBOutlet weak var NumberLabel: UILabel!
     @IBOutlet weak var TypeLabel: UILabel!
     @IBOutlet weak var CloseIcon: UIImageView!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
+    //Data
     private var _card: PaymentCard!
     private var _delegate: IPaymentCardsDelegate!
-    private var _isSetupMarkup: Bool = false
+
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+
+        backgroundColor = themeColors.contentBackground
+
+        let font = themeFonts.default(size: .head)
+        let color = themeColors.contentBackgroundText
+
+        NumberLabel.font = font
+        NumberLabel.textColor = color
+
+        TypeLabel.font = font
+        TypeLabel.textColor = color
+    }
 
     // MARK: Public interfaces
     public func setup(card: PaymentCard, delegate: IPaymentCardsDelegate) {
@@ -32,32 +58,12 @@ public class PaymentCardCell: UITableViewCell {
 
         NumberLabel.text = "**** \(_card.last4Number)"
         TypeLabel.text = "\(card.type)"
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapRemove))
-        CloseIcon.addGestureRecognizer(tap)
-        CloseIcon.isUserInteractionEnabled = true
-
-        setupStyles()
     }
+
     public func Remove() {
         tapRemove()
     }
-    @objc private func tapRemove() {
-
+    @IBAction private func tapRemove() {
         _delegate.removeCard(_card.ID)
-    }
-
-    private func setupStyles() {
-
-        if (_isSetupMarkup) {
-
-            return
-        }
-
-        let font = ThemeSettings.Fonts.default(size: .head)
-        NumberLabel.font = font
-        TypeLabel.font = font
-
-        _isSetupMarkup = true
     }
 }

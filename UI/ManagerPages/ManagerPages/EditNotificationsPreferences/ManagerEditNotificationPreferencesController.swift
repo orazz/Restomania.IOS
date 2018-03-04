@@ -27,12 +27,7 @@ public class ManagerEditNotificationPreferencesController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        showNavigationBar()
+        navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationItem.title = "Настройки уведомлений"
-    }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        hideNavigationBar()
     }
 }
