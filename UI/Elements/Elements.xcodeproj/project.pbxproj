@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CA5FE200738B840317B37CB /* Pods_UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CDDCB5B5B400C19E91AB70 /* Pods_UIElements.framework */; };
+		1F104AC0203EC25B001D862E /* BannerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F104ABF203EC25B001D862E /* BannerAlert.swift */; };
+		1F4C3510204BB70A003798AD /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C350F204BB70A003798AD /* Toast.swift */; };
 		1F78E72D203E36430006B845 /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F78E72E203E36430006B845 /* CoreStorageServices.framework */; };
 		1F9B49C4203CB1DF00979AF2 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49B0203CB1DE00979AF2 /* BaseButton.swift */; };
 		1F9B49C5203CB1DF00979AF2 /* BlackBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49B1203CB1DE00979AF2 /* BlackBottomButton.swift */; };
@@ -30,8 +32,10 @@
 /* Begin PBXFileReference section */
 		0C101FA6F96DE5B1009FC684 /* Pods-UIElements.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIElements.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-UIElements/Pods-UIElements.release.xcconfig"; sourceTree = "<group>"; };
 		19CDDCB5B5B400C19E91AB70 /* Pods_UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F104ABF203EC25B001D862E /* BannerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAlert.swift; sourceTree = "<group>"; };
 		1F33382D203CB10D00D992FF /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F333831203CB10D00D992FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F4C350F204BB70A003798AD /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		1F78E72E203E36430006B845 /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B49B0203CB1DE00979AF2 /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		1F9B49B1203CB1DE00979AF2 /* BlackBottomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBottomButton.swift; sourceTree = "<group>"; };
@@ -67,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F104ABA203EC19E001D862E /* Banners */ = {
+			isa = PBXGroup;
+			children = (
+				1F104ABF203EC25B001D862E /* BannerAlert.swift */,
+			);
+			path = Banners;
+			sourceTree = "<group>";
+		};
 		1F333823203CB10D00D992FF = {
 			isa = PBXGroup;
 			children = (
@@ -88,16 +100,25 @@
 		1F33382F203CB10D00D992FF /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1F4C350E204BB6F4003798AD /* Toasts */,
+				1F104ABA203EC19E001D862E /* Banners */,
 				1F9B49BE203CB1DF00979AF2 /* BottomActions */,
 				1F9B49AF203CB1DE00979AF2 /* Buttons */,
 				1F9B49B5203CB1DE00979AF2 /* CachedImage.swift */,
-				1F9B49B7203CB1DF00979AF2 /* Cards */,
 				1F9B49C1203CB1DF00979AF2 /* Labels */,
 				1F9B49C0203CB1DF00979AF2 /* RefreshControl.swift */,
 				1F9B49B9203CB1DF00979AF2 /* ScheduleDisplay */,
 				1F333831203CB10D00D992FF /* Info.plist */,
 			);
 			path = Elements;
+			sourceTree = "<group>";
+		};
+		1F4C350E204BB6F4003798AD /* Toasts */ = {
+			isa = PBXGroup;
+			children = (
+				1F4C350F204BB70A003798AD /* Toast.swift */,
+			);
+			path = Toasts;
 			sourceTree = "<group>";
 		};
 		1F9B49AF203CB1DE00979AF2 /* Buttons */ = {
@@ -112,28 +133,13 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		1F9B49B7203CB1DF00979AF2 /* Cards */ = {
-			isa = PBXGroup;
-			children = (
-				1F9B49B8203CB1DF00979AF2 /* Place */,
-			);
-			path = Cards;
-			sourceTree = "<group>";
-		};
-		1F9B49B8203CB1DF00979AF2 /* Place */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Place;
-			sourceTree = "<group>";
-		};
 		1F9B49B9203CB1DF00979AF2 /* ScheduleDisplay */ = {
 			isa = PBXGroup;
 			children = (
 				1F9B49BA203CB1DF00979AF2 /* ScheduleDisplay.swift */,
+				1F9B49BD203CB1DF00979AF2 /* ScheduleDisplayView.xib */,
 				1F9B49BB203CB1DF00979AF2 /* ScheduleDisplayCell.swift */,
 				1F9B49BC203CB1DF00979AF2 /* ScheduleDisplayCellView.xib */,
-				1F9B49BD203CB1DF00979AF2 /* ScheduleDisplayView.xib */,
 			);
 			path = ScheduleDisplay;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 			files = (
 				1F9B49D2203CB1DF00979AF2 /* SizeLabel.swift in Sources */,
 				1F9B49C6203CB1DF00979AF2 /* BlackButton.swift in Sources */,
+				1F104AC0203EC25B001D862E /* BannerAlert.swift in Sources */,
 				1F9B49C5203CB1DF00979AF2 /* BlackBottomButton.swift in Sources */,
 				1F9B49C7203CB1DF00979AF2 /* GreyButton.swift in Sources */,
 				1F9B49CB203CB1DF00979AF2 /* ScheduleDisplay.swift in Sources */,
@@ -306,6 +313,7 @@
 				1F9B49C8203CB1DF00979AF2 /* WhiteButton.swift in Sources */,
 				1F9B49C9203CB1DF00979AF2 /* CachedImage.swift in Sources */,
 				1F9B49D0203CB1DF00979AF2 /* RefreshControl.swift in Sources */,
+				1F4C3510204BB70A003798AD /* Toast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +447,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Elements/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.ui.elements;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -464,6 +473,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Elements/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.ui.elements;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

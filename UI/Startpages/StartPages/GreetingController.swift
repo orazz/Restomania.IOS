@@ -9,13 +9,20 @@
 import UIKit
 import MdsKit
 import CoreTools
+import UITools
+import UIElements
+import UIServices
 
 public class GreetingController: UIViewController {
 
     //UI
     @IBOutlet weak var DemoButton: UIButton!
 
+    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+
     //Services
+    private let auth = DependencyResolver.resolve(AuthUIService.self)
     private let keys = DependencyResolver.resolve(ApiKeyService.self)
 
     public init() {
@@ -32,24 +39,22 @@ public class GreetingController: UIViewController {
             return
         }
 
-        navigationController?.hideNavigationBar()
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
 
         //Demo button
-        DemoButton.tintColor = ThemeSettings.Colors.main
-        DemoButton.titleLabel?.font = ThemeSettings.Fonts.default(size: .caption)
+        DemoButton.tintColor = colorsTheme.contentBackgroundText
+        DemoButton.titleLabel?.font = fontsTheme.default(size: .caption)
     }
 
     // MARK: Auth navigation
     @IBAction func goToSignUp(_ sender: Any) {
-        goToAuth(page: .signup)
+        goToAuth()
     }
     @IBAction func goToLogin(_ sender: Any) {
-//        goToAuth(page: .login)
-        goToAuth(page: .signup)
+        goToAuth()
     }
-    private func goToAuth(page: AuthPage) {
-        let auth = AuthService(open: .signup, with: self.navigationController!)
-        auth.show()
+    private func goToAuth() {
+        self.show(auth)
     }
 
     @IBAction func goWithoutAuth() {

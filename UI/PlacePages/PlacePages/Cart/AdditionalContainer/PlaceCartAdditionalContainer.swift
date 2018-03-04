@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
+import UITools
+import UIElements
+import UIServices
+import ToolsPages
 
 public class PlaceCartAdditionalContainer: UITableViewCell {
 
@@ -30,6 +35,9 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
     @IBOutlet private weak var changeButton: UIButton!
     private var editor = ExternalTextEditor()
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var delegate: PlaceCartDelegate!
     private var container: PlaceCartController.CartContainer {
@@ -39,11 +47,11 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        titleLabel.font = ThemeSettings.Fonts.bold(size: .head)
-        titleLabel.textColor = ThemeSettings.Colors.main
+        titleLabel.font = themeFonts.bold(size: .head)
+        titleLabel.textColor = themeColors.contentBackgroundText
         titleLabel.text = PlaceCartController.Localization.Labels.comment.localized
 
-        commentLabel.font = ThemeSettings.Fonts.default(size: .caption)
+        commentLabel.font = themeFonts.default(size: .caption)
 
         changeButton.setTitle(PlaceCartController.Localization.Buttons.editComment.localized, for: .normal)
 
@@ -58,10 +66,10 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
         let comment = container.comment
         if (String.isNullOrEmpty(comment)) {
             commentLabel.text = PlaceCartController.Localization.Labels.comment.localized
-            commentLabel.textColor = ThemeSettings.Colors.grey
+            commentLabel.textColor = themeColors.contentTempText
         } else {
             commentLabel.text = comment
-            commentLabel.textColor = ThemeSettings.Colors.main
+            commentLabel.textColor = themeColors.contentBackgroundText
         }
     }
 }

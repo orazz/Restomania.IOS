@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class PlaceCartDishesContainerCellMeta: UITableViewCell {
 
@@ -21,18 +24,22 @@ public class PlaceCartDishesContainerCellMeta: UITableViewCell {
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //UI
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var priceLabel: PriceLabel!
+    
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        nameLabel.font = ThemeSettings.Fonts.default(size: .subcaption)
-        nameLabel.textColor = ThemeSettings.Colors.main
+        nameLabel.font = themeFonts.default(size: .subcaption)
+        nameLabel.textColor = themeColors.contentBackgroundText
 
-        priceLabel.font = ThemeSettings.Fonts.default(size: .subcaption)
-        priceLabel.textColor = ThemeSettings.Colors.main
+        priceLabel.font = themeFonts.default(size: .subcaption)
+        priceLabel.textColor = themeColors.contentBackgroundText
     }
 
     public func setup(dish: Dish, with menu: MenuSummary) {

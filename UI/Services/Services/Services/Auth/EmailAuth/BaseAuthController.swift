@@ -14,7 +14,7 @@ import CoreApiServices
 
 public class BaseAuthController: UIViewController {
 
-    internal var root: AuthService!
+//    internal var root: AuthService!
     internal var client = DependencyResolver.resolve(AuthMainApiService.self)
     internal var keys = DependencyResolver.resolve(ApiKeyService.self)
     internal var configs = DependencyResolver.resolve(ConfigsContainer.self)
@@ -32,7 +32,7 @@ public class BaseAuthController: UIViewController {
 
     @IBAction public func cancelAuth() {
 
-        root.close()
+//        root.close()
     }
 
     public var authContainer: AuthContainer {
@@ -71,28 +71,28 @@ public class BaseAuthController: UIViewController {
     }
     private func stylize() {
 
-        view.backgroundColor = ThemeSettings.Colors.background
-
-        let labelFont = ThemeSettings.Fonts.default(size: .head)
-        let textFont = ThemeSettings.Fonts.default(size: .subhead)
-
-        //Labels
-        for label in [LoginLabel, PasswordLabel] {
-
-            label?.font = labelFont
-            label?.textColor = ThemeSettings.Colors.main
-        }
-
-        //Text fields
-        for field in [LoginTextField, PasswordTextField] {
-
-            field?.font = textFont
-            field?.textColor = ThemeSettings.Colors.main
-            field?.borderStyle = .none
-        }
-
-        //Navbar
-        Navbar.backgroundColor = ThemeSettings.Colors.additional
+//        view.backgroundColor = ThemeSettings.Colors.background
+//
+//        let labelFont = ThemeSettings.Fonts.default(size: .head)
+//        let textFont = ThemeSettings.Fonts.default(size: .subhead)
+//
+//        //Labels
+//        for label in [LoginLabel, PasswordLabel] {
+//
+//            label?.font = labelFont
+//            label?.textColor = ThemeSettings.Colors.main
+//        }
+//
+//        //Text fields
+//        for field in [LoginTextField, PasswordTextField] {
+//
+//            field?.font = textFont
+//            field?.textColor = ThemeSettings.Colors.main
+//            field?.borderStyle = .none
+//        }
+//
+//        //Navbar
+//        Navbar.backgroundColor = ThemeSettings.Colors.additional
     }
 
     internal func isValidLogin() -> Bool {

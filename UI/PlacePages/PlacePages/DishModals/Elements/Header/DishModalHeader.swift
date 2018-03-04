@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class DishModalHeader: UITableViewCell {
 
@@ -30,6 +33,9 @@ public class DishModalHeader: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var closeButton: UIButton!
 
+    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var dish: BaseDish? = nil {
         didSet {
@@ -48,14 +54,14 @@ public class DishModalHeader: UITableViewCell {
             }
         }
 
-        self.backgroundColor = ThemeSettings.Colors.additional
-        imageContainerView.backgroundColor = ThemeSettings.Colors.additional
-        nameContainerView.backgroundColor = ThemeSettings.Colors.additional
+        self.backgroundColor = colorsTheme.contentBackground
+        imageContainerView.backgroundColor = colorsTheme.contentBackground
+        nameContainerView.backgroundColor = colorsTheme.contentBackground
 
         dishImage.contentMode = .scaleAspectFit
 
-        nameLabel.font = ThemeSettings.Fonts.bold(size: .title)
-        nameLabel.textColor = ThemeSettings.Colors.main
+        nameLabel.font = fontsTheme.bold(size: .title)
+        nameLabel.textColor = colorsTheme.contentBackgroundText
     }
     private func apply() {
         guard let dish = self.dish else {

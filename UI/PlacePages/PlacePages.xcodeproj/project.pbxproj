@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F4C352B204BBA0F003798AD /* UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C352E204BBA0F003798AD /* UIElements.framework */; };
+		1F4C352C204BBA0F003798AD /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C352F204BBA0F003798AD /* UIServices.framework */; };
+		1F4C352D204BBA0F003798AD /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3530204BBA0F003798AD /* UITools.framework */; };
+		1F4C3531204BBA1C003798AD /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3536204BBA1C003798AD /* CoreApiServices.framework */; };
+		1F4C3532204BBA1C003798AD /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3537204BBA1C003798AD /* CoreDomains.framework */; };
+		1F4C3533204BBA1C003798AD /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3538204BBA1C003798AD /* CoreStorageServices.framework */; };
+		1F4C3534204BBA1C003798AD /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3539204BBA1C003798AD /* CoreTools.framework */; };
+		1F4C3535204BBA1C003798AD /* CoreToolsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C353A204BBA1C003798AD /* CoreToolsServices.framework */; };
 		1F78E663203E1A1E0006B845 /* PlaceCartAdditionalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5F4203E1A1D0006B845 /* PlaceCartAdditionalContainer.swift */; };
 		1F78E664203E1A1E0006B845 /* PlaceCartAdditionalContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E5F5203E1A1D0006B845 /* PlaceCartAdditionalContainerView.xib */; };
 		1F78E665203E1A1E0006B845 /* PlaceCartDateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5F7203E1A1D0006B845 /* PlaceCartDateContainer.swift */; };
@@ -90,6 +98,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F4C352E204BBA0F003798AD /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C352F204BBA0F003798AD /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3530204BBA0F003798AD /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3536204BBA1C003798AD /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3537204BBA1C003798AD /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3538204BBA1C003798AD /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3539204BBA1C003798AD /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C353A204BBA1C003798AD /* CoreToolsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreToolsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607B0203E0F6400DA2F78 /* PlacePages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlacePages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607B4203E0F6400DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F78E5F4203E1A1D0006B845 /* PlaceCartAdditionalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartAdditionalContainer.swift; sourceTree = "<group>"; };
@@ -184,6 +200,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4C3531204BBA1C003798AD /* CoreApiServices.framework in Frameworks */,
+				1F4C3532204BBA1C003798AD /* CoreDomains.framework in Frameworks */,
+				1F4C3533204BBA1C003798AD /* CoreStorageServices.framework in Frameworks */,
+				1F4C3534204BBA1C003798AD /* CoreTools.framework in Frameworks */,
+				1F4C3535204BBA1C003798AD /* CoreToolsServices.framework in Frameworks */,
+				1F4C352B204BBA0F003798AD /* UIElements.framework in Frameworks */,
+				1F4C352C204BBA0F003798AD /* UIServices.framework in Frameworks */,
+				1F4C352D204BBA0F003798AD /* UITools.framework in Frameworks */,
 				4D971614F71851EF8BF62AA0 /* Pods_PlacePages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +547,14 @@
 		BDED347910F02FA4EBD3378F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F4C3536204BBA1C003798AD /* CoreApiServices.framework */,
+				1F4C3537204BBA1C003798AD /* CoreDomains.framework */,
+				1F4C3538204BBA1C003798AD /* CoreStorageServices.framework */,
+				1F4C3539204BBA1C003798AD /* CoreTools.framework */,
+				1F4C353A204BBA1C003798AD /* CoreToolsServices.framework */,
+				1F4C352E204BBA0F003798AD /* UIElements.framework */,
+				1F4C352F204BBA0F003798AD /* UIServices.framework */,
+				1F4C3530204BBA0F003798AD /* UITools.framework */,
 				4F8FB1BAFB8BDE33D6D4468F /* Pods_PlacePages.framework */,
 			);
 			name = Frameworks;

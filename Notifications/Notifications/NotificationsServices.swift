@@ -16,7 +16,7 @@ public class NotificationsServices {
 
     public static let shared = NotificationsServices()
 
-    private let tag = String.tag(PushesService.self)
+    private let tag = String.tag(NotificationsServices.self)
     private let guid = Guid.new
     private var token: String?
     private let processQueue: AsyncQueue

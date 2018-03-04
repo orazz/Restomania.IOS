@@ -54,7 +54,7 @@ public class SignupController: BaseAuthController {
                 if (response.isSuccess) {
 
                     self.keys.update(by: response.data!)
-                    self.root!.close()
+//                    self.root!.close()
 
                     return
                 }
@@ -98,7 +98,7 @@ public class SignupController: BaseAuthController {
                 if (response.isSuccess) {
 
                     self.keys.update(by: response.data!)
-                    self.root!.close()
+//                    self.root!.close()
 
                     return
                 }
@@ -120,7 +120,6 @@ public class SignupController: BaseAuthController {
     }
 
     @IBAction public func forgetPasswordAction() {
-
-        root?.moveTo(.forgetPassword)
+//        root?.moveTo(.forgetPassword)
     }
 }

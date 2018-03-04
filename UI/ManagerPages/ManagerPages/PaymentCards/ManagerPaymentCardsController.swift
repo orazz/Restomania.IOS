@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
-import Toast_Swift
+import CoreTools
 import CoreDomains
 import CoreStorageServices
+import UIElements
 import UIServices
 
 public protocol IPaymentCardsDelegate {
@@ -72,7 +73,7 @@ extension ManagerPaymentCardsController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        showNavigationBar(animated: animated)
+        self.navigationController?.setToolbarHidden(false, animated: animated)
         navigationItem.title = Keys.title.localized
         addButton.setTitle(Keys.addButton.localized, for: .normal)
     }

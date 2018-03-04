@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F104ABD203EC22B001D862E /* UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F104ABE203EC22B001D862E /* UIElements.framework */; };
 		1F78E5EE203E19FF0006B845 /* PushesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5EA203E19FE0006B845 /* PushesHandler.swift */; };
 		1F78E5EF203E19FF0006B845 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5EB203E19FF0006B845 /* Events.swift */; };
 		1F78E5F0203E19FF0006B845 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E5EC203E19FF0006B845 /* Container.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F104ABC203EC1BA001D862E /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F104ABE203EC22B001D862E /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F560809203E186200DA2F78 /* Notifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Notifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F56080D203E186200DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F78E5EA203E19FE0006B845 /* PushesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushesHandler.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F104ABD203EC22B001D862E /* UIElements.framework in Frameworks */,
 				1F78E726203E1D1A0006B845 /* UITools.framework in Frameworks */,
 				BCACF50E5F55463957B3E70F /* Pods_Notifications.framework in Frameworks */,
 			);
@@ -102,6 +106,8 @@
 		3D7897D37A6A2B2B992C41DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F104ABE203EC22B001D862E /* UIElements.framework */,
+				1F104ABC203EC1BA001D862E /* UIElements.framework */,
 				1F78E727203E1D1A0006B845 /* UITools.framework */,
 				860679F93953D4D948A12EB2 /* Pods_Notifications.framework */,
 			);
@@ -363,6 +369,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Notifications/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.notifications;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -387,6 +394,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Notifications/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.notifications;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

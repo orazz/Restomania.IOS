@@ -10,6 +10,9 @@ import UIKit
 import MdsKit
 import CoreDomains
 import Localization
+import CoreTools
+import UITools
+import UIElements
 
 public class SearchPlaceCard: UITableViewCell {
 
@@ -27,19 +30,24 @@ public class SearchPlaceCard: UITableViewCell {
     @IBOutlet private weak var location: UILabel!
     @IBOutlet private weak var workingHours: UILabel!
 
+    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+
     private var _summary: PlaceSummary!
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        name.font = ThemeSettings.Fonts.bold(size: .head)
-        name.textColor = ThemeSettings.Colors.additional
+        self.backgroundColor = colorsTheme.contentBackground
 
-        workingHours.font = ThemeSettings.Fonts.default(size: .subhead)
-        workingHours.textColor = ThemeSettings.Colors.additional
+        name.font = fontsTheme.bold(size: .head)
+        name.textColor = colorsTheme.contentBackgroundText
 
-        location.font = ThemeSettings.Fonts.default(size: .subhead)
-        location.textColor = ThemeSettings.Colors.additional
+        workingHours.font = fontsTheme.default(size: .subhead)
+        workingHours.textColor = colorsTheme.contentBackgroundText
+
+        location.font = fontsTheme.default(size: .subhead)
+        location.textColor = colorsTheme.contentBackgroundText
     }
     public func update(summary: PlaceSummary) {
         _summary = summary

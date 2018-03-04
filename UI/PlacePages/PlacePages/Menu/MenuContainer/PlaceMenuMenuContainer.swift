@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 import CoreApiServices
 import CoreStorageServices
+import UITools
+import UIElements
 
 public class PlaceMenuMenuContainer: UITableViewCell {
 
@@ -40,6 +43,9 @@ public class PlaceMenuMenuContainer: UITableViewCell {
     private var _categoriesAdapter: CategoriesAdapter!
     private var _dishesAdapter: DishesAdapter!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data & services
     private var _menu: MenuSummary? {
         didSet {
@@ -61,7 +67,7 @@ public class PlaceMenuMenuContainer: UITableViewCell {
 
     private func setupMarkup() {
 
-        self.backgroundColor = ThemeSettings.Colors.background
+        self.backgroundColor = themeColors.contentBackground
 
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: BottomActions.height, right: 0.0)
         dishesTable.contentInset = contentInsets

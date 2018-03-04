@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 import CoreApiServices
 import CoreStorageServices
+import UITools
+import UIElements
 
 public class PlaceMenuCartAction: UIView {
 
@@ -37,6 +40,9 @@ public class PlaceMenuCartAction: UIView {
     @IBAction private func goToCart() {
         delegate.goToCart()
     }
+
+    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data & services
     private let _tag = String.tag(PlaceMenuCartAction.self)
@@ -77,17 +83,17 @@ public class PlaceMenuCartAction: UIView {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.backgroundColor = ThemeSettings.Colors.main
+        self.backgroundColor = colorsTheme.actionMain
 
-        countLabel.textColor = ThemeSettings.Colors.additional
-        countLabel.font = ThemeSettings.Fonts.default(size: .title)
+        countLabel.textColor = colorsTheme.actionContent
+        countLabel.font = fontsTheme.default(size: .title)
 
         titleLabel.text = PlaceMenuController.Keys.ToCart.localized
-        titleLabel.textColor = ThemeSettings.Colors.additional
-        titleLabel.font = ThemeSettings.Fonts.default(size: .title)
+        titleLabel.textColor = colorsTheme.actionContent
+        titleLabel.font = fontsTheme.default(size: .title)
 
-        totalLabel.textColor = ThemeSettings.Colors.additional
-        totalLabel.font = ThemeSettings.Fonts.default(size: .head)
+        totalLabel.textColor = colorsTheme.actionContent
+        totalLabel.font = fontsTheme.default(size: .head)
     }
 }
 

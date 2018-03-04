@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreApiServices
 import CoreDomains
 import CoreStorageServices
+import UITools
+import UIElements
 
 public class PlaceCartTotalContainerCell: UITableViewCell {
 
@@ -31,6 +34,9 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
     //UI hooks
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
+
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
     private let _tag = String.tag(PlaceCartTotalContainerCell.self)
@@ -52,14 +58,14 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
     }
     private func setupMarkup() {
 
-        self.backgroundColor = ThemeSettings.Colors.additional
+        self.backgroundColor = themeColors.contentBackground
 
-        titleLabel.font = ThemeSettings.Fonts.default(size: .head)
-        titleLabel.textColor = ThemeSettings.Colors.main
+        titleLabel.font = themeFonts.default(size: .head)
+        titleLabel.textColor = themeColors.contentBackgroundText
         titleLabel.text = title
 
-        totalLabel.font = ThemeSettings.Fonts.bold(size: .head)
-        totalLabel.textColor = ThemeSettings.Colors.main
+        totalLabel.font = themeFonts.bold(size: .head)
+        totalLabel.textColor = themeColors.contentBackgroundText
         totalLabel.setup(amount: 0, currency: .RUB)
     }
 }

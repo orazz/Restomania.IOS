@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F4C3523204BB9ED003798AD /* UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3526204BB9ED003798AD /* UIElements.framework */; };
+		1F4C3524204BB9ED003798AD /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3527204BB9ED003798AD /* UIServices.framework */; };
+		1F4C3525204BB9ED003798AD /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3528204BB9ED003798AD /* UITools.framework */; };
+		1F4C3529204BB9F5003798AD /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C352A204BB9F5003798AD /* CoreTools.framework */; };
 		1F78E6D2203E1A290006B845 /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6B3203E1A280006B845 /* TermsController.strings */; };
 		1F78E6D3203E1A290006B845 /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6B6203E1A280006B845 /* TermsController.swift */; };
 		1F78E6D4203E1A290006B845 /* TermsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6B7203E1A280006B845 /* TermsControllerView.xib */; };
@@ -26,10 +30,16 @@
 		1F78E6E2203E1A290006B845 /* ManagerPaymentCardCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6CD203E1A290006B845 /* ManagerPaymentCardCellView.xib */; };
 		1F78E6E3203E1A290006B845 /* ManagerPaymentCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6CE203E1A290006B845 /* ManagerPaymentCardsController.swift */; };
 		1F78E6E4203E1A290006B845 /* ManagerPaymentCardsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6CF203E1A290006B845 /* ManagerPaymentCardsControllerView.xib */; };
+		1FAC79D8204BBB4100A66A53 /* Pods_ToolsPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FAC79D9204BBB4100A66A53 /* Pods_ToolsPages.framework */; };
+		1FAC79DA204BC08E00A66A53 /* ToolsPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FAC79DB204BC08E00A66A53 /* ToolsPages.framework */; };
 		7D7DD0E989B81A6FEF8AA038 /* Pods_ManagerPages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18C87B2FDAE172C9DD5CBC6 /* Pods_ManagerPages.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F4C3526204BB9ED003798AD /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3527204BB9ED003798AD /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3528204BB9ED003798AD /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C352A204BB9F5003798AD /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607C5203E101E00DA2F78 /* ManagerPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ManagerPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607C9203E101E00DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F78E6B4203E1A280006B845 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
@@ -54,6 +64,8 @@
 		1F78E6CE203E1A290006B845 /* ManagerPaymentCardsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPaymentCardsController.swift; sourceTree = "<group>"; };
 		1F78E6CF203E1A290006B845 /* ManagerPaymentCardsControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerPaymentCardsControllerView.xib; sourceTree = "<group>"; };
 		1F78E6D0203E1A290006B845 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ManagerPaymentCardsController.strings; sourceTree = "<group>"; };
+		1FAC79D9204BBB4100A66A53 /* Pods_ToolsPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ToolsPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FAC79DB204BC08E00A66A53 /* ToolsPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolsPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		210F91525EAF6DAF333F7D9F /* Pods-ManagerPages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagerPages.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-ManagerPages/Pods-ManagerPages.release.xcconfig"; sourceTree = "<group>"; };
 		6CCE44325DFA6451B150CF24 /* Pods-ManagerPages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagerPages.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-ManagerPages/Pods-ManagerPages.debug.xcconfig"; sourceTree = "<group>"; };
 		E18C87B2FDAE172C9DD5CBC6 /* Pods_ManagerPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManagerPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +76,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FAC79DA204BC08E00A66A53 /* ToolsPages.framework in Frameworks */,
+				1FAC79D8204BBB4100A66A53 /* Pods_ToolsPages.framework in Frameworks */,
+				1F4C3529204BB9F5003798AD /* CoreTools.framework in Frameworks */,
+				1F4C3523204BB9ED003798AD /* UIElements.framework in Frameworks */,
+				1F4C3524204BB9ED003798AD /* UIServices.framework in Frameworks */,
+				1F4C3525204BB9ED003798AD /* UITools.framework in Frameworks */,
 				7D7DD0E989B81A6FEF8AA038 /* Pods_ManagerPages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +202,12 @@
 		E285EA0C6DDDEC3D11B6CCB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FAC79DB204BC08E00A66A53 /* ToolsPages.framework */,
+				1FAC79D9204BBB4100A66A53 /* Pods_ToolsPages.framework */,
+				1F4C352A204BB9F5003798AD /* CoreTools.framework */,
+				1F4C3526204BB9ED003798AD /* UIElements.framework */,
+				1F4C3527204BB9ED003798AD /* UIServices.framework */,
+				1F4C3528204BB9ED003798AD /* UITools.framework */,
 				E18C87B2FDAE172C9DD5CBC6 /* Pods_ManagerPages.framework */,
 			);
 			name = Frameworks;

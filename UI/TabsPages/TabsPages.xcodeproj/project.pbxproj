@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F4C3511204BB948003798AD /* PlacePages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3512204BB948003798AD /* PlacePages.framework */; };
 		1F78E6F4203E1A380006B845 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6E5203E1A370006B845 /* SearchController.swift */; };
 		1F78E6F6203E1A380006B845 /* ManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6E9203E1A380006B845 /* ManagerController.swift */; };
 		1F78E6F7203E1A380006B845 /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6EA203E1A380006B845 /* TabsController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F4C3512204BB948003798AD /* PlacePages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlacePages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607DA203E108000DA2F78 /* TabsPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TabsPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607DE203E108000DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F78E6E5203E1A370006B845 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4C3511204BB948003798AD /* PlacePages.framework in Frameworks */,
 				A6659EDEDD19B05082F7E665 /* Pods_TabsPages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +94,7 @@
 		C440A305020611047FA875F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F4C3512204BB948003798AD /* PlacePages.framework */,
 				ABAAD71B0A614AFC16D2093D /* Pods_TabsPages.framework */,
 			);
 			name = Frameworks;

@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
+import UITools
 
 public class DishModalSelectHeader: UITableViewCell {
 
@@ -23,6 +25,9 @@ public class DishModalSelectHeader: UITableViewCell {
     //UI
     @IBOutlet private weak var titleLabel: UILabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var title: String? {
         didSet {
@@ -33,11 +38,11 @@ public class DishModalSelectHeader: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.backgroundColor = ThemeSettings.Colors.background
+        self.backgroundColor = themeColors.contentBackground
 
-        titleLabel.font = ThemeSettings.Fonts.bold(size: .head)
-        titleLabel.textColor = ThemeSettings.Colors.main
-        titleLabel.backgroundColor = ThemeSettings.Colors.background
+        titleLabel.font = themeFonts.bold(size: .head)
+        titleLabel.textColor = themeColors.contentBackgroundText
+        titleLabel.backgroundColor = themeColors.contentBackground
     }
 }
 extension DishModalSelectHeader: InterfaceTableCellProtocol {

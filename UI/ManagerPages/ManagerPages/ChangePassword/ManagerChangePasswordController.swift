@@ -27,12 +27,7 @@ public class ManagerChangePasswordController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        showNavigationBar()
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationItem.title = "Смена пароля"
-    }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        hideNavigationBar()
     }
 }

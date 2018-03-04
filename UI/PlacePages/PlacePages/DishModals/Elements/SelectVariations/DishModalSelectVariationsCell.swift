@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class DishModalSelectVariationsCell: UITableViewCell {
 
@@ -26,19 +29,22 @@ public class DishModalSelectVariationsCell: UITableViewCell {
     @IBOutlet private weak var priceLabel: PriceLabel!
     @IBOutlet private weak var markImage: UIImageView!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     public override func awakeFromNib() {
         super.awakeFromNib()
 
         let background = UIView()
-        background.backgroundColor = ThemeSettings.Colors.background.withAlphaComponent(0.55)
+        background.backgroundColor = themeColors.contentSelection
         background.isOpaque = false
         self.selectedBackgroundView = background
 
-        nameLabel.font = ThemeSettings.Fonts.default(size: .head)
-        nameLabel.textColor = ThemeSettings.Colors.main
+        nameLabel.font = themeFonts.default(size: .head)
+        nameLabel.textColor = themeColors.contentBackgroundText
 
-        priceLabel.font = ThemeSettings.Fonts.default(size: .subhead)
-        priceLabel.textColor = ThemeSettings.Colors.main
+        priceLabel.font = themeFonts.default(size: .subhead)
+        priceLabel.textColor = themeColors.contentBackgroundText
 
         markImage.isHidden = true
     }

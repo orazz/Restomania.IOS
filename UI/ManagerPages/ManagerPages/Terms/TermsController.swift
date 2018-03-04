@@ -38,7 +38,7 @@ public class TermsController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.showNavigationBar(animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 extension TermsController: UIWebViewDelegate {

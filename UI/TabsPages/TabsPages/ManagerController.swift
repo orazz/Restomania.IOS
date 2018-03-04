@@ -9,50 +9,49 @@
 import UIKit
 import MdsKit
 import CoreTools
+import UITools
+import UIElements
+import UIServices
 
 public class ManagerController: UIViewController {
 
     private let _tag = "ManagerController"
 
-    //Elements
-    @IBOutlet weak var LogoutButton: UIButton!
+    //UI
+    @IBOutlet private weak var LogoutButton: UIButton!
 
-    private var _theme: ThemeSettings!
-    private var _authService: AuthService!
-    private var _keysStorage = DependencyResolver.resolve(ApiKeyService.self)
+    private let authService = DependencyResolver.resolve(AuthUIService.self)
+    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let keysService = DependencyResolver.resolve(ApiKeyService.self)
 
     //Properties
-    private var _isAuth: Bool {
-        return _keysStorage.isAuth
+    private var isAuth: Bool {
+        return keysService.isAuth
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        _authService = AuthService(open: .signup, with: self.navigationController!)
+        authService = AuthService(open: .signup, with: self.navigationController!)
+
+        loadMarkup()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        hideNavigationBar()
-
-        setupIntefrace()
-        setupStyles()
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
-    private func setupIntefrace() {
+    private func loadMarkup() {
 
-        LogoutButton.isHidden = !_isAuth
+        view.backgroundColor = colorsTheme.contentBackground
 
-    }
-    private func setupStyles() {
-
-        view.backgroundColor = ThemeSettings.Colors.background
+        LogoutButton.isHidden = !isAuth
     }
 
     @IBAction public func Logout() {
 
-        _keysStorage.logout()
+        keysService.logout()
         LogoutButton.isHidden = true
     }
 
@@ -64,31 +63,28 @@ public class ManagerController: UIViewController {
 //        presentSubmanager(controller: ManagerEditNotificationPreferencesController())
     }
     @IBAction public func goToChangePassword() {
-        presentSubmanager(controller: ManagerChangePasswordController.create())
+        present(ManagerChangePasswordController.create())
     }
     @IBAction public func goToPaymentCards() {
-        presentSubmanager(controller: ManagerPaymentCardsController())
+        present(ManagerPaymentCardsController())
     }
     @IBAction public func goToOrders() {
-        presentSubmanager(controller: ManagerOrdersController())
+        present(ManagerOrdersController())
     }
     @IBAction public func goToTerms() {
-        presentSubmanager(controller: TermsController(), needAuth: false)
+        present(TermsController(), needAuth: false)
     }
-    private func presentSubmanager(controller: UIViewController, needAuth: Bool = true) {
+    private func present(_ controller: UIViewController, needAuth: Bool = true) {
 
-        if (!needAuth || _isAuth) {
-
+        if (!needAuth || isAuth) {
             navigationController?.pushViewController(controller, animated: true)
-        } else {
-
-            _authService.show(complete: { success in
-
-                if (success) {
-
-                    self.presentSubmanager(controller: controller, needAuth: needAuth)
-                }
-            })
+            return
         }
+
+        authService.show(complete: { success in
+            if (success) {
+                self.present(controller, needAuth: needAuth)
+            }
+        })
     }
 }

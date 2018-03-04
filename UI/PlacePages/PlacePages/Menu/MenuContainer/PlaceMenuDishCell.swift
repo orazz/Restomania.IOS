@@ -8,7 +8,10 @@
 
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class PlaceMenuDishCell: UITableViewCell {
 
@@ -33,6 +36,9 @@ public class PlaceMenuDishCell: UITableViewCell {
     @IBOutlet weak var dishDescription: UILabel!
     @IBOutlet weak var dishWeight: SizeLabel!
     @IBOutlet weak var dishPrice: PriceLabel!
+
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
     private var _dish: Dish?
@@ -76,20 +82,22 @@ public class PlaceMenuDishCell: UITableViewCell {
     private func setupStyles() {
 
         //Name
-        dishName.font = ThemeSettings.Fonts.bold(size: .subhead)
-        dishName.textColor = ThemeSettings.Colors.main
+        dishName.font = themeFonts.bold(size: .subhead)
+        dishName.textColor = themeColors.contentBackgroundText
 
         //Description
-        dishDescription.font = ThemeSettings.Fonts.default(size: .caption)
-        dishDescription.textColor = ThemeSettings.Colors.main
+        dishDescription.font = themeFonts.default(size: .caption)
+        dishDescription.textColor =  themeColors.contentBackgroundText
 
         //Weight
-        dishWeight.font = ThemeSettings.Fonts.default(size: .caption)
-        dishWeight.textColor = ThemeSettings.Colors.main
+        dishWeight.font = themeFonts.default(size: .caption)
+        dishWeight.textColor = themeColors.contentBackgroundText
 
         //Price
-        dishPrice.font = ThemeSettings.Fonts.default(size: .subhead)
-        dishPrice.textColor = ThemeSettings.Colors.main
+        dishPrice.font = TthemeFonts.default(size: .subhead)
+        dishPrice.textColor = themeColors.contentBackgroundText
+
+        backgroundColor = themeColors.contentSelection
     }
 
     @IBAction private func addDish() {

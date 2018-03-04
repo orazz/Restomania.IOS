@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MdsKit
 
 open class NotificationsIgnore {
 
@@ -16,6 +17,5 @@ open class NotificationsIgnore {
 
         public static func add(_ orderId: Long) {}
         public static func cancel(_ orderId: Long) {}
-        public static func add(_ orderId: Long) {}
     }
 }

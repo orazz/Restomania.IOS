@@ -12,6 +12,8 @@ import MdsKit
 import CoreTools
 import CoreDomains
 import CoreStorageServices
+import UIElements
+import ToolsPages
 
 public class ManagerOrdersController: UIViewController {
 
@@ -53,11 +55,10 @@ public class ManagerOrdersController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        showNavigationBar(animated: animated)
-        navigationItem.title = Keys.title.localized
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationItem.title = Keys.title.localized
 
         displayCachedOrders()
-
         ordersService.subscribe(guid: guid, handler: self, tag: tag)
     }
     public override func viewWillDisappear(_ animated: Bool) {

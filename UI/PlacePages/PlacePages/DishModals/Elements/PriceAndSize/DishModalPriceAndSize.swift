@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class DishModalPriceAndSize: UITableViewCell {
 
@@ -27,6 +30,9 @@ public class DishModalPriceAndSize: UITableViewCell {
     @IBOutlet private weak var dividerLabel: UILabel!
     @IBOutlet private weak var sizeLabel: SizeLabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var isShowSizeAndPrice: Bool = false
     private var dish: BaseDish?
@@ -35,14 +41,14 @@ public class DishModalPriceAndSize: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        onlyPriceLabel.font = ThemeSettings.Fonts.bold(size: .head)
-        onlyPriceLabel.textColor = ThemeSettings.Colors.main
+        onlyPriceLabel.font = themeFonts.bold(size: .head)
+        onlyPriceLabel.textColor = themeColors.contentBackgroundText
 
-        priceLabel.font = ThemeSettings.Fonts.bold(size: .head)
-        priceLabel.textColor = ThemeSettings.Colors.main
+        priceLabel.font = themeFonts.bold(size: .head)
+        priceLabel.textColor = themeColors.contentBackgroundText
 
-        sizeLabel.font = ThemeSettings.Fonts.default(size: .subhead)
-        sizeLabel.textColor = ThemeSettings.Colors.main
+        sizeLabel.font = themeFonts.default(size: .subhead)
+        sizeLabel.textColor = themeColors.contentBackgroundText
     }
 
     fileprivate func refresh() {

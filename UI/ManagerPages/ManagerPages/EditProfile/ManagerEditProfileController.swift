@@ -11,12 +11,11 @@ import UIKit
 
 public class ManagerEditProfileController: UIViewController {
 
-    private static let nibName = "ManagerEditProfileControllerView"
-    public static func create() -> ManagerEditProfileController {
-
-        let vc = ManagerEditProfileController(nibName: nibName, bundle: Bundle.main)
-
-        return vc
+    public init() {
+        super.init(nibName: String.tag(ManagerEditProfileController.self), bundle: Bundle.main)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: Life circle
@@ -27,12 +26,8 @@ public class ManagerEditProfileController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        showNavigationBar()
-        navigationItem.title = "Аккаунт"
-    }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
 
-        hideNavigationBar()
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationItem.title = "Аккаунт"
     }
 }

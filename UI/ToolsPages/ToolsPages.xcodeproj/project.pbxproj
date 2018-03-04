@@ -24,15 +24,6 @@
 		1F9B4A0B203CB28F00979AF2 /* OneOrderSummaryContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B49EF203CB28F00979AF2 /* OneOrderSummaryContainerView.xib */; };
 		1F9B4A0C203CB28F00979AF2 /* OneOrderTotalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49F1203CB28F00979AF2 /* OneOrderTotalContainer.swift */; };
 		1F9B4A0D203CB28F00979AF2 /* OneOrderTotalContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B49F2203CB28F00979AF2 /* OneOrderTotalContainerView.xib */; };
-		1F9B4A0E203CB28F00979AF2 /* AuthContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49F4203CB28F00979AF2 /* AuthContainer.swift */; };
-		1F9B4A0F203CB28F00979AF2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49F5203CB28F00979AF2 /* AuthService.swift */; };
-		1F9B4A10203CB28F00979AF2 /* BaseAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49F6203CB28F00979AF2 /* BaseAuthController.swift */; };
-		1F9B4A11203CB28F00979AF2 /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49F7203CB28F00979AF2 /* ForgetPasswordController.swift */; };
-		1F9B4A12203CB28F00979AF2 /* ForgetPasswordPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B49F8203CB28F00979AF2 /* ForgetPasswordPage.xib */; };
-		1F9B4A13203CB28F00979AF2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49F9203CB28F00979AF2 /* LoginController.swift */; };
-		1F9B4A14203CB28F00979AF2 /* LoginPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B49FA203CB28F00979AF2 /* LoginPage.xib */; };
-		1F9B4A15203CB28F00979AF2 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49FB203CB28F00979AF2 /* SignupController.swift */; };
-		1F9B4A16203CB28F00979AF2 /* SignupPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B49FC203CB28F00979AF2 /* SignupPage.xib */; };
 		1F9B4A1E203CB4A600979AF2 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B4A1F203CB4A600979AF2 /* CoreTools.framework */; };
 		1F9B4A20203CB4B200979AF2 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B4A24203CB4B200979AF2 /* CoreApiServices.framework */; };
 		1F9B4A21203CB4B200979AF2 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B4A25203CB4B200979AF2 /* CoreDomains.framework */; };
@@ -65,15 +56,6 @@
 		1F9B49EF203CB28F00979AF2 /* OneOrderSummaryContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneOrderSummaryContainerView.xib; sourceTree = "<group>"; };
 		1F9B49F1203CB28F00979AF2 /* OneOrderTotalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrderTotalContainer.swift; sourceTree = "<group>"; };
 		1F9B49F2203CB28F00979AF2 /* OneOrderTotalContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneOrderTotalContainerView.xib; sourceTree = "<group>"; };
-		1F9B49F4203CB28F00979AF2 /* AuthContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthContainer.swift; sourceTree = "<group>"; };
-		1F9B49F5203CB28F00979AF2 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		1F9B49F6203CB28F00979AF2 /* BaseAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAuthController.swift; sourceTree = "<group>"; };
-		1F9B49F7203CB28F00979AF2 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
-		1F9B49F8203CB28F00979AF2 /* ForgetPasswordPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordPage.xib; sourceTree = "<group>"; };
-		1F9B49F9203CB28F00979AF2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		1F9B49FA203CB28F00979AF2 /* LoginPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginPage.xib; sourceTree = "<group>"; };
-		1F9B49FB203CB28F00979AF2 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
-		1F9B49FC203CB28F00979AF2 /* SignupPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupPage.xib; sourceTree = "<group>"; };
 		1F9B4A1F203CB4A600979AF2 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B4A24203CB4B200979AF2 /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B4A25203CB4B200979AF2 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +110,6 @@
 		1F33381A203CB06300D992FF /* ToolsPages */ = {
 			isa = PBXGroup;
 			children = (
-				1F9B49F3203CB28F00979AF2 /* Auth */,
 				1F9B49D9203CB28F00979AF2 /* ExternalTextEditor */,
 				1F9B49DC203CB28F00979AF2 /* OneOrder */,
 				1F33381C203CB06300D992FF /* Info.plist */,
@@ -205,22 +186,6 @@
 				1F9B49F2203CB28F00979AF2 /* OneOrderTotalContainerView.xib */,
 			);
 			path = TotalContainer;
-			sourceTree = "<group>";
-		};
-		1F9B49F3203CB28F00979AF2 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				1F9B49F4203CB28F00979AF2 /* AuthContainer.swift */,
-				1F9B49F5203CB28F00979AF2 /* AuthService.swift */,
-				1F9B49F6203CB28F00979AF2 /* BaseAuthController.swift */,
-				1F9B49F7203CB28F00979AF2 /* ForgetPasswordController.swift */,
-				1F9B49F8203CB28F00979AF2 /* ForgetPasswordPage.xib */,
-				1F9B49F9203CB28F00979AF2 /* LoginController.swift */,
-				1F9B49FA203CB28F00979AF2 /* LoginPage.xib */,
-				1F9B49FB203CB28F00979AF2 /* SignupController.swift */,
-				1F9B49FC203CB28F00979AF2 /* SignupPage.xib */,
-			);
-			path = Auth;
 			sourceTree = "<group>";
 		};
 		926C832059F6061CCB3A323C /* Frameworks */ = {
@@ -325,11 +290,8 @@
 				1F9B4A07203CB28F00979AF2 /* OneOrderControllerView.xib in Resources */,
 				1F9B4A09203CB28F00979AF2 /* OneOrderSpaceContainerView.xib in Resources */,
 				1F9B4A01203CB28F00979AF2 /* OneOrderDishesContainerDishCellView.xib in Resources */,
-				1F9B4A12203CB28F00979AF2 /* ForgetPasswordPage.xib in Resources */,
 				1F9B4A02203CB28F00979AF2 /* OneOrderDishesContainerView.xib in Resources */,
 				1F9B4A0B203CB28F00979AF2 /* OneOrderSummaryContainerView.xib in Resources */,
-				1F9B4A14203CB28F00979AF2 /* LoginPage.xib in Resources */,
-				1F9B4A16203CB28F00979AF2 /* SignupPage.xib in Resources */,
 				1F9B49FE203CB28F00979AF2 /* ExternalTextEditorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,17 +342,11 @@
 				1F9B4A08203CB28F00979AF2 /* OneOrderSpaceContainer.swift in Sources */,
 				1F9B4A04203CB28F00979AF2 /* OneOrderFooterContainer.swift in Sources */,
 				1F9B49FD203CB28F00979AF2 /* ExternalTextEditor.swift in Sources */,
-				1F9B4A13203CB28F00979AF2 /* LoginController.swift in Sources */,
 				1F9B49FF203CB28F00979AF2 /* OneOrderDishesContainer.swift in Sources */,
 				1F9B4A0C203CB28F00979AF2 /* OneOrderTotalContainer.swift in Sources */,
 				1F9B4A00203CB28F00979AF2 /* OneOrderDishesContainerDishCell.swift in Sources */,
 				1F9B4A0A203CB28F00979AF2 /* OneOrderSummaryContainer.swift in Sources */,
-				1F9B4A11203CB28F00979AF2 /* ForgetPasswordController.swift in Sources */,
-				1F9B4A15203CB28F00979AF2 /* SignupController.swift in Sources */,
-				1F9B4A10203CB28F00979AF2 /* BaseAuthController.swift in Sources */,
-				1F9B4A0F203CB28F00979AF2 /* AuthService.swift in Sources */,
 				1F9B4A06203CB28F00979AF2 /* OneOrderController.swift in Sources */,
-				1F9B4A0E203CB28F00979AF2 /* AuthContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

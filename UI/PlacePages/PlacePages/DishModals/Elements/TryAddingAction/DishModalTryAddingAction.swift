@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import MdsKit
 import Localization
+import CoreTools
+import UITools
 
 public class DishModalTryAddingAction: UIView {
 
@@ -17,22 +19,25 @@ public class DishModalTryAddingAction: UIView {
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var actionLabel: UILabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var delegate: DishModalDelegateProtocol?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.backgroundColor = ThemeSettings.Colors.main
+        self.backgroundColor = themeColors.actionMain
         Bundle.main.loadNibNamed("\(String.tag(DishModalTryAddingAction.self))View", owner: self, options: nil)
 
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        contentView.backgroundColor = ThemeSettings.Colors.main
+        contentView.backgroundColor = themeColors.actionMain
         self.addSubview(contentView)
 
-        actionLabel.font = ThemeSettings.Fonts.default(size: .title)
-        actionLabel.textColor = ThemeSettings.Colors.additional
+        actionLabel.font = themeFonts.default(size: .title)
+        actionLabel.textColor = themeColors.actionContent
         actionLabel.text = Localization.DishModals.buttonsTryAddDish.localized
     }
 

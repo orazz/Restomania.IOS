@@ -11,7 +11,9 @@ import MdsKit
 import CoreTools
 import CoreDomains
 import CoreStorageServices
+import UIElements
 import UIServices
+import PlacePages
 
 public class SearchController: UIViewController {
 
@@ -45,7 +47,7 @@ public class SearchController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        hideNavigationBar()
+        self.navigationController?.setToolbarHidden(true, animated: animated)
     }
 }
 

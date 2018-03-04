@@ -9,10 +9,12 @@
 import Foundation
 import MdsKit
 import UIKit
-import NotificationBannerSwift
 import Gloss
+import CoreTools
 import CoreDomains
 import CoreStorageServices
+import UITools
+import UIElements
 
 public class PushesHandler {
 
@@ -20,7 +22,7 @@ public class PushesHandler {
 
     public static func process(_ push: NotificationContainer) {
 
-        let completer: Action<NotificationBanner?> = { banner in
+        let completer: Action<BannerAlert?> = { banner in
             if let banner = banner,
                 push.allowNotify {
 
@@ -45,7 +47,7 @@ public class PushesHandler {
                 return
         }
     }
-    private static func processDishOrder(_ push: NotificationContainer, complete: @escaping Action<NotificationBanner?>) {
+    private static func processDishOrder(_ push: NotificationContainer, complete: @escaping Action<BannerAlert?>) {
 
         guard let model = DishOrderModel(json: push.model) else {
             return
@@ -53,24 +55,15 @@ public class PushesHandler {
 
         let title = "\(push.message).Title".localized
         let subtitle = String(format: push.message.localized, arguments: push.messageArgs)
-        let banner = NotificationBanner(title: title, subtitle: subtitle)
-        ThemeSettings.Elements.applyStyles(to: banner)
+        let banner = BannerAlert(title: title, subtitle: subtitle)
         banner.onTap = {
-            DispatchQueue.main.async {
-
-                if let delegate = UIApplication.shared.delegate as? AppDelegate,
-                    let root = delegate.window?.rootViewController as? UINavigationController,
-                    let navigator = root.presentedViewController as? UINavigationController {
-
-                    let vc = OneOrderController(for: model.id)
-                    navigator.pushViewController(vc, animated: true)
-                }
-            }
+            let router = DependencyResolver.resolve(Router.self)
+            router.goToOrder(orderId: model.id, reset: false)
         }
 
         let orders = DependencyResolver.resolve(OrdersCacheService.self)
         let request = orders.find(model.id)
-        request.async(AsyncQueue.background, completion: { _ in complete(banner)})
+        request.async(.background, completion: { _ in complete(banner)})
     }
     private class DishOrderModel: JSONDecodable {
 

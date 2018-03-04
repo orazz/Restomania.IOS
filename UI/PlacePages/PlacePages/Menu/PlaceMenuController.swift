@@ -8,9 +8,12 @@
 
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 import CoreApiServices
 import CoreStorageServices
+import UIElements
+import UIServices
 
 public protocol PlaceMenuCellsProtocol: InterfaceTableCellProtocol {
 
@@ -55,7 +58,7 @@ public class PlaceMenuController: UIViewController {
     private let menusService = DependencyResolver.resolve(MenuCacheService.self)
     private let placesService = DependencyResolver.resolve(PlacesCacheService.self)
     private var cartService: CartService!
-    private var enterService: AuthService!
+    private var enterService = DependencyResolver.resolve(AuthUIService.self)
 
     // MARK: Tools
     private var placeId: Long!

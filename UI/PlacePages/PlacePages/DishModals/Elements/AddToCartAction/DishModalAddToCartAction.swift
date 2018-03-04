@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 import Localization
 
 public class DishModalAddToCartAction: UIView {
@@ -19,26 +22,29 @@ public class DishModalAddToCartAction: UIView {
     @IBOutlet private weak var actionLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var delegate: AddDishToCartModalDelegateProtocol?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.backgroundColor = ThemeSettings.Colors.main
+        self.backgroundColor = themeColors.contentBackground
         Bundle.main.loadNibNamed("\(String.tag(DishModalAddToCartAction.self))View", owner: self, options: nil)
 
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        contentView.backgroundColor = ThemeSettings.Colors.main
+        contentView.backgroundColor = themeColors.actionMain
         self.addSubview(contentView)
 
-        actionLabel.font = ThemeSettings.Fonts.default(size: .title)
-        actionLabel.textColor = ThemeSettings.Colors.additional
+        actionLabel.font = themeFonts.default(size: .title)
+        actionLabel.textColor = themeColors.actionContent
         actionLabel.text = Localization.DishModals.buttonsAddToCart.localized
 
-        totalLabel.font = ThemeSettings.Fonts.bold(size: .head)
-        totalLabel.textColor = ThemeSettings.Colors.additional
+        totalLabel.font = themeFonts.bold(size: .head)
+        totalLabel.textColor = themeColors.actionContent
         totalLabel.isHidden = true
     }
 

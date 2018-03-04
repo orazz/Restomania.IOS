@@ -7,19 +7,26 @@
 //
 
 import UIKit
+import CoreTools
+import UITools
 
 public class  ForgetPasswordController: BaseAuthController {
 
     public static let nibName = "ForgetPasswordPage"
 
+    //UI
     @IBOutlet public weak var ResetPaaswordButton: UIButton!
     @IBOutlet public weak var ToAuthButton: UIButton!
+
+    //Theme
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        ToAuthButton.tintColor = ThemeSettings.Colors.main
-        ToAuthButton.titleLabel?.font = ThemeSettings.Fonts.default(size: .subhead)
+        ToAuthButton.tintColor = themeColors.actionMain
+        ToAuthButton.titleLabel?.font = themeFonts.default(size: .subhead)
     }
 
     @IBAction public func resetPasswordAction() {
@@ -43,7 +50,7 @@ public class  ForgetPasswordController: BaseAuthController {
 
                     self.showAlert(about: NSLocalizedString("Your new password send to you via your connection method.", comment: "Auth"),
                                    title: NSLocalizedString("Success", comment: "Auth"))
-                    self.root.moveTo(.login)
+//                    self.root.moveTo(.login)
 
                     return
                 }
@@ -63,6 +70,6 @@ public class  ForgetPasswordController: BaseAuthController {
         })
     }
     @IBAction public func returnToAuthAction() {
-        root.moveTo(.login)
+//        root.moveTo(.login)
     }
 }

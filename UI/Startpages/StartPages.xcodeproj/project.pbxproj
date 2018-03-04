@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F4C3513204BB974003798AD /* UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3516204BB974003798AD /* UIElements.framework */; };
+		1F4C3514204BB974003798AD /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3517204BB974003798AD /* UIServices.framework */; };
+		1F4C3515204BB974003798AD /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3518204BB974003798AD /* UITools.framework */; };
+		1F4C3519204BB985003798AD /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C351E204BB985003798AD /* CoreApiServices.framework */; };
+		1F4C351A204BB985003798AD /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C351F204BB985003798AD /* CoreDomains.framework */; };
+		1F4C351B204BB985003798AD /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3520204BB985003798AD /* CoreStorageServices.framework */; };
+		1F4C351C204BB985003798AD /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3521204BB985003798AD /* CoreTools.framework */; };
+		1F4C351D204BB985003798AD /* CoreToolsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3522204BB985003798AD /* CoreToolsServices.framework */; };
 		1F78E701203E1A840006B845 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6FC203E1A830006B845 /* LaunchController.swift */; };
 		1F78E702203E1A840006B845 /* GreetingControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6FD203E1A830006B845 /* GreetingControllerView.xib */; };
 		1F78E703203E1A840006B845 /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6FE203E1A840006B845 /* GreetingController.swift */; };
@@ -16,6 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F4C3516204BB974003798AD /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3517204BB974003798AD /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3518204BB974003798AD /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C351E204BB985003798AD /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C351F204BB985003798AD /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3520204BB985003798AD /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3521204BB985003798AD /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4C3522204BB985003798AD /* CoreToolsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreToolsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607EF203E10FF00DA2F78 /* StartPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StartPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607F3203E10FF00DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F78E6FC203E1A830006B845 /* LaunchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
@@ -33,6 +49,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4C3519204BB985003798AD /* CoreApiServices.framework in Frameworks */,
+				1F4C351A204BB985003798AD /* CoreDomains.framework in Frameworks */,
+				1F4C351B204BB985003798AD /* CoreStorageServices.framework in Frameworks */,
+				1F4C351C204BB985003798AD /* CoreTools.framework in Frameworks */,
+				1F4C351D204BB985003798AD /* CoreToolsServices.framework in Frameworks */,
+				1F4C3513204BB974003798AD /* UIElements.framework in Frameworks */,
+				1F4C3514204BB974003798AD /* UIServices.framework in Frameworks */,
+				1F4C3515204BB974003798AD /* UITools.framework in Frameworks */,
 				5A1DE8DA5EC8D27EE9745A79 /* Pods_StartPages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +107,14 @@
 		6904A87BE280A869333C046E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F4C351E204BB985003798AD /* CoreApiServices.framework */,
+				1F4C351F204BB985003798AD /* CoreDomains.framework */,
+				1F4C3520204BB985003798AD /* CoreStorageServices.framework */,
+				1F4C3521204BB985003798AD /* CoreTools.framework */,
+				1F4C3522204BB985003798AD /* CoreToolsServices.framework */,
+				1F4C3516204BB974003798AD /* UIElements.framework */,
+				1F4C3517204BB974003798AD /* UIServices.framework */,
+				1F4C3518204BB974003798AD /* UITools.framework */,
 				D0F3A46572996AFC535D9E3A /* Pods_StartPages.framework */,
 			);
 			name = Frameworks;

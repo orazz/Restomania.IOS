@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreStorageServices
+import UITools
+import UIElements
 
 public class PlaceCartDateContainer: UITableViewCell {
 
@@ -47,6 +50,9 @@ public class PlaceCartDateContainer: UITableViewCell {
     @IBOutlet private weak var timePicker: UIPickerView!
     @IBOutlet private weak var dateTimeLabel: UILabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var timeFormatter: DateFormatter!
     private var dateFormatter: DateFormatter!
@@ -62,8 +68,8 @@ public class PlaceCartDateContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        dateChecker.tintColor = ThemeSettings.Colors.main
-        dateChecker.backgroundColor = ThemeSettings.Colors.additional
+        dateChecker.tintColor = themeColors.actionMain
+        dateChecker.backgroundColor = themeColors.actionContent
         dateChecker.addTarget(self, action: #selector(handleDaySelect), for: .valueChanged)
 
         dateChecker.removeAllSegments()
@@ -74,8 +80,10 @@ public class PlaceCartDateContainer: UITableViewCell {
         timePicker.dataSource = self
         timePicker.delegate = self
 
-        dateTimeLabel.font = ThemeSettings.Fonts.default(size: .head)
-        dateTimeLabel.textColor = ThemeSettings.Colors.main
+        dateTimeLabel.font = themeFonts.default(size: .head)
+        dateTimeLabel.textColor = themeColors.contentBackgroundText
+
+        backgroundColor = themeColors.contentBackground
     }
 
     private func refresh() {

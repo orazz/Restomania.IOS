@@ -12,9 +12,17 @@
 		1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */; };
 		1F7469382032AAC200CC7BC9 /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */; };
 		1F8D3574203890DD007EA4C8 /* Localization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8D3575203890DD007EA4C8 /* Localization.framework */; };
-		1F980B8E20388DC20017A0A2 /* AddCardUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8A20388DC20017A0A2 /* AddCardUIService.swift */; };
-		1F980B8F20388DC20017A0A2 /* ProblemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8B20388DC20017A0A2 /* ProblemAlert.swift */; };
 		1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F980B8C20388DC20017A0A2 /* UIServices.swift */; };
+		1FAC79DC204BC23000A66A53 /* UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FAC79DE204BC23000A66A53 /* UIElements.framework */; };
+		1FAC79DD204BC23000A66A53 /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FAC79DF204BC23000A66A53 /* UITools.framework */; };
+		1FCA6A932049729700D99879 /* AuthContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8A2049729400D99879 /* AuthContainer.swift */; };
+		1FCA6A942049729700D99879 /* AuthUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8B2049729400D99879 /* AuthUIService.swift */; };
+		1FCA6A952049729700D99879 /* BaseAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8C2049729400D99879 /* BaseAuthController.swift */; };
+		1FCA6A962049729700D99879 /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8D2049729400D99879 /* ForgetPasswordController.swift */; };
+		1FCA6A972049729700D99879 /* ForgetPasswordPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FCA6A8E2049729400D99879 /* ForgetPasswordPage.xib */; };
+		1FCA6A9A2049729700D99879 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A912049729400D99879 /* SignupController.swift */; };
+		1FCA6A9B2049729700D99879 /* SignupPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FCA6A922049729400D99879 /* SignupPage.xib */; };
+		1FCA6A9D2049741400D99879 /* AddCardUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA6A9C2049741300D99879 /* AddCardUIService.swift */; };
 		1FCDCFE62031B24D00321E3E /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCFDC2031B24D00321E3E /* UIServices.framework */; };
 		B94122ED4EB8EEA84E02043B /* Pods_UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2321BE8D61F8084A90DF9ADA /* Pods_UIServices.framework */; };
 /* End PBXBuildFile section */
@@ -37,9 +45,17 @@
 		1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D3575203890DD007EA4C8 /* Localization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Localization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F980B8820388DC20017A0A2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F980B8A20388DC20017A0A2 /* AddCardUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardUIService.swift; sourceTree = "<group>"; };
-		1F980B8B20388DC20017A0A2 /* ProblemAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemAlert.swift; sourceTree = "<group>"; };
 		1F980B8C20388DC20017A0A2 /* UIServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIServices.swift; sourceTree = "<group>"; };
+		1FAC79DE204BC23000A66A53 /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FAC79DF204BC23000A66A53 /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCA6A8A2049729400D99879 /* AuthContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthContainer.swift; sourceTree = "<group>"; };
+		1FCA6A8B2049729400D99879 /* AuthUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUIService.swift; sourceTree = "<group>"; };
+		1FCA6A8C2049729400D99879 /* BaseAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAuthController.swift; sourceTree = "<group>"; };
+		1FCA6A8D2049729400D99879 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
+		1FCA6A8E2049729400D99879 /* ForgetPasswordPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordPage.xib; sourceTree = "<group>"; };
+		1FCA6A912049729400D99879 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		1FCA6A922049729400D99879 /* SignupPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupPage.xib; sourceTree = "<group>"; };
+		1FCA6A9C2049741300D99879 /* AddCardUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardUIService.swift; sourceTree = "<group>"; };
 		1FCDCFDC2031B24D00321E3E /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCFE52031B24D00321E3E /* UIServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2321BE8D61F8084A90DF9ADA /* Pods_UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FAC79DC204BC23000A66A53 /* UIElements.framework in Frameworks */,
+				1FAC79DD204BC23000A66A53 /* UITools.framework in Frameworks */,
 				1F8D3574203890DD007EA4C8 /* Localization.framework in Frameworks */,
 				1F7469382032AAC200CC7BC9 /* CoreStorageServices.framework in Frameworks */,
 				1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */,
@@ -77,6 +95,8 @@
 		1F7469312032AAAA00CC7BC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FAC79DE204BC23000A66A53 /* UIElements.framework */,
+				1FAC79DF204BC23000A66A53 /* UITools.framework */,
 				1F8D3575203890DD007EA4C8 /* Localization.framework */,
 				1F7469392032AAC200CC7BC9 /* CoreStorageServices.framework */,
 				1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */,
@@ -101,10 +121,72 @@
 		1F980B8920388DC20017A0A2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F980B8A20388DC20017A0A2 /* AddCardUIService.swift */,
-				1F980B8B20388DC20017A0A2 /* ProblemAlert.swift */,
+				1FCA6A892049729400D99879 /* Auth */,
+				1F9A07F0204971A6007853CA /* AddCard */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		1F9A07F0204971A6007853CA /* AddCard */ = {
+			isa = PBXGroup;
+			children = (
+				1FCA6A9C2049741300D99879 /* AddCardUIService.swift */,
+			);
+			path = AddCard;
+			sourceTree = "<group>";
+		};
+		1FCA6A892049729400D99879 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				1FCA6A8B2049729400D99879 /* AuthUIService.swift */,
+				1FCA6AA3204976CC00D99879 /* EmailAuth */,
+				1FCA6A9F2049762F00D99879 /* VkAuth */,
+				1FCA6AA02049764B00D99879 /* InstagramAuth */,
+				1FCA6AA12049766E00D99879 /* PhoneAuth */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		1FCA6A9E204975F800D99879 /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				1FCA6A8D2049729400D99879 /* ForgetPasswordController.swift */,
+				1FCA6A8E2049729400D99879 /* ForgetPasswordPage.xib */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		1FCA6A9F2049762F00D99879 /* VkAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VkAuth;
+			sourceTree = "<group>";
+		};
+		1FCA6AA02049764B00D99879 /* InstagramAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InstagramAuth;
+			sourceTree = "<group>";
+		};
+		1FCA6AA12049766E00D99879 /* PhoneAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PhoneAuth;
+			sourceTree = "<group>";
+		};
+		1FCA6AA3204976CC00D99879 /* EmailAuth */ = {
+			isa = PBXGroup;
+			children = (
+				1FCA6A8A2049729400D99879 /* AuthContainer.swift */,
+				1FCA6A8C2049729400D99879 /* BaseAuthController.swift */,
+				1FCA6A912049729400D99879 /* SignupController.swift */,
+				1FCA6A922049729400D99879 /* SignupPage.xib */,
+				1FCA6A9E204975F800D99879 /* ForgetPassword */,
+			);
+			path = EmailAuth;
 			sourceTree = "<group>";
 		};
 		1FCDCFD22031B24D00321E3E = {
@@ -232,6 +314,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FCA6A9B2049729700D99879 /* SignupPage.xib in Resources */,
+				1FCA6A972049729700D99879 /* ForgetPasswordPage.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,9 +369,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F980B8F20388DC20017A0A2 /* ProblemAlert.swift in Sources */,
-				1F980B8E20388DC20017A0A2 /* AddCardUIService.swift in Sources */,
+				1FCA6A952049729700D99879 /* BaseAuthController.swift in Sources */,
+				1FCA6A942049729700D99879 /* AuthUIService.swift in Sources */,
 				1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */,
+				1FCA6A9D2049741400D99879 /* AddCardUIService.swift in Sources */,
+				1FCA6A9A2049729700D99879 /* SignupController.swift in Sources */,
+				1FCA6A932049729700D99879 /* AuthContainer.swift in Sources */,
+				1FCA6A962049729700D99879 /* ForgetPasswordController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

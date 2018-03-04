@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class OneOrderDishesContainer: UITableViewCell {
 
@@ -24,6 +27,9 @@ public class OneOrderDishesContainer: UITableViewCell {
     //UI
     @IBOutlet private weak var dishesTable: UITableView!
 
+    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var currency: CurrencyType = CurrencyType.All
     private var dishes: [DishOrderDish] = []
@@ -31,8 +37,8 @@ public class OneOrderDishesContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = ThemeSettings.Colors.additional
-        dishesTable.backgroundColor = ThemeSettings.Colors.additional
+        backgroundColor = colorsTheme.contentBackground
+        dishesTable.backgroundColor = colorsTheme.contentBackground
 
         OneOrderDishesContainerDishCell.register(for: dishesTable)
     }

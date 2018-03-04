@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class OneOrderSummaryContainer: UITableViewCell {
 
@@ -33,16 +36,20 @@ public class OneOrderSummaryContainer: UITableViewCell {
     @IBOutlet weak var statusTitleLabel: UILabel!
     @IBOutlet weak var statusValueLabel: UILabel!
 
+
+    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var order: DishOrder?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = ThemeSettings.Colors.additional
+        backgroundColor = colorsTheme.contentBackground
 
-        let boldFont = ThemeSettings.Fonts.bold(size: .head)
-        let lightFont = ThemeSettings.Fonts.default(size: .head)
+        let boldFont = fontsTheme.bold(size: .head)
+        let lightFont = fontsTheme.default(size: .head)
 
         completeAtLabel.font = boldFont
         completeAtLabel.text = String.empty

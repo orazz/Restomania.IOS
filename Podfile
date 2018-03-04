@@ -100,6 +100,8 @@ end
 target 'UIElements' do
     project './UI/Elements/Elements.xcodeproj'
     shared_pods
+    pod 'NotificationBannerSwift', '~> 1.5.4'
+    pod 'Toast-Swift', '~> 3.0.1'
 end
 target 'UITools' do
     project './UI/Tools/Tools.xcodeproj'

@@ -12,6 +12,7 @@ import MdsKit
 import CoreDomains
 import CoreApiServices
 import CoreStorageServices
+import UIElements
 
 public class PlaceCartDishesContainerCell: UITableViewCell {
 

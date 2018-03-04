@@ -29,6 +29,9 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
     @IBOutlet weak var nameAndCountLabel: UILabel!
     @IBOutlet weak var costLabel: PriceLabel!
 
+    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+
     //Data
     private var dish: DishOrderDish!
     private var currency: CurrencyType!
@@ -36,13 +39,13 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        let font =  ThemeSettings.Fonts.default(size: .subhead)
+        let font =  fontsTheme.default(size: .subhead)
 
         nameAndCountLabel.font = font
-        nameAndCountLabel.textColor = ThemeSettings.Colors.main
+        nameAndCountLabel.textColor = colorsTheme.contentBackgroundText
 
         costLabel.font = font
-        costLabel.textColor = ThemeSettings.Colors.main
+        costLabel.textColor = colorsTheme.contentBackgroundText
     }
     public func update(dish: DishOrderDish, currency: CurrencyType) {
 

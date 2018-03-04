@@ -12,6 +12,7 @@ import MdsKit
 import CoreTools
 import CoreDomains
 import CoreStorageServices
+import UITools
 import UIElements
 
 public protocol OneOrderInterfacePart: InterfaceTableCellProtocol {
@@ -28,6 +29,8 @@ public class OneOrderController: UIViewController {
     private var refreshControl: RefreshControl!
 
     //Services
+    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
     private let ordersService = DependencyResolver.resolve(OrdersCacheService.self)
     private var orderContainer: PartsLoadTypedContainer<DishOrder>!
     private var partsLoader: PartsLoader!
@@ -73,7 +76,7 @@ public class OneOrderController: UIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        showNavigationBar()
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.ordersService.subscribe(guid: guid, handler: self, tag: tag)
     }
     override public func viewWillDisappear(_ animated: Bool) {
@@ -87,8 +90,8 @@ extension OneOrderController {
     private func loadMarkup() {
 
         self.navigationItem.title = String(format: Keys.title.localized, orderId!)
-        self.view.backgroundColor = ThemeSettings.Colors.background
-        self.interfaceTable.backgroundColor = ThemeSettings.Colors.background
+        self.view.backgroundColor = colorsTheme.contentBackground
+        self.interfaceTable.backgroundColor = colorsTheme.contentBackground
 
         cancelButton.setTitle(Keys.cancelOrderButton.localized, for: .normal)
     }
@@ -143,7 +146,7 @@ extension OneOrderController {
                 self.interfaceLoader.hide()
 
                 if (self.partsLoader.problemWithLoad) {
-                    self.view.makeToast(Keys.problemWithLoad.localized)
+                    self.showToast(Keys.problemWithLoad)
                 }
             }
         }
@@ -181,7 +184,7 @@ extension OneOrderController {
                     order.status = oldStatus
                     self.orderContainer.update(order)
 
-                    self.view.makeToast(Keys.problemWithCancel.localized)
+                    self.showToast(Keys.problemWithCancel)
                 }
             }
         }

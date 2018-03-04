@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
+import UITools
+import UIElements
 
 public class ManagerOrdersControllerOrderCell: UITableViewCell {
 
@@ -23,10 +26,12 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
     }
 
     //UIELements
-    @IBOutlet weak var IdLabel: UILabel!
-    @IBOutlet weak var DateLabel: UILabel!
-    @IBOutlet weak var PlaceNameLabel: UILabel!
-    @IBOutlet weak var PriceLabel: PriceLabel!
+    @IBOutlet private weak var IdLabel: UILabel!
+    @IBOutlet private weak var DateLabel: UILabel!
+    @IBOutlet private weak var PlaceNameLabel: UILabel!
+    @IBOutlet private weak var PriceLabel: PriceLabel!
+
+    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
     private var order: DishOrder!
@@ -39,7 +44,7 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        let font = ThemeSettings.Fonts.default(size: .subhead)
+        let font = fontsTheme.default(size: .subhead)
 
         IdLabel.font = font
         DateLabel.font = font

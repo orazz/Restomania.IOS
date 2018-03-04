@@ -14,6 +14,7 @@ import CoreToolsServices
 import CoreDomains
 import CoreApiServices
 import CoreStorageServices
+import UIElements
 import UIServices
 
 public protocol PlaceCartContainerCell: InterfaceTableCellProtocol {
