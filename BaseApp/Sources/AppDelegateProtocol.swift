@@ -11,13 +11,7 @@ import Swinject
 import MdsKit
 import CoreTools
 
-public protocol CustomAppDelegate {
+public protocol AppDelegateProtocol {
 
-    func beforeLoad()
-    func afterLoad()
-
-    func registerInjections(_ container: Container)
     func coolectMigrations() -> [Int: Trigger]
-    func customizeTheme()
-
 }

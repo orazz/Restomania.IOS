@@ -1,5 +1,5 @@
 //
-//  BaseAppDelegate.swift
+//  AppDelegate.swift
 //  BaseApp
 //
 //  Created by Алексей on 18.02.18.
@@ -20,9 +20,9 @@ import Launcher
 
 open class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    public var window: UIWindow?
-    public private(set) var delegate: CustomAppDelegate!
+    public private(set) var delegate: AppDelegateProtocol!
     public private(set) var launcher: Launcher!
+    public var window: UIWindow?
 
     private let _tag = String.tag(AppDelegate.self)
     private var info: LaunchInfo!
@@ -34,10 +34,11 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    open func application(_ delegate: CustomAppDelegate, for application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    open func application(_ delegate: AppDelegateProtocol, for application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         self.delegate = delegate
         self.launcher = Launcher(for: self, with: launchOptions)
+        self.window = launcher.window
         self.info = DependencyResolver.resolve(LaunchInfo.self)
         self.configs = DependencyResolver.resolve(ConfigsContainer.self)
 
@@ -64,8 +65,6 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
     private func loadInjections() {
 
         let container = Container()
-
-
         registerInjections(in: container)
 
         DependencyResolver.setup(container)
@@ -115,16 +114,6 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
     open func customizeTheme() {
         UITools.customizeTheme()
     }
-
-//    private func loadCache() {
-//
-//        StorageServices.load(from: DependencyResolver.container)
-//    }
-//    private func launchServices() {
-//
-////        ApiKeysRefreshser.launch()
-////        PushesService.launch()
-//    }
 }
 //extension AppDelegate {
 //

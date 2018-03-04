@@ -44,12 +44,12 @@ open class StorageServices {
                         r.resolve(LightStorage.self)!) }).inObjectScope(.container)
     }
 
-    open static func load(from container: Container) {
+    open static func load() {
 
-        container.resolve(PlacesCacheService.self)!.load()
-        container.resolve(MenuCacheService.self)!.load()
-        container.resolve(CardsCacheService.self)!.load()
-        container.resolve(OrdersCacheService.self)!.load()
-        container.resolve(CacheImagesService.self)!.load()
+        DependencyResolver.resolve(PlacesCacheService.self).load()
+        DependencyResolver.resolve(MenuCacheService.self).load()
+        DependencyResolver.resolve(CardsCacheService.self).load()
+        DependencyResolver.resolve(OrdersCacheService.self).load()
+        DependencyResolver.resolve(CacheImagesService.self).load()
     }
 }

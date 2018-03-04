@@ -1,0 +1,10 @@
+/* 
+  LoadingController.strings
+  Launcher
+
+  Created by Алексей on 04.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Status.LoadCache" = "Загружаем данные.";
+"Status.RequestPermissions" = "Запрашиваем разрешения на уведомления.";

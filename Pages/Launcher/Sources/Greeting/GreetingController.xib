@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,64 +10,53 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GreetingController" customModule="Kuzina" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GreetingController" customModule="Launcher" customModuleProvider="target">
             <connections>
                 <outlet property="DemoButton" destination="Z8O-9E-vQl" id="qSA-bg-k9p"/>
+                <outlet property="EnterButton" destination="JV3-6P-83H" id="doz-rl-oQr"/>
+                <outlet property="logo" destination="vMK-sb-PdO" id="p39-Fr-lLd"/>
                 <outlet property="view" destination="yv4-9N-dI0" id="1LX-jS-zVs"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="yv4-9N-dI0">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krd-5Y-7wM">
-                    <rect key="frame" x="53" y="70" width="270" height="418"/>
+                    <rect key="frame" x="25" y="70" width="270" height="368"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-dark" translatesAutoresizingMaskIntoConstraints="NO" id="vMK-sb-PdO">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vMK-sb-PdO">
                             <rect key="frame" x="25" y="0.0" width="220" height="224"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="224" id="en1-Ku-xAZ"/>
                                 <constraint firstAttribute="width" constant="220" id="xpf-bO-qfa"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JV3-6P-83H" customClass="GreyButton" customModule="Kuzina" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JV3-6P-83H" customClass="GreyButton" customModule="UIElements">
                             <rect key="frame" x="0.0" y="308" width="270" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="P2w-RO-eeZ"/>
                             </constraints>
-                            <state key="normal" title="Зарегистрироваться"/>
-                            <connections>
-                                <action selector="goToSignUp:" destination="-1" eventType="touchUpInside" id="fGt-bZ-aJA"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKG-Hl-sq8" customClass="WhiteButton" customModule="Kuzina" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="368" width="270" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="n04-Px-zMO"/>
-                            </constraints>
                             <state key="normal" title="Войти"/>
                             <connections>
-                                <action selector="goToLogin:" destination="-1" eventType="touchUpInside" id="69u-Hr-Qa6"/>
+                                <action selector="goToSignUp:" destination="-1" eventType="touchUpInside" id="fGt-bZ-aJA"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="JV3-6P-83H" firstAttribute="top" secondItem="vMK-sb-PdO" secondAttribute="bottom" constant="84" id="645-2v-58X"/>
+                        <constraint firstAttribute="bottom" secondItem="JV3-6P-83H" secondAttribute="bottom" constant="10" id="8vr-Zd-Bc2"/>
                         <constraint firstItem="vMK-sb-PdO" firstAttribute="top" secondItem="krd-5Y-7wM" secondAttribute="top" id="NgF-S5-fNx"/>
-                        <constraint firstItem="cKG-Hl-sq8" firstAttribute="top" secondItem="JV3-6P-83H" secondAttribute="bottom" constant="10" id="UpD-h0-LGS"/>
-                        <constraint firstAttribute="trailing" secondItem="cKG-Hl-sq8" secondAttribute="trailing" id="Y82-m7-gzN"/>
                         <constraint firstAttribute="trailing" secondItem="JV3-6P-83H" secondAttribute="trailing" id="Yvh-Ee-EJ1"/>
-                        <constraint firstItem="cKG-Hl-sq8" firstAttribute="leading" secondItem="krd-5Y-7wM" secondAttribute="leading" id="ZHq-AB-uHu"/>
-                        <constraint firstAttribute="bottom" secondItem="cKG-Hl-sq8" secondAttribute="bottom" id="fq6-He-2gs"/>
                         <constraint firstAttribute="width" constant="270" id="nOW-YF-2WZ"/>
                         <constraint firstItem="vMK-sb-PdO" firstAttribute="centerX" secondItem="krd-5Y-7wM" secondAttribute="centerX" id="sHi-Aw-9Pt"/>
                         <constraint firstItem="JV3-6P-83H" firstAttribute="leading" secondItem="krd-5Y-7wM" secondAttribute="leading" id="v6S-fS-V3f"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8O-9E-vQl">
-                    <rect key="frame" x="20" y="528" width="335" height="30"/>
+                    <rect key="frame" x="20" y="518" width="280" height="30"/>
                     <state key="normal" title="Войти без авторизации"/>
                     <connections>
                         <action selector="goWithoutAuth" destination="-1" eventType="touchUpInside" id="ZGG-vg-s4m"/>
@@ -77,15 +66,12 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Z8O-9E-vQl" firstAttribute="leading" secondItem="yv4-9N-dI0" secondAttribute="leading" constant="20" id="hgj-z0-1Qq"/>
+                <constraint firstItem="S6s-Kx-QYY" firstAttribute="bottom" secondItem="Z8O-9E-vQl" secondAttribute="bottom" constant="20" id="jiH-KF-O67"/>
                 <constraint firstItem="krd-5Y-7wM" firstAttribute="top" secondItem="S6s-Kx-QYY" secondAttribute="top" constant="50" id="ksi-id-lK6"/>
                 <constraint firstAttribute="trailing" secondItem="Z8O-9E-vQl" secondAttribute="trailing" constant="20" id="nF2-kf-1DI"/>
                 <constraint firstItem="krd-5Y-7wM" firstAttribute="centerX" secondItem="yv4-9N-dI0" secondAttribute="centerX" id="u7h-Sh-EdS"/>
-                <constraint firstItem="Z8O-9E-vQl" firstAttribute="top" secondItem="krd-5Y-7wM" secondAttribute="bottom" constant="40" id="zcZ-99-wJU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="S6s-Kx-QYY"/>
         </view>
     </objects>
-    <resources>
-        <image name="logo-dark" width="1008" height="1024"/>
-    </resources>
 </document>

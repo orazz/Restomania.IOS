@@ -14,16 +14,15 @@ import UITools
 import CoreTools
 
 @UIApplicationMain
-class AppDelegate: RestomaniaAppDelegate, CustomAppDelegate {
+class AppDelegate: BaseApp.AppDelegate, AppDelegateProtocol {
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return super.application(self, for: application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     //CustomAppDelegate
-    public func beforeLoad() {}
-
-    public func registerInjections(_ container: Container) {
+    open override func registerInjections(in container: Container) {
+        super.registerInjections(in: container)
 
         container.register(ThemeColors.self, factory: { _ in ThemeSettings.Colors()})
         container.register(ThemeImages.self, factory: { _ in ThemeSettings.Images()})
@@ -32,7 +31,4 @@ class AppDelegate: RestomaniaAppDelegate, CustomAppDelegate {
     public func coolectMigrations() -> [Int: Trigger] {
         return [:]
     }
-    public func customizeTheme() {}
-
-    public func afterLoad() {}
 }

@@ -53,12 +53,7 @@ public class ThemeSettings {
         private static func loadAssert(named: String) -> UIImage {
             return UIImage(named: named, in: Bundle.main, compatibleWith: nil)!
         }
-
-        public init() {}
     }
 
-    public class Fonts: ThemeFonts {
-
-        public init() {}
-    }
+    public class Fonts: ThemeFonts {}
 }

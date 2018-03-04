@@ -8,17 +8,16 @@
 
 import Foundation
 import UIKit
-import Swinject
 import Toast_Swift
 import NotificationBannerSwift
+import CoreTools
 
 open class UITools {
 
-    public static func customizeTheme(from container: Container) {
+    public static func customizeTheme() {
 
-        let colors = container.resolve(ThemeColors.self)!
-        let fonts = container.resolve(ThemeFonts.self)!
-//        let images = container.resolve(ThemeImages.self)!
+        let colors = DependencyResolver.resolve(ThemeColors.self)
+        let fonts = DependencyResolver.resolve(ThemeFonts.self)
 
         UIApplication.shared.statusBarStyle = colors.defaultStatusBar
         
@@ -55,13 +54,14 @@ open class UITools {
     private static func stylizeBanner(_ colors: ThemeColors, _ fonts: ThemeFonts) {
 
         let banner = NotificationBanner.appearance()
+//
+//        banner.titleLabel?.font = fonts.bold(size: .head)
+//        banner.titleLabel?.textColor = colors.actionContent
+//
+//        banner.subtitleLabel?.font = fonts.default(size: .subhead)
+//        banner.subtitleLabel?.textColor = colors.notificationContent
 
-        banner.titleLabel?.font = fonts.bold(size: .head)
-        banner.titleLabel?.textColor = colors.actionContent
-
-        banner.subtitleLabel?.font = fonts.default(size: .subhead)
-        banner.subtitleLabel?.textColor = colors.notificationContent
-
+        banner.tintColor = colors.notificationContent
         banner.backgroundColor = colors.notificationMain
     }
 }

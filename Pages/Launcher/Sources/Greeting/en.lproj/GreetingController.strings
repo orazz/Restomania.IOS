@@ -1,0 +1,10 @@
+/* 
+  GreetingController.strings
+  Launcher
+
+  Created by Алексей on 05.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Buttons.Enter" = "Sing up";
+"Buttons.Demo" = "Enter without login";

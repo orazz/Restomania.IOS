@@ -80,12 +80,15 @@ public class NotificationsServices {
 
 // Permissons
 extension NotificationsServices {
+    public func needRequest() -> Bool {
+        return !UIApplication.shared.isRegisteredForRemoteNotifications
+    }
     public func requestPermissions() {
 
         let application = UIApplication.shared
 
-        let settings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
-        application.registerUserNotificationSettings(settings)
+//        let settings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
+//        application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
     }
     public func completeRequestToPushNotifications(token: Data?, error: Error? = nil) {

@@ -17,6 +17,7 @@ end
 def custom_app
     shared_pods
     injections
+    notifications
 end
 
 
