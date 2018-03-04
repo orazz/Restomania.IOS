@@ -115,22 +115,25 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
         UITools.customizeTheme()
     }
 }
-//extension AppDelegate {
-//
-////    public func application(_ application: UIApplication,
-////                            didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-////        NotificationsServices.shared.completeRequestToPushNotifications(token: deviceToken)
-////    }
-////    public func application(_ application: UIApplication,
-////                            didFailToRegisterForRemoteNotificationsWithError error: Error) {
-////        NotificationsServices.shared.completeRequestToPushNotifications(token: nil, error: error)
-////    }
-////    public func application(_ application: UIApplication,
-////                            didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-////                            fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-////        NotificationsServices.shared.processMessage(push: userInfo)
-////
-////        completionHandler(.newData)
-////    }
-//}
+extension AppDelegate {
+
+    public func application(_ application: UIApplication,
+                            didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+
+        print(deviceToken)
+//        NotificationsServices.shared.completeRequestToPushNotifications(token: deviceToken)
+    }
+    public func application(_ application: UIApplication,
+                            didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error)
+//        NotificationsServices.shared.completeRequestToPushNotifications(token: nil, error: error)
+    }
+    public func application(_ application: UIApplication,
+                            didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                            fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        NotificationsServices.shared.processMessage(push: userInfo)
+
+        completionHandler(.newData)
+    }
+}
 

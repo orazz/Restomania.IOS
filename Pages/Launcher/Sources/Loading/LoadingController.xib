@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingController" customModule="Launcher" customModuleProvider="target">
             <connections>
+                <outlet property="indicator" destination="tYc-SD-FPa" id="yIw-bX-fyT"/>
                 <outlet property="logo" destination="VaT-Md-aAq" id="A3M-lt-xVs"/>
                 <outlet property="status" destination="JBR-85-y95" id="GA5-lL-JPq"/>
                 <outlet property="view" destination="aoE-P9-zgk" id="EK8-iB-D30"/>

@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "container:"
-      name = "Apps">
-      <FileRef
-         location = "group:Apps/Kuzina/Kuzina.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Apps/SimpleRecipes/SimpleRecipes.xcodeproj">
-      </FileRef>
-   </Group>
+   <FileRef
+      location = "group:Apps/Custom.xcodeproj">
+   </FileRef>
    <FileRef
       location = "group:BaseApp/BaseApp.xcodeproj">
    </FileRef>
@@ -82,8 +75,5 @@
    </FileRef>
    <FileRef
       location = "group:Pages/Tools/Tools.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Apps/Custom.xcodeproj">
    </FileRef>
 </Workspace>

@@ -54,10 +54,6 @@ public class LoadingController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        startLoad()
-    }
-    private func startLoad() {
-
         loadCache()
     }
     private func loadCache() {
@@ -93,7 +89,7 @@ public class LoadingController: UIViewController {
 }
 extension LoadingController: LaunchControllerDelegate {
     public var notNeedDisplay: Bool {
-        return true
+        return false
     }
 
     public func hiddenProcessing() {}
