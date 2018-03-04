@@ -39,12 +39,14 @@ open class UITools {
         let cell = UITableViewCell.appearance()
         cell.backgroundColor = colors.contentBackground
 
-        stylizeToasts(fonts)
+        stylizeToasts(colors, fonts)
         stylizeBanner(colors, fonts)
     }
-    private static func stylizeToasts(_ fonts: ThemeFonts) {
+    private static func stylizeToasts(_ colors: ThemeColors, _ fonts: ThemeFonts) {
 
         var style = ToastStyle()
+        style.backgroundColor = colors.notificationMain
+        style.titleColor = colors.notificationContent
         style.messageFont = fonts.default(size: .subhead)
 
         ToastManager.shared.style = style
@@ -58,9 +60,9 @@ open class UITools {
         banner.titleLabel?.textColor = colors.actionContent
 
         banner.subtitleLabel?.font = fonts.default(size: .subhead)
-        banner.subtitleLabel?.textColor = colors.actionContent
+        banner.subtitleLabel?.textColor = colors.notificationContent
 
-        banner.backgroundColor = colors.actionMain
+        banner.backgroundColor = colors.notificationMain
     }
 }
 

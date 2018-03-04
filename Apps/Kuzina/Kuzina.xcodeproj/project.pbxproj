@@ -126,9 +126,9 @@
 				1F82D0D9203BA3D5002FDCB9 /* Kuzina.entitlements */,
 				1F36C88A1F20C1F900232B9A /* Configs.plist */,
 				1FC5A6AB1F138A8600ABE1A6 /* Info.plist */,
+				1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */,
 				1F8D356E203890B5007EA4C8 /* Translates */,
 				1F42F9662031B9BB001E0F3C /* App */,
-				1FC5A6A61F138A8600ABE1A6 /* Assets.xcassets */,
 			);
 			path = Kuzina;
 			sourceTree = "<group>";

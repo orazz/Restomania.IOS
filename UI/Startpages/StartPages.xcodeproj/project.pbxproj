@@ -15,6 +15,7 @@
 		1F4C351B204BB985003798AD /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3520204BB985003798AD /* CoreStorageServices.framework */; };
 		1F4C351C204BB985003798AD /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3521204BB985003798AD /* CoreTools.framework */; };
 		1F4C351D204BB985003798AD /* CoreToolsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3522204BB985003798AD /* CoreToolsServices.framework */; };
+		1F693884204BED1600854292 /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F693883204BED1500854292 /* TabsController.swift */; };
 		1F78E701203E1A840006B845 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6FC203E1A830006B845 /* LaunchController.swift */; };
 		1F78E702203E1A840006B845 /* GreetingControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6FD203E1A830006B845 /* GreetingControllerView.xib */; };
 		1F78E703203E1A840006B845 /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6FE203E1A840006B845 /* GreetingController.swift */; };
@@ -34,6 +35,7 @@
 		1F4C3522204BB985003798AD /* CoreToolsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreToolsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607EF203E10FF00DA2F78 /* StartPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StartPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607F3203E10FF00DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F693883204BED1500854292 /* TabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsController.swift; sourceTree = "<group>"; };
 		1F78E6FC203E1A830006B845 /* LaunchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
 		1F78E6FD203E1A830006B845 /* GreetingControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GreetingControllerView.xib; sourceTree = "<group>"; };
 		1F78E6FE203E1A840006B845 /* GreetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		1F5607F1203E10FF00DA2F78 /* StartPages */ = {
 			isa = PBXGroup;
 			children = (
+				1F693883204BED1500854292 /* TabsController.swift */,
 				1F78E6FE203E1A840006B845 /* GreetingController.swift */,
 				1F78E6FD203E1A830006B845 /* GreetingControllerView.xib */,
 				1F78E700203E1A840006B845 /* Launch.storyboard */,
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F693884204BED1600854292 /* TabsController.swift in Sources */,
 				1F78E703203E1A840006B845 /* GreetingController.swift in Sources */,
 				1F78E701203E1A840006B845 /* LaunchController.swift in Sources */,
 			);

@@ -11,6 +11,7 @@
 		1F4C3524204BB9ED003798AD /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3527204BB9ED003798AD /* UIServices.framework */; };
 		1F4C3525204BB9ED003798AD /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3528204BB9ED003798AD /* UITools.framework */; };
 		1F4C3529204BB9F5003798AD /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C352A204BB9F5003798AD /* CoreTools.framework */; };
+		1F69386D204BEAFF00854292 /* ManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F69386C204BEAFF00854292 /* ManagerController.swift */; };
 		1F78E6D2203E1A290006B845 /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6B3203E1A280006B845 /* TermsController.strings */; };
 		1F78E6D3203E1A290006B845 /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6B6203E1A280006B845 /* TermsController.swift */; };
 		1F78E6D4203E1A290006B845 /* TermsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6B7203E1A280006B845 /* TermsControllerView.xib */; };
@@ -42,6 +43,7 @@
 		1F4C352A204BB9F5003798AD /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607C5203E101E00DA2F78 /* ManagerPages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ManagerPages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607C9203E101E00DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F69386C204BEAFF00854292 /* ManagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerController.swift; sourceTree = "<group>"; };
 		1F78E6B4203E1A280006B845 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F78E6B5203E1A280006B845 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F78E6B6203E1A280006B845 /* TermsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		1F5607C7203E101E00DA2F78 /* ManagerPages */ = {
 			isa = PBXGroup;
 			children = (
+				1F69386C204BEAFF00854292 /* ManagerController.swift */,
 				1F78E6C3203E1A290006B845 /* ChangePassword */,
 				1F78E6B8203E1A280006B845 /* EditNotificationsPreferences */,
 				1F78E6C6203E1A290006B845 /* EditProfile */,
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F69386D204BEAFF00854292 /* ManagerController.swift in Sources */,
 				1F78E6E3203E1A290006B845 /* ManagerPaymentCardsController.swift in Sources */,
 				1F78E6D8203E1A290006B845 /* ManagerOrdersController.swift in Sources */,
 				1F78E6DE203E1A290006B845 /* ManagerEditProfileController.swift in Sources */,

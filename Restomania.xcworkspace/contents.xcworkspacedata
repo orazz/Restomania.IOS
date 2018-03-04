@@ -21,7 +21,7 @@
          location = "group:UI/StartPages/StartPages.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:UI/TabsPages/TabsPages.xcodeproj">
+         location = "group:UI/SearchPages/SearchPages.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:UI/ManagerPages/ManagerPages.xcodeproj">

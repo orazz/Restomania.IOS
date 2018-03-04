@@ -15,6 +15,9 @@
 		1F5607A2203E0CC200DA2F78 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5607A4203E0CC200DA2F78 /* CoreDomains.framework */; };
 		1F5607A3203E0CC200DA2F78 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5607A5203E0CC200DA2F78 /* CoreTools.framework */; };
 		1F78E72C203E2B6D0006B845 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E72B203E2B6D0006B845 /* UIImage.swift */; };
+		1F9AF582204C22400001F76A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AF581204C22400001F76A /* FontAwesome.ttf */; };
+		1FFC65FE204BEF66005269CB /* Asserts.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC65FD204BEF66005269CB /* Asserts.xcassets */; };
+		1FFC6600204BEFD1005269CB /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC65FF204BEFD1005269CB /* Tools.swift */; };
 		E5ADCDE6B829341B492B1C0E /* Pods_UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917D2F30A6211D71E16E4B29 /* Pods_UITools.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		1F5607A4203E0CC200DA2F78 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607A5203E0CC200DA2F78 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F78E72B203E2B6D0006B845 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		1F9AF581204C22400001F76A /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		1FFC65FD204BEF66005269CB /* Asserts.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asserts.xcassets; sourceTree = "<group>"; };
+		1FFC65FF204BEFD1005269CB /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		3D8B6E9FC042CD6B897DF417 /* Pods-UITools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITools.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-UITools/Pods-UITools.release.xcconfig"; sourceTree = "<group>"; };
 		917D2F30A6211D71E16E4B29 /* Pods_UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A901147460A379DFB3262DEA /* Pods-UITools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITools.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-UITools/Pods-UITools.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,7 +76,10 @@
 			isa = PBXGroup;
 			children = (
 				1F0C1E2E203B636400098810 /* Info.plist */,
+				1FFC65FD204BEF66005269CB /* Asserts.xcassets */,
+				1F9AF580204C21FF0001F76A /* Fonts */,
 				1F0C1E38203B64B400098810 /* UITools.swift */,
+				1FFC65FF204BEFD1005269CB /* Tools.swift */,
 				1F56079F203E0BCD00DA2F78 /* Routing */,
 				1F0C1E37203B647400098810 /* Theme */,
 				1F78E72A203E2B570006B845 /* Extensions */,
@@ -102,6 +111,14 @@
 				1F78E72B203E2B6D0006B845 /* UIImage.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1F9AF580204C21FF0001F76A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1F9AF581204C22400001F76A /* FontAwesome.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		E3AAC32212F2C73438387441 /* Pods */ = {
@@ -194,6 +211,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FFC65FE204BEF66005269CB /* Asserts.xcassets in Resources */,
+				1F9AF582204C22400001F76A /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +263,7 @@
 				1F56079C203E012F00DA2F78 /* ThemeImages.swift in Sources */,
 				1F5607A1203E0BE300DA2F78 /* Router.swift in Sources */,
 				1F78E72C203E2B6D0006B845 /* UIImage.swift in Sources */,
+				1FFC6600204BEFD1005269CB /* Tools.swift in Sources */,
 				1F0C1E36203B63A800098810 /* ThemeColors.swift in Sources */,
 				1F0C1E39203B64B400098810 /* UITools.swift in Sources */,
 			);

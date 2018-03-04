@@ -20,6 +20,9 @@ public protocol ThemeColors {
     var actionDisabled: UIColor { get }
     var actionContent: UIColor { get }
 
+    var notificationMain: UIColor { get }
+    var notificationContent: UIColor { get }
+
     var contentBackground: UIColor { get }
     var contentBackgroundText: UIColor { get }
     var contentDivider: UIColor { get }

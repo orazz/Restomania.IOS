@@ -18,13 +18,34 @@ public enum ThemeFontsSize: Int {
 }
 public protocol ThemeFonts {
 
-    func `default`(size: ThemeFontsSize) -> UIFont
     func `default`(size: Int) -> UIFont
-
-    func bold(size: ThemeFontsSize) -> UIFont
     func bold(size: Int) -> UIFont
-
-    func icons(size: ThemeFontsSize) -> UIFont
-    func icons(size: Int) -> UIFont
+    
     func icons(size: CGFloat) -> UIFont
+}
+extension ThemeFonts {
+
+    public func `default`(size: ThemeFontsSize) -> UIFont {
+        return self.default(size: size.rawValue)
+    }
+    public func `default`(size: Int) -> UIFont {
+        return UIFont(name: "HelveticaNeue", size: CGFloat(size))!
+    }
+
+    public func bold(size: ThemeFontsSize) -> UIFont {
+        return self.bold(size: size.rawValue)
+    }
+    public func bold(size: Int) -> UIFont {
+        return UIFont(name: "HelveticaNeue-Bold", size: CGFloat(size))!
+    }
+
+    public func icons(size: ThemeFontsSize) -> UIFont {
+        return self.icons(size: size.rawValue)
+    }
+    public func icons(size: Int) -> UIFont {
+        return self.icons(size: CGFloat(size))
+    }
+    public func icons(size: CGFloat) -> UIFont {
+        return UIFont(name: "FontAwesome", size: size)!
+    }
 }

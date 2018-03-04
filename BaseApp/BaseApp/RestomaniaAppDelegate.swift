@@ -93,25 +93,25 @@ open class RestomaniaAppDelegate: UIResponder, UIApplicationDelegate {
     }
     private func launchServices() {
 
-        ApiKeysRefreshser.launch()
-        PushesService.launch()
+//        ApiKeysRefreshser.launch()
+//        PushesService.launch()
     }
 }
 extension RestomaniaAppDelegate {
 
-    public func application(_ application: UIApplication,
-                            didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        NotificationsServices.shared.completeRequestToPushNotifications(token: deviceToken)
-    }
-    public func application(_ application: UIApplication,
-                            didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        NotificationsServices.shared.completeRequestToPushNotifications(token: nil, error: error)
-    }
-    public func application(_ application: UIApplication,
-                            didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-                            fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        NotificationsServices.shared.processMessage(push: userInfo)
-
-        completionHandler(.newData)
-    }
+//    public func application(_ application: UIApplication,
+//                            didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+//        NotificationsServices.shared.completeRequestToPushNotifications(token: deviceToken)
+//    }
+//    public func application(_ application: UIApplication,
+//                            didFailToRegisterForRemoteNotificationsWithError error: Error) {
+//        NotificationsServices.shared.completeRequestToPushNotifications(token: nil, error: error)
+//    }
+//    public func application(_ application: UIApplication,
+//                            didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+//                            fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        NotificationsServices.shared.processMessage(push: userInfo)
+//
+//        completionHandler(.newData)
+//    }
 }
