@@ -27,7 +27,7 @@ public class TermsController: UIViewController {
         super.viewDidLoad()
 
         pageWebView.delegate = self
-        pageWebView.loadRequest(URLRequest(url: URL(string: "http://restomania.azurewebsites.net/terms-user.html")!))
+        pageWebView.loadRequest(URLRequest(url: URL(string: "http://medvedstudio.azurewebsites.net/restomania-terms-user.html")!))
 
         interfaceLoader = InterfaceLoader(for: self.view)
         interfaceLoader.show()
