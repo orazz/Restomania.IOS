@@ -20,6 +20,9 @@ public protocol ConfigsContainer {
     var placeId: Long? { get }
     var chainId: Long? { get }
 
+    var paymentSystem: PaymentSystem { get }
+    var currency: Currency { get }
+
     func get<TConfig>(_ key: String) -> TConfig?
     func get<TConfig>(_ key: ConfigKey) -> TConfig?
 

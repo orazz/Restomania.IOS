@@ -21,6 +21,9 @@ open class ConfigKey: RawRepresentable {
     public static let placeId = ConfigKey(rawValue: "PlaceId")
     public static let chainId = ConfigKey(rawValue: "ChainId")
 
+    public static let paymentSystem = ConfigKey(rawValue: "PaymentSystem")
+    public static let currency = ConfigKey(rawValue: "Currency")
+
 
 
     public let rawValue: String

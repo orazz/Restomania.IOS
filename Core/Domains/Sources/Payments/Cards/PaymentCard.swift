@@ -9,6 +9,7 @@
 import Foundation
 import Gloss
 import MdsKit
+import CoreTools
 
 public class PaymentCard: BaseDataType, ICached {
 
@@ -25,8 +26,8 @@ public class PaymentCard: BaseDataType, ICached {
     public var last4Number: String
     public var status: PaymentCardStatus
     public var type: PaymentCardType
-    public var bankType: BankClientType
-    public var currency: CurrencyType
+    public var bankType: PaymentSystem
+    public var currency: Currency
 
     public override init() {
 

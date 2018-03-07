@@ -23,7 +23,7 @@ public class Account: BaseDataType {
     public var Email: String
     public var Name: String
     public var Rights: ApiRole
-    public var CurrencyType: CurrencyType
+    public var CurrencyType: Currency
 
     public override init() {
         self.Email = String.empty

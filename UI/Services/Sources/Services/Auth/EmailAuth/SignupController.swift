@@ -16,8 +16,8 @@ import UIElements
 public class SignupController: BaseAuthController {
 
     //UI
-    @IBOutlet private weak var Signup: BlackButton!
-    @IBOutlet private weak var Login: WhiteButton!
+    @IBOutlet private weak var Signup: DefaultButton!
+    @IBOutlet private weak var Login: InvertedButton!
     @IBOutlet private weak var ForgetPassword: UIButton!
 
     //Theme
@@ -109,7 +109,7 @@ public class SignupController: BaseAuthController {
                 }
 
                 //Process errors
-                let title = EmailAuth.Localization.alertTitle.localized
+                let title = EmailAuth.Localization.alertsAuthTitle.localized
                 if (response.statusCode == .ConnectionError) {
                     self.showAlert(about: EmailAuth.Localization.alertsNoConnection.localized, title: title)
 

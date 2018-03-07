@@ -9,6 +9,7 @@
 import Foundation
 import MdsKit
 import Gloss
+import CoreTools
 
 public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDependentProtocol {
 
@@ -41,7 +42,7 @@ public class DishOrder: BaseDataType, ICached, UserDependentProtocol, PlaceDepen
 
     public var status: DishOrderStatus
     public let type: DishOrderType
-    public let currency: CurrencyType
+    public let currency: Currency
     public let isPaid: Bool
     public let takeaway: Bool
     public let customData: String?

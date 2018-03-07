@@ -1,14 +1,15 @@
 //
-//  CurrencyType.swift
-//  CoreDomains
+//  Currency.swift
+//  CoreTools
 //
-//  Created by Алексей on 17.07.17.
-//  Copyright © 2017 Medved-Studio. All rights reserved.
+//  Created by Алексей on 07.03.18.
+//  Copyright © 2018 Medved-Studio. All rights reserved.
 //
 
 import Foundation
 
-public enum CurrencyType: Int {
+public enum Currency: Int {
+    
     case All = -1
     case USD = 840
     case RUB = 643

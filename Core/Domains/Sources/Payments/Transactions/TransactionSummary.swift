@@ -8,6 +8,7 @@
 
 import Foundation
 import Gloss
+import CoreTools
 
 public class TransactionSummary: JSONDecodable {
 
@@ -21,7 +22,7 @@ public class TransactionSummary: JSONDecodable {
 
     public var `Type`: TransactionType
     public var Status: TransactionStatus
-    public var Currency: CurrencyType
+    public var Currency: Currency
     public var Amount: Double
     public var PaymentLink: String
 

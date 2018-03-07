@@ -5,7 +5,7 @@ platform :ios, '9.1'
 def shared_pods
     use_frameworks!
     pod 'Gloss', '~> 2.0'
-    pod 'MdsKit'
+    pod 'MdsKit', '~> 1.3.2'
 end
 def injections
     pod 'Swinject', '~> 2.1.0'
@@ -28,7 +28,6 @@ end
 #Kuzina
 target 'Kuzina' do
     project './Apps/Custom.xcodeproj'
-#    target 'Kuzina'
     custom_app
 end
 #target 'SimpleRecipes' do

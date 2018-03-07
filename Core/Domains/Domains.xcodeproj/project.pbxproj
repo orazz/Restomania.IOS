@@ -14,11 +14,9 @@
 		1F42FC072031BA12001E0F3C /* BaseNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBBC2031BA11001E0F3C /* BaseNotificationPreference.swift */; };
 		1F42FC082031BA12001E0F3C /* MethodConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBBD2031BA11001E0F3C /* MethodConnection.swift */; };
 		1F42FC092031BA12001E0F3C /* UserNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBBE2031BA11001E0F3C /* UserNotificationPreference.swift */; };
-		1F42FC0A2031BA12001E0F3C /* BankClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBC02031BA11001E0F3C /* BankClientType.swift */; };
 		1F42FC0B2031BA12001E0F3C /* PaymentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBC22031BA11001E0F3C /* PaymentCard.swift */; };
 		1F42FC0C2031BA12001E0F3C /* PaymentCardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBC32031BA11001E0F3C /* PaymentCardStatus.swift */; };
 		1F42FC0D2031BA12001E0F3C /* PaymentCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBC42031BA11001E0F3C /* PaymentCardType.swift */; };
-		1F42FC0E2031BA12001E0F3C /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBC52031BA11001E0F3C /* CurrencyType.swift */; };
 		1F42FC0F2031BA12001E0F3C /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBC72031BA11001E0F3C /* TransactionStatus.swift */; };
 		1F42FC102031BA12001E0F3C /* TransactionSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBC82031BA11001E0F3C /* TransactionSummary.swift */; };
 		1F42FC112031BA12001E0F3C /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FBC92031BA11001E0F3C /* TransactionType.swift */; };
@@ -91,11 +89,9 @@
 		1F42FBBC2031BA11001E0F3C /* BaseNotificationPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotificationPreference.swift; sourceTree = "<group>"; };
 		1F42FBBD2031BA11001E0F3C /* MethodConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodConnection.swift; sourceTree = "<group>"; };
 		1F42FBBE2031BA11001E0F3C /* UserNotificationPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationPreference.swift; sourceTree = "<group>"; };
-		1F42FBC02031BA11001E0F3C /* BankClientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankClientType.swift; sourceTree = "<group>"; };
 		1F42FBC22031BA11001E0F3C /* PaymentCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCard.swift; sourceTree = "<group>"; };
 		1F42FBC32031BA11001E0F3C /* PaymentCardStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCardStatus.swift; sourceTree = "<group>"; };
 		1F42FBC42031BA11001E0F3C /* PaymentCardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCardType.swift; sourceTree = "<group>"; };
-		1F42FBC52031BA11001E0F3C /* CurrencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyType.swift; sourceTree = "<group>"; };
 		1F42FBC72031BA11001E0F3C /* TransactionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionStatus.swift; sourceTree = "<group>"; };
 		1F42FBC82031BA11001E0F3C /* TransactionSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionSummary.swift; sourceTree = "<group>"; };
 		1F42FBC92031BA11001E0F3C /* TransactionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
@@ -215,9 +211,7 @@
 		1F42FBBF2031BA11001E0F3C /* Payments */ = {
 			isa = PBXGroup;
 			children = (
-				1F42FBC02031BA11001E0F3C /* BankClientType.swift */,
 				1F42FBC12031BA11001E0F3C /* Cards */,
-				1F42FBC52031BA11001E0F3C /* CurrencyType.swift */,
 				1F42FBC62031BA11001E0F3C /* Transactions */,
 			);
 			path = Payments;
@@ -482,7 +476,7 @@
 				TargetAttributes = {
 					1FCDCF6F2031B1A200321E3E = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					1FCDCF782031B1A200321E3E = {
 						CreatedOnToolsVersion = 9.1;
@@ -588,7 +582,6 @@
 				1F42FC3B2031BA12001E0F3C /* Menu.swift in Sources */,
 				1F42FC0D2031BA12001E0F3C /* PaymentCardType.swift in Sources */,
 				1F42FC282031BA12001E0F3C /* BaseLoyaltySystem.swift in Sources */,
-				1F42FC0A2031BA12001E0F3C /* BankClientType.swift in Sources */,
 				1F42FC2C2031BA12001E0F3C /* LoyaltyType.swift in Sources */,
 				1F42FC292031BA12001E0F3C /* Bonuses.swift in Sources */,
 				1F42FC272031BA12001E0F3C /* Location.swift in Sources */,
@@ -603,7 +596,6 @@
 				1F42FC112031BA12001E0F3C /* TransactionType.swift in Sources */,
 				1F42FC1E2031BA12001E0F3C /* CountedLoyaltySystem.swift in Sources */,
 				1F42FC132031BA12001E0F3C /* DishOrder.swift in Sources */,
-				1F42FC0E2031BA12001E0F3C /* CurrencyType.swift in Sources */,
 				1F42FC252031BA12001E0F3C /* LinkType.swift in Sources */,
 				1F42FC062031BA12001E0F3C /* NotificationPlatformType.swift in Sources */,
 				1F42FC0B2031BA12001E0F3C /* PaymentCard.swift in Sources */,
@@ -697,7 +689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -751,7 +743,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -766,9 +758,10 @@
 			baseConfigurationReference = 8EBC0C45585AFA5FB3B9F6B0 /* Pods-CoreDomains.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 686FXGC24W;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -790,9 +783,10 @@
 			baseConfigurationReference = E2215337C6935E46594FE245 /* Pods-CoreDomains.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 686FXGC24W;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

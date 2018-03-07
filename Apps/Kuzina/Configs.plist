@@ -3,7 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>AppKey</key>
-	<string>7c9e6679-7425-40de-944b-e07fc1f90ae7</string>
+	<string>936DA01F-9ABD-4D9D-80C7-02AF85C822A8</string>
+	<key>vkAppid</key>
+	<integer>0</integer>
+	<key>instagramAppid</key>
+	<integer>0</integer>
+	<key>instagramAppSecret</key>
+	<string></string>
 	<key>ServerUrl</key>
 	<string>http://restomania-test.azurewebsites.net</string>
 	<key>AppType</key>
@@ -12,5 +18,9 @@
 	<string>User</string>
 	<key>ChainId</key>
 	<integer>1</integer>
+	<key>PaymentSystem</key>
+	<integer>4</integer>
+	<key>Currency</key>
+	<integer>643</integer>
 </dict>
 </plist>

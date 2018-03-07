@@ -15,7 +15,7 @@
 		1F69386D204BEAFF00854292 /* OtherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F69386C204BEAFF00854292 /* OtherController.swift */; };
 		1F78E6D2203E1A290006B845 /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6B3203E1A280006B845 /* TermsController.strings */; };
 		1F78E6D3203E1A290006B845 /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6B6203E1A280006B845 /* TermsController.swift */; };
-		1F78E6D4203E1A290006B845 /* TermsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6B7203E1A280006B845 /* TermsControllerView.xib */; };
+		1F78E6D4203E1A290006B845 /* TermsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6B7203E1A280006B845 /* TermsController.xib */; };
 		1F78E6D5203E1A290006B845 /* ManagerEditNotificationPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6B9203E1A280006B845 /* ManagerEditNotificationPreferencesController.swift */; };
 		1F78E6D6203E1A290006B845 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6BA203E1A280006B845 /* ManagerEditNotificationPreferencesControllerView.xib */; };
 		1F78E6D7203E1A290006B845 /* ManagerOrdersController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6BC203E1A280006B845 /* ManagerOrdersController.strings */; };
@@ -49,7 +49,7 @@
 		1F78E6B4203E1A280006B845 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F78E6B5203E1A280006B845 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F78E6B6203E1A280006B845 /* TermsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsController.swift; sourceTree = "<group>"; };
-		1F78E6B7203E1A280006B845 /* TermsControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsControllerView.xib; sourceTree = "<group>"; };
+		1F78E6B7203E1A280006B845 /* TermsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsController.xib; sourceTree = "<group>"; };
 		1F78E6B9203E1A280006B845 /* ManagerEditNotificationPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerEditNotificationPreferencesController.swift; sourceTree = "<group>"; };
 		1F78E6BA203E1A280006B845 /* ManagerEditNotificationPreferencesControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerEditNotificationPreferencesControllerView.xib; sourceTree = "<group>"; };
 		1F78E6BD203E1A280006B845 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManagerOrdersController.strings; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				1F78E6B6203E1A280006B845 /* TermsController.swift */,
-				1F78E6B7203E1A280006B845 /* TermsControllerView.xib */,
+				1F78E6B7203E1A280006B845 /* TermsController.xib */,
 				1F78E6B3203E1A280006B845 /* TermsController.strings */,
 			);
 			path = Terms;
@@ -291,7 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F78E6D4203E1A290006B845 /* TermsControllerView.xib in Resources */,
+				1F78E6D4203E1A290006B845 /* TermsController.xib in Resources */,
 				1F78E6D7203E1A290006B845 /* ManagerOrdersController.strings in Resources */,
 				1F78E6E4203E1A290006B845 /* ManagerPaymentCardsControllerView.xib in Resources */,
 				1F78E6DA203E1A290006B845 /* ManagerOrdersControllerOrderCellView.xib in Resources */,

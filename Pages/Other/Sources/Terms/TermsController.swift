@@ -18,7 +18,7 @@ public class TermsController: UIViewController {
 
     // MARK: Life circle
     public init() {
-        super.init(nibName: "TermsControllerView", bundle: Bundle.otherPages)
+        super.init(nibName: String.tag(TermsController.self), bundle: Bundle.otherPages)
     }
     public convenience required init?(coder aDecoder: NSCoder) {
         self.init()
@@ -27,12 +27,19 @@ public class TermsController: UIViewController {
         super.viewDidLoad()
 
         pageWebView.delegate = self
-        pageWebView.loadRequest(URLRequest(url: URL(string: "http://medvedstudio.azurewebsites.net/restomania-terms-user.html")!))
+        pageWebView.loadRequest(URLRequest(url: URL(string: "http://restomania.azurewebsites.net/terms-user.html")!))
 
         interfaceLoader = InterfaceLoader(for: self.view)
         interfaceLoader.show()
 
         navigationItem.title = Keys.title.localized
+
+        let indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        indicator.hidesWhenStopped = true
+        indicator.startAnimating()
+
+        let item = UIBarButtonItem(customView: indicator)
+        navigationItem.rightBarButtonItem = item
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

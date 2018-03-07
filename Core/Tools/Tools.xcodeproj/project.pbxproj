@@ -23,6 +23,8 @@
 		1F9B4A1B203CB39000979AF2 /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B4A1A203CB39000979AF2 /* DependencyResolver.swift */; };
 		1FCDCF562031B12E00321E3E /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCF4C2031B12E00321E3E /* CoreTools.framework */; };
 		1FCDCF5B2031B12E00321E3E /* ToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCF5A2031B12E00321E3E /* ToolsTests.swift */; };
+		1FECBDE1204FBB900089CA4C /* PaymentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECBDE0204FBB900089CA4C /* PaymentSystem.swift */; };
+		1FECBDE3204FBBA20089CA4C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECBDE2204FBBA20089CA4C /* Currency.swift */; };
 		B9898F65703CD3D94A5EA6DB /* Pods_CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60115D8B233892077176D129 /* Pods_CoreTools.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		1FCDCF552031B12E00321E3E /* CoreToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCF5A2031B12E00321E3E /* ToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTests.swift; sourceTree = "<group>"; };
 		1FCDCF5C2031B12E00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FECBDE0204FBB900089CA4C /* PaymentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSystem.swift; sourceTree = "<group>"; };
+		1FECBDE2204FBBA20089CA4C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		327050BDDBF0A3EFB403BFC1 /* Pods-CoreTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreTools.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreTools/Pods-CoreTools.debug.xcconfig"; sourceTree = "<group>"; };
 		60115D8B233892077176D129 /* Pods_CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -148,6 +152,7 @@
 				1F9B4A19203CB37D00979AF2 /* Dependencies */,
 				1F8105E0203218E700B197F8 /* LightStorage */,
 				1F3B3F2F2031F67A0042ADCD /* ApiKeys */,
+				1FECBDDD204FBB550089CA4C /* Payments */,
 				1F3B3F2A2031F5350042ADCD /* Configs */,
 				1FCDCF502031B12E00321E3E /* Info.plist */,
 				1F3B3F3A2031FE590042ADCD /* LaunchInfo.swift */,
@@ -162,6 +167,15 @@
 				1FCDCF5C2031B12E00321E3E /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		1FECBDDD204FBB550089CA4C /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				1FECBDE0204FBB900089CA4C /* PaymentSystem.swift */,
+				1FECBDE2204FBBA20089CA4C /* Currency.swift */,
+			);
+			path = Payments;
 			sourceTree = "<group>";
 		};
 		990DE235BF1E63E4A19B78EA /* Frameworks */ = {
@@ -339,6 +353,8 @@
 				1F81060820322CF500B197F8 /* ApiKeyServiceDelegate.swift in Sources */,
 				1F3B3F2E2031F5960042ADCD /* StringApiRole.swift in Sources */,
 				1F3B3F3B2031FE590042ADCD /* LaunchInfo.swift in Sources */,
+				1FECBDE3204FBBA20089CA4C /* Currency.swift in Sources */,
+				1FECBDE1204FBB900089CA4C /* PaymentSystem.swift in Sources */,
 				1F3B3F262031F3890042ADCD /* ConfigKey.swift in Sources */,
 				1F3B3F372031F6E20042ADCD /* ApiRole.swift in Sources */,
 				1F9B4A1B203CB39000979AF2 /* DependencyResolver.swift in Sources */,
@@ -414,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -468,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

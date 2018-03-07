@@ -1,7 +1,7 @@
 PODS:
   - Gloss (2.0.0)
   - MarqueeLabel/Swift (3.1.4)
-  - MdsKit (1.2.1):
+  - MdsKit (1.3.2):
     - Gloss (~> 2.0.0)
   - NotificationBannerSwift (1.5.4):
     - MarqueeLabel/Swift
@@ -12,7 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - Gloss (~> 2.0)
-  - MdsKit
+  - MdsKit (~> 1.3.2)
   - NotificationBannerSwift (~> 1.5.4)
   - Swinject (~> 2.1.0)
   - Toast-Swift (~> 3.0.1)
@@ -20,12 +20,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Gloss: b67617f327406adfd47adf20172d00680a3a31bd
   MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
-  MdsKit: bc76f2ffaadd62d6bc2d5dcead72fa3481e1ac08
+  MdsKit: 7156cc66f03cfbf08b27c337313de26f0dd03433
   NotificationBannerSwift: 4f6666c8421dcf11be0812dd1093d932c15921af
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Swinject: afea49fd95f392b41171669f165842879c48fad6
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 0842fad266a7e72446a72dbb9d37f70e04fe153e
+PODFILE CHECKSUM: bf4c177d52250a5256f8af4244374080976beadf
 
 COCOAPODS: 1.4.0

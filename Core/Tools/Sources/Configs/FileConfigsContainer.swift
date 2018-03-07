@@ -21,6 +21,9 @@ open class FileConfigsContainer: ConfigsContainer {
     public var placeId: Long?
     public var chainId: Long?
 
+    public var paymentSystem: PaymentSystem
+    public var currency: Currency
+
     public func get<TConfig>(_ key: String) -> TConfig? {
         return storage.get(forKey: key)
     }
@@ -49,6 +52,12 @@ open class FileConfigsContainer: ConfigsContainer {
 
         placeId = storage.get(forKey: ConfigKey.placeId)
         chainId = storage.get(forKey: ConfigKey.chainId)
+
+        let system: Int = storage.get(forKey: ConfigKey.paymentSystem)!
+        paymentSystem = PaymentSystem(rawValue: system)!
+
+        let cur: Int = storage.get(forKey: ConfigKey.currency)!
+        currency = Currency(rawValue: cur)!
     }
 
     public func displayToLog() {

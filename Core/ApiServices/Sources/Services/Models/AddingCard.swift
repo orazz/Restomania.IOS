@@ -9,6 +9,7 @@
 import Foundation
 import Gloss
 import MdsKit
+import CoreTools
 import CoreDomains
 
 public class AddingCard: JSONDecodable {
@@ -20,7 +21,7 @@ public class AddingCard: JSONDecodable {
     }
 
     public let id: Long
-    public let currency: CurrencyType
+    public let currency: Currency
     public let link: String
 
     public init() {

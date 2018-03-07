@@ -9,8 +9,15 @@
 import Foundation
 import UIKit
 import MdsKit
+import CoreTools
 import CoreDomains
 import CoreApiServices
+
+//public protocol WebService {
+//    associatedtype THandler
+//
+//    func show()
+//}
 
 public typealias AddPaymentCardCallback = ((Bool, Long) -> Void)
 public class AddCardUIService: NSObject, UIWebViewDelegate {
@@ -43,7 +50,7 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
         _webView.delegate = self
     }
 
-    public func addCard(for currency: CurrencyType, on controller: UIViewController, complete: @escaping AddPaymentCardCallback) {
+    fileprivate func addCard(on controller: UIViewController, to paymentSystem: PaymentSystem?, complete: @escaping AddPaymentCardCallback) {
 
         if (_isBusy) {
             complete(false, 0)
@@ -65,7 +72,7 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
             complete(success, cardId)
         }
 
-        let request = cardsApi.add(currency: currency)
+        let request = cardsApi.add()
         request.async(.background, completion: { response in
 
             if (!response.isSuccess) {
@@ -99,5 +106,10 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
                 return
             }
         }
+    }
+}
+extension UIViewController {
+    public func show(_ service: AddCardUIService, to paymentSystem: PaymentSystem? = nil, complete: @escaping AddPaymentCardCallback) {
+        service.addCard(on: self, to: paymentSystem, complete: complete)
     }
 }

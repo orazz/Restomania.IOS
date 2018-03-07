@@ -51,7 +51,7 @@ public class DishModalAddToCartAction: UIView {
     public func link(with delegate: AddDishToCartModalDelegateProtocol) {
         self.delegate = delegate
     }
-    public func refresh(total: Price, with currency: CurrencyType) {
+    public func refresh(total: Price, with currency: Currency) {
 
         totalLabel.isHidden = total.minorFormat == 0
         totalLabel.setup(price: total, currency: currency)

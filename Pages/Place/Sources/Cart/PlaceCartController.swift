@@ -316,11 +316,11 @@ extension PlaceCartController: PlaceCartDelegate {
     }
     public func addPaymentCard() {
 
-        guard let menu = takeMenu() else {
+        guard let summary = takeSummary() else {
             return
         }
 
-        addPaymentCardsService.addCard(for: menu.currency, on: self) { success, cardId in
+        self.show(addPaymentCardsService) { success, cardId in
 
             if (!success) {
                 self.showToast(Localization.Toasts.problemWithAddCard)

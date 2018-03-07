@@ -20,7 +20,7 @@ public class PlaceMenuDishCell: UITableViewCell {
 
     private static let nibName = "\(String.tag(PlaceMenuDishCell.self))View"
     private static let nib = UINib(nibName: nibName, bundle: Bundle.main)
-    public static func instance(for dish: Dish, with currency: CurrencyType, delegate: PlaceMenuDelegate) -> PlaceMenuDishCell {
+    public static func instance(for dish: Dish, with currency: Currency, delegate: PlaceMenuDelegate) -> PlaceMenuDishCell {
 
         let cell = nib.instantiate(withOwner: nil, options: nil).first as! PlaceMenuDishCell
         cell.setupStyles()
@@ -44,7 +44,7 @@ public class PlaceMenuDishCell: UITableViewCell {
     private var _dish: Dish?
     private var _delegate: PlaceMenuDelegate?
 
-    public func update(by dish: Dish, with currency: CurrencyType, delegate: PlaceMenuDelegate) {
+    public func update(by dish: Dish, with currency: Currency, delegate: PlaceMenuDelegate) {
 
         _dish = dish
         _delegate = delegate

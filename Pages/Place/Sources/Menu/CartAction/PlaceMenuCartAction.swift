@@ -47,7 +47,7 @@ public class PlaceMenuCartAction: UIView {
     //Data & services
     private let _tag = String.tag(PlaceMenuCartAction.self)
     private let guid = Guid.new
-    private var currency = CurrencyType.All
+    private var currency = Currency.All
     private var delegate: PlaceMenuDelegate!
     private var menu: MenuSummary? {
         didSet {

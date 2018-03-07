@@ -23,7 +23,7 @@ public class EmailAuth {
         case titleResetPassword = "Title.ResetPassword"
 
 
-        case alertsSuccessTitle = "Alerts.AuthTitle"
+        case alertsSuccessTitle = "Alerts.SuccessTitle"
         case alertsAuthTitle = "Alerts.AuthTitle"
         case alertsResetPasswordTitle = "Alerts.ResetPasswordTitle"
         case alertsNotCorrectEmail = "Alerts.NotCorrectEmail"

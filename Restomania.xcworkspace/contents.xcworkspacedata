@@ -67,4 +67,13 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Pages/Place/Place.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pages/Search/Search.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pages/Tools/Tools.xcodeproj">
+   </FileRef>
 </Workspace>

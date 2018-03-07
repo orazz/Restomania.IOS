@@ -34,7 +34,7 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
 
     //Data
     private var dish: DishOrderDish!
-    private var currency: CurrencyType!
+    private var currency: Currency!
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,7 +47,7 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
         costLabel.font = font
         costLabel.textColor = colorsTheme.contentBackgroundText
     }
-    public func update(dish: DishOrderDish, currency: CurrencyType) {
+    public func update(dish: DishOrderDish, currency: Currency) {
 
         self.dish = dish
         self.currency = currency

@@ -9,6 +9,7 @@
 import Foundation
 import MdsKit
 import Gloss
+import CoreTools
 
 public class MenuSummary: ICached {
 
@@ -28,7 +29,7 @@ public class MenuSummary: ICached {
 
     public let id: Long
     public let placeId: Long
-    public let currency: CurrencyType
+    public let currency: Currency
 
     public let categories: [MenuCategory]
 

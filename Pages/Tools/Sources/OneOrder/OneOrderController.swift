@@ -21,7 +21,7 @@ public protocol OneOrderInterfacePart: InterfaceTableCellProtocol {
 public class OneOrderController: UIViewController {
 
     //UI Elements
-    @IBOutlet private weak var cancelButton: BlackBottomButton!
+    @IBOutlet private weak var cancelButton: BottomAction!
     @IBOutlet private weak var interfaceTable: UITableView!
     private var interfaceAdapter: InterfaceTable!
     private var interfaceParts: [OneOrderInterfacePart] = []

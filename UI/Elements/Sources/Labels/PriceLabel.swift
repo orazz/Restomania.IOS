@@ -22,7 +22,7 @@ open class PriceLabel: UILabel {
 
     //Data
     public private(set) var price = Price.zero
-    public private(set) var currency = CurrencyType.All
+    public private(set) var currency = Currency.All
     public private(set) var useStartFrom: Bool = false
 
     public override init(frame: CGRect) {
@@ -41,14 +41,14 @@ open class PriceLabel: UILabel {
         refresh()
     }
 
-    public func setup(price: Price, currency: CurrencyType, useStartFrom: Bool = false) {
+    public func setup(price: Price, currency: Currency, useStartFrom: Bool = false) {
         self.price = price
         self.currency = currency
         self.useStartFrom = useStartFrom
 
         refresh()
     }
-    public func setup(amount: Double, currency: CurrencyType, useStartFrom: Bool = false) {
+    public func setup(amount: Double, currency: Currency, useStartFrom: Bool = false) {
         setup(price: Price(double: amount), currency: currency, useStartFrom: useStartFrom)
     }
     public func clear() {
@@ -86,7 +86,7 @@ open class PriceLabel: UILabel {
             return "\(price.decimal).\(price.float)"
         }
     }
-    private func getSymbol(currency: CurrencyType) -> String {
+    private func getSymbol(currency: Currency) -> String {
 
         switch currency {
             case .RUB:

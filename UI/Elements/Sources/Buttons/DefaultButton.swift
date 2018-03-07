@@ -1,15 +1,15 @@
 //
-//  BlackBottomButton.swift
+//  DefaultButton.swift
 //  Kuzina
 //
-//  Created by Алексей on 12.09.17.
+//  Created by Алексей on 15.08.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
 //
 
 import CoreTools
 import UITools
 
-open class BlackBottomButton: BlackButton {
+open class DefaultButton: BaseButton {
 
     override func stylize() {
 
@@ -18,8 +18,5 @@ open class BlackBottomButton: BlackButton {
         super.stylize(textColor: colors.actionContent,
                       backgroundColor: colors.actionMain,
                       borderColor: colors.actionMain)
-
-        self.layer.cornerRadius = 0
-        self.layer.borderWidth = 0
     }
 }

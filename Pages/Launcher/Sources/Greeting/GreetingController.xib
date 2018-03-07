@@ -33,7 +33,7 @@
                                 <constraint firstAttribute="width" constant="220" id="xpf-bO-qfa"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JV3-6P-83H" customClass="GreyButton" customModule="UIElements">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JV3-6P-83H" customClass="DefaultButton" customModule="UIElements">
                             <rect key="frame" x="0.0" y="308" width="270" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="P2w-RO-eeZ"/>

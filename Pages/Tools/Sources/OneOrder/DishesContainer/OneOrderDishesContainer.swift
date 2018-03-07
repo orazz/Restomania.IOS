@@ -31,7 +31,7 @@ public class OneOrderDishesContainer: UITableViewCell {
     private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
-    private var currency: CurrencyType = CurrencyType.All
+    private var currency: Currency = Currency.All
     private var dishes: [DishOrderDish] = []
 
     public override func awakeFromNib() {

@@ -36,7 +36,7 @@ public class ManagerPaymentCardsController: UIViewController {
     private let cardsService = DependencyResolver.resolve(CardsCacheService.self)
     private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
     private var loaderAdapter: PartsLoader!
-    private let mainCurrency = CurrencyType.RUB
+    private let mainCurrency = Currency.RUB
 
     public init() {
         super.init(nibName: "ManagerPaymentCardsControllerView", bundle: Bundle.otherPages)
@@ -117,7 +117,7 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
     @IBAction public func addCard() {
         Log.debug(_tag, "Try add new payment card.")
 
-        addCardUIService.addCard(for: self.mainCurrency, on: self) { success, _ in
+        self.show(addCardUIService) { success, _ in
 
             Log.debug(self._tag, "Adding new card is \(success)")
 
