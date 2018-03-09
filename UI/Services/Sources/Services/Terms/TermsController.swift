@@ -20,6 +20,7 @@ public class TermsController: UIViewController {
         let url = "http://medvedstudio.azurewebsites.net/restomania-terms-user.html"
         service = WebBrowserController(delegate: self, for: url)
         service.setTitle(Keys.title.localized)
+        service.setCancelButtom(Keys.buttonsClose.localized)
         
         present(service, animated: false, completion: nil)
     }
@@ -53,5 +54,7 @@ extension TermsController {
         }
 
         case title = "Title"
+
+        case buttonsClose = "Buttons.Close"
     }
 }

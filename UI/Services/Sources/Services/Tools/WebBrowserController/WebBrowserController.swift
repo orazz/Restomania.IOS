@@ -30,6 +30,7 @@ internal class WebBrowserController: UIViewController {
     private var url: String
     private var parameters: [String:String]?
     private var pageTitle: String!
+    private var cancelButtonTitle: String!
     private var navigationContentColor: UIColor!
     private var navigationBackgroundColor: UIColor!
 
@@ -45,6 +46,7 @@ internal class WebBrowserController: UIViewController {
         self.parameters = parameters
 
         pageTitle = String.empty
+        cancelButtonTitle = String.empty
         navigationContentColor = themeColors.navigationContent
         navigationBackgroundColor = themeColors.navigationMain
 
@@ -64,10 +66,11 @@ internal class WebBrowserController: UIViewController {
         super.viewWillAppear(animated)
 
         setTitle(pageTitle, textColor: navigationContentColor, backgroundColor: navigationBackgroundColor)
+        setCancelButtom(cancelButtonTitle)
     }
     private func loadMarkup() {
 
-        interfaceLoader = InterfaceLoader(for: self.view)
+        interfaceLoader = InterfaceLoader(for: self.webView)
         interfaceLoader.show()
 
         activityindicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
@@ -111,8 +114,13 @@ internal class WebBrowserController: UIViewController {
             navigationBar.backgroundColor = backgroundColor
         }
     }
-    public func setCancelButtom(_ title: String) {
-        cancelButtom.title = title
+    public func setCancelButtom(_ cancelButtonTitle: String) {
+
+        self.cancelButtonTitle = cancelButtonTitle
+
+        if nil != cancelButtom {
+            cancelButtom.title = title
+        }
     }
 
     public func showLoader() {
