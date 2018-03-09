@@ -13,9 +13,6 @@
 		1F4C3525204BB9ED003798AD /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C3528204BB9ED003798AD /* UITools.framework */; };
 		1F4C3529204BB9F5003798AD /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4C352A204BB9F5003798AD /* CoreTools.framework */; };
 		1F69386D204BEAFF00854292 /* OtherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F69386C204BEAFF00854292 /* OtherController.swift */; };
-		1F78E6D2203E1A290006B845 /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6B3203E1A280006B845 /* TermsController.strings */; };
-		1F78E6D3203E1A290006B845 /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6B6203E1A280006B845 /* TermsController.swift */; };
-		1F78E6D4203E1A290006B845 /* TermsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6B7203E1A280006B845 /* TermsController.xib */; };
 		1F78E6D5203E1A290006B845 /* ManagerEditNotificationPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E6B9203E1A280006B845 /* ManagerEditNotificationPreferencesController.swift */; };
 		1F78E6D6203E1A290006B845 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6BA203E1A280006B845 /* ManagerEditNotificationPreferencesControllerView.xib */; };
 		1F78E6D7203E1A290006B845 /* ManagerOrdersController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F78E6BC203E1A280006B845 /* ManagerOrdersController.strings */; };
@@ -46,10 +43,6 @@
 		1F5607C5203E101E00DA2F78 /* PagesOther.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PagesOther.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607C9203E101E00DA2F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F69386C204BEAFF00854292 /* OtherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherController.swift; sourceTree = "<group>"; };
-		1F78E6B4203E1A280006B845 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
-		1F78E6B5203E1A280006B845 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
-		1F78E6B6203E1A280006B845 /* TermsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsController.swift; sourceTree = "<group>"; };
-		1F78E6B7203E1A280006B845 /* TermsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsController.xib; sourceTree = "<group>"; };
 		1F78E6B9203E1A280006B845 /* ManagerEditNotificationPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerEditNotificationPreferencesController.swift; sourceTree = "<group>"; };
 		1F78E6BA203E1A280006B845 /* ManagerEditNotificationPreferencesControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerEditNotificationPreferencesControllerView.xib; sourceTree = "<group>"; };
 		1F78E6BD203E1A280006B845 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManagerOrdersController.strings; sourceTree = "<group>"; };
@@ -126,20 +119,9 @@
 				1F78E6C6203E1A290006B845 /* EditProfile */,
 				1F78E6BB203E1A280006B845 /* Orders */,
 				1F78E6C9203E1A290006B845 /* PaymentCards */,
-				1F78E6B2203E1A280006B845 /* Terms */,
 				1F5607C9203E101E00DA2F78 /* Info.plist */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		1F78E6B2203E1A280006B845 /* Terms */ = {
-			isa = PBXGroup;
-			children = (
-				1F78E6B6203E1A280006B845 /* TermsController.swift */,
-				1F78E6B7203E1A280006B845 /* TermsController.xib */,
-				1F78E6B3203E1A280006B845 /* TermsController.strings */,
-			);
-			path = Terms;
 			sourceTree = "<group>";
 		};
 		1F78E6B8203E1A280006B845 /* EditNotificationsPreferences */ = {
@@ -291,12 +273,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F78E6D4203E1A290006B845 /* TermsController.xib in Resources */,
 				1F78E6D7203E1A290006B845 /* ManagerOrdersController.strings in Resources */,
 				1F78E6E4203E1A290006B845 /* ManagerPaymentCardsControllerView.xib in Resources */,
 				1F78E6DA203E1A290006B845 /* ManagerOrdersControllerOrderCellView.xib in Resources */,
 				1F78E6E2203E1A290006B845 /* ManagerPaymentCardCellView.xib in Resources */,
-				1F78E6D2203E1A290006B845 /* TermsController.strings in Resources */,
 				1FC33E97204C8AE000FF5181 /* OtherController.xib in Resources */,
 				1F78E6DD203E1A290006B845 /* ManagerChangePasswordControllerView.xib in Resources */,
 				1F78E6E0203E1A290006B845 /* ManagerPaymentCardsController.strings in Resources */,
@@ -353,7 +333,6 @@
 				1F78E6E3203E1A290006B845 /* ManagerPaymentCardsController.swift in Sources */,
 				1F78E6D8203E1A290006B845 /* ManagerOrdersController.swift in Sources */,
 				1F78E6DE203E1A290006B845 /* ManagerEditProfileController.swift in Sources */,
-				1F78E6D3203E1A290006B845 /* TermsController.swift in Sources */,
 				1FC33E99204C8BA600FF5181 /* Extensions.swift in Sources */,
 				1F78E6D5203E1A290006B845 /* ManagerEditNotificationPreferencesController.swift in Sources */,
 				1F78E6D9203E1A290006B845 /* ManagerOrdersControllerOrderCell.swift in Sources */,
@@ -365,15 +344,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1F78E6B3203E1A280006B845 /* TermsController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F78E6B4203E1A280006B845 /* en */,
-				1F78E6B5203E1A280006B845 /* ru */,
-			);
-			name = TermsController.strings;
-			sourceTree = "<group>";
-		};
 		1F78E6BC203E1A280006B845 /* ManagerOrdersController.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

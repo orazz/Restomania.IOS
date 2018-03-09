@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1F6237C220501E3F0044F2D5 /* WebBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */; };
 		1F6237C420501E870044F2D5 /* WebBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237C320501E870044F2D5 /* WebBrowserController.swift */; };
+		1F6237E82052A5F80044F2D5 /* WebBrowserControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237E72052A5F80044F2D5 /* WebBrowserControllerDelegate.swift */; };
+		1F6238002052F3270044F2D5 /* WebBrowserController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F6238022052F3270044F2D5 /* WebBrowserController.strings */; };
+		1F6238062052FBBE0044F2D5 /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6238052052FBBE0044F2D5 /* TermsController.swift */; };
+		1F6238092052FBEA0044F2D5 /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F62380B2052FBEA0044F2D5 /* TermsController.strings */; };
 		1F7469322032AAAA00CC7BC9 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469332032AAAA00CC7BC9 /* CoreTools.framework */; };
 		1F7469342032AAB000CC7BC9 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469352032AAB000CC7BC9 /* CoreDomains.framework */; };
 		1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */; };
@@ -45,6 +49,12 @@
 		17B04D1DFDB9C89C6E5F6F61 /* Pods-CoreUIServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreUIServices.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreUIServices/Pods-CoreUIServices.release.xcconfig"; sourceTree = "<group>"; };
 		1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebBrowserController.xib; sourceTree = "<group>"; };
 		1F6237C320501E870044F2D5 /* WebBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserController.swift; sourceTree = "<group>"; };
+		1F6237E72052A5F80044F2D5 /* WebBrowserControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserControllerDelegate.swift; sourceTree = "<group>"; };
+		1F6238012052F3270044F2D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WebBrowserController.strings; sourceTree = "<group>"; };
+		1F6238032052F3290044F2D5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/WebBrowserController.strings; sourceTree = "<group>"; };
+		1F6238052052FBBE0044F2D5 /* TermsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsController.swift; sourceTree = "<group>"; };
+		1F62380A2052FBEA0044F2D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
+		1F62380C2052FBEB0044F2D5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F7469332032AAAA00CC7BC9 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469352032AAB000CC7BC9 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,9 +123,20 @@
 			isa = PBXGroup;
 			children = (
 				1F6237C320501E870044F2D5 /* WebBrowserController.swift */,
+				1F6237E72052A5F80044F2D5 /* WebBrowserControllerDelegate.swift */,
 				1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */,
+				1F6238022052F3270044F2D5 /* WebBrowserController.strings */,
 			);
 			path = WebBrowserController;
+			sourceTree = "<group>";
+		};
+		1F6238042052F97D0044F2D5 /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				1F6238052052FBBE0044F2D5 /* TermsController.swift */,
+				1F62380B2052FBEA0044F2D5 /* TermsController.strings */,
+			);
+			path = Terms;
 			sourceTree = "<group>";
 		};
 		1F7469312032AAAA00CC7BC9 /* Frameworks */ = {
@@ -147,6 +168,7 @@
 		1F980B8920388DC20017A0A2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1F6238042052F97D0044F2D5 /* Terms */,
 				1FCA6A892049729400D99879 /* Auth */,
 				1F9A07F0204971A6007853CA /* AddCard */,
 				1F6237BF20501DAE0044F2D5 /* Tools */,
@@ -345,8 +367,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FCA6A9B2049729700D99879 /* SignupController.xib in Resources */,
+				1F6238002052F3270044F2D5 /* WebBrowserController.strings in Resources */,
 				1FC33E9C204C8DFB00FF5181 /* EmailAuth.strings in Resources */,
 				1FCA6A972049729700D99879 /* ForgetPasswordController.xib in Resources */,
+				1F6238092052FBEA0044F2D5 /* TermsController.strings in Resources */,
 				1F6237C220501E3F0044F2D5 /* WebBrowserController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,12 +425,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6237E82052A5F80044F2D5 /* WebBrowserControllerDelegate.swift in Sources */,
 				1FCA6A952049729700D99879 /* BaseAuthController.swift in Sources */,
 				1FCA6A942049729700D99879 /* AuthUIService.swift in Sources */,
 				1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */,
 				1F6237C420501E870044F2D5 /* WebBrowserController.swift in Sources */,
 				1FCA6A9D2049741400D99879 /* AddCardUIService.swift in Sources */,
 				1FC33EA7204C902800FF5181 /* EmailAuth.swift in Sources */,
+				1F6238062052FBBE0044F2D5 /* TermsController.swift in Sources */,
 				1FCA6A9A2049729700D99879 /* SignupController.swift in Sources */,
 				1FCA6A932049729700D99879 /* AuthContainer.swift in Sources */,
 				1FCA6A962049729700D99879 /* ForgetPasswordController.swift in Sources */,
@@ -431,6 +457,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F6238022052F3270044F2D5 /* WebBrowserController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F6238012052F3270044F2D5 /* en */,
+				1F6238032052F3290044F2D5 /* ru */,
+			);
+			name = WebBrowserController.strings;
+			sourceTree = "<group>";
+		};
+		1F62380B2052FBEA0044F2D5 /* TermsController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F62380A2052FBEA0044F2D5 /* en */,
+				1F62380C2052FBEB0044F2D5 /* ru */,
+			);
+			name = TermsController.strings;
+			sourceTree = "<group>";
+		};
 		1FC33E9E204C8DFB00FF5181 /* EmailAuth.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
