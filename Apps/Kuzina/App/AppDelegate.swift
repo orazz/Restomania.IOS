@@ -31,4 +31,13 @@ class AppDelegate: BaseApp.AppDelegate, AppDelegateProtocol {
     public func coolectMigrations() -> [Int: Trigger] {
         return [:]
     }
+
+    override func customizeTheme() {
+        super.customizeTheme()
+
+        let bundle = Bundle.main
+        let store = TemplateStore.shared
+
+        store.searchPlaceCard(name: "SearchPlaceCard", from: bundle)
+    }
 }

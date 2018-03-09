@@ -21,5 +21,6 @@
 
 "Toasts.NotWorkTime" = "The cafe doesn't work at that time. Change order time.";
 "Toasts.NotAddOrder" = "Problem with adding order. Refresh page and try again.";
+"Toasts.NotSelectPaymentCard" = "Need select payment card.";
 "Toasts.ProblemWithLoad" = "Problem with load data. Check internet connection.";
 "Toasts.ProblemWithAddCard" = "Problem with adding payment card.";

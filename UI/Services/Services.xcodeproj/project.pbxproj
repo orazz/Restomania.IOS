@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F6237C220501E3F0044F2D5 /* WebBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */; };
+		1F6237C420501E870044F2D5 /* WebBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237C320501E870044F2D5 /* WebBrowserController.swift */; };
 		1F7469322032AAAA00CC7BC9 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469332032AAAA00CC7BC9 /* CoreTools.framework */; };
 		1F7469342032AAB000CC7BC9 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469352032AAB000CC7BC9 /* CoreDomains.framework */; };
 		1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		17B04D1DFDB9C89C6E5F6F61 /* Pods-CoreUIServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreUIServices.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreUIServices/Pods-CoreUIServices.release.xcconfig"; sourceTree = "<group>"; };
+		1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebBrowserController.xib; sourceTree = "<group>"; };
+		1F6237C320501E870044F2D5 /* WebBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserController.swift; sourceTree = "<group>"; };
 		1F7469332032AAAA00CC7BC9 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469352032AAB000CC7BC9 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +101,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F6237BF20501DAE0044F2D5 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				1F6237C020501E1F0044F2D5 /* WebBrowserController */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		1F6237C020501E1F0044F2D5 /* WebBrowserController */ = {
+			isa = PBXGroup;
+			children = (
+				1F6237C320501E870044F2D5 /* WebBrowserController.swift */,
+				1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */,
+			);
+			path = WebBrowserController;
+			sourceTree = "<group>";
+		};
 		1F7469312032AAAA00CC7BC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +149,7 @@
 			children = (
 				1FCA6A892049729400D99879 /* Auth */,
 				1F9A07F0204971A6007853CA /* AddCard */,
+				1F6237BF20501DAE0044F2D5 /* Tools */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -325,6 +347,7 @@
 				1FCA6A9B2049729700D99879 /* SignupController.xib in Resources */,
 				1FC33E9C204C8DFB00FF5181 /* EmailAuth.strings in Resources */,
 				1FCA6A972049729700D99879 /* ForgetPasswordController.xib in Resources */,
+				1F6237C220501E3F0044F2D5 /* WebBrowserController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +404,7 @@
 				1FCA6A952049729700D99879 /* BaseAuthController.swift in Sources */,
 				1FCA6A942049729700D99879 /* AuthUIService.swift in Sources */,
 				1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */,
+				1F6237C420501E870044F2D5 /* WebBrowserController.swift in Sources */,
 				1FCA6A9D2049741400D99879 /* AddCardUIService.swift in Sources */,
 				1FC33EA7204C902800FF5181 /* EmailAuth.swift in Sources */,
 				1FCA6A9A2049729700D99879 /* SignupController.swift in Sources */,

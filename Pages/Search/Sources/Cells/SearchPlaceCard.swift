@@ -17,12 +17,6 @@ import UIElements
 public class SearchPlaceCard: UITableViewCell {
 
     public static let height = CGFloat(100)
-    public static let identifier = Guid.new
-    public static func register(in table: UITableView) {
-
-        let nib = UINib.init(nibName: String.tag(SearchPlaceCard.self), bundle: Bundle.search)
-        table.register(nib, forCellReuseIdentifier: identifier)
-    }
 
     @IBOutlet private weak var placeImage: CachedImage!
     @IBOutlet private weak var name: UILabel!

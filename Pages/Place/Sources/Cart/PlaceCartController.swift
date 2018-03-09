@@ -320,10 +320,12 @@ extension PlaceCartController: PlaceCartDelegate {
             return
         }
 
-        self.show(addPaymentCardsService) { success, cardId in
+        self.show(addPaymentCardsService, to: summary.paymentSystem) { success, cardId in
 
             if (!success) {
-                self.showToast(Localization.Toasts.problemWithAddCard)
+                DispatchQueue.main.async {
+                    self.showToast(Localization.Toasts.problemWithAddCard)
+                }
                 return
             }
 
@@ -350,6 +352,11 @@ extension PlaceCartController: PlaceCartDelegate {
     }
     public func tryAddOrder() {
         Log.info(_tag, "Try add order.")
+
+        guard let _ = cartContaier.cardId else {
+            self.showToast(Localization.Toasts.needSelectPaymentCard)
+            return
+        }
 
         guard let summary = takeSummary() else {
             return
@@ -462,6 +469,7 @@ extension PlaceCartController {
 
             case notWorkTime = "Toasts.NotWorkTime"
             case badAddOrder = "Toasts.NotAddOrder"
+            case needSelectPaymentCard = "Toasts.NotSelectPaymentCard"
             case problemWithLoad = "Toasts.ProblemWithLoad"
             case problemWithAddCard = "Toasts.ProblemWithAddCard"
         }

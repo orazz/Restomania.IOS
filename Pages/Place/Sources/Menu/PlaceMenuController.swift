@@ -303,12 +303,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
     public func select(dish dishId: Long) {
         Log.debug(_tag, "Select dish #\(dishId)")
 
-        guard let menu = takeMenu(),
-            let dish = menu.dishes.find({ $0.id == dishId }) else {
-                return
-        }
-
-        self.modal(DishModal(for: dish, from: menu, with: self), animated: true)
+        tryAdd(dishId)
     }
 
     @IBAction public func goBack() {
@@ -338,9 +333,9 @@ extension PlaceMenuController: PlaceMenuDelegate {
     }
     public func goToPlace() {
 
-        guard let summary = takeSummary() else {
-            return
-        }
+//        guard let summary = takeSummary() else {
+//            return
+//        }
 
 //        let vc = PlaceInfoController(for: summary.id)
 //        self.navigationController?.pushViewController(vc, animated: true)

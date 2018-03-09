@@ -11,6 +11,7 @@ import MdsKit
 import CoreTools
 import CoreDomains
 import CoreStorageServices
+import UITools
 import UIElements
 import UIServices
 import PagesPlace
@@ -22,6 +23,7 @@ public class SearchController: UIViewController {
     @IBOutlet private weak var placesTable: UITableView!
     private var loader: InterfaceLoader!
     private var refreshControl: RefreshControl!
+    private var searchCardTemplate: TemplateContainer!
 
 
     // MARK: Services
@@ -40,7 +42,9 @@ public class SearchController: UIViewController {
 
 
     public init(){
-        super.init(nibName: String.tag(SearchController.self), bundle: Bundle.search)
+        super.init(nibName: String.tag(SearchController.self), bundle: Bundle.searchPages)
+
+        searchCardTemplate = TemplateStore.shared.get(for: .searchPlaceCard)
     }
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -78,7 +82,7 @@ extension SearchController {
 
         placesTable.delegate = self
         placesTable.dataSource = self
-        SearchPlaceCard.register(in: placesTable)
+        searchCardTemplate.register(in: placesTable)
 
         loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
 
@@ -185,7 +189,7 @@ extension SearchController: UITableViewDataSource {
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchPlaceCard.identifier, for: indexPath) as! SearchPlaceCard
+        let cell = tableView.dequeueReusableCell(withIdentifier: searchCardTemplate.identifier, for: indexPath) as! SearchPlaceCard
         cell.update(summary: filtered[indexPath.row])
 
         return cell
@@ -198,7 +202,7 @@ extension SearchController {
             return String.tag(SearchController.self)
         }
         public var bundle: Bundle {
-            return Bundle.search
+            return Bundle.searchPages
         }
 
         //Status

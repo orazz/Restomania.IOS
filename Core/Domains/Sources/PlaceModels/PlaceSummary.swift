@@ -9,6 +9,7 @@
 import Foundation
 import Gloss
 import MdsKit
+import CoreTools
 
 public class PlaceSummary: ICached {
 
@@ -21,6 +22,7 @@ public class PlaceSummary: ICached {
         public static let description = "Description"
         public static let type = "Type"
         public static let kitchen = "Kitchen"
+        public static let paymentSystem = "PaymentClient"
         public static let rating = "Rating"
         public static let image = "Image"
         public static let location = "Location"
@@ -34,6 +36,7 @@ public class PlaceSummary: ICached {
     public var Description: String
     public var `Type`: PlaceType
     public var Kitchen: KitchenType
+    public var paymentSystem: PaymentSystem
     public var Rating: Double
     public var Image: String
     public var Location: PlaceLocation
@@ -47,6 +50,7 @@ public class PlaceSummary: ICached {
         self.Description = String.empty
         self.Type = .Restaurant
         self.Kitchen = .European
+        self.paymentSystem = .sandbox
         self.Rating = 0
         self.Image = String.empty
         self.Location = PlaceLocation()
@@ -61,6 +65,7 @@ public class PlaceSummary: ICached {
         self.Description = source.Description
         self.Type = source.Type
         self.Kitchen = source.Kitchen
+        self.paymentSystem = source.paymentSystem
         self.Rating = source.Rating
         self.Image = source.Image
 
@@ -76,6 +81,7 @@ public class PlaceSummary: ICached {
         self.Description = (Keys.description <~~ json)!
         self.Type = (Keys.type <~~ json)!
         self.Kitchen = (Keys.kitchen <~~ json)!
+        self.paymentSystem = (Keys.paymentSystem <~~ json)!
         self.Rating = (Keys.rating <~~ json)!
         self.Image = (Keys.image <~~ json)!
 
@@ -92,6 +98,7 @@ public class PlaceSummary: ICached {
             Keys.description ~~> self.Description,
             Keys.type ~~> self.Type,
             Keys.kitchen ~~> self.Kitchen,
+            Keys.paymentSystem ~~> self.paymentSystem,
             Keys.rating ~~> self.Rating,
             Keys.image ~~> self.Image,
 

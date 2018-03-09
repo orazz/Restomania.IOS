@@ -35,7 +35,7 @@ public class PaymentCard: BaseDataType, ICached {
         self.last4Number = String.empty
         self.status = .Proccessing
         self.type = .Other
-        self.bankType = .TestClient
+        self.bankType = .sandbox
         self.currency = .EUR
 
         super.init()

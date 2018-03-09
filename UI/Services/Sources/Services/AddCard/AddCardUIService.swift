@@ -72,7 +72,7 @@ public class AddCardUIService: NSObject, UIWebViewDelegate {
             complete(success, cardId)
         }
 
-        let request = cardsApi.add()
+        let request = cardsApi.add(for: paymentSystem)
         request.async(.background, completion: { response in
 
             if (!response.isSuccess) {

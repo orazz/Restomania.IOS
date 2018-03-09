@@ -14,6 +14,9 @@
 		1F5607A1203E0BE300DA2F78 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5607A0203E0BE300DA2F78 /* Router.swift */; };
 		1F5607A2203E0CC200DA2F78 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5607A4203E0CC200DA2F78 /* CoreDomains.framework */; };
 		1F5607A3203E0CC200DA2F78 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5607A5203E0CC200DA2F78 /* CoreTools.framework */; };
+		1F6237D320529E0B0044F2D5 /* TemplateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237CF20529CA00044F2D5 /* TemplateStore.swift */; };
+		1F6237D420529E0F0044F2D5 /* TemplateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237D020529CA00044F2D5 /* TemplateContainer.swift */; };
+		1F6237D520529E130044F2D5 /* TemplateName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237D120529CA00044F2D5 /* TemplateName.swift */; };
 		1F78E72C203E2B6D0006B845 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78E72B203E2B6D0006B845 /* UIImage.swift */; };
 		1F9AF582204C22400001F76A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AF581204C22400001F76A /* FontAwesome.ttf */; };
 		1FFC65FE204BEF66005269CB /* Asserts.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC65FD204BEF66005269CB /* Asserts.xcassets */; };
@@ -31,6 +34,9 @@
 		1F5607A0203E0BE300DA2F78 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		1F5607A4203E0CC200DA2F78 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5607A5203E0CC200DA2F78 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6237CF20529CA00044F2D5 /* TemplateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateStore.swift; sourceTree = "<group>"; };
+		1F6237D020529CA00044F2D5 /* TemplateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateContainer.swift; sourceTree = "<group>"; };
+		1F6237D120529CA00044F2D5 /* TemplateName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateName.swift; sourceTree = "<group>"; };
 		1F78E72B203E2B6D0006B845 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		1F9AF581204C22400001F76A /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		1FFC65FD204BEF66005269CB /* Asserts.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asserts.xcassets; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 				1FFC65FF204BEFD1005269CB /* Tools.swift */,
 				1F56079F203E0BCD00DA2F78 /* Routing */,
 				1F0C1E37203B647400098810 /* Theme */,
+				1F6237D220529CA00044F2D5 /* TemplateStore */,
 				1F78E72A203E2B570006B845 /* Extensions */,
 			);
 			path = Sources;
@@ -103,6 +110,16 @@
 				1F5607A0203E0BE300DA2F78 /* Router.swift */,
 			);
 			path = Routing;
+			sourceTree = "<group>";
+		};
+		1F6237D220529CA00044F2D5 /* TemplateStore */ = {
+			isa = PBXGroup;
+			children = (
+				1F6237CF20529CA00044F2D5 /* TemplateStore.swift */,
+				1F6237D020529CA00044F2D5 /* TemplateContainer.swift */,
+				1F6237D120529CA00044F2D5 /* TemplateName.swift */,
+			);
+			path = TemplateStore;
 			sourceTree = "<group>";
 		};
 		1F78E72A203E2B570006B845 /* Extensions */ = {
@@ -266,6 +283,9 @@
 				1FFC6600204BEFD1005269CB /* Tools.swift in Sources */,
 				1F0C1E36203B63A800098810 /* ThemeColors.swift in Sources */,
 				1F0C1E39203B64B400098810 /* UITools.swift in Sources */,
+				1F6237D320529E0B0044F2D5 /* TemplateStore.swift in Sources */,
+				1F6237D520529E130044F2D5 /* TemplateName.swift in Sources */,
+				1F6237D420529E0F0044F2D5 /* TemplateContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

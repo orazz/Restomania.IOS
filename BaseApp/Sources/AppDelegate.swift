@@ -17,6 +17,7 @@ import CoreStorageServices
 import UITools
 import UIServices
 import Launcher
+import PagesSearch
 
 open class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -113,6 +114,8 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     open func customizeTheme() {
         UITools.customizeTheme()
+
+        PagesSearch.registerTemplates()
     }
 }
 extension AppDelegate {

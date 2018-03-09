@@ -9,8 +9,8 @@
 import Foundation
 
 public enum PaymentSystem: Int {
-    case FirstData = 1
-    case PayPal = 2
-    case TestClient = 3
-    case SberbankRussia = 4
+    case firstData = 1
+    case payPal = 2
+    case sandbox = 3
+    case sberbankRussia = 4
 }

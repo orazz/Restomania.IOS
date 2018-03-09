@@ -44,6 +44,7 @@
 		1F47DBD1204C43F2007340CE /* UIElements.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC1204C43E0007340CE /* UIElements.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F47DBD2204C43F2007340CE /* UIServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC2204C43E0007340CE /* UIServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F47DBD3204C43F2007340CE /* UITools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC3204C43E0007340CE /* UITools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F6237C7205296780044F2D5 /* SearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6237C6205296780044F2D5 /* SearchPlaceCard.xib */; };
 		4129559523922845F9471653 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		1F47DBC1204C43E0007340CE /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F47DBC2204C43E0007340CE /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F47DBC3204C43E0007340CE /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6237C6205296780044F2D5 /* SearchPlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPlaceCard.xib; sourceTree = "<group>"; };
 		3557BDF02335A47F03851CD6 /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		57ED0FFB249B6C678F4F923D /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				1F47DB02204C3A75007340CE /* App */,
+				1F6237C52052965A0044F2D5 /* Custom */,
 				1F47DB06204C3A75007340CE /* Configs.plist */,
 				1F47DAFF204C38AB007340CE /* Info.plist */,
 				1F47DB08204C3A76007340CE /* Kuzina.entitlements */,
@@ -156,6 +159,14 @@
 				1F47DB04204C3A75007340CE /* ThemeSettings.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		1F6237C52052965A0044F2D5 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				1F6237C6205296780044F2D5 /* SearchPlaceCard.xib */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		1FC5A6931F138A8600ABE1A6 = {
@@ -282,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F47DB0C204C3A76007340CE /* Configs.plist in Resources */,
+				1F6237C7205296780044F2D5 /* SearchPlaceCard.xib in Resources */,
 				1F47DB0B204C3A76007340CE /* Assets.xcassets in Resources */,
 				1F47DB93204C4236007340CE /* Launch.storyboard in Resources */,
 			);

@@ -16,6 +16,7 @@
 		1F3B3F372031F6E20042ADCD /* ApiRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F362031F6E20042ADCD /* ApiRole.swift */; };
 		1F3B3F392031FBE20042ADCD /* FileConfigsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F382031FBE20042ADCD /* FileConfigsContainer.swift */; };
 		1F3B3F3B2031FE590042ADCD /* LaunchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B3F3A2031FE590042ADCD /* LaunchInfo.swift */; };
+		1F6237BE204FECE10044F2D5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237BD204FECE00044F2D5 /* Currency.swift */; };
 		1F8105E2203218FC00B197F8 /* LightStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105E1203218FC00B197F8 /* LightStorage.swift */; };
 		1F8105E420321D8200B197F8 /* ApiKeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105E320321D8200B197F8 /* ApiKeyService.swift */; };
 		1F8105E820321F1100B197F8 /* DefaultsLightStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8105E720321F1100B197F8 /* DefaultsLightStorage.swift */; };
@@ -24,7 +25,6 @@
 		1FCDCF562031B12E00321E3E /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCF4C2031B12E00321E3E /* CoreTools.framework */; };
 		1FCDCF5B2031B12E00321E3E /* ToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCF5A2031B12E00321E3E /* ToolsTests.swift */; };
 		1FECBDE1204FBB900089CA4C /* PaymentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECBDE0204FBB900089CA4C /* PaymentSystem.swift */; };
-		1FECBDE3204FBBA20089CA4C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECBDE2204FBBA20089CA4C /* Currency.swift */; };
 		B9898F65703CD3D94A5EA6DB /* Pods_CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60115D8B233892077176D129 /* Pods_CoreTools.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +49,7 @@
 		1F3B3F362031F6E20042ADCD /* ApiRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRole.swift; sourceTree = "<group>"; };
 		1F3B3F382031FBE20042ADCD /* FileConfigsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileConfigsContainer.swift; sourceTree = "<group>"; };
 		1F3B3F3A2031FE590042ADCD /* LaunchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInfo.swift; sourceTree = "<group>"; };
+		1F6237BD204FECE00044F2D5 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		1F8105E1203218FC00B197F8 /* LightStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStorage.swift; sourceTree = "<group>"; };
 		1F8105E320321D8200B197F8 /* ApiKeyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyService.swift; sourceTree = "<group>"; };
 		1F8105E720321F1100B197F8 /* DefaultsLightStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsLightStorage.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		1FCDCF5A2031B12E00321E3E /* ToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTests.swift; sourceTree = "<group>"; };
 		1FCDCF5C2031B12E00321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FECBDE0204FBB900089CA4C /* PaymentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSystem.swift; sourceTree = "<group>"; };
-		1FECBDE2204FBBA20089CA4C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		327050BDDBF0A3EFB403BFC1 /* Pods-CoreTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreTools.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreTools/Pods-CoreTools.debug.xcconfig"; sourceTree = "<group>"; };
 		60115D8B233892077176D129 /* Pods_CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -172,8 +172,8 @@
 		1FECBDDD204FBB550089CA4C /* Payments */ = {
 			isa = PBXGroup;
 			children = (
+				1F6237BD204FECE00044F2D5 /* Currency.swift */,
 				1FECBDE0204FBB900089CA4C /* PaymentSystem.swift */,
-				1FECBDE2204FBBA20089CA4C /* Currency.swift */,
 			);
 			path = Payments;
 			sourceTree = "<group>";
@@ -349,11 +349,11 @@
 				1F3B3F392031FBE20042ADCD /* FileConfigsContainer.swift in Sources */,
 				1F3B3F292031F50D0042ADCD /* ConfigsContainer.swift in Sources */,
 				1F3B3F352031F6B90042ADCD /* ApiKeys.swift in Sources */,
+				1F6237BE204FECE10044F2D5 /* Currency.swift in Sources */,
 				1F8105E420321D8200B197F8 /* ApiKeyService.swift in Sources */,
 				1F81060820322CF500B197F8 /* ApiKeyServiceDelegate.swift in Sources */,
 				1F3B3F2E2031F5960042ADCD /* StringApiRole.swift in Sources */,
 				1F3B3F3B2031FE590042ADCD /* LaunchInfo.swift in Sources */,
-				1FECBDE3204FBBA20089CA4C /* Currency.swift in Sources */,
 				1FECBDE1204FBB900089CA4C /* PaymentSystem.swift in Sources */,
 				1F3B3F262031F3890042ADCD /* ConfigKey.swift in Sources */,
 				1F3B3F372031F6E20042ADCD /* ApiRole.swift in Sources */,

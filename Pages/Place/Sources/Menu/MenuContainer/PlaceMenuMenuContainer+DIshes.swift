@@ -61,6 +61,7 @@ extension PlaceMenuMenuContainer {
             }
 
             table.reloadData()
+            table.setContentOffset(CGPoint.zero, animated: true)
         }
         private func collectAll() -> [CategoryContainer] {
 
