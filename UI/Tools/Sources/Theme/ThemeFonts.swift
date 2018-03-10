@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 public enum ThemeFontsSize: Int {
-    case title = 20
-    case head = 17
-    case subhead = 15
-    case caption = 12
-    case subcaption = 10
+    case title = 22
+    case head = 19
+    case subhead = 17
+    case caption = 14
+    case subcaption = 12
 }
 public protocol ThemeFonts {
 

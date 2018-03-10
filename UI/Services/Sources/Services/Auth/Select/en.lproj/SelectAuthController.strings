@@ -1,0 +1,19 @@
+/* 
+  SelectAuthController.strings
+  Services
+
+  Created by Алексей on 10.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Authorization";
+
+"Labels.EnterVia" = "Enter with";
+"Labels.Or" = "or";
+"Lebels.AcceptTerms" = "when you authorize you accept terms";
+
+"Buttons.Cancel" = "Cencel";
+"Buttons.Vk" = "Vk";
+"Buttons.Instagram" = "Instagram";
+"Buttons.Phone" = "Phone";
+"Buttons.Email" = "Email";

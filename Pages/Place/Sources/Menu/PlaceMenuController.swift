@@ -63,6 +63,7 @@ public class PlaceMenuController: UIViewController {
     private let menusService = DependencyResolver.resolve(MenuCacheService.self)
     private let placesService = DependencyResolver.resolve(PlacesCacheService.self)
     private var cartService: CartService!
+    private let apiKeysService = DependencyResolver.resolve(ApiKeyService.self)
     private var enterService = DependencyResolver.resolve(AuthUIService.self)
 
     // MARK: Tools
@@ -311,17 +312,18 @@ extension PlaceMenuController: PlaceMenuDelegate {
     }
     public func goToCart() {
 
-        if (enterService.isAuth) {
+        if (apiKeysService.isAuth) {
             openCartPage()
         } else {
-            show(enterService, complete: { success in
+            showAuth(complete: { success, _ in
+                DispatchQueue.main.async {
+                    if (success) {
+                        self.openCartPage()
+                    } else {
+                        self.showToast(Keys.AlertAuthErrorMessage)
 
-                if (success) {
-                    self.openCartPage()
-                } else {
-                    Log.warning(self._tag, "Not authorize user.")
-
-                    self.showToast(Keys.AlertAuthErrorMessage)
+                        Log.warning(self._tag, "Not authorize user.")
+                    }
                 }
             })
         }

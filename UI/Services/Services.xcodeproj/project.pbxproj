@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F49A45720541C41003795E4 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49A45620541C41003795E4 /* AuthHandler.swift */; };
+		1F49A45920541D3B003795E4 /* SelectAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49A45820541D3B003795E4 /* SelectAuthController.swift */; };
+		1F49A45B20541F54003795E4 /* SelectAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F49A45A20541F54003795E4 /* SelectAuthController.xib */; };
+		1F49A45E20542986003795E4 /* SelectAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F49A46020542986003795E4 /* SelectAuthController.strings */; };
 		1F6237C220501E3F0044F2D5 /* WebBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */; };
 		1F6237C420501E870044F2D5 /* WebBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237C320501E870044F2D5 /* WebBrowserController.swift */; };
 		1F6237E82052A5F80044F2D5 /* WebBrowserControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237E72052A5F80044F2D5 /* WebBrowserControllerDelegate.swift */; };
@@ -48,6 +52,11 @@
 
 /* Begin PBXFileReference section */
 		17B04D1DFDB9C89C6E5F6F61 /* Pods-CoreUIServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreUIServices.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-CoreUIServices/Pods-CoreUIServices.release.xcconfig"; sourceTree = "<group>"; };
+		1F49A45620541C41003795E4 /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
+		1F49A45820541D3B003795E4 /* SelectAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAuthController.swift; sourceTree = "<group>"; };
+		1F49A45A20541F54003795E4 /* SelectAuthController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectAuthController.xib; sourceTree = "<group>"; };
+		1F49A45F20542986003795E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectAuthController.strings; sourceTree = "<group>"; };
+		1F49A46120542989003795E4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SelectAuthController.strings; sourceTree = "<group>"; };
 		1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebBrowserController.xib; sourceTree = "<group>"; };
 		1F6237C320501E870044F2D5 /* WebBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserController.swift; sourceTree = "<group>"; };
 		1F6237E72052A5F80044F2D5 /* WebBrowserControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserControllerDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +123,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F49A45520541B61003795E4 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				1F49A45820541D3B003795E4 /* SelectAuthController.swift */,
+				1F49A45A20541F54003795E4 /* SelectAuthController.xib */,
+				1F49A46020542986003795E4 /* SelectAuthController.strings */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
 		1F6237BF20501DAE0044F2D5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,9 +190,9 @@
 		1F980B8920388DC20017A0A2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F6238042052F97D0044F2D5 /* Terms */,
 				1FCA6A892049729400D99879 /* Auth */,
 				1F9A07F0204971A6007853CA /* AddCard */,
+				1F6238042052F97D0044F2D5 /* Terms */,
 				1F6237BF20501DAE0044F2D5 /* Tools */,
 			);
 			path = Services;
@@ -192,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				1FCA6A8B2049729400D99879 /* AuthUIService.swift */,
+				1F49A45620541C41003795E4 /* AuthHandler.swift */,
+				1F49A45520541B61003795E4 /* Select */,
 				1FCA6AA3204976CC00D99879 /* EmailAuth */,
 				1FCA6A9F2049762F00D99879 /* VkAuth */,
 				1FCA6AA02049764B00D99879 /* InstagramAuth */,
@@ -373,10 +394,12 @@
 				1FCA6A9B2049729700D99879 /* SignupController.xib in Resources */,
 				1F6238002052F3270044F2D5 /* WebBrowserController.strings in Resources */,
 				1FC33E9C204C8DFB00FF5181 /* EmailAuth.strings in Resources */,
+				1F49A45E20542986003795E4 /* SelectAuthController.strings in Resources */,
 				1FCA6A972049729700D99879 /* ForgetPasswordController.xib in Resources */,
 				1F6238092052FBEA0044F2D5 /* TermsController.strings in Resources */,
 				1F6237C220501E3F0044F2D5 /* WebBrowserController.xib in Resources */,
 				1F62380F2053FAA80044F2D5 /* AddCardUIService.strings in Resources */,
+				1F49A45B20541F54003795E4 /* SelectAuthController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,10 +457,12 @@
 				1FCA6A952049729700D99879 /* BaseAuthController.swift in Sources */,
 				1FCA6A942049729700D99879 /* AuthUIService.swift in Sources */,
 				1F980B9020388DC20017A0A2 /* UIServices.swift in Sources */,
+				1F49A45920541D3B003795E4 /* SelectAuthController.swift in Sources */,
 				1F6237C420501E870044F2D5 /* WebBrowserController.swift in Sources */,
 				1FCA6A9D2049741400D99879 /* AddCardUIService.swift in Sources */,
 				1FC33EA7204C902800FF5181 /* EmailAuth.swift in Sources */,
 				1F6238062052FBBE0044F2D5 /* TermsController.swift in Sources */,
+				1F49A45720541C41003795E4 /* AuthHandler.swift in Sources */,
 				1FCA6A9A2049729700D99879 /* SignupController.swift in Sources */,
 				1FCA6A932049729700D99879 /* AuthContainer.swift in Sources */,
 				1FCA6A962049729700D99879 /* ForgetPasswordController.swift in Sources */,
@@ -462,6 +487,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F49A46020542986003795E4 /* SelectAuthController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F49A45F20542986003795E4 /* en */,
+				1F49A46120542989003795E4 /* ru */,
+			);
+			name = SelectAuthController.strings;
+			sourceTree = "<group>";
+		};
 		1F6238022052F3270044F2D5 /* WebBrowserController.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

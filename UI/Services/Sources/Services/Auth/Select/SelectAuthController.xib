@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectAuthController" customModule="UIServices" customModuleProvider="target">
+            <connections>
+                <outlet property="acceptTermsLabel" destination="EKO-4U-rmN" id="lzF-Ug-Po3"/>
+                <outlet property="cancelAction" destination="Ogk-zG-nMf" id="ODs-L1-CHr"/>
+                <outlet property="emailButton" destination="meH-Yl-bXB" id="k8v-lW-sm4"/>
+                <outlet property="enterViaLabel" destination="AIN-2L-Xbj" id="xNg-rq-yMK"/>
+                <outlet property="instagramButton" destination="nS8-5G-3L5" id="9Wq-5Q-Y9h"/>
+                <outlet property="leftDivider" destination="6Nt-Sf-ZDv" id="1to-1U-Pt3"/>
+                <outlet property="orLabel" destination="NHX-Rg-6Rs" id="TQ4-md-0X0"/>
+                <outlet property="phoneButton" destination="B2X-Fg-xcI" id="QEF-6b-E8e"/>
+                <outlet property="rightDivider" destination="1Pr-UI-xIL" id="Gqq-pm-Goo"/>
+                <outlet property="titlePanel" destination="gzg-Li-wvN" id="r70-pa-tg3"/>
+                <outlet property="view" destination="iN0-l3-epB" id="NBl-1x-8Gm"/>
+                <outlet property="vkButton" destination="y89-K8-apf" id="q9S-OR-F7J"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hi6-c5-XK9">
+                    <rect key="frame" x="0.0" y="20" width="320" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="48g-uc-2dK"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Title" id="gzg-Li-wvN">
+                            <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="Ogk-zG-nMf">
+                                <connections>
+                                    <action selector="cancelAuth" destination="-1" id="iOM-f3-aGn"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войдите через:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIN-2L-Xbj">
+                    <rect key="frame" x="98" y="114" width="124" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y89-K8-apf" customClass="DefaultButton" customModule="UIElements">
+                    <rect key="frame" x="60" y="155" width="200" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="JKy-qZ-Tfr"/>
+                        <constraint firstAttribute="height" constant="50" id="jfU-OV-55G"/>
+                    </constraints>
+                    <state key="normal" title="Vk"/>
+                    <connections>
+                        <action selector="enterViaVk" destination="-1" eventType="touchUpInside" id="cFh-9b-dXF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nS8-5G-3L5" customClass="DefaultButton" customModule="UIElements">
+                    <rect key="frame" x="60" y="215" width="200" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="EwM-mG-hBA"/>
+                        <constraint firstAttribute="height" constant="50" id="qdO-dx-Rrs"/>
+                    </constraints>
+                    <state key="normal" title="Instagram"/>
+                    <connections>
+                        <action selector="enterViaInstagram" destination="-1" eventType="touchUpInside" id="kn8-Iy-XKX"/>
+                    </connections>
+                </button>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="При авторизации вы принимаете пользовательское соглашение" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKO-4U-rmN">
+                    <rect key="frame" x="10" y="440" width="300" height="40"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="n3k-LL-qHJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="GkZ-im-v2k" appends="YES" id="1wz-GM-bJ9"/>
+                    </connections>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="или" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHX-Rg-6Rs">
+                    <rect key="frame" x="140" y="275" width="40" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="K7S-lO-9Bi"/>
+                        <constraint firstAttribute="width" constant="40" id="fCG-rq-6jR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2X-Fg-xcI" customClass="DefaultButton" customModule="UIElements">
+                    <rect key="frame" x="60" y="310" width="200" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="7Y7-Z9-TQJ"/>
+                        <constraint firstAttribute="width" constant="200" id="gaG-Ja-Ewn"/>
+                    </constraints>
+                    <state key="normal" title="Телефон"/>
+                    <connections>
+                        <action selector="enterViaPhone" destination="-1" eventType="touchUpInside" id="5ED-D5-4JF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meH-Yl-bXB" customClass="InvertedButton" customModule="UIElements">
+                    <rect key="frame" x="60" y="370" width="200" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="RLy-hr-wvw"/>
+                        <constraint firstAttribute="height" constant="50" id="oyd-VL-tKZ"/>
+                    </constraints>
+                    <state key="normal" title="Email"/>
+                    <connections>
+                        <action selector="enterViaEmail" destination="-1" eventType="touchUpInside" id="Svp-Hx-Qzb"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Nt-Sf-ZDv" userLabel="Left Divider">
+                    <rect key="frame" x="5" y="287" width="130" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="IGU-8P-HMv"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Pr-UI-xIL" userLabel="Right Divider">
+                    <rect key="frame" x="185" y="287" width="130" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="TiA-Ig-HMz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nS8-5G-3L5" firstAttribute="top" secondItem="y89-K8-apf" secondAttribute="bottom" constant="10" id="0wd-20-7JP"/>
+                <constraint firstItem="meH-Yl-bXB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="29H-gH-9h7"/>
+                <constraint firstItem="NHX-Rg-6Rs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6cV-BX-Aqv"/>
+                <constraint firstItem="AIN-2L-Xbj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6g5-6o-3uZ"/>
+                <constraint firstAttribute="trailing" secondItem="1Pr-UI-xIL" secondAttribute="trailing" constant="5" id="DCT-pl-o0c"/>
+                <constraint firstItem="AIN-2L-Xbj" firstAttribute="top" secondItem="hi6-c5-XK9" secondAttribute="bottom" constant="30" id="K4b-dq-CGH"/>
+                <constraint firstItem="B2X-Fg-xcI" firstAttribute="top" secondItem="NHX-Rg-6Rs" secondAttribute="bottom" constant="10" id="OQP-3q-GcP"/>
+                <constraint firstItem="y89-K8-apf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PX5-EP-dtI"/>
+                <constraint firstItem="EKO-4U-rmN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="QHw-6B-acg"/>
+                <constraint firstItem="6Nt-Sf-ZDv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="W0z-Tz-Zpu"/>
+                <constraint firstItem="hi6-c5-XK9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="XtA-yd-Pue"/>
+                <constraint firstItem="hi6-c5-XK9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="aNm-pa-lUs"/>
+                <constraint firstItem="meH-Yl-bXB" firstAttribute="top" secondItem="B2X-Fg-xcI" secondAttribute="bottom" constant="10" id="bFU-5L-1yn"/>
+                <constraint firstItem="NHX-Rg-6Rs" firstAttribute="top" secondItem="nS8-5G-3L5" secondAttribute="bottom" constant="10" id="dhs-BF-8b9"/>
+                <constraint firstItem="nS8-5G-3L5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eZF-Fg-bro"/>
+                <constraint firstItem="B2X-Fg-xcI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fY2-cK-Qxy"/>
+                <constraint firstItem="hi6-c5-XK9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hPS-kp-VVQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EKO-4U-rmN" secondAttribute="trailing" constant="10" id="i45-Tg-5qo"/>
+                <constraint firstItem="NHX-Rg-6Rs" firstAttribute="leading" secondItem="6Nt-Sf-ZDv" secondAttribute="trailing" constant="5" id="iGN-sy-aB8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="EKO-4U-rmN" secondAttribute="bottom" id="k0h-fq-u2p"/>
+                <constraint firstItem="1Pr-UI-xIL" firstAttribute="leading" secondItem="NHX-Rg-6Rs" secondAttribute="trailing" constant="5" id="mPq-GL-gCa"/>
+                <constraint firstItem="6Nt-Sf-ZDv" firstAttribute="top" secondItem="nS8-5G-3L5" secondAttribute="bottom" constant="22" id="rnK-CC-pn2"/>
+                <constraint firstItem="y89-K8-apf" firstAttribute="top" secondItem="AIN-2L-Xbj" secondAttribute="bottom" constant="20" id="sUm-zA-Fex"/>
+                <constraint firstItem="1Pr-UI-xIL" firstAttribute="top" secondItem="nS8-5G-3L5" secondAttribute="bottom" constant="22" id="xLC-8n-pv4"/>
+                <constraint firstItem="EKO-4U-rmN" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="z4d-Rg-tzN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+        <tapGestureRecognizer id="GkZ-im-v2k" userLabel="openTerms">
+            <connections>
+                <action selector="lookTerms" destination="-1" id="lcq-wc-qez"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

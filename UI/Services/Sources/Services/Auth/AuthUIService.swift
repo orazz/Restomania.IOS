@@ -11,92 +11,52 @@ import MdsKit
 import CoreTools
 import CoreDomains
 
+public typealias AuthServiceCallback = ((Bool, ApiKeys?) -> Void)
 public class AuthUIService {
 
     private let tag = String.tag(AuthUIService.self)
 
-    private var _signup: SignupController!
-    private var _forgetPassword: ForgetPasswordController!
-    private var _controllers: [BaseAuthController] = []
-    private var _navigator: UINavigationController
-    private var _root: UIViewController
+    //UI
+    private var navigator: UINavigationController?
 
-    private var authKeys: ApiKeyService!
-    private var _complete: ((Bool) -> Void)?
+    //Services
+    private let keys: ApiKeyService
 
-    public init(_ keys: ApiKeyService) {
+    //Data
+    private var completeHandler: AuthServiceCallback?
 
-        authKeys = keys
+    internal init(_ keys: ApiKeyService) {
 
-        _signup = SignupController()
-        _forgetPassword = ForgetPasswordController()
+        self.navigator = nil
 
-        _controllers = [_signup, _forgetPassword]
-        _root = UIViewController()
-        _navigator = UINavigationController(rootViewController: _root)
+        self.keys = keys
 
-//        _currentPage = firstPage
-
-//        for controller in _controllers {
-//            controller.root = self
-//        }
-    }
-    public var isAuth: Bool {
-        return authKeys.isAuth
-    }
-    public func show(on controller: UIViewController, complete: ((Bool) -> Void)? = nil ) {
-
-        _complete = complete
-
-        controller.present(_navigator, animated: false, completion: nil)
-//
-//        let controller = take(for: _currentPage)
-//        _navigator.pushViewController(controller, animated: true)
-//        controller.authContainer = AuthContainer(login: String.empty, password: String.empty)
-
-        Log.info(tag, "Open auth pages.")
+        self.completeHandler = nil
     }
 
-//    public func moveTo(_ page: AuthPage) {
+    fileprivate func show(on controller: UIViewController, completeHandler: AuthServiceCallback?) {
 
-//        if (_currentPage == page) {
-//            return
-//        }
-//
-//        let nextPage = take(for: page)
-////        let prevPage = take(for: _currentPage)
-//        nextPage.authContainer = prevPage.authContainer
-//
-//        if (_navigator.viewControllers.contains(nextPage)) {
-//
-//            _navigator.popToViewController(nextPage, animated: true)
-//        } else {
-//
-//            _navigator.pushViewController(nextPage, animated: true)
-//        }
-//
-//        _currentPage = page
-//    }
-//    private func take() -> BaseAuthController {
-//
-//        switch page {
-//        case .signup:
-//            return _signup
-//
-//        case .forgetPassword:
-//            return _forgetPassword
-//        }
-//    }
-    public func close() {
+        self.completeHandler = completeHandler
+        self.navigator = UINavigationController(rootViewController: SelectAuthController(for: self))
 
-//        _complete?(authKeys.isAuth)
-//
-//        _navigator.popToViewController(_root, animated: true)
-//        Log.info(tag, "Close auth pages.")
+        controller.present(navigator!, animated: true, completion: nil)
+
+        Log.info(tag, "Open auth service.")
+    }
+}
+extension AuthUIService: AuthHandler {
+    internal func complete(success: Bool, keys: ApiKeys?) {
+
+        navigator?.popViewController(animated: false)
+        navigator?.dismiss(animated: true, completion: nil)
+
+        completeHandler?(success, keys)
     }
 }
 extension UIViewController {
-    public func show(_ auth: AuthUIService, complete: ((Bool) -> Void)? = nil) {
-        auth.show(on: self, complete: complete)
+    public func showAuth(complete: AuthServiceCallback? = nil) {
+
+        let auth = DependencyResolver.resolve(AuthUIService.self)
+        auth.show(on: self, completeHandler: complete)
     }
 }

@@ -20,7 +20,6 @@ public class OtherController: UIViewController {
     //UI
     @IBOutlet private weak var LogoutButton: UIButton!
 
-    private let authService = DependencyResolver.resolve(AuthUIService.self)
     private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
     private let keysService = DependencyResolver.resolve(ApiKeyService.self)
 
@@ -87,9 +86,12 @@ public class OtherController: UIViewController {
             return
         }
 
-        show(authService, complete: { success in
+        showAuth(complete: { success, _  in
             if (success) {
-                self.present(controller, needAuth: needAuth)
+                
+                DispatchQueue.main.async {
+                    self.present(controller, needAuth: needAuth)
+                }
             }
         })
     }

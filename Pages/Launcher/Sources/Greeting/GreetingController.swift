@@ -63,7 +63,7 @@ public class GreetingController: UIViewController {
         goToAuth()
     }
     private func goToAuth() {
-        self.show(auth, complete: { success in
+        self.showAuth(complete: { success, _ in
             if (success) {
                 self.complete()
             }
@@ -79,7 +79,7 @@ public class GreetingController: UIViewController {
 }
 extension GreetingController: LaunchControllerDelegate {
     public var notNeedDisplay: Bool {
-        return auth.isAuth
+        return keys.isAuth
     }
 
     public func hiddenProcessing() {}
