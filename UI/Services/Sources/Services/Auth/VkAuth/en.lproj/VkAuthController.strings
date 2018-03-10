@@ -1,0 +1,11 @@
+/* 
+  VkAuthController.strings
+  Services
+
+  Created by Алексей on 11.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+"Title" = "VK";
+"CancelButton" = "Cancel";
+
+"Errors.VkAuth" = "You should enter login and password and grant permissions.";

@@ -24,6 +24,7 @@
 		1F42FC672031C189001E0F3C /* SelectArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC572031C189001E0F3C /* SelectArguments.swift */; };
 		1F42FC682031C189001E0F3C /* NotificationsDevicesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42FC592031C189001E0F3C /* NotificationsDevicesApiService.swift */; };
 		1F42FC6A2031C19A001E0F3C /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F42FC6B2031C19A001E0F3C /* CoreDomains.framework */; };
+		1F49A46B20544D08003795E4 /* UserAuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49A46A20544D08003795E4 /* UserAuthApiService.swift */; };
 		1F8105E9203220D900B197F8 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8105EA203220D900B197F8 /* CoreTools.framework */; };
 		1FCDCF9E2031B1F800321E3E /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCDCF942031B1F800321E3E /* CoreApiServices.framework */; };
 		1FCDCFA32031B1F800321E3E /* ApiServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDCFA22031B1F800321E3E /* ApiServicesTests.swift */; };
@@ -59,6 +60,7 @@
 		1F42FC572031C189001E0F3C /* SelectArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectArguments.swift; sourceTree = "<group>"; };
 		1F42FC592031C189001E0F3C /* NotificationsDevicesApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsDevicesApiService.swift; sourceTree = "<group>"; };
 		1F42FC6B2031C19A001E0F3C /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F49A46A20544D08003795E4 /* UserAuthApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthApiService.swift; sourceTree = "<group>"; };
 		1F8105EA203220D900B197F8 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCF942031B1F800321E3E /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCDCF982031B1F800321E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				1F42FC472031C189001E0F3C /* Models */,
 				1F42FC4A2031C189001E0F3C /* UserAccountApiService.swift */,
+				1F49A46A20544D08003795E4 /* UserAuthApiService.swift */,
 				1F42FC4B2031C189001E0F3C /* UserCardsApiService.swift */,
 				1F42FC4C2031C189001E0F3C /* UserChangeApiService.swift */,
 				1F42FC4D2031C189001E0F3C /* UserOrdersApiService.swift */,
@@ -391,6 +394,7 @@
 				1F42FC5B2031C189001E0F3C /* AddedOrder.swift in Sources */,
 				1F42FC652031C189001E0F3C /* AddingBooking.swift in Sources */,
 				1F42FC642031C189001E0F3C /* MenuSummariesApiService.swift in Sources */,
+				1F49A46B20544D08003795E4 /* UserAuthApiService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

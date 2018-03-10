@@ -25,6 +25,8 @@ open class ConfigKey: RawRepresentable {
     public static let currency = ConfigKey(rawValue: "Currency")
 
 
+    public static let vkAppId = ConfigKey(rawValue: "VkAppid")
+
 
     public let rawValue: String
     public required init(rawValue : String) {

@@ -82,11 +82,10 @@ internal class SelectAuthController: UIViewController {
 
 //      Buttons
 //      VK
-        let vkColor = UIColor(red: 76, green: 117, blue: 163)
         vkButton.setTitle(Localization.buttonsVk.localized, for: .normal)
         vkButton.titleLabel?.textColor = UIColor.white
-        vkButton.backgroundColor = vkColor
-        vkButton.layer.borderColor = vkColor.cgColor
+        vkButton.backgroundColor = themeColors.vkColor
+        vkButton.layer.borderColor = themeColors.vkColor.cgColor
 
 //      Instagram
         let instaColor = UIColor(red: 188, green: 42, blue: 141)
@@ -114,6 +113,8 @@ internal class SelectAuthController: UIViewController {
 extension SelectAuthController {
     @IBAction private func enterViaVk() {
 
+        let vk = VkAuthController(handler)
+        navigationController?.pushViewController(vk, animated: true)
     }
     @IBAction private func enterViaInstagram() {
 

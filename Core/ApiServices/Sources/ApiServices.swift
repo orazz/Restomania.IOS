@@ -29,6 +29,7 @@ open class ApiServices {
 
         //Users
         container.register(UserAccountApiService.self, factory: { r in UserAccountApiService(r.configs, r.keys) })
+        container.register(UserAuthApiService.self, factory: { r in UserAuthApiService(r.configs, r.keys) })
         container.register(UserChangeApiService.self, factory: { r in UserChangeApiService(r.configs, r.keys) })
         container.register(UserCardsApiService.self, factory: { r in UserCardsApiService(r.configs, r.keys) })
         container.register(UserOrdersApiService.self, factory: { r in UserOrdersApiService(r.configs, r.keys) })
