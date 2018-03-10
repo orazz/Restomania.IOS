@@ -12,100 +12,127 @@ import MdsKit
 import CoreTools
 import CoreDomains
 import CoreApiServices
+import CoreStorageServices
 
-//public protocol WebService {
-//    associatedtype THandler
-//
-//    func show()
-//}
+public typealias AddPaymentCardCallback = ((Bool, Long?, PaymentCard?) -> Void)
+public class AddCardUIService {
 
-public typealias AddPaymentCardCallback = ((Bool, Long) -> Void)
-public class AddCardUIService: NSObject, UIWebViewDelegate {
+    private let tag = String.tag(AddCardUIService.self)
+    private let cardsService: CardsCacheService
+    private let service: WebBrowserController
+    private var isBusy: Bool
+    private var loadQueue: AsyncQueue
 
-    private let _webView: UIWebView
-    private let _controller: UIViewController
-    private let _loader: InterfaceLoader
-
-    private let cardsApi: UserCardsApiService
-
-    private var _isBusy: Bool = false
-    private var _complete: AddPaymentCardCallback?
     private var cardId: Long?
+    private var completeHandler: AddPaymentCardCallback?
 
-    public init(_ cardsApi: UserCardsApiService) {
+    public init(_ cardsService: CardsCacheService) {
 
-        self.cardsApi = cardsApi
+        self.cardsService = cardsService
+        self.service = WebBrowserController()
+        self.isBusy = false
+        self.loadQueue = AsyncQueue.createForControllerLoad(for: tag)
 
-        //Interface
-        let screen = UIScreen.main.bounds
-        _webView = UIWebView(frame: CGRect(x: 0, y: 0, width: screen.width, height: screen.height))
+        self.cardId = nil
+        self.completeHandler = nil
 
-        _controller = UIViewController()
-        _controller.view.addSubview(_webView)
-
-        _loader = InterfaceLoader(for: _controller.view)
-
-        super.init()
-
-        _webView.delegate = self
+        service.delegate = self
+        service.setTitle(Localization.title.localized)
     }
 
     fileprivate func addCard(on controller: UIViewController, to paymentSystem: PaymentSystem?, complete: @escaping AddPaymentCardCallback) {
 
-        if (_isBusy) {
-            complete(false, 0)
+        if (isBusy) {
+            complete(false, nil, nil)
             return
         }
 
-        controller.present(_controller, animated: true, completion: nil)
-        _isBusy = true
-        _loader.show()
-        _complete = { success, cardId in
+        service.showLoader()
+        controller.present(service, animated: true, completion: nil)
+        isBusy = true
 
-            self._isBusy = false
-            self._webView.stopLoading()
-            self._controller.dismiss(animated: true, completion: nil)
+        completeHandler = { success, cardId, card in
+
+            self.isBusy = false
+            self.cardId = nil
+            self.completeHandler = nil
+
             DispatchQueue.main.async {
-                self._loader.hide()
+                self.service.dismiss(animated: true, completion: nil)
             }
 
-            complete(success, cardId)
+            complete(success, cardId, card)
         }
 
-        let request = cardsApi.add(for: paymentSystem)
-        request.async(.background, completion: { response in
+        let request = cardsService.add(for: paymentSystem)
+        request.async(loadQueue, completion: { response in
 
-            if (!response.isSuccess) {
-                self._complete?(false, 0)
+            if (response.isFail) {
+                self.fail()
                 return
             }
 
-            let addingCard = response.data!
-            self.cardId = addingCard.id
-            let link = addingCard.link
+            let card = response.data!
+            self.cardId = card.id
 
             DispatchQueue.main.async {
-                self._webView.loadRequest(URLRequest(url: URL(string: link)!))
+                self.service.startLoad(card.link)
             }
         })
     }
+    private func fail() {
+        completeHandler?(false, nil, nil)
+    }
+}
+extension AddCardUIService: WebBrowserControllerDelegate  {
+    public func completeLoad(url: URL, parameters: [String : String]) {
 
-    // MARK: UIWebViewDelegate
-    public func webViewDidFinishLoad(_ webView: UIWebView) {
+        let path = url.absoluteString
 
-        _loader.hide()
-        if let url = webView.request?.url?.absoluteString {
+        if (path.contains("restomania") &&
+            path.contains("Payment") &&
+            (path.contains("Success") || path.contains("Fail"))) {
 
-            if (url.contains("restomania") &&
-                url.contains("Payment") &&
-                (url.contains("Success") || url.contains("Fail"))) {
+            let result = path.contains("Success")
 
-                let result = url.contains("Success")
-                _complete?(result, cardId!)
-
+            if (!result) {
+                fail()
                 return
             }
+
         }
+    }
+    private func requestCard() {
+
+        guard let cardId = cardId else {
+            fail()
+            return
+        }
+
+        let request = cardsService.find(cardId)
+        request.async(loadQueue, completion: { response in
+
+            if (response.isFail) {
+                self.fail()
+                return
+            }
+
+            let card = response.data!
+            self.completeHandler?(true, cardId, card)
+        })
+    }
+}
+extension AddCardUIService {
+    public enum Localization: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(AddCardUIService.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.uiServices
+        }
+
+        case title = "Title"
     }
 }
 extension UIViewController {

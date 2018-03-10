@@ -320,33 +320,20 @@ extension PlaceCartController: PlaceCartDelegate {
             return
         }
 
-        self.show(addPaymentCardsService, to: summary.paymentSystem) { success, cardId in
+        self.show(addPaymentCardsService, to: summary.paymentSystem) { success, cardId, _ in
 
-            if (!success) {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+
+                if (!success) {
                     self.showToast(Localization.Toasts.problemWithAddCard)
+                    return
                 }
-                return
-            }
 
-            self.interfaceLoader.show()
+                self.cartContaier.cardId = cardId
+                self.cardsContainer.update(self.cardsService.cache.all)
 
-            let request = self.cardsService.find(cardId)
-            request.async(self.loadQueue) { response in
-                DispatchQueue.main.async {
-
-                    if response.isSuccess {
-                        self.cardsContainer.update(self.cardsService.cache.all)
-                        self.cartContaier.cardId = cardId
-
-                        self.trigger({ $0.updateData(with: self) })
-                        self.reloadInterface()
-                    } else {
-                        self.showToast(Localization.Toasts.problemWithAddCard)
-                    }
-
-                    self.interfaceLoader.hide()
-                }
+                self.trigger({ $0.updateData(with: self) })
+                self.reloadInterface()
             }
         }
     }

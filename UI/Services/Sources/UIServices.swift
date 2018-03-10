@@ -10,13 +10,14 @@ import Foundation
 import Swinject
 import CoreTools
 import CoreApiServices
+import CoreStorageServices
 
 open class UIServices {
 
     open static func register(in container: Container) {
 
         container.register(AuthUIService.self, factory: { r in AuthUIService(r.resolve(ApiKeyService.self)!) })
-        container.register(AddCardUIService.self, factory: { r in AddCardUIService(r.resolve(UserCardsApiService.self)!) })
+        container.register(AddCardUIService.self, factory: { r in AddCardUIService(r.resolve(CardsCacheService.self)!) })
     }
 }
 extension Bundle {

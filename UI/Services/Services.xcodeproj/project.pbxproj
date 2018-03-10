@@ -13,6 +13,7 @@
 		1F6238002052F3270044F2D5 /* WebBrowserController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F6238022052F3270044F2D5 /* WebBrowserController.strings */; };
 		1F6238062052FBBE0044F2D5 /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6238052052FBBE0044F2D5 /* TermsController.swift */; };
 		1F6238092052FBEA0044F2D5 /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F62380B2052FBEA0044F2D5 /* TermsController.strings */; };
+		1F62380F2053FAA80044F2D5 /* AddCardUIService.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F6238112053FAA80044F2D5 /* AddCardUIService.strings */; };
 		1F7469322032AAAA00CC7BC9 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469332032AAAA00CC7BC9 /* CoreTools.framework */; };
 		1F7469342032AAB000CC7BC9 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469352032AAB000CC7BC9 /* CoreDomains.framework */; };
 		1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */; };
@@ -55,6 +56,8 @@
 		1F6238052052FBBE0044F2D5 /* TermsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsController.swift; sourceTree = "<group>"; };
 		1F62380A2052FBEA0044F2D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F62380C2052FBEB0044F2D5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
+		1F6238102053FAA80044F2D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddCardUIService.strings; sourceTree = "<group>"; };
+		1F6238122053FAAA0044F2D5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddCardUIService.strings; sourceTree = "<group>"; };
 		1F7469332032AAAA00CC7BC9 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469352032AAB000CC7BC9 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				1FCA6A9C2049741300D99879 /* AddCardUIService.swift */,
+				1F6238112053FAA80044F2D5 /* AddCardUIService.strings */,
 			);
 			path = AddCard;
 			sourceTree = "<group>";
@@ -372,6 +376,7 @@
 				1FCA6A972049729700D99879 /* ForgetPasswordController.xib in Resources */,
 				1F6238092052FBEA0044F2D5 /* TermsController.strings in Resources */,
 				1F6237C220501E3F0044F2D5 /* WebBrowserController.xib in Resources */,
+				1F62380F2053FAA80044F2D5 /* AddCardUIService.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +478,15 @@
 				1F62380C2052FBEB0044F2D5 /* ru */,
 			);
 			name = TermsController.strings;
+			sourceTree = "<group>";
+		};
+		1F6238112053FAA80044F2D5 /* AddCardUIService.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F6238102053FAA80044F2D5 /* en */,
+				1F6238122053FAAA0044F2D5 /* ru */,
+			);
+			name = AddCardUIService.strings;
 			sourceTree = "<group>";
 		};
 		1FC33E9E204C8DFB00FF5181 /* EmailAuth.strings */ = {

@@ -72,6 +72,9 @@ public class CardsCacheService {
             }
         }
     }
+    public func add(for paymentSystem: PaymentSystem? = nil) -> RequestResult<AddingCard> {
+        return self.api.add(for:paymentSystem)
+    }
     public func remove(_ cardId: Long) -> RequestResult<Bool> {
         return RequestResult<Bool> { handler in
 

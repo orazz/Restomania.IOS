@@ -117,7 +117,7 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
     @IBAction public func addCard() {
         Log.debug(_tag, "Try add new payment card.")
 
-        self.show(addCardUIService) { success, _ in
+        self.show(addCardUIService) { success, _, _ in
 
             Log.debug(self._tag, "Adding new card is \(success)")
 

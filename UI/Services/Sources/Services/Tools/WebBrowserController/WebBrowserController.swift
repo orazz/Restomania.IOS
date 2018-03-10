@@ -26,7 +26,7 @@ internal class WebBrowserController: UIViewController {
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
 
     //Data
-    private let delegate: WebBrowserControllerDelegate
+    public var delegate: WebBrowserControllerDelegate?
     private var url: String
     private var parameters: [String:String]?
     private var pageTitle: String!
@@ -39,7 +39,7 @@ internal class WebBrowserController: UIViewController {
     }
 
 
-    internal init(delegate: WebBrowserControllerDelegate, for url: String, parameters: [String:String]? = nil) {
+    internal init(delegate: WebBrowserControllerDelegate? = nil, for url: String = String.empty, parameters: [String:String]? = nil) {
 
         self.delegate = delegate
         self.url = url
@@ -60,7 +60,9 @@ internal class WebBrowserController: UIViewController {
 
         loadMarkup()
 
-        startLoad(url, parameters: parameters)
+        if (!String.isNullOrEmpty(url)) {
+            startLoad(url, parameters: parameters)
+        }
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -79,7 +81,7 @@ internal class WebBrowserController: UIViewController {
         titleItem.rightBarButtonItem = UIBarButtonItem(customView: activityindicator)
     }
 
-    private func startLoad(_ url: String, parameters: [String:String]? = nil)  {
+    public func startLoad(_ url: String, parameters: [String:String]? = nil)  {
 
         guard let  components = NSURLComponents(string: url) else {
             return
@@ -132,7 +134,7 @@ internal class WebBrowserController: UIViewController {
         activityindicator.stopAnimating()
     }
     @IBAction private func cancelAction() {
-        delegate.onCancelTap()
+        delegate?.onCancelTap()
     }
 }
 extension WebBrowserController: UIWebViewDelegate {
@@ -141,7 +143,7 @@ extension WebBrowserController: UIWebViewDelegate {
         showLoader()
 
         if let url = webView.request?.url {
-            delegate.startLoad(url: url, parameters: url.queryParameters)
+            delegate?.startLoad(url: url, parameters: url.queryParameters)
         }
     }
     public func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -149,7 +151,7 @@ extension WebBrowserController: UIWebViewDelegate {
         hideLoader()
 
         if let url = webView.request?.url {
-            delegate.completeLoad(url: url, parameters: url.queryParameters)
+            delegate?.completeLoad(url: url, parameters: url.queryParameters)
         }
     }
     public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
@@ -158,7 +160,7 @@ extension WebBrowserController: UIWebViewDelegate {
         showToast(Keys.problemWithLoadMessage)
 
         if let url = webView.request?.url {
-            delegate.failLoad(url: url, parameters: url.queryParameters, error: error)
+            delegate?.failLoad(url: url, parameters: url.queryParameters, error: error)
         }
     }
 }
