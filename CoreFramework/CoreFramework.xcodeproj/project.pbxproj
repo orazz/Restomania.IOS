@@ -29,14 +29,10 @@
 		1F06A7DF205570FD00FEB1B5 /* AddCardUIService.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A60E205570FC00FEB1B5 /* AddCardUIService.strings */; };
 		1F06A7E0205570FD00FEB1B5 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A612205570FC00FEB1B5 /* AuthHandler.swift */; };
 		1F06A7E1205570FD00FEB1B5 /* AuthUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A613205570FC00FEB1B5 /* AuthUIService.swift */; };
-		1F06A7E2205570FD00FEB1B5 /* AuthContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A615205570FC00FEB1B5 /* AuthContainer.swift */; };
-		1F06A7E3205570FD00FEB1B5 /* BaseAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A616205570FC00FEB1B5 /* BaseAuthController.swift */; };
-		1F06A7E4205570FD00FEB1B5 /* EmailAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A617205570FC00FEB1B5 /* EmailAuth.swift */; };
-		1F06A7E5205570FD00FEB1B5 /* EmailAuth.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A618205570FC00FEB1B5 /* EmailAuth.strings */; };
-		1F06A7E6205570FD00FEB1B5 /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A61B205570FC00FEB1B5 /* ForgetPasswordController.swift */; };
-		1F06A7E7205570FD00FEB1B5 /* ForgetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A61C205570FC00FEB1B5 /* ForgetPasswordController.xib */; };
-		1F06A7E8205570FD00FEB1B5 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A61E205570FC00FEB1B5 /* SignupController.swift */; };
-		1F06A7E9205570FD00FEB1B5 /* SignupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A61F205570FC00FEB1B5 /* SignupController.xib */; };
+		1F06A7E6205570FD00FEB1B5 /* ResetPasswordAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A61B205570FC00FEB1B5 /* ResetPasswordAuthController.swift */; };
+		1F06A7E7205570FD00FEB1B5 /* ResetPasswordAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A61C205570FC00FEB1B5 /* ResetPasswordAuthController.xib */; };
+		1F06A7E8205570FD00FEB1B5 /* EmailEnterAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A61E205570FC00FEB1B5 /* EmailEnterAuthController.swift */; };
+		1F06A7E9205570FD00FEB1B5 /* EmailEnterAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A61F205570FC00FEB1B5 /* EmailEnterAuthController.xib */; };
 		1F06A7EA205570FD00FEB1B5 /* InstagramAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A621205570FC00FEB1B5 /* InstagramAuthController.strings */; };
 		1F06A7EB205570FD00FEB1B5 /* InstagramAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A623205570FC00FEB1B5 /* InstagramAuthController.swift */; };
 		1F06A7EC205570FD00FEB1B5 /* EnterPhoneAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A627205570FC00FEB1B5 /* EnterPhoneAuthController.strings */; };
@@ -317,6 +313,8 @@
 		1F06A90D20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A90C20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift */; };
 		1F06A90F20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */; };
 		1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */; };
+		1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923442055C50E0086D372 /* EmailEnterAuthController.strings */; };
+		1F8923482055D2B00086D372 /* ResetPasswordAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89234A2055D2B00086D372 /* ResetPasswordAuthController.strings */; };
 		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -346,15 +344,10 @@
 		1F06A610205570FC00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddCardUIService.strings; sourceTree = "<group>"; };
 		1F06A612205570FC00FEB1B5 /* AuthHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		1F06A613205570FC00FEB1B5 /* AuthUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUIService.swift; sourceTree = "<group>"; };
-		1F06A615205570FC00FEB1B5 /* AuthContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthContainer.swift; sourceTree = "<group>"; };
-		1F06A616205570FC00FEB1B5 /* BaseAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAuthController.swift; sourceTree = "<group>"; };
-		1F06A617205570FC00FEB1B5 /* EmailAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailAuth.swift; sourceTree = "<group>"; };
-		1F06A619205570FC00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmailAuth.strings; sourceTree = "<group>"; };
-		1F06A61B205570FC00FEB1B5 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
-		1F06A61C205570FC00FEB1B5 /* ForgetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordController.xib; sourceTree = "<group>"; };
-		1F06A61D205570FC00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EmailAuth.strings; sourceTree = "<group>"; };
-		1F06A61E205570FC00FEB1B5 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
-		1F06A61F205570FC00FEB1B5 /* SignupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupController.xib; sourceTree = "<group>"; };
+		1F06A61B205570FC00FEB1B5 /* ResetPasswordAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordAuthController.swift; sourceTree = "<group>"; };
+		1F06A61C205570FC00FEB1B5 /* ResetPasswordAuthController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordAuthController.xib; sourceTree = "<group>"; };
+		1F06A61E205570FC00FEB1B5 /* EmailEnterAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailEnterAuthController.swift; sourceTree = "<group>"; };
+		1F06A61F205570FC00FEB1B5 /* EmailEnterAuthController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmailEnterAuthController.xib; sourceTree = "<group>"; };
 		1F06A622205570FC00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InstagramAuthController.strings; sourceTree = "<group>"; };
 		1F06A623205570FC00FEB1B5 /* InstagramAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramAuthController.swift; sourceTree = "<group>"; };
 		1F06A624205570FC00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InstagramAuthController.strings; sourceTree = "<group>"; };
@@ -654,6 +647,10 @@
 		1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckPhoneCodeAuthController.xib; sourceTree = "<group>"; };
 		1F06A91320559C9400FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		1F06A91520559C9500FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
+		1F8923432055C50E0086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmailEnterAuthController.strings; sourceTree = "<group>"; };
+		1F8923452055C5100086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EmailEnterAuthController.strings; sourceTree = "<group>"; };
+		1F8923492055D2B00086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ResetPasswordAuthController.strings; sourceTree = "<group>"; };
+		1F89234B2055D2B10086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ResetPasswordAuthController.strings; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -833,24 +830,20 @@
 		1F06A614205570FC00FEB1B5 /* EmailAuth */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A615205570FC00FEB1B5 /* AuthContainer.swift */,
-				1F06A616205570FC00FEB1B5 /* BaseAuthController.swift */,
-				1F06A617205570FC00FEB1B5 /* EmailAuth.swift */,
-				1F06A618205570FC00FEB1B5 /* EmailAuth.strings */,
-				1F06A61A205570FC00FEB1B5 /* ForgetPassword */,
-				1F06A61E205570FC00FEB1B5 /* SignupController.swift */,
-				1F06A61F205570FC00FEB1B5 /* SignupController.xib */,
+				1F89233F2055C3F80086D372 /* EmailEnter */,
+				1F06A61A205570FC00FEB1B5 /* ResetPassword */,
 			);
 			path = EmailAuth;
 			sourceTree = "<group>";
 		};
-		1F06A61A205570FC00FEB1B5 /* ForgetPassword */ = {
+		1F06A61A205570FC00FEB1B5 /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A61B205570FC00FEB1B5 /* ForgetPasswordController.swift */,
-				1F06A61C205570FC00FEB1B5 /* ForgetPasswordController.xib */,
+				1F06A61B205570FC00FEB1B5 /* ResetPasswordAuthController.swift */,
+				1F06A61C205570FC00FEB1B5 /* ResetPasswordAuthController.xib */,
+				1F89234A2055D2B00086D372 /* ResetPasswordAuthController.strings */,
 			);
-			path = ForgetPassword;
+			path = ResetPassword;
 			sourceTree = "<group>";
 		};
 		1F06A620205570FC00FEB1B5 /* InstagramAuth */ = {
@@ -2023,6 +2016,16 @@
 			path = CheckPhoneCode;
 			sourceTree = "<group>";
 		};
+		1F89233F2055C3F80086D372 /* EmailEnter */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A61E205570FC00FEB1B5 /* EmailEnterAuthController.swift */,
+				1F06A61F205570FC00FEB1B5 /* EmailEnterAuthController.xib */,
+				1F8923442055C50E0086D372 /* EmailEnterAuthController.strings */,
+			);
+			path = EmailEnter;
+			sourceTree = "<group>";
+		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2161,6 +2164,7 @@
 				1F06A8D5205570FD00FEB1B5 /* PlaceMenuCategoryCellView.xib in Resources */,
 				1F06A892205570FD00FEB1B5 /* ManagerPaymentCardsControllerView.xib in Resources */,
 				1F06A89E205570FD00FEB1B5 /* PlaceCartDishesContainerView.xib in Resources */,
+				1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */,
 				1F06A7EA205570FD00FEB1B5 /* InstagramAuthController.strings in Resources */,
 				1F06A7DB205570FD00FEB1B5 /* ScheduleDisplayCellView.xib in Resources */,
 				1F06A88B205570FD00FEB1B5 /* ManagerOrdersControllerView.xib in Resources */,
@@ -2173,11 +2177,12 @@
 				1F06A8C6205570FD00FEB1B5 /* DishModalSelectVariationsView.xib in Resources */,
 				1F06A8FE205570FE00FEB1B5 /* UIElements.strings in Resources */,
 				1F06A8C8205570FD00FEB1B5 /* DishModalShortDividerView.xib in Resources */,
+				1F8923482055D2B00086D372 /* ResetPasswordAuthController.strings in Resources */,
 				1F06A877205570FD00FEB1B5 /* GreetingController.xib in Resources */,
 				1F06A7F8205570FD00FEB1B5 /* WebBrowserController.xib in Resources */,
 				1F06A87A205570FD00FEB1B5 /* LoadingController.strings in Resources */,
 				1F06A887205570FD00FEB1B5 /* ManagerOrdersController.strings in Resources */,
-				1F06A7E9205570FD00FEB1B5 /* SignupController.xib in Resources */,
+				1F06A7E9205570FD00FEB1B5 /* EmailEnterAuthController.xib in Resources */,
 				1F06A8E9205570FE00FEB1B5 /* ExternalTextEditorView.xib in Resources */,
 				1F06A8F0205570FE00FEB1B5 /* OneOrderFooterContainerView.xib in Resources */,
 				1F06A8DB205570FE00FEB1B5 /* PlaceMenuMenuContainerView.xib in Resources */,
@@ -2186,7 +2191,6 @@
 				1F06A8D2205570FD00FEB1B5 /* PlaceMenuCartActionView.xib in Resources */,
 				1F06A8F4205570FE00FEB1B5 /* OneOrderSpaceContainerView.xib in Resources */,
 				1F06A87C205570FD00FEB1B5 /* LoadingController.xib in Resources */,
-				1F06A7E5205570FD00FEB1B5 /* EmailAuth.strings in Resources */,
 				1F06A90F20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib in Resources */,
 				1F06A8B5205570FD00FEB1B5 /* DishModalAddToCartActionView.xib in Resources */,
 				1F06A8FC205570FE00FEB1B5 /* Localizable.strings in Resources */,
@@ -2194,7 +2198,7 @@
 				1F06A8FD205570FE00FEB1B5 /* Tools.strings in Resources */,
 				1F06A8A4205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
 				1F06A8C2205570FD00FEB1B5 /* DishModalSelectHeaderView.xib in Resources */,
-				1F06A7E7205570FD00FEB1B5 /* ForgetPasswordController.xib in Resources */,
+				1F06A7E7205570FD00FEB1B5 /* ResetPasswordAuthController.xib in Resources */,
 				1F06A8F2205570FE00FEB1B5 /* OneOrderControllerView.xib in Resources */,
 				1F06A883205570FD00FEB1B5 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */,
 				1F06A7FE205570FD00FEB1B5 /* FontAwesome.ttf in Resources */,
@@ -2352,7 +2356,6 @@
 				1F06A808205570FD00FEB1B5 /* AppDelegate.swift in Sources */,
 				1F06A83A205570FD00FEB1B5 /* TransactionStatus.swift in Sources */,
 				1F06A7D7205570FD00FEB1B5 /* SizeLabel.swift in Sources */,
-				1F06A7E4205570FD00FEB1B5 /* EmailAuth.swift in Sources */,
 				1F06A8E0205570FE00FEB1B5 /* PlaceMenuTitleContainer.swift in Sources */,
 				1F06A865205570FD00FEB1B5 /* ApiKeyServiceDelegate.swift in Sources */,
 				1F06A811205570FD00FEB1B5 /* AddingBooking.swift in Sources */,
@@ -2368,7 +2371,7 @@
 				1F06A893205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift in Sources */,
 				1F06A7F7205570FD00FEB1B5 /* WebBrowserController.swift in Sources */,
 				1F06A7FA205570FD00FEB1B5 /* UIServices.swift in Sources */,
-				1F06A7E6205570FD00FEB1B5 /* ForgetPasswordController.swift in Sources */,
+				1F06A7E6205570FD00FEB1B5 /* ResetPasswordAuthController.swift in Sources */,
 				1F06A81F205570FD00FEB1B5 /* NotificationPlatformType.swift in Sources */,
 				1F06A8D6205570FD00FEB1B5 /* PlaceMenuDishCell.swift in Sources */,
 				1F06A8D8205570FD00FEB1B5 /* PlaceMenuMenuContainer+Categories.swift in Sources */,
@@ -2399,7 +2402,7 @@
 				1F06A8F1205570FE00FEB1B5 /* OneOrderController.swift in Sources */,
 				1F06A83E205570FD00FEB1B5 /* PlaceSummary.swift in Sources */,
 				1F06A832205570FD00FEB1B5 /* DishOrderDish.swift in Sources */,
-				1F06A7E8205570FD00FEB1B5 /* SignupController.swift in Sources */,
+				1F06A7E8205570FD00FEB1B5 /* EmailEnterAuthController.swift in Sources */,
 				1F06A83C205570FD00FEB1B5 /* TransactionType.swift in Sources */,
 				1F06A878205570FD00FEB1B5 /* LaunchControllerDelegate.swift in Sources */,
 				1F06A83B205570FD00FEB1B5 /* TransactionSummary.swift in Sources */,
@@ -2444,7 +2447,6 @@
 				1F06A828205570FD00FEB1B5 /* Menu.swift in Sources */,
 				1F06A816205570FD00FEB1B5 /* AddedOrder.swift in Sources */,
 				1F06A853205570FD00FEB1B5 /* User.swift in Sources */,
-				1F06A7E3205570FD00FEB1B5 /* BaseAuthController.swift in Sources */,
 				1F06A7DE205570FD00FEB1B5 /* AddCardUIService.swift in Sources */,
 				1F06A8FA205570FE00FEB1B5 /* Localization.Tools.swift in Sources */,
 				1F06A85A205570FD00FEB1B5 /* PlacesCacheService.swift in Sources */,
@@ -2460,7 +2462,6 @@
 				1F06A80D205570FD00FEB1B5 /* ApiServices.swift in Sources */,
 				1F06A8F5205570FE00FEB1B5 /* OneOrderSummaryContainer.swift in Sources */,
 				1F06A903205570FE00FEB1B5 /* PushesService.swift in Sources */,
-				1F06A7E2205570FD00FEB1B5 /* AuthContainer.swift in Sources */,
 				1F06A8EF205570FE00FEB1B5 /* OneOrderFooterContainer.swift in Sources */,
 				1F06A820205570FD00FEB1B5 /* CountedLoyaltyDiscounts.swift in Sources */,
 				1F06A806205570FD00FEB1B5 /* UIExtensions.swift in Sources */,
@@ -2480,15 +2481,6 @@
 				1F06A610205570FC00FEB1B5 /* ru */,
 			);
 			name = AddCardUIService.strings;
-			sourceTree = "<group>";
-		};
-		1F06A618205570FC00FEB1B5 /* EmailAuth.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F06A619205570FC00FEB1B5 /* en */,
-				1F06A61D205570FC00FEB1B5 /* ru */,
-			);
-			name = EmailAuth.strings;
 			sourceTree = "<group>";
 		};
 		1F06A621205570FC00FEB1B5 /* InstagramAuthController.strings */ = {
@@ -2660,6 +2652,24 @@
 				1F06A91520559C9500FEB1B5 /* ru */,
 			);
 			name = CheckPhoneCodeAuthController.strings;
+			sourceTree = "<group>";
+		};
+		1F8923442055C50E0086D372 /* EmailEnterAuthController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8923432055C50E0086D372 /* en */,
+				1F8923452055C5100086D372 /* ru */,
+			);
+			name = EmailEnterAuthController.strings;
+			sourceTree = "<group>";
+		};
+		1F89234A2055D2B00086D372 /* ResetPasswordAuthController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8923492055D2B00086D372 /* en */,
+				1F89234B2055D2B10086D372 /* ru */,
+			);
+			name = ResetPasswordAuthController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

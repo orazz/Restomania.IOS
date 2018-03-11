@@ -124,6 +124,8 @@ extension SelectAuthController {
     }
     @IBAction private func enterViaEmail() {
 
+        let email = EmailEnterAuthController(handler)
+        navigationController?.pushViewController(email, animated: true)
     }
     @IBAction private func lookTerms() {
 

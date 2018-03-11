@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmailEnterAuthController" customModule="CoreFramework" customModuleProvider="target">
+            <connections>
+                <outlet property="emailField" destination="LKC-rt-RIT" id="Yvw-2x-95O"/>
+                <outlet property="enterEmailLabel" destination="JY7-0j-xfn" id="ssI-LF-Iri"/>
+                <outlet property="loginButton" destination="Ur3-Hl-diz" id="dE4-tk-7AS"/>
+                <outlet property="passwordField" destination="kJP-33-zDC" id="Qr3-5S-dBh"/>
+                <outlet property="resetPasswordLabel" destination="f82-Hr-xoV" id="eDq-x1-24q"/>
+                <outlet property="signupButton" destination="hIu-rw-7Mx" id="Mbs-ri-dlK"/>
+                <outlet property="view" destination="iN0-l3-epB" id="vew-ZH-Uja"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите вашу почту и пароль" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JY7-0j-xfn">
+                    <rect key="frame" x="20" y="20" width="280" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="W90-Vl-B6G"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LKC-rt-RIT">
+                    <rect key="frame" x="20" y="100" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="v9G-0P-hRx"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIu-rw-7Mx" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
+                    <rect key="frame" x="60" y="220" width="200" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="jyO-MJ-cb9"/>
+                        <constraint firstAttribute="height" constant="50" id="q87-tN-TS7"/>
+                    </constraints>
+                    <state key="normal" title="Зарегистрироваться"/>
+                    <connections>
+                        <action selector="signUp" destination="-1" eventType="touchUpInside" id="OEP-4F-K7d"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kJP-33-zDC">
+                    <rect key="frame" x="20" y="160" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3h7-7i-FBS"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                </textField>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Забыли пароль?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f82-Hr-xoV">
+                    <rect key="frame" x="10" y="360" width="300" height="21"/>
+                    <gestureRecognizers/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="uRn-wX-eYK" appends="YES" id="yrh-UD-Jeq"/>
+                    </connections>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ur3-Hl-diz" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
+                    <rect key="frame" x="60" y="280" width="200" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="a1I-Vt-2eA"/>
+                        <constraint firstAttribute="height" constant="50" id="rMM-6C-zzJ"/>
+                    </constraints>
+                    <state key="normal" title="Войти"/>
+                    <connections>
+                        <action selector="login" destination="-1" eventType="touchUpInside" id="OqL-DP-twS"/>
+                    </connections>
+                </button>
+            </subviews>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="f82-Hr-xoV" firstAttribute="top" secondItem="Ur3-Hl-diz" secondAttribute="bottom" constant="30" id="7uM-Jv-You"/>
+                <constraint firstAttribute="trailing" secondItem="f82-Hr-xoV" secondAttribute="trailing" constant="10" id="9M6-3F-OmS"/>
+                <constraint firstItem="JY7-0j-xfn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ELb-gC-LX2"/>
+                <constraint firstAttribute="trailing" secondItem="kJP-33-zDC" secondAttribute="trailing" constant="20" id="IAa-yv-Zc6"/>
+                <constraint firstItem="LKC-rt-RIT" firstAttribute="top" secondItem="JY7-0j-xfn" secondAttribute="bottom" constant="20" id="IZ1-Iz-BV3"/>
+                <constraint firstItem="LKC-rt-RIT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="IoO-9p-3VX"/>
+                <constraint firstItem="Ur3-Hl-diz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VDX-dl-9No"/>
+                <constraint firstAttribute="trailing" secondItem="LKC-rt-RIT" secondAttribute="trailing" constant="20" id="WHG-7N-ix8"/>
+                <constraint firstItem="kJP-33-zDC" firstAttribute="top" secondItem="LKC-rt-RIT" secondAttribute="bottom" constant="20" id="WfP-LD-J7n"/>
+                <constraint firstItem="hIu-rw-7Mx" firstAttribute="top" secondItem="kJP-33-zDC" secondAttribute="bottom" constant="20" id="c5a-b3-shh"/>
+                <constraint firstItem="JY7-0j-xfn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="dCe-XV-Lad"/>
+                <constraint firstItem="hIu-rw-7Mx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jIh-xc-OT0"/>
+                <constraint firstItem="f82-Hr-xoV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="nTe-QL-uIM"/>
+                <constraint firstItem="kJP-33-zDC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="oNb-hH-98j"/>
+                <constraint firstItem="LKC-rt-RIT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tVG-dN-2Ee"/>
+                <constraint firstAttribute="trailing" secondItem="JY7-0j-xfn" secondAttribute="trailing" constant="20" id="xhm-ST-p2j"/>
+                <constraint firstItem="Ur3-Hl-diz" firstAttribute="top" secondItem="hIu-rw-7Mx" secondAttribute="bottom" constant="10" id="zIY-bA-jk6"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="ENQ-kR-Gx6" appends="YES" id="Zkr-0t-ogQ"/>
+            </connections>
+            <point key="canvasLocation" x="35.5" y="53.5"/>
+        </view>
+        <tapGestureRecognizer id="uRn-wX-eYK" userLabel="resetPassword">
+            <connections>
+                <action selector="resetPassword" destination="-1" id="qGl-Gb-6OX"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="ENQ-kR-Gx6" userLabel="closeKeyboard">
+            <connections>
+                <action selector="closeKeyboard" destination="-1" id="C0L-s0-m9d"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

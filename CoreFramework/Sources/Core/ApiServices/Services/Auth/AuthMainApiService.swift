@@ -30,7 +30,7 @@ public class AuthMainApiService: BaseApiService {
 
         return client.GetBool(action: "IsAuth", parameters: parameters)
     }
-    public func Login(email: String, password: String, role: ApiRole) -> RequestResult<ApiKeys> {
+    public func login(email: String, password: String, role: ApiRole) -> RequestResult<ApiKeys> {
         let parameters = CollectParameters([
             "email": email,
             "password": password,
@@ -39,7 +39,7 @@ public class AuthMainApiService: BaseApiService {
 
         return client.Get(action: "Login", type: ApiKeys.self, parameters: parameters)
     }
-    public func SignUp(email: String, password: String, role: ApiRole) -> RequestResult<ApiKeys> {
+    public func signup(email: String, password: String, role: ApiRole) -> RequestResult<ApiKeys> {
         let parameters = CollectParameters([
             "email": email,
             "password": password,

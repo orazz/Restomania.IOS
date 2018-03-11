@@ -1,0 +1,23 @@
+/* 
+  EmailEnterAuthController.strings
+  CoreFramework
+
+  Created by Алексей on 12.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Email";
+
+"Labels.EnterEmail" = "Enter your email and password";
+"Labels.ResetPassword" = "Forget your password?";
+
+"Fields.Email.Placeholder" = "Email";
+"Fields.Password.Placeholder" = "Password";
+
+"Buttons.Signup" = "Signup";
+"Buttons.Login" = "Login";
+
+"Alerts.NotCorrectEmail" = "Please, enter correct email.";
+"Alerts.NotCorrectPassword" = "Please, enter correct password.";
+"Alerts.WrongEmailorPassword" = "Wrong email or password. Try again.";
+"Alerts.ExistUserWithSameEmail" = "User with same email is exist. Maybe you forgot password?";

@@ -19,7 +19,7 @@ public class AuthUIService {
     private var navigator: UINavigationController?
 
     //Services
-    private let keys: ApiKeyService
+    private let apiKeys: ApiKeyService
 
     //Data
     private var completeHandler: AuthServiceCallback?
@@ -27,7 +27,7 @@ public class AuthUIService {
     internal init(_ keys: ApiKeyService) {
 
         self.navigator = nil
-        self.keys = keys
+        self.apiKeys = keys
         self.completeHandler = nil
 
         WebBrowserController.clearCache()
@@ -47,6 +47,10 @@ public class AuthUIService {
 }
 extension AuthUIService: AuthHandler {
     internal func complete(success: Bool, keys: ApiKeys?) {
+
+        if let keys = keys {
+            self.apiKeys.update(by: keys)
+        }
 
         navigator?.popViewController(animated: false)
         navigator?.dismiss(animated: true, completion: nil)

@@ -20,7 +20,6 @@ internal class VkAuthController: UIViewController {
 
     //Services
     private let authService = DependencyResolver.resolve(UserAuthApiService.self)
-    private let apiKeys = DependencyResolver.resolve(ApiKeyService.self)
     private let configs = DependencyResolver.resolve(ConfigsContainer.self)
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
 
@@ -102,7 +101,6 @@ extension VkAuthController: WebBrowserControllerDelegate {
             }
 
             let keys = response.data!
-            self.apiKeys.update(by: keys)
             self.handler.complete(success: true, keys: nil)
         })
     }

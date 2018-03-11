@@ -69,7 +69,7 @@ public class GreetingController: UIViewController {
     private func goToAuth() {
         self.showAuth(complete: { success, _ in
             if (success) {
-                self.complete()
+//                self.complete()
             }
         })
     }
