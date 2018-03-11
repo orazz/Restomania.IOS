@@ -70,11 +70,8 @@ public class LoadingController: UIViewController {
 
         status(on: Localization.statusRequestPermission.localized)
 
-        let service = NotificationsServices.shared
-        if (service.needRequest()) {
-            service.requestPermissions()
-        }
-
+        NotificationsServices.shared.requestRemoteNotificattions()
+        NotificationsServices.shared.requestLocalNotifications()
         complete()
     }
     private func complete() {

@@ -16,8 +16,10 @@ import CoreApiServices
 import CoreStorageServices
 import UITools
 import UIServices
+import Notifications
 import Launcher
 import PagesSearch
+import FirebaseCore
 
 open class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,7 +30,6 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
     private let _tag = String.tag(AppDelegate.self)
     private var info: LaunchInfo!
     private var configs: ConfigsContainer!
-
 
     open func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         loadInjections()
@@ -54,9 +55,14 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     open func beforeLoad() {
-
         info.displayToLog()
         configs.displayToLog()
+
+        if let content = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist"),
+            let options = FirebaseOptions(contentsOfFile: content) {
+
+            FirebaseApp.configure(options: options)
+        }
     }
     open func afterLoad() {}
 
@@ -118,25 +124,25 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
         PagesSearch.registerTemplates()
     }
 }
+
+//Notifications
 extension AppDelegate {
 
     public func application(_ application: UIApplication,
                             didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 
-        print(deviceToken)
-//        NotificationsServices.shared.completeRequestToPushNotifications(token: deviceToken)
+        NotificationsServices.shared.registerForRemoteNotifications(token: deviceToken)
     }
     public func application(_ application: UIApplication,
                             didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print(error)
-//        NotificationsServices.shared.completeRequestToPushNotifications(token: nil, error: error)
+
+        NotificationsServices.shared.registerForRemoteNotifications(token: nil, error: error)
     }
     public func application(_ application: UIApplication,
                             didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                             fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//        NotificationsServices.shared.processMessage(push: userInfo)
 
-        completionHandler(.newData)
+        NotificationsServices.shared.processMessage(notification: userInfo, handler: completionHandler)
     }
 }
 

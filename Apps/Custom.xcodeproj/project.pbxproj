@@ -12,66 +12,27 @@
 		1F47DB0B204C3A76007340CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F47DB05204C3A75007340CE /* Assets.xcassets */; };
 		1F47DB0C204C3A76007340CE /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F47DB06204C3A75007340CE /* Configs.plist */; };
 		1F47DB93204C4236007340CE /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F47DB92204C4236007340CE /* Launch.storyboard */; };
-		1F47DBA4204C43E0007340CE /* BaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB4204C43E0007340CE /* BaseApp.framework */; };
-		1F47DBA5204C43E0007340CE /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB5204C43E0007340CE /* CoreApiServices.framework */; };
-		1F47DBA6204C43E0007340CE /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB6204C43E0007340CE /* CoreDomains.framework */; };
-		1F47DBA7204C43E0007340CE /* CoreStorageServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB7204C43E0007340CE /* CoreStorageServices.framework */; };
-		1F47DBA8204C43E0007340CE /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB8204C43E0007340CE /* CoreTools.framework */; };
-		1F47DBA9204C43E0007340CE /* CoreToolsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB9204C43E0007340CE /* CoreToolsServices.framework */; };
-		1F47DBAA204C43E0007340CE /* Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBA204C43E0007340CE /* Launcher.framework */; };
-		1F47DBAB204C43E0007340CE /* Localization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBB204C43E0007340CE /* Localization.framework */; };
-		1F47DBAC204C43E0007340CE /* Notifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBC204C43E0007340CE /* Notifications.framework */; };
-		1F47DBAD204C43E0007340CE /* PagesOther.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBD204C43E0007340CE /* PagesOther.framework */; };
-		1F47DBAE204C43E0007340CE /* PagesPlace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBE204C43E0007340CE /* PagesPlace.framework */; };
-		1F47DBAF204C43E0007340CE /* PagesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBF204C43E0007340CE /* PagesSearch.framework */; };
-		1F47DBB0204C43E0007340CE /* PagesTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC0204C43E0007340CE /* PagesTools.framework */; };
-		1F47DBB1204C43E0007340CE /* UIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC1204C43E0007340CE /* UIElements.framework */; };
-		1F47DBB2204C43E0007340CE /* UIServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC2204C43E0007340CE /* UIServices.framework */; };
-		1F47DBB3204C43E0007340CE /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC3204C43E0007340CE /* UITools.framework */; };
-		1F47DBC4204C43F1007340CE /* BaseApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB4204C43E0007340CE /* BaseApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBC5204C43F1007340CE /* CoreApiServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB5204C43E0007340CE /* CoreApiServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBC6204C43F1007340CE /* CoreDomains.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB6204C43E0007340CE /* CoreDomains.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBC7204C43F1007340CE /* CoreStorageServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB7204C43E0007340CE /* CoreStorageServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBC8204C43F1007340CE /* CoreTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB8204C43E0007340CE /* CoreTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBC9204C43F1007340CE /* CoreToolsServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBB9204C43E0007340CE /* CoreToolsServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBCA204C43F1007340CE /* Launcher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBA204C43E0007340CE /* Launcher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBCB204C43F1007340CE /* Localization.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBB204C43E0007340CE /* Localization.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBCC204C43F1007340CE /* Notifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBC204C43E0007340CE /* Notifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBCD204C43F1007340CE /* PagesOther.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBD204C43E0007340CE /* PagesOther.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBCE204C43F1007340CE /* PagesPlace.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBE204C43E0007340CE /* PagesPlace.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBCF204C43F1007340CE /* PagesSearch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBBF204C43E0007340CE /* PagesSearch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBD0204C43F1007340CE /* PagesTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC0204C43E0007340CE /* PagesTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBD1204C43F2007340CE /* UIElements.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC1204C43E0007340CE /* UIElements.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBD2204C43F2007340CE /* UIServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC2204C43E0007340CE /* UIServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1F47DBD3204C43F2007340CE /* UITools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47DBC3204C43E0007340CE /* UITools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F6237C7205296780044F2D5 /* SearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6237C6205296780044F2D5 /* SearchPlaceCard.xib */; };
 		1F6237FD2052F0140044F2D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F6237FC2052F0130044F2D5 /* GoogleService-Info.plist */; };
-		4129559523922845F9471653 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */; };
+		1F82C5FB2055509B0018DC56 /* BaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F82C5E520554C5F0018DC56 /* BaseApp.framework */; };
+		1F82C5FC2055509B0018DC56 /* BaseApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F82C5E520554C5F0018DC56 /* BaseApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F82C5FD2055509B0018DC56 /* UITools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F82C5F420554E390018DC56 /* UITools.framework */; };
+		1F82C5FE2055509B0018DC56 /* UITools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F82C5F420554E390018DC56 /* UITools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F82C5FF2055509B0018DC56 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F82C5F820554E460018DC56 /* CoreTools.framework */; };
+		1F82C6002055509B0018DC56 /* CoreTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F82C5F820554E460018DC56 /* CoreTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4A265D6D0EF137E20724CF7C /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC387E1F22F1FC84C21780C5 /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1F47DB51204C3FF9007340CE /* Embed Frameworks */ = {
+		1F82C6012055509B0018DC56 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1F47DBC4204C43F1007340CE /* BaseApp.framework in Embed Frameworks */,
-				1F47DBC5204C43F1007340CE /* CoreApiServices.framework in Embed Frameworks */,
-				1F47DBC6204C43F1007340CE /* CoreDomains.framework in Embed Frameworks */,
-				1F47DBC7204C43F1007340CE /* CoreStorageServices.framework in Embed Frameworks */,
-				1F47DBC8204C43F1007340CE /* CoreTools.framework in Embed Frameworks */,
-				1F47DBC9204C43F1007340CE /* CoreToolsServices.framework in Embed Frameworks */,
-				1F47DBCA204C43F1007340CE /* Launcher.framework in Embed Frameworks */,
-				1F47DBCB204C43F1007340CE /* Localization.framework in Embed Frameworks */,
-				1F47DBCC204C43F1007340CE /* Notifications.framework in Embed Frameworks */,
-				1F47DBCD204C43F1007340CE /* PagesOther.framework in Embed Frameworks */,
-				1F47DBCE204C43F1007340CE /* PagesPlace.framework in Embed Frameworks */,
-				1F47DBCF204C43F1007340CE /* PagesSearch.framework in Embed Frameworks */,
-				1F47DBD0204C43F1007340CE /* PagesTools.framework in Embed Frameworks */,
-				1F47DBD1204C43F2007340CE /* UIElements.framework in Embed Frameworks */,
-				1F47DBD2204C43F2007340CE /* UIServices.framework in Embed Frameworks */,
-				1F47DBD3204C43F2007340CE /* UITools.framework in Embed Frameworks */,
+				1F82C5FE2055509B0018DC56 /* UITools.framework in Embed Frameworks */,
+				1F82C5FC2055509B0018DC56 /* BaseApp.framework in Embed Frameworks */,
+				1F82C6002055509B0018DC56 /* CoreTools.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,29 +48,16 @@
 		1F47DB06204C3A75007340CE /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		1F47DB08204C3A76007340CE /* Kuzina.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Kuzina.entitlements; sourceTree = "<group>"; };
 		1F47DB92204C4236007340CE /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
-		1F47DBB4204C43E0007340CE /* BaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBB5204C43E0007340CE /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBB6204C43E0007340CE /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBB7204C43E0007340CE /* CoreStorageServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreStorageServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBB8204C43E0007340CE /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBB9204C43E0007340CE /* CoreToolsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreToolsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBBA204C43E0007340CE /* Launcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Launcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBBB204C43E0007340CE /* Localization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Localization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBBC204C43E0007340CE /* Notifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Notifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBBD204C43E0007340CE /* PagesOther.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesOther.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBBE204C43E0007340CE /* PagesPlace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesPlace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBBF204C43E0007340CE /* PagesSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBC0204C43E0007340CE /* PagesTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PagesTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBC1204C43E0007340CE /* UIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBC2204C43E0007340CE /* UIServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F47DBC3204C43E0007340CE /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6237C6205296780044F2D5 /* SearchPlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPlaceCard.xib; sourceTree = "<group>"; };
 		1F6237FC2052F0130044F2D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1F82C5E520554C5F0018DC56 /* BaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F82C5F420554E390018DC56 /* UITools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F82C5F820554E460018DC56 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557BDF02335A47F03851CD6 /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		57ED0FFB249B6C678F4F923D /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
-		6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B7606BA53179CE88B85E1F1 /* Pods-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
 		A286D3A48B5E08E92612C693 /* Pods-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
+		AC387E1F22F1FC84C21780C5 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,23 +65,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F47DBA4204C43E0007340CE /* BaseApp.framework in Frameworks */,
-				1F47DBA5204C43E0007340CE /* CoreApiServices.framework in Frameworks */,
-				1F47DBA6204C43E0007340CE /* CoreDomains.framework in Frameworks */,
-				1F47DBA7204C43E0007340CE /* CoreStorageServices.framework in Frameworks */,
-				1F47DBA8204C43E0007340CE /* CoreTools.framework in Frameworks */,
-				1F47DBA9204C43E0007340CE /* CoreToolsServices.framework in Frameworks */,
-				1F47DBAA204C43E0007340CE /* Launcher.framework in Frameworks */,
-				1F47DBAB204C43E0007340CE /* Localization.framework in Frameworks */,
-				1F47DBAC204C43E0007340CE /* Notifications.framework in Frameworks */,
-				1F47DBAD204C43E0007340CE /* PagesOther.framework in Frameworks */,
-				1F47DBAE204C43E0007340CE /* PagesPlace.framework in Frameworks */,
-				1F47DBAF204C43E0007340CE /* PagesSearch.framework in Frameworks */,
-				1F47DBB0204C43E0007340CE /* PagesTools.framework in Frameworks */,
-				1F47DBB1204C43E0007340CE /* UIElements.framework in Frameworks */,
-				1F47DBB2204C43E0007340CE /* UIServices.framework in Frameworks */,
-				1F47DBB3204C43E0007340CE /* UITools.framework in Frameworks */,
-				4129559523922845F9471653 /* Pods_Kuzina.framework in Frameworks */,
+				4A265D6D0EF137E20724CF7C /* Pods_Kuzina.framework in Frameworks */,
+				1F82C5FF2055509B0018DC56 /* CoreTools.framework in Frameworks */,
+				1F82C5FB2055509B0018DC56 /* BaseApp.framework in Frameworks */,
+				1F82C5FD2055509B0018DC56 /* UITools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,12 +107,24 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		1F82C5DC20554BBD0018DC56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F82C5F820554E460018DC56 /* CoreTools.framework */,
+				1F82C5F420554E390018DC56 /* UITools.framework */,
+				1F82C5E520554C5F0018DC56 /* BaseApp.framework */,
+				AC387E1F22F1FC84C21780C5 /* Pods_Kuzina.framework */,
+			);
+			name = Frameworks;
+			path = Kuzina/Frameworks;
+			sourceTree = "<group>";
+		};
 		1FC5A6931F138A8600ABE1A6 = {
 			isa = PBXGroup;
 			children = (
 				1F47DAF2204C38AB007340CE /* Kuzina */,
 				1FC5A69D1F138A8600ABE1A6 /* Products */,
-				1FC5A7411F138C9400ABE1A6 /* Frameworks */,
+				1F82C5DC20554BBD0018DC56 /* Frameworks */,
 				669C3AFDA7F4F79423497066 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -188,30 +135,6 @@
 				1F47DAF1204C38AB007340CE /* Kuzina.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1FC5A7411F138C9400ABE1A6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1F47DBB4204C43E0007340CE /* BaseApp.framework */,
-				1F47DBB5204C43E0007340CE /* CoreApiServices.framework */,
-				1F47DBB6204C43E0007340CE /* CoreDomains.framework */,
-				1F47DBB7204C43E0007340CE /* CoreStorageServices.framework */,
-				1F47DBB8204C43E0007340CE /* CoreTools.framework */,
-				1F47DBB9204C43E0007340CE /* CoreToolsServices.framework */,
-				1F47DBBA204C43E0007340CE /* Launcher.framework */,
-				1F47DBBB204C43E0007340CE /* Localization.framework */,
-				1F47DBBC204C43E0007340CE /* Notifications.framework */,
-				1F47DBBD204C43E0007340CE /* PagesOther.framework */,
-				1F47DBBE204C43E0007340CE /* PagesPlace.framework */,
-				1F47DBBF204C43E0007340CE /* PagesSearch.framework */,
-				1F47DBC0204C43E0007340CE /* PagesTools.framework */,
-				1F47DBC1204C43E0007340CE /* UIElements.framework */,
-				1F47DBC2204C43E0007340CE /* UIServices.framework */,
-				1F47DBC3204C43E0007340CE /* UITools.framework */,
-				6B43FA1D93F3C4D3E9439F9E /* Pods_Kuzina.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		669C3AFDA7F4F79423497066 /* Pods */ = {
@@ -238,7 +161,7 @@
 				1F47DAEF204C38AB007340CE /* Resources */,
 				D073E632BE464D5C2FCAE1D4 /* [CP] Embed Pods Frameworks */,
 				0A2E20BEEBB50566400E5C04 /* [CP] Copy Pods Resources */,
-				1F47DB51204C3FF9007340CE /* Embed Frameworks */,
+				1F82C6012055509B0018DC56 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -346,23 +269,33 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/InputMask/InputMask.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MdsKit/MdsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputMask.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MdsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -396,9 +329,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 686FXGC24W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Gloss\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MdsKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Swinject\"",
+					"${BUILT_PRODUCTS_DIR}/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Kuzina/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -458,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -516,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -537,9 +477,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 686FXGC24W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Gloss\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MdsKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Swinject\"",
+					"${BUILT_PRODUCTS_DIR}/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Kuzina/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -560,7 +507,7 @@
 				1FECBDD8204FB52F0089CA4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		1FC5A6971F138A8600ABE1A6 /* Build configuration list for PBXProject "Custom" */ = {
 			isa = XCConfigurationList;
@@ -569,7 +516,7 @@
 				1FECBDD7204FB52F0089CA4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

@@ -22,6 +22,9 @@
 		1F6238062052FBBE0044F2D5 /* TermsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6238052052FBBE0044F2D5 /* TermsController.swift */; };
 		1F6238092052FBEA0044F2D5 /* TermsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F62380B2052FBEA0044F2D5 /* TermsController.strings */; };
 		1F62380F2053FAA80044F2D5 /* AddCardUIService.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F6238112053FAA80044F2D5 /* AddCardUIService.strings */; };
+		1F6CA88820552F4500592F43 /* EnterPhoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6CA88720552F4500592F43 /* EnterPhoneController.swift */; };
+		1F6CA88A20552F4D00592F43 /* EnterPhoneController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CA88920552F4D00592F43 /* EnterPhoneController.xib */; };
+		1F6CA88D205531F700592F43 /* EnterPhoneController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CA88F205531F700592F43 /* EnterPhoneController.strings */; };
 		1F7469322032AAAA00CC7BC9 /* CoreTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469332032AAAA00CC7BC9 /* CoreTools.framework */; };
 		1F7469342032AAB000CC7BC9 /* CoreDomains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469352032AAB000CC7BC9 /* CoreDomains.framework */; };
 		1F7469362032AAB700CC7BC9 /* CoreApiServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */; };
@@ -77,6 +80,10 @@
 		1F62380C2052FBEB0044F2D5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TermsController.strings; sourceTree = "<group>"; };
 		1F6238102053FAA80044F2D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddCardUIService.strings; sourceTree = "<group>"; };
 		1F6238122053FAAA0044F2D5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddCardUIService.strings; sourceTree = "<group>"; };
+		1F6CA88720552F4500592F43 /* EnterPhoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneController.swift; sourceTree = "<group>"; };
+		1F6CA88920552F4D00592F43 /* EnterPhoneController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnterPhoneController.xib; sourceTree = "<group>"; };
+		1F6CA88E205531F700592F43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EnterPhoneController.strings; sourceTree = "<group>"; };
+		1F6CA890205531F900592F43 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EnterPhoneController.strings; sourceTree = "<group>"; };
 		1F7469332032AAAA00CC7BC9 /* CoreTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469352032AAB000CC7BC9 /* CoreDomains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreDomains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7469372032AAB700CC7BC9 /* CoreApiServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreApiServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +178,16 @@
 			path = Terms;
 			sourceTree = "<group>";
 		};
+		1F6CA88620552F3700592F43 /* EnterPhoneController */ = {
+			isa = PBXGroup;
+			children = (
+				1F6CA88720552F4500592F43 /* EnterPhoneController.swift */,
+				1F6CA88920552F4D00592F43 /* EnterPhoneController.xib */,
+				1F6CA88F205531F700592F43 /* EnterPhoneController.strings */,
+			);
+			path = EnterPhoneController;
+			sourceTree = "<group>";
+		};
 		1F7469312032AAAA00CC7BC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +278,7 @@
 		1FCA6AA12049766E00D99879 /* PhoneAuth */ = {
 			isa = PBXGroup;
 			children = (
+				1F6CA88620552F3700592F43 /* EnterPhoneController */,
 			);
 			path = PhoneAuth;
 			sourceTree = "<group>";
@@ -410,7 +428,9 @@
 				1FC33E9C204C8DFB00FF5181 /* EmailAuth.strings in Resources */,
 				1F49A45E20542986003795E4 /* SelectAuthController.strings in Resources */,
 				1FCA6A972049729700D99879 /* ForgetPasswordController.xib in Resources */,
+				1F6CA88A20552F4D00592F43 /* EnterPhoneController.xib in Resources */,
 				1F6238092052FBEA0044F2D5 /* TermsController.strings in Resources */,
+				1F6CA88D205531F700592F43 /* EnterPhoneController.strings in Resources */,
 				1F6237C220501E3F0044F2D5 /* WebBrowserController.xib in Resources */,
 				1F62380F2053FAA80044F2D5 /* AddCardUIService.strings in Resources */,
 				1F49A45B20541F54003795E4 /* SelectAuthController.xib in Resources */,
@@ -470,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F6237E82052A5F80044F2D5 /* WebBrowserControllerDelegate.swift in Sources */,
+				1F6CA88820552F4500592F43 /* EnterPhoneController.swift in Sources */,
 				1FCA6A952049729700D99879 /* BaseAuthController.swift in Sources */,
 				1F49A46320543B14003795E4 /* VkAuthController.swift in Sources */,
 				1FCA6A942049729700D99879 /* AuthUIService.swift in Sources */,
@@ -559,6 +580,15 @@
 			name = AddCardUIService.strings;
 			sourceTree = "<group>";
 		};
+		1F6CA88F205531F700592F43 /* EnterPhoneController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F6CA88E205531F700592F43 /* en */,
+				1F6CA890205531F900592F43 /* ru */,
+			);
+			name = EnterPhoneController.strings;
+			sourceTree = "<group>";
+		};
 		1FC33E9E204C8DFB00FF5181 /* EmailAuth.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -621,7 +651,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -676,7 +706,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -701,7 +731,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.ui.services;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -728,7 +758,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.ui.services;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

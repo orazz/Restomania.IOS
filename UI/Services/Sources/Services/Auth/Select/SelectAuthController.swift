@@ -122,6 +122,8 @@ extension SelectAuthController {
     }
     @IBAction private func enterViaPhone() {
 
+        let phone = EnterPhoneController(handler)
+        navigationController?.pushViewController(phone, animated: true)
     }
     @IBAction private func enterViaEmail() {
 
