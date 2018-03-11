@@ -5,3 +5,14 @@
   Created by Алексей on 12.03.18.
   Copyright © 2018 Medved-Studio. All rights reserved.
 */
+"Title" = "Check code";
+
+"Labels.EnterCode" = "Enter code from SMS";
+"Labels.ResendCode" = "Don't get sms?";
+
+"Fields.Code.Placeholder" = "123456";
+
+"Buttons.CheckCode" = "Check code";
+
+"Alerts.NotCorrectCode" = "Please, enter correct code.";
+"Alerts.CheckCodeProblem" = "Problem with check code. Check code from sms and check your internet connection.";

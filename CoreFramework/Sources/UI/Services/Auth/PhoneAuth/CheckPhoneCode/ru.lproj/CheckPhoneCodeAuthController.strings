@@ -5,3 +5,14 @@
   Created by Алексей on 12.03.18.
   Copyright © 2018 Medved-Studio. All rights reserved.
 */
+"Title" = "Проверка кода";
+
+"Labels.EnterCode" = "Введите код из смс";
+"Labels.ResendCode" = "Не получили смс?";
+
+"Fields.Code.Placeholder" = "123456";
+
+"Buttons.CheckCode" = "Проверить код";
+
+"Alerts.NotCorrectCode" = "Пожалуйста, введите корретный код.";
+"Alerts.CheckCodeProblem" = "Проблема с проверкой вашего кода. Проверьте правильность кода из смс и ваше подключение к интернету.";

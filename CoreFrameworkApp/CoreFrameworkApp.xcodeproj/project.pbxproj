@@ -463,13 +463,10 @@
 				CODE_SIGN_ENTITLEMENTS = CoreFrameworkApp/Kuzina.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 686FXGC24W;
-				FRAMEWORK_SEARCH_PATHS = (
-					"${BUILT_PRODUCTS_DIR}/**",
-					"${inherited}/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/**";
 				INFOPLIST_FILE = CoreFrameworkApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/**";
+				LIBRARY_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3dec1da5-c558-47aa-a521-eaf814e28161";
@@ -488,13 +485,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 686FXGC24W;
-				FRAMEWORK_SEARCH_PATHS = (
-					"${BUILT_PRODUCTS_DIR}/**",
-					"${inherited}/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/**";
 				INFOPLIST_FILE = CoreFrameworkApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/**";
+				LIBRARY_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b2b45230-229e-4b1b-a55b-babe3ce8ecbf";

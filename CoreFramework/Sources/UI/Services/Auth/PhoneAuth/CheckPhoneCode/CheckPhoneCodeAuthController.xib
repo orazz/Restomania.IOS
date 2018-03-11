@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,15 +12,87 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckPhoneCodeAuthController" customModule="CoreFramework" customModuleProvider="target">
             <connections>
+                <outlet property="checkCodeButton" destination="OIp-0h-DJI" id="2h9-sR-U7b"/>
+                <outlet property="codeField" destination="5JU-PR-gfG" id="fdG-09-GpZ"/>
+                <outlet property="enterCodeLabel" destination="4fD-fe-9YX" id="K1V-kA-bDk"/>
+                <outlet property="resendCodeLabel" destination="bbK-RY-7we" id="kfV-Wd-Zhb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kKq-oq-Qk9"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите полученный код" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fD-fe-9YX">
+                    <rect key="frame" x="20" y="50" width="280" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5JU-PR-gfG">
+                    <rect key="frame" x="20" y="95.5" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="R2K-oG-5Fr"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIp-0h-DJI" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
+                    <rect key="frame" x="60" y="155.5" width="200" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="f4d-yR-uss"/>
+                        <constraint firstAttribute="height" constant="50" id="rMI-qV-Bej"/>
+                    </constraints>
+                    <state key="normal" title="Проверить код"/>
+                    <connections>
+                        <action selector="checkCode" destination="-1" eventType="touchUpInside" id="viL-EV-Vnc"/>
+                    </connections>
+                </button>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Не пришел код?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbK-RY-7we">
+                    <rect key="frame" x="30" y="245.5" width="270" height="21"/>
+                    <gestureRecognizers/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="AI9-SI-MOh" appends="YES" id="r4v-y9-Lah"/>
+                    </connections>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="OIp-0h-DJI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6G1-i6-kl4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4fD-fe-9YX" secondAttribute="trailing" constant="20" id="8IC-Zd-Lq5"/>
+                <constraint firstItem="4fD-fe-9YX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="8PV-D1-GTD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5JU-PR-gfG" secondAttribute="trailing" constant="20" id="90B-Xo-oiV"/>
+                <constraint firstAttribute="trailing" secondItem="bbK-RY-7we" secondAttribute="trailing" constant="20" id="N8u-Yk-NYP"/>
+                <constraint firstItem="bbK-RY-7we" firstAttribute="top" secondItem="OIp-0h-DJI" secondAttribute="bottom" constant="40" id="RHx-fR-YdH"/>
+                <constraint firstItem="bbK-RY-7we" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="ThY-Ld-tFd"/>
+                <constraint firstItem="4fD-fe-9YX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X0f-H7-1Td"/>
+                <constraint firstItem="5JU-PR-gfG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Xc5-ZB-uPq"/>
+                <constraint firstItem="5JU-PR-gfG" firstAttribute="top" secondItem="4fD-fe-9YX" secondAttribute="bottom" constant="20" id="btw-Nu-rXM"/>
+                <constraint firstItem="OIp-0h-DJI" firstAttribute="top" secondItem="5JU-PR-gfG" secondAttribute="bottom" constant="20" id="hFc-Ku-Ipn"/>
+                <constraint firstItem="5JU-PR-gfG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="qe6-tB-J2e"/>
+                <constraint firstItem="4fD-fe-9YX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="sEi-fs-oEZ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="FcZ-pM-BDe" appends="YES" id="ODD-s9-6x5"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
+        <tapGestureRecognizer id="FcZ-pM-BDe" userLabel="closeKeyboard">
+            <connections>
+                <action selector="closeKeyboard" destination="-1" id="SHK-Sl-eZT"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="AI9-SI-MOh" userLabel="resendCode">
+            <connections>
+                <action selector="resendCode" destination="-1" id="Gzw-ci-J1j"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>
