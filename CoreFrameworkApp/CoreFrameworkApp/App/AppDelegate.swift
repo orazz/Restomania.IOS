@@ -9,12 +9,10 @@
 import UIKit
 import MdsKit
 import Swinject
-import BaseApp
-import UITools
-import CoreTools
+import CoreFramework
 
 @UIApplicationMain
-class AppDelegate: BaseApp.AppDelegate, AppDelegateProtocol {
+class AppDelegate: CoreFramework.AppDelegate, AppDelegateProtocol {
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return super.application(self, for: application, didFinishLaunchingWithOptions: launchOptions)

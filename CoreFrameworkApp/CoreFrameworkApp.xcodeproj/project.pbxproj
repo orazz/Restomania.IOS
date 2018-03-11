@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F06A5E520556E2A00FEB1B5 /* CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; };
+		1F06A5E620556E2A00FEB1B5 /* CoreFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F23107E20556A2800FB1D79 /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107320556A2700FB1D79 /* Configs.plist */; };
 		1F23107F20556A2800FB1D79 /* SearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107520556A2800FB1D79 /* SearchPlaceCard.xib */; };
 		1F23108020556A2800FB1D79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107620556A2800FB1D79 /* GoogleService-Info.plist */; };
@@ -18,7 +20,22 @@
 		3C978327FDB757F36BF52272 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1F06A5E720556E2A00FEB1B5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1F06A5E620556E2A00FEB1B5 /* CoreFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23105E205569EC00FB1D79 /* Kuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23107320556A2700FB1D79 /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		1F23107520556A2800FB1D79 /* SearchPlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPlaceCard.xib; sourceTree = "<group>"; };
@@ -39,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F06A5E520556E2A00FEB1B5 /* CoreFramework.framework in Frameworks */,
 				3C978327FDB757F36BF52272 /* Pods_Kuzina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +67,7 @@
 		1F231055205569EC00FB1D79 = {
 			isa = PBXGroup;
 			children = (
+				1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */,
 				1F231060205569EC00FB1D79 /* CoreFrameworkApp */,
 				1F23105F205569EC00FB1D79 /* Products */,
 				6ED895764D1334153C88B34A /* Pods */,
@@ -90,8 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				1F23107A20556A2800FB1D79 /* AppDelegate.swift */,
-				1F23107B20556A2800FB1D79 /* Launch.storyboard */,
 				1F23107C20556A2800FB1D79 /* ThemeSettings.swift */,
+				1F23107B20556A2800FB1D79 /* Launch.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -126,6 +145,7 @@
 				1F23105C205569EC00FB1D79 /* Resources */,
 				E4A4C11C26778A4E531668CA /* [CP] Embed Pods Frameworks */,
 				EF681A4911C360F891FB1B92 /* [CP] Copy Pods Resources */,
+				1F06A5E720556E2A00FEB1B5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -402,7 +422,7 @@
 				PROVISIONING_PROFILE = "3dec1da5-c558-47aa-a521-eaf814e28161";
 				PROVISIONING_PROFILE_SPECIFIER = "Custom Kuzina Development";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -422,7 +442,7 @@
 				PROVISIONING_PROFILE = "b2b45230-229e-4b1b-a55b-babe3ce8ecbf";
 				PROVISIONING_PROFILE_SPECIFIER = "Custom Kuzina Ad Hoc";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

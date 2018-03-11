@@ -8,7 +8,7 @@
 
 import UIKit
 import MdsKit
-import UITools
+import CoreFramework
 
 public class ThemeSettings {
 
