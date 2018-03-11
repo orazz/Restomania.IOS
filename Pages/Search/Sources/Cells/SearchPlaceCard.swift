@@ -18,10 +18,10 @@ public class SearchPlaceCard: UITableViewCell {
 
     public static let height = CGFloat(100)
 
-    @IBOutlet private weak var placeImage: CachedImage!
-    @IBOutlet private weak var name: UILabel!
-    @IBOutlet private weak var location: UILabel!
-    @IBOutlet private weak var workingHours: UILabel!
+    @IBOutlet private weak var placeImage: CachedImage?
+    @IBOutlet private weak var name: UILabel?
+    @IBOutlet private weak var location: UILabel?
+    @IBOutlet private weak var workingHours: UILabel?
 
     private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
     private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
@@ -34,14 +34,14 @@ public class SearchPlaceCard: UITableViewCell {
 
         backgroundColor = colorsTheme.contentBackground
 
-        name.font = fontsTheme.bold(size: .head)
-        name.textColor = colorsTheme.contentBackgroundText
+        name?.font = fontsTheme.bold(size: .head)
+        name?.textColor = colorsTheme.contentBackgroundText
 
-        workingHours.font = fontsTheme.default(size: .subhead)
-        workingHours.textColor = colorsTheme.contentBackgroundText
+        workingHours?.font = fontsTheme.default(size: .subhead)
+        workingHours?.textColor = colorsTheme.contentBackgroundText
 
-        location.font = fontsTheme.default(size: .subhead)
-        location.textColor = colorsTheme.contentBackgroundText
+        location?.font = fontsTheme.default(size: .subhead)
+        location?.textColor = colorsTheme.contentBackgroundText
     }
     public func update(summary: PlaceSummary) {
         _summary = summary
@@ -50,10 +50,10 @@ public class SearchPlaceCard: UITableViewCell {
     }
     private func refresh() {
 
-        placeImage.setup(url: _summary.Image)
-        name.text = _summary.Name
-        workingHours.text = take(_summary.Schedule)
-        location.text = format(_summary.Location)
+        placeImage?.setup(url: _summary.Image)
+        name?.text = _summary.Name
+        workingHours?.text = take(_summary.Schedule)
+        location?.text = format(_summary.Location)
     }
     private func format(_ location: PlaceLocation) -> String {
 

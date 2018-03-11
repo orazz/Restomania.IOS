@@ -4,10 +4,10 @@
 <dict>
 	<key>AppKey</key>
 	<string>936DA01F-9ABD-4D9D-80C7-02AF85C822A8</string>
-	<key>VkAppid</key>
-	<integer>6403406</integer>
+	<key>VkAppId</key>
+	<string>6403406</string>
 	<key>InstagramAppid</key>
-	<integer>0</integer>
+	<string>0</string>
 	<key>InstagramAppSecret</key>
 	<string></string>
 	<key>ServerUrl</key>

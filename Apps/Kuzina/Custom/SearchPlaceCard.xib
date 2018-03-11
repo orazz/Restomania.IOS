@@ -18,25 +18,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byx-fu-55P">
-                        <rect key="frame" x="5" y="80" width="48.5" height="14.5"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:00 - 22:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1N-CH-mcO">
                         <rect key="frame" x="201.5" y="76" width="73.5" height="13.5"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-L8-I4V" customClass="ImageWrapper" customModule="Kuzina" customModuleProvider="target">
-                        <rect key="frame" x="10" y="50" width="0.0" height="0.0"/>
-                        <constraints>
-                            <constraint firstAttribute="height" id="6bs-6I-ppK"/>
-                            <constraint firstAttribute="width" id="YWp-sg-p57"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoO-bv-WhR">
                         <rect key="frame" x="70" y="10" width="205" height="50"/>
                         <constraints>
@@ -90,8 +77,6 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Byx-fu-55P" firstAttribute="leading" secondItem="3b8-Re-Geg" secondAttribute="leading" constant="5" id="29Z-5r-alt"/>
-                    <constraint firstAttribute="bottom" secondItem="Byx-fu-55P" secondAttribute="bottom" constant="5" id="3AH-WT-VzN"/>
                     <constraint firstItem="SFM-Bw-caT" firstAttribute="leading" secondItem="UG0-vc-pJe" secondAttribute="trailing" id="3a6-w6-McD"/>
                     <constraint firstItem="jKs-mc-Xto" firstAttribute="leading" secondItem="l1c-dB-vdD" secondAttribute="trailing" id="4Ta-xn-kU7"/>
                     <constraint firstItem="UG0-vc-pJe" firstAttribute="top" secondItem="Jih-Je-mJC" secondAttribute="bottom" id="4as-Tf-UJ7"/>
@@ -113,19 +98,11 @@
                     <constraint firstItem="CoO-bv-WhR" firstAttribute="top" secondItem="3b8-Re-Geg" secondAttribute="top" constant="10" id="jiF-fK-8CA"/>
                     <constraint firstAttribute="trailing" secondItem="jKs-mc-Xto" secondAttribute="trailing" id="tSo-IF-QPr"/>
                     <constraint firstItem="Jih-Je-mJC" firstAttribute="leading" secondItem="3b8-Re-Geg" secondAttribute="leading" id="tbX-lt-2mT"/>
-                    <constraint firstItem="KjS-L8-I4V" firstAttribute="centerY" secondItem="3b8-Re-Geg" secondAttribute="centerY" id="tki-7Y-lCl"/>
-                    <constraint firstItem="KjS-L8-I4V" firstAttribute="leading" secondItem="3b8-Re-Geg" secondAttribute="leading" constant="10" id="xiJ-pl-lLe"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="Location" destination="Byx-fu-55P" id="zdG-RZ-hP4"/>
-                <outlet property="Name" destination="CoO-bv-WhR" id="0uK-Iy-v4m"/>
-                <outlet property="PlaceImage" destination="KjS-L8-I4V" id="qEN-fJ-qGc"/>
-                <outlet property="WorkingHours" destination="y1N-CH-mcO" id="fQ9-3t-auz"/>
-                <outlet property="location" destination="Byx-fu-55P" id="RAm-V8-22s"/>
                 <outlet property="name" destination="CoO-bv-WhR" id="rDQ-T6-Wg2"/>
-                <outlet property="placeImage" destination="KjS-L8-I4V" id="qWH-SX-HeO"/>
-                <outlet property="workingHours" destination="y1N-CH-mcO" id="EGb-93-Etb"/>
+                <outlet property="workingHours" destination="y1N-CH-mcO" id="6E8-wQ-Qwd"/>
             </connections>
             <point key="canvasLocation" x="-81" y="102"/>
         </tableViewCell>

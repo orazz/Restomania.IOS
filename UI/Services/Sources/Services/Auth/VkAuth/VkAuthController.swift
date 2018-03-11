@@ -16,7 +16,7 @@ import UITools
 internal class VkAuthController: UIViewController {
 
     //UI
-    private let service = WebBrowserController()
+    private var service: WebBrowserController!
     public override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
@@ -46,34 +46,35 @@ internal class VkAuthController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        service.delegate = self
-
+        //https://vk.com/dev/auth_mobile
         let url = "https://oauth.vk.com/authorize"
         let parameters: [String:String] = [
             "client_id": configs.get(ConfigKey.vkAppId)!,
             "scope": "65536", //offline
             "redirect_uri": "https://oauth.vk.com/blank.html",
-            "display": "mobile",
+            "display": "touch",
             "v": "5.73",
             "response_type": "token"
         ]
-        service.startLoad(url, parameters: parameters)
 
+//        WebBrowserController.clearCache()
+        service = WebBrowserController(delegate: self, for: url, parameters: parameters)
         service.setTitle(Localization.title.localized, textColor: UIColor.white, backgroundColor: themeColors.vkColor)
+        present(service, animated: false, completion: nil)
     }
 }
 extension VkAuthController: WebBrowserControllerDelegate {
     public func completeLoad(url: URL, parameters: [String : String]) {
 
         let path = url.absoluteString
-        if (path.contains("blank.html")) {
+        if (path.starts(with: "https://oauth.vk.com/blank.html")) {
 
             if let error = parameters["error"] {
 
                 showToast(Localization.errorsVkAuth.localized)
                 Log.warning(_tag, "Vk auth error: \(error)")
 
-                onCancelTap()
+                goBack()
                 return
             }
 
@@ -95,11 +96,11 @@ extension VkAuthController: WebBrowserControllerDelegate {
         request.async(loadQueue, completion: { response in
 
             if (response.isFail) {
-
                 DispatchQueue.main.async {
+                    self.goBack()
                     self.navigationController?.alert(about: response)
                 }
-                self.onCancelTap()
+
                 return
             }
 
@@ -108,15 +109,19 @@ extension VkAuthController: WebBrowserControllerDelegate {
             self.handler.complete(success: true, keys: nil)
         })
     }
-    public func onCancelTap() {
+    private func goBack() {
+        service.dismiss(animated: false, completion: nil)
         navigationController?.popViewController(animated: true)
+    }
+    public func onCancelTap() {
+        goBack()
     }
 }
 extension VkAuthController {
     internal enum Localization: String, Localizable {
 
         public var tableName: String {
-            return String.tag(Localization.self)
+            return String.tag(VkAuthController.self)
         }
         public var bundle: Bundle {
             return Bundle.uiServices

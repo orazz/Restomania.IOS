@@ -25,7 +25,7 @@ open class ConfigKey: RawRepresentable {
     public static let currency = ConfigKey(rawValue: "Currency")
 
 
-    public static let vkAppId = ConfigKey(rawValue: "VkAppid")
+    public static let vkAppId = ConfigKey(rawValue: "VkAppId")
 
 
     public let rawValue: String

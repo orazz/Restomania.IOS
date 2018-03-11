@@ -15,6 +15,7 @@ public typealias AuthServiceCallback = ((Bool, ApiKeys?) -> Void)
 public class AuthUIService {
 
     private let tag = String.tag(AuthUIService.self)
+    private let guid = Guid.new
 
     //UI
     private var navigator: UINavigationController?
@@ -28,10 +29,10 @@ public class AuthUIService {
     internal init(_ keys: ApiKeyService) {
 
         self.navigator = nil
-
         self.keys = keys
-
         self.completeHandler = nil
+
+        keys.subscribe(guid: guid, handler: self, tag: tag)
     }
 
     fileprivate func show(on controller: UIViewController, completeHandler: AuthServiceCallback?) {
@@ -51,6 +52,11 @@ extension AuthUIService: AuthHandler {
         navigator?.dismiss(animated: true, completion: nil)
 
         completeHandler?(success, keys)
+    }
+}
+extension AuthUIService: ApiKeyServiceDelegate {
+    public func apiKeyService(_ service: ApiKeyService, logout role: ApiRole) {
+        WebBrowserController.clearCache()
     }
 }
 extension UIViewController {

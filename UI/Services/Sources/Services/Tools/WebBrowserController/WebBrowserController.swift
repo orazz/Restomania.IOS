@@ -95,6 +95,12 @@ internal class WebBrowserController: UIViewController {
         webView.loadRequest(URLRequest(url: url))
     }
 
+    public static func clearCache() {
+        
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared.diskCapacity = 0
+        URLCache.shared.memoryCapacity = 0
+    }
     public func setTitle(_ title: String, textColor: UIColor? = nil, backgroundColor: UIColor? = nil) {
 
         pageTitle = title
@@ -180,14 +186,25 @@ extension WebBrowserController {
 extension URL {
 
     public var queryParameters: [String: String] {
-        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
-                let queryItems = components.queryItems else {
-            return [:]
+
+        var parameters = [String:String]()
+
+        let path = self.absoluteString
+        let keyValues = path.components(separatedBy: CharacterSet(charactersIn: "&?#"))
+        if (keyValues.isEmpty) {
+            return parameters
         }
 
-        var parameters = [String: String]()
-        for item in queryItems {
-            parameters[item.name] = item.value
+        for pair in keyValues {
+            let kv = pair.components(separatedBy: "=")
+            if kv.count != 2 {
+                continue
+            }
+
+            let key = kv[0]
+            if let value = (kv[1] as NSString).removingPercentEncoding {
+                parameters.updateValue(value, forKey: key)
+            }
         }
 
         return parameters
