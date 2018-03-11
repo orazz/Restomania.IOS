@@ -66,8 +66,7 @@ public class LoadingController: UIViewController {
 
         status(on: Localization.statusRequestPermission.localized)
 
-        NotificationsServices.shared.requestRemoteNotificattions()
-        NotificationsServices.shared.requestLocalNotifications()
+        PushesService.shared.requestLocalNotifications()
         complete()
     }
     private func complete() {

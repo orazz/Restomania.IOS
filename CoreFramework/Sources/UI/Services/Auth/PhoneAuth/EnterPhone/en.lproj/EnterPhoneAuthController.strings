@@ -1,0 +1,18 @@
+/* 
+  EnterPhoneController.strings
+  Services
+
+  Created by Алексей on 11.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Phone";
+
+"Labels.EnterPhone" = "Enter your phone";
+
+"Fields.Phone.Placeholder" = "+7 999 ... .. ..";
+
+"Buttons.SendCode" = "Send code";
+
+"Alerts.NotCorrectPhone" = "Not correct phone. Enter correct phone.";
+"Alerts.VerificationProblem" = "Problem with verification code. Check phone number and internet connection.";

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnterPhoneController" customModule="UIServices" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnterPhoneAuthController" customModule="CoreFramework" customModuleProvider="target">
             <connections>
                 <outlet property="enterPhoneLabel" destination="Emp-3j-4a5" id="N6M-0m-Z1o"/>
                 <outlet property="phoneField" destination="xNK-pw-wqH" id="wYN-vn-Fwn"/>
@@ -29,18 +29,19 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваш телефон" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-pw-wqH" customClass="MaskedTextField">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваш телефон" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-pw-wqH">
                     <rect key="frame" x="20" y="95.5" width="280" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Nex-tk-UDP"/>
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <textInputTraits key="textInputTraits" textContentType="tel"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0T3-TH-SRJ" customClass="DefaultButton" customModule="UIElements">
-                    <rect key="frame" x="60" y="155.5" width="200" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0T3-TH-SRJ" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
+                    <rect key="frame" x="60" y="155.5" width="200" height="50"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="50" id="OK6-I9-H6E"/>
                         <constraint firstAttribute="width" constant="200" id="WhM-1i-adj"/>
                     </constraints>
                     <state key="normal" title="Отправить код"/>

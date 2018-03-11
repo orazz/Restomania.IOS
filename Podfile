@@ -23,10 +23,13 @@ def shared
 end
 
 workspace 'RestomaniaCoreFramework.xcworkspace'
+project './CoreFrameworkApp/CoreFrameworkApp.xcodeproj'
+project './CoreFramework/CoreFramework.xcodeproj'
 
 target 'Kuzina' do
     project './CoreFrameworkApp/CoreFrameworkApp.xcodeproj'
     use_frameworks!
+#    shared
 end
 
 target 'CoreFramework' do

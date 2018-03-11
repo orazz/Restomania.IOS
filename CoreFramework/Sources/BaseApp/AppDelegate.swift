@@ -54,6 +54,7 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
 
             FirebaseApp.configure(options: options)
         }
+        PushesService.shared.requestRemoteNotificattions()
     }
     open func afterLoad() {}
 
@@ -122,18 +123,18 @@ extension AppDelegate {
     public func application(_ application: UIApplication,
                             didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 
-        NotificationsServices.shared.registerForRemoteNotifications(token: deviceToken)
+        PushesService.shared.registerForRemoteNotifications(token: deviceToken)
     }
     public func application(_ application: UIApplication,
                             didFailToRegisterForRemoteNotificationsWithError error: Error) {
 
-        NotificationsServices.shared.registerForRemoteNotifications(token: nil, error: error)
+        PushesService.shared.registerForRemoteNotifications(token: nil, error: error)
     }
     public func application(_ application: UIApplication,
                             didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                             fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
-        NotificationsServices.shared.processMessage(notification: userInfo, handler: completionHandler)
+        PushesService.shared.processMessage(notification: userInfo, handler: completionHandler)
     }
 }
 

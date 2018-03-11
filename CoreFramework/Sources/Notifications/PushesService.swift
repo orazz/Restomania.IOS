@@ -9,23 +9,23 @@
 import Foundation
 import UIKit
 import MdsKit
-//import FirebaseAuth
-//import FirebaseMessaging
+import FirebaseAuth
+import FirebaseMessaging
 
 public typealias PushNotification = [AnyHashable : Any]
-public class NotificationsServices: NSObject {
+public class PushesService: NSObject {
 
-    public static let shared = NotificationsServices()
+    public static let shared = PushesService()
 
-    private let _tag = String.tag(NotificationsServices.self)
+    private let _tag = String.tag(PushesService.self)
 
     private let devicesApi = DependencyResolver.resolve(NotificationsDevicesApiService.self)
     private let keyService = DependencyResolver.resolve(ApiKeyService.self)
     private let lightStorage = DependencyResolver.resolve(LightStorage.self)
 
     private let application = UIApplication.shared
-//    private let auth = Auth.auth()
-//    private let messaging = Messaging.messaging()
+    private let auth = Auth.auth()
+    private let messaging = Messaging.messaging()
     private let processQueue = AsyncQueue.background
     private let guid = Guid.new
 
@@ -37,7 +37,7 @@ public class NotificationsServices: NSObject {
 }
 
 // Permissons
-extension NotificationsServices {
+extension PushesService {
     public func needRequest() -> Bool {
         return !UIApplication.shared.isRegisteredForRemoteNotifications
     }
@@ -65,9 +65,9 @@ extension NotificationsServices {
 
             Log.info(_tag, "Get device token for send push notifications.")
 
-//            Messaging.messaging().delegate = self
-//            Messaging.messaging().apnsToken = token
-//            Auth.auth().setAPNSToken(token, type: .unknown)
+            Messaging.messaging().delegate = self
+            Messaging.messaging().apnsToken = token
+            Auth.auth().setAPNSToken(token, type: .unknown)
         }
     }
 
@@ -76,22 +76,22 @@ extension NotificationsServices {
         Log.debug(_tag, "Recieve push notification.")
         print(notification)
 
-//        if Auth.auth().canHandleNotification(notification) {
-//            handler(.noData)
-//            return
-//        }
+        if Auth.auth().canHandleNotification(notification) {
+            handler(.noData)
+            return
+        }
 
-//        Messaging.messaging().appDidReceiveMessage(notification)
+        Messaging.messaging().appDidReceiveMessage(notification)
         handler(.newData)
     }
 }
-//extension NotificationsServices: MessagingDelegate {
-//
-//    public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-//        print(fcmToken)
-//    }
-//}
-extension NotificationsServices: ApiKeyServiceDelegate {
+extension PushesService: MessagingDelegate {
+
+    public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print(fcmToken)
+    }
+}
+extension PushesService: ApiKeyServiceDelegate {
     public func apiKeyService(_ service: ApiKeyService, update keys: ApiKeys, for role: ApiRole) {
 
 //        guard let token = token else {

@@ -39,9 +39,9 @@
 		1F06A7E9205570FD00FEB1B5 /* SignupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A61F205570FC00FEB1B5 /* SignupController.xib */; };
 		1F06A7EA205570FD00FEB1B5 /* InstagramAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A621205570FC00FEB1B5 /* InstagramAuthController.strings */; };
 		1F06A7EB205570FD00FEB1B5 /* InstagramAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A623205570FC00FEB1B5 /* InstagramAuthController.swift */; };
-		1F06A7EC205570FD00FEB1B5 /* EnterPhoneController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A627205570FC00FEB1B5 /* EnterPhoneController.strings */; };
-		1F06A7ED205570FD00FEB1B5 /* EnterPhoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A629205570FC00FEB1B5 /* EnterPhoneController.swift */; };
-		1F06A7EE205570FD00FEB1B5 /* EnterPhoneController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A62A205570FC00FEB1B5 /* EnterPhoneController.xib */; };
+		1F06A7EC205570FD00FEB1B5 /* EnterPhoneAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A627205570FC00FEB1B5 /* EnterPhoneAuthController.strings */; };
+		1F06A7ED205570FD00FEB1B5 /* EnterPhoneAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A629205570FC00FEB1B5 /* EnterPhoneAuthController.swift */; };
+		1F06A7EE205570FD00FEB1B5 /* EnterPhoneAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A62A205570FC00FEB1B5 /* EnterPhoneAuthController.xib */; };
 		1F06A7EF205570FD00FEB1B5 /* SelectAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A62D205570FC00FEB1B5 /* SelectAuthController.strings */; };
 		1F06A7F0205570FD00FEB1B5 /* SelectAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A630205570FC00FEB1B5 /* SelectAuthController.swift */; };
 		1F06A7F1205570FD00FEB1B5 /* SelectAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A631205570FC00FEB1B5 /* SelectAuthController.xib */; };
@@ -312,8 +312,11 @@
 		1F06A900205570FE00FEB1B5 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CA205570FD00FEB1B5 /* Container.swift */; };
 		1F06A901205570FE00FEB1B5 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CB205570FD00FEB1B5 /* Events.swift */; };
 		1F06A902205570FE00FEB1B5 /* NotificationsIgnore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CC205570FD00FEB1B5 /* NotificationsIgnore.swift */; };
-		1F06A903205570FE00FEB1B5 /* NotificationsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CD205570FD00FEB1B5 /* NotificationsServices.swift */; };
+		1F06A903205570FE00FEB1B5 /* PushesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CD205570FD00FEB1B5 /* PushesService.swift */; };
 		1F06A9092055842000FEB1B5 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A9082055842000FEB1B5 /* NavigationController.swift */; };
+		1F06A90D20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A90C20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift */; };
+		1F06A90F20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */; };
+		1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */; };
 		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -355,10 +358,10 @@
 		1F06A622205570FC00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InstagramAuthController.strings; sourceTree = "<group>"; };
 		1F06A623205570FC00FEB1B5 /* InstagramAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramAuthController.swift; sourceTree = "<group>"; };
 		1F06A624205570FC00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InstagramAuthController.strings; sourceTree = "<group>"; };
-		1F06A628205570FC00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EnterPhoneController.strings; sourceTree = "<group>"; };
-		1F06A629205570FC00FEB1B5 /* EnterPhoneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPhoneController.swift; sourceTree = "<group>"; };
-		1F06A62A205570FC00FEB1B5 /* EnterPhoneController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterPhoneController.xib; sourceTree = "<group>"; };
-		1F06A62B205570FC00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EnterPhoneController.strings; sourceTree = "<group>"; };
+		1F06A628205570FC00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EnterPhoneAuthController.strings; sourceTree = "<group>"; };
+		1F06A629205570FC00FEB1B5 /* EnterPhoneAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPhoneAuthController.swift; sourceTree = "<group>"; };
+		1F06A62A205570FC00FEB1B5 /* EnterPhoneAuthController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterPhoneAuthController.xib; sourceTree = "<group>"; };
+		1F06A62B205570FC00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EnterPhoneAuthController.strings; sourceTree = "<group>"; };
 		1F06A62E205570FC00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectAuthController.strings; sourceTree = "<group>"; };
 		1F06A62F205570FC00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SelectAuthController.strings; sourceTree = "<group>"; };
 		1F06A630205570FC00FEB1B5 /* SelectAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAuthController.swift; sourceTree = "<group>"; };
@@ -645,8 +648,12 @@
 		1F06A7CA205570FD00FEB1B5 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		1F06A7CB205570FD00FEB1B5 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		1F06A7CC205570FD00FEB1B5 /* NotificationsIgnore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsIgnore.swift; sourceTree = "<group>"; };
-		1F06A7CD205570FD00FEB1B5 /* NotificationsServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsServices.swift; sourceTree = "<group>"; };
+		1F06A7CD205570FD00FEB1B5 /* PushesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushesService.swift; sourceTree = "<group>"; };
 		1F06A9082055842000FEB1B5 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		1F06A90C20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPhoneCodeAuthController.swift; sourceTree = "<group>"; };
+		1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckPhoneCodeAuthController.xib; sourceTree = "<group>"; };
+		1F06A91320559C9400FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
+		1F06A91520559C9500FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -858,19 +865,20 @@
 		1F06A625205570FC00FEB1B5 /* PhoneAuth */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A626205570FC00FEB1B5 /* EnterPhoneController */,
+				1F06A626205570FC00FEB1B5 /* EnterPhone */,
+				1F06A90B20559B9F00FEB1B5 /* CheckPhoneCode */,
 			);
 			path = PhoneAuth;
 			sourceTree = "<group>";
 		};
-		1F06A626205570FC00FEB1B5 /* EnterPhoneController */ = {
+		1F06A626205570FC00FEB1B5 /* EnterPhone */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A629205570FC00FEB1B5 /* EnterPhoneController.swift */,
-				1F06A62A205570FC00FEB1B5 /* EnterPhoneController.xib */,
-				1F06A627205570FC00FEB1B5 /* EnterPhoneController.strings */,
+				1F06A629205570FC00FEB1B5 /* EnterPhoneAuthController.swift */,
+				1F06A62A205570FC00FEB1B5 /* EnterPhoneAuthController.xib */,
+				1F06A627205570FC00FEB1B5 /* EnterPhoneAuthController.strings */,
 			);
-			path = EnterPhoneController;
+			path = EnterPhone;
 			sourceTree = "<group>";
 		};
 		1F06A62C205570FC00FEB1B5 /* Select */ = {
@@ -1964,7 +1972,7 @@
 				1F06A7C7205570FD00FEB1B5 /* Handlers */,
 				1F06A7C9205570FD00FEB1B5 /* Models */,
 				1F06A7CC205570FD00FEB1B5 /* NotificationsIgnore.swift */,
-				1F06A7CD205570FD00FEB1B5 /* NotificationsServices.swift */,
+				1F06A7CD205570FD00FEB1B5 /* PushesService.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -2003,6 +2011,16 @@
 				1F06A716205570FD00FEB1B5 /* OtherController.xib */,
 			);
 			path = OtherRoot;
+			sourceTree = "<group>";
+		};
+		1F06A90B20559B9F00FEB1B5 /* CheckPhoneCode */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A90C20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift */,
+				1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */,
+				1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */,
+			);
+			path = CheckPhoneCode;
 			sourceTree = "<group>";
 		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
@@ -2114,7 +2132,7 @@
 				1F06A8EE205570FE00FEB1B5 /* OneOrderController.strings in Resources */,
 				1F06A890205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib in Resources */,
 				1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderContainerView.xib in Resources */,
-				1F06A7EC205570FD00FEB1B5 /* EnterPhoneController.strings in Resources */,
+				1F06A7EC205570FD00FEB1B5 /* EnterPhoneAuthController.strings in Resources */,
 				1F06A88A205570FD00FEB1B5 /* ManagerOrdersControllerOrderCellView.xib in Resources */,
 				1F06A8CD205570FD00FEB1B5 /* DishModals.strings in Resources */,
 				1F06A8F6205570FE00FEB1B5 /* OneOrderSummaryContainerView.xib in Resources */,
@@ -2123,7 +2141,8 @@
 				1F06A875205570FD00FEB1B5 /* GreetingController.strings in Resources */,
 				1F06A7DC205570FD00FEB1B5 /* ScheduleDisplayView.xib in Resources */,
 				1F06A8F8205570FE00FEB1B5 /* OneOrderTotalContainerView.xib in Resources */,
-				1F06A7EE205570FD00FEB1B5 /* EnterPhoneController.xib in Resources */,
+				1F06A7EE205570FD00FEB1B5 /* EnterPhoneAuthController.xib in Resources */,
+				1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */,
 				1F06A896205570FD00FEB1B5 /* PlaceCartDateContainerView.xib in Resources */,
 				1F06A8EC205570FE00FEB1B5 /* OneOrderDishesContainerDishCellView.xib in Resources */,
 				1F06A7F4205570FD00FEB1B5 /* TermsController.strings in Resources */,
@@ -2168,6 +2187,7 @@
 				1F06A8F4205570FE00FEB1B5 /* OneOrderSpaceContainerView.xib in Resources */,
 				1F06A87C205570FD00FEB1B5 /* LoadingController.xib in Resources */,
 				1F06A7E5205570FD00FEB1B5 /* EmailAuth.strings in Resources */,
+				1F06A90F20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib in Resources */,
 				1F06A8B5205570FD00FEB1B5 /* DishModalAddToCartActionView.xib in Resources */,
 				1F06A8FC205570FE00FEB1B5 /* Localizable.strings in Resources */,
 				1F06A8BC205570FD00FEB1B5 /* DishModalPriceAndSizeView.xib in Resources */,
@@ -2371,6 +2391,7 @@
 				1F06A864205570FD00FEB1B5 /* ApiKeyService.swift in Sources */,
 				1F06A840205570FD00FEB1B5 /* Contacts.swift in Sources */,
 				1F06A804205570FD00FEB1B5 /* ThemeFonts.swift in Sources */,
+				1F06A90D20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift in Sources */,
 				1F06A7F0205570FD00FEB1B5 /* SelectAuthController.swift in Sources */,
 				1F06A8A3205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCell.swift in Sources */,
 				1F06A851205570FD00FEB1B5 /* Day.swift in Sources */,
@@ -2399,7 +2420,7 @@
 				1F06A8EA205570FE00FEB1B5 /* OneOrderDishesContainer.swift in Sources */,
 				1F06A8C4205570FD00FEB1B5 /* DishModalSelectVariationsCell.swift in Sources */,
 				1F06A880205570FD00FEB1B5 /* ManagerChangePasswordController.swift in Sources */,
-				1F06A7ED205570FD00FEB1B5 /* EnterPhoneController.swift in Sources */,
+				1F06A7ED205570FD00FEB1B5 /* EnterPhoneAuthController.swift in Sources */,
 				1F06A7E0205570FD00FEB1B5 /* AuthHandler.swift in Sources */,
 				1F06A88C205570FD00FEB1B5 /* OtherController.swift in Sources */,
 				1F06A89F205570FD00FEB1B5 /* PlaceCartDivider.swift in Sources */,
@@ -2438,7 +2459,7 @@
 				1F06A8E4205570FE00FEB1B5 /* PagesSearch.swift in Sources */,
 				1F06A80D205570FD00FEB1B5 /* ApiServices.swift in Sources */,
 				1F06A8F5205570FE00FEB1B5 /* OneOrderSummaryContainer.swift in Sources */,
-				1F06A903205570FE00FEB1B5 /* NotificationsServices.swift in Sources */,
+				1F06A903205570FE00FEB1B5 /* PushesService.swift in Sources */,
 				1F06A7E2205570FD00FEB1B5 /* AuthContainer.swift in Sources */,
 				1F06A8EF205570FE00FEB1B5 /* OneOrderFooterContainer.swift in Sources */,
 				1F06A820205570FD00FEB1B5 /* CountedLoyaltyDiscounts.swift in Sources */,
@@ -2479,13 +2500,13 @@
 			name = InstagramAuthController.strings;
 			sourceTree = "<group>";
 		};
-		1F06A627205570FC00FEB1B5 /* EnterPhoneController.strings */ = {
+		1F06A627205570FC00FEB1B5 /* EnterPhoneAuthController.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1F06A628205570FC00FEB1B5 /* en */,
 				1F06A62B205570FC00FEB1B5 /* ru */,
 			);
-			name = EnterPhoneController.strings;
+			name = EnterPhoneAuthController.strings;
 			sourceTree = "<group>";
 		};
 		1F06A62D205570FC00FEB1B5 /* SelectAuthController.strings */ = {
@@ -2630,6 +2651,15 @@
 				1F06A7C5205570FD00FEB1B5 /* ru */,
 			);
 			name = UIElements.strings;
+			sourceTree = "<group>";
+		};
+		1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F06A91320559C9400FEB1B5 /* en */,
+				1F06A91520559C9500FEB1B5 /* ru */,
+			);
+			name = CheckPhoneCodeAuthController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

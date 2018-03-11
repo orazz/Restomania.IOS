@@ -7,10 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
 extension Bundle {
 
     public static var coreFramework: Bundle {
         return Bundle(identifier: "mds.mobile.restomania.app.core")!
+    }
+}
+extension UINavigationController {
+
+    public func setStatusBarStyle(from style: UIStatusBarStyle) {
+
+        if (style == .default) {
+            navigationBar.barStyle = .black
+        }
+        else {
+            navigationBar.barStyle = .blackTranslucent
+        }
     }
 }
