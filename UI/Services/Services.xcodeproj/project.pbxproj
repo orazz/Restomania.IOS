@@ -13,6 +13,8 @@
 		1F49A45E20542986003795E4 /* SelectAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F49A46020542986003795E4 /* SelectAuthController.strings */; };
 		1F49A46320543B14003795E4 /* VkAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49A46220543B14003795E4 /* VkAuthController.swift */; };
 		1F49A46620544A8B003795E4 /* VkAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F49A46820544A8B003795E4 /* VkAuthController.strings */; };
+		1F49A46D2055047C003795E4 /* InstagramAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49A46C2055047C003795E4 /* InstagramAuthController.swift */; };
+		1F49A4702055048F003795E4 /* InstagramAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F49A4722055048F003795E4 /* InstagramAuthController.strings */; };
 		1F6237C220501E3F0044F2D5 /* WebBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */; };
 		1F6237C420501E870044F2D5 /* WebBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237C320501E870044F2D5 /* WebBrowserController.swift */; };
 		1F6237E82052A5F80044F2D5 /* WebBrowserControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6237E72052A5F80044F2D5 /* WebBrowserControllerDelegate.swift */; };
@@ -62,6 +64,9 @@
 		1F49A46220543B14003795E4 /* VkAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkAuthController.swift; sourceTree = "<group>"; };
 		1F49A46720544A8B003795E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VkAuthController.strings; sourceTree = "<group>"; };
 		1F49A46920544A8E003795E4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/VkAuthController.strings; sourceTree = "<group>"; };
+		1F49A46C2055047C003795E4 /* InstagramAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramAuthController.swift; sourceTree = "<group>"; };
+		1F49A4712055048F003795E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InstagramAuthController.strings; sourceTree = "<group>"; };
+		1F49A47320550491003795E4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InstagramAuthController.strings; sourceTree = "<group>"; };
 		1F6237C120501E3F0044F2D5 /* WebBrowserController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebBrowserController.xib; sourceTree = "<group>"; };
 		1F6237C320501E870044F2D5 /* WebBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserController.swift; sourceTree = "<group>"; };
 		1F6237E72052A5F80044F2D5 /* WebBrowserControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserControllerDelegate.swift; sourceTree = "<group>"; };
@@ -247,6 +252,8 @@
 		1FCA6AA02049764B00D99879 /* InstagramAuth */ = {
 			isa = PBXGroup;
 			children = (
+				1F49A46C2055047C003795E4 /* InstagramAuthController.swift */,
+				1F49A4722055048F003795E4 /* InstagramAuthController.strings */,
 			);
 			path = InstagramAuth;
 			sourceTree = "<group>";
@@ -408,6 +415,7 @@
 				1F62380F2053FAA80044F2D5 /* AddCardUIService.strings in Resources */,
 				1F49A45B20541F54003795E4 /* SelectAuthController.xib in Resources */,
 				1F49A46620544A8B003795E4 /* VkAuthController.strings in Resources */,
+				1F49A4702055048F003795E4 /* InstagramAuthController.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +479,7 @@
 				1FCA6A9D2049741400D99879 /* AddCardUIService.swift in Sources */,
 				1FC33EA7204C902800FF5181 /* EmailAuth.swift in Sources */,
 				1F6238062052FBBE0044F2D5 /* TermsController.swift in Sources */,
+				1F49A46D2055047C003795E4 /* InstagramAuthController.swift in Sources */,
 				1F49A45720541C41003795E4 /* AuthHandler.swift in Sources */,
 				1FCA6A9A2049729700D99879 /* SignupController.swift in Sources */,
 				1FCA6A932049729700D99879 /* AuthContainer.swift in Sources */,
@@ -512,6 +521,15 @@
 				1F49A46920544A8E003795E4 /* ru */,
 			);
 			name = VkAuthController.strings;
+			sourceTree = "<group>";
+		};
+		1F49A4722055048F003795E4 /* InstagramAuthController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F49A4712055048F003795E4 /* en */,
+				1F49A47320550491003795E4 /* ru */,
+			);
+			name = InstagramAuthController.strings;
 			sourceTree = "<group>";
 		};
 		1F6238022052F3270044F2D5 /* WebBrowserController.strings */ = {

@@ -26,6 +26,7 @@ open class ConfigKey: RawRepresentable {
 
 
     public static let vkAppId = ConfigKey(rawValue: "VkAppId")
+    public static let instagramAppId = ConfigKey(rawValue: "InstagramAppId")
 
 
     public let rawValue: String

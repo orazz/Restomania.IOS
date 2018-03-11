@@ -32,6 +32,8 @@ public class AuthUIService {
         self.keys = keys
         self.completeHandler = nil
 
+        WebBrowserController.clearCache()
+
         keys.subscribe(guid: guid, handler: self, tag: tag)
     }
 

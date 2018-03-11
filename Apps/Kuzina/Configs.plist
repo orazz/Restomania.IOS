@@ -6,10 +6,8 @@
 	<string>936DA01F-9ABD-4D9D-80C7-02AF85C822A8</string>
 	<key>VkAppId</key>
 	<string>6403406</string>
-	<key>InstagramAppid</key>
-	<string>0</string>
-	<key>InstagramAppSecret</key>
-	<string></string>
+	<key>InstagramAppId</key>
+	<string>07366aa1139e489783b5919fecc3a36a</string>
 	<key>ServerUrl</key>
 	<string>http://restomania-test.azurewebsites.net</string>
 	<key>AppType</key>

@@ -1,8 +1,8 @@
 //
-//  VkAuthController.swift
+//  InstagramAuthController.swift
 //  UIServices
 //
-//  Created by Алексей on 10.03.18.
+//  Created by Алексей on 11.03.18.
 //  Copyright © 2018 Medved-Studio. All rights reserved.
 //
 
@@ -13,12 +13,12 @@ import CoreTools
 import CoreApiServices
 import UITools
 
-internal class VkAuthController: UIViewController {
+internal class InstagramAuthController: UIViewController {
 
     //UI
     private var service: WebBrowserController!
     public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+        return .lightContent
     }
 
     //Services
@@ -28,8 +28,8 @@ internal class VkAuthController: UIViewController {
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
 
     //Data
-    private let _tag = String.tag(VkAuthController.self)
-    private let redirectUrl = "https://oauth.vk.com/blank.html"
+    private let _tag = String.tag(InstagramAuthController.self)
+    private let redirectUrl = "http://restomania.azurewebsites.net/blank.html"
     private let loadQueue: AsyncQueue
     private let handler: AuthHandler
 
@@ -48,22 +48,19 @@ internal class VkAuthController: UIViewController {
         super.viewDidLoad()
 
         //https://vk.com/dev/auth_mobile
-        let url = "https://oauth.vk.com/authorize"
+        let url = "https://api.instagram.com/oauth/authorize/"
         let parameters: [String:String] = [
-            "client_id": configs.get(ConfigKey.vkAppId)!,
-            "scope": "65536", //offline
+            "client_id": configs.get(ConfigKey.instagramAppId)!,
             "redirect_uri": redirectUrl,
-            "display": "touch",
-            "v": "5.73",
             "response_type": "token"
         ]
 
         service = WebBrowserController(delegate: self, for: url, parameters: parameters)
-        service.setTitle(Localization.title.localized, textColor: UIColor.white, backgroundColor: themeColors.vkColor)
+        service.setTitle(Localization.title.localized, textColor: UIColor.white, backgroundColor: themeColors.instagramColor)
         present(service, animated: false, completion: nil)
     }
 }
-extension VkAuthController: WebBrowserControllerDelegate {
+extension InstagramAuthController: WebBrowserControllerDelegate {
     public func completeLoad(url: URL, parameters: [String : String]) {
 
         let path = url.absoluteString
@@ -72,27 +69,26 @@ extension VkAuthController: WebBrowserControllerDelegate {
             if let error = parameters["error"] {
 
                 navigationController?.showToast(Localization.errorsVkAuth.localized)
-                Log.warning(_tag, "Vk auth error: \(error)")
+                Log.warning(_tag, "Instagram auth error: \(error)")
+                Log.warning(_tag, "Instagram auth error: \(String(describing: parameters["error_description"]))")
 
                 goBack()
                 return
             }
 
-            
-            if let userIdSource = parameters["user_id"],
-                    let userId = Long(userIdSource),
-                    let token = parameters["access_token"] {
+
+            if let token = parameters["access_token"] {
 
                 service.showLoader()
-                addUser(userId: userId, token: token)
+                addUser(token: token)
 
                 return
             }
         }
     }
-    private func addUser(userId: Long, token: String) {
+    private func addUser(token: String) {
 
-        let request = authService.viaVk(userId, token: token)
+        let request = authService.viaInstagram(token: token)
         request.async(loadQueue, completion: { response in
 
             if (response.isFail) {
@@ -117,11 +113,11 @@ extension VkAuthController: WebBrowserControllerDelegate {
         goBack()
     }
 }
-extension VkAuthController {
+extension InstagramAuthController {
     internal enum Localization: String, Localizable {
 
         public var tableName: String {
-            return String.tag(VkAuthController.self)
+            return String.tag(InstagramAuthController.self)
         }
         public var bundle: Bundle {
             return Bundle.uiServices
@@ -130,11 +126,11 @@ extension VkAuthController {
         case title = "Title"
         case cancelButton = "CancelButton"
 
-        case errorsVkAuth = "Errors.VkAuth"
+        case errorsVkAuth = "Errors.VkInstagram"
     }
 }
 extension ThemeColors {
-    public var vkColor: UIColor {
-        return UIColor(red: 76, green: 117, blue: 163)
+    public var instagramColor: UIColor {
+        return UIColor(red: 188, green: 42, blue: 141)
     }
 }

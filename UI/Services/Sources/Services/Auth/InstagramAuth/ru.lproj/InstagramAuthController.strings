@@ -1,0 +1,12 @@
+/* 
+  InstagramAuthController.strings
+  Services
+
+  Created by Алексей on 11.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Instagram";
+"CancelButton" = "Cancel";
+
+"Errors.VkInstagram" = "Вы должны ввести корректный логин и пароль и разрешить доступ.";
