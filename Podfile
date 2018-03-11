@@ -27,7 +27,6 @@ workspace 'RestomaniaCoreFramework.xcworkspace'
 target 'Kuzina' do
     project './CoreFrameworkApp/CoreFrameworkApp.xcodeproj'
     use_frameworks!
-    shared
 end
 
 target 'CoreFramework' do

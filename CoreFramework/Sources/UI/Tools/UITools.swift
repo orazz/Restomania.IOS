@@ -18,7 +18,7 @@ open class UITools {
         let colors = DependencyResolver.resolve(ThemeColors.self)
         let fonts = DependencyResolver.resolve(ThemeFonts.self)
 
-        UIApplication.shared.statusBarStyle = colors.defaultStatusBar
+        UIApplication.shared.statusBarStyle = colors.statusBarOnNavigation
         
         //Navigation bar
         let navigationBar = UINavigationBar.appearance()

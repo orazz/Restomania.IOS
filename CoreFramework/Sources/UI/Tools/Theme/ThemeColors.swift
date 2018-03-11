@@ -11,7 +11,8 @@ import UIKit
 
 public protocol ThemeColors {
 
-    var defaultStatusBar: UIStatusBarStyle { get }
+    var statusBarOnNavigation: UIStatusBarStyle { get }
+    var statusBarOnContent: UIStatusBarStyle { get }
 
     var navigationMain: UIColor { get }
     var navigationContent: UIColor { get }
@@ -40,8 +41,11 @@ extension ThemeColors {
         return UIColor(red: 255, green: 255, blue: 255)
     }
 
-    public var defaultStatusBar: UIStatusBarStyle {
+    public var statusBarOnNavigation: UIStatusBarStyle {
         return .lightContent
+    }
+    public var statusBarOnContent: UIStatusBarStyle {
+        return .default
     }
 
     public var navigationMain: UIColor {

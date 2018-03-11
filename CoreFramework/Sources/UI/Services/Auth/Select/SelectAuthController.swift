@@ -27,7 +27,7 @@ internal class SelectAuthController: UIViewController {
     @IBOutlet weak var phoneButton: DefaultButton!
     @IBOutlet weak var emailButton: InvertedButton!
     public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return themeColors.defaultStatusBar
+        return themeColors.statusBarOnNavigation
     }
 
     //Service

@@ -313,7 +313,7 @@
 		1F06A901205570FE00FEB1B5 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CB205570FD00FEB1B5 /* Events.swift */; };
 		1F06A902205570FE00FEB1B5 /* NotificationsIgnore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CC205570FD00FEB1B5 /* NotificationsIgnore.swift */; };
 		1F06A903205570FE00FEB1B5 /* NotificationsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CD205570FD00FEB1B5 /* NotificationsServices.swift */; };
-		1F06A9052055748600FEB1B5 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A9042055748600FEB1B5 /* NavigationController.swift */; };
+		1F06A9092055842000FEB1B5 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A9082055842000FEB1B5 /* NavigationController.swift */; };
 		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -646,7 +646,7 @@
 		1F06A7CB205570FD00FEB1B5 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		1F06A7CC205570FD00FEB1B5 /* NotificationsIgnore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsIgnore.swift; sourceTree = "<group>"; };
 		1F06A7CD205570FD00FEB1B5 /* NotificationsServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsServices.swift; sourceTree = "<group>"; };
-		1F06A9042055748600FEB1B5 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		1F06A9082055842000FEB1B5 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -702,8 +702,8 @@
 		1F06A5F1205570FC00FEB1B5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A5F2205570FC00FEB1B5 /* Elements */,
 				1F06A60A205570FC00FEB1B5 /* Services */,
+				1F06A5F2205570FC00FEB1B5 /* Elements */,
 				1F06A645205570FC00FEB1B5 /* Tools */,
 			);
 			path = UI;
@@ -791,17 +791,9 @@
 		1F06A60A205570FC00FEB1B5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A60B205570FC00FEB1B5 /* Services */,
 				1F06A644205570FC00FEB1B5 /* UIServices.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		1F06A60B205570FC00FEB1B5 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				1F06A60C205570FC00FEB1B5 /* AddCard */,
 				1F06A611205570FC00FEB1B5 /* Auth */,
+				1F06A60C205570FC00FEB1B5 /* AddCard */,
 				1F06A637205570FC00FEB1B5 /* Terms */,
 				1F06A63C205570FC00FEB1B5 /* Tools */,
 			);
@@ -822,11 +814,11 @@
 			children = (
 				1F06A612205570FC00FEB1B5 /* AuthHandler.swift */,
 				1F06A613205570FC00FEB1B5 /* AuthUIService.swift */,
-				1F06A614205570FC00FEB1B5 /* EmailAuth */,
-				1F06A620205570FC00FEB1B5 /* InstagramAuth */,
-				1F06A625205570FC00FEB1B5 /* PhoneAuth */,
 				1F06A62C205570FC00FEB1B5 /* Select */,
 				1F06A632205570FC00FEB1B5 /* VkAuth */,
+				1F06A620205570FC00FEB1B5 /* InstagramAuth */,
+				1F06A625205570FC00FEB1B5 /* PhoneAuth */,
+				1F06A614205570FC00FEB1B5 /* EmailAuth */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -857,8 +849,8 @@
 		1F06A620205570FC00FEB1B5 /* InstagramAuth */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A621205570FC00FEB1B5 /* InstagramAuthController.strings */,
 				1F06A623205570FC00FEB1B5 /* InstagramAuthController.swift */,
+				1F06A621205570FC00FEB1B5 /* InstagramAuthController.strings */,
 			);
 			path = InstagramAuth;
 			sourceTree = "<group>";
@@ -874,9 +866,9 @@
 		1F06A626205570FC00FEB1B5 /* EnterPhoneController */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A627205570FC00FEB1B5 /* EnterPhoneController.strings */,
 				1F06A629205570FC00FEB1B5 /* EnterPhoneController.swift */,
 				1F06A62A205570FC00FEB1B5 /* EnterPhoneController.xib */,
+				1F06A627205570FC00FEB1B5 /* EnterPhoneController.strings */,
 			);
 			path = EnterPhoneController;
 			sourceTree = "<group>";
@@ -884,9 +876,9 @@
 		1F06A62C205570FC00FEB1B5 /* Select */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A62D205570FC00FEB1B5 /* SelectAuthController.strings */,
 				1F06A630205570FC00FEB1B5 /* SelectAuthController.swift */,
 				1F06A631205570FC00FEB1B5 /* SelectAuthController.xib */,
+				1F06A62D205570FC00FEB1B5 /* SelectAuthController.strings */,
 			);
 			path = Select;
 			sourceTree = "<group>";
@@ -894,8 +886,8 @@
 		1F06A632205570FC00FEB1B5 /* VkAuth */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A633205570FC00FEB1B5 /* VkAuthController.strings */,
 				1F06A636205570FC00FEB1B5 /* VkAuthController.swift */,
+				1F06A633205570FC00FEB1B5 /* VkAuthController.strings */,
 			);
 			path = VkAuth;
 			sourceTree = "<group>";
@@ -920,10 +912,10 @@
 		1F06A63D205570FC00FEB1B5 /* WebBrowserController */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A63E205570FC00FEB1B5 /* WebBrowserController.strings */,
 				1F06A641205570FC00FEB1B5 /* WebBrowserController.swift */,
-				1F06A642205570FC00FEB1B5 /* WebBrowserController.xib */,
 				1F06A643205570FC00FEB1B5 /* WebBrowserControllerDelegate.swift */,
+				1F06A642205570FC00FEB1B5 /* WebBrowserController.xib */,
+				1F06A63E205570FC00FEB1B5 /* WebBrowserController.strings */,
 			);
 			path = WebBrowserController;
 			sourceTree = "<group>";
@@ -992,7 +984,7 @@
 				1F06A659205570FC00FEB1B5 /* AppDelegate.swift */,
 				1F06A65A205570FC00FEB1B5 /* AppDelegateProtocol.swift */,
 				1F06A65B205570FC00FEB1B5 /* Handlers */,
-				1F06A9042055748600FEB1B5 /* NavigationController.swift */,
+				1F06A9072055842000FEB1B5 /* Routing */,
 			);
 			path = BaseApp;
 			sourceTree = "<group>";
@@ -1415,9 +1407,9 @@
 			isa = PBXGroup;
 			children = (
 				1F06A6EE205570FD00FEB1B5 /* Launcher */,
+				1F06A792205570FD00FEB1B5 /* Search */,
 				1F06A702205570FD00FEB1B5 /* Other */,
 				1F06A720205570FD00FEB1B5 /* Place */,
-				1F06A792205570FD00FEB1B5 /* Search */,
 				1F06A79D205570FD00FEB1B5 /* Tools */,
 			);
 			path = Pages;
@@ -1426,11 +1418,10 @@
 		1F06A6EE205570FD00FEB1B5 /* Launcher */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A6F0205570FD00FEB1B5 /* Greeting */,
-				1F06A6F6205570FD00FEB1B5 /* LaunchControllerDelegate.swift */,
 				1F06A6F7205570FD00FEB1B5 /* Launcher.swift */,
+				1F06A6F6205570FD00FEB1B5 /* LaunchControllerDelegate.swift */,
+				1F06A6F0205570FD00FEB1B5 /* Greeting */,
 				1F06A6F8205570FD00FEB1B5 /* Loading */,
-				1F06A6FE205570FD00FEB1B5 /* Navigations */,
 			);
 			path = Launcher;
 			sourceTree = "<group>";
@@ -1438,9 +1429,9 @@
 		1F06A6F0205570FD00FEB1B5 /* Greeting */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A6F1205570FD00FEB1B5 /* GreetingController.strings */,
 				1F06A6F3205570FD00FEB1B5 /* GreetingController.swift */,
 				1F06A6F4205570FD00FEB1B5 /* GreetingController.xib */,
+				1F06A6F1205570FD00FEB1B5 /* GreetingController.strings */,
 			);
 			path = Greeting;
 			sourceTree = "<group>";
@@ -1448,31 +1439,21 @@
 		1F06A6F8205570FD00FEB1B5 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A6F9205570FD00FEB1B5 /* LoadingController.strings */,
 				1F06A6FB205570FD00FEB1B5 /* LoadingController.swift */,
 				1F06A6FC205570FD00FEB1B5 /* LoadingController.xib */,
+				1F06A6F9205570FD00FEB1B5 /* LoadingController.strings */,
 			);
 			path = Loading;
-			sourceTree = "<group>";
-		};
-		1F06A6FE205570FD00FEB1B5 /* Navigations */ = {
-			isa = PBXGroup;
-			children = (
-				1F06A700205570FD00FEB1B5 /* RoutingSystem.swift */,
-				1F06A701205570FD00FEB1B5 /* TabsController.swift */,
-			);
-			path = Navigations;
 			sourceTree = "<group>";
 		};
 		1F06A702205570FD00FEB1B5 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1F06A90A2055848500FEB1B5 /* OtherRoot */,
 				1F06A703205570FD00FEB1B5 /* ChangePassword */,
 				1F06A706205570FD00FEB1B5 /* EditNotificationsPreferences */,
 				1F06A709205570FD00FEB1B5 /* EditProfile */,
 				1F06A70D205570FD00FEB1B5 /* Orders */,
-				1F06A715205570FD00FEB1B5 /* OtherController.swift */,
-				1F06A716205570FD00FEB1B5 /* OtherController.xib */,
 				1F06A717205570FD00FEB1B5 /* PaymentCards */,
 				1F06A71F205570FD00FEB1B5 /* Terms */,
 			);
@@ -2005,6 +1986,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1F06A9072055842000FEB1B5 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A700205570FD00FEB1B5 /* RoutingSystem.swift */,
+				1F06A701205570FD00FEB1B5 /* TabsController.swift */,
+				1F06A9082055842000FEB1B5 /* NavigationController.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		1F06A90A2055848500FEB1B5 /* OtherRoot */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A715205570FD00FEB1B5 /* OtherController.swift */,
+				1F06A716205570FD00FEB1B5 /* OtherController.xib */,
+			);
+			path = OtherRoot;
+			sourceTree = "<group>";
+		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2298,7 +2298,7 @@
 				1F06A8D1205570FD00FEB1B5 /* PlaceMenuCartAction.swift in Sources */,
 				1F06A897205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.swift in Sources */,
 				1F06A868205570FD00FEB1B5 /* ConfigKey.swift in Sources */,
-				1F06A9052055748600FEB1B5 /* NavigationController.swift in Sources */,
+				1F06A9092055842000FEB1B5 /* NavigationController.swift in Sources */,
 				1F06A80A205570FD00FEB1B5 /* ApiKeysRefreshser.swift in Sources */,
 				1F06A89A205570FD00FEB1B5 /* PlaceCartDishesContainerCell.swift in Sources */,
 				1F06A8AE205570FD00FEB1B5 /* AddDishToCartModal.swift in Sources */,

@@ -415,6 +415,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoreFrameworkApp/Kuzina.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 686FXGC24W;
+				FRAMEWORK_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/**";
 				INFOPLIST_FILE = CoreFrameworkApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
@@ -435,6 +436,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 686FXGC24W;
+				FRAMEWORK_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/**";
 				INFOPLIST_FILE = CoreFrameworkApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;

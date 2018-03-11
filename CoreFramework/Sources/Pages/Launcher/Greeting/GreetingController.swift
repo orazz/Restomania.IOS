@@ -15,6 +15,9 @@ public class GreetingController: UIViewController {
     @IBOutlet private weak var logo: UIImageView!
     @IBOutlet weak var EnterButton: UIButton!
     @IBOutlet weak var DemoButton: UIButton!
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return colorsTheme.statusBarOnContent
+    }
 
     private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
     private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
@@ -34,8 +37,10 @@ public class GreetingController: UIViewController {
     }
 
 
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+    public override func loadView() {
+        super.loadView()
+
+        view.backgroundColor = colorsTheme.contentBackground
 
         logo.image = themeImages.toolsLogo
 
@@ -44,6 +49,9 @@ public class GreetingController: UIViewController {
         DemoButton.tintColor = colorsTheme.contentBackgroundText
         DemoButton.titleLabel?.font = fontsTheme.default(size: .caption)
         DemoButton.titleLabel?.text = Localization.buttonsDemo.localized
+    }
+    public override func viewDidLoad() {
+        super.viewDidLoad()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

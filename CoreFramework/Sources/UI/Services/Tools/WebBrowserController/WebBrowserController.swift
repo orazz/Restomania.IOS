@@ -33,7 +33,7 @@ internal class WebBrowserController: UIViewController {
     private var navigationBackgroundColor: UIColor!
 
     public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return themeColors.defaultStatusBar
+        return themeColors.statusBarOnNavigation
     }
 
 
@@ -111,14 +111,11 @@ internal class WebBrowserController: UIViewController {
 
         titleItem.title = pageTitle
 
-        if let textColor = textColor ?? navigationContentColor {
-            navigationBar.tintColor = textColor
-            navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: textColor]
-        }
+        navigationBar.tintColor = navigationContentColor
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: navigationContentColor]
 
-        if let backgroundColor = backgroundColor ?? navigationBackgroundColor {
-            navigationBar.backgroundColor = backgroundColor
-        }
+        navigationBar.backgroundColor = navigationBackgroundColor
+        navigationBar.barTintColor = navigationBackgroundColor
     }
     public func setCancelButtom(_ cancelButtonTitle: String) {
 

@@ -17,8 +17,3 @@ open class UIServices {
         container.register(AddCardUIService.self, factory: { r in AddCardUIService(r.resolve(CardsCacheService.self)!) }).inObjectScope(.container)
     }
 }
-extension Bundle {
-    public static var uiServices: Bundle {
-        return Bundle(identifier: "mds.mobile.restomania.ui.services")!
-    }
-}

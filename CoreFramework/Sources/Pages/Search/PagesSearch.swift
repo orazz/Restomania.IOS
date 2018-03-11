@@ -13,15 +13,9 @@ public class PagesSearch {
 
     public static func registerTemplates() {
 
-        let bundle = Bundle.searchPages
+        let bundle = Bundle.coreFramework
         let store = TemplateStore.shared
 
         store.searchPlaceCard(name: String.tag(SearchPlaceCard.self), from: bundle)
-    }
-
-}
-extension Bundle {
-    public static var searchPages: Bundle {
-        return Bundle(identifier: "mds.mobile.restomania.pages.search")!
     }
 }

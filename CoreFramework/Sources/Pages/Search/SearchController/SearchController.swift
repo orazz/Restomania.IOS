@@ -35,7 +35,7 @@ public class SearchController: UIViewController {
 
 
     public init(){
-        super.init(nibName: String.tag(SearchController.self), bundle: Bundle.searchPages)
+        super.init(nibName: String.tag(SearchController.self), bundle: Bundle.coreFramework)
 
         searchCardTemplate = TemplateStore.shared.get(for: .searchPlaceCard)
     }
@@ -195,7 +195,7 @@ extension SearchController {
             return String.tag(SearchController.self)
         }
         public var bundle: Bundle {
-            return Bundle.searchPages
+            return Bundle.coreFramework
         }
 
         //Status

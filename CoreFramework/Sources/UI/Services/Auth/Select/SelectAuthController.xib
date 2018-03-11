@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectAuthController" customModule="UIServices" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectAuthController" customModule="CoreFramework" customModuleProvider="target">
             <connections>
                 <outlet property="acceptTermsLabel" destination="EKO-4U-rmN" id="lzF-Ug-Po3"/>
                 <outlet property="cancelAction" destination="Ogk-zG-nMf" id="ODs-L1-CHr"/>
@@ -52,7 +52,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y89-K8-apf" customClass="DefaultButton" customModule="UIElements">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y89-K8-apf" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="60" y="155" width="200" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="JKy-qZ-Tfr"/>
@@ -63,7 +63,7 @@
                         <action selector="enterViaVk" destination="-1" eventType="touchUpInside" id="cFh-9b-dXF"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nS8-5G-3L5" customClass="DefaultButton" customModule="UIElements">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nS8-5G-3L5" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="60" y="215" width="200" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="EwM-mG-hBA"/>
@@ -97,7 +97,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2X-Fg-xcI" customClass="DefaultButton" customModule="UIElements">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2X-Fg-xcI" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="60" y="310" width="200" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="7Y7-Z9-TQJ"/>
@@ -108,7 +108,7 @@
                         <action selector="enterViaPhone" destination="-1" eventType="touchUpInside" id="5ED-D5-4JF"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meH-Yl-bXB" customClass="InvertedButton" customModule="UIElements">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meH-Yl-bXB" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="60" y="370" width="200" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="RLy-hr-wvw"/>
