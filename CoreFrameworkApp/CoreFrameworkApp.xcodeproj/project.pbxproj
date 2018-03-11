@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F23107E20556A2800FB1D79 /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107320556A2700FB1D79 /* Configs.plist */; };
+		1F23107F20556A2800FB1D79 /* SearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107520556A2800FB1D79 /* SearchPlaceCard.xib */; };
+		1F23108020556A2800FB1D79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107620556A2800FB1D79 /* GoogleService-Info.plist */; };
+		1F23108120556A2800FB1D79 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107820556A2800FB1D79 /* Info.plist */; };
+		1F23108220556A2800FB1D79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F23107A20556A2800FB1D79 /* AppDelegate.swift */; };
+		1F23108320556A2800FB1D79 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107B20556A2800FB1D79 /* Launch.storyboard */; };
+		1F23108420556A2800FB1D79 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F23107C20556A2800FB1D79 /* ThemeSettings.swift */; };
+		1F23108520556A2800FB1D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107D20556A2800FB1D79 /* Assets.xcassets */; };
+		3C978327FDB757F36BF52272 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F23105E205569EC00FB1D79 /* Kuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F23107320556A2700FB1D79 /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
+		1F23107520556A2800FB1D79 /* SearchPlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPlaceCard.xib; sourceTree = "<group>"; };
+		1F23107620556A2800FB1D79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1F23107720556A2800FB1D79 /* Kuzina.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Kuzina.entitlements; sourceTree = "<group>"; };
+		1F23107820556A2800FB1D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F23107A20556A2800FB1D79 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F23107B20556A2800FB1D79 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		1F23107C20556A2800FB1D79 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSettings.swift; sourceTree = "<group>"; };
+		1F23107D20556A2800FB1D79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
+		D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F23105B205569EC00FB1D79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C978327FDB757F36BF52272 /* Pods_Kuzina.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F231055205569EC00FB1D79 = {
+			isa = PBXGroup;
+			children = (
+				1F231060205569EC00FB1D79 /* CoreFrameworkApp */,
+				1F23105F205569EC00FB1D79 /* Products */,
+				6ED895764D1334153C88B34A /* Pods */,
+				66CEA0CBE59D87F4C4A3371B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1F23105F205569EC00FB1D79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F23105E205569EC00FB1D79 /* Kuzina.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F231060205569EC00FB1D79 /* CoreFrameworkApp */ = {
+			isa = PBXGroup;
+			children = (
+				1F23107920556A2800FB1D79 /* App */,
+				1F23107420556A2800FB1D79 /* Custom */,
+				1F23107320556A2700FB1D79 /* Configs.plist */,
+				1F23107620556A2800FB1D79 /* GoogleService-Info.plist */,
+				1F23107720556A2800FB1D79 /* Kuzina.entitlements */,
+				1F23107820556A2800FB1D79 /* Info.plist */,
+				1F23107D20556A2800FB1D79 /* Assets.xcassets */,
+			);
+			path = CoreFrameworkApp;
+			sourceTree = "<group>";
+		};
+		1F23107420556A2800FB1D79 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				1F23107520556A2800FB1D79 /* SearchPlaceCard.xib */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		1F23107920556A2800FB1D79 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1F23107A20556A2800FB1D79 /* AppDelegate.swift */,
+				1F23107B20556A2800FB1D79 /* Launch.storyboard */,
+				1F23107C20556A2800FB1D79 /* ThemeSettings.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		66CEA0CBE59D87F4C4A3371B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6ED895764D1334153C88B34A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */,
+				F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F23105D205569EC00FB1D79 /* Kuzina */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F231070205569EC00FB1D79 /* Build configuration list for PBXNativeTarget "Kuzina" */;
+			buildPhases = (
+				CC3EE0639F8E390704255FD5 /* [CP] Check Pods Manifest.lock */,
+				1F23105A205569EC00FB1D79 /* Sources */,
+				1F23105B205569EC00FB1D79 /* Frameworks */,
+				1F23105C205569EC00FB1D79 /* Resources */,
+				E4A4C11C26778A4E531668CA /* [CP] Embed Pods Frameworks */,
+				EF681A4911C360F891FB1B92 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kuzina;
+			productName = CoreFrameworkApp;
+			productReference = 1F23105E205569EC00FB1D79 /* Kuzina.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F231056205569EC00FB1D79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Medved-Studio";
+				TargetAttributes = {
+					1F23105D205569EC00FB1D79 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 1F231059205569EC00FB1D79 /* Build configuration list for PBXProject "CoreFrameworkApp" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F231055205569EC00FB1D79;
+			productRefGroup = 1F23105F205569EC00FB1D79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F23105D205569EC00FB1D79 /* Kuzina */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F23105C205569EC00FB1D79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F23108120556A2800FB1D79 /* Info.plist in Resources */,
+				1F23108320556A2800FB1D79 /* Launch.storyboard in Resources */,
+				1F23107E20556A2800FB1D79 /* Configs.plist in Resources */,
+				1F23107F20556A2800FB1D79 /* SearchPlaceCard.xib in Resources */,
+				1F23108520556A2800FB1D79 /* Assets.xcassets in Resources */,
+				1F23108020556A2800FB1D79 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CC3EE0639F8E390704255FD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kuzina-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4A4C11C26778A4E531668CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/InputMask/InputMask.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/MdsKit/MdsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputMask.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MdsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF681A4911C360F891FB1B92 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F23105A205569EC00FB1D79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F23108420556A2800FB1D79 /* ThemeSettings.swift in Sources */,
+				1F23108220556A2800FB1D79 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1F23106E205569EC00FB1D79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1F23106F205569EC00FB1D79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F231071205569EC00FB1D79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoreFrameworkApp/Kuzina.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 686FXGC24W;
+				INFOPLIST_FILE = CoreFrameworkApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3dec1da5-c558-47aa-a521-eaf814e28161";
+				PROVISIONING_PROFILE_SPECIFIER = "Custom Kuzina Development";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1F231072205569EC00FB1D79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoreFrameworkApp/Kuzina.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 686FXGC24W;
+				INFOPLIST_FILE = CoreFrameworkApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b2b45230-229e-4b1b-a55b-babe3ce8ecbf";
+				PROVISIONING_PROFILE_SPECIFIER = "Custom Kuzina Ad Hoc";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F231059205569EC00FB1D79 /* Build configuration list for PBXProject "CoreFrameworkApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F23106E205569EC00FB1D79 /* Debug */,
+				1F23106F205569EC00FB1D79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F231070205569EC00FB1D79 /* Build configuration list for PBXNativeTarget "Kuzina" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F231071205569EC00FB1D79 /* Debug */,
+				1F231072205569EC00FB1D79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F231056205569EC00FB1D79 /* Project object */;
+}

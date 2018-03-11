@@ -1,4 +1,0 @@
-framework module UITools {
-    header "UITools-Swift.h"
-    requires objc
-}
