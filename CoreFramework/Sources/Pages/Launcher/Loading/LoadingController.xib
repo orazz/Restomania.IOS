@@ -30,8 +30,8 @@
                         <constraint firstAttribute="height" constant="250" id="uMP-3d-DK3"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBR-85-y95">
-                    <rect key="frame" x="20" y="400" width="280" height="60"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBR-85-y95">
+                    <rect key="frame" x="20" y="40" width="280" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="Hxi-14-wqW"/>
                     </constraints>
@@ -40,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tYc-SD-FPa">
-                    <rect key="frame" x="142" y="50" width="37" height="37"/>
+                    <rect key="frame" x="142" y="423" width="37" height="37"/>
                     <color key="color" red="0.11818788199999999" green="0.098173700269999997" blue="0.093623720110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </activityIndicatorView>
             </subviews>
@@ -48,11 +48,11 @@
             <constraints>
                 <constraint firstItem="VaT-Md-aAq" firstAttribute="centerX" secondItem="aoE-P9-zgk" secondAttribute="centerX" id="1xC-fZ-ReL"/>
                 <constraint firstItem="hgu-my-0B0" firstAttribute="trailing" secondItem="JBR-85-y95" secondAttribute="trailing" constant="20" id="3G9-ZJ-d0M"/>
-                <constraint firstItem="tYc-SD-FPa" firstAttribute="top" secondItem="hgu-my-0B0" secondAttribute="top" constant="30" id="Y9W-uy-DEi"/>
+                <constraint firstItem="hgu-my-0B0" firstAttribute="bottom" secondItem="tYc-SD-FPa" secondAttribute="bottom" constant="20" id="4Tk-5l-tZ3"/>
                 <constraint firstItem="tYc-SD-FPa" firstAttribute="centerX" secondItem="aoE-P9-zgk" secondAttribute="centerX" id="akc-eJ-T7i"/>
                 <constraint firstItem="JBR-85-y95" firstAttribute="leading" secondItem="hgu-my-0B0" secondAttribute="leading" constant="20" id="gaW-hk-IFc"/>
+                <constraint firstItem="JBR-85-y95" firstAttribute="top" secondItem="hgu-my-0B0" secondAttribute="top" constant="20" id="k1n-nC-mkD"/>
                 <constraint firstItem="VaT-Md-aAq" firstAttribute="centerY" secondItem="aoE-P9-zgk" secondAttribute="centerY" id="kls-Ws-qYH"/>
-                <constraint firstItem="hgu-my-0B0" firstAttribute="bottom" secondItem="JBR-85-y95" secondAttribute="bottom" constant="20" id="xAx-wt-Pbg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="hgu-my-0B0"/>
         </view>

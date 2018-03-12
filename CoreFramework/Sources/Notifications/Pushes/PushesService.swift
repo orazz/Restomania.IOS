@@ -118,6 +118,8 @@ extension PushesService: DeviceCacheServiceDelegate {
             return
         }
 
+        Log.info(_tag, "Update device fcm token.")
+        
         let request = deviceService.update(device.id, token: token)
         request.async(.background, completion: { response in })
     }

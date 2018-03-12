@@ -6,5 +6,11 @@
   Copyright © 2018 Medved-Studio. All rights reserved.
 */
 
-"Status.LoadCache" = "Load data.";
-"Status.RequestPermissions" = "Request push permissions.";
+"Alerts.RegisterDevice.Title" = "Ooops, problem";
+"Alerts.RegisterDevice.Message" = "We can't update app. Check internet connection and try again.";
+"Alerts.RegisterDevice.RetryAction" = "Retry";
+
+"Status.LoadCache" = "Load data";
+"Status.RequestPushesPermissions" = "Request push permissions";
+"Status.RegisterDevice" = "Update and setup app";
+"Status.RequestLocationPremissions" = "Request location permisions";

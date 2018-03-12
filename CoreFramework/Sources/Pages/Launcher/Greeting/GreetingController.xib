@@ -40,7 +40,7 @@
                             </constraints>
                             <state key="normal" title="Войти"/>
                             <connections>
-                                <action selector="goToSignUp:" destination="-1" eventType="touchUpInside" id="fGt-bZ-aJA"/>
+                                <action selector="goToAuth" destination="-1" eventType="touchUpInside" id="YV5-Ry-S7s"/>
                             </connections>
                         </button>
                     </subviews>

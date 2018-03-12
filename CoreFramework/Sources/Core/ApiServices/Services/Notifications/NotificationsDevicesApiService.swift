@@ -15,13 +15,13 @@ public class NotificationsDevicesApiService: BaseApiService {
         super.init(area: "Notifications/Devices", type: NotificationsDevicesApiService.self, configs: configs, keys: keys)
     }
 
-    public func register(token: String, locale: String) -> RequestResult<Device> {
+    public func register(token: String) -> RequestResult<Device> {
 
         let parameters = CollectParameters([
                 "appKey": configs.appKey,
                 "token": token,
                 "platform": NotificationPlatformType.apple.rawValue,
-                "locale": locale
+                "locale": Locale.preferredLanguages.first ?? "ru"
             ])
 
         return client.Post(action: "Register", type: Device.self, parameters: parameters)

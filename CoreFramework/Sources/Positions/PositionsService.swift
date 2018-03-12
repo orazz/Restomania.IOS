@@ -23,7 +23,6 @@ public class PositionsService: NSObject {
             let manager = CLLocationManager()
             manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
             manager.distanceFilter = kCLDistanceFilterNone
-            manager.allowsBackgroundLocationUpdates = true
             manager.pausesLocationUpdatesAutomatically = false
             manager.delegate = self
 

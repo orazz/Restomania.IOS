@@ -37,10 +37,10 @@ public class DeviceService {
     }
 
     //Methods
-    public func register(token: String, locale: String) -> RequestResult<Device> {
+    public func register(token: String) -> RequestResult<Device> {
         return RequestResult<Device>() { handler in
 
-            let request = self.api.register(token: token, locale: locale)
+            let request = self.api.register(token: token)
             request.async(self.apiQueue) { response in
 
                 if let device = response.data {

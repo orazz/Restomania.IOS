@@ -44,11 +44,11 @@ public class GreetingController: UIViewController {
 
         logo.image = themeImages.toolsLogo
 
-        EnterButton.titleLabel?.text = Localization.buttonsEnter.localized
+        EnterButton.setTitle(Localization.buttonsEnter.localized, for: .normal)
 
         DemoButton.tintColor = colorsTheme.contentBackgroundText
         DemoButton.titleLabel?.font = fontsTheme.default(size: .caption)
-        DemoButton.titleLabel?.text = Localization.buttonsDemo.localized
+        DemoButton.setTitle(Localization.buttonsDemo.localized, for: .normal)
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,22 +56,18 @@ public class GreetingController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     // MARK: Auth navigation
-    @IBAction func goToSignUp(_ sender: Any) {
-        goToAuth()
-    }
-    @IBAction func goToLogin(_ sender: Any) {
-        goToAuth()
-    }
-    private func goToAuth() {
-        self.showAuth(complete: { success, _ in
+    @IBAction func goToAuth() {
+
+        showAuth() { success, _ in
+            
             if (success) {
-//                self.complete()
+                self.complete()
             }
-        })
+        }
     }
 
     @IBAction func goWithoutAuth() {

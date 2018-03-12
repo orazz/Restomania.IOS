@@ -321,6 +321,7 @@
 		1F89236420568A6C0086D372 /* ScheduleDisplay.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89236620568A6C0086D372 /* ScheduleDisplay.strings */; };
 		1F89236C20568D050086D372 /* PriceLabel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89236E20568D050086D372 /* PriceLabel.strings */; };
 		1F89237320568D780086D372 /* RefreshControl.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89237520568D780086D372 /* RefreshControl.strings */; };
+		1F8923942056DCBE0086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923962056DCBE0086D372 /* InfoPlist.strings */; };
 		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -666,6 +667,8 @@
 		1F89236F20568D060086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PriceLabel.strings; sourceTree = "<group>"; };
 		1F89237420568D780086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RefreshControl.strings; sourceTree = "<group>"; };
 		1F89237620568D7A0086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RefreshControl.strings; sourceTree = "<group>"; };
+		1F8923952056DCBE0086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1F8923972056DCC00086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -708,6 +711,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A646205570FC00FEB1B5 /* Asserts.xcassets */,
+				1F8923962056DCBE0086D372 /* InfoPlist.strings */,
 				1F06A7BD205570FD00FEB1B5 /* Localizable.strings */,
 				1F06A658205570FC00FEB1B5 /* BaseApp */,
 				1F06A6ED205570FD00FEB1B5 /* Pages */,
@@ -2191,6 +2195,7 @@
 				1F06A875205570FD00FEB1B5 /* GreetingController.strings in Resources */,
 				1F06A7DC205570FD00FEB1B5 /* ScheduleDisplay.xib in Resources */,
 				1F06A8F8205570FE00FEB1B5 /* OneOrderTotalContainerView.xib in Resources */,
+				1F8923942056DCBE0086D372 /* InfoPlist.strings in Resources */,
 				1F06A7EE205570FD00FEB1B5 /* EnterPhoneAuthController.xib in Resources */,
 				1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */,
 				1F06A896205570FD00FEB1B5 /* PlaceCartDateContainerView.xib in Resources */,
@@ -2748,6 +2753,15 @@
 				1F89237620568D7A0086D372 /* ru */,
 			);
 			name = RefreshControl.strings;
+			sourceTree = "<group>";
+		};
+		1F8923962056DCBE0086D372 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8923952056DCBE0086D372 /* en */,
+				1F8923972056DCC00086D372 /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

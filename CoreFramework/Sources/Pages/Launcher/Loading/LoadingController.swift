@@ -21,15 +21,31 @@ public class LoadingController: UIViewController {
     }
 
     //Services
+    private let deviceService = DependencyResolver.resolve(DeviceService.self)
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
     private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
     private let themeImages = DependencyResolver.resolve(ThemeImages.self)
 
     //Data
+    private let _tag: String
+    private let loadQueue: AsyncQueue
+    private var currentStage = 0
+    private var stages:[Trigger] = []
     public var onCompleteHandler: Trigger?
 
     public init() {
+
+        _tag = String.tag(LoadingController.self)
+        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
+
         super.init(nibName: String.tag(LoadingController.self), bundle: Bundle.coreFramework)
+
+        stages = [
+            self.loadCache,
+            self.requestPushes,
+            self.registerDevice,
+            self.requestLocation
+        ]
     }
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -52,7 +68,7 @@ public class LoadingController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadCache()
+        nextStage()
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -61,33 +77,99 @@ public class LoadingController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.setStatusBarStyle(from: themeColors.statusBarOnContent)
     }
+
+    private func nextStage() {
+
+        if (currentStage >= stages.count) {
+            complete()
+            return
+        }
+
+        let stage = stages[currentStage]
+        currentStage += 1
+
+        stage()
+    }
+
+    private func complete() {
+        onCompleteHandler?()
+    }
+}
+// Stages
+extension LoadingController {
     private func loadCache() {
 
-        status(on: Localization.statusLoadCache.localized)
+        stageName(Localization.statusLoadCache)
 
         AsyncQueue.background.get().async {
             StorageServices.load()
 
-            self.registerPushes()
+            self.nextStage()
         }
     }
-    private func registerPushes() {
+    private func requestPushes() {
 
-        status(on: Localization.statusRequestPermission.localized)
+        stageName(Localization.statusRequestPermission)
 
-        PushesService.shared.requestLocalNotifications()
-        complete()
-    }
-    private func complete() {
-        onCompleteHandler?()
-    }
-
-    private func status(on value: String) {
         DispatchQueue.main.async {
-            self.status.text = value
+            PushesService.shared.requestLocalNotifications()
+
+            self.nextStage()
+        }
+    }
+
+    private func registerDevice() {
+
+        if let _ = deviceService.device {
+            nextStage()
+            return
+        }
+
+        stageName(Localization.statusRegisterDevice)
+
+        let token = PushesService.shared.token ?? Guid.new
+        let request = deviceService.register(token: token)
+        request.async(loadQueue) { response in
+
+            if (response.isFail) {
+                let alert = UIAlertController(title: Localization.alertRegisterDeviceTitle.localized,
+                                              message: Localization.alertRegisterDeviceMessage.localized,
+                                              preferredStyle: .alert)
+
+                let action = UIAlertAction(title: Localization.alertRegisterDeviceRetryAction.localized,
+                                           style: .default,
+                                           handler: { _ in  self.registerDevice()})
+                alert.addAction(action)
+
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+
+            if (response.isSuccess) {
+                self.nextStage()
+            }
+        }
+    }
+    private func requestLocation() {
+
+        stageName(Localization.statusRequestLocationPermissions)
+
+        DispatchQueue.main.async {
+            PositionsService.shared.requestPermission()
+            PositionsService.shared.startTracking()
+
+            self.nextStage()
+        }
+    }
+
+    private func stageName(_ value: Localizable) {
+        DispatchQueue.main.async {
+            self.status.text = value.localized
         }
     }
 }
+// LaunchControllerDelegate
 extension LoadingController: LaunchControllerDelegate {
     public var notNeedDisplay: Bool {
         return false
@@ -95,6 +177,7 @@ extension LoadingController: LaunchControllerDelegate {
 
     public func hiddenProcessing() {}
 }
+// Localization
 extension LoadingController {
     public enum Localization: String, Localizable {
 
@@ -105,8 +188,15 @@ extension LoadingController {
             return Bundle.coreFramework
         }
 
+        //Alerts
+        case alertRegisterDeviceTitle = "Alerts.RegisterDevice.Title"
+        case alertRegisterDeviceMessage = "Alerts.RegisterDevice.Message"
+        case alertRegisterDeviceRetryAction = "Alerts.RegisterDevice.RetryAction"
+
         //Status
         case statusLoadCache = "Status.LoadCache"
-        case statusRequestPermission = "Status.RequestPermissions"
+        case statusRequestPermission = "Status.RequestPushesPermissions"
+        case statusRegisterDevice = "Status.RegisterDevice"
+        case statusRequestLocationPermissions = "Status.RequestLocationPremissions"
     }
 }

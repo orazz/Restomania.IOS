@@ -32,6 +32,8 @@
 		1F89235B205681690086D372 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F89235A205681690086D372 /* MapKit.framework */; };
 		1F892390205690F10086D372 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89238B205690F10086D372 /* Localizable.strings */; };
 		1F892391205690F10086D372 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89238E205690F10086D372 /* Localizable.strings */; };
+		1F89239A2056DD190086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923982056DD190086D372 /* InfoPlist.strings */; };
+		1F89239D2056DD240086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89239B2056DD240086D372 /* InfoPlist.strings */; };
 		3C978327FDB757F36BF52272 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		1F89235A205681690086D372 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1F89238C205690F10086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
 		1F89238F205690F10086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		1F8923992056DD190086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		1F89239C2056DD240086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = InfoPlist.strings; sourceTree = "<group>"; };
 		57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		1F89238A205690F10086D372 /* ru.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				1F89239B2056DD240086D372 /* InfoPlist.strings */,
 				1F89238B205690F10086D372 /* Localizable.strings */,
 			);
 			name = ru.lproj;
@@ -180,6 +185,7 @@
 		1F89238D205690F10086D372 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				1F8923982056DD190086D372 /* InfoPlist.strings */,
 				1F89238E205690F10086D372 /* Localizable.strings */,
 			);
 			name = en.lproj;
@@ -295,7 +301,9 @@
 				1F23107F20556A2800FB1D79 /* SearchPlaceCard.xib in Resources */,
 				1F892391205690F10086D372 /* Localizable.strings in Resources */,
 				1F23108520556A2800FB1D79 /* Assets.xcassets in Resources */,
+				1F89239A2056DD190086D372 /* InfoPlist.strings in Resources */,
 				1F23108020556A2800FB1D79 /* GoogleService-Info.plist in Resources */,
+				1F89239D2056DD240086D372 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +412,22 @@
 				1F89238F205690F10086D372 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1F8923982056DD190086D372 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8923992056DD190086D372 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1F89239B2056DD240086D372 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F89239C2056DD240086D372 /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

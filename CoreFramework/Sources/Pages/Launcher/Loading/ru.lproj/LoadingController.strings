@@ -6,5 +6,13 @@
   Copyright © 2018 Medved-Studio. All rights reserved.
 */
 
-"Status.LoadCache" = "Загружаем данные.";
-"Status.RequestPermissions" = "Запрашиваем разрешения на уведомления.";
+"Alerts.RegisterDevice.Title" = "Упс, проблемы";
+"Alerts.RegisterDevice.Message" = "Для настройки приложения нам нужен интернет. Проверьте ваше подключение.";
+"Alerts.RegisterDevice.RetryAction" = "Потворить";
+
+"Status.LoadCache" = "Загружаем данные";
+"Status.RequestPushesPermissions" = "Запрашиваем разрешения на уведомления";
+"Status.RegisterDevice" = "Обновляем и настраиваем приложение";
+"Status.RequestLocationPremissions" = "Запрашиваем разрешение на доступ к местоположению";
+
+
