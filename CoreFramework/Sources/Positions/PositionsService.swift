@@ -59,12 +59,12 @@ public class PositionsService: NSObject {
 
         switch(CLLocationManager.authorizationStatus()) {
 
-        case .notDetermined,
-             .restricted,
+        case .restricted,
              .denied:
             return false
 
-        case .authorizedAlways,
+        case .notDetermined,
+             .authorizedAlways,
              .authorizedWhenInUse:
             return true
         }
@@ -78,10 +78,6 @@ public class PositionsService: NSObject {
     public func distance(to position: Position) -> Double? {
 
         guard let position = lastPosition else {
-            return nil
-        }
-
-        if isBlock {
             return nil
         }
 
@@ -101,7 +97,6 @@ public class PositionsService: NSObject {
             return
         }
 
-        manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
     }
     public func stopTracking() {
