@@ -78,6 +78,8 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
         container.register(ThemeFonts.self, factory: { _ in Fonts() })
         container.register(ThemeImages.self, factory: { _ in Images() })
 
+        container.register(Router.self, factory: { _ in RoutingSystem() })
+
         UIServices.register(in: container)
     }
     private class Colors: ThemeColors {}

@@ -20,9 +20,10 @@ public class Launcher {
     private var launchOptions: [UIApplicationLaunchOptionsKey: Any]?
     private var navigator: NavigationController
     private let controllers: [VCCtor]
-    private var notification: [AnyHashable: Any]? = nil
+    private var notification: PushContainer? = nil
 
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let router = DependencyResolver.resolve(Router.self)
 
     public init(for delegate: UIApplicationDelegate, with launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
 
@@ -31,36 +32,25 @@ public class Launcher {
 
         self.navigator = NavigationController()
 
-        self.controllers = Launcher.launchControllers()
+        self.controllers = [
+            { LoadingController() },
+            { GreetingController() }
+        ]
     }
 
     public var window: UIWindow {
 
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = navigator
         window.makeKeyAndVisible()
         window.backgroundColor = themeColors.contentBackground
 
         return window
     }
 
-    public func processNotification(_ notification: [AnyHashable: Any]) {
-
-        if (!completeLaunch) {
-            return
-        }
-
-//        PushesService.shared.build(notification, completeHandler: { result in
-//
-//            if let vc = result.vc?() {
-//                DispatchQueue.main.async {
-//                    Router.shared.navigator.pushViewController(vc, animated: true)
-//                }
-//            }
-//        })
-    }
 
     public func start(complete: Trigger? = nil) {
+
+        router.initialize(with: navigator)
 
         if let options = launchOptions,
             let notification = options[.remoteNotification] as? [AnyHashable: Any] {
@@ -122,22 +112,28 @@ public class Launcher {
         let tabs = TabsController()
         let navigator = NavigationController(rootViewController: tabs)
         self.navigator = navigator
-//        Router.initialize(<#T##Router#>)
-//        Router.shared.navigator = navigator
-//        Router.shared.tabs = tabs
-
-        self.delegate.window??.rootViewController = navigator
-
+        router.initialize(with: navigator)
+        router.initialize(with: tabs)
 
         if let notification = self.notification {
             processNotification(notification)
         }
     }
-    private static func launchControllers() -> [VCCtor] {
 
-        return [
-            { LoadingController() },
-            { GreetingController() }
-        ]
+
+    public func processNotification(_ notification: [AnyHashable: Any]) {
+
+        if (!completeLaunch) {
+            return
+        }
+
+        //        PushesService.shared.build(notification, completeHandler: { result in
+        //
+        //            if let vc = result.vc?() {
+        //                DispatchQueue.main.async {
+        //                    Router.shared.navigator.pushViewController(vc, animated: true)
+        //                }
+        //            }
+        //        })
     }
 }

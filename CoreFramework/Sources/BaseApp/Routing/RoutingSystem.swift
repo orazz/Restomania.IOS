@@ -14,8 +14,21 @@ public class RoutingSystem: Router {
     public private(set) var navigator: UINavigationController?
     public private(set) var tabs: UITabBarController?
 
+    internal init() {
+        navigator = nil
+        tabs = nil
+    }
+
     public func initialize(with controller: UINavigationController) {
         self.navigator = controller
+
+        if let wrapWindow = UIApplication.shared.delegate?.window,
+            let window = wrapWindow {
+
+            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                window.rootViewController = controller
+            }, completion: nil)
+        }
     }
 
     public func initialize(with controller: UITabBarController) {
