@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DistanceLabel" customModule="CoreFramework" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="l4S-FV-Odh"/>
+                <outlet property="distanceLabel" destination="Yaq-BU-KT1" id="qQ7-kI-hpD"/>
+                <outlet property="iconImage" destination="8l6-yB-rtW" id="eGT-FX-i3e"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="70" height="20"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-navigation" translatesAutoresizingMaskIntoConstraints="NO" id="8l6-yB-rtW">
+                    <rect key="frame" x="0.0" y="4" width="11" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="11" id="7DU-O0-wly"/>
+                        <constraint firstAttribute="height" constant="12" id="bFU-uC-eK5"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.2 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yaq-BU-KT1">
+                    <rect key="frame" x="14" y="0.0" width="56" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8l6-yB-rtW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5um-BH-UWw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yaq-BU-KT1" secondAttribute="trailing" id="g7e-UV-gwT"/>
+                <constraint firstAttribute="bottom" secondItem="Yaq-BU-KT1" secondAttribute="bottom" id="iEg-09-wbF"/>
+                <constraint firstItem="Yaq-BU-KT1" firstAttribute="leading" secondItem="8l6-yB-rtW" secondAttribute="trailing" constant="3" id="jnP-2q-zod"/>
+                <constraint firstItem="8l6-yB-rtW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oD6-0t-x6n"/>
+                <constraint firstItem="Yaq-BU-KT1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rny-KO-sV3"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-119.5" y="-272"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-navigation" width="40" height="40"/>
+    </resources>
+</document>

@@ -15,24 +15,33 @@ public class PlaceLocation: BaseDataType, ICopying {
     public struct Keys {
         public static let latitude = "Latitude"
         public static let longitude = "Longitude"
+        public static let address = "Address"
         public static let city = "City"
         public static let street = "Street"
         public static let house = "House"
+        public static let metro = "Metro"
+        public static let borough = "Borough"
     }
 
-    public let Latitude: Double
-    public let Longitude: Double
-    public let City: String
-    public let Street: String
-    public let House: String
+    public let latitude: Double
+    public let longitude: Double
+    public let address: String
+    public let city: String
+    public let street: String
+    public let house: String
+    public let metro: String
+    public let borough: String
 
     public override init() {
 
-        self.Latitude = 0
-        self.Longitude = 0
-        self.City = String.empty
-        self.Street = String.empty
-        self.House = String.empty
+        self.latitude = 0
+        self.longitude = 0
+        self.address = String.empty
+        self.city = String.empty
+        self.street = String.empty
+        self.house = String.empty
+        self.metro = String.empty
+        self.borough = String.empty
 
         super.init()
     }
@@ -40,11 +49,14 @@ public class PlaceLocation: BaseDataType, ICopying {
     // MARK: ICopying
     public required init(source: PlaceLocation) {
 
-        self.Latitude = source.Latitude
-        self.Longitude = source.Longitude
-        self.City = source.City
-        self.Street = source.Street
-        self.House = source.House
+        self.latitude = source.latitude
+        self.longitude = source.longitude
+        self.address = source.address
+        self.city = source.city
+        self.street = source.street
+        self.house = source.house
+        self.metro = source.metro
+        self.borough = source.borough
 
         super.init(source: source)
     }
@@ -52,11 +64,14 @@ public class PlaceLocation: BaseDataType, ICopying {
     // MARK: Glossy
     public required init(json: JSON) {
 
-        self.Latitude = (Keys.latitude <~~ json)!
-        self.Longitude = (Keys.longitude <~~ json)!
-        self.City = (Keys.city <~~ json)!
-        self.Street = (Keys.street <~~ json)!
-        self.House = (Keys.house <~~ json)!
+        self.latitude = (Keys.latitude <~~ json)!
+        self.longitude = (Keys.longitude <~~ json)!
+        self.address = (Keys.address <~~ json)!
+        self.city = (Keys.city <~~ json)!
+        self.street = (Keys.street <~~ json)!
+        self.house = (Keys.house <~~ json)!
+        self.metro = (Keys.metro <~~ json)!
+        self.borough = (Keys.borough <~~ json)!
 
         super.init(json: json)
     }
@@ -64,11 +79,14 @@ public class PlaceLocation: BaseDataType, ICopying {
         return jsonify([
             super.toJSON(),
 
-            Keys.latitude ~~> self.Latitude,
-            Keys.longitude ~~> self.Longitude,
-            Keys.city ~~> self.City,
-            Keys.street ~~> self.Street,
-            Keys.house ~~> self.House
+            Keys.latitude ~~> self.latitude,
+            Keys.longitude ~~> self.longitude,
+            Keys.address ~~> self.address,
+            Keys.city ~~> self.city,
+            Keys.street ~~> self.street,
+            Keys.house ~~> self.house,
+            Keys.metro ~~> self.metro,
+            Keys.borough ~~> self.borough,
             ])
     }
 }

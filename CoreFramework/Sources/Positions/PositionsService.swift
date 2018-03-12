@@ -77,12 +77,11 @@ public class PositionsService: NSObject {
     }
     public func distance(to position: Position) -> Double? {
 
-        guard let position = lastPosition else {
+        guard let currentPosition = lastPosition else {
             return nil
         }
 
-        let location = position.toLocation()
-        return location.distance(from: position.toLocation())
+        return currentPosition.distance(to: position)
     }
 
 
@@ -131,8 +130,8 @@ extension PositionsService: CLLocationManagerDelegate {
 
         lastPosition = positions.first
 
-        if (!positions.isEmpty) {
-            events.invoke({ $0.updateLocation(positions: positions) })
+        if let update = lastPosition {
+            events.invoke({ $0.positionsService(self, update: update) })
         }
     }
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -160,6 +159,13 @@ extension PositionsService {
             self.accuracy = 1
         }
 
+        public var isEmpty: Bool {
+            return latitude < 0.001 && longtitude < 0.001
+        }
+
+        public func distance(to position: Position) -> Double {
+            return self.toLocation().distance(from: position.toLocation())
+        }
         public func toCoordinates() -> CLLocationCoordinate2D {
             return CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
         }

@@ -322,6 +322,9 @@
 		1F89236C20568D050086D372 /* PriceLabel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89236E20568D050086D372 /* PriceLabel.strings */; };
 		1F89237320568D780086D372 /* RefreshControl.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89237520568D780086D372 /* RefreshControl.strings */; };
 		1F8923942056DCBE0086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923962056DCBE0086D372 /* InfoPlist.strings */; };
+		1F8923A32056EFFA0086D372 /* DistanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8923A22056EFFA0086D372 /* DistanceLabel.swift */; };
+		1F8923A72056F60B0086D372 /* DistanceLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923A62056F60B0086D372 /* DistanceLabel.xib */; };
+		1F8923A82056FA590086D372 /* DistanceLabel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923AA2056FA590086D372 /* DistanceLabel.strings */; };
 		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -669,6 +672,10 @@
 		1F89237620568D7A0086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RefreshControl.strings; sourceTree = "<group>"; };
 		1F8923952056DCBE0086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F8923972056DCC00086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1F8923A22056EFFA0086D372 /* DistanceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceLabel.swift; sourceTree = "<group>"; };
+		1F8923A62056F60B0086D372 /* DistanceLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistanceLabel.xib; sourceTree = "<group>"; };
+		1F8923A92056FA590086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DistanceLabel.strings; sourceTree = "<group>"; };
+		1F8923AB2056FA5A0086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DistanceLabel.strings; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -740,9 +747,9 @@
 				1F89237020568D610086D372 /* RefreshControl */,
 				1F06A5F3205570FC00FEB1B5 /* ProblemAlert */,
 				1F06A5F5205570FC00FEB1B5 /* Banners */,
+				1F06A5FE205570FC00FEB1B5 /* CachedImage.swift */,
 				1F06A5F7205570FC00FEB1B5 /* BottomActions */,
 				1F06A5F9205570FC00FEB1B5 /* Buttons */,
-				1F06A5FE205570FC00FEB1B5 /* CachedImage.swift */,
 				1F06A5FF205570FC00FEB1B5 /* Labels */,
 				1F06A603205570FC00FEB1B5 /* ScheduleDisplay */,
 				1F06A608205570FC00FEB1B5 /* Toasts */,
@@ -789,6 +796,7 @@
 		1F06A5FF205570FC00FEB1B5 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
+				1F8923A12056EFE50086D372 /* DistanceLabel */,
 				1F89236820568CDB0086D372 /* PriceLabel */,
 				1F89236920568CE00086D372 /* SizeLabel */,
 			);
@@ -2075,6 +2083,16 @@
 			path = RefreshControl;
 			sourceTree = "<group>";
 		};
+		1F8923A12056EFE50086D372 /* DistanceLabel */ = {
+			isa = PBXGroup;
+			children = (
+				1F8923A22056EFFA0086D372 /* DistanceLabel.swift */,
+				1F8923A62056F60B0086D372 /* DistanceLabel.xib */,
+				1F8923AA2056FA590086D372 /* DistanceLabel.strings */,
+			);
+			path = DistanceLabel;
+			sourceTree = "<group>";
+		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2182,6 +2200,7 @@
 				1F06A8D0205570FD00FEB1B5 /* PlaceInfoControllerView.xib in Resources */,
 				1F06A89C205570FD00FEB1B5 /* PlaceCartDishesContainerCellMetaView.xib in Resources */,
 				1F06A7FB205570FD00FEB1B5 /* Asserts.xcassets in Resources */,
+				1F8923A82056FA590086D372 /* DistanceLabel.strings in Resources */,
 				1F06A8BF205570FD00FEB1B5 /* DishModalSelectAddingsCellView.xib in Resources */,
 				1F06A8EE205570FE00FEB1B5 /* OneOrderController.strings in Resources */,
 				1F06A890205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib in Resources */,
@@ -2257,6 +2276,7 @@
 				1F06A883205570FD00FEB1B5 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */,
 				1F06A7FE205570FD00FEB1B5 /* FontAwesome.ttf in Resources */,
 				1F06A88E205570FD00FEB1B5 /* ManagerPaymentCardsController.strings in Resources */,
+				1F8923A72056F60B0086D372 /* DistanceLabel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2346,6 +2366,7 @@
 				1F89234D2056451A0086D372 /* OrderPushModel.swift in Sources */,
 				1F06A7EB205570FD00FEB1B5 /* InstagramAuthController.swift in Sources */,
 				1F06A827205570FD00FEB1B5 /* IMenuDependent.swift in Sources */,
+				1F8923A32056EFFA0086D372 /* DistanceLabel.swift in Sources */,
 				1F06A8CF205570FD00FEB1B5 /* PlaceInfoController.swift in Sources */,
 				1F06A86B205570FD00FEB1B5 /* StringApiRole.swift in Sources */,
 				1F06A84F205570FD00FEB1B5 /* Properties.swift in Sources */,
@@ -2762,6 +2783,15 @@
 				1F8923972056DCC00086D372 /* ru */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1F8923AA2056FA590086D372 /* DistanceLabel.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8923A92056FA590086D372 /* en */,
+				1F8923AB2056FA5A0086D372 /* ru */,
+			);
+			name = DistanceLabel.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

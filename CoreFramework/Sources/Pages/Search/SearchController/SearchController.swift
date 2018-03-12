@@ -88,9 +88,10 @@ extension SearchController {
 
         adapter.add({ $0.Name })
         adapter.add({ $0.Description })
-        adapter.add({ $0.Location.City })
-        adapter.add({ $0.Location.Street })
-        adapter.add({ $0.Location.House })
+        adapter.add({ $0.Location.address })
+        adapter.add({ $0.Location.city })
+        adapter.add({ $0.Location.street })
+        adapter.add({ $0.Location.house })
 
         return adapter
     }

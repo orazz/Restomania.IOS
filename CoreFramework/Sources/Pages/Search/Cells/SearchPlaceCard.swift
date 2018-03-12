@@ -13,10 +13,11 @@ open class SearchPlaceCard: UITableViewCell {
 
     public static let height = CGFloat(100)
 
-    @IBOutlet private weak var placeImage: CachedImage?
-    @IBOutlet private weak var name: UILabel?
-    @IBOutlet private weak var location: UILabel?
-    @IBOutlet private weak var workingHours: UILabel?
+    @IBOutlet public weak var placeImage: CachedImage?
+    @IBOutlet public weak var name: UILabel?
+    @IBOutlet public weak var location: UILabel?
+    @IBOutlet public weak var workingHours: UILabel?
+    @IBOutlet public weak var distance: DistanceLabel?
 
     public let themeColors = DependencyResolver.resolve(ThemeColors.self)
     public let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
@@ -49,12 +50,18 @@ open class SearchPlaceCard: UITableViewCell {
         name?.text = _summary.Name
         workingHours?.text = take(_summary.Schedule)
         location?.text = format(_summary.Location)
+        distance?.setup(lat: _summary.Location.latitude, lng: _summary.Location.longitude)
     }
     private func format(_ location: PlaceLocation) -> String {
 
-        let parts = [location.Street, location.House].where({ !String.isNullOrEmpty($0) }).map({ $0! })
+        if (!String.isNullOrEmpty(location.address)) {
+            return location.address
+        }
 
-        return parts.joined(separator: ", ")
+        let parts = [location.city, location.street, location.house]
+        return parts.where({ !String.isNullOrEmpty($0) })
+                    .map({ $0 })
+                    .joined(separator: ", ")
     }
     private func take(_ workingHours: ShortSchedule) -> String {
 

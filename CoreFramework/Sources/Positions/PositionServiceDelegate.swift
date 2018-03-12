@@ -10,5 +10,9 @@ import Foundation
 
 public protocol PositionServiceDelegate {
 
-    func updateLocation(positions: [PositionsService.Position])
+    func positionsService(_ service: PositionsService, update position: PositionsService.Position)
+}
+extension PositionServiceDelegate {
+
+    public func positionsService(_ service: PositionsService, update position: PositionsService.Position) { }
 }

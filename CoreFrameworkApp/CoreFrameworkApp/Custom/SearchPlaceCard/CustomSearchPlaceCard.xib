@@ -19,7 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:00 - 22:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1N-CH-mcO">
-                        <rect key="frame" x="201.5" y="76" width="73.5" height="13.5"/>
+                        <rect key="frame" x="201.5" y="69.5" width="73.5" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="BbS-Ob-1Zm"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -75,14 +78,24 @@
                             <constraint firstAttribute="height" constant="2" id="hkM-0h-mZL"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXp-nS-aes" customClass="DistanceLabel" customModule="CoreFramework">
+                        <rect key="frame" x="121.5" y="69.5" width="70" height="20"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="18N-ZW-MEB" customClass="Distance"/>
+                            <constraint firstAttribute="width" constant="70" id="u6A-Zk-6oT"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SFM-Bw-caT" firstAttribute="leading" secondItem="UG0-vc-pJe" secondAttribute="trailing" id="3a6-w6-McD"/>
                     <constraint firstItem="jKs-mc-Xto" firstAttribute="leading" secondItem="l1c-dB-vdD" secondAttribute="trailing" id="4Ta-xn-kU7"/>
                     <constraint firstItem="UG0-vc-pJe" firstAttribute="top" secondItem="Jih-Je-mJC" secondAttribute="bottom" id="4as-Tf-UJ7"/>
                     <constraint firstAttribute="bottom" secondItem="y1N-CH-mcO" secondAttribute="bottom" constant="10" id="5mD-Bd-7ST"/>
+                    <constraint firstAttribute="bottom" secondItem="HXp-nS-aes" secondAttribute="bottom" constant="10" id="9OT-8I-eBN"/>
                     <constraint firstItem="l1c-dB-vdD" firstAttribute="top" secondItem="3b8-Re-Geg" secondAttribute="top" constant="10" id="BSb-nH-L7I"/>
                     <constraint firstItem="SFM-Bw-caT" firstAttribute="leading" secondItem="Y3u-wN-4ZQ" secondAttribute="trailing" id="DnD-Tv-Mi5"/>
+                    <constraint firstItem="y1N-CH-mcO" firstAttribute="leading" secondItem="HXp-nS-aes" secondAttribute="trailing" constant="10" id="Et1-gs-f87"/>
                     <constraint firstItem="CoO-bv-WhR" firstAttribute="leading" secondItem="l1c-dB-vdD" secondAttribute="trailing" constant="10" id="GkD-ZT-ULF"/>
                     <constraint firstItem="SFM-Bw-caT" firstAttribute="leading" secondItem="y1N-CH-mcO" secondAttribute="trailing" constant="5" id="MB1-0O-m68"/>
                     <constraint firstItem="Jih-Je-mJC" firstAttribute="top" secondItem="3b8-Re-Geg" secondAttribute="top" id="O7n-9c-RfB"/>
@@ -103,9 +116,10 @@
             <connections>
                 <outlet property="bottomBorderBackground" destination="jKs-mc-Xto" id="ntL-eW-m1z"/>
                 <outlet property="bottomBorderPink" destination="UG0-vc-pJe" id="uuq-w8-dvq"/>
+                <outlet property="distance" destination="HXp-nS-aes" id="zJl-xV-Wdr"/>
                 <outlet property="kunaLogo" destination="l1c-dB-vdD" id="rdl-It-3rm"/>
                 <outlet property="leftBorderPink" destination="Jih-Je-mJC" id="jBO-uE-eru"/>
-                <outlet property="name" destination="CoO-bv-WhR" id="rDQ-T6-Wg2"/>
+                <outlet property="location" destination="CoO-bv-WhR" id="cb8-kt-jrs"/>
                 <outlet property="topBorderPink" destination="Y3u-wN-4ZQ" id="YK0-nV-2VR"/>
                 <outlet property="verticalLines" destination="SFM-Bw-caT" id="SLt-Ss-4s9"/>
                 <outlet property="workingHours" destination="y1N-CH-mcO" id="6E8-wQ-Qwd"/>

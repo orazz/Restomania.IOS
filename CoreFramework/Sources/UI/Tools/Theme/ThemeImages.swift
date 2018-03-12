@@ -19,6 +19,7 @@ public protocol ThemeImages {
     var iconPlus: UIImage { get }
     var iconBack: UIImage { get }
     var iconForward: UIImage { get }
+    var iconNavigation: UIImage { get }
 
     var tabSearch: UIImage { get }
     var tabMap: UIImage { get }
@@ -58,6 +59,9 @@ extension ThemeImages {
     }
     public var iconForward: UIImage {
         return loadAssert("icon-forward")
+    }
+    public var iconNavigation: UIImage {
+        return loadAssert("icon-navigation")
     }
 
     public var tabSearch: UIImage {
