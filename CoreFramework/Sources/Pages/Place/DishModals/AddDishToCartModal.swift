@@ -51,7 +51,7 @@ public class AddDishToCartModal: UIViewController {
             self.total = Price.zero
         }
 
-        super.init(nibName: "\(String.tag(AddDishToCartModal.self))View", bundle: Bundle.main)
+        super.init(nibName: "\(String.tag(AddDishToCartModal.self))View", bundle: Bundle.coreFramework)
     }
     public required init?(coder aDecoder: NSCoder) {
         Log.error(_tag, "Not implemented constructor.")
@@ -87,13 +87,13 @@ public class AddDishToCartModal: UIViewController {
 
         if (vartiations.isFilled) {
             result.append(DishModalSpace.create())
-            result.append(DishModalSelectHeader.create(with: Localization.DishModals.labelsSelectVariations.localized))
+            result.append(DishModalSelectHeader.create(with: DishModal.Localization.labelsSelectVariations.localized))
             result.append(DishModalSelectVariations.create(for: self.vartiations, from: menu, with: self))
         }
 
         if (addings.isFilled) {
             result.append(DishModalSpace.create())
-            result.append(DishModalSelectHeader.create(with: Localization.DishModals.labelsSelectAddings.localized))
+            result.append(DishModalSelectHeader.create(with: DishModal.Localization.labelsSelectAddings.localized))
             result.append(DishModalSelectAddings.create(for: self.addings, from: menu, with: self))
             result.append(DishModalSpace.create())
             result.append(DishModalSpace.create())

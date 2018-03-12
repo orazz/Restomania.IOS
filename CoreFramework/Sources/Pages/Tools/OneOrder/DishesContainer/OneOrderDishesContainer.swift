@@ -15,7 +15,7 @@ public class OneOrderDishesContainer: UITableViewCell {
     private static var nibName = "\(String.tag(OneOrderDishesContainer.self))View"
     public static var instance: OneOrderDishesContainer {
 
-        let cell: OneOrderDishesContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
+        let cell: OneOrderDishesContainer = UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
 
         return cell
     }

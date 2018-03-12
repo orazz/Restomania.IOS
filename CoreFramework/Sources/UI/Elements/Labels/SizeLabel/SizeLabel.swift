@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MdsKit
 
 public class SizeLabel: UILabel {
 
@@ -57,7 +58,7 @@ public class SizeLabel: UILabel {
             clear()
 
         } else if (useStartFrom) {
-            self.text = String(format: Localization.UIElements.WeightLabel.startFrom, text)
+            self.text = String(format: Localization.startFrom.localized, text)
 
         } else {
             self.text = text
@@ -65,5 +66,44 @@ public class SizeLabel: UILabel {
     }
     public func clear() {
         self.text = String.empty
+    }
+}
+
+extension SizeLabel {
+    public enum Localization: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(SizeLabel.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
+
+        case startFrom = "Formats.StartFrom"
+
+        case Gram = "Units.Gram"
+        case Kilogram = "Units.Kilogram"
+        case Milliliter = "Units.Milliliter"
+        case Liter = "Units.Liter"
+        case Units = "Units"
+    }
+}
+
+extension UnitsOfSize {
+
+    public var shortName: String {
+
+        switch (self) {
+        case .gram:
+            return SizeLabel.Localization.Gram.localized
+        case .kilogram:
+            return SizeLabel.Localization.Kilogram.localized
+        case .milliliter:
+            return SizeLabel.Localization.Milliliter.localized
+        case .liter:
+            return SizeLabel.Localization.Liter.localized
+        case .units:
+            return SizeLabel.Localization.Units.localized
+        }
     }
 }

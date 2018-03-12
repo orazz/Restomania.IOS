@@ -1,0 +1,17 @@
+/* 
+  ScheduleDisplay.strings
+  CoreFramework
+
+  Created by Алексей on 12.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Holiday" = "holiday";
+"WeekStartFrom" = "0";
+"Days.Sunday" = "Sunday";
+"Days.Monday" = "Monday";
+"Days.Tuesday" = "Tuesday";
+"Days.Wednesday" = "Wednesday";
+"Days.Thursday" = "Thursday";
+"Days.Friday" = "Friday";
+"Days.Saturday" = "Saturday";

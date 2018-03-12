@@ -14,7 +14,7 @@ public class OneOrderFooterContainer: UITableViewCell {
 
     private static var nibName = "\(String.tag(OneOrderFooterContainer.self))View"
     public static var instance: OneOrderFooterContainer {
-        return UINib.instantiate(from: nibName, bundle: Bundle.main)
+        return UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
     }
 
     //UI

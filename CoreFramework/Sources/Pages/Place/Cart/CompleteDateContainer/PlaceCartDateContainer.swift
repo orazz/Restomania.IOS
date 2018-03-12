@@ -25,7 +25,7 @@ public class PlaceCartDateContainer: UITableViewCell {
     private static let nibName = "\(String.tag(PlaceCartDateContainer.self))View"
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartDateContainer {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartDateContainer
 
         cell.timeFormatter = DateFormatter(for: "HH:mm")

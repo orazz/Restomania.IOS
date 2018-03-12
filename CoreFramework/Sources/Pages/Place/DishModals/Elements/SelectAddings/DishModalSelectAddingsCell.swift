@@ -16,7 +16,7 @@ public class DishModalSelectAddingsCell: UITableViewCell {
     public static var height = CGFloat(45)
     public static func register(in table: UITableView) {
 
-        let nib = UINib(nibName: "\(String.tag(DishModalSelectAddingsCell.self))View", bundle: Bundle.main)
+        let nib = UINib(nibName: "\(String.tag(DishModalSelectAddingsCell.self))View", bundle: Bundle.coreFramework)
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 

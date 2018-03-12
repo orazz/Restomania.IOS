@@ -26,7 +26,7 @@ public class DishModalTryAddingAction: UIView {
         super.awakeFromNib()
 
         self.backgroundColor = themeColors.actionMain
-        Bundle.main.loadNibNamed("\(String.tag(DishModalTryAddingAction.self))View", owner: self, options: nil)
+        Bundle.coreFramework.loadNibNamed("\(String.tag(DishModalTryAddingAction.self))View", owner: self, options: nil)
 
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -35,7 +35,7 @@ public class DishModalTryAddingAction: UIView {
 
         actionLabel.font = themeFonts.default(size: .title)
         actionLabel.textColor = themeColors.actionContent
-        actionLabel.text = Localization.DishModals.buttonsTryAddDish.localized
+        actionLabel.text = DishModal.Localization.buttonsTryAddDish.localized
     }
 
     public func link(with delegate: DishModalDelegateProtocol) {

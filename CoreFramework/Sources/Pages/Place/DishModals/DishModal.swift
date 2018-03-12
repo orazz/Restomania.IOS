@@ -30,7 +30,7 @@ public class DishModal: UIViewController {
         self.menu = menu
         self.delegate = delegate
 
-        super.init(nibName: "\(String.tag(DishModal.self))View", bundle: Bundle.main)
+        super.init(nibName: String.tag(DishModal.self), bundle: Bundle.coreFramework)
     }
     public required init?(coder aDecoder: NSCoder) {
         Log.error(_tag, "Problem with not implemented constructor.")

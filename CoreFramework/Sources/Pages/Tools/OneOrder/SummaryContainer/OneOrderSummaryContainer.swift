@@ -15,7 +15,7 @@ public class OneOrderSummaryContainer: UITableViewCell {
     private static var nibName = "\(String.tag(OneOrderSummaryContainer.self))View"
     public static func create() -> OneOrderSummaryContainer {
 
-        let cell: OneOrderSummaryContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
+        let cell: OneOrderSummaryContainer = UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
 
         return cell
     }

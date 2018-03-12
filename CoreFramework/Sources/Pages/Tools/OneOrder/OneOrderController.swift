@@ -43,7 +43,7 @@ public class OneOrderController: UIViewController {
         orderContainer.update(order)
     }
     public init(for orderId: Long) {
-        super.init(nibName: "\(String.tag(OneOrderController.self))View", bundle: Bundle.main)
+        super.init(nibName: "\(String.tag(OneOrderController.self))View", bundle: Bundle.coreFramework)
 
         self.orderId = orderId
 

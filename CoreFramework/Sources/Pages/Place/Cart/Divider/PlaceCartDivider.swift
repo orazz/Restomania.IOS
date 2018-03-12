@@ -14,7 +14,7 @@ public class PlaceCartDivider: UITableViewCell {
 
     private static let nibName = String.tag(PlaceCartDivider.self)
     public static func create() -> PlaceCartDivider {
-        return  UINib.instantiate(from: nibName, bundle: Bundle.main)
+        return  UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
     }
 
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)

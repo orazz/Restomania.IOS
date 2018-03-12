@@ -22,8 +22,8 @@
 		1F06A7D8205570FD00FEB1B5 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A602205570FC00FEB1B5 /* RefreshControl.swift */; };
 		1F06A7D9205570FD00FEB1B5 /* ScheduleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A604205570FC00FEB1B5 /* ScheduleDisplay.swift */; };
 		1F06A7DA205570FD00FEB1B5 /* ScheduleDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A605205570FC00FEB1B5 /* ScheduleDisplayCell.swift */; };
-		1F06A7DB205570FD00FEB1B5 /* ScheduleDisplayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A606205570FC00FEB1B5 /* ScheduleDisplayCellView.xib */; };
-		1F06A7DC205570FD00FEB1B5 /* ScheduleDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A607205570FC00FEB1B5 /* ScheduleDisplayView.xib */; };
+		1F06A7DB205570FD00FEB1B5 /* ScheduleDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A606205570FC00FEB1B5 /* ScheduleDisplayCell.xib */; };
+		1F06A7DC205570FD00FEB1B5 /* ScheduleDisplay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A607205570FC00FEB1B5 /* ScheduleDisplay.xib */; };
 		1F06A7DD205570FD00FEB1B5 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A609205570FC00FEB1B5 /* Toast.swift */; };
 		1F06A7DE205570FD00FEB1B5 /* AddCardUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A60D205570FC00FEB1B5 /* AddCardUIService.swift */; };
 		1F06A7DF205570FD00FEB1B5 /* AddCardUIService.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A60E205570FC00FEB1B5 /* AddCardUIService.strings */; };
@@ -228,7 +228,7 @@
 		1F06A8B0205570FD00FEB1B5 /* AddDishToCartModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A74A205570FD00FEB1B5 /* AddDishToCartModalView.xib */; };
 		1F06A8B1205570FD00FEB1B5 /* DishModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A74B205570FD00FEB1B5 /* DishModal.swift */; };
 		1F06A8B2205570FD00FEB1B5 /* DishModalDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A74C205570FD00FEB1B5 /* DishModalDelegateProtocol.swift */; };
-		1F06A8B3205570FD00FEB1B5 /* DishModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A74D205570FD00FEB1B5 /* DishModalView.xib */; };
+		1F06A8B3205570FD00FEB1B5 /* DishModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A74D205570FD00FEB1B5 /* DishModal.xib */; };
 		1F06A8B4205570FD00FEB1B5 /* DishModalAddToCartAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A750205570FD00FEB1B5 /* DishModalAddToCartAction.swift */; };
 		1F06A8B5205570FD00FEB1B5 /* DishModalAddToCartActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A751205570FD00FEB1B5 /* DishModalAddToCartActionView.xib */; };
 		1F06A8B6205570FD00FEB1B5 /* DishModalDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A753205570FD00FEB1B5 /* DishModalDescription.swift */; };
@@ -254,7 +254,7 @@
 		1F06A8CA205570FD00FEB1B5 /* DishModalSpaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A76E205570FD00FEB1B5 /* DishModalSpaceView.xib */; };
 		1F06A8CB205570FD00FEB1B5 /* DishModalTryAddingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A770205570FD00FEB1B5 /* DishModalTryAddingAction.swift */; };
 		1F06A8CC205570FD00FEB1B5 /* DishModalTryAddingActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A771205570FD00FEB1B5 /* DishModalTryAddingActionView.xib */; };
-		1F06A8CD205570FD00FEB1B5 /* DishModals.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A772205570FD00FEB1B5 /* DishModals.strings */; };
+		1F06A8CD205570FD00FEB1B5 /* DishModal.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A772205570FD00FEB1B5 /* DishModal.strings */; };
 		1F06A8CE205570FD00FEB1B5 /* Localization.DishModals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A774205570FD00FEB1B5 /* Localization.DishModals.swift */; };
 		1F06A8CF205570FD00FEB1B5 /* PlaceInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A777205570FD00FEB1B5 /* PlaceInfoController.swift */; };
 		1F06A8D0205570FD00FEB1B5 /* PlaceInfoControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A778205570FD00FEB1B5 /* PlaceInfoControllerView.xib */; };
@@ -298,12 +298,8 @@
 		1F06A8F6205570FE00FEB1B5 /* OneOrderSummaryContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A7B4205570FD00FEB1B5 /* OneOrderSummaryContainerView.xib */; };
 		1F06A8F7205570FE00FEB1B5 /* OneOrderTotalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7B6205570FD00FEB1B5 /* OneOrderTotalContainer.swift */; };
 		1F06A8F8205570FE00FEB1B5 /* OneOrderTotalContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A7B7205570FD00FEB1B5 /* OneOrderTotalContainerView.xib */; };
-		1F06A8F9205570FE00FEB1B5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7B9205570FD00FEB1B5 /* Localization.swift */; };
-		1F06A8FA205570FE00FEB1B5 /* Localization.Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7BA205570FD00FEB1B5 /* Localization.Tools.swift */; };
-		1F06A8FB205570FE00FEB1B5 /* Localization.UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7BB205570FD00FEB1B5 /* Localization.UIElements.swift */; };
 		1F06A8FC205570FE00FEB1B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A7BD205570FD00FEB1B5 /* Localizable.strings */; };
-		1F06A8FD205570FE00FEB1B5 /* Tools.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A7BF205570FD00FEB1B5 /* Tools.strings */; };
-		1F06A8FE205570FE00FEB1B5 /* UIElements.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A7C1205570FD00FEB1B5 /* UIElements.strings */; };
+		1F06A8FD205570FE00FEB1B5 /* SizeLabel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A7BF205570FD00FEB1B5 /* SizeLabel.strings */; };
 		1F06A8FF205570FE00FEB1B5 /* PushesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7C8205570FD00FEB1B5 /* PushesHandler.swift */; };
 		1F06A900205570FE00FEB1B5 /* PushContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CA205570FD00FEB1B5 /* PushContainer.swift */; };
 		1F06A901205570FE00FEB1B5 /* NotificationEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CB205570FD00FEB1B5 /* NotificationEvents.swift */; };
@@ -322,6 +318,9 @@
 		1F89235D205681880086D372 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F89235C205681880086D372 /* MapKit.framework */; };
 		1F89235F205681E90086D372 /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89235E205681E90086D372 /* PositionsService.swift */; };
 		1F892361205682700086D372 /* PositionServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F892360205682700086D372 /* PositionServiceDelegate.swift */; };
+		1F89236420568A6C0086D372 /* ScheduleDisplay.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89236620568A6C0086D372 /* ScheduleDisplay.strings */; };
+		1F89236C20568D050086D372 /* PriceLabel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89236E20568D050086D372 /* PriceLabel.strings */; };
+		1F89237320568D780086D372 /* RefreshControl.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89237520568D780086D372 /* RefreshControl.strings */; };
 		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -343,8 +342,8 @@
 		1F06A602205570FC00FEB1B5 /* RefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		1F06A604205570FC00FEB1B5 /* ScheduleDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDisplay.swift; sourceTree = "<group>"; };
 		1F06A605205570FC00FEB1B5 /* ScheduleDisplayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDisplayCell.swift; sourceTree = "<group>"; };
-		1F06A606205570FC00FEB1B5 /* ScheduleDisplayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDisplayCellView.xib; sourceTree = "<group>"; };
-		1F06A607205570FC00FEB1B5 /* ScheduleDisplayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDisplayView.xib; sourceTree = "<group>"; };
+		1F06A606205570FC00FEB1B5 /* ScheduleDisplayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDisplayCell.xib; sourceTree = "<group>"; };
+		1F06A607205570FC00FEB1B5 /* ScheduleDisplay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDisplay.xib; sourceTree = "<group>"; };
 		1F06A609205570FC00FEB1B5 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		1F06A60D205570FC00FEB1B5 /* AddCardUIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardUIService.swift; sourceTree = "<group>"; };
 		1F06A60F205570FC00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddCardUIService.strings; sourceTree = "<group>"; };
@@ -561,7 +560,7 @@
 		1F06A74A205570FD00FEB1B5 /* AddDishToCartModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDishToCartModalView.xib; sourceTree = "<group>"; };
 		1F06A74B205570FD00FEB1B5 /* DishModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModal.swift; sourceTree = "<group>"; };
 		1F06A74C205570FD00FEB1B5 /* DishModalDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalDelegateProtocol.swift; sourceTree = "<group>"; };
-		1F06A74D205570FD00FEB1B5 /* DishModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalView.xib; sourceTree = "<group>"; };
+		1F06A74D205570FD00FEB1B5 /* DishModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModal.xib; sourceTree = "<group>"; };
 		1F06A750205570FD00FEB1B5 /* DishModalAddToCartAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalAddToCartAction.swift; sourceTree = "<group>"; };
 		1F06A751205570FD00FEB1B5 /* DishModalAddToCartActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalAddToCartActionView.xib; sourceTree = "<group>"; };
 		1F06A753205570FD00FEB1B5 /* DishModalDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalDescription.swift; sourceTree = "<group>"; };
@@ -587,9 +586,9 @@
 		1F06A76E205570FD00FEB1B5 /* DishModalSpaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSpaceView.xib; sourceTree = "<group>"; };
 		1F06A770205570FD00FEB1B5 /* DishModalTryAddingAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalTryAddingAction.swift; sourceTree = "<group>"; };
 		1F06A771205570FD00FEB1B5 /* DishModalTryAddingActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalTryAddingActionView.xib; sourceTree = "<group>"; };
-		1F06A773205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DishModals.strings; sourceTree = "<group>"; };
+		1F06A773205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DishModal.strings; sourceTree = "<group>"; };
 		1F06A774205570FD00FEB1B5 /* Localization.DishModals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.DishModals.swift; sourceTree = "<group>"; };
-		1F06A775205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DishModals.strings; sourceTree = "<group>"; };
+		1F06A775205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DishModal.strings; sourceTree = "<group>"; };
 		1F06A777205570FD00FEB1B5 /* PlaceInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceInfoController.swift; sourceTree = "<group>"; };
 		1F06A778205570FD00FEB1B5 /* PlaceInfoControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceInfoControllerView.xib; sourceTree = "<group>"; };
 		1F06A77C205570FD00FEB1B5 /* PlaceMenuCartAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMenuCartAction.swift; sourceTree = "<group>"; };
@@ -635,15 +634,10 @@
 		1F06A7B4205570FD00FEB1B5 /* OneOrderSummaryContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneOrderSummaryContainerView.xib; sourceTree = "<group>"; };
 		1F06A7B6205570FD00FEB1B5 /* OneOrderTotalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrderTotalContainer.swift; sourceTree = "<group>"; };
 		1F06A7B7205570FD00FEB1B5 /* OneOrderTotalContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneOrderTotalContainerView.xib; sourceTree = "<group>"; };
-		1F06A7B9205570FD00FEB1B5 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
-		1F06A7BA205570FD00FEB1B5 /* Localization.Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.Tools.swift; sourceTree = "<group>"; };
-		1F06A7BB205570FD00FEB1B5 /* Localization.UIElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.UIElements.swift; sourceTree = "<group>"; };
 		1F06A7BE205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1F06A7C0205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tools.strings; sourceTree = "<group>"; };
-		1F06A7C2205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UIElements.strings; sourceTree = "<group>"; };
+		1F06A7C0205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SizeLabel.strings; sourceTree = "<group>"; };
 		1F06A7C3205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1F06A7C4205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Tools.strings; sourceTree = "<group>"; };
-		1F06A7C5205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/UIElements.strings; sourceTree = "<group>"; };
+		1F06A7C4205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SizeLabel.strings; sourceTree = "<group>"; };
 		1F06A7C8205570FD00FEB1B5 /* PushesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushesHandler.swift; sourceTree = "<group>"; };
 		1F06A7CA205570FD00FEB1B5 /* PushContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushContainer.swift; sourceTree = "<group>"; };
 		1F06A7CB205570FD00FEB1B5 /* NotificationEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationEvents.swift; sourceTree = "<group>"; };
@@ -666,6 +660,12 @@
 		1F89235C205681880086D372 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1F89235E205681E90086D372 /* PositionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsService.swift; sourceTree = "<group>"; };
 		1F892360205682700086D372 /* PositionServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionServiceDelegate.swift; sourceTree = "<group>"; };
+		1F89236520568A6C0086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ScheduleDisplay.strings; sourceTree = "<group>"; };
+		1F89236720568A6D0086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ScheduleDisplay.strings; sourceTree = "<group>"; };
+		1F89236D20568D050086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PriceLabel.strings; sourceTree = "<group>"; };
+		1F89236F20568D060086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PriceLabel.strings; sourceTree = "<group>"; };
+		1F89237420568D780086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RefreshControl.strings; sourceTree = "<group>"; };
+		1F89237620568D7A0086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RefreshControl.strings; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -708,12 +708,12 @@
 			isa = PBXGroup;
 			children = (
 				1F06A646205570FC00FEB1B5 /* Asserts.xcassets */,
+				1F06A7BD205570FD00FEB1B5 /* Localizable.strings */,
 				1F06A658205570FC00FEB1B5 /* BaseApp */,
 				1F06A6ED205570FD00FEB1B5 /* Pages */,
 				1F06A5F1205570FC00FEB1B5 /* UI */,
 				1F06A7C6205570FD00FEB1B5 /* Notifications */,
 				1F892353205679130086D372 /* Positions */,
-				1F06A7B8205570FD00FEB1B5 /* Localization */,
 				1F06A660205570FD00FEB1B5 /* Core */,
 				1F06A5DD20556D2B00FEB1B5 /* Info.plist */,
 			);
@@ -733,13 +733,13 @@
 		1F06A5F2205570FC00FEB1B5 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				1F89237020568D610086D372 /* RefreshControl */,
 				1F06A5F3205570FC00FEB1B5 /* ProblemAlert */,
 				1F06A5F5205570FC00FEB1B5 /* Banners */,
 				1F06A5F7205570FC00FEB1B5 /* BottomActions */,
 				1F06A5F9205570FC00FEB1B5 /* Buttons */,
 				1F06A5FE205570FC00FEB1B5 /* CachedImage.swift */,
 				1F06A5FF205570FC00FEB1B5 /* Labels */,
-				1F06A602205570FC00FEB1B5 /* RefreshControl.swift */,
 				1F06A603205570FC00FEB1B5 /* ScheduleDisplay */,
 				1F06A608205570FC00FEB1B5 /* Toasts */,
 			);
@@ -785,8 +785,8 @@
 		1F06A5FF205570FC00FEB1B5 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A600205570FC00FEB1B5 /* PriceLabel.swift */,
-				1F06A601205570FC00FEB1B5 /* SizeLabel.swift */,
+				1F89236820568CDB0086D372 /* PriceLabel */,
+				1F89236920568CE00086D372 /* SizeLabel */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -795,9 +795,10 @@
 			isa = PBXGroup;
 			children = (
 				1F06A604205570FC00FEB1B5 /* ScheduleDisplay.swift */,
+				1F06A607205570FC00FEB1B5 /* ScheduleDisplay.xib */,
+				1F89236620568A6C0086D372 /* ScheduleDisplay.strings */,
 				1F06A605205570FC00FEB1B5 /* ScheduleDisplayCell.swift */,
-				1F06A606205570FC00FEB1B5 /* ScheduleDisplayCellView.xib */,
-				1F06A607205570FC00FEB1B5 /* ScheduleDisplayView.xib */,
+				1F06A606205570FC00FEB1B5 /* ScheduleDisplayCell.xib */,
 			);
 			path = ScheduleDisplay;
 			sourceTree = "<group>";
@@ -1656,9 +1657,9 @@
 				1F06A74A205570FD00FEB1B5 /* AddDishToCartModalView.xib */,
 				1F06A74B205570FD00FEB1B5 /* DishModal.swift */,
 				1F06A74C205570FD00FEB1B5 /* DishModalDelegateProtocol.swift */,
-				1F06A74D205570FD00FEB1B5 /* DishModalView.xib */,
+				1F06A74D205570FD00FEB1B5 /* DishModal.xib */,
+				1F06A772205570FD00FEB1B5 /* DishModal.strings */,
 				1F06A74E205570FD00FEB1B5 /* Elements */,
-				1F06A772205570FD00FEB1B5 /* DishModals.strings */,
 				1F06A774205570FD00FEB1B5 /* Localization.DishModals.swift */,
 			);
 			path = DishModals;
@@ -1957,27 +1958,6 @@
 			path = TotalContainer;
 			sourceTree = "<group>";
 		};
-		1F06A7B8205570FD00FEB1B5 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				1F06A7B9205570FD00FEB1B5 /* Localization.swift */,
-				1F06A7BA205570FD00FEB1B5 /* Localization.Tools.swift */,
-				1F06A7BB205570FD00FEB1B5 /* Localization.UIElements.swift */,
-				1F06A7BC205570FD00FEB1B5 /* Translates */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		1F06A7BC205570FD00FEB1B5 /* Translates */ = {
-			isa = PBXGroup;
-			children = (
-				1F06A7BD205570FD00FEB1B5 /* Localizable.strings */,
-				1F06A7BF205570FD00FEB1B5 /* Tools.strings */,
-				1F06A7C1205570FD00FEB1B5 /* UIElements.strings */,
-			);
-			path = Translates;
-			sourceTree = "<group>";
-		};
 		1F06A7C6205570FD00FEB1B5 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -2062,6 +2042,33 @@
 				1F892360205682700086D372 /* PositionServiceDelegate.swift */,
 			);
 			path = Positions;
+			sourceTree = "<group>";
+		};
+		1F89236820568CDB0086D372 /* PriceLabel */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A600205570FC00FEB1B5 /* PriceLabel.swift */,
+				1F89236E20568D050086D372 /* PriceLabel.strings */,
+			);
+			path = PriceLabel;
+			sourceTree = "<group>";
+		};
+		1F89236920568CE00086D372 /* SizeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A601205570FC00FEB1B5 /* SizeLabel.swift */,
+				1F06A7BF205570FD00FEB1B5 /* SizeLabel.strings */,
+			);
+			path = SizeLabel;
+			sourceTree = "<group>";
+		};
+		1F89237020568D610086D372 /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A602205570FC00FEB1B5 /* RefreshControl.swift */,
+				1F89237520568D780086D372 /* RefreshControl.strings */,
+			);
+			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
@@ -2158,6 +2165,7 @@
 				1F06A8DD205570FE00FEB1B5 /* PlaceMenuSubcategoryHeaderView.xib in Resources */,
 				1F06A8ED205570FE00FEB1B5 /* OneOrderDishesContainerView.xib in Resources */,
 				1F06A8AA205570FD00FEB1B5 /* PlaceCartTotalContainerCellView.xib in Resources */,
+				1F89236420568A6C0086D372 /* ScheduleDisplay.strings in Resources */,
 				1F06A8B0205570FD00FEB1B5 /* AddDishToCartModalView.xib in Resources */,
 				1F06A8AB205570FD00FEB1B5 /* PlaceCartTotalContainerView.xib in Resources */,
 				1F06A7F6205570FD00FEB1B5 /* WebBrowserController.strings in Resources */,
@@ -2176,12 +2184,12 @@
 				1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderContainerView.xib in Resources */,
 				1F06A7EC205570FD00FEB1B5 /* EnterPhoneAuthController.strings in Resources */,
 				1F06A88A205570FD00FEB1B5 /* ManagerOrdersControllerOrderCellView.xib in Resources */,
-				1F06A8CD205570FD00FEB1B5 /* DishModals.strings in Resources */,
+				1F06A8CD205570FD00FEB1B5 /* DishModal.strings in Resources */,
 				1F06A8F6205570FE00FEB1B5 /* OneOrderSummaryContainerView.xib in Resources */,
 				1F06A8BA205570FD00FEB1B5 /* DishModalHeaderView.xib in Resources */,
 				1F06A8E1205570FE00FEB1B5 /* PlaceMenuTitleContainerView.xib in Resources */,
 				1F06A875205570FD00FEB1B5 /* GreetingController.strings in Resources */,
-				1F06A7DC205570FD00FEB1B5 /* ScheduleDisplayView.xib in Resources */,
+				1F06A7DC205570FD00FEB1B5 /* ScheduleDisplay.xib in Resources */,
 				1F06A8F8205570FE00FEB1B5 /* OneOrderTotalContainerView.xib in Resources */,
 				1F06A7EE205570FD00FEB1B5 /* EnterPhoneAuthController.xib in Resources */,
 				1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */,
@@ -2206,7 +2214,8 @@
 				1F06A89E205570FD00FEB1B5 /* PlaceCartDishesContainerView.xib in Resources */,
 				1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */,
 				1F06A7EA205570FD00FEB1B5 /* InstagramAuthController.strings in Resources */,
-				1F06A7DB205570FD00FEB1B5 /* ScheduleDisplayCellView.xib in Resources */,
+				1F06A7DB205570FD00FEB1B5 /* ScheduleDisplayCell.xib in Resources */,
+				1F89236C20568D050086D372 /* PriceLabel.strings in Resources */,
 				1F06A88B205570FD00FEB1B5 /* ManagerOrdersControllerView.xib in Resources */,
 				1F06A8A5205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerView.xib in Resources */,
 				1F06A8CA205570FD00FEB1B5 /* DishModalSpaceView.xib in Resources */,
@@ -2215,7 +2224,6 @@
 				1F06A8DF205570FE00FEB1B5 /* PlaceMenuControllerView.xib in Resources */,
 				1F06A8A1205570FD00FEB1B5 /* PlaceCartController.strings in Resources */,
 				1F06A8C6205570FD00FEB1B5 /* DishModalSelectVariationsView.xib in Resources */,
-				1F06A8FE205570FE00FEB1B5 /* UIElements.strings in Resources */,
 				1F06A8C8205570FD00FEB1B5 /* DishModalShortDividerView.xib in Resources */,
 				1F8923482055D2B00086D372 /* ResetPasswordAuthController.strings in Resources */,
 				1F06A877205570FD00FEB1B5 /* GreetingController.xib in Resources */,
@@ -2227,15 +2235,16 @@
 				1F06A8F0205570FE00FEB1B5 /* OneOrderFooterContainerView.xib in Resources */,
 				1F06A8DB205570FE00FEB1B5 /* PlaceMenuMenuContainerView.xib in Resources */,
 				1F06A88D205570FD00FEB1B5 /* OtherController.xib in Resources */,
-				1F06A8B3205570FD00FEB1B5 /* DishModalView.xib in Resources */,
+				1F06A8B3205570FD00FEB1B5 /* DishModal.xib in Resources */,
 				1F06A8D2205570FD00FEB1B5 /* PlaceMenuCartActionView.xib in Resources */,
 				1F06A8F4205570FE00FEB1B5 /* OneOrderSpaceContainerView.xib in Resources */,
 				1F06A87C205570FD00FEB1B5 /* LoadingController.xib in Resources */,
 				1F06A90F20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib in Resources */,
 				1F06A8B5205570FD00FEB1B5 /* DishModalAddToCartActionView.xib in Resources */,
+				1F89237320568D780086D372 /* RefreshControl.strings in Resources */,
 				1F06A8FC205570FE00FEB1B5 /* Localizable.strings in Resources */,
 				1F06A8BC205570FD00FEB1B5 /* DishModalPriceAndSizeView.xib in Resources */,
-				1F06A8FD205570FE00FEB1B5 /* Tools.strings in Resources */,
+				1F06A8FD205570FE00FEB1B5 /* SizeLabel.strings in Resources */,
 				1F06A8A4205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
 				1F06A8C2205570FD00FEB1B5 /* DishModalSelectHeaderView.xib in Resources */,
 				1F06A7E7205570FD00FEB1B5 /* ResetPasswordAuthController.xib in Resources */,
@@ -2321,7 +2330,6 @@
 				1F06A7D0205570FD00FEB1B5 /* BottomActions.swift in Sources */,
 				1F06A8E6205570FE00FEB1B5 /* SearchController.swift in Sources */,
 				1F06A8E8205570FE00FEB1B5 /* ExternalTextEditor.swift in Sources */,
-				1F06A8FB205570FE00FEB1B5 /* Localization.UIElements.swift in Sources */,
 				1F06A807205570FD00FEB1B5 /* UITools.swift in Sources */,
 				1F06A902205570FE00FEB1B5 /* NotificationsIgnore.swift in Sources */,
 				1F06A841205570FD00FEB1B5 /* Link.swift in Sources */,
@@ -2390,7 +2398,6 @@
 				1F06A839205570FD00FEB1B5 /* PaymentCardType.swift in Sources */,
 				1F06A7D5205570FD00FEB1B5 /* CachedImage.swift in Sources */,
 				1F06A81B205570FD00FEB1B5 /* UserChangeApiService.swift in Sources */,
-				1F06A8F9205570FE00FEB1B5 /* Localization.swift in Sources */,
 				1F06A82C205570FD00FEB1B5 /* Variation.swift in Sources */,
 				1F06A812205570FD00FEB1B5 /* AddingCard.swift in Sources */,
 				1F06A888205570FD00FEB1B5 /* ManagerOrdersController.swift in Sources */,
@@ -2492,7 +2499,6 @@
 				1F06A816205570FD00FEB1B5 /* AddedOrder.swift in Sources */,
 				1F06A853205570FD00FEB1B5 /* User.swift in Sources */,
 				1F06A7DE205570FD00FEB1B5 /* AddCardUIService.swift in Sources */,
-				1F06A8FA205570FE00FEB1B5 /* Localization.Tools.swift in Sources */,
 				1F06A85A205570FD00FEB1B5 /* PlacesCacheService.swift in Sources */,
 				1F06A85B205570FD00FEB1B5 /* CartService.swift in Sources */,
 				1F06A822205570FD00FEB1B5 /* LoyaltyAccount.swift in Sources */,
@@ -2627,13 +2633,13 @@
 			name = PlaceCartController.strings;
 			sourceTree = "<group>";
 		};
-		1F06A772205570FD00FEB1B5 /* DishModals.strings */ = {
+		1F06A772205570FD00FEB1B5 /* DishModal.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1F06A773205570FD00FEB1B5 /* en */,
 				1F06A775205570FD00FEB1B5 /* ru */,
 			);
-			name = DishModals.strings;
+			name = DishModal.strings;
 			sourceTree = "<group>";
 		};
 		1F06A77F205570FD00FEB1B5 /* PlaceMenuController.strings */ = {
@@ -2672,22 +2678,13 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		1F06A7BF205570FD00FEB1B5 /* Tools.strings */ = {
+		1F06A7BF205570FD00FEB1B5 /* SizeLabel.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1F06A7C0205570FD00FEB1B5 /* en */,
 				1F06A7C4205570FD00FEB1B5 /* ru */,
 			);
-			name = Tools.strings;
-			sourceTree = "<group>";
-		};
-		1F06A7C1205570FD00FEB1B5 /* UIElements.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F06A7C2205570FD00FEB1B5 /* en */,
-				1F06A7C5205570FD00FEB1B5 /* ru */,
-			);
-			name = UIElements.strings;
+			name = SizeLabel.strings;
 			sourceTree = "<group>";
 		};
 		1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */ = {
@@ -2724,6 +2721,33 @@
 				1F892359205679D90086D372 /* ru */,
 			);
 			name = ProblemAlert.strings;
+			sourceTree = "<group>";
+		};
+		1F89236620568A6C0086D372 /* ScheduleDisplay.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F89236520568A6C0086D372 /* en */,
+				1F89236720568A6D0086D372 /* ru */,
+			);
+			name = ScheduleDisplay.strings;
+			sourceTree = "<group>";
+		};
+		1F89236E20568D050086D372 /* PriceLabel.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F89236D20568D050086D372 /* en */,
+				1F89236F20568D060086D372 /* ru */,
+			);
+			name = PriceLabel.strings;
+			sourceTree = "<group>";
+		};
+		1F89237520568D780086D372 /* RefreshControl.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F89237420568D780086D372 /* en */,
+				1F89237620568D7A0086D372 /* ru */,
+			);
+			name = RefreshControl.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

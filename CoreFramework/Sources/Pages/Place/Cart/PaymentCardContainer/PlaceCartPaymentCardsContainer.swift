@@ -15,7 +15,7 @@ public class PlaceCartPaymentCardsContainer: UITableViewCell {
     private static let nibName = "\(String.tag(PlaceCartPaymentCardsContainer.self))View"
     public static func create(with delegate: PlaceCartDelegate) -> PlaceCartPaymentCardsContainer {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartPaymentCardsContainer
 
         cell.delegate = delegate

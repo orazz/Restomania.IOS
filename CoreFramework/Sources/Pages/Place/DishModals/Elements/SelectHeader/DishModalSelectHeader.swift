@@ -14,7 +14,7 @@ public class DishModalSelectHeader: UITableViewCell {
 
     public static func create(with title: String) -> DishModalSelectHeader {
 
-        let cell: DishModalSelectHeader = UINib.instantiate(from: "\(String.tag(DishModalSelectHeader.self))View", bundle: Bundle.main)
+        let cell: DishModalSelectHeader = UINib.instantiate(from: "\(String.tag(DishModalSelectHeader.self))View", bundle: Bundle.coreFramework)
         cell.title = title
 
         return cell

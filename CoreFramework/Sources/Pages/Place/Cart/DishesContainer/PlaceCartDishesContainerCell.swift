@@ -16,7 +16,7 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
     private static let nibName = "PlaceCartDishesContainerCellView"
     public static func create(for dish: AddedOrderDish, with cart: CartService, and menu: MenuSummary) -> PlaceCartDishesContainerCell {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartDishesContainerCell
 
         cell.dish = dish

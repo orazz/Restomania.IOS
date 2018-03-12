@@ -16,7 +16,7 @@ public class PlaceMenuSubcategoryHeader: UITableViewCell {
     public static let height = CGFloat(35)
 
     private static let nibName = "\(String.tag(PlaceMenuSubcategoryHeader.self))View"
-    private static let nib = UINib(nibName: nibName, bundle: Bundle.main)
+    private static let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
     public static func instance(for title: String) -> PlaceMenuSubcategoryHeader {
 
         let cell = nib.instantiate(withOwner: nil, options: nil).first as! PlaceMenuSubcategoryHeader

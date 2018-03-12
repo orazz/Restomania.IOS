@@ -15,7 +15,7 @@ public class DishModalHeader: UITableViewCell {
     private static let nibName = "\(String.tag(DishModalHeader.self))View"
     public static func create(for dish: BaseDish, from menu: MenuSummary) -> DishModalHeader {
 
-        let cell: DishModalHeader = UINib.instantiate(from: nibName, bundle: Bundle.main)
+        let cell: DishModalHeader = UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
         cell.update(by: dish, from: menu)
 
         return cell

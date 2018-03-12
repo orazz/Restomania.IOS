@@ -15,7 +15,7 @@ public class PlaceMenuTitleContainer: UITableViewCell {
     private static let nibName = "PlaceMenuTitleContainerView"
     public static func create(with delegate: PlaceMenuDelegate) -> PlaceMenuTitleContainer {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceMenuTitleContainer
 
         instance.delegate = delegate

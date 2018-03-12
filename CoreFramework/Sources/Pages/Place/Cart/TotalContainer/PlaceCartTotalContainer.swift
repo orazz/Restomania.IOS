@@ -15,7 +15,7 @@ public class PlaceCartTotalContainer: UITableViewCell {
     private static let nibName = "\(String.tag(PlaceCartTotalContainer.self))View"
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartTotalContainer {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartTotalContainer
 
         cell.delegate = delegate

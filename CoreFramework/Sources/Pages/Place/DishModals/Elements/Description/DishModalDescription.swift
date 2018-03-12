@@ -13,7 +13,7 @@ import MdsKit
 public class DishModalDescription: UITableViewCell {
 
     public static func create(for dish: BaseDish, with menu: MenuSummary) -> DishModalDescription {
-        let cell: DishModalDescription = UINib.instantiate(from: "\(String.tag(DishModalDescription.self))View", bundle: Bundle.main)
+        let cell: DishModalDescription = UINib.instantiate(from: "\(String.tag(DishModalDescription.self))View", bundle: Bundle.coreFramework)
         cell.update(by: dish, from: menu)
 
         return cell

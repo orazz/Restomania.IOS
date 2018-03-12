@@ -24,7 +24,7 @@ public class RefreshControl: UIRefreshControl {
             NSAttributedStringKey.foregroundColor: themeColors.contentBackgroundText,
             NSAttributedStringKey.font: themeFonts.default(size: .subhead)
             ]
-        self.attributedTitle = NSAttributedString(string: Localization.UIElements.RefreshControl.title, attributes: attributes)
+        self.attributedTitle = NSAttributedString(string: Localization.title.localized, attributes: attributes)
         
         self.addTarget(target, action: action, for: .valueChanged)
     }
@@ -40,5 +40,18 @@ extension UITableView {
         self.addSubview(control)
 
         return control
+    }
+}
+extension RefreshControl {
+    public enum Localization: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(RefreshControl.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
+
+        case title = "Title"
     }
 }

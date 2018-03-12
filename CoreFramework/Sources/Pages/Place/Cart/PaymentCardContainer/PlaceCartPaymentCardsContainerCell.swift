@@ -16,7 +16,7 @@ public class PlaceCartPaymentCardsContainerCell: UITableViewCell {
     private static let nibName = String.tag(PlaceCartPaymentCardsContainerCell.self)
     public static func create(for card: PaymentCard) -> PlaceCartPaymentCardsContainerCell {
 
-        let cell: PlaceCartPaymentCardsContainerCell  =  UINib.instantiate(from: nibName, bundle: Bundle.main)
+        let cell: PlaceCartPaymentCardsContainerCell  =  UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
         cell.card = card
 
         return cell

@@ -15,7 +15,7 @@ public class PlaceMenuCategoryCell: UICollectionViewCell {
     private static let nibName = "PlaceMenuCategoryCellView"
     public static func register(in collection: UICollectionView) {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
 
         collection.register(nib, forCellWithReuseIdentifier: identifier)
     }

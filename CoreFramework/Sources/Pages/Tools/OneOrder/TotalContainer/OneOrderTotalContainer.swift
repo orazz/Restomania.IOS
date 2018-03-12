@@ -15,7 +15,7 @@ public class OneOrderTotalContainer: UITableViewCell {
     private static var nibName = "\(String.tag(OneOrderTotalContainer.self))View"
     public static var instance: OneOrderTotalContainer {
 
-        let cell: OneOrderTotalContainer = UINib.instantiate(from: nibName, bundle: Bundle.main)
+        let cell: OneOrderTotalContainer = UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
 
         return cell
     }

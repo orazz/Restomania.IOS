@@ -22,7 +22,7 @@ public class PlaceInfoController: UIViewController {
     public init(for placeId: Long) {
         self.placeId = placeId
 
-        super.init(nibName: "\(String.tag(PlaceInfoController.self))View", bundle: Bundle.main)
+        super.init(nibName: "\(String.tag(PlaceInfoController.self))View", bundle: Bundle.coreFramework)
     }
     public required convenience init?(coder aDecoder: NSCoder) {
         self.init(for: -1)

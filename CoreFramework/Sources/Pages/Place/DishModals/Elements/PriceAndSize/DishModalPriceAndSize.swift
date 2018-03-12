@@ -14,7 +14,7 @@ public class DishModalPriceAndSize: UITableViewCell {
 
     public static func create(for dish: BaseDish, from menu: MenuSummary) -> DishModalPriceAndSize {
 
-        let cell: DishModalPriceAndSize = UINib.instantiate(from: "\(String.tag(DishModalPriceAndSize.self))View", bundle: Bundle.main)
+        let cell: DishModalPriceAndSize = UINib.instantiate(from: "\(String.tag(DishModalPriceAndSize.self))View", bundle: Bundle.coreFramework)
         cell.update(by: dish, from: menu)
 
         return cell

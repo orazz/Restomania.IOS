@@ -17,7 +17,7 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
     private static let nibname = "\(String.tag(OneOrderDishesContainerDishCell.self))View"
     public static func register(for tableView: UITableView) {
 
-        let nib = UINib(nibName: nibname, bundle: Bundle.main)
+        let nib = UINib(nibName: nibname, bundle: Bundle.coreFramework)
         tableView.register(nib, forCellReuseIdentifier: identifier)
     }
 

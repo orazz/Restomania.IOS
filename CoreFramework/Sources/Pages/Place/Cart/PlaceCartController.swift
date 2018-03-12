@@ -68,7 +68,7 @@ public class PlaceCartController: UIViewController {
     private var loadAdapter: PartsLoader!
 
     public init(for placeId: Long) {
-        super.init(nibName: "PlaceCartControllerView", bundle: Bundle.main)
+        super.init(nibName: "PlaceCartControllerView", bundle: Bundle.coreFramework)
 
         self.loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
         self.placeId = placeId

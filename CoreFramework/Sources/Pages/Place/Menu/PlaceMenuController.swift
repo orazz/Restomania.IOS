@@ -72,7 +72,7 @@ public class PlaceMenuController: UIViewController {
 
     // MARK: View life circle
     public init(for placeId: Long) {
-        super.init(nibName: "PlaceMenuControllerView", bundle: Bundle.main)
+        super.init(nibName: "PlaceMenuControllerView", bundle: Bundle.coreFramework)
 
         self.placeId = placeId
         self.loadQueue = AsyncQueue.createForControllerLoad(for: _tag)

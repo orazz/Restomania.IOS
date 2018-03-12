@@ -15,7 +15,7 @@ public class PlaceCartCompleteOrderContainer: UITableViewCell {
     private static let nibName = "\(String.tag(PlaceCartCompleteOrderContainer.self))View"
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartCompleteOrderContainer {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
         let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartCompleteOrderContainer
 
         cell.delegate = delegate

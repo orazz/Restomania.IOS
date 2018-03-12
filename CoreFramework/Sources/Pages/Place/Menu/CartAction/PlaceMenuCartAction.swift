@@ -15,7 +15,7 @@ public class PlaceMenuCartAction: UIView {
     private static let nibName = "PlaceMenuCartActionView"
     public static func create(with delegate: PlaceMenuDelegate) -> PlaceMenuCartAction {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
         let instance = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceMenuCartAction
 
         instance.delegate = delegate

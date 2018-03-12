@@ -14,7 +14,7 @@ public class DishModalSpace: UITableViewCell {
 
     public static func create() -> DishModalSpace {
 
-        let cell: DishModalSpace = UINib.instantiate(from: "\(String.tag(DishModalSpace.self))View", bundle: Bundle.main)
+        let cell: DishModalSpace = UINib.instantiate(from: "\(String.tag(DishModalSpace.self))View", bundle: Bundle.coreFramework)
 
         return cell
     }

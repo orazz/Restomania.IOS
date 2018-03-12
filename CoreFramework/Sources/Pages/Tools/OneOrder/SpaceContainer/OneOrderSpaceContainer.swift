@@ -14,7 +14,7 @@ public class OneOrderSpaceContainer: UITableViewCell {
 
     private static var nibName = "\(String.tag(OneOrderSpaceContainer.self))View"
     public static func create() -> OneOrderSpaceContainer {
-        return UINib.instantiate(from: nibName, bundle: Bundle.main)
+        return UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
     }
 
     public override func awakeFromNib() {

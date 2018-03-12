@@ -27,7 +27,7 @@ public class DishModalAddToCartAction: UIView {
         super.awakeFromNib()
 
         self.backgroundColor = themeColors.contentBackground
-        Bundle.main.loadNibNamed("\(String.tag(DishModalAddToCartAction.self))View", owner: self, options: nil)
+        Bundle.coreFramework.loadNibNamed("\(String.tag(DishModalAddToCartAction.self))View", owner: self, options: nil)
 
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -36,7 +36,7 @@ public class DishModalAddToCartAction: UIView {
 
         actionLabel.font = themeFonts.default(size: .title)
         actionLabel.textColor = themeColors.actionContent
-        actionLabel.text = Localization.DishModals.buttonsAddToCart.localized
+        actionLabel.text = DishModal.Localization.buttonsAddToCart.localized
 
         totalLabel.font = themeFonts.bold(size: .head)
         totalLabel.textColor = themeColors.actionContent

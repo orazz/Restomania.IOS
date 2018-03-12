@@ -15,7 +15,7 @@ public class PlaceMenuDishCell: UITableViewCell {
     public static let height = CGFloat(110)
 
     private static let nibName = "\(String.tag(PlaceMenuDishCell.self))View"
-    private static let nib = UINib(nibName: nibName, bundle: Bundle.main)
+    private static let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
     public static func instance(for dish: Dish, with currency: Currency, delegate: PlaceMenuDelegate) -> PlaceMenuDishCell {
 
         let cell = nib.instantiate(withOwner: nil, options: nil).first as! PlaceMenuDishCell

@@ -6,9 +6,11 @@
   Copyright © 2017 Medved-Studio. All rights reserved.
 */
 
+"Formats.StartFrom" = "от %@";
+
 //Units
-"Units.Gram" = "g";
-"Units.Kilogram" = "kg";
-"Units.Milliliter" = "ml";
-"Units.Liter" = "l";
-"Units" = "un";
+"Units.Gram" = "г";
+"Units.Kilogram" = "кг";
+"Units.Milliliter" = "мл";
+"Units.Liter" = "л";
+"Units" = "шт";

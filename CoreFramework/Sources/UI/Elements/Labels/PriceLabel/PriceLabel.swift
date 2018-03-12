@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MdsKit
 
 open class PriceLabel: UILabel {
 
@@ -60,7 +61,7 @@ open class PriceLabel: UILabel {
         let symbol = getSymbol(currency: currency)
         var text = "\(amount) \(symbol)"
         if (useStartFrom) {
-            text = String(format: Localization.UIElements.PriceLabel.startFrom, text)
+            text = String(format: Localization.startFrom.localized, text)
         }
 
         let characters = Array(text)
@@ -97,5 +98,18 @@ open class PriceLabel: UILabel {
             default:
                 return "\(currency)".uppercased()
         }
+    }
+}
+extension PriceLabel {
+    public enum Localization: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(PriceLabel.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
+
+        case startFrom = "Formats.StartFrom"
     }
 }

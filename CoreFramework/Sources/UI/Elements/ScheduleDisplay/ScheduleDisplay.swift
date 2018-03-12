@@ -13,8 +13,6 @@ import Gloss
 
 public class ScheduleDisplay: UIView {
 
-    private let nibName = "ScheduleDisplayView"
-
     //UI
     @IBOutlet private weak var contentView: UICollectionView!
 
@@ -47,7 +45,7 @@ public class ScheduleDisplay: UIView {
     }
     private func connect() {
 
-        Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
+        Bundle.coreFramework.loadNibNamed(String.tag(ScheduleDisplay.self), owner: self, options: nil)
         self.addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -58,7 +56,7 @@ public class ScheduleDisplay: UIView {
 
         self.schedule = schedule
 
-        let weekStart = Localization.UIElements.Schedule.weekStartFrom
+        let weekStart = Int(Localization.weekStartFrom.localized) ?? 0
         self.days = []
         for offset in 0..<7 {
             days.append(DayOfWeek(rawValue: (weekStart + offset) % 7)!)
@@ -105,13 +103,35 @@ extension ScheduleDisplay: UICollectionViewDataSource {
         return cell
     }
 }
+extension ScheduleDisplay {
+    internal enum Localization: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(ScheduleDisplay.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
+
+        case holiday = "Holiday"
+        case weekStartFrom = "WeekStartFrom"
+
+        case sunday = "Days.Sunday"
+        case monday = "Days.Monday"
+        case tuesday = "Days.Tuesday"
+        case wednesday = "Days.Wednesday"
+        case thursday = "Days.Thursday"
+        case friday = "Days.Friday"
+        case saturday = "Days.Saturday"
+    }
+}
 extension ShortSchedule {
 
     public var todayRepresentation: String {
 
         var day = self.takeToday()
         if (String.isNullOrEmpty(day)) {
-            day = Localization.UIElements.Schedule.holiday
+            day = ScheduleDisplay.Localization.holiday.localized
         }
 
         return day

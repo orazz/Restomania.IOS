@@ -15,7 +15,7 @@ public class PlaceCompleteOrderController: UIViewController {
     private static let nibName = "PlaceCompleteOrderControllerView"
     public static func create(for order: DishOrder) -> PlaceCompleteOrderController {
 
-        let instance = PlaceCompleteOrderController(nibName: nibName, bundle: Bundle.main)
+        let instance = PlaceCompleteOrderController(nibName: nibName, bundle: Bundle.coreFramework)
 
         instance.order = order
 

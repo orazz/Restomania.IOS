@@ -13,12 +13,12 @@ import MdsKit
 public class ScheduleDisplayCell: UICollectionViewCell {
 
     public static let height = CGFloat(45)
-    public static let identifier = "\(String.tag(ScheduleDisplayCell.self))-\(Guid.new)"
-    private static let Localize = Localization.UIElements.Schedule.self
-    private static let nibName = "\(String.tag(ScheduleDisplayCell.self))View"
+    public static let identifier = Guid.new
+    private static let Localize =  ScheduleDisplay.Localization.self
+    private static let nibName = "\(String.tag(ScheduleDisplayCell.self))"
     public static func register(in collectionView: UICollectionView) {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
         collectionView.register(nib, forCellWithReuseIdentifier: identifier)
     }
 
@@ -48,7 +48,7 @@ public class ScheduleDisplayCell: UICollectionViewCell {
     private func updateStyles() {
 
         if (String.isNullOrEmpty(value)) {
-            valueLabel.text = ScheduleDisplayCell.Localize.holiday
+            valueLabel.text = ScheduleDisplayCell.Localize.holiday.localized
         } else {
             valueLabel.text = value
         }
@@ -67,19 +67,19 @@ public class ScheduleDisplayCell: UICollectionViewCell {
 
         switch (day) {
             case .sunday:
-                return Localize.sunday
+                return Localize.sunday.localized
             case .monday:
-                return Localize.monday
+                return Localize.monday.localized
             case .tuesday:
-                return Localize.tuesday
+                return Localize.tuesday.localized
             case .wednesday:
-                return Localize.wednesday
+                return Localize.wednesday.localized
             case .thursday:
-                return Localize.thursday
+                return Localize.thursday.localized
             case .friday:
-                return Localize.friday
+                return Localize.friday.localized
             case .saturday:
-                return Localize.saturday
+                return Localize.saturday.localized
         }
     }
     public static func titleWidth(for day: DayOfWeek) -> CGFloat {

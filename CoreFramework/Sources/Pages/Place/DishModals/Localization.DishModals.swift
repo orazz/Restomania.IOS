@@ -9,12 +9,12 @@
 import Foundation
 import MdsKit
 
-extension Localization {
+extension DishModal {
 
-    public enum DishModals: String, Localizable {
+    public enum Localization: String, Localizable {
 
         public var tableName: String {
-            return String.tag(DishModals.self)
+            return String.tag(DishModal.self)
         }
 
         //Actions

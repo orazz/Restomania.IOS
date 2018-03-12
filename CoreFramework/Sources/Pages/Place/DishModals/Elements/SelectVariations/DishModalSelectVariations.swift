@@ -14,7 +14,7 @@ public class DishModalSelectVariations: UITableViewCell {
 
     public static func create(for variations: [Variation], from menu: MenuSummary, with delegate: AddDishToCartModalDelegateProtocol) -> DishModalSelectVariations {
 
-        let cell: DishModalSelectVariations = UINib.instantiate(from: "\(String.tag(DishModalSelectVariations.self))View", bundle: Bundle.main)
+        let cell: DishModalSelectVariations = UINib.instantiate(from: "\(String.tag(DishModalSelectVariations.self))View", bundle: Bundle.coreFramework)
         cell.variations = variations.ordered
         cell.menu = menu
         cell.delegate = delegate
