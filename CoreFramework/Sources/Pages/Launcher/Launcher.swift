@@ -20,7 +20,7 @@ public class Launcher {
     private var launchOptions: [UIApplicationLaunchOptionsKey: Any]?
     private var navigator: NavigationController
     private let controllers: [VCCtor]
-    private var notification: PushContainer? = nil
+    private var push: PushContainer? = nil
 
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
     private let router = DependencyResolver.resolve(Router.self)
@@ -53,9 +53,11 @@ public class Launcher {
         router.initialize(with: navigator)
 
         if let options = launchOptions,
-            let notification = options[.remoteNotification] as? [AnyHashable: Any] {
-            self.notification = notification
-//            PushesService.shared.ignore(notification)
+            let notification = options[.remoteNotification] as? PushSource,
+            let push = PushContainer.tryParse(notification) {
+
+            NotificationsIgnore.ignore(push.id)
+            self.push = push
         }
 
         continueLaunch(from: 0)
@@ -115,25 +117,25 @@ public class Launcher {
         router.initialize(with: navigator)
         router.initialize(with: tabs)
 
-        if let notification = self.notification {
-            processNotification(notification)
-        }
+        processTappedPush()
     }
+    public func processTappedPush() {
 
-
-    public func processNotification(_ notification: [AnyHashable: Any]) {
+        guard let push = self.push else {
+            return
+        }
 
         if (!completeLaunch) {
             return
         }
 
-        //        PushesService.shared.build(notification, completeHandler: { result in
-        //
-        //            if let vc = result.vc?() {
-        //                DispatchQueue.main.async {
-        //                    Router.shared.navigator.pushViewController(vc, animated: true)
-        //                }
-        //            }
-        //        })
+        guard let notification = PushesHandler.build(push, force: true),
+                let vc = notification.controller?() else {
+            return
+        }
+
+        DispatchQueue.main.async {
+            self.router.push(vc, animated: true)
+        }
     }
 }

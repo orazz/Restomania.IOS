@@ -42,3 +42,8 @@ public protocol Router {
 //    func selectFeeds()
 //    func selectTabManager()
 }
+extension Router {
+    public func push(_ vc: UIViewController, animated: Bool) {
+        navigator?.pushViewController(vc, animated: animated)
+    }
+}

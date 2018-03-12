@@ -73,13 +73,13 @@ extension PushesService {
     public func processMessage(notification: PushSource, handler: @escaping (UIBackgroundFetchResult) -> Void) {
 
         Log.debug(_tag, "Recieve push notification.")
-        print(notification)
 
         if Auth.auth().canHandleNotification(notification) {
             handler(.noData)
             return
         }
 
+        print(notification)
         Messaging.messaging().appDidReceiveMessage(notification)
 
         if let container = PushContainer.tryParse(notification) {
