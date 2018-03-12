@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F06A5E920556E6800FEB1B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E820556E6800FEB1B5 /* Foundation.framework */; };
-		1F06A5EB20556E7100FEB1B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5EA20556E7100FEB1B5 /* UIKit.framework */; };
 		1F06A7CE205570FD00FEB1B5 /* ProblemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A5F4205570FC00FEB1B5 /* ProblemAlert.swift */; };
 		1F06A7CF205570FD00FEB1B5 /* BannerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A5F6205570FC00FEB1B5 /* BannerAlert.swift */; };
 		1F06A7D0205570FD00FEB1B5 /* BottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A5F8205570FC00FEB1B5 /* BottomActions.swift */; };
@@ -315,7 +313,6 @@
 		1F89234F205649170086D372 /* NotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234E205649170086D372 /* NotificationContainer.swift */; };
 		1F89235220565FD90086D372 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89235120565FD90086D372 /* DeviceService.swift */; };
 		1F892356205679D70086D372 /* ProblemAlert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F892358205679D70086D372 /* ProblemAlert.strings */; };
-		1F89235D205681880086D372 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F89235C205681880086D372 /* MapKit.framework */; };
 		1F89235F205681E90086D372 /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89235E205681E90086D372 /* PositionsService.swift */; };
 		1F892361205682700086D372 /* PositionServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F892360205682700086D372 /* PositionServiceDelegate.swift */; };
 		1F89236420568A6C0086D372 /* ScheduleDisplay.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89236620568A6C0086D372 /* ScheduleDisplay.strings */; };
@@ -325,7 +322,7 @@
 		1F8923A32056EFFA0086D372 /* DistanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8923A22056EFFA0086D372 /* DistanceLabel.swift */; };
 		1F8923A72056F60B0086D372 /* DistanceLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923A62056F60B0086D372 /* DistanceLabel.xib */; };
 		1F8923A82056FA590086D372 /* DistanceLabel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923AA2056FA590086D372 /* DistanceLabel.strings */; };
-		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
+		7B9696C32E76578E71F00E4B /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -676,6 +673,19 @@
 		1F8923A62056F60B0086D372 /* DistanceLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistanceLabel.xib; sourceTree = "<group>"; };
 		1F8923A92056FA590086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DistanceLabel.strings; sourceTree = "<group>"; };
 		1F8923AB2056FA5A0086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DistanceLabel.strings; sourceTree = "<group>"; };
+		1FED174920571B7E00A80DA5 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175620571B9E00A80DA5 /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175720571B9E00A80DA5 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175820571B9E00A80DA5 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175920571B9E00A80DA5 /* InputMask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = InputMask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175A20571B9E00A80DA5 /* MarqueeLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarqueeLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175B20571B9E00A80DA5 /* MdsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MdsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175C20571B9E00A80DA5 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175D20571B9E00A80DA5 /* NotificationBannerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NotificationBannerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175E20571B9E00A80DA5 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED175F20571B9E00A80DA5 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED176020571B9E00A80DA5 /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED176120571B9E00A80DA5 /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Toast_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -686,10 +696,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F89235D205681880086D372 /* MapKit.framework in Frameworks */,
-				1F06A5EB20556E7100FEB1B5 /* UIKit.framework in Frameworks */,
-				1F06A5E920556E6800FEB1B5 /* Foundation.framework in Frameworks */,
-				8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */,
+				7B9696C32E76578E71F00E4B /* Pods_CoreFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2096,6 +2103,19 @@
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FED175620571B9E00A80DA5 /* Gloss.framework */,
+				1FED175720571B9E00A80DA5 /* GoogleToolboxForMac.framework */,
+				1FED175820571B9E00A80DA5 /* GTMSessionFetcher.framework */,
+				1FED175920571B9E00A80DA5 /* InputMask.framework */,
+				1FED175A20571B9E00A80DA5 /* MarqueeLabel.framework */,
+				1FED175B20571B9E00A80DA5 /* MdsKit.framework */,
+				1FED175C20571B9E00A80DA5 /* nanopb.framework */,
+				1FED175D20571B9E00A80DA5 /* NotificationBannerSwift.framework */,
+				1FED175E20571B9E00A80DA5 /* Protobuf.framework */,
+				1FED175F20571B9E00A80DA5 /* SnapKit.framework */,
+				1FED176020571B9E00A80DA5 /* Swinject.framework */,
+				1FED176120571B9E00A80DA5 /* Toast_Swift.framework */,
+				1FED174920571B7E00A80DA5 /* Pods_Kuzina.framework */,
 				1F89235C205681880086D372 /* MapKit.framework */,
 				1F06A5EA20556E7100FEB1B5 /* UIKit.framework */,
 				1F06A5E820556E6800FEB1B5 /* Foundation.framework */,
@@ -2832,6 +2852,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "${inherited}/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2847,6 +2868,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2892,6 +2914,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "${inherited}/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2901,6 +2924,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2921,10 +2945,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "${inherited}/**";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.app.core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2944,10 +2970,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "${inherited}/**";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.app.core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

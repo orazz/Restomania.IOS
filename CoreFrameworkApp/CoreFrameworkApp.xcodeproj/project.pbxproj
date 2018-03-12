@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F06A5E520556E2A00FEB1B5 /* CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; };
-		1F06A5E620556E2A00FEB1B5 /* CoreFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F23107E20556A2800FB1D79 /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107320556A2700FB1D79 /* Configs.plist */; };
 		1F23107F20556A2800FB1D79 /* CustomSearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107520556A2800FB1D79 /* CustomSearchPlaceCard.xib */; };
 		1F23108020556A2800FB1D79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107620556A2800FB1D79 /* GoogleService-Info.plist */; };
@@ -23,53 +21,20 @@
 		1F89239A2056DD190086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923982056DD190086D372 /* InfoPlist.strings */; };
 		1F89239D2056DD240086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89239B2056DD240086D372 /* InfoPlist.strings */; };
 		1F8923A02056EABD0086D372 /* CustomSearchPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89239F2056EABD0086D372 /* CustomSearchPlaceCard.swift */; };
-		1FB18A6E2057157600AFC84F /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9222055A92500FEB1B5 /* Gloss.framework */; };
-		1FB18A6F2057157600AFC84F /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9222055A92500FEB1B5 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A702057157600AFC84F /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9232055A92500FEB1B5 /* GoogleToolboxForMac.framework */; };
-		1FB18A712057157600AFC84F /* GoogleToolboxForMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9232055A92500FEB1B5 /* GoogleToolboxForMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A722057157600AFC84F /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9242055A92500FEB1B5 /* GTMSessionFetcher.framework */; };
-		1FB18A732057157600AFC84F /* GTMSessionFetcher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9242055A92500FEB1B5 /* GTMSessionFetcher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A742057157600AFC84F /* InputMask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9252055A92500FEB1B5 /* InputMask.framework */; };
-		1FB18A752057157600AFC84F /* InputMask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9252055A92500FEB1B5 /* InputMask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A762057157600AFC84F /* MarqueeLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9262055A92500FEB1B5 /* MarqueeLabel.framework */; };
-		1FB18A772057157600AFC84F /* MarqueeLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9262055A92500FEB1B5 /* MarqueeLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A782057157600AFC84F /* MdsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9272055A92500FEB1B5 /* MdsKit.framework */; };
-		1FB18A792057157600AFC84F /* MdsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9272055A92500FEB1B5 /* MdsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A7A2057157600AFC84F /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9282055A92500FEB1B5 /* nanopb.framework */; };
-		1FB18A7B2057157600AFC84F /* nanopb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9282055A92500FEB1B5 /* nanopb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A7C2057157600AFC84F /* NotificationBannerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9292055A92500FEB1B5 /* NotificationBannerSwift.framework */; };
-		1FB18A7D2057157600AFC84F /* NotificationBannerSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A9292055A92500FEB1B5 /* NotificationBannerSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A7E2057157600AFC84F /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92A2055A92500FEB1B5 /* Protobuf.framework */; };
-		1FB18A7F2057157600AFC84F /* Protobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92A2055A92500FEB1B5 /* Protobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A802057157600AFC84F /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92B2055A92500FEB1B5 /* SnapKit.framework */; };
-		1FB18A812057157600AFC84F /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92B2055A92500FEB1B5 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A822057157600AFC84F /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92C2055A92500FEB1B5 /* Swinject.framework */; };
-		1FB18A832057157600AFC84F /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92C2055A92500FEB1B5 /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1FB18A842057157600AFC84F /* Toast_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92D2055A92500FEB1B5 /* Toast_Swift.framework */; };
-		1FB18A852057157600AFC84F /* Toast_Swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92D2055A92500FEB1B5 /* Toast_Swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3C978327FDB757F36BF52272 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */; };
+		1FED1762205725B600A80DA5 /* CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; };
+		1FED1763205725B600A80DA5 /* CoreFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		32E48F13708A836D1AFD9D29 /* Pods_CoreFramework_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77830906D9D3266A3A94E164 /* Pods_CoreFramework_Kuzina.framework */; };
+		627DD64130701F00AF974EEC /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1F06A5E720556E2A00FEB1B5 /* Embed Frameworks */ = {
+		1FED1764205725B600A80DA5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1FB18A752057157600AFC84F /* InputMask.framework in Embed Frameworks */,
-				1FB18A732057157600AFC84F /* GTMSessionFetcher.framework in Embed Frameworks */,
-				1FB18A7D2057157600AFC84F /* NotificationBannerSwift.framework in Embed Frameworks */,
-				1FB18A7B2057157600AFC84F /* nanopb.framework in Embed Frameworks */,
-				1FB18A712057157600AFC84F /* GoogleToolboxForMac.framework in Embed Frameworks */,
-				1F06A5E620556E2A00FEB1B5 /* CoreFramework.framework in Embed Frameworks */,
-				1FB18A772057157600AFC84F /* MarqueeLabel.framework in Embed Frameworks */,
-				1FB18A7F2057157600AFC84F /* Protobuf.framework in Embed Frameworks */,
-				1FB18A792057157600AFC84F /* MdsKit.framework in Embed Frameworks */,
-				1FB18A832057157600AFC84F /* Swinject.framework in Embed Frameworks */,
-				1FB18A6F2057157600AFC84F /* Gloss.framework in Embed Frameworks */,
-				1FB18A852057157600AFC84F /* Toast_Swift.framework in Embed Frameworks */,
-				1FB18A812057157600AFC84F /* SnapKit.framework in Embed Frameworks */,
+				1FED1763205725B600A80DA5 /* CoreFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1C5FB14B95A2290046922545 /* Pods-CoreFramework-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework-Kuzina/Pods-CoreFramework-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F06A9222055A92500FEB1B5 /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F06A9232055A92500FEB1B5 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +73,8 @@
 		1F89239C2056DD240086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = InfoPlist.strings; sourceTree = "<group>"; };
 		1F89239F2056EABD0086D372 /* CustomSearchPlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchPlaceCard.swift; sourceTree = "<group>"; };
 		57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
+		5965C511DC04287C648461DF /* Pods-CoreFramework-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework-Kuzina/Pods-CoreFramework-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
+		77830906D9D3266A3A94E164 /* Pods_CoreFramework_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,20 +85,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F89235B205681690086D372 /* MapKit.framework in Frameworks */,
-				1FB18A822057157600AFC84F /* Swinject.framework in Frameworks */,
-				1FB18A7C2057157600AFC84F /* NotificationBannerSwift.framework in Frameworks */,
-				1F06A5E520556E2A00FEB1B5 /* CoreFramework.framework in Frameworks */,
-				1FB18A7A2057157600AFC84F /* nanopb.framework in Frameworks */,
-				1FB18A762057157600AFC84F /* MarqueeLabel.framework in Frameworks */,
-				1FB18A802057157600AFC84F /* SnapKit.framework in Frameworks */,
-				3C978327FDB757F36BF52272 /* Pods_Kuzina.framework in Frameworks */,
-				1FB18A742057157600AFC84F /* InputMask.framework in Frameworks */,
-				1FB18A6E2057157600AFC84F /* Gloss.framework in Frameworks */,
-				1FB18A782057157600AFC84F /* MdsKit.framework in Frameworks */,
-				1FB18A722057157600AFC84F /* GTMSessionFetcher.framework in Frameworks */,
-				1FB18A702057157600AFC84F /* GoogleToolboxForMac.framework in Frameworks */,
-				1FB18A7E2057157600AFC84F /* Protobuf.framework in Frameworks */,
-				1FB18A842057157600AFC84F /* Toast_Swift.framework in Frameworks */,
+				32E48F13708A836D1AFD9D29 /* Pods_CoreFramework_Kuzina.framework in Frameworks */,
+				627DD64130701F00AF974EEC /* Pods_Kuzina.framework in Frameworks */,
+				1FED1762205725B600A80DA5 /* CoreFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +201,7 @@
 				1F06A92C2055A92500FEB1B5 /* Swinject.framework */,
 				1F06A92D2055A92500FEB1B5 /* Toast_Swift.framework */,
 				D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */,
+				77830906D9D3266A3A94E164 /* Pods_CoreFramework_Kuzina.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,6 +211,8 @@
 			children = (
 				57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */,
 				F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */,
+				1C5FB14B95A2290046922545 /* Pods-CoreFramework-Kuzina.debug.xcconfig */,
+				5965C511DC04287C648461DF /* Pods-CoreFramework-Kuzina.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -270,7 +230,7 @@
 				1F23105C205569EC00FB1D79 /* Resources */,
 				E4A4C11C26778A4E531668CA /* [CP] Embed Pods Frameworks */,
 				EF681A4911C360F891FB1B92 /* [CP] Copy Pods Resources */,
-				1F06A5E720556E2A00FEB1B5 /* Embed Frameworks */,
+				1FED1764205725B600A80DA5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -369,7 +329,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-frameworks.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-CoreFramework-Kuzina/Pods-CoreFramework-Kuzina-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -586,9 +546,9 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.framework";
-				FRAMEWORK_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/**";
+				FRAMEWORK_SEARCH_PATHS = "${inherited}/**";
 				INFOPLIST_FILE = CoreFrameworkApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -610,9 +570,9 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 686FXGC24W;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.framework";
-				FRAMEWORK_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/**";
+				FRAMEWORK_SEARCH_PATHS = "${inherited}/**";
 				INFOPLIST_FILE = CoreFrameworkApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = mds.mobile.restomania.custom.kuzina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
