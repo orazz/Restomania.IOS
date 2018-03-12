@@ -9,13 +9,6 @@
 //RefreshControl
 "RefreshControl.Title" = "Pull for refresh";
 
-//ProblemAlerts
-"ProblemAlerts.OK" = "OK";
-"ProblemAlerts.ErrorTitle" = "Error";
-"ProblemAlerts.ConnectionErrorTitle" = "No connection";
-"ProblemAlerts.NoConnectionMessage" = "No connection with server. Check internet connection.";
-"ProblemAlerts.ServerErrorMessage" = "Problem on server side. Try repeat later.";
-
 //Schedule
 "Schedule.Holiday" = "holiday";
 "Schedule.WeekStartFrom" = "0";

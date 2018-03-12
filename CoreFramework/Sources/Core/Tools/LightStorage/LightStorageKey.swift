@@ -18,7 +18,7 @@ open class LightStorageKey: RawRepresentable {
 
     public static let apiKeys = LightStorageKey(rawValue: 3)
 
-    public static let devicePushToken = LightStorageKey(rawValue: 20)
+    public static let device = LightStorageKey(rawValue: 20)
 
 
 

@@ -16,6 +16,9 @@ public class LoadingController: UIViewController {
     @IBOutlet private weak var logo: UIImageView!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet private weak var status: UILabel!
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return themeColors.statusBarOnContent
+    }
 
     //Services
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
@@ -32,25 +35,31 @@ public class LoadingController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public override func loadView() {
+        super.loadView()
 
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+        view.backgroundColor = themeColors.contentBackground
 
         logo.image = themeImages.toolsLogo
 
-        indicator.startAnimating()
-
-        status.font = themeFonts.default(size: .head)
+        status.font = themeFonts.default(size: .subhead)
         status.textColor = themeColors.contentBackgroundText
         status.text = String.empty
 
-        view.backgroundColor = themeColors.contentBackground
+        indicator.color = themeColors.contentBackgroundText
+        indicator.startAnimating()
+    }
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
+        loadCache()
     }
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        loadCache()
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setStatusBarStyle(from: themeColors.statusBarOnContent)
     }
     private func loadCache() {
 

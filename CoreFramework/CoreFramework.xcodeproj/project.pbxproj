@@ -317,6 +317,8 @@
 		1F8923482055D2B00086D372 /* ResetPasswordAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89234A2055D2B00086D372 /* ResetPasswordAuthController.strings */; };
 		1F89234D2056451A0086D372 /* OrderPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234C2056451A0086D372 /* OrderPushModel.swift */; };
 		1F89234F205649170086D372 /* NotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234E205649170086D372 /* NotificationContainer.swift */; };
+		1F89235220565FD90086D372 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89235120565FD90086D372 /* DeviceService.swift */; };
+		1F892356205679D70086D372 /* ProblemAlert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F892358205679D70086D372 /* ProblemAlert.strings */; };
 		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -655,6 +657,9 @@
 		1F89234B2055D2B10086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ResetPasswordAuthController.strings; sourceTree = "<group>"; };
 		1F89234C2056451A0086D372 /* OrderPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPushModel.swift; sourceTree = "<group>"; };
 		1F89234E205649170086D372 /* NotificationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationContainer.swift; sourceTree = "<group>"; };
+		1F89235120565FD90086D372 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
+		1F892357205679D70086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProblemAlert.strings; sourceTree = "<group>"; };
+		1F892359205679D90086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProblemAlert.strings; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -700,6 +705,7 @@
 				1F06A6ED205570FD00FEB1B5 /* Pages */,
 				1F06A5F1205570FC00FEB1B5 /* UI */,
 				1F06A7C6205570FD00FEB1B5 /* Notifications */,
+				1F892353205679130086D372 /* Positions */,
 				1F06A7B8205570FD00FEB1B5 /* Localization */,
 				1F06A660205570FD00FEB1B5 /* Core */,
 				1F06A5DD20556D2B00FEB1B5 /* Info.plist */,
@@ -720,7 +726,7 @@
 		1F06A5F2205570FC00FEB1B5 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A5F3205570FC00FEB1B5 /* Alerts */,
+				1F06A5F3205570FC00FEB1B5 /* ProblemAlert */,
 				1F06A5F5205570FC00FEB1B5 /* Banners */,
 				1F06A5F7205570FC00FEB1B5 /* BottomActions */,
 				1F06A5F9205570FC00FEB1B5 /* Buttons */,
@@ -733,12 +739,13 @@
 			path = Elements;
 			sourceTree = "<group>";
 		};
-		1F06A5F3205570FC00FEB1B5 /* Alerts */ = {
+		1F06A5F3205570FC00FEB1B5 /* ProblemAlert */ = {
 			isa = PBXGroup;
 			children = (
 				1F06A5F4205570FC00FEB1B5 /* ProblemAlert.swift */,
+				1F892358205679D70086D372 /* ProblemAlert.strings */,
 			);
-			path = Alerts;
+			path = ProblemAlert;
 			sourceTree = "<group>";
 		};
 		1F06A5F5205570FC00FEB1B5 /* Banners */ = {
@@ -1005,9 +1012,9 @@
 		1F06A660205570FD00FEB1B5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1F06A6C5205570FD00FEB1B5 /* StorageServices */,
 				1F06A661205570FD00FEB1B5 /* ApiServices */,
 				1F06A67A205570FD00FEB1B5 /* Domains */,
-				1F06A6C5205570FD00FEB1B5 /* StorageServices */,
 				1F06A6D6205570FD00FEB1B5 /* Tools */,
 			);
 			path = Core;
@@ -1297,7 +1304,6 @@
 			isa = PBXGroup;
 			children = (
 				1F06A6C6205570FD00FEB1B5 /* Services */,
-				1F06A6D5205570FD00FEB1B5 /* StorageServices.swift */,
 			);
 			path = StorageServices;
 			sourceTree = "<group>";
@@ -1305,6 +1311,8 @@
 		1F06A6C6205570FD00FEB1B5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1F06A6D5205570FD00FEB1B5 /* StorageServices.swift */,
+				1F89235120565FD90086D372 /* DeviceService.swift */,
 				1F06A6C7205570FD00FEB1B5 /* Cache */,
 				1F06A6CC205570FD00FEB1B5 /* Cart */,
 				1F06A6D4205570FD00FEB1B5 /* KeysStorage.swift */,
@@ -1425,8 +1433,8 @@
 			children = (
 				1F06A6F7205570FD00FEB1B5 /* Launcher.swift */,
 				1F06A6F6205570FD00FEB1B5 /* LaunchControllerDelegate.swift */,
-				1F06A6F0205570FD00FEB1B5 /* Greeting */,
 				1F06A6F8205570FD00FEB1B5 /* Loading */,
+				1F06A6F0205570FD00FEB1B5 /* Greeting */,
 			);
 			path = Launcher;
 			sourceTree = "<group>";
@@ -2040,6 +2048,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1F892353205679130086D372 /* Positions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Positions;
+			sourceTree = "<group>";
+		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2175,6 +2190,7 @@
 				1F06A7EF205570FD00FEB1B5 /* SelectAuthController.strings in Resources */,
 				1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib in Resources */,
 				1F06A8CC205570FD00FEB1B5 /* DishModalTryAddingActionView.xib in Resources */,
+				1F892356205679D70086D372 /* ProblemAlert.strings in Resources */,
 				1F06A8D5205570FD00FEB1B5 /* PlaceMenuCategoryCellView.xib in Resources */,
 				1F06A892205570FD00FEB1B5 /* ManagerPaymentCardsControllerView.xib in Resources */,
 				1F06A89E205570FD00FEB1B5 /* PlaceCartDishesContainerView.xib in Resources */,
@@ -2475,6 +2491,7 @@
 				1F06A848205570FD00FEB1B5 /* Loyalty.swift in Sources */,
 				1F06A849205570FD00FEB1B5 /* LoyaltyType.swift in Sources */,
 				1F06A8E4205570FE00FEB1B5 /* PagesSearch.swift in Sources */,
+				1F89235220565FD90086D372 /* DeviceService.swift in Sources */,
 				1F06A80D205570FD00FEB1B5 /* ApiServices.swift in Sources */,
 				1F06A8F5205570FE00FEB1B5 /* OneOrderSummaryContainer.swift in Sources */,
 				1F06A903205570FE00FEB1B5 /* PushesService.swift in Sources */,
@@ -2686,6 +2703,15 @@
 				1F89234B2055D2B10086D372 /* ru */,
 			);
 			name = ResetPasswordAuthController.strings;
+			sourceTree = "<group>";
+		};
+		1F892358205679D70086D372 /* ProblemAlert.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F892357205679D70086D372 /* en */,
+				1F892359205679D90086D372 /* ru */,
+			);
+			name = ProblemAlert.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

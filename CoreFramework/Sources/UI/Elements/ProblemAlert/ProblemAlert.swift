@@ -26,18 +26,12 @@ public class ProblemAlerts {
     }
 
     public static var noConnection: UIAlertController {
-
-        let title = Localization.UIElements.ProblemAlerts.connectionErrorTitle
-        let message = Localization.UIElements.ProblemAlerts.noConnectionMessage
-
-        return toastAlert(title: title, message: message)
+        return toastAlert(title: Localization.titlesConnectionError,
+                          message: Localization.messageNoConnection)
     }
     public static var internalError: UIAlertController {
-
-        let title = Localization.UIElements.ProblemAlerts.errorTitle
-        let message = Localization.UIElements.ProblemAlerts.serverErrorMessage
-
-        return toastAlert(title: title, message: message)
+        return toastAlert(title: Localization.titlesError,
+                          message: Localization.messageServerError)
     }
     public static func toastAlert(title: Localizable, message: Localizable) -> UIAlertController {
         return toastAlert(title: title.localized, message: message.localized)
@@ -45,9 +39,28 @@ public class ProblemAlerts {
     public static func toastAlert(title: String, message: String) -> UIAlertController {
 
         let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: Localization.UIElements.ProblemAlerts.okAction, style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: Localization.buttonsOk.localized, style: .cancel, handler: nil))
 
         return alert
+    }
+}
+extension ProblemAlerts {
+    fileprivate enum Localization: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(ProblemAlerts.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
+
+        case titlesError = "Titles.Error"
+        case titlesConnectionError = "Titles.ConnectionError"
+
+        case messageNoConnection = "Messages.NoConnection"
+        case messageServerError = "Messages.ServerError"
+
+        case buttonsOk = "Buttons.Ok"
     }
 }
 

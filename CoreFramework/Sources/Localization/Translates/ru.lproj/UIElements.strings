@@ -9,13 +9,6 @@
 //RefreshControl
 "RefreshControl.Title" = "Потяните для обновления";
 
-//ProblemAlerts
-"ProblemAlerts.OK" = "ОК";
-"ProblemAlerts.ErrorTitle" = "Ошибка";
-"ProblemAlerts.ConnectionErrorTitle" = "Ошибка соединения";
-"ProblemAlerts.NoConnectionMessage" = "Не можем достучатсья до сервера. Проверьте интернет подключение.";
-"ProblemAlerts.ServerErrorMessage" = "У нас возникла ошибка. Попробуйте позднее.";
-
 //Schedule
 "Schedule.Holiday" = "выходной";
 "Schedule.WeekStartFrom" = "1";

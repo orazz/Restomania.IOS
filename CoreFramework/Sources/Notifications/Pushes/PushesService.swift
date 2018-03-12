@@ -18,9 +18,7 @@ public class PushesService: NSObject {
 
     private let _tag = String.tag(PushesService.self)
 
-    private let devicesApi = DependencyResolver.resolve(NotificationsDevicesApiService.self)
-    private let keyService = DependencyResolver.resolve(ApiKeyService.self)
-    private let lightStorage = DependencyResolver.resolve(LightStorage.self)
+    private let deviceService = DependencyResolver.resolve(DeviceService.self)
 
     public private(set) var token: String? = nil
     private let guid = Guid.new
@@ -31,6 +29,10 @@ public class PushesService: NSObject {
 
     private override init() {
         super.init()
+
+        deviceService.subscribe(guid: guid, handler: self, tag: _tag)
+
+        Messaging.messaging().delegate = self
     }
 }
 
@@ -63,7 +65,6 @@ extension PushesService {
 
             Log.info(_tag, "Get device token for send push notifications.")
 
-            Messaging.messaging().delegate = self
             Messaging.messaging().apnsToken = token
             Auth.auth().setAPNSToken(token, type: .unknown)
         }
@@ -91,8 +92,33 @@ extension PushesService {
 extension PushesService: MessagingDelegate {
 
     public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+
         self.token = fcmToken
+        if let device = deviceService.device {
+            update(device)
+        }
 
         Log.info(_tag, "Get FCM token: \(fcmToken)")
+    }
+}
+extension PushesService: DeviceCacheServiceDelegate {
+    public func deviceService(_ service: DeviceService, register device: Device) {
+        update(device)
+    }
+    public func deviceService(_ service: DeviceService, update device: Device) {
+        update(device)
+    }
+    private func update(_ device: Device) {
+
+        guard let token = token else {
+            return
+        }
+
+        if device.fcmToken == token {
+            return
+        }
+
+        let request = deviceService.update(device.id, token: token)
+        request.async(.background, completion: { response in })
     }
 }

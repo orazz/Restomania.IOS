@@ -18,6 +18,9 @@ extension Localization {
             public var tableName: String {
                 return Tools.tableName
             }
+            public var bundle: Bundle {
+                return Bundle.coreFramework
+            }
 
             case Gram = "Units.Gram"
             case Kilogram = "Units.Kilogram"

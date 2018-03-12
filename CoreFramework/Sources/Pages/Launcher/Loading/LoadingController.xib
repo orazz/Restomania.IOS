@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingController" customModule="Launcher" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingController" customModule="CoreFramework" customModuleProvider="target">
             <connections>
                 <outlet property="indicator" destination="tYc-SD-FPa" id="yIw-bX-fyT"/>
                 <outlet property="logo" destination="VaT-Md-aAq" id="A3M-lt-xVs"/>
@@ -20,31 +20,35 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="aoE-P9-zgk">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VaT-Md-aAq">
-                    <rect key="frame" x="35" y="159" width="250" height="250"/>
+                    <rect key="frame" x="35" y="115" width="250" height="250"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="250" id="NpS-bA-GqP"/>
                         <constraint firstAttribute="height" constant="250" id="uMP-3d-DK3"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBR-85-y95">
-                    <rect key="frame" x="20" y="527" width="280" height="21"/>
+                    <rect key="frame" x="20" y="400" width="280" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Hxi-14-wqW"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tYc-SD-FPa">
-                    <rect key="frame" x="150" y="467" width="20" height="20"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tYc-SD-FPa">
+                    <rect key="frame" x="142" y="50" width="37" height="37"/>
+                    <color key="color" red="0.11818788199999999" green="0.098173700269999997" blue="0.093623720110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="VaT-Md-aAq" firstAttribute="centerX" secondItem="aoE-P9-zgk" secondAttribute="centerX" id="1xC-fZ-ReL"/>
                 <constraint firstItem="hgu-my-0B0" firstAttribute="trailing" secondItem="JBR-85-y95" secondAttribute="trailing" constant="20" id="3G9-ZJ-d0M"/>
-                <constraint firstItem="JBR-85-y95" firstAttribute="top" secondItem="tYc-SD-FPa" secondAttribute="bottom" constant="40" id="DkX-ee-rLb"/>
+                <constraint firstItem="tYc-SD-FPa" firstAttribute="top" secondItem="hgu-my-0B0" secondAttribute="top" constant="30" id="Y9W-uy-DEi"/>
                 <constraint firstItem="tYc-SD-FPa" firstAttribute="centerX" secondItem="aoE-P9-zgk" secondAttribute="centerX" id="akc-eJ-T7i"/>
                 <constraint firstItem="JBR-85-y95" firstAttribute="leading" secondItem="hgu-my-0B0" secondAttribute="leading" constant="20" id="gaW-hk-IFc"/>
                 <constraint firstItem="VaT-Md-aAq" firstAttribute="centerY" secondItem="aoE-P9-zgk" secondAttribute="centerY" id="kls-Ws-qYH"/>

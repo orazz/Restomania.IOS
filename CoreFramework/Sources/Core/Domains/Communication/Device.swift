@@ -14,35 +14,29 @@ public class Device: BaseDataType {
 
     public struct Keys {
         public static let accountId = "AccountId"
-        public static let deviceToken = "DeviceToken"
+        public static let appId = "AppId"
+
+        public static let fcmToken = "FcmToken"
         public static let platform = "Platform"
-        public static let registrationId = "RegistrationId"
         public static let locale = "Locale"
     }
 
-    public let AccountId: Int64
-    public let DeviceToken: String
-    public let Platform: NotificationPlatformType
-    public let RegistrationId: String
-    public let Locale: String
+    public let accountId: Long?
+    public let appId: Long
 
-    public override init() {
-        self.AccountId = 0
-        self.DeviceToken = String.empty
-        self.Platform = .apple
-        self.RegistrationId = String.empty
-        self.Locale = "en-US"
-
-        super.init()
-    }
+    public let fcmToken: String
+    public let platform: NotificationPlatformType
+    public let locale: String
 
     // MARK: Glossy
     public required init(json: JSON) {
-        self.AccountId = (Keys.accountId <~~ json)!
-        self.DeviceToken = (Keys.deviceToken <~~ json)!
-        self.Platform = (Keys.platform <~~ json)!
-        self.RegistrationId = (Keys.registrationId <~~ json)!
-        self.Locale = (Keys.locale <~~ json)!
+
+        self.accountId = Keys.accountId <~~ json
+        self.appId = (Keys.appId <~~ json)!
+
+        self.fcmToken = (Keys.fcmToken <~~ json)!
+        self.platform = (Keys.platform <~~ json)!
+        self.locale = (Keys.locale <~~ json)!
 
         super.init(json: json)
     }
@@ -50,11 +44,12 @@ public class Device: BaseDataType {
         return jsonify([
             super.toJSON(),
 
-            Keys.accountId ~~> self.AccountId,
-            Keys.deviceToken ~~> self.DeviceToken,
-            Keys.platform ~~> self.Platform,
-            Keys.registrationId ~~> self.RegistrationId,
-            Keys.locale ~~> self.Locale
+            Keys.accountId ~~> self.accountId,
+            Keys.appId ~~> self.appId,
+
+            Keys.fcmToken ~~> self.fcmToken,
+            Keys.platform ~~> self.platform,
+            Keys.locale ~~> self.locale
             ])
     }
 }

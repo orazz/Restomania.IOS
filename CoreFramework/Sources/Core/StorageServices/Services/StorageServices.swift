@@ -14,6 +14,12 @@ open class StorageServices {
 
     open static func register(in container: Container) {
 
+        container.register(DeviceService.self, factory: { r in
+            DeviceService(r.resolve(NotificationsDevicesApiService.self)!,
+                          r.resolve(ApiKeyService.self)!,
+                          r.resolve(LightStorage.self)!)
+        })
+
         //Cache
         container.register(PlacesCacheService.self, factory: { r in
             PlacesCacheService(r.resolve(PlaceSummariesApiService.self)!) }).inObjectScope(.container)
