@@ -9,6 +9,7 @@
 import Foundation
 
 public enum DishOrderStatus: Int {
+
     case processing = 1
     case waitingPayment = 2
     case making = 3

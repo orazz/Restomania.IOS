@@ -305,8 +305,8 @@
 		1F06A8FD205570FE00FEB1B5 /* Tools.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A7BF205570FD00FEB1B5 /* Tools.strings */; };
 		1F06A8FE205570FE00FEB1B5 /* UIElements.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A7C1205570FD00FEB1B5 /* UIElements.strings */; };
 		1F06A8FF205570FE00FEB1B5 /* PushesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7C8205570FD00FEB1B5 /* PushesHandler.swift */; };
-		1F06A900205570FE00FEB1B5 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CA205570FD00FEB1B5 /* Container.swift */; };
-		1F06A901205570FE00FEB1B5 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CB205570FD00FEB1B5 /* Events.swift */; };
+		1F06A900205570FE00FEB1B5 /* PushContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CA205570FD00FEB1B5 /* PushContainer.swift */; };
+		1F06A901205570FE00FEB1B5 /* NotificationEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CB205570FD00FEB1B5 /* NotificationEvents.swift */; };
 		1F06A902205570FE00FEB1B5 /* NotificationsIgnore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CC205570FD00FEB1B5 /* NotificationsIgnore.swift */; };
 		1F06A903205570FE00FEB1B5 /* PushesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7CD205570FD00FEB1B5 /* PushesService.swift */; };
 		1F06A9092055842000FEB1B5 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A9082055842000FEB1B5 /* NavigationController.swift */; };
@@ -315,6 +315,8 @@
 		1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */; };
 		1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923442055C50E0086D372 /* EmailEnterAuthController.strings */; };
 		1F8923482055D2B00086D372 /* ResetPasswordAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89234A2055D2B00086D372 /* ResetPasswordAuthController.strings */; };
+		1F89234D2056451A0086D372 /* OrderPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234C2056451A0086D372 /* OrderPushModel.swift */; };
+		1F89234F205649170086D372 /* NotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234E205649170086D372 /* NotificationContainer.swift */; };
 		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -638,8 +640,8 @@
 		1F06A7C4205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Tools.strings; sourceTree = "<group>"; };
 		1F06A7C5205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/UIElements.strings; sourceTree = "<group>"; };
 		1F06A7C8205570FD00FEB1B5 /* PushesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushesHandler.swift; sourceTree = "<group>"; };
-		1F06A7CA205570FD00FEB1B5 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		1F06A7CB205570FD00FEB1B5 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		1F06A7CA205570FD00FEB1B5 /* PushContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushContainer.swift; sourceTree = "<group>"; };
+		1F06A7CB205570FD00FEB1B5 /* NotificationEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationEvents.swift; sourceTree = "<group>"; };
 		1F06A7CC205570FD00FEB1B5 /* NotificationsIgnore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsIgnore.swift; sourceTree = "<group>"; };
 		1F06A7CD205570FD00FEB1B5 /* PushesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushesService.swift; sourceTree = "<group>"; };
 		1F06A9082055842000FEB1B5 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -651,6 +653,8 @@
 		1F8923452055C5100086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EmailEnterAuthController.strings; sourceTree = "<group>"; };
 		1F8923492055D2B00086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ResetPasswordAuthController.strings; sourceTree = "<group>"; };
 		1F89234B2055D2B10086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ResetPasswordAuthController.strings; sourceTree = "<group>"; };
+		1F89234C2056451A0086D372 /* OrderPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPushModel.swift; sourceTree = "<group>"; };
+		1F89234E205649170086D372 /* NotificationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationContainer.swift; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -1962,29 +1966,31 @@
 		1F06A7C6205570FD00FEB1B5 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A7C7205570FD00FEB1B5 /* Handlers */,
-				1F06A7C9205570FD00FEB1B5 /* Models */,
+				1F89235020564CF50086D372 /* Models */,
+				1F06A7C7205570FD00FEB1B5 /* Pushes */,
+				1F06A7C9205570FD00FEB1B5 /* Notifications */,
 				1F06A7CC205570FD00FEB1B5 /* NotificationsIgnore.swift */,
-				1F06A7CD205570FD00FEB1B5 /* PushesService.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
 		};
-		1F06A7C7205570FD00FEB1B5 /* Handlers */ = {
+		1F06A7C7205570FD00FEB1B5 /* Pushes */ = {
 			isa = PBXGroup;
 			children = (
+				1F06A7CA205570FD00FEB1B5 /* PushContainer.swift */,
+				1F06A7CD205570FD00FEB1B5 /* PushesService.swift */,
 				1F06A7C8205570FD00FEB1B5 /* PushesHandler.swift */,
 			);
-			path = Handlers;
+			path = Pushes;
 			sourceTree = "<group>";
 		};
-		1F06A7C9205570FD00FEB1B5 /* Models */ = {
+		1F06A7C9205570FD00FEB1B5 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A7CA205570FD00FEB1B5 /* Container.swift */,
-				1F06A7CB205570FD00FEB1B5 /* Events.swift */,
+				1F06A7CB205570FD00FEB1B5 /* NotificationEvents.swift */,
+				1F89234E205649170086D372 /* NotificationContainer.swift */,
 			);
-			path = Models;
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		1F06A9072055842000FEB1B5 /* Routing */ = {
@@ -2024,6 +2030,14 @@
 				1F8923442055C50E0086D372 /* EmailEnterAuthController.strings */,
 			);
 			path = EmailEnter;
+			sourceTree = "<group>";
+		};
+		1F89235020564CF50086D372 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F89234C2056451A0086D372 /* OrderPushModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
@@ -2289,6 +2303,7 @@
 				1F06A8F3205570FE00FEB1B5 /* OneOrderSpaceContainer.swift in Sources */,
 				1F06A838205570FD00FEB1B5 /* PaymentCardStatus.swift in Sources */,
 				1F06A847205570FD00FEB1B5 /* FixedDiscount.swift in Sources */,
+				1F89234D2056451A0086D372 /* OrderPushModel.swift in Sources */,
 				1F06A7EB205570FD00FEB1B5 /* InstagramAuthController.swift in Sources */,
 				1F06A827205570FD00FEB1B5 /* IMenuDependent.swift in Sources */,
 				1F06A8CF205570FD00FEB1B5 /* PlaceInfoController.swift in Sources */,
@@ -2309,7 +2324,7 @@
 				1F06A850205570FD00FEB1B5 /* RegistrationStatus.swift in Sources */,
 				1F06A818205570FD00FEB1B5 /* UserAccountApiService.swift in Sources */,
 				1F06A844205570FD00FEB1B5 /* Location.swift in Sources */,
-				1F06A901205570FE00FEB1B5 /* Events.swift in Sources */,
+				1F06A901205570FE00FEB1B5 /* NotificationEvents.swift in Sources */,
 				1F06A860205570FD00FEB1B5 /* ReservationService.swift in Sources */,
 				1F06A862205570FD00FEB1B5 /* StorageServices.swift in Sources */,
 				1F06A835205570FD00FEB1B5 /* SubdishSummary.swift in Sources */,
@@ -2329,7 +2344,7 @@
 				1F06A826205570FD00FEB1B5 /* DishType.swift in Sources */,
 				1F06A84A205570FD00FEB1B5 /* RegularCustomerDiscount.swift in Sources */,
 				1F06A8D4205570FD00FEB1B5 /* PlaceMenuCategoryCell.swift in Sources */,
-				1F06A900205570FE00FEB1B5 /* Container.swift in Sources */,
+				1F06A900205570FE00FEB1B5 /* PushContainer.swift in Sources */,
 				1F06A872205570FD00FEB1B5 /* PaymentSystem.swift in Sources */,
 				1F06A7FD205570FD00FEB1B5 /* UIImage.swift in Sources */,
 				1F06A8C9205570FD00FEB1B5 /* DishModalSpace.swift in Sources */,
@@ -2435,6 +2450,7 @@
 				1F06A837205570FD00FEB1B5 /* PaymentCard.swift in Sources */,
 				1F06A81A205570FD00FEB1B5 /* UserCardsApiService.swift in Sources */,
 				1F06A817205570FD00FEB1B5 /* AddedOrderDish.swift in Sources */,
+				1F89234F205649170086D372 /* NotificationContainer.swift in Sources */,
 				1F06A8BE205570FD00FEB1B5 /* DishModalSelectAddingsCell.swift in Sources */,
 				1F06A83D205570FD00FEB1B5 /* MenuSummary.swift in Sources */,
 				1F06A81E205570FD00FEB1B5 /* Device.swift in Sources */,

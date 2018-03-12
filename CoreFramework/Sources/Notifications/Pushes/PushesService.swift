@@ -12,7 +12,6 @@ import MdsKit
 import FirebaseAuth
 import FirebaseMessaging
 
-public typealias PushNotification = [AnyHashable : Any]
 public class PushesService: NSObject {
 
     public static let shared = PushesService()
@@ -23,16 +22,15 @@ public class PushesService: NSObject {
     private let keyService = DependencyResolver.resolve(ApiKeyService.self)
     private let lightStorage = DependencyResolver.resolve(LightStorage.self)
 
+    public private(set) var token: String? = nil
+    private let guid = Guid.new
+    private let processQueue = AsyncQueue.background
     private let application = UIApplication.shared
     private let auth = Auth.auth()
     private let messaging = Messaging.messaging()
-    private let processQueue = AsyncQueue.background
-    private let guid = Guid.new
 
     private override init() {
         super.init()
-
-        keyService.subscribe(guid: guid, handler: self, tag: _tag)
     }
 }
 
@@ -71,7 +69,7 @@ extension PushesService {
         }
     }
 
-    public func processMessage(notification: PushNotification, handler: @escaping (UIBackgroundFetchResult) -> Void) {
+    public func processMessage(notification: PushSource, handler: @escaping (UIBackgroundFetchResult) -> Void) {
 
         Log.debug(_tag, "Recieve push notification.")
         print(notification)
@@ -82,21 +80,19 @@ extension PushesService {
         }
 
         Messaging.messaging().appDidReceiveMessage(notification)
+
+        if let container = PushContainer.tryParse(notification) {
+            PushesHandler.process(container)
+        }
+
         handler(.newData)
     }
 }
 extension PushesService: MessagingDelegate {
 
     public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print(fcmToken)
+        self.token = fcmToken
+
+        Log.info(_tag, "Get FCM token: \(fcmToken)")
     }
 }
-extension PushesService: ApiKeyServiceDelegate {
-    public func apiKeyService(_ service: ApiKeyService, update keys: ApiKeys, for role: ApiRole) {
-
-//        guard let token = token else {
-//            return
-//        }
-    }
-}
-
