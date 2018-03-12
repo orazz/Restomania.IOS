@@ -29,6 +29,7 @@
 		1F23108320556A2800FB1D79 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107B20556A2800FB1D79 /* Launch.storyboard */; };
 		1F23108420556A2800FB1D79 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F23107C20556A2800FB1D79 /* ThemeSettings.swift */; };
 		1F23108520556A2800FB1D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107D20556A2800FB1D79 /* Assets.xcassets */; };
+		1F89235B205681690086D372 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F89235A205681690086D372 /* MapKit.framework */; };
 		3C978327FDB757F36BF52272 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		1F23107B20556A2800FB1D79 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		1F23107C20556A2800FB1D79 /* ThemeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSettings.swift; sourceTree = "<group>"; };
 		1F23107D20556A2800FB1D79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F89235A205681690086D372 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				1F06A91A2055A92500FEB1B5 /* MarqueeLabel.framework in Frameworks */,
 				1F06A91B2055A92500FEB1B5 /* MdsKit.framework in Frameworks */,
 				1F06A91C2055A92500FEB1B5 /* nanopb.framework in Frameworks */,
+				1F89235B205681690086D372 /* MapKit.framework in Frameworks */,
 				1F06A91D2055A92500FEB1B5 /* NotificationBannerSwift.framework in Frameworks */,
 				1F06A91E2055A92500FEB1B5 /* Protobuf.framework in Frameworks */,
 				1F06A91F2055A92500FEB1B5 /* SnapKit.framework in Frameworks */,
@@ -154,6 +157,7 @@
 		66CEA0CBE59D87F4C4A3371B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F89235A205681690086D372 /* MapKit.framework */,
 				1F06A9222055A92500FEB1B5 /* Gloss.framework */,
 				1F06A9232055A92500FEB1B5 /* GoogleToolboxForMac.framework */,
 				1F06A9242055A92500FEB1B5 /* GTMSessionFetcher.framework */,
@@ -218,6 +222,9 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};

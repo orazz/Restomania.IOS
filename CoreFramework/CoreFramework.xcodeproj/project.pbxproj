@@ -319,6 +319,9 @@
 		1F89234F205649170086D372 /* NotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234E205649170086D372 /* NotificationContainer.swift */; };
 		1F89235220565FD90086D372 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89235120565FD90086D372 /* DeviceService.swift */; };
 		1F892356205679D70086D372 /* ProblemAlert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F892358205679D70086D372 /* ProblemAlert.strings */; };
+		1F89235D205681880086D372 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F89235C205681880086D372 /* MapKit.framework */; };
+		1F89235F205681E90086D372 /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89235E205681E90086D372 /* PositionsService.swift */; };
+		1F892361205682700086D372 /* PositionServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F892360205682700086D372 /* PositionServiceDelegate.swift */; };
 		8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -660,6 +663,9 @@
 		1F89235120565FD90086D372 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 		1F892357205679D70086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProblemAlert.strings; sourceTree = "<group>"; };
 		1F892359205679D90086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProblemAlert.strings; sourceTree = "<group>"; };
+		1F89235C205681880086D372 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1F89235E205681E90086D372 /* PositionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsService.swift; sourceTree = "<group>"; };
+		1F892360205682700086D372 /* PositionServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionServiceDelegate.swift; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -670,6 +676,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F89235D205681880086D372 /* MapKit.framework in Frameworks */,
 				1F06A5EB20556E7100FEB1B5 /* UIKit.framework in Frameworks */,
 				1F06A5E920556E6800FEB1B5 /* Foundation.framework in Frameworks */,
 				8324A5BD36B4ABEA8C21EF51 /* Pods_CoreFramework.framework in Frameworks */,
@@ -2051,6 +2058,8 @@
 		1F892353205679130086D372 /* Positions */ = {
 			isa = PBXGroup;
 			children = (
+				1F89235E205681E90086D372 /* PositionsService.swift */,
+				1F892360205682700086D372 /* PositionServiceDelegate.swift */,
 			);
 			path = Positions;
 			sourceTree = "<group>";
@@ -2058,6 +2067,7 @@
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F89235C205681880086D372 /* MapKit.framework */,
 				1F06A5EA20556E7100FEB1B5 /* UIKit.framework */,
 				1F06A5E820556E6800FEB1B5 /* Foundation.framework */,
 				C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */,
@@ -2316,6 +2326,7 @@
 				1F06A902205570FE00FEB1B5 /* NotificationsIgnore.swift in Sources */,
 				1F06A841205570FD00FEB1B5 /* Link.swift in Sources */,
 				1F06A7D4205570FD00FEB1B5 /* InvertedButton.swift in Sources */,
+				1F892361205682700086D372 /* PositionServiceDelegate.swift in Sources */,
 				1F06A8F3205570FE00FEB1B5 /* OneOrderSpaceContainer.swift in Sources */,
 				1F06A838205570FD00FEB1B5 /* PaymentCardStatus.swift in Sources */,
 				1F06A847205570FD00FEB1B5 /* FixedDiscount.swift in Sources */,
@@ -2369,6 +2380,7 @@
 				1F06A861205570FD00FEB1B5 /* KeysStorage.swift in Sources */,
 				1F06A833205570FD00FEB1B5 /* DishOrderStatus.swift in Sources */,
 				1F06A819205570FD00FEB1B5 /* UserAuthApiService.swift in Sources */,
+				1F89235F205681E90086D372 /* PositionsService.swift in Sources */,
 				1F06A823205570FD00FEB1B5 /* Adding.swift in Sources */,
 				1F06A7CE205570FD00FEB1B5 /* ProblemAlert.swift in Sources */,
 				1F06A831205570FD00FEB1B5 /* DishOrder.swift in Sources */,
