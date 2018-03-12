@@ -9,7 +9,7 @@
 import UIKit
 import MdsKit
 
-public class SearchPlaceCard: UITableViewCell {
+open class SearchPlaceCard: UITableViewCell {
 
     public static let height = CGFloat(100)
 
@@ -18,25 +18,25 @@ public class SearchPlaceCard: UITableViewCell {
     @IBOutlet private weak var location: UILabel?
     @IBOutlet private weak var workingHours: UILabel?
 
-    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
-    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
-    private let themeImages = DependencyResolver.resolve(ThemeImages.self)
+    public let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    public let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    public let themeImages = DependencyResolver.resolve(ThemeImages.self)
 
     private var _summary: PlaceSummary!
 
-    public override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = colorsTheme.contentBackground
+        backgroundColor = themeColors.contentBackground
 
-        name?.font = fontsTheme.bold(size: .head)
-        name?.textColor = colorsTheme.contentBackgroundText
+        name?.font = themeFonts.bold(size: .head)
+        name?.textColor = themeColors.contentBackgroundText
 
-        workingHours?.font = fontsTheme.default(size: .subhead)
-        workingHours?.textColor = colorsTheme.contentBackgroundText
+        workingHours?.font = themeFonts.default(size: .subhead)
+        workingHours?.textColor = themeColors.contentBackgroundText
 
-        location?.font = fontsTheme.default(size: .subhead)
-        location?.textColor = colorsTheme.contentBackgroundText
+        location?.font = themeFonts.default(size: .subhead)
+        location?.textColor = themeColors.contentBackgroundText
     }
     public func update(summary: PlaceSummary) {
         _summary = summary

@@ -19,9 +19,9 @@ public class ThemeSettings {
         public static let border = UIColor(red: 165, green: 165, blue: 165)
         public static let background = UIColor(red: 234, green: 234, blue: 234)
 
-        private static let black = Colors.main
-        private static let white = Colors.additional
-        private static let pink = UIColor(red: 223, green: 25, blue: 149)
+        public static let black = Colors.main
+        public static let white = Colors.additional
+        public static let pink = UIColor(red: 223, green: 25, blue: 149)
 
         // MARK: ThemeColors
         public var statusBarOnNavigation = UIStatusBarStyle.lightContent

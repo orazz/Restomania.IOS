@@ -32,8 +32,8 @@ public class PlaceMenuTitleContainer: UITableViewCell {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var workingHoursLabel: UILabel!
 
-    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
-    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     // MARK: Data & Services
     private var delegate: PlaceMenuDelegate!
@@ -53,16 +53,16 @@ public class PlaceMenuTitleContainer: UITableViewCell {
         workingHoursLabel.text = summary.Schedule.todayRepresentation
     }
     private func setupMarkup() {
-        dimmerView.backgroundColor = colorsTheme.contentBackground
+        dimmerView.backgroundColor = themeColors.contentBackground
 
         //Title view
         // - round borders
         titleView.layer.cornerRadius = 5
         titleView.layer.borderWidth = 1
-        titleView.layer.borderColor = colorsTheme.contentBackground.cgColor
-        titleView.backgroundColor = colorsTheme.contentBackground
+        titleView.layer.borderColor = themeColors.contentBackground.cgColor
+        titleView.backgroundColor = themeColors.contentBackground
         // - shadow
-        titleView.layer.shadowColor = colorsTheme.contentBackground.cgColor
+        titleView.layer.shadowColor = themeColors.contentBackground.cgColor
         titleView.layer.shadowOpacity = 0.13
         titleView.layer.shadowOffset = CGSize.init(width: 3, height: 3)
         titleView.layer.shadowRadius = 5
@@ -70,13 +70,13 @@ public class PlaceMenuTitleContainer: UITableViewCell {
 
         //Name
         nameLabel.text = String.empty
-        nameLabel.font = fontsTheme.bold(size: .subhead)
-        nameLabel.textColor = colorsTheme.contentBackgroundText
+        nameLabel.font = themeFonts.bold(size: .subhead)
+        nameLabel.textColor = themeColors.contentBackgroundText
 
         //Wokings hours
         workingHoursLabel.text = String.empty
-        workingHoursLabel.font = fontsTheme.default(size: .caption)
-        workingHoursLabel.textColor = colorsTheme.contentBackgroundText
+        workingHoursLabel.font = themeFonts.default(size: .caption)
+        workingHoursLabel.textColor = themeColors.contentBackgroundText
     }
 }
 

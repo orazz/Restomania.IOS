@@ -27,7 +27,7 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
     @IBOutlet private weak var PlaceNameLabel: UILabel!
     @IBOutlet private weak var PriceLabel: PriceLabel!
 
-    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
     private var order: DishOrder!
@@ -40,7 +40,7 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        let font = fontsTheme.default(size: .subhead)
+        let font = themeFonts.default(size: .subhead)
 
         IdLabel.font = font
         DateLabel.font = font

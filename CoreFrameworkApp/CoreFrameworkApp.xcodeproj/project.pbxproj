@@ -22,7 +22,7 @@
 		1F06A9202055A92500FEB1B5 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92C2055A92500FEB1B5 /* Swinject.framework */; };
 		1F06A9212055A92500FEB1B5 /* Toast_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A92D2055A92500FEB1B5 /* Toast_Swift.framework */; };
 		1F23107E20556A2800FB1D79 /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107320556A2700FB1D79 /* Configs.plist */; };
-		1F23107F20556A2800FB1D79 /* SearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107520556A2800FB1D79 /* SearchPlaceCard.xib */; };
+		1F23107F20556A2800FB1D79 /* CustomSearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107520556A2800FB1D79 /* CustomSearchPlaceCard.xib */; };
 		1F23108020556A2800FB1D79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107620556A2800FB1D79 /* GoogleService-Info.plist */; };
 		1F23108120556A2800FB1D79 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107820556A2800FB1D79 /* Info.plist */; };
 		1F23108220556A2800FB1D79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F23107A20556A2800FB1D79 /* AppDelegate.swift */; };
@@ -34,6 +34,7 @@
 		1F892391205690F10086D372 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89238E205690F10086D372 /* Localizable.strings */; };
 		1F89239A2056DD190086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923982056DD190086D372 /* InfoPlist.strings */; };
 		1F89239D2056DD240086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89239B2056DD240086D372 /* InfoPlist.strings */; };
+		1F8923A02056EABD0086D372 /* CustomSearchPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89239F2056EABD0086D372 /* CustomSearchPlaceCard.swift */; };
 		3C978327FDB757F36BF52272 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +68,7 @@
 		1F06A92D2055A92500FEB1B5 /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Toast_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23105E205569EC00FB1D79 /* Kuzina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kuzina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23107320556A2700FB1D79 /* Configs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
-		1F23107520556A2800FB1D79 /* SearchPlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPlaceCard.xib; sourceTree = "<group>"; };
+		1F23107520556A2800FB1D79 /* CustomSearchPlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSearchPlaceCard.xib; sourceTree = "<group>"; };
 		1F23107620556A2800FB1D79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F23107720556A2800FB1D79 /* Kuzina.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Kuzina.entitlements; sourceTree = "<group>"; };
 		1F23107820556A2800FB1D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		1F89238F205690F10086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		1F8923992056DD190086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		1F89239C2056DD240086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = InfoPlist.strings; sourceTree = "<group>"; };
+		1F89239F2056EABD0086D372 /* CustomSearchPlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchPlaceCard.swift; sourceTree = "<group>"; };
 		57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +150,7 @@
 		1F23107420556A2800FB1D79 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				1F23107520556A2800FB1D79 /* SearchPlaceCard.xib */,
+				1F89239E2056EA9B0086D372 /* SearchPlaceCard */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -190,6 +192,15 @@
 			);
 			name = en.lproj;
 			path = ../../../CoreFramework/Sources/en.lproj;
+			sourceTree = "<group>";
+		};
+		1F89239E2056EA9B0086D372 /* SearchPlaceCard */ = {
+			isa = PBXGroup;
+			children = (
+				1F89239F2056EABD0086D372 /* CustomSearchPlaceCard.swift */,
+				1F23107520556A2800FB1D79 /* CustomSearchPlaceCard.xib */,
+			);
+			path = SearchPlaceCard;
 			sourceTree = "<group>";
 		};
 		66CEA0CBE59D87F4C4A3371B /* Frameworks */ = {
@@ -298,7 +309,7 @@
 				1F23108320556A2800FB1D79 /* Launch.storyboard in Resources */,
 				1F23107E20556A2800FB1D79 /* Configs.plist in Resources */,
 				1F892390205690F10086D372 /* Localizable.strings in Resources */,
-				1F23107F20556A2800FB1D79 /* SearchPlaceCard.xib in Resources */,
+				1F23107F20556A2800FB1D79 /* CustomSearchPlaceCard.xib in Resources */,
 				1F892391205690F10086D372 /* Localizable.strings in Resources */,
 				1F23108520556A2800FB1D79 /* Assets.xcassets in Resources */,
 				1F89239A2056DD190086D372 /* InfoPlist.strings in Resources */,
@@ -391,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F23108420556A2800FB1D79 /* ThemeSettings.swift in Sources */,
+				1F8923A02056EABD0086D372 /* CustomSearchPlaceCard.swift in Sources */,
 				1F23108220556A2800FB1D79 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,8 +23,8 @@ public class OneOrderDishesContainer: UITableViewCell {
     //UI
     @IBOutlet private weak var dishesTable: UITableView!
 
-    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
-    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
     private var currency: Currency = Currency.All
@@ -33,8 +33,8 @@ public class OneOrderDishesContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = colorsTheme.contentBackground
-        dishesTable.backgroundColor = colorsTheme.contentBackground
+        backgroundColor = themeColors.contentBackground
+        dishesTable.backgroundColor = themeColors.contentBackground
 
         OneOrderDishesContainerDishCell.register(for: dishesTable)
     }

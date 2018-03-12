@@ -29,8 +29,8 @@ public class DishModalHeader: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var closeButton: UIButton!
 
-    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
-    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
     private var dish: BaseDish? = nil {
@@ -50,14 +50,14 @@ public class DishModalHeader: UITableViewCell {
             }
         }
 
-        self.backgroundColor = colorsTheme.contentBackground
-        imageContainerView.backgroundColor = colorsTheme.contentBackground
-        nameContainerView.backgroundColor = colorsTheme.contentBackground
+        self.backgroundColor = themeColors.contentBackground
+        imageContainerView.backgroundColor = themeColors.contentBackground
+        nameContainerView.backgroundColor = themeColors.contentBackground
 
         dishImage.contentMode = .scaleAspectFit
 
-        nameLabel.font = fontsTheme.bold(size: .title)
-        nameLabel.textColor = colorsTheme.contentBackgroundText
+        nameLabel.font = themeFonts.bold(size: .title)
+        nameLabel.textColor = themeColors.contentBackgroundText
     }
     private func apply() {
         guard let dish = self.dish else {

@@ -16,7 +16,7 @@ public class OtherController: UIViewController {
     //UI
     @IBOutlet private weak var LogoutButton: UIButton!
 
-    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
     private let keysService = DependencyResolver.resolve(ApiKeyService.self)
 
     //Properties
@@ -45,7 +45,7 @@ public class OtherController: UIViewController {
 
     private func loadMarkup() {
 
-        view.backgroundColor = colorsTheme.contentBackground
+        view.backgroundColor = themeColors.contentBackground
 
         LogoutButton.isHidden = !isAuth
     }

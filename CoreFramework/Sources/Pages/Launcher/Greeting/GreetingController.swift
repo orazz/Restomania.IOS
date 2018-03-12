@@ -16,11 +16,11 @@ public class GreetingController: UIViewController {
     @IBOutlet weak var EnterButton: UIButton!
     @IBOutlet weak var DemoButton: UIButton!
     public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return colorsTheme.statusBarOnContent
+        return themeColors.statusBarOnContent
     }
 
-    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
-    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
     private let themeImages = DependencyResolver.resolve(ThemeImages.self)
 
     //Services
@@ -40,14 +40,14 @@ public class GreetingController: UIViewController {
     public override func loadView() {
         super.loadView()
 
-        view.backgroundColor = colorsTheme.contentBackground
+        view.backgroundColor = themeColors.contentBackground
 
         logo.image = themeImages.toolsLogo
 
         EnterButton.setTitle(Localization.buttonsEnter.localized, for: .normal)
 
-        DemoButton.tintColor = colorsTheme.contentBackgroundText
-        DemoButton.titleLabel?.font = fontsTheme.default(size: .caption)
+        DemoButton.tintColor = themeColors.contentBackgroundText
+        DemoButton.titleLabel?.font = themeFonts.default(size: .caption)
         DemoButton.setTitle(Localization.buttonsDemo.localized, for: .normal)
     }
     public override func viewDidLoad() {

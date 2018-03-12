@@ -35,8 +35,8 @@ public class PlaceMenuCartAction: UIView {
         delegate.goToCart()
     }
 
-    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
-    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data & services
     private let _tag = String.tag(PlaceMenuCartAction.self)
@@ -77,17 +77,17 @@ public class PlaceMenuCartAction: UIView {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.backgroundColor = colorsTheme.actionMain
+        self.backgroundColor = themeColors.actionMain
 
-        countLabel.textColor = colorsTheme.actionContent
-        countLabel.font = fontsTheme.default(size: .title)
+        countLabel.textColor = themeColors.actionContent
+        countLabel.font = themeFonts.default(size: .title)
 
         titleLabel.text = PlaceMenuController.Keys.ToCart.localized
-        titleLabel.textColor = colorsTheme.actionContent
-        titleLabel.font = fontsTheme.default(size: .title)
+        titleLabel.textColor = themeColors.actionContent
+        titleLabel.font = themeFonts.default(size: .title)
 
-        totalLabel.textColor = colorsTheme.actionContent
-        totalLabel.font = fontsTheme.default(size: .head)
+        totalLabel.textColor = themeColors.actionContent
+        totalLabel.font = themeFonts.default(size: .head)
     }
 }
 

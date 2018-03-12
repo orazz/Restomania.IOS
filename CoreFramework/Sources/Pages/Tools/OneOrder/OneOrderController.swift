@@ -24,8 +24,8 @@ public class OneOrderController: UIViewController {
     private var refreshControl: RefreshControl!
 
     //Services
-    private let colorsTheme = DependencyResolver.resolve(ThemeColors.self)
-    private let fontsTheme = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
     private let ordersService = DependencyResolver.resolve(OrdersCacheService.self)
     private var orderContainer: PartsLoadTypedContainer<DishOrder>!
     private var partsLoader: PartsLoader!
@@ -85,8 +85,8 @@ extension OneOrderController {
     private func loadMarkup() {
 
         self.navigationItem.title = String(format: Keys.title.localized, orderId!)
-        self.view.backgroundColor = colorsTheme.contentBackground
-        self.interfaceTable.backgroundColor = colorsTheme.contentBackground
+        self.view.backgroundColor = themeColors.contentBackground
+        self.interfaceTable.backgroundColor = themeColors.contentBackground
 
         cancelButton.setTitle(Keys.cancelOrderButton.localized, for: .normal)
     }

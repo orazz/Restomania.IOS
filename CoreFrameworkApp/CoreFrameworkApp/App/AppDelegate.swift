@@ -36,6 +36,6 @@ class AppDelegate: CoreFramework.AppDelegate, AppDelegateProtocol {
         let bundle = Bundle.main
         let store = TemplateStore.shared
 
-        store.searchPlaceCard(name: "SearchPlaceCard", from: bundle)
+        store.searchPlaceCard(name: String.tag(CustomSearchPlaceCard.self), from: bundle)
     }
 }
