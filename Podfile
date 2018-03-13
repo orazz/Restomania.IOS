@@ -34,7 +34,7 @@ target 'CoreFramework' do
     target 'Kuzina' do
         project './CoreFrameworkApp/CoreFrameworkApp.xcodeproj'
         inherit! :search_paths
-        use_frameworks!
+#        use_frameworks!
     end
 end
 

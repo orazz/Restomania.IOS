@@ -16,6 +16,7 @@ public class OtherController: UIViewController {
     //UI
     @IBOutlet private weak var LogoutButton: UIButton!
 
+    private let router = DependencyResolver.resolve(Router.self)
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
     private let keysService = DependencyResolver.resolve(ApiKeyService.self)
 
@@ -78,7 +79,7 @@ public class OtherController: UIViewController {
     private func present(_ controller: UIViewController, needAuth: Bool = true) {
 
         if (!needAuth || isAuth) {
-            navigationController?.pushViewController(controller, animated: true)
+            router.push(controller, animated: true)
             return
         }
 

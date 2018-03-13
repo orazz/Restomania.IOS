@@ -322,6 +322,7 @@
 		1F8923A32056EFFA0086D372 /* DistanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8923A22056EFFA0086D372 /* DistanceLabel.swift */; };
 		1F8923A72056F60B0086D372 /* DistanceLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923A62056F60B0086D372 /* DistanceLabel.xib */; };
 		1F8923A82056FA590086D372 /* DistanceLabel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923AA2056FA590086D372 /* DistanceLabel.strings */; };
+		1FED176620573F3400A80DA5 /* BaseSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED176520573F3400A80DA5 /* BaseSearchController.swift */; };
 		7B9696C32E76578E71F00E4B /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -686,6 +687,7 @@
 		1FED175F20571B9E00A80DA5 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED176020571B9E00A80DA5 /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED176120571B9E00A80DA5 /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Toast_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FED176520573F3400A80DA5 /* BaseSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSearchController.swift; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -1890,9 +1892,10 @@
 		1F06A797205570FD00FEB1B5 /* SearchController */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A798205570FD00FEB1B5 /* SearchController.strings */,
 				1F06A79B205570FD00FEB1B5 /* SearchController.swift */,
+				1FED176520573F3400A80DA5 /* BaseSearchController.swift */,
 				1F06A79C205570FD00FEB1B5 /* SearchController.xib */,
+				1F06A798205570FD00FEB1B5 /* SearchController.strings */,
 			);
 			path = SearchController;
 			sourceTree = "<group>";
@@ -2478,6 +2481,7 @@
 				1F06A7D8205570FD00FEB1B5 /* RefreshControl.swift in Sources */,
 				1F06A7F5205570FD00FEB1B5 /* TermsController.swift in Sources */,
 				1F06A815205570FD00FEB1B5 /* PlaceSummariesApiService.swift in Sources */,
+				1FED176620573F3400A80DA5 /* BaseSearchController.swift in Sources */,
 				1F06A846205570FD00FEB1B5 /* Bonuses.swift in Sources */,
 				1F06A8C7205570FD00FEB1B5 /* DishModalShortDivider.swift in Sources */,
 				1F06A82E205570FD00FEB1B5 /* MethodConnection.swift in Sources */,

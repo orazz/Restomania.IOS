@@ -23,7 +23,7 @@ open class SearchPlaceCard: UITableViewCell {
     public let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
     public let themeImages = DependencyResolver.resolve(ThemeImages.self)
 
-    private var _summary: PlaceSummary!
+    public private(set) var summary: PlaceSummary!
 
     open override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,17 +40,17 @@ open class SearchPlaceCard: UITableViewCell {
         location?.textColor = themeColors.contentBackgroundText
     }
     public func update(summary: PlaceSummary) {
-        _summary = summary
+        self.summary = summary
 
         refresh()
     }
     private func refresh() {
 
-        placeImage?.setup(url: _summary.Image)
-        name?.text = _summary.Name
-        workingHours?.text = take(_summary.Schedule)
-        location?.text = format(_summary.Location)
-        distance?.setup(lat: _summary.Location.latitude, lng: _summary.Location.longitude)
+        placeImage?.setup(url: summary.Image)
+        name?.text = summary.Name
+        workingHours?.text = take(summary.Schedule)
+        location?.text = format(summary.Location)
+        distance?.setup(lat: summary.Location.latitude, lng: summary.Location.longitude)
     }
     private func format(_ location: PlaceLocation) -> String {
 

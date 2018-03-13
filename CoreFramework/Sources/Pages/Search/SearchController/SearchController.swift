@@ -9,80 +9,96 @@
 import UIKit
 import MdsKit
 
-public class SearchController: UIViewController {
+internal class SearchController: BaseSearchController {
 
-    // MARK: UI elements
-    @IBOutlet private weak var searchBar: UISearchBar!
-    @IBOutlet private weak var placesTable: UITableView!
+    // UI
+    private var searchController: UISearchController!
+    private var resultsTableController = BaseSearchController()
+    private var resultsUpdater = SearchResultsUpdater()
+    private var searchBar: UISearchBar!
     private var loader: InterfaceLoader!
-    private var refreshControl: RefreshControl!
-    private var searchCardTemplate: TemplateContainer!
 
-
-    // MARK: Services
+    // Services
+    private let router = DependencyResolver.resolve(Router.self)
     private let configs = DependencyResolver.resolve(ConfigsContainer.self)
     private let service = DependencyResolver.resolve(PlacesCacheService.self)
-    private var searchAdapter: SearchAdapter<PlaceSummary>!
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
 
-    // MARK: Data & services
+    // Data
     private let _tag = String.tag(SearchController.self)
-    private var loadQueue: AsyncQueue!
-    private var places: [PlaceSummary]! {
-        didSet { updateFiltered() }
-    }
-    private var filtered: [PlaceSummary]!
-    private let searchController = UISearchController(searchResultsController: nil)
+    private var loadQueue: AsyncQueue
 
+    internal override init(){
 
-    public init(){
-        super.init(nibName: String.tag(SearchController.self), bundle: Bundle.coreFramework)
+        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
 
-        searchCardTemplate = TemplateStore.shared.get(for: .searchPlaceCard)
+        super.init()
+
+        places = service.cache.all
     }
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError()
+    }
+
+    public override func loadView() {
+        super.loadView()
+
+        configureSearchController()
+        loadMarkup()
+    }
+    private func loadMarkup() {
+
+        searchBar = searchController.searchBar
+        searchBar.searchBarStyle = .minimal
+        searchBar.tintColor = themeColors.navigationContent
+        searchBar.barTintColor = themeColors.navigationContent
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = themeColors.navigationContent
+
+        refreshControl = tableView.addRefreshControl(for: self, action: #selector(needReload))
+
+        loader = InterfaceLoader(for: self.view)
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadMarkup()
         startLoadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        self.navigationItem.title = Localization.labelsTitle.localized
-        self.edgesForExtendedLayout = []
-        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
+        navigationController?.navigationBar.topItem?.titleView = searchBar
+    }
+
+    private func configureSearchController() {
+
+        resultsTableController.tableView.delegate = self
+
+        searchController = UISearchController(searchResultsController: resultsTableController)
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.searchResultsUpdater = resultsUpdater
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+
+        definesPresentationContext = true
+    }
+
+    public override func update(by places: [PlaceSummary]) {
+        super.update(by: places)
+
+        resultsUpdater.places = places
     }
 }
+extension SearchController: UISearchBarDelegate {}
+extension SearchController: UISearchControllerDelegate {}
 
 // MARK: Load
 extension SearchController {
 
-    private func loadMarkup() {
-
-        // Setup the Search Controller
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = Localization.labelsSearchBarPlaceholder.localized
-        definesPresentationContext = true
-
-        // Setup the Scope Bar
-        searchController.searchBar.delegate = self
-
-
-        placesTable.delegate = self
-        placesTable.dataSource = self
-        searchCardTemplate.register(in: placesTable)
-
-        loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
-
-        loader = InterfaceLoader(for: self.view)
-        searchAdapter = setupSearchAdapter()
-        refreshControl = placesTable.addRefreshControl(for: self, action: #selector(needReload))
-    }
     private func setupSearchAdapter() -> SearchAdapter<PlaceSummary> {
         let adapter = SearchAdapter<PlaceSummary>()
 
@@ -98,11 +114,10 @@ extension SearchController {
 
     private func startLoadData() {
 
-        let cached = service.cache.all
-        if (cached.isEmpty) {
+        if (places.isEmpty) {
             loader.show()
+            completeLoad(places)
         }
-        completeLoad(cached)
 
         requestPlaces()
     }
@@ -119,74 +134,65 @@ extension SearchController {
         }
 
         request?.async(loadQueue, completion: { response in
-
             DispatchQueue.main.async {
 
                 if (response.isFail) {
-                    let alert = ProblemAlerts.error(for: response)
-                    self.present(alert, animated: true, completion: nil)
+                    self.alert(about: response)
+                    return
                 }
 
-                self.completeLoad(response.data)
+                self.completeLoad(response.data!)
             }
         })
     }
-    private func completeLoad(_ places: [PlaceSummary]?) {
+    private func completeLoad(_ places: [PlaceSummary]) {
 
-        if let places = places {
-            self.places = places
-        }
+        update(by: places)
 
-        self.loader.hide()
-        self.refreshControl.endRefreshing()
+        loader.hide()
+        refreshControl?.endRefreshing()
     }
 }
 
-// MARK: Search delegate
-extension SearchController: UISearchResultsUpdating, UISearchBarDelegate {
-    public func updateSearchResults(for searchController: UISearchController) {
-        updateFiltered()
-    }
-    private func updateFiltered() {
-
-        if let phrase = searchController.searchBar.text,
-            !String.isNullOrEmpty(phrase) {
-            filtered = searchAdapter.filter(phrase: searchBar.text, for: places)
-        }
-        else {
-            filtered = places
-        }
-
-        placesTable.reloadData()
-    }
-}
-
-// MARK: Table adapter
-extension SearchController: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension SearchController {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
 
-        let place = filtered[indexPath.row]
-        let vc = PlaceMenuController(for: place.id)
-        self.navigationController!.pushViewController(vc, animated: true)
+        if let cell = tableView.cellForRow(at: indexPath) as? SearchPlaceCard,
+            let summary = cell.summary {
+
+            let vc = PlaceMenuController(for: summary.id)
+            router.push(vc, animated: true)
+        }
     }
 }
-extension SearchController: UITableViewDataSource {
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filtered.count
-    }
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SearchPlaceCard.height
-    }
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+fileprivate class SearchResultsUpdater: NSObject, UISearchResultsUpdating {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: searchCardTemplate.identifier, for: indexPath) as! SearchPlaceCard
-        cell.update(summary: filtered[indexPath.row])
+    public var places: [PlaceSummary]
 
-        return cell
+    private var searchAdapter: SearchAdapter<PlaceSummary>!
+
+    internal override init() {
+
+        places = []
+
+        searchAdapter = SearchAdapter<PlaceSummary>()
+        searchAdapter.add({ $0.Name })
+        searchAdapter.add({ $0.Description })
+        searchAdapter.add({ $0.Location.address })
+        searchAdapter.add({ $0.Location.city })
+        searchAdapter.add({ $0.Location.street })
+        searchAdapter.add({ $0.Location.house })
+    }
+
+    public func updateSearchResults(for searchController: UISearchController) {
+
+        let phrase = searchController.searchBar.text?.trimmingCharacters(in: CharacterSet.whitespaces)
+        let filtered = searchAdapter.filter(phrase: phrase, for: places)
+
+        if let results = searchController.searchResultsController as? BaseSearchController  {
+            results.update(by: filtered)
+        }
     }
 }
 extension SearchController {

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OtherController" customModule="PagesOther" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OtherController" customModule="CoreFramework" customModuleProvider="target">
             <connections>
                 <outlet property="LogoutButton" destination="qR2-2K-1rw" id="J0R-ov-Kel"/>
                 <outlet property="view" destination="Z43-Uo-6WJ" id="npp-or-GSG"/>
@@ -17,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDa-9V-Vzc" customClass="InvertedButton" customModule="UIElements">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDa-9V-Vzc" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="37" y="50" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="IJp-bV-Gj6"/>
@@ -28,7 +32,7 @@
                         <action selector="goToEditProfile" destination="-1" eventType="touchUpInside" id="FTE-za-2a7"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhN-HA-yBt" customClass="InvertedButton" customModule="UIElements">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhN-HA-yBt" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="37" y="112" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="lwF-Sc-unD"/>
@@ -39,7 +43,7 @@
                         <action selector="goToEditNotificationPreferences" destination="-1" eventType="touchUpInside" id="Xuy-Cg-pyg"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0c-vP-Ge5" customClass="InvertedButton" customModule="UIElements">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0c-vP-Ge5" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="37" y="174" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="0AU-xd-6Ax"/>
@@ -50,7 +54,7 @@
                         <action selector="goToChangePassword" destination="-1" eventType="touchUpInside" id="WdH-YO-xI8"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH4-1g-lT2" customClass="InvertedButton" customModule="UIElements">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH4-1g-lT2" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="37" y="236" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="7VF-fP-mm7"/>
@@ -61,7 +65,7 @@
                         <action selector="goToPaymentCards" destination="-1" eventType="touchUpInside" id="Dpq-7m-S9X"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mp5-fy-ig2" customClass="InvertedButton" customModule="UIElements">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mp5-fy-ig2" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="37" y="316" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="KPy-D4-EPw"/>
@@ -72,7 +76,7 @@
                         <action selector="goToOrders" destination="-1" eventType="touchUpInside" id="p6s-8H-ceb"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7N-SS-XPz" customClass="InvertedButton" customModule="UIElements">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7N-SS-XPz" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="37.5" y="396" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="V2o-eh-zWf"/>
@@ -83,7 +87,7 @@
                         <action selector="goToTerms" destination="-1" eventType="touchUpInside" id="pzy-TL-lPg"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qR2-2K-1rw" customClass="DefaultButton" customModule="UIElements">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qR2-2K-1rw" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="37.5" y="458" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="CaO-ze-Tax"/>
