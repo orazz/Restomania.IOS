@@ -27,6 +27,7 @@ internal class BaseSearchController: UITableViewController {
         super.loadView()
 
         tableView.separatorStyle = .none
+        tableView.keyboardDismissMode = .onDrag
     }
     public override func viewDidLoad() {
         super.viewDidLoad()

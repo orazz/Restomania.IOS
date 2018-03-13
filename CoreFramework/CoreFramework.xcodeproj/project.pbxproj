@@ -276,9 +276,7 @@
 		1F06A8E2205570FE00FEB1B5 /* SearchPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A794205570FD00FEB1B5 /* SearchPlaceCard.swift */; };
 		1F06A8E3205570FE00FEB1B5 /* SearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A795205570FD00FEB1B5 /* SearchPlaceCard.xib */; };
 		1F06A8E4205570FE00FEB1B5 /* PagesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A796205570FD00FEB1B5 /* PagesSearch.swift */; };
-		1F06A8E5205570FE00FEB1B5 /* SearchController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A798205570FD00FEB1B5 /* SearchController.strings */; };
 		1F06A8E6205570FE00FEB1B5 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A79B205570FD00FEB1B5 /* SearchController.swift */; };
-		1F06A8E7205570FE00FEB1B5 /* SearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A79C205570FD00FEB1B5 /* SearchController.xib */; };
 		1F06A8E8205570FE00FEB1B5 /* ExternalTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A79F205570FD00FEB1B5 /* ExternalTextEditor.swift */; };
 		1F06A8E9205570FE00FEB1B5 /* ExternalTextEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A7A0205570FD00FEB1B5 /* ExternalTextEditorView.xib */; };
 		1F06A8EA205570FE00FEB1B5 /* OneOrderDishesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A7A3205570FD00FEB1B5 /* OneOrderDishesContainer.swift */; };
@@ -614,10 +612,7 @@
 		1F06A794205570FD00FEB1B5 /* SearchPlaceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlaceCard.swift; sourceTree = "<group>"; };
 		1F06A795205570FD00FEB1B5 /* SearchPlaceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPlaceCard.xib; sourceTree = "<group>"; };
 		1F06A796205570FD00FEB1B5 /* PagesSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesSearch.swift; sourceTree = "<group>"; };
-		1F06A799205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SearchController.strings; sourceTree = "<group>"; };
-		1F06A79A205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchController.strings; sourceTree = "<group>"; };
 		1F06A79B205570FD00FEB1B5 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		1F06A79C205570FD00FEB1B5 /* SearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchController.xib; sourceTree = "<group>"; };
 		1F06A79F205570FD00FEB1B5 /* ExternalTextEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalTextEditor.swift; sourceTree = "<group>"; };
 		1F06A7A0205570FD00FEB1B5 /* ExternalTextEditorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalTextEditorView.xib; sourceTree = "<group>"; };
 		1F06A7A3205570FD00FEB1B5 /* OneOrderDishesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrderDishesContainer.swift; sourceTree = "<group>"; };
@@ -1449,7 +1444,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A6EE205570FD00FEB1B5 /* Launcher */,
-				1F06A792205570FD00FEB1B5 /* Search */,
+				1F06A792205570FD00FEB1B5 /* List */,
 				1F06A702205570FD00FEB1B5 /* Other */,
 				1F06A720205570FD00FEB1B5 /* Place */,
 				1F06A79D205570FD00FEB1B5 /* Tools */,
@@ -1870,14 +1865,14 @@
 			path = TitleContainer;
 			sourceTree = "<group>";
 		};
-		1F06A792205570FD00FEB1B5 /* Search */ = {
+		1F06A792205570FD00FEB1B5 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A793205570FD00FEB1B5 /* Cells */,
 				1F06A796205570FD00FEB1B5 /* PagesSearch.swift */,
-				1F06A797205570FD00FEB1B5 /* SearchController */,
+				1F06A797205570FD00FEB1B5 /* AllPlaces */,
+				1F06A793205570FD00FEB1B5 /* Cells */,
 			);
-			path = Search;
+			path = List;
 			sourceTree = "<group>";
 		};
 		1F06A793205570FD00FEB1B5 /* Cells */ = {
@@ -1889,15 +1884,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		1F06A797205570FD00FEB1B5 /* SearchController */ = {
+		1F06A797205570FD00FEB1B5 /* AllPlaces */ = {
 			isa = PBXGroup;
 			children = (
 				1F06A79B205570FD00FEB1B5 /* SearchController.swift */,
 				1FED176520573F3400A80DA5 /* BaseSearchController.swift */,
-				1F06A79C205570FD00FEB1B5 /* SearchController.xib */,
-				1F06A798205570FD00FEB1B5 /* SearchController.strings */,
 			);
-			path = SearchController;
+			path = AllPlaces;
 			sourceTree = "<group>";
 		};
 		1F06A79D205570FD00FEB1B5 /* Tools */ = {
@@ -2215,8 +2208,6 @@
 				1F06A8AB205570FD00FEB1B5 /* PlaceCartTotalContainerView.xib in Resources */,
 				1F06A7F6205570FD00FEB1B5 /* WebBrowserController.strings in Resources */,
 				1F06A881205570FD00FEB1B5 /* ManagerChangePasswordControllerView.xib in Resources */,
-				1F06A8E5205570FE00FEB1B5 /* SearchController.strings in Resources */,
-				1F06A8E7205570FE00FEB1B5 /* SearchController.xib in Resources */,
 				1F06A8A7205570FD00FEB1B5 /* PlaceCartControllerView.xib in Resources */,
 				1F06A8E3205570FE00FEB1B5 /* SearchPlaceCard.xib in Resources */,
 				1F06A8B7205570FD00FEB1B5 /* DishModalDescriptionView.xib in Resources */,
@@ -2699,15 +2690,6 @@
 				1F06A781205570FD00FEB1B5 /* ru */,
 			);
 			name = PlaceMenuController.strings;
-			sourceTree = "<group>";
-		};
-		1F06A798205570FD00FEB1B5 /* SearchController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F06A799205570FD00FEB1B5 /* en */,
-				1F06A79A205570FD00FEB1B5 /* ru */,
-			);
-			name = SearchController.strings;
 			sourceTree = "<group>";
 		};
 		1F06A7A7205570FD00FEB1B5 /* OneOrderController.strings */ = {

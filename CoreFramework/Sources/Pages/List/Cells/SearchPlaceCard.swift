@@ -33,7 +33,7 @@ open class SearchPlaceCard: UITableViewCell {
         name?.font = themeFonts.bold(size: .head)
         name?.textColor = themeColors.contentBackgroundText
 
-        workingHours?.font = themeFonts.default(size: .subhead)
+        workingHours?.font = themeFonts.default(size: .caption)
         workingHours?.textColor = themeColors.contentBackgroundText
 
         location?.font = themeFonts.default(size: .subhead)
