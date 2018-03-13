@@ -91,7 +91,9 @@ internal class WebBrowserController: UIViewController {
             return
         }
 
-        components.queryItems = parameters?.flatMap({ URLQueryItem(name: $0.key, value: $0.value) })
+        if let parameters = parameters {
+            components.queryItems = parameters.flatMap({ URLQueryItem(name: $0.key, value: $0.value) }) + (components.queryItems ?? [])
+        }
         guard let url = components.url else {
             return
         }

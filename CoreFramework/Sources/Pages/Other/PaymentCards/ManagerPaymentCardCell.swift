@@ -9,11 +9,11 @@
 import UIKit
 import MdsKit
 
-public class PaymentCardCell: UITableViewCell {
+public class ManagerPaymentCardCell: UITableViewCell {
 
     public static let identifier = Guid.new
     public static let height: CGFloat = 50
-    private static let nibName = String.tag(PaymentCardCell.self)
+    private static let nibName = String.tag(ManagerPaymentCardCell.self)
     public static func register(in table: UITableView) {
 
         let nib = UINib.init(nibName: nibName, bundle: Bundle.coreFramework)

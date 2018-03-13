@@ -17,7 +17,7 @@ public class PaymentCard: BaseDataType, ICached {
         public static let last4Number = "Last4Number"
         public static let status = "Status"
         public static let type = "Type"
-        public static let clientType = "ClientType"
+        public static let clientType = "PaymentClient"
         public static let currency = "Currency"
     }
 

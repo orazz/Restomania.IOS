@@ -17,7 +17,7 @@
 	<key>ChainId</key>
 	<integer>1</integer>
 	<key>PaymentSystem</key>
-	<integer>3</integer>
+	<integer>4</integer>
 	<key>Currency</key>
 	<integer>643</integer>
 </dict>

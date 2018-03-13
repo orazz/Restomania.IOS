@@ -9,10 +9,11 @@
 import Foundation
 
 public enum PaymentCardType: Int {
-    case Visa = 1
-    case MasterCard = 2
+
+    case Mir = 2
     case AmericanExpress = 3
-    case DinersClub = 4
-    case Discover = 5
-    case Other = 6
+    case Visa = 4
+    case MasterCard = 5
+    case Maestro = 6
+    case Other = 7
 }

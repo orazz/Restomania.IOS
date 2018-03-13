@@ -53,7 +53,7 @@ public class ManagerPaymentCardsController: UIViewController {
     public override func loadView() {
         super.loadView()
 
-        PaymentCardCell.register(in: cardsTable)
+        ManagerPaymentCardCell.register(in: cardsTable)
 
         interfaceLoader = InterfaceLoader(for: view)
         refreshControl = cardsTable.addRefreshControl(for: self, action: #selector(needReload))
@@ -160,7 +160,7 @@ extension ManagerPaymentCardsController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
-        let cell = tableView.cellForRow(at: indexPath) as? PaymentCardCell
+        let cell = tableView.cellForRow(at: indexPath) as? ManagerPaymentCardCell
         cell?.Remove()
     }
 }
@@ -172,12 +172,12 @@ extension ManagerPaymentCardsController: UITableViewDataSource {
         return cardsContainer.data?.count ?? 0
     }
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return PaymentCardCell.height
+        return ManagerPaymentCardCell.height
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let card = cardsContainer.data![indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: PaymentCardCell.identifier, for: indexPath) as! PaymentCardCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerPaymentCardCell.identifier, for: indexPath) as! ManagerPaymentCardCell
         cell.setup(card: card, delegate: self)
 
         return cell

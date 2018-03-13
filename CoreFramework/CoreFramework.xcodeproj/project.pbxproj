@@ -191,7 +191,7 @@
 		1F06A88D205570FD00FEB1B5 /* OtherController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A716205570FD00FEB1B5 /* OtherController.xib */; };
 		1F06A88E205570FD00FEB1B5 /* ManagerPaymentCardsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A718205570FD00FEB1B5 /* ManagerPaymentCardsController.strings */; };
 		1F06A88F205570FD00FEB1B5 /* ManagerPaymentCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A71A205570FD00FEB1B5 /* ManagerPaymentCardCell.swift */; };
-		1F06A890205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib */; };
+		1F06A890205570FD00FEB1B5 /* ManagerPaymentCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCell.xib */; };
 		1F06A891205570FD00FEB1B5 /* ManagerPaymentCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A71C205570FD00FEB1B5 /* ManagerPaymentCardsController.swift */; };
 		1F06A892205570FD00FEB1B5 /* ManagerPaymentCardsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsController.xib */; };
 		1F06A893205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A723205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift */; };
@@ -523,7 +523,7 @@
 		1F06A716205570FD00FEB1B5 /* OtherController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherController.xib; sourceTree = "<group>"; };
 		1F06A719205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManagerPaymentCardsController.strings; sourceTree = "<group>"; };
 		1F06A71A205570FD00FEB1B5 /* ManagerPaymentCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPaymentCardCell.swift; sourceTree = "<group>"; };
-		1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerPaymentCardCellView.xib; sourceTree = "<group>"; };
+		1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerPaymentCardCell.xib; sourceTree = "<group>"; };
 		1F06A71C205570FD00FEB1B5 /* ManagerPaymentCardsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPaymentCardsController.swift; sourceTree = "<group>"; };
 		1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerPaymentCardsController.xib; sourceTree = "<group>"; };
 		1F06A71E205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ManagerPaymentCardsController.strings; sourceTree = "<group>"; };
@@ -1542,7 +1542,7 @@
 				1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsController.xib */,
 				1F06A718205570FD00FEB1B5 /* ManagerPaymentCardsController.strings */,
 				1F06A71A205570FD00FEB1B5 /* ManagerPaymentCardCell.swift */,
-				1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib */,
+				1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCell.xib */,
 			);
 			path = PaymentCards;
 			sourceTree = "<group>";
@@ -2209,7 +2209,7 @@
 				1F8923A82056FA590086D372 /* DistanceLabel.strings in Resources */,
 				1F06A8BF205570FD00FEB1B5 /* DishModalSelectAddingsCellView.xib in Resources */,
 				1F06A8EE205570FE00FEB1B5 /* OneOrderController.strings in Resources */,
-				1F06A890205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib in Resources */,
+				1F06A890205570FD00FEB1B5 /* ManagerPaymentCardCell.xib in Resources */,
 				1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderContainerView.xib in Resources */,
 				1F06A7EC205570FD00FEB1B5 /* EnterPhoneAuthController.strings in Resources */,
 				1F06A88A205570FD00FEB1B5 /* ManagerOrdersControllerOrderCellView.xib in Resources */,

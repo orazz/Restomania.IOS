@@ -97,6 +97,7 @@ extension AddCardUIService: WebBrowserControllerDelegate  {
                 return
             }
 
+            requestCard()
         }
     }
     private func requestCard() {
