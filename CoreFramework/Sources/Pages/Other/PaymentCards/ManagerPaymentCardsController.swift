@@ -23,23 +23,42 @@ public class ManagerPaymentCardsController: UIViewController {
     private var refreshControl: RefreshControl!
     private let addCardUIService = DependencyResolver.resolve(AddCardUIService.self)
 
+    // MARK: Service
+    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
+    private let cardsService = DependencyResolver.resolve(CardsCacheService.self)
+    private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
+    private var loaderAdapter: PartsLoader!
+
     // MARK: Tools
     private let _tag = String.tag(ManagerPaymentCardsController.self)
     private var loadQueue: AsyncQueue!
 
-    // MARK: Data & service
-    private let cardsService = DependencyResolver.resolve(CardsCacheService.self)
-    private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
-    private var loaderAdapter: PartsLoader!
-    private let mainCurrency = Currency.RUB
-
     public init() {
-        super.init(nibName: "ManagerPaymentCardsControllerView", bundle: Bundle.coreFramework)
-
         loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
+
+        super.init(nibName: String.tag(ManagerPaymentCardsController.self), bundle: Bundle.coreFramework)
+
+        cardsContainer = PartsLoadTypedContainer<[PaymentCard]>(completeLoadHandler: self.completeLoad)
+        cardsContainer.updateHandler = { update in
+            DispatchQueue.main.async {
+                self.cardsTable.reloadData()
+            }
+        }
+        loaderAdapter = PartsLoader([cardsContainer])
     }
     public required convenience init?(coder aDecoder: NSCoder) {
         self.init()
+    }
+
+    public override func loadView() {
+        super.loadView()
+
+        PaymentCardCell.register(in: cardsTable)
+
+        interfaceLoader = InterfaceLoader(for: view)
+        refreshControl = cardsTable.addRefreshControl(for: self, action: #selector(needReload))
+
+        addButton.setTitle(Keys.addButton.localized, for: .normal)
     }
 }
 // MARK: Load circle
@@ -48,36 +67,18 @@ extension ManagerPaymentCardsController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        PaymentCardCell.register(in: cardsTable)
-
-        interfaceLoader = InterfaceLoader(for: view)
-        refreshControl = cardsTable.addRefreshControl(for: self, action: #selector(needReload))
-
-        cardsContainer = PartsLoadTypedContainer<[PaymentCard]>(completeLoadHandler: self.completeLoad)
-        cardsContainer.updateHandler = { update in
-            DispatchQueue.main.async {
-                self.cardsTable.reloadData()
-            }
-        }
-
-        loaderAdapter = PartsLoader([cardsContainer])
-
         loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setToolbarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.title = Keys.title.localized
-        addButton.setTitle(Keys.addButton.localized, for: .normal)
-    }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
     }
 
     private func loadData() {
 
-        let cards = cardsService.cache.where { $0.currency == self.mainCurrency }
+        let cards = cardsService.cache.where { $0.currency == self.configs.currency }
         if (cards.isEmpty) {
             interfaceLoader.show()
         } else {
@@ -90,7 +91,8 @@ extension ManagerPaymentCardsController {
         requestCards()
     }
     private func requestCards() {
-        cardsService.all().async(loadQueue, completion: cardsContainer.completeLoad)
+        let request = cardsService.all()
+        request.async(loadQueue, completion: cardsContainer.completeLoad)
     }
     private func completeLoad() {
         DispatchQueue.main.async {

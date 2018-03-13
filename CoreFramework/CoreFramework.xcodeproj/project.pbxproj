@@ -193,7 +193,7 @@
 		1F06A88F205570FD00FEB1B5 /* ManagerPaymentCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A71A205570FD00FEB1B5 /* ManagerPaymentCardCell.swift */; };
 		1F06A890205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib */; };
 		1F06A891205570FD00FEB1B5 /* ManagerPaymentCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A71C205570FD00FEB1B5 /* ManagerPaymentCardsController.swift */; };
-		1F06A892205570FD00FEB1B5 /* ManagerPaymentCardsControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsControllerView.xib */; };
+		1F06A892205570FD00FEB1B5 /* ManagerPaymentCardsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsController.xib */; };
 		1F06A893205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A723205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift */; };
 		1F06A894205570FD00FEB1B5 /* PlaceCartAdditionalContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A724205570FD00FEB1B5 /* PlaceCartAdditionalContainerView.xib */; };
 		1F06A895205570FD00FEB1B5 /* PlaceCartDateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A726205570FD00FEB1B5 /* PlaceCartDateContainer.swift */; };
@@ -525,7 +525,7 @@
 		1F06A71A205570FD00FEB1B5 /* ManagerPaymentCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPaymentCardCell.swift; sourceTree = "<group>"; };
 		1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerPaymentCardCellView.xib; sourceTree = "<group>"; };
 		1F06A71C205570FD00FEB1B5 /* ManagerPaymentCardsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPaymentCardsController.swift; sourceTree = "<group>"; };
-		1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerPaymentCardsControllerView.xib; sourceTree = "<group>"; };
+		1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerPaymentCardsController.xib; sourceTree = "<group>"; };
 		1F06A71E205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ManagerPaymentCardsController.strings; sourceTree = "<group>"; };
 		1F06A723205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartAdditionalContainer.swift; sourceTree = "<group>"; };
 		1F06A724205570FD00FEB1B5 /* PlaceCartAdditionalContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartAdditionalContainerView.xib; sourceTree = "<group>"; };
@@ -1487,12 +1487,11 @@
 			isa = PBXGroup;
 			children = (
 				1F06A90A2055848500FEB1B5 /* OtherRoot */,
-				1F06A703205570FD00FEB1B5 /* ChangePassword */,
 				1F06A706205570FD00FEB1B5 /* EditNotificationsPreferences */,
 				1F06A709205570FD00FEB1B5 /* EditProfile */,
-				1F06A70D205570FD00FEB1B5 /* Orders */,
+				1F06A703205570FD00FEB1B5 /* ChangePassword */,
 				1F06A717205570FD00FEB1B5 /* PaymentCards */,
-				1F06A71F205570FD00FEB1B5 /* Terms */,
+				1F06A70D205570FD00FEB1B5 /* Orders */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1539,20 +1538,13 @@
 		1F06A717205570FD00FEB1B5 /* PaymentCards */ = {
 			isa = PBXGroup;
 			children = (
+				1F06A71C205570FD00FEB1B5 /* ManagerPaymentCardsController.swift */,
+				1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsController.xib */,
 				1F06A718205570FD00FEB1B5 /* ManagerPaymentCardsController.strings */,
 				1F06A71A205570FD00FEB1B5 /* ManagerPaymentCardCell.swift */,
 				1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCellView.xib */,
-				1F06A71C205570FD00FEB1B5 /* ManagerPaymentCardsController.swift */,
-				1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsControllerView.xib */,
 			);
 			path = PaymentCards;
-			sourceTree = "<group>";
-		};
-		1F06A71F205570FD00FEB1B5 /* Terms */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Terms;
 			sourceTree = "<group>";
 		};
 		1F06A720205570FD00FEB1B5 /* Place */ = {
@@ -2248,7 +2240,7 @@
 				1F06A8CC205570FD00FEB1B5 /* DishModalTryAddingActionView.xib in Resources */,
 				1F892356205679D70086D372 /* ProblemAlert.strings in Resources */,
 				1F06A8D5205570FD00FEB1B5 /* PlaceMenuCategoryCellView.xib in Resources */,
-				1F06A892205570FD00FEB1B5 /* ManagerPaymentCardsControllerView.xib in Resources */,
+				1F06A892205570FD00FEB1B5 /* ManagerPaymentCardsController.xib in Resources */,
 				1F06A89E205570FD00FEB1B5 /* PlaceCartDishesContainerView.xib in Resources */,
 				1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */,
 				1F06A7EA205570FD00FEB1B5 /* InstagramAuthController.strings in Resources */,

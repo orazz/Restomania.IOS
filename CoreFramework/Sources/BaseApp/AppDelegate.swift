@@ -78,7 +78,7 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
         container.register(ThemeFonts.self, factory: { _ in Fonts() })
         container.register(ThemeImages.self, factory: { _ in Images() })
 
-        container.register(Router.self, factory: { _ in RoutingSystem() })
+        container.register(Router.self, factory: { _ in RoutingSystem() }).inObjectScope(.container)
 
         UIServices.register(in: container)
     }

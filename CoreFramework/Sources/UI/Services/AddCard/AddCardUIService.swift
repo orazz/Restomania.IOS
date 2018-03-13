@@ -44,6 +44,7 @@ public class AddCardUIService {
         }
 
         service.showLoader()
+        WebBrowserController.clearCache()
         controller.present(service, animated: true, completion: nil)
         isBusy = true
 
@@ -116,6 +117,9 @@ extension AddCardUIService: WebBrowserControllerDelegate  {
             let card = response.data!
             self.completeHandler?(true, cardId, card)
         })
+    }
+    func onCancelTap() {
+        completeHandler?(false, nil, nil)
     }
 }
 extension AddCardUIService {

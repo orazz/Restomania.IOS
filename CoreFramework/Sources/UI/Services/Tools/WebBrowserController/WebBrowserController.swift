@@ -13,12 +13,12 @@ import MdsKit
 internal class WebBrowserController: UIViewController {
 
     //UI
-    @IBOutlet private weak var navigationBar: UINavigationBar!
-    @IBOutlet private weak var titleItem: UINavigationItem!
-    @IBOutlet private weak var cancelButtom: UIBarButtonItem!
+    @IBOutlet private weak var navigationBar: UINavigationBar?
+    @IBOutlet private weak var titleItem: UINavigationItem?
+    @IBOutlet private weak var cancelButtom: UIBarButtonItem?
     private var activityindicator: UIActivityIndicatorView!
     private var interfaceLoader: InterfaceLoader!
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: UIWebView?
 
     //Services
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
@@ -53,10 +53,14 @@ internal class WebBrowserController: UIViewController {
     internal convenience required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+
+    public override func loadView() {
+        super.loadView()
 
         loadMarkup()
+    }
+    public override func viewDidLoad() {
+        super.viewDidLoad()
 
         if (!String.isNullOrEmpty(url)) {
             startLoad(url, parameters: parameters)
@@ -70,13 +74,15 @@ internal class WebBrowserController: UIViewController {
     }
     private func loadMarkup() {
 
-        interfaceLoader = InterfaceLoader(for: self.webView)
-        interfaceLoader.show()
+        interfaceLoader = InterfaceLoader(for: self.webView!)
 
         activityindicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         activityindicator.color = themeColors.navigationContent
         activityindicator.hidesWhenStopped = true
-        titleItem.rightBarButtonItem = UIBarButtonItem(customView: activityindicator)
+        
+        titleItem?.rightBarButtonItem = UIBarButtonItem(customView: activityindicator)
+
+        showLoader()
     }
 
     public func startLoad(_ url: String, parameters: [String:String]? = nil)  {
@@ -90,7 +96,7 @@ internal class WebBrowserController: UIViewController {
             return
         }
 
-        webView.loadRequest(URLRequest(url: url))
+        webView?.loadRequest(URLRequest(url: url))
     }
 
     public static func clearCache() {
@@ -109,30 +115,30 @@ internal class WebBrowserController: UIViewController {
             return
         }
 
-        titleItem.title = pageTitle
+        titleItem?.title = pageTitle
 
-        navigationBar.tintColor = navigationContentColor
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: navigationContentColor]
+        navigationBar?.tintColor = navigationContentColor
+        navigationBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: navigationContentColor]
 
-        navigationBar.backgroundColor = navigationBackgroundColor
-        navigationBar.barTintColor = navigationBackgroundColor
+        navigationBar?.backgroundColor = navigationBackgroundColor
+        navigationBar?.barTintColor = navigationBackgroundColor
     }
     public func setCancelButtom(_ cancelButtonTitle: String) {
 
         self.cancelButtonTitle = cancelButtonTitle
 
         if nil != cancelButtom {
-            cancelButtom.title = title
+            cancelButtom?.title = title
         }
     }
 
     public func showLoader() {
-        interfaceLoader.show()
-        activityindicator.startAnimating()
+        interfaceLoader?.show()
+        activityindicator?.startAnimating()
     }
     public func hideLoader() {
-        interfaceLoader.hide()
-        activityindicator.stopAnimating()
+        interfaceLoader?.hide()
+        activityindicator?.stopAnimating()
     }
     @IBAction private func cancelAction() {
         delegate?.onCancelTap()

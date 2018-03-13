@@ -26,7 +26,7 @@ public protocol Router {
 //    func goToGreeting()
 //    func goToTabs()
 //
-//    func goToPlaceMenu(placeId: Long)
+    func goToPlaceMenu(placeId: Long)
 //    func goToPlaceInfo(summary: PlaceSummary)
 //    func goToPlaceCart(placeId: Long)
 //    func goToCompleteOrder(order: DishOrder)

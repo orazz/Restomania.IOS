@@ -68,7 +68,7 @@ internal class SearchController: BaseSearchController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
         navigationController?.navigationBar.topItem?.titleView = searchBar
     }
@@ -160,9 +160,8 @@ extension SearchController {
 
         if let cell = tableView.cellForRow(at: indexPath) as? SearchPlaceCard,
             let summary = cell.summary {
-
-            let vc = PlaceMenuController(for: summary.id)
-            router.push(vc, animated: true)
+            
+            router.goToPlaceMenu(placeId: summary.id)
         }
     }
 }

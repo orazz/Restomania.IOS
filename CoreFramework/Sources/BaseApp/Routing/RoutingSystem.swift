@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MdsKit
 
 public class RoutingSystem: Router {
 
@@ -55,9 +56,10 @@ public class RoutingSystem: Router {
 //        <#code#>
 //    }
 //
-//    public func goToPlaceMenu(placeId: Long) {
-//        <#code#>
-//    }
+    public func goToPlaceMenu(placeId: Long) {
+        let vc = PlaceMenuController(for: placeId)
+        push(vc, animated: true)
+    }
 //
 //    public func goToPlaceInfo(summary: PlaceSummary) {
 //        <#code#>

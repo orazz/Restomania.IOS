@@ -44,9 +44,31 @@ internal class BaseSearchController: UITableViewController {
     }
 
     internal func update(by places:[PlaceSummary]) {
-        
-        self.places = places
+
+
+        self.places = sort(places)
         tableView.reloadData()
+    }
+    private func sort(_ places: [PlaceSummary]) -> [PlaceSummary] {
+
+        if let lastPosition = PositionsService.shared.lastPosition {
+
+            let points = places.map({ (summary: $0, point: PositionsService.Position(lat: $0.Location.latitude, lng: $0.Location.longitude)) })
+            
+            let normal = points.where({ !$0.point.isEmpty })
+                                .map({ (summary: $0.summary, distance: $0.point.distance(to: lastPosition)) })
+                                .sorted(by: { $0.distance < $1.distance })
+                                .map({ $0.summary })
+
+            let rest = points.where({ $0.point.isEmpty })
+                                .sorted(by: { $0.summary.Name < $1.summary.Name })
+                                .map({ $0.summary })
+
+            return normal + rest
+        }
+        else {
+            return places.sorted(by: { $0.Name < $1.Name })
+        }
     }
 }
 extension BaseSearchController {
