@@ -25,6 +25,7 @@
 		1FED1762205725B600A80DA5 /* CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; };
 		1FED1763205725B600A80DA5 /* CoreFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B7B6A8994E39114B008B5779 /* Pods_CoreFramework_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77830906D9D3266A3A94E164 /* Pods_CoreFramework_Kuzina.framework */; };
+		FED96AF6017915D07BDA58CE /* Pods_ProjectRoot_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF43BFCCED1A31A101E26ED3 /* Pods_ProjectRoot_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18C7C529CB189FED46C32CDB /* Pods-ProjectRoot-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectRoot-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ProjectRoot-Kuzina/Pods-ProjectRoot-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		1C5FB14B95A2290046922545 /* Pods-CoreFramework-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework-Kuzina/Pods-CoreFramework-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F06A9222055A92500FEB1B5 /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,8 @@
 		57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		5965C511DC04287C648461DF /* Pods-CoreFramework-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework-Kuzina/Pods-CoreFramework-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
 		77830906D9D3266A3A94E164 /* Pods_CoreFramework_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E046BFB942CB4858A33CDB8 /* Pods-ProjectRoot-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectRoot-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ProjectRoot-Kuzina/Pods-ProjectRoot-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
+		BF43BFCCED1A31A101E26ED3 /* Pods_ProjectRoot_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectRoot_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +92,7 @@
 				1FED1762205725B600A80DA5 /* CoreFramework.framework in Frameworks */,
 				1BA7D3324445DC14FAF44B04 /* Pods_Kuzina.framework in Frameworks */,
 				B7B6A8994E39114B008B5779 /* Pods_CoreFramework_Kuzina.framework in Frameworks */,
+				FED96AF6017915D07BDA58CE /* Pods_ProjectRoot_Kuzina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +207,7 @@
 				1F06A92D2055A92500FEB1B5 /* Toast_Swift.framework */,
 				D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */,
 				77830906D9D3266A3A94E164 /* Pods_CoreFramework_Kuzina.framework */,
+				BF43BFCCED1A31A101E26ED3 /* Pods_ProjectRoot_Kuzina.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,6 +219,8 @@
 				F36EF9011545963C82B4BDD4 /* Pods-Kuzina.release.xcconfig */,
 				1C5FB14B95A2290046922545 /* Pods-CoreFramework-Kuzina.debug.xcconfig */,
 				5965C511DC04287C648461DF /* Pods-CoreFramework-Kuzina.release.xcconfig */,
+				18C7C529CB189FED46C32CDB /* Pods-ProjectRoot-Kuzina.debug.xcconfig */,
+				9E046BFB942CB4858A33CDB8 /* Pods-ProjectRoot-Kuzina.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -329,7 +337,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-CoreFramework-Kuzina/Pods-CoreFramework-Kuzina-frameworks.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
