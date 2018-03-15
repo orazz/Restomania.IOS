@@ -12,19 +12,12 @@ import MdsKit
 
 public class OneOrderSummaryContainer: UITableViewCell {
 
-    private static var nibName = "\(String.tag(OneOrderSummaryContainer.self))View"
     public static func create() -> OneOrderSummaryContainer {
-
-        let cell: OneOrderSummaryContainer = UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
-
-        return cell
+        return UINib.instantiate(from: String.tag(OneOrderSummaryContainer.self), bundle: Bundle.coreFramework)
     }
 
     //UI
     @IBOutlet weak var completeAtLabel: UILabel!
-
-    @IBOutlet weak var codewordTitleLabel: UILabel!
-    @IBOutlet weak var codewordValueLabel: UILabel!
 
     @IBOutlet weak var placeNameTitleLabel: UILabel!
     @IBOutlet weak var placeNameValueLabel: UILabel!
@@ -44,16 +37,11 @@ public class OneOrderSummaryContainer: UITableViewCell {
 
         backgroundColor = themeColors.contentBackground
 
-        let boldFont = themeFonts.bold(size: .head)
-        let lightFont = themeFonts.default(size: .head)
+        let boldFont = themeFonts.bold(size: .subhead)
+        let lightFont = themeFonts.default(size: .subhead)
 
         completeAtLabel.font = boldFont
         completeAtLabel.text = String.empty
-
-        codewordTitleLabel.font = lightFont
-        codewordTitleLabel.text = OneOrderController.Keys.codewordTitleLabel.localized
-        codewordValueLabel.font = boldFont
-        codewordValueLabel.text = String.empty
 
         placeNameTitleLabel.font = lightFont
         placeNameTitleLabel.text = OneOrderController.Keys.placeNameTitleLabel.localized
@@ -75,10 +63,7 @@ extension OneOrderSummaryContainer: OneOrderInterfacePart {
         let date = formatter(OneOrderController.Keys.dateFormat.localized).string(from: update.summary.completeAt)
         completeAtLabel.text = String(format: format, time, date)
 
-        codewordValueLabel.text = update.summary.codeword
-
         placeNameValueLabel.text = update.summary.placeName
-
         statusValueLabel.text = prepareStatus(update.status).localized
     }
     private func formatter(_ format: String) -> DateFormatter {
@@ -115,7 +100,7 @@ extension OneOrderSummaryContainer: OneOrderInterfacePart {
 extension OneOrderSummaryContainer: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 135
+        return 92
     }
     public func prepareView() -> UITableViewCell {
         return self

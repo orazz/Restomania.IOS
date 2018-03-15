@@ -16,7 +16,7 @@ public class DishOrderDish: BaseDataType {
         public static let dishId = "DishId"
         public static let variationId = "VariationId"
 
-        public static let additions = "Additions"
+        public static let addings = "Addings"
         public static let subdishes = "Subdishes"
 
         public static let price = "Price"
@@ -35,14 +35,14 @@ public class DishOrderDish: BaseDataType {
     public var price: Price
     public var total: Price
 
-    public var additions: [AdditionSummary]
+    public var addings: [AdditionSummary]
     public var subdishes: [SubdishSummary]
 
     public override init() {
 
         self.dishId = 0
         self.variationId = nil
-        self.additions = []
+        self.addings = []
         self.subdishes = []
 
         self.price = Price()
@@ -66,7 +66,7 @@ public class DishOrderDish: BaseDataType {
 
         self.dishId = source.dishId
         self.variationId = source.variationId
-        self.additions = source.additions.map { AdditionSummary(source: $0) }
+        self.addings = source.addings.map { AdditionSummary(source: $0) }
         self.subdishes = source.subdishes.map { SubdishSummary(source: $0) }
 
         self.price = Price(source: source.price)
@@ -83,7 +83,7 @@ public class DishOrderDish: BaseDataType {
 
         self.dishId = (Keys.dishId <~~ json)!
         self.variationId = Keys.variationId <~~ json
-        self.additions = Keys.additions <~~ json ?? []
+        self.addings = Keys.addings <~~ json ?? []
         self.subdishes = Keys.subdishes <~~ json ?? []
 
         self.price = (Keys.price <~~ json)!
@@ -103,7 +103,7 @@ public class DishOrderDish: BaseDataType {
 
             Keys.dishId ~~> self.dishId,
             Keys.variationId ~~> self.variationId,
-            Keys.additions ~~> self.additions,
+            Keys.addings ~~> self.addings,
             Keys.subdishes ~~> self.subdishes,
 
             Keys.price ~~> self.price,

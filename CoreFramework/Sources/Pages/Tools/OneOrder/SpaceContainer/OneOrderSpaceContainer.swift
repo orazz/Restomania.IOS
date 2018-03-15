@@ -12,16 +12,16 @@ import MdsKit
 
 public class OneOrderSpaceContainer: UITableViewCell {
 
-    private static var nibName = "\(String.tag(OneOrderSpaceContainer.self))View"
     public static func create() -> OneOrderSpaceContainer {
-        return UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
+        return UINib.instantiate(from: String.tag(OneOrderSpaceContainer.self), bundle: Bundle.coreFramework)
     }
+
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        let colors = DependencyResolver.resolve(ThemeColors.self)
-        backgroundColor = colors.contentBackground
+        backgroundColor = themeColors.contentDivider
     }
 }
 extension OneOrderSpaceContainer: OneOrderInterfacePart {

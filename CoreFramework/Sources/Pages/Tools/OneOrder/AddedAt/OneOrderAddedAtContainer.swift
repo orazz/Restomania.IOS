@@ -1,5 +1,5 @@
 //
-//  OneOrderFooterContainer.swift
+//  OneOrderAddedAtContainer.swift
 //  RestomaniaAppKuzina
 //
 //  Created by Алексей on 13.01.18.
@@ -10,11 +10,10 @@ import Foundation
 import UIKit
 import MdsKit
 
-public class OneOrderFooterContainer: UITableViewCell {
+public class OneOrderAddedAtContainer: UITableViewCell {
 
-    private static var nibName = "\(String.tag(OneOrderFooterContainer.self))View"
-    public static var instance: OneOrderFooterContainer {
-        return UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
+    public static var instance: OneOrderAddedAtContainer {
+        return UINib.instantiate(from: String.tag(OneOrderAddedAtContainer.self), bundle: Bundle.coreFramework)
     }
 
     //UI
@@ -27,14 +26,14 @@ public class OneOrderFooterContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = themeColors.contentBackground
+        backgroundColor = themeColors.contentDivider
 
         createAtLabel.text = String.empty
-        createAtLabel.textColor = themeColors.contentBackgroundText
-        createAtLabel.font = themeFonts.default(size: .subhead)
+        createAtLabel.textColor = themeColors.contentDividerText
+        createAtLabel.font = themeFonts.default(size: .caption)
     }
 }
-extension OneOrderFooterContainer: OneOrderInterfacePart {
+extension OneOrderAddedAtContainer: OneOrderInterfacePart {
     public func update(by update: DishOrder) {
 
         let format = OneOrderController.Keys.createAtLabel.localized
@@ -50,7 +49,7 @@ extension OneOrderFooterContainer: OneOrderInterfacePart {
         return result
     }
 }
-extension OneOrderFooterContainer: InterfaceTableCellProtocol {
+extension OneOrderAddedAtContainer: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
         return 25

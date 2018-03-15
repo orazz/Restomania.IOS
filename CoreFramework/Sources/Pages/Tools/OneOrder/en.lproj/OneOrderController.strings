@@ -18,6 +18,7 @@
 
 "Labels.Total" = "Total";
 "Labels.CreateAt" = "added at %@ of %@";
+"Labels.Comment" = "Comment: %@";
 
 "Formats.Time" = "HH:mm";
 "Formats.Date" = "dd/MM/yyyy";

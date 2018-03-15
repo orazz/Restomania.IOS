@@ -18,6 +18,7 @@
 
 "Labels.Total" = "Итог";
 "Labels.CreateAt" = "добавлен в %@ %@";
+"Labels.Comment" = "Комментарий: %@";
 
 "Formats.Time" = "HH:mm";
 "Formats.Date" = "dd/MM/yyyy";

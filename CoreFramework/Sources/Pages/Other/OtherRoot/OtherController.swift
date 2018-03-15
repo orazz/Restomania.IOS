@@ -71,7 +71,7 @@ public class OtherController: UIViewController {
         present(ManagerPaymentCardsController())
     }
     @IBAction public func goToOrders() {
-        present(ManagerOrdersController())
+        present(OrdersController())
     }
     @IBAction public func goToTerms() {
         present(TermsController(), needAuth: false)

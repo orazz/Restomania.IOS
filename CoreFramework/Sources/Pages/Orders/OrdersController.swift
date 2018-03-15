@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MdsKit
 
-public class ManagerOrdersController: UIViewController {
+public class OrdersController: UIViewController {
 
     // MARK: UI Elements
     @IBOutlet private weak var ordersTable: UITableView!
@@ -18,20 +18,21 @@ public class ManagerOrdersController: UIViewController {
     private var refreshControl: RefreshControl!
 
     // MARK: Tools
-    private let _tag = String.tag(ManagerOrdersController.self)
+    private let _tag = String.tag(OrdersController.self)
     private let guid = Guid.new
     private var loadQueue: AsyncQueue!
 
     // MARK: Loaders
     private let ordersService = DependencyResolver.resolve(OrdersCacheService.self)
+    private let apiKeysService = DependencyResolver.resolve(ApiKeyService.self)
+    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
     private var ordersContainer: PartsLoadTypedContainer<[DishOrder]>!
     private var orders = [DishOrder]()
     private var loaderAdapter: PartsLoader!
-    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
 
     // MARK: Life circle
     public init() {
-        super.init(nibName: "ManagerOrdersControllerView", bundle: Bundle.coreFramework)
+        super.init(nibName: String.tag(OrdersController.self), bundle: Bundle.coreFramework)
 
         loadQueue = AsyncQueue.createForControllerLoad(for: tag)
 
@@ -41,25 +42,26 @@ public class ManagerOrdersController: UIViewController {
     public convenience required init?(coder aDecoder: NSCoder) {
         self.init()
     }
+    public override func loadView() {
+        super.loadView()
+
+        loadMarkup()
+    }
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadMarkup()
         loadData()
+
+        ordersService.subscribe(guid: guid, handler: self, tag: _tag)
+        apiKeysService.subscribe(guid: guid, handler: self, tag: _tag)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.title = Keys.title.localized
 
         displayCachedOrders()
-        ordersService.subscribe(guid: guid, handler: self, tag: tag)
-    }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        ordersService.unsubscribe(guid: guid)
     }
 
     // MARK: Process methods
@@ -70,12 +72,12 @@ public class ManagerOrdersController: UIViewController {
 
         ordersTable.dataSource = self
         ordersTable.delegate = self
-        ManagerOrdersControllerOrderCell.register(in: ordersTable)
+        OrdersControllerOrderCell.register(in: ordersTable)
     }
     private func loadData() {
         displayCachedOrders()
 
-        if (loaderAdapter.noData) {
+        if (orders.isEmpty) {
             interfaceLoader.show()
         }
 
@@ -86,6 +88,12 @@ public class ManagerOrdersController: UIViewController {
         requestOrders()
     }
     private func requestOrders() {
+
+        if (!apiKeysService.isAuth) {
+            interfaceLoader.hide()
+            refreshControl.endRefreshing()
+            return
+        }
 
         let request = ordersService.all(chainId: configs.chainId, placeId: configs.placeId)
         request.async(loadQueue, completion: ordersContainer.completeLoad)
@@ -121,12 +129,12 @@ public class ManagerOrdersController: UIViewController {
     }
 }
 // MARK: Orders delegate
-extension ManagerOrdersController: OrdersCacheServiceDelegate {
+extension OrdersController: OrdersCacheServiceDelegate {
     public func update(_ orderId: Long, update: DishOrder) {
         displayCachedOrders()
 
         for cell in ordersTable.visibleCells {
-            if let cell = cell as? ManagerOrdersControllerOrderCell {
+            if let cell = cell as? OrdersControllerOrderCell {
                 if (cell.orderId == orderId) {
                     cell.update(by: update)
                     break
@@ -138,24 +146,29 @@ extension ManagerOrdersController: OrdersCacheServiceDelegate {
         displayCachedOrders()
     }
     private func displayCachedOrders() {
+
+        if (!apiKeysService.isAuth) {
+            return
+        }
+
         let orders = ordersService.cache.all
         self.ordersContainer.update(orders)
     }
 }
 // MARK: Table
-extension ManagerOrdersController: UITableViewDelegate {
+extension OrdersController: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let cell = tableView.cellForRow(at: indexPath) as! ManagerOrdersControllerOrderCell
+        let cell = tableView.cellForRow(at: indexPath) as! OrdersControllerOrderCell
         let orderId = cell.orderId
 
         goToOrder(id: orderId)
     }
 }
-extension ManagerOrdersController: UITableViewDataSource {
+extension OrdersController: UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -165,18 +178,28 @@ extension ManagerOrdersController: UITableViewDataSource {
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerOrdersControllerOrderCell.identifier, for: indexPath) as! ManagerOrdersControllerOrderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: OrdersControllerOrderCell.identifier, for: indexPath) as! OrdersControllerOrderCell
         cell.update(by: orders[indexPath.row])
 
         return cell
     }
 }
+
+//Api keys
+extension OrdersController: ApiKeyServiceDelegate {
+    public func apiKeyService(_ service: ApiKeyService, logout role: ApiRole) {
+
+        orders.removeAll()
+        ordersTable.reloadData()
+    }
+}
+
 //Localization
-extension ManagerOrdersController {
+extension OrdersController {
     public enum Keys: String, Localizable {
 
         public var tableName: String {
-            return String.tag(ManagerOrdersController.self)
+            return String.tag(OrdersController.self)
         }
         public var bundle: Bundle {
             return Bundle.coreFramework

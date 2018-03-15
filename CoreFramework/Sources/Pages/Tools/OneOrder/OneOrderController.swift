@@ -43,7 +43,7 @@ public class OneOrderController: UIViewController {
         orderContainer.update(order)
     }
     public init(for orderId: Long) {
-        super.init(nibName: "\(String.tag(OneOrderController.self))View", bundle: Bundle.coreFramework)
+        super.init(nibName: String.tag(OneOrderController.self), bundle: Bundle.coreFramework)
 
         self.orderId = orderId
 
@@ -56,22 +56,35 @@ public class OneOrderController: UIViewController {
         self.init(for: -1)
     }
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
+    public override func loadView() {
+        super.loadView()
+
+
+        view.backgroundColor = themeColors.contentDivider
+
+        interfaceLoader = InterfaceLoader(for: self.view)
+        interfaceTable.backgroundColor = themeColors.contentDivider
+
+        refreshControl = interfaceTable.addRefreshControl(for: self, action: #selector(needReload))
+        refreshControl.backgroundColor = themeColors.contentDivider
+        refreshControl.tintColor = themeColors.contentDividerText
+
+        cancelButton.setTitle(Keys.cancelOrderButton.localized, for: .normal)
 
         interfaceParts = loadParts()
         interfaceAdapter = InterfaceTable(source: interfaceTable, navigator: self.navigationController!, rows: interfaceParts)
+    }
+    override public func viewDidLoad() {
+        super.viewDidLoad()
 
-        interfaceLoader = InterfaceLoader(for: self.view)
-        refreshControl = interfaceTable.addRefreshControl(for: self, action: #selector(needReload))
-
-        loadMarkup()
         loadData()
     }
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationItem.title = String(format: Keys.title.localized, orderId!)
+
         self.ordersService.subscribe(guid: guid, handler: self, tag: tag)
     }
     override public func viewWillDisappear(_ animated: Bool) {
@@ -82,14 +95,6 @@ public class OneOrderController: UIViewController {
 }
 //Load
 extension OneOrderController {
-    private func loadMarkup() {
-
-        self.navigationItem.title = String(format: Keys.title.localized, orderId!)
-        self.view.backgroundColor = themeColors.contentBackground
-        self.interfaceTable.backgroundColor = themeColors.contentBackground
-
-        cancelButton.setTitle(Keys.cancelOrderButton.localized, for: .normal)
-    }
     private func loadParts() -> [OneOrderInterfacePart] {
 
         var result = [OneOrderInterfacePart]()
@@ -99,13 +104,13 @@ extension OneOrderController {
 
         result.append(OneOrderSpaceContainer.create())
         result.append(OneOrderDishesContainer.instance)
-
-        result.append(OneOrderSpaceContainer.create())
         result.append(OneOrderTotalContainer.instance)
 
-        result.append(OneOrderSpaceContainer.create())
-        result.append(OneOrderFooterContainer.instance)
+        result.append(OneOrderAddedAtContainer.instance)
 
+        result.append(OneOrderSpaceContainer.create())
+        result.append(OneOrderCommentContainer.instance)
+        
         result.append(OneOrderSpaceContainer.create())
 
         return result
@@ -205,6 +210,9 @@ extension OneOrderController {
         public var tableName: String {
             return String.tag(OneOrderController.self)
         }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
 
         case title = "Title"
 
@@ -218,6 +226,8 @@ extension OneOrderController {
 
         case totalLabel = "Labels.Total"
         case createAtLabel = "Labels.CreateAt"
+
+        case commentLabel = "Labels.Comment"
 
         case timeFormat = "Formats.Time"
         case dateFormat = "Formats.Date"

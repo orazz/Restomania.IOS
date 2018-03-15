@@ -9,6 +9,6 @@
 "Title" = "Orders";
 
 "Formats.Id" = "#%d";
-"Formats.DateAndTime" = "HH:mm\ndd/MM";
+"Formats.DateAndTime" = "HH:mm dd/MM";
 
 "Errors.Load" = "Problem with load orders. Check your internet connection.";

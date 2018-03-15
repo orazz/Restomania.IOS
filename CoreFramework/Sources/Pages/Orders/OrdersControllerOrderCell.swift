@@ -1,5 +1,5 @@
 //
-//  OrderCell.swift
+//  OrdersControllerOrderCell.swift
 //  Kuzina
 //
 //  Created by Алексей on 11.09.17.
@@ -10,14 +10,12 @@ import Foundation
 import UIKit
 import MdsKit
 
-public class ManagerOrdersControllerOrderCell: UITableViewCell {
+public class OrdersControllerOrderCell: UITableViewCell {
 
-    public static let identifier = "OrderCell-\(Guid.new)"
-    public static let height: CGFloat = 70
-    private static let nibName = "ManagerOrdersControllerOrderCellView"
+    public static let identifier = Guid.new
     public static func register(in tableView: UITableView) {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
+        let nib = UINib(nibName: String.tag(OrdersControllerOrderCell.self), bundle: Bundle.coreFramework)
         tableView.register(nib, forCellReuseIdentifier: identifier)
     }
 
@@ -27,6 +25,7 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
     @IBOutlet private weak var PlaceNameLabel: UILabel!
     @IBOutlet private weak var PriceLabel: PriceLabel!
 
+    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
     private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
 
     //Data
@@ -40,18 +39,32 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        let font = themeFonts.default(size: .subhead)
+        backgroundColor = themeColors.contentBackground
 
-        IdLabel.font = font
+        let font = themeFonts.default(size: .subhead)
+        let color = themeColors.contentBackgroundText
+
+        IdLabel.font = themeFonts.bold(size: .head)
+        IdLabel.textColor = color
+
         DateLabel.font = font
-        PlaceNameLabel.font = font
-        PriceLabel.font = font
+        DateLabel.textColor = color
+
+        PlaceNameLabel.font = themeFonts.default(size: .caption)
+        PlaceNameLabel.textColor = color
+
+        PriceLabel.font = themeFonts.bold(size: .subhead)
+        PriceLabel.textColor = color
     }
     public func update(by order: DishOrder) {
 
         self.order = order
 
-        IdLabel.text = String(format: ManagerOrdersController.Keys.idFormat.localized, orderId)
+        let idValue = String(format: OrdersController.Keys.idFormat.localized, orderId)
+        IdLabel.text = idValue
+        IdLabel.setContraint(width: idValue.width(containerHeight: IdLabel.frame.height, font: IdLabel.font!))
+
+
         DateLabel.text = formatter.string(from: order.summary.completeAt)
         PlaceNameLabel.text = order.summary.placeName
         PriceLabel.setup(amount: order.total.double, currency: order.currency)
@@ -66,7 +79,7 @@ public class ManagerOrdersControllerOrderCell: UITableViewCell {
 
         let result = DateFormatter()
 
-        result.dateFormat = ManagerOrdersController.Keys.dateAndTimeFormat.localized
+        result.dateFormat = OrdersController.Keys.dateAndTimeFormat.localized
         result.timeZone = TimeZone.utc
 
         return result

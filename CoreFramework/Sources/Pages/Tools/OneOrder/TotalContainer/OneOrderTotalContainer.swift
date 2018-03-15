@@ -12,12 +12,8 @@ import MdsKit
 
 public class OneOrderTotalContainer: UITableViewCell {
 
-    private static var nibName = "\(String.tag(OneOrderTotalContainer.self))View"
     public static var instance: OneOrderTotalContainer {
-
-        let cell: OneOrderTotalContainer = UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
-
-        return cell
+        return UINib.instantiate(from: String.tag(OneOrderTotalContainer.self), bundle: Bundle.coreFramework)
     }
 
     //UI
@@ -36,7 +32,7 @@ public class OneOrderTotalContainer: UITableViewCell {
         totalTitleLabel.textColor = themeColors.contentBackgroundText
 
         totalValueLabel.text = String.empty
-        totalValueLabel.font = themeFonts.bold(size: .head)
+        totalValueLabel.font = themeFonts.bold(size: .title)
         totalValueLabel.textColor = themeColors.contentBackgroundText
 
         backgroundColor = themeColors.contentBackground

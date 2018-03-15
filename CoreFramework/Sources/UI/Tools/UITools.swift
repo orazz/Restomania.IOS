@@ -39,6 +39,8 @@ open class UITools {
 
         stylizeToasts(colors, fonts)
         stylizeBanner(colors, fonts)
+
+        registerFonts()
     }
     private static func stylizeToasts(_ colors: ThemeColors, _ fonts: ThemeFonts) {
 
@@ -62,6 +64,21 @@ open class UITools {
 
         banner.tintColor = colors.notificationContent
         banner.backgroundColor = colors.notificationMain
+    }
+    private static func registerFonts() {
+
+        let bundle = Bundle.coreFramework
+
+        let fonts = [
+            bundle.url(forResource: "FontAwesome", withExtension: "ttf")
+            ]
+
+        for url in fonts.flatMap({ $0 }) {
+            if let dataProvider = CGDataProvider(url: url as CFURL),
+                let font = CGFont(dataProvider) {
+                CTFontManagerRegisterGraphicsFont(font, nil)
+            }
+        }
     }
 }
 

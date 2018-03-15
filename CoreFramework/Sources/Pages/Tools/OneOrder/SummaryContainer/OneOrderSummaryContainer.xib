@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="buQ-K6-JIy" customClass="OneOrderSummaryContainer" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
+        <view contentMode="scaleToFill" id="buQ-K6-JIy" customClass="OneOrderSummaryContainer" customModule="CoreFramework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="на 08:00 25/07/2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmS-TF-dx8">
@@ -22,38 +22,26 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="кодовое слово: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDk-al-qAW">
-                    <rect key="frame" x="10" y="36" width="127" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шоколад" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jO2-oH-CIy">
-                    <rect key="frame" x="147" y="36" width="78" height="21"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="в" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiN-hx-pxg">
-                    <rect key="frame" x="10" y="67" width="9" height="21"/>
+                    <rect key="frame" x="10" y="36" width="9" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Кузина Красный проспект 77б" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="8Bq-ax-FUA">
-                    <rect key="frame" x="29" y="67" width="261" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Кузина Красный проспект 77б" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="8Bq-ax-FUA">
+                    <rect key="frame" x="29" y="36" width="261" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="статус" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7Y-4S-liq">
-                    <rect key="frame" x="10" y="98" width="53" height="21"/>
+                    <rect key="frame" x="10" y="67" width="53" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В обработке" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hit-wS-ejJ">
-                    <rect key="frame" x="73" y="98" width="106" height="21"/>
+                    <rect key="frame" x="73" y="67" width="106" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -63,34 +51,29 @@
             <constraints>
                 <constraint firstItem="T7Y-4S-liq" firstAttribute="top" secondItem="TiN-hx-pxg" secondAttribute="bottom" constant="10" id="3pi-3H-vpb"/>
                 <constraint firstItem="Hit-wS-ejJ" firstAttribute="leading" secondItem="T7Y-4S-liq" secondAttribute="trailing" constant="10" id="41f-Gb-l0I"/>
-                <constraint firstItem="jO2-oH-CIy" firstAttribute="leading" secondItem="oDk-al-qAW" secondAttribute="trailing" constant="10" id="ACa-q5-iGw"/>
-                <constraint firstItem="jO2-oH-CIy" firstAttribute="top" secondItem="lmS-TF-dx8" secondAttribute="bottom" constant="10" id="BZa-Kb-QUu"/>
                 <constraint firstItem="Hit-wS-ejJ" firstAttribute="top" secondItem="8Bq-ax-FUA" secondAttribute="bottom" constant="10" id="Gf7-fs-cTS"/>
                 <constraint firstItem="8Bq-ax-FUA" firstAttribute="leading" secondItem="TiN-hx-pxg" secondAttribute="trailing" constant="10" id="KgL-h2-6zv"/>
                 <constraint firstItem="sgV-Tc-wVf" firstAttribute="trailing" secondItem="lmS-TF-dx8" secondAttribute="trailing" constant="5" id="MDV-q1-c5i"/>
-                <constraint firstItem="8Bq-ax-FUA" firstAttribute="top" secondItem="oDk-al-qAW" secondAttribute="bottom" constant="10" id="Vqc-Ec-63g"/>
+                <constraint firstItem="8Bq-ax-FUA" firstAttribute="top" secondItem="lmS-TF-dx8" secondAttribute="bottom" constant="10" id="SLc-uB-oUl"/>
                 <constraint firstItem="T7Y-4S-liq" firstAttribute="leading" secondItem="sgV-Tc-wVf" secondAttribute="leading" constant="10" id="YA0-gS-dNm"/>
                 <constraint firstItem="lmS-TF-dx8" firstAttribute="top" secondItem="sgV-Tc-wVf" secondAttribute="top" constant="5" id="bsY-2Q-yc2"/>
-                <constraint firstItem="oDk-al-qAW" firstAttribute="leading" secondItem="sgV-Tc-wVf" secondAttribute="leading" constant="10" id="e88-RV-NMK"/>
-                <constraint firstItem="oDk-al-qAW" firstAttribute="top" secondItem="lmS-TF-dx8" secondAttribute="bottom" constant="10" id="j77-k7-CFG"/>
+                <constraint firstItem="sgV-Tc-wVf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Bq-ax-FUA" secondAttribute="trailing" constant="3" id="gyk-M1-GaT"/>
                 <constraint firstItem="TiN-hx-pxg" firstAttribute="leading" secondItem="buQ-K6-JIy" secondAttribute="leading" constant="10" id="oaD-Pn-uc8"/>
                 <constraint firstItem="lmS-TF-dx8" firstAttribute="leading" secondItem="sgV-Tc-wVf" secondAttribute="leading" constant="5" id="oyn-WO-1cd"/>
-                <constraint firstItem="TiN-hx-pxg" firstAttribute="top" secondItem="oDk-al-qAW" secondAttribute="bottom" constant="10" id="rdI-io-CZh"/>
+                <constraint firstItem="TiN-hx-pxg" firstAttribute="top" secondItem="lmS-TF-dx8" secondAttribute="bottom" constant="10" id="q5l-ZF-QRF"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="sgV-Tc-wVf"/>
             <connections>
-                <outlet property="codewordTitleLabel" destination="oDk-al-qAW" id="GQ2-6A-OzX"/>
-                <outlet property="codewordValueLabel" destination="jO2-oH-CIy" id="Wxi-Ps-dug"/>
                 <outlet property="completeAtLabel" destination="lmS-TF-dx8" id="R2M-gY-edT"/>
                 <outlet property="placeNameTitleLabel" destination="TiN-hx-pxg" id="ciG-d7-3aV"/>
                 <outlet property="placeNameValueLabel" destination="8Bq-ax-FUA" id="YNS-YV-YfF"/>
                 <outlet property="statusTitleLabel" destination="T7Y-4S-liq" id="tFN-Nc-yAn"/>
                 <outlet property="statusValueLabel" destination="Hit-wS-ejJ" id="Mpu-z0-x5e"/>
             </connections>
-            <point key="canvasLocation" x="31.5" y="258.5"/>
+            <point key="canvasLocation" x="31.5" y="237"/>
         </view>
     </objects>
 </document>

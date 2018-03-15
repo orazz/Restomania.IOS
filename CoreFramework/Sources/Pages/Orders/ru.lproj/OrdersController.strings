@@ -9,6 +9,6 @@
 "Title" = "Заказы";
 
 "Formats.Id" = "#%d";
-"Formats.DateAndTime" = "HH:mm\ndd/MM";
+"Formats.DateAndTime" = "HH:mm dd/MM";
 
 "Errors.Load" = "Проблемы с загрузкой заказов. Проверьте подключение к интернету.";

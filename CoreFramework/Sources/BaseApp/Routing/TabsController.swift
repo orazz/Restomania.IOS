@@ -33,14 +33,15 @@ public class TabsController: UITabBarController {
         search.tabBarItem = buildTabItem(icon: themeImages.tabSearch)
         tabs[.search] = search
 
+        let orders = OrdersController()
+        orders.tabBarItem = buildTabItem(icon: themeImages.tabOrders)
+        tabs[.orders] = orders
+
         let other = OtherController()
         other.tabBarItem = buildTabItem(icon: themeImages.tabsOther)
         tabs[.other] = other
 
-        self.viewControllers = [
-            search,
-            other
-        ]
+        self.viewControllers = tabs.map({ $0.value })
 
         tabBar.tintColor = themeColors.actionMain
         tabBar.backgroundColor = themeColors.contentBackground

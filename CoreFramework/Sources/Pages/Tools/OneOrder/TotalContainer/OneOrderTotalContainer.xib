@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="2SR-q0-Qqm" customClass="OneOrderTotalContainer" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="2SR-q0-Qqm" customClass="OneOrderTotalContainer" customModule="CoreFramework" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -22,9 +22,9 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="220.22 P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xf-iu-GHg" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                    <rect key="frame" x="296" y="4" width="69" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="220.22 P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xf-iu-GHg" customClass="PriceLabel" customModule="CoreFramework" customModuleProvider="target">
+                    <rect key="frame" x="276.5" y="5" width="88.5" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -34,7 +34,8 @@
                 <constraint firstItem="cPR-a7-CQN" firstAttribute="leading" secondItem="2SR-q0-Qqm" secondAttribute="leading" constant="10" id="3bg-2d-gze"/>
                 <constraint firstItem="cPR-a7-CQN" firstAttribute="centerY" secondItem="2SR-q0-Qqm" secondAttribute="centerY" id="LrE-gk-I4b"/>
                 <constraint firstItem="qT7-Rn-A74" firstAttribute="trailing" secondItem="2xf-iu-GHg" secondAttribute="trailing" constant="10" id="RPb-09-I0k"/>
-                <constraint firstItem="2xf-iu-GHg" firstAttribute="centerY" secondItem="2SR-q0-Qqm" secondAttribute="centerY" id="rKi-Km-GOn"/>
+                <constraint firstItem="2xf-iu-GHg" firstAttribute="top" secondItem="qT7-Rn-A74" secondAttribute="top" constant="5" id="d8r-L3-uig"/>
+                <constraint firstItem="qT7-Rn-A74" firstAttribute="bottom" secondItem="2xf-iu-GHg" secondAttribute="bottom" constant="5" id="ylC-1C-ThE"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

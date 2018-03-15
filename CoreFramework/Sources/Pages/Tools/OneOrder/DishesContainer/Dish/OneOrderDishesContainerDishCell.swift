@@ -12,12 +12,10 @@ import MdsKit
 
 public class OneOrderDishesContainerDishCell: UITableViewCell {
 
-    public static let identifier = "OrderedDishCell-\(Guid.new)"
-    public static let height: CGFloat = 40
-    private static let nibname = "\(String.tag(OneOrderDishesContainerDishCell.self))View"
+    public static let identifier = Guid.new
     public static func register(for tableView: UITableView) {
 
-        let nib = UINib(nibName: nibname, bundle: Bundle.coreFramework)
+        let nib = UINib(nibName: String.tag(OneOrderDishesContainerDishCell.self), bundle: Bundle.coreFramework)
         tableView.register(nib, forCellReuseIdentifier: identifier)
     }
 
@@ -35,15 +33,15 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        let font =  themeFonts.default(size: .subhead)
+        backgroundColor = themeColors.contentBackground
 
-        nameAndCountLabel.font = font
+        nameAndCountLabel.font = themeFonts.default(size: .caption)
         nameAndCountLabel.textColor = themeColors.contentBackgroundText
 
-        costLabel.font = font
+        costLabel.font = themeFonts.default(size: .subhead)
         costLabel.textColor = themeColors.contentBackgroundText
     }
-    public func update(dish: DishOrderDish, currency: Currency) {
+    public func update(by dish: DishOrderDish, currency: Currency) {
 
         self.dish = dish
         self.currency = currency
