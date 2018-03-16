@@ -24,7 +24,6 @@
 		1F8923A02056EABD0086D372 /* CustomSearchPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89239F2056EABD0086D372 /* CustomSearchPlaceCard.swift */; };
 		1FED1762205725B600A80DA5 /* CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; };
 		1FED1763205725B600A80DA5 /* CoreFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B7B6A8994E39114B008B5779 /* Pods_CoreFramework_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77830906D9D3266A3A94E164 /* Pods_CoreFramework_Kuzina.framework */; };
 		FED96AF6017915D07BDA58CE /* Pods_ProjectRoot_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF43BFCCED1A31A101E26ED3 /* Pods_ProjectRoot_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +90,6 @@
 				1F89235B205681690086D372 /* MapKit.framework in Frameworks */,
 				1FED1762205725B600A80DA5 /* CoreFramework.framework in Frameworks */,
 				1BA7D3324445DC14FAF44B04 /* Pods_Kuzina.framework in Frameworks */,
-				B7B6A8994E39114B008B5779 /* Pods_CoreFramework_Kuzina.framework in Frameworks */,
 				FED96AF6017915D07BDA58CE /* Pods_ProjectRoot_Kuzina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

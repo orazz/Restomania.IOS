@@ -18,6 +18,7 @@ public class OneOrderController: UIViewController {
     //UI Elements
     @IBOutlet private weak var cancelButton: BottomAction!
     @IBOutlet private weak var interfaceTable: UITableView!
+    @IBOutlet private weak var bottomActionOffset: NSLayoutConstraint!
     private var interfaceAdapter: InterfaceTable!
     private var interfaceParts: [OneOrderInterfacePart] = []
     private var interfaceLoader: InterfaceLoader!
@@ -155,6 +156,7 @@ extension OneOrderController {
 
         DispatchQueue.main.async {
             self.cancelButton.isHidden = order.isCompleted
+            self.bottomActionOffset.constant = self.cancelButton.isHidden ? 0.0 : 50.0
 
             for part in self.interfaceParts {
                 part.update(by: order)
@@ -186,6 +188,10 @@ extension OneOrderController {
 
                     self.showToast(Keys.problemWithCancel)
                 }
+            }
+
+            if (response.isSuccess) {
+                NotificationsIgnore.Orders.cancel(orderId)
             }
         }
     }

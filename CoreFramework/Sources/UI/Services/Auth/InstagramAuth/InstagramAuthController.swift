@@ -96,8 +96,7 @@ extension InstagramAuthController: WebBrowserControllerDelegate {
                 return
             }
 
-            let keys = response.data!
-            self.handler.complete(success: true, keys: nil)
+            self.handler.complete(success: true, keys: response.data!)
         })
     }
     private func goBack() {

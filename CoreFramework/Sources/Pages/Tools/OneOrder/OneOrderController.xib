@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OneOrderController" customModule="CoreFramework" customModuleProvider="target">
             <connections>
+                <outlet property="bottomActionOffset" destination="0lc-lH-E49" id="SOl-GZ-ALv"/>
                 <outlet property="cancelButton" destination="XbW-9M-ZMl" id="APM-dO-9eW"/>
                 <outlet property="interfaceTable" destination="yKL-hq-eDg" id="86F-H3-kuZ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uGM-GW-nMe"/>
