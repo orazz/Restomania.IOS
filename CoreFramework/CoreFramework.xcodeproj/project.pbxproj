@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F06A7CE205570FD00FEB1B5 /* ProblemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A5F4205570FC00FEB1B5 /* ProblemAlert.swift */; };
+		1F06A7CE205570FD00FEB1B5 /* ProblemAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A5F4205570FC00FEB1B5 /* ProblemAlerts.swift */; };
 		1F06A7CF205570FD00FEB1B5 /* BannerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A5F6205570FC00FEB1B5 /* BannerAlert.swift */; };
 		1F06A7D0205570FD00FEB1B5 /* BottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A5F8205570FC00FEB1B5 /* BottomActions.swift */; };
 		1F06A7D1205570FD00FEB1B5 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A5FA205570FC00FEB1B5 /* BaseButton.swift */; };
@@ -301,12 +301,13 @@
 		1F06A90F20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */; };
 		1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */; };
 		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
+		1F592CA1205C17F20082DF37 /* NotificationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F592CA0205C17F20082DF37 /* NotificationSection.swift */; };
 		1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923442055C50E0086D372 /* EmailEnterAuthController.strings */; };
 		1F8923482055D2B00086D372 /* ResetPasswordAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89234A2055D2B00086D372 /* ResetPasswordAuthController.strings */; };
 		1F89234D2056451A0086D372 /* OrderPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234C2056451A0086D372 /* OrderPushModel.swift */; };
 		1F89234F205649170086D372 /* NotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234E205649170086D372 /* NotificationContainer.swift */; };
 		1F89235220565FD90086D372 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89235120565FD90086D372 /* DeviceService.swift */; };
-		1F892356205679D70086D372 /* ProblemAlert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F892358205679D70086D372 /* ProblemAlert.strings */; };
+		1F892356205679D70086D372 /* ProblemAlerts.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F892358205679D70086D372 /* ProblemAlerts.strings */; };
 		1F89235F205681E90086D372 /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89235E205681E90086D372 /* PositionsService.swift */; };
 		1F892361205682700086D372 /* PositionServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F892360205682700086D372 /* PositionServiceDelegate.swift */; };
 		1F89236420568A6C0086D372 /* ScheduleDisplay.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89236620568A6C0086D372 /* ScheduleDisplay.strings */; };
@@ -337,7 +338,7 @@
 		1F06A5DD20556D2B00FEB1B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F06A5E820556E6800FEB1B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1F06A5EA20556E7100FEB1B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1F06A5F4205570FC00FEB1B5 /* ProblemAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemAlert.swift; sourceTree = "<group>"; };
+		1F06A5F4205570FC00FEB1B5 /* ProblemAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemAlerts.swift; sourceTree = "<group>"; };
 		1F06A5F6205570FC00FEB1B5 /* BannerAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAlert.swift; sourceTree = "<group>"; };
 		1F06A5F8205570FC00FEB1B5 /* BottomActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomActions.swift; sourceTree = "<group>"; };
 		1F06A5FA205570FC00FEB1B5 /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
@@ -649,6 +650,7 @@
 		1F06A91320559C9400FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		1F06A91520559C9500FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
+		1F592CA0205C17F20082DF37 /* NotificationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSection.swift; sourceTree = "<group>"; };
 		1F8923432055C50E0086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmailEnterAuthController.strings; sourceTree = "<group>"; };
 		1F8923452055C5100086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EmailEnterAuthController.strings; sourceTree = "<group>"; };
 		1F8923492055D2B00086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ResetPasswordAuthController.strings; sourceTree = "<group>"; };
@@ -656,8 +658,8 @@
 		1F89234C2056451A0086D372 /* OrderPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPushModel.swift; sourceTree = "<group>"; };
 		1F89234E205649170086D372 /* NotificationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationContainer.swift; sourceTree = "<group>"; };
 		1F89235120565FD90086D372 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
-		1F892357205679D70086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProblemAlert.strings; sourceTree = "<group>"; };
-		1F892359205679D90086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProblemAlert.strings; sourceTree = "<group>"; };
+		1F892357205679D70086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProblemAlerts.strings; sourceTree = "<group>"; };
+		1F892359205679D90086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProblemAlerts.strings; sourceTree = "<group>"; };
 		1F89235C205681880086D372 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1F89235E205681E90086D372 /* PositionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsService.swift; sourceTree = "<group>"; };
 		1F892360205682700086D372 /* PositionServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionServiceDelegate.swift; sourceTree = "<group>"; };
@@ -783,8 +785,8 @@
 		1F06A5F3205570FC00FEB1B5 /* ProblemAlert */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A5F4205570FC00FEB1B5 /* ProblemAlert.swift */,
-				1F892358205679D70086D372 /* ProblemAlert.strings */,
+				1F06A5F4205570FC00FEB1B5 /* ProblemAlerts.swift */,
+				1F892358205679D70086D372 /* ProblemAlerts.strings */,
 			);
 			path = ProblemAlert;
 			sourceTree = "<group>";
@@ -1528,6 +1530,7 @@
 			children = (
 				1F06A707205570FD00FEB1B5 /* OtherNotificationController.swift */,
 				1FDBA137205BBE5E000F1378 /* OtherNotificationController.strings */,
+				1F592C9F205C15CB0082DF37 /* Models */,
 				1FDBA129205BA4B7000F1378 /* Title */,
 				1FDBA12A205BA4C5000F1378 /* Preference */,
 			);
@@ -2037,6 +2040,14 @@
 			path = CheckPhoneCode;
 			sourceTree = "<group>";
 		};
+		1F592C9F205C15CB0082DF37 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F592CA0205C17F20082DF37 /* NotificationSection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1F89233F2055C3F80086D372 /* EmailEnter */ = {
 			isa = PBXGroup;
 			children = (
@@ -2308,7 +2319,7 @@
 				1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib in Resources */,
 				1FDBA132205BA6CF000F1378 /* OtherNotificationControllerPreference.xib in Resources */,
 				1F06A8CC205570FD00FEB1B5 /* DishModalTryAddingActionView.xib in Resources */,
-				1F892356205679D70086D372 /* ProblemAlert.strings in Resources */,
+				1F892356205679D70086D372 /* ProblemAlerts.strings in Resources */,
 				1F06A8D5205570FD00FEB1B5 /* PlaceMenuCategoryCellView.xib in Resources */,
 				1F06A892205570FD00FEB1B5 /* OtherPaymentCardsController.xib in Resources */,
 				1F06A89E205570FD00FEB1B5 /* PlaceCartDishesContainerView.xib in Resources */,
@@ -2495,7 +2506,7 @@
 				1F06A819205570FD00FEB1B5 /* UserAuthApiService.swift in Sources */,
 				1F89235F205681E90086D372 /* PositionsService.swift in Sources */,
 				1F06A823205570FD00FEB1B5 /* Adding.swift in Sources */,
-				1F06A7CE205570FD00FEB1B5 /* ProblemAlert.swift in Sources */,
+				1F06A7CE205570FD00FEB1B5 /* ProblemAlerts.swift in Sources */,
 				1F06A831205570FD00FEB1B5 /* DishOrder.swift in Sources */,
 				1F06A80F205570FD00FEB1B5 /* BaseApiService.swift in Sources */,
 				1F06A8A6205570FD00FEB1B5 /* PlaceCartController.swift in Sources */,
@@ -2595,6 +2606,7 @@
 				1F06A8BE205570FD00FEB1B5 /* DishModalSelectAddingsCell.swift in Sources */,
 				1F06A83D205570FD00FEB1B5 /* MenuSummary.swift in Sources */,
 				1F06A81E205570FD00FEB1B5 /* Device.swift in Sources */,
+				1F592CA1205C17F20082DF37 /* NotificationSection.swift in Sources */,
 				1F06A8DE205570FE00FEB1B5 /* PlaceMenuController.swift in Sources */,
 				1F06A86C205570FD00FEB1B5 /* DependencyResolver.swift in Sources */,
 				1F06A891205570FD00FEB1B5 /* OtherPaymentCardsController.swift in Sources */,
@@ -2812,13 +2824,13 @@
 			name = ResetPasswordAuthController.strings;
 			sourceTree = "<group>";
 		};
-		1F892358205679D70086D372 /* ProblemAlert.strings */ = {
+		1F892358205679D70086D372 /* ProblemAlerts.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1F892357205679D70086D372 /* en */,
 				1F892359205679D90086D372 /* ru */,
 			);
-			name = ProblemAlert.strings;
+			name = ProblemAlerts.strings;
 			sourceTree = "<group>";
 		};
 		1F89236620568A6C0086D372 /* ScheduleDisplay.strings */ = {

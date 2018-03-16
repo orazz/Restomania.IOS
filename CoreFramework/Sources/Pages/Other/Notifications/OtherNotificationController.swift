@@ -17,7 +17,7 @@ public class OtherNotificationController: UITableViewController {
 
     //UI
     private var loader: InterfaceLoader!
-    private var rows: [UITableViewCell] = []
+    private var rows: [NotificationSection] = []
     public override var preferredStatusBarStyle: UIStatusBarStyle {
         return themeColors.statusBarOnNavigation
     }
@@ -32,16 +32,16 @@ public class OtherNotificationController: UITableViewController {
     private let _tag = String.tag(OtherNotificationController.self)
     private let loadQueue: AsyncQueue
 
-    public var showBookingsPreferences: Bool = false
+    public var showBookingsPreferences: Bool = true
     public var showOrdersPreferences: Bool = true
-    public var showReviewsPreferences: Bool = false
+    public var showReviewsPreferences: Bool = true
     public var showPaymentsPreferences: Bool = true
 
 
     public init() {
         loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
 
-        super.init(style: .plain)
+        super.init(style: .grouped)
     }
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
@@ -56,8 +56,9 @@ public class OtherNotificationController: UITableViewController {
         tableView.backgroundColor = themeColors.contentDivider
         tableView.allowsSelection = false
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
-        OtherNotificationControllerTitle.register(in: tableView)
+        tableView.estimatedSectionHeaderHeight = 45
         OtherNotificationControllerPreference.register(in: tableView)
 
         loader = InterfaceLoader(for: tableView)
@@ -128,53 +129,34 @@ public class OtherNotificationController: UITableViewController {
     }
 }
 extension OtherNotificationController {
-    private func buildRows(for preferences: UserNotificationPreference) -> [UITableViewCell] {
+    private func buildRows(for preferences: UserNotificationPreference) -> [NotificationSection] {
 
-        var result = [UITableViewCell]()
-
+        var result = [NotificationSection]()
         let keys = UserNotificationPreference.Keys.self
 
         if (showBookingsPreferences) {
-            result.append(buildTitleRow(for: Localization.titleBookings))
-            result.append(buildPreferenceRow(for: Localization.preferencesBookingsAdd, value: preferences.bookingAdd, key: keys.bookingAdd))
-            result.append(buildPreferenceRow(for: Localization.preferencesBookingsChangeStatus, value: preferences.bookingChangeStatus, key: keys.bookingChangeStatus))
+            let section = NotificationSection.buildBookings(with: Localization.titleBookings, for: preferences, in: tableView, with: self)
+            result.append(section)
         }
 
         if (showOrdersPreferences) {
-            result.append(buildTitleRow(for: Localization.titleOrders))
-            result.append(buildPreferenceRow(for: Localization.preferencesOrdersAdd, value: preferences.ordersAdd, key: keys.dishOrderAdd))
-            result.append(buildPreferenceRow(for: Localization.preferencesOrdersChangeStatus, value: preferences.ordersChangeStatus, key: keys.dishOrderChangeStatus))
-            result.append(buildPreferenceRow(for: Localization.preferencesOrdersPaymentComplete, value: preferences.ordersPaymentComplete, key: keys.dishOrderPaymentComplete))
-            result.append(buildPreferenceRow(for: Localization.preferencesOrdersPaymentFail, value: preferences.ordersPaymentFail, key: keys.dishOrderPaymentFail))
-            result.append(buildPreferenceRow(for: Localization.preferencesOrdersIsPrepared, value: preferences.ordersIsPrepared, key: keys.dishOrderIsPrepared))
+            let section = NotificationSection.buildOrders(with: Localization.titleOrders, for: preferences, in: tableView, with: self)
+            result.append(section)
         }
 
         if (showReviewsPreferences) {
-            result.append(buildTitleRow(for: Localization.titleReviews))
-            result.append(buildPreferenceRow(for: Localization.preferencesReviewsAdd, value: preferences.reviewAdd, key: keys.reviewAdd))
-            result.append(buildPreferenceRow(for: Localization.preferencesReviewsChange, value: preferences.reviewChange, key: keys.reviewChange))
-            result.append(buildPreferenceRow(for: Localization.preferencesReviewsChangeStatus, value: preferences.reviewChangeStatus, key: keys.reviewChangeStatus))
+            let section = NotificationSection.buildReviews(with: Localization.titleReviews, for: preferences, in: tableView, with: self)
+            result.append(section)
         }
 
         if (showPaymentsPreferences) {
-            result.append(buildTitleRow(for: Localization.titlePayments))
-            result.append(buildPreferenceRow(for: Localization.preferencesPaymentsAddCard, value: preferences.paymentCardAdd, key: keys.paymentCardAdd))
+            let section = NotificationSection.buildPayments(with: Localization.titlePayments, for: preferences, in: tableView, with: self)
+            result.append(section)
         }
 
         return result
     }
-    private func buildTitleRow(for title: Localizable) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: OtherNotificationControllerTitle.identifier) as! OtherNotificationControllerTitle
-        cell.setup(title: title)
-
-        return cell
-    }
-    private func buildPreferenceRow(for title: Localizable, value: Bool, key: String) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: OtherNotificationControllerPreference.identifier) as! OtherNotificationControllerPreference
-        cell.setup(title: title, value: value, key: key, delegate: self)
-
-        return cell
-    }
+  
 }
 extension OtherNotificationController: OtherNotificationControllerDelegate {
     public func change(key: String, on value: Bool) -> Task<ApiResponse<Bool>> {
@@ -200,12 +182,19 @@ extension OtherNotificationController: OtherNotificationControllerDelegate {
         }
     }
 }
+
 extension OtherNotificationController {
-    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func numberOfSections(in tableView: UITableView) -> Int {
         return rows.count
     }
+    public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return rows[section].title
+    }
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rows[section].rows.count
+    }
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return rows[indexPath.row]
+        return rows[indexPath.section][indexPath.row]
     }
 }
 extension OtherNotificationController {

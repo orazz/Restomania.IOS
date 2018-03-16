@@ -30,7 +30,7 @@ public class OtherNotificationControllerPreference: UITableViewCell {
     private var title: Localizable? = nil
     private var value: Bool = false
     private var key: String = String.empty
-    private var delegate: OtherNotificationControllerDelegate? = nil
+    public var delegate: OtherNotificationControllerDelegate? = nil
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,12 +47,11 @@ public class OtherNotificationControllerPreference: UITableViewCell {
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(tap)
     }
-    open func setup(title: Localizable, value: Bool, key: String, delegate: OtherNotificationControllerDelegate) {
+    open func setup(title: Localizable, value: Bool, key: String) {
 
         self.title = title
         self.value = value
         self.key = key
-        self.delegate = delegate
 
         refresh()
     }

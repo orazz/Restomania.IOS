@@ -191,7 +191,7 @@ extension OneOrderController {
             }
 
             if (response.isSuccess) {
-                NotificationsIgnore.Orders.cancel(orderId)
+                NotificationsIgnore.Orders.cancel(self.orderId)
             }
         }
     }
