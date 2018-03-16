@@ -44,7 +44,7 @@ public class PlaceMenuSubcategoryHeader: UITableViewCell {
 
         backgroundColor = themeColors.contentBackground
 
-        titleLabel.textColor = themeColors.contentBackgroundText
+        titleLabel.textColor = themeColors.contentText
         titleLabel.font = themeFonts.bold(size: .head)
 
         title = String.empty

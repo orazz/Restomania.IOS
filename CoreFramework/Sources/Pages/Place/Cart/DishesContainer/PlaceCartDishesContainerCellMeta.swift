@@ -32,10 +32,10 @@ public class PlaceCartDishesContainerCellMeta: UITableViewCell {
         super.awakeFromNib()
 
         nameLabel.font = themeFonts.default(size: .subcaption)
-        nameLabel.textColor = themeColors.contentBackgroundText
+        nameLabel.textColor = themeColors.contentText
 
         priceLabel.font = themeFonts.default(size: .subcaption)
-        priceLabel.textColor = themeColors.contentBackgroundText
+        priceLabel.textColor = themeColors.contentText
     }
 
     public func setup(dish: Dish, with menu: MenuSummary) {

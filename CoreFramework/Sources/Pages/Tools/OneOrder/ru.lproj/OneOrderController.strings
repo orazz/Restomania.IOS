@@ -16,9 +16,10 @@
 "Labels.PlaceName" = "в";
 "Labels.Status" = "статус";
 
+"Labels.Dishes" = "Чек";
 "Labels.Total" = "Итог";
 "Labels.CreateAt" = "добавлен в %@ %@";
-"Labels.Comment" = "Комментарий: %@";
+"Labels.Comment" = "Комментарий";
 
 "Formats.Time" = "HH:mm";
 "Formats.Date" = "dd/MM/yyyy";

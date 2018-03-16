@@ -302,6 +302,8 @@
 		1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */; };
 		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
 		1F592CA1205C17F20082DF37 /* NotificationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F592CA0205C17F20082DF37 /* NotificationSection.swift */; };
+		1F592CA4205C2B9A0082DF37 /* OneOrderTitleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F592CA3205C2B9A0082DF37 /* OneOrderTitleSection.swift */; };
+		1F592CA6205C2BAC0082DF37 /* OneOrderTitleSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F592CA5205C2BAC0082DF37 /* OneOrderTitleSection.xib */; };
 		1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923442055C50E0086D372 /* EmailEnterAuthController.strings */; };
 		1F8923482055D2B00086D372 /* ResetPasswordAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89234A2055D2B00086D372 /* ResetPasswordAuthController.strings */; };
 		1F89234D2056451A0086D372 /* OrderPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234C2056451A0086D372 /* OrderPushModel.swift */; };
@@ -651,6 +653,8 @@
 		1F06A91520559C9500FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F592CA0205C17F20082DF37 /* NotificationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSection.swift; sourceTree = "<group>"; };
+		1F592CA3205C2B9A0082DF37 /* OneOrderTitleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderTitleSection.swift; sourceTree = "<group>"; };
+		1F592CA5205C2BAC0082DF37 /* OneOrderTitleSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneOrderTitleSection.xib; sourceTree = "<group>"; };
 		1F8923432055C50E0086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmailEnterAuthController.strings; sourceTree = "<group>"; };
 		1F8923452055C5100086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EmailEnterAuthController.strings; sourceTree = "<group>"; };
 		1F8923492055D2B00086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ResetPasswordAuthController.strings; sourceTree = "<group>"; };
@@ -1924,6 +1928,7 @@
 				1F06A7AD205570FD00FEB1B5 /* OneOrderController.xib */,
 				1F06A7A7205570FD00FEB1B5 /* OneOrderController.strings */,
 				1F06A7B2205570FD00FEB1B5 /* SummaryContainer */,
+				1F592CA2205C2B060082DF37 /* Title */,
 				1F06A7A2205570FD00FEB1B5 /* DishesContainer */,
 				1F06A7B5205570FD00FEB1B5 /* TotalContainer */,
 				1F06A7A9205570FD00FEB1B5 /* AddedAt */,
@@ -2046,6 +2051,15 @@
 				1F592CA0205C17F20082DF37 /* NotificationSection.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1F592CA2205C2B060082DF37 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				1F592CA3205C2B9A0082DF37 /* OneOrderTitleSection.swift */,
+				1F592CA5205C2BAC0082DF37 /* OneOrderTitleSection.xib */,
+			);
+			path = Title;
 			sourceTree = "<group>";
 		};
 		1F89233F2055C3F80086D372 /* EmailEnter */ = {
@@ -2352,6 +2366,7 @@
 				1F06A87C205570FD00FEB1B5 /* LoadingController.xib in Resources */,
 				1F06A90F20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib in Resources */,
 				1F06A8B5205570FD00FEB1B5 /* DishModalAddToCartActionView.xib in Resources */,
+				1F592CA6205C2BAC0082DF37 /* OneOrderTitleSection.xib in Resources */,
 				1F89237320568D780086D372 /* RefreshControl.strings in Resources */,
 				1F06A8FC205570FE00FEB1B5 /* Localizable.strings in Resources */,
 				1F06A8BC205570FD00FEB1B5 /* DishModalPriceAndSizeView.xib in Resources */,
@@ -2461,6 +2476,7 @@
 				1F06A86B205570FD00FEB1B5 /* StringApiRole.swift in Sources */,
 				1F06A84F205570FD00FEB1B5 /* Properties.swift in Sources */,
 				1F06A866205570FD00FEB1B5 /* ApiRole.swift in Sources */,
+				1F592CA4205C2B9A0082DF37 /* OneOrderTitleSection.swift in Sources */,
 				1F06A8BD205570FD00FEB1B5 /* DishModalSelectAddings.swift in Sources */,
 				1F06A863205570FD00FEB1B5 /* ApiKeys.swift in Sources */,
 				1F06A871205570FD00FEB1B5 /* Currency.swift in Sources */,

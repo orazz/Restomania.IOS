@@ -61,14 +61,14 @@ public class OneOrderController: UIViewController {
         super.loadView()
 
 
-        view.backgroundColor = themeColors.contentDivider
+        view.backgroundColor = themeColors.divider
 
         interfaceLoader = InterfaceLoader(for: self.view)
-        interfaceTable.backgroundColor = themeColors.contentDivider
+        interfaceTable.backgroundColor = themeColors.divider
 
         refreshControl = interfaceTable.addRefreshControl(for: self, action: #selector(needReload))
-        refreshControl.backgroundColor = themeColors.contentDivider
-        refreshControl.tintColor = themeColors.contentDividerText
+        refreshControl.backgroundColor = themeColors.divider
+        refreshControl.tintColor = themeColors.dividerText
 
         cancelButton.setTitle(Keys.cancelOrderButton.localized, for: .normal)
 
@@ -100,18 +100,17 @@ extension OneOrderController {
 
         var result = [OneOrderInterfacePart]()
 
-        result.append(OneOrderSpaceContainer.create())
         result.append(OneOrderSummaryContainer.create())
 
-        result.append(OneOrderSpaceContainer.create())
+        result.append(OneOrderTitleSection.create(title: Keys.dishesLabel))
         result.append(OneOrderDishesContainer.instance)
         result.append(OneOrderTotalContainer.instance)
 
-        result.append(OneOrderAddedAtContainer.instance)
+        let comment = OneOrderCommentContainer.instance
+        result.append(OneOrderTitleSection.create(title: Keys.commentLabel, about: comment))
+        result.append(comment)
 
-        result.append(OneOrderSpaceContainer.create())
-        result.append(OneOrderCommentContainer.instance)
-        
+        result.append(OneOrderAddedAtContainer.instance)
         result.append(OneOrderSpaceContainer.create())
 
         return result
@@ -232,10 +231,11 @@ extension OneOrderController {
         case placeNameTitleLabel = "Labels.PlaceName"
         case statusTitleLabel = "Labels.Status"
 
+        case dishesLabel = "Labels.Dishes"
         case totalLabel = "Labels.Total"
+        case commentLabel = "Labels.Comment"
         case createAtLabel = "Labels.CreateAt"
 
-        case commentLabel = "Labels.Comment"
 
         case timeFormat = "Formats.Time"
         case dateFormat = "Formats.Date"

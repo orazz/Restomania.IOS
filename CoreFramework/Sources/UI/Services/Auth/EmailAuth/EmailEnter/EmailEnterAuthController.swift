@@ -57,21 +57,21 @@ internal class EmailEnterAuthController: UIViewController {
 
         enterEmailLabel.text = Localization.labelsEnterEmail.localized
         enterEmailLabel.font = themeFonts.default(size: .title)
-        enterEmailLabel.textColor = themeColors.contentBackgroundText
+        enterEmailLabel.textColor = themeColors.contentText
 
         resetPasswordLabel.text = Localization.labelsResetPassword.localized
         resetPasswordLabel.font = themeFonts.default(size: .subhead)
-        resetPasswordLabel.textColor = themeColors.contentBackgroundText
+        resetPasswordLabel.textColor = themeColors.contentText
 
 
         emailField.placeholder = Localization.fieldsEmailPlaceholder.localized
         emailField.font = themeFonts.default(size: .head)
-        emailField.textColor = themeColors.contentBackgroundText
+        emailField.textColor = themeColors.contentText
         emailField.backgroundColor = themeColors.contentBackground
 
         passwordField.placeholder = Localization.fieldsPasswordPlaceholder.localized
         passwordField.font = themeFonts.default(size: .head)
-        passwordField.textColor = themeColors.contentBackgroundText
+        passwordField.textColor = themeColors.contentText
         passwordField.backgroundColor = themeColors.contentBackground
 
 

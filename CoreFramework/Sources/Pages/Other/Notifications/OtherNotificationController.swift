@@ -51,9 +51,9 @@ public class OtherNotificationController: UITableViewController {
     public override func loadView() {
         super.loadView()
 
-        view.backgroundColor = themeColors.contentDivider
+        view.backgroundColor = themeColors.divider
 
-        tableView.backgroundColor = themeColors.contentDivider
+        tableView.backgroundColor = themeColors.divider
         tableView.allowsSelection = false
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
@@ -66,8 +66,8 @@ public class OtherNotificationController: UITableViewController {
         loader = InterfaceLoader(for: tableView)
 
         refreshControl = tableView.addRefreshControl(for: self, action: #selector(needReload))
-        refreshControl?.backgroundColor = themeColors.contentDivider
-        refreshControl?.tintColor = themeColors.contentDividerText
+        refreshControl?.backgroundColor = themeColors.divider
+        refreshControl?.tintColor = themeColors.dividerText
 
         apply(update: UserNotificationPreference())
     }

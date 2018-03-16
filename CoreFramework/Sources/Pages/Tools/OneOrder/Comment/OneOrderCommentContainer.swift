@@ -26,33 +26,29 @@ public class OneOrderCommentContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = themeColors.contentDivider
+        backgroundColor = themeColors.contentBackground
 
         commentLabel.text = String.empty
         commentLabel.font = themeFonts.default(size: .caption)
-        commentLabel.textColor = themeColors.contentDividerText
+        commentLabel.textColor = themeColors.contentText
     }
 }
 extension OneOrderCommentContainer: OneOrderInterfacePart {
     public func update(by update: DishOrder) {
-
-        let comment = update.summary.comment
-        if (String.isNullOrEmpty(comment)) {
-            commentLabel.text = String.empty
-            return
-        }
-
-        commentLabel.text = String(format: OneOrderController.Keys.commentLabel.localized, arguments: [comment])
+        
+        commentLabel.text = update.summary.comment
     }
 }
 extension OneOrderCommentContainer: InterfaceTableCellProtocol {
     public var viewHeight: Int {
+
         if (String.isNullOrEmpty(commentLabel.text)) {
             return 0
         }
 
         let comment = commentLabel.text!
-        return 5 + 5 + Int(comment.height(containerWidth: commentLabel.frame.width, font: commentLabel.font!))
+        let padding = 10
+        return 2 * padding + Int(comment.height(containerWidth: commentLabel.frame.width, font: commentLabel.font!))
     }
     public func prepareView() -> UITableViewCell {
         return self

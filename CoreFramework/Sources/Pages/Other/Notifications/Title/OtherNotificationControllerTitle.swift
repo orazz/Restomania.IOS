@@ -36,9 +36,9 @@ public class OtherNotificationControllerTitle: UIView {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = themeColors.contentDivider
+        backgroundColor = themeColors.divider
 
         titleLabel.font = themeFonts.default(size: .caption)
-        titleLabel.textColor = themeColors.contentDividerText
+        titleLabel.textColor = themeColors.dividerText
     }
 }

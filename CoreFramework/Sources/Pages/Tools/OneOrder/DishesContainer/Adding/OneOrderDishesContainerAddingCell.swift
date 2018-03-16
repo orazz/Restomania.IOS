@@ -33,11 +33,11 @@ public class OneOrderDishesContainerAddingCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        nameLabel.font = themeFonts.default(size: .subcaption)
-        nameLabel.textColor = themeColors.contentBackgroundText
+        nameLabel.font = themeFonts.default(size: .caption)
+        nameLabel.textColor = themeColors.contentText
 
         costLabel.font = themeFonts.default(size: .caption)
-        costLabel.textColor = themeColors.contentBackgroundText
+        costLabel.textColor = themeColors.contentText
     }
     public func update(by adding: AdditionSummary, currency: Currency) {
 

@@ -29,6 +29,6 @@ open class CustomSearchPlaceCard: SearchPlaceCard {
         bottomBorderBackground.backgroundColor = themeColors.contentBackground
 
         location?.font = themeFonts.bold(size: .head)
-        location?.textColor = themeColors.contentBackgroundText
+        location?.textColor = themeColors.contentText
     }
 }

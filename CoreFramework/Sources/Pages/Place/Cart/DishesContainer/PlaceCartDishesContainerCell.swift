@@ -53,10 +53,10 @@ public class PlaceCartDishesContainerCell: UITableViewCell {
         backgroundColor = themeColors.contentBackground
 
         titleLabel.font = themeFonts.default(size: .caption)
-        titleLabel.textColor = themeColors.contentBackgroundText
+        titleLabel.textColor = themeColors.contentText
 
         totalLabel.font = themeFonts.default(size: .subhead)
-        totalLabel.textColor = themeColors.contentBackgroundText
+        totalLabel.textColor = themeColors.contentText
 
         addingsTable.delegate = self
         addingsTable.dataSource = self

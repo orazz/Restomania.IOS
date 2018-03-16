@@ -29,11 +29,11 @@ public class OneOrderTotalContainer: UITableViewCell {
 
         totalTitleLabel.text = OneOrderController.Keys.totalLabel.localized
         totalTitleLabel.font = themeFonts.default(size: .head)
-        totalTitleLabel.textColor = themeColors.contentBackgroundText
+        totalTitleLabel.textColor = themeColors.contentText
 
         totalValueLabel.text = String.empty
         totalValueLabel.font = themeFonts.bold(size: .title)
-        totalValueLabel.textColor = themeColors.contentBackgroundText
+        totalValueLabel.textColor = themeColors.contentText
 
         backgroundColor = themeColors.contentBackground
     }

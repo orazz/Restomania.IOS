@@ -25,11 +25,12 @@ public protocol ThemeColors {
     var notificationContent: UIColor { get }
 
     var contentBackground: UIColor { get }
-    var contentBackgroundText: UIColor { get }
-    var contentDivider: UIColor { get }
-    var contentDividerText: UIColor { get }
     var contentSelection: UIColor { get }
+    var contentText: UIColor { get }
     var contentTempText: UIColor { get }
+    
+    var divider: UIColor { get }
+    var dividerText: UIColor { get }
 }
 
 extension ThemeColors {
@@ -75,13 +76,13 @@ extension ThemeColors {
     public var contentBackground: UIColor {
         return UIColor(red: 234, green: 234, blue: 234)
     }
-    public var contentBackgroundText: UIColor {
+    public var contentText: UIColor {
         return black
     }
-    public var contentDivider: UIColor {
+    public var divider: UIColor {
         return UIColor(red: 234, green: 234, blue: 234)
     }
-    public var contentDividerText: UIColor {
+    public var dividerText: UIColor {
         return black
     }
     public var contentSelection: UIColor {

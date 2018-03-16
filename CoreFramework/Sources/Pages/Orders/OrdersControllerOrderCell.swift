@@ -41,7 +41,7 @@ public class OrdersControllerOrderCell: UITableViewCell {
 
         backgroundColor = themeColors.contentBackground
 
-        let color = themeColors.contentBackgroundText
+        let color = themeColors.contentText
 
         IdLabel.font = themeFonts.bold(size: .title)
         IdLabel.textColor = color

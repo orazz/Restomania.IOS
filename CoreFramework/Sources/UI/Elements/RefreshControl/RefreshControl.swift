@@ -21,11 +21,11 @@ public class RefreshControl: UIRefreshControl {
 
         self.backgroundColor = themeColors.contentBackground
         let attributes = [
-            NSAttributedStringKey.foregroundColor: themeColors.contentBackgroundText,
+            NSAttributedStringKey.foregroundColor: themeColors.contentText,
             NSAttributedStringKey.font: themeFonts.default(size: .caption)
             ]
         self.attributedTitle = NSAttributedString(string: Localization.title.localized, attributes: attributes)
-        self.tintColor = themeColors.contentBackgroundText
+        self.tintColor = themeColors.contentText
         self.backgroundColor = themeColors.contentBackground
         
         self.addTarget(target, action: action, for: .valueChanged)

@@ -46,7 +46,7 @@ public class GreetingController: UIViewController {
 
         EnterButton.setTitle(Localization.buttonsEnter.localized, for: .normal)
 
-        DemoButton.tintColor = themeColors.contentBackgroundText
+        DemoButton.tintColor = themeColors.contentText
         DemoButton.titleLabel?.font = themeFonts.default(size: .caption)
         DemoButton.setTitle(Localization.buttonsDemo.localized, for: .normal)
     }

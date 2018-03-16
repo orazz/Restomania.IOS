@@ -71,12 +71,12 @@ public class PlaceMenuTitleContainer: UITableViewCell {
         //Name
         nameLabel.text = String.empty
         nameLabel.font = themeFonts.bold(size: .subhead)
-        nameLabel.textColor = themeColors.contentBackgroundText
+        nameLabel.textColor = themeColors.contentText
 
         //Wokings hours
         workingHoursLabel.text = String.empty
         workingHoursLabel.font = themeFonts.default(size: .caption)
-        workingHoursLabel.textColor = themeColors.contentBackgroundText
+        workingHoursLabel.textColor = themeColors.contentText
     }
 }
 

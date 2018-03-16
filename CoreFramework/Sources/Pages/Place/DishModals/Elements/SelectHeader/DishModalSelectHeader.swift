@@ -39,7 +39,7 @@ public class DishModalSelectHeader: UITableViewCell {
         self.backgroundColor = themeColors.contentBackground
 
         titleLabel.font = themeFonts.bold(size: .head)
-        titleLabel.textColor = themeColors.contentBackgroundText
+        titleLabel.textColor = themeColors.contentText
         titleLabel.backgroundColor = themeColors.contentBackground
     }
 }

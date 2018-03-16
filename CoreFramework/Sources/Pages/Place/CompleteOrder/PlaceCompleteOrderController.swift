@@ -84,7 +84,7 @@ extension PlaceCompleteOrderController {
 
         titleLabel.text = "Поздравляем, вы успешно добавлили новый заказ"
         titleLabel.font = themeFonts.default(size: .head)
-        titleLabel.textColor = themeColors.contentBackgroundText
+        titleLabel.textColor = themeColors.contentText
 
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.utc
@@ -92,6 +92,6 @@ extension PlaceCompleteOrderController {
         
         dataLabel.text = "#\(order.id) на \(formatter.string(from: order.summary.completeAt))"
         dataLabel.font = themeFonts.bold(size: .head)
-        dataLabel.textColor = themeColors.contentBackgroundText
+        dataLabel.textColor = themeColors.contentText
     }
 }

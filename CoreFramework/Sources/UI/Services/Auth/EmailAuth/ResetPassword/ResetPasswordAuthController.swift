@@ -53,10 +53,10 @@ internal class ResetPasswordAuthController: UIViewController {
 
         resetPasswordLabel.text = Localization.labelsResetPassword.localized
         resetPasswordLabel.font = themeFonts.default(size: .title)
-        resetPasswordLabel.textColor = themeColors.contentBackgroundText
+        resetPasswordLabel.textColor = themeColors.contentText
 
         emailField.font = themeFonts.default(size: .head)
-        emailField.textColor = themeColors.contentBackgroundText
+        emailField.textColor = themeColors.contentText
         emailField.placeholder = Localization.fieldsEmailPlaceholder.localized
         emailField.text = storedEmail
 

@@ -36,7 +36,7 @@ public class DishModalDescription: UITableViewCell {
         super.awakeFromNib()
 
         descriptionLabel.font = themeFonts.default(size: .caption)
-        descriptionLabel.textColor = themeColors.contentBackgroundText
+        descriptionLabel.textColor = themeColors.contentText
 
         backgroundColor = themeColors.contentBackground
     }

@@ -32,7 +32,7 @@ public class DishModalShortDivider: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        dividerView.backgroundColor = themeColors.contentDivider
+        dividerView.backgroundColor = themeColors.divider
     }
 }
 extension DishModalShortDivider: DishModalElementsProtocol {

@@ -39,7 +39,7 @@ public class PlaceCartPaymentCardsContainer: UITableViewCell {
         backgroundColor = themeColors.contentBackground
 
         titleLabel.font = themeFonts.bold(size: .head)
-        titleLabel.textColor = themeColors.contentBackgroundText
+        titleLabel.textColor = themeColors.contentText
         titleLabel.text = PlaceCartController.Localization.Labels.selectPaymentCard.localized
 
         cardsTable.dataSource = self

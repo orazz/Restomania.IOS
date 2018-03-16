@@ -16,9 +16,10 @@
 "Labels.PlaceName" = "in";
 "Labels.Status" = "status";
 
+"Labels.Dishes" = "Check";
 "Labels.Total" = "Total";
 "Labels.CreateAt" = "added at %@ of %@";
-"Labels.Comment" = "Comment: %@";
+"Labels.Comment" = "Comment";
 
 "Formats.Time" = "HH:mm";
 "Formats.Date" = "dd/MM/yyyy";

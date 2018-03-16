@@ -79,19 +79,19 @@ public class PlaceMenuDishCell: UITableViewCell {
 
         //Name
         dishName.font = themeFonts.bold(size: .subhead)
-        dishName.textColor = themeColors.contentBackgroundText
+        dishName.textColor = themeColors.contentText
 
         //Description
         dishDescription.font = themeFonts.default(size: .caption)
-        dishDescription.textColor =  themeColors.contentBackgroundText
+        dishDescription.textColor =  themeColors.contentText
 
         //Weight
         dishWeight.font = themeFonts.default(size: .caption)
-        dishWeight.textColor = themeColors.contentBackgroundText
+        dishWeight.textColor = themeColors.contentText
 
         //Price
         dishPrice.font = themeFonts.default(size: .subhead)
-        dishPrice.textColor = themeColors.contentBackgroundText
+        dishPrice.textColor = themeColors.contentText
 
         backgroundColor = themeColors.contentSelection
     }

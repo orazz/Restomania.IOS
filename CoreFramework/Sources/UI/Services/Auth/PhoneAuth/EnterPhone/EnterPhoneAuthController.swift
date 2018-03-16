@@ -57,10 +57,10 @@ internal class EnterPhoneAuthController: UIViewController {
 
         enterPhoneLabel.text = Localization.labelsEnterPhone.localized
         enterPhoneLabel.font = themeFonts.default(size: .title)
-        enterPhoneLabel.textColor = themeColors.contentBackgroundText
+        enterPhoneLabel.textColor = themeColors.contentText
 
         phoneField.font = themeFonts.default(size: .head)
-        phoneField.textColor = themeColors.contentBackgroundText
+        phoneField.textColor = themeColors.contentText
         phoneField.delegate = maskedDelegate
         phoneField.placeholder = Localization.fieldsPhonePlacesholder.localized
 

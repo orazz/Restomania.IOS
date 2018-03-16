@@ -55,7 +55,7 @@ public class PlaceMenuCategoryCell: UICollectionViewCell {
     }
     public func deselect() {
 
-        name.textColor = themeColors.contentBackgroundText
+        name.textColor = themeColors.contentText
         backgroundColor = themeColors.contentBackground
     }
 }

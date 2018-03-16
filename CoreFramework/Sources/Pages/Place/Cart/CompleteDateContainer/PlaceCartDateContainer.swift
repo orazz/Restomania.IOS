@@ -77,7 +77,7 @@ public class PlaceCartDateContainer: UITableViewCell {
         timePicker.delegate = self
 
         dateTimeLabel.font = themeFonts.default(size: .head)
-        dateTimeLabel.textColor = themeColors.contentBackgroundText
+        dateTimeLabel.textColor = themeColors.contentText
 
         backgroundColor = themeColors.contentBackground
     }

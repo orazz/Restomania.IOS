@@ -21,7 +21,7 @@ public class OneOrderSpaceContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = themeColors.contentDivider
+        backgroundColor = themeColors.divider
     }
 }
 extension OneOrderSpaceContainer: OneOrderInterfacePart {

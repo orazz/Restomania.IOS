@@ -37,9 +37,9 @@ public class ThemeSettings {
         public var notificationContent = Colors.white
 
         public var contentBackground = Colors.white
-        public var contentBackgroundText = Colors.black
-        public var contentDivider = UIColor(red: 234, green: 234, blue: 234)
-        public var contentDividerText = Colors.black
+        public var contentText = Colors.black
+        public var divider = UIColor(red: 234, green: 234, blue: 234)
+        public var dividerText = Colors.black
         public var contentSelection = UIColor(red: 244, green: 244, blue: 244)
         public var contentTempText = UIColor(red: 234, green: 234, blue: 234)
 

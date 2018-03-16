@@ -62,18 +62,18 @@ internal class SelectAuthController: UIViewController {
 
         enterViaLabel.text = Localization.labelEnterVia.localized
         enterViaLabel.font = themeFonts.default(size: .title)
-        enterViaLabel.textColor = themeColors.contentBackgroundText
+        enterViaLabel.textColor = themeColors.contentText
 
         orLabel.text = Localization.labelOr.localized
         orLabel.font = themeFonts.default(size: .caption)
-        orLabel.textColor = themeColors.contentBackgroundText
+        orLabel.textColor = themeColors.contentText
 
-        leftDivider.backgroundColor = themeColors.contentBackgroundText
-        rightDivider.backgroundColor = themeColors.contentBackgroundText
+        leftDivider.backgroundColor = themeColors.contentText
+        rightDivider.backgroundColor = themeColors.contentText
 
         acceptTermsLabel.text = Localization.labelAcceptTerms.localized
         acceptTermsLabel.font = themeFonts.default(size: .subcaption)
-        acceptTermsLabel.textColor = themeColors.contentBackgroundText
+        acceptTermsLabel.textColor = themeColors.contentText
 
 
 

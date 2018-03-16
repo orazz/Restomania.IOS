@@ -57,7 +57,7 @@ public class DishModalHeader: UITableViewCell {
         dishImage.contentMode = .scaleAspectFit
 
         nameLabel.font = themeFonts.bold(size: .title)
-        nameLabel.textColor = themeColors.contentBackgroundText
+        nameLabel.textColor = themeColors.contentText
     }
     private func apply() {
         guard let dish = self.dish else {

@@ -35,11 +35,11 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
 
         backgroundColor = themeColors.contentBackground
 
-        nameAndCountLabel.font = themeFonts.default(size: .caption)
-        nameAndCountLabel.textColor = themeColors.contentBackgroundText
+        nameAndCountLabel.font = themeFonts.default(size: .subhead)
+        nameAndCountLabel.textColor = themeColors.contentText
 
         costLabel.font = themeFonts.default(size: .subhead)
-        costLabel.textColor = themeColors.contentBackgroundText
+        costLabel.textColor = themeColors.contentText
     }
     public func update(by dish: DishOrderDish, currency: Currency) {
 

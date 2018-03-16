@@ -31,13 +31,13 @@ open class SearchPlaceCard: UITableViewCell {
         backgroundColor = themeColors.contentBackground
 
         name?.font = themeFonts.bold(size: .head)
-        name?.textColor = themeColors.contentBackgroundText
+        name?.textColor = themeColors.contentText
 
         workingHours?.font = themeFonts.default(size: .caption)
-        workingHours?.textColor = themeColors.contentBackgroundText
+        workingHours?.textColor = themeColors.contentText
 
         location?.font = themeFonts.default(size: .subhead)
-        location?.textColor = themeColors.contentBackgroundText
+        location?.textColor = themeColors.contentText
     }
     public func update(summary: PlaceSummary) {
         self.summary = summary

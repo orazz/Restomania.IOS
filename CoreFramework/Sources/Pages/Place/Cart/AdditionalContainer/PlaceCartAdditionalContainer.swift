@@ -43,7 +43,7 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
         super.awakeFromNib()
 
         titleLabel.font = themeFonts.bold(size: .head)
-        titleLabel.textColor = themeColors.contentBackgroundText
+        titleLabel.textColor = themeColors.contentText
         titleLabel.text = PlaceCartController.Localization.Labels.comment.localized
 
         commentLabel.font = themeFonts.default(size: .caption)
@@ -64,7 +64,7 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
             commentLabel.textColor = themeColors.contentTempText
         } else {
             commentLabel.text = comment
-            commentLabel.textColor = themeColors.contentBackgroundText
+            commentLabel.textColor = themeColors.contentText
         }
     }
 }

@@ -38,13 +38,13 @@ public class DishModalPriceAndSize: UITableViewCell {
         super.awakeFromNib()
 
         onlyPriceLabel.font = themeFonts.bold(size: .head)
-        onlyPriceLabel.textColor = themeColors.contentBackgroundText
+        onlyPriceLabel.textColor = themeColors.contentText
 
         priceLabel.font = themeFonts.bold(size: .head)
-        priceLabel.textColor = themeColors.contentBackgroundText
+        priceLabel.textColor = themeColors.contentText
 
         sizeLabel.font = themeFonts.default(size: .subhead)
-        sizeLabel.textColor = themeColors.contentBackgroundText
+        sizeLabel.textColor = themeColors.contentText
     }
 
     fileprivate func refresh() {

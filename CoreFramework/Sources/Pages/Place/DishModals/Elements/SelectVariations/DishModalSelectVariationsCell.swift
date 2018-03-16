@@ -37,10 +37,10 @@ public class DishModalSelectVariationsCell: UITableViewCell {
         self.selectedBackgroundView = background
 
         nameLabel.font = themeFonts.default(size: .head)
-        nameLabel.textColor = themeColors.contentBackgroundText
+        nameLabel.textColor = themeColors.contentText
 
         priceLabel.font = themeFonts.default(size: .subhead)
-        priceLabel.textColor = themeColors.contentBackgroundText
+        priceLabel.textColor = themeColors.contentText
 
         markImage.isHidden = true
     }

@@ -38,7 +38,7 @@ public class OtherNotificationControllerPreference: UITableViewCell {
         backgroundColor = themeColors.contentBackground
 
         titleLabel.font = themeFonts.default(size: .subhead)
-        titleLabel.textColor = themeColors.contentBackgroundText
+        titleLabel.textColor = themeColors.contentText
 
         valueSwitch.onTintColor = themeColors.actionMain
         valueSwitch.backgroundColor = themeColors.contentBackground

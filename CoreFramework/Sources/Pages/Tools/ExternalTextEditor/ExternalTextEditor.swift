@@ -59,7 +59,7 @@ public class ExternalTextEditor: UIViewController {
     }
     public func setupMarkup() {
 
-        self.view.backgroundColor = themeColors.contentDivider
+        self.view.backgroundColor = themeColors.divider
 
         containerView.backgroundColor = themeColors.contentBackground
 
@@ -90,7 +90,7 @@ public class ExternalTextEditor: UIViewController {
             textField.textColor = themeColors.contentTempText
         } else {
             textField.text = text
-            textField.textColor = themeColors.contentBackgroundText
+            textField.textColor = themeColors.contentText
         }
     }
     @IBAction private func closeKeyboard() {
@@ -125,7 +125,7 @@ extension ExternalTextEditor: UITextViewDelegate {
     public func textViewDidBeginEditing(_ textView: UITextView) {
         if (textView.textColor == themeColors.contentTempText) {
             textView.text = String.empty
-            textView.textColor = themeColors.contentBackgroundText
+            textView.textColor = themeColors.contentText
         }
     }
     public func textViewDidChange(_ textView: UITextView) {

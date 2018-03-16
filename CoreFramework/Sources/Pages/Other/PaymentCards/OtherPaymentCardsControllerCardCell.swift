@@ -38,7 +38,7 @@ public class OtherPaymentCardsControllerCardCell: UITableViewCell {
         backgroundColor = themeColors.contentBackground
 
         let font = themeFonts.default(size: .head)
-        let color = themeColors.contentBackgroundText
+        let color = themeColors.contentText
 
         NumberLabel.font = font
         NumberLabel.textColor = color

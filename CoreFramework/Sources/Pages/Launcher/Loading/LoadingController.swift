@@ -59,10 +59,10 @@ public class LoadingController: UIViewController {
         logo.image = themeImages.toolsLogo
 
         status.font = themeFonts.default(size: .subhead)
-        status.textColor = themeColors.contentBackgroundText
+        status.textColor = themeColors.contentText
         status.text = String.empty
 
-        indicator.color = themeColors.contentBackgroundText
+        indicator.color = themeColors.contentText
         indicator.startAnimating()
     }
     public override func viewDidLoad() {

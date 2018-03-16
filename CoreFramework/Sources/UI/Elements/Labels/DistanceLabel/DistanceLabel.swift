@@ -59,11 +59,11 @@ public class DistanceLabel: UIView {
 
         contentView.backgroundColor = themeColors.contentBackground
 
-        iconImage.image = themeImages.iconNavigation.tint(color: themeColors.contentBackgroundText)
+        iconImage.image = themeImages.iconNavigation.tint(color: themeColors.contentText)
         iconImage.isHidden = true
 
         distanceLabel.font = themeFonts.default(size: .caption)
-        distanceLabel.textColor = themeColors.contentBackgroundText
+        distanceLabel.textColor = themeColors.contentText
         distanceLabel.text = String.empty
 
         if let _ = self.getConstant(.height) {

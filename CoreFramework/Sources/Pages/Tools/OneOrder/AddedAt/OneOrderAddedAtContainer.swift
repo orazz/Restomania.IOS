@@ -26,10 +26,10 @@ public class OneOrderAddedAtContainer: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = themeColors.contentDivider
+        backgroundColor = themeColors.divider
 
         createAtLabel.text = String.empty
-        createAtLabel.textColor = themeColors.contentDividerText
+        createAtLabel.textColor = themeColors.dividerText
         createAtLabel.font = themeFonts.default(size: .caption)
     }
 }

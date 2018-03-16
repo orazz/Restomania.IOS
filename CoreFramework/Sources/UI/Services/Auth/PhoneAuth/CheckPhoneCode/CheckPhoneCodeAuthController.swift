@@ -56,15 +56,15 @@ public class CheckPhoneCodeAuthController: UIViewController {
 
         enterCodeLabel.text = Localization.labelsEnterCode.localized
         enterCodeLabel.font = themeFonts.default(size: .title)
-        enterCodeLabel.textColor = themeColors.contentBackgroundText
+        enterCodeLabel.textColor = themeColors.contentText
 
         resendCodeLabel.text = Localization.labelsResendCode.localized
         resendCodeLabel.font = themeFonts.default(size: .caption)
-        resendCodeLabel.textColor = themeColors.contentBackgroundText
+        resendCodeLabel.textColor = themeColors.contentText
 
 
         codeField.font = themeFonts.default(size: .head)
-        codeField.textColor = themeColors.contentBackgroundText
+        codeField.textColor = themeColors.contentText
         codeField.placeholder = Localization.fieldsCodePlacesholder.localized
 
         checkCodeButton.setTitle(Localization.buttonsCheckCode.localized, for: .normal)
