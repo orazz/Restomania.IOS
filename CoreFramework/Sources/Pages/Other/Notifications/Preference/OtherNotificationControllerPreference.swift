@@ -42,6 +42,10 @@ public class OtherNotificationControllerPreference: UITableViewCell {
 
         valueSwitch.onTintColor = themeColors.actionMain
         valueSwitch.backgroundColor = themeColors.contentBackground
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnRow))
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(tap)
     }
     open func setup(title: Localizable, value: Bool, key: String, delegate: OtherNotificationControllerDelegate) {
 
@@ -58,7 +62,7 @@ public class OtherNotificationControllerPreference: UITableViewCell {
         valueSwitch.isOn = value
     }
 
-    @IBAction private func tapOnRow() {
+    @objc private func tapOnRow() {
         valueSwitch.setOn(!value, animated: true)
         changeValue()
     }

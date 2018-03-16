@@ -49,14 +49,8 @@
             <connections>
                 <outlet property="titleLabel" destination="Xsa-Nj-ZoY" id="Hkj-ng-98p"/>
                 <outlet property="valueSwitch" destination="iFU-wd-W2g" id="xvj-qI-Yfk"/>
-                <outletCollection property="gestureRecognizers" destination="ccr-Za-VqU" appends="YES" id="5Fc-og-ruB"/>
             </connections>
             <point key="canvasLocation" x="12.5" y="104.5"/>
         </view>
-        <tapGestureRecognizer id="ccr-Za-VqU" userLabel="tapOnRow">
-            <connections>
-                <action selector="tapOnRow" destination="iN0-l3-epB" id="sfi-Vm-8LM"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>
