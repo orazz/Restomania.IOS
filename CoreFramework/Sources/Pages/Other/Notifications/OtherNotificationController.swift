@@ -32,9 +32,9 @@ public class OtherNotificationController: UITableViewController {
     private let _tag = String.tag(OtherNotificationController.self)
     private let loadQueue: AsyncQueue
 
-    public var showBookingsPreferences: Bool = true
+    public var showBookingsPreferences: Bool = false
     public var showOrdersPreferences: Bool = true
-    public var showReviewsPreferences: Bool = true
+    public var showReviewsPreferences: Bool = false
     public var showPaymentsPreferences: Bool = true
 
 
@@ -57,8 +57,10 @@ public class OtherNotificationController: UITableViewController {
         tableView.allowsSelection = false
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+        tableView.sectionFooterHeight = 0
         tableView.estimatedRowHeight = 80
         tableView.estimatedSectionHeaderHeight = 45
+        tableView.estimatedSectionFooterHeight = 0
         OtherNotificationControllerPreference.register(in: tableView)
 
         loader = InterfaceLoader(for: tableView)
@@ -189,6 +191,9 @@ extension OtherNotificationController {
     }
     public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return rows[section].title
+    }
+    public override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
     }
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rows[section].rows.count
