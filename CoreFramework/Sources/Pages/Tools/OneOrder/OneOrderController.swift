@@ -192,6 +192,7 @@ extension OneOrderController {
 }
 extension OneOrderController: OrdersCacheServiceDelegate {
     public func update(range: [DishOrder]) {
+
         for update in range {
             if (update.id == orderId) {
                 orderContainer.update(update)
@@ -200,6 +201,7 @@ extension OneOrderController: OrdersCacheServiceDelegate {
         }
     }
     public func update(_ orderId: Long, update: DishOrder) {
+
         if (orderId == self.orderId) {
             orderContainer.update(update)
         }

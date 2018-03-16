@@ -136,7 +136,9 @@ extension OrdersController: OrdersCacheServiceDelegate {
         for cell in ordersTable.visibleCells {
             if let cell = cell as? OrdersControllerOrderCell {
                 if (cell.orderId == orderId) {
-                    cell.update(by: update)
+                    DispatchQueue.main.async {
+                        cell.update(by: update)
+                    }
                     break
                 }
             }
@@ -189,8 +191,10 @@ extension OrdersController: UITableViewDataSource {
 extension OrdersController: ApiKeyServiceDelegate {
     public func apiKeyService(_ service: ApiKeyService, logout role: ApiRole) {
 
-        orders.removeAll()
-        ordersTable.reloadData()
+        DispatchQueue.main.async {
+            self.orders.removeAll()
+            self.ordersTable.reloadData()
+        }
     }
 }
 

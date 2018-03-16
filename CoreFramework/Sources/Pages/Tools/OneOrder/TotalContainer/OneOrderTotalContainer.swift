@@ -45,7 +45,7 @@ extension OneOrderTotalContainer: OneOrderInterfacePart {
 }
 extension OneOrderTotalContainer: InterfaceTableCellProtocol {
     public var viewHeight: Int {
-        return 30
+        return 50
     }
     public func prepareView() -> UITableViewCell {
         return self

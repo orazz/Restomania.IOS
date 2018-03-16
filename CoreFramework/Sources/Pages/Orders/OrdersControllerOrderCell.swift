@@ -41,13 +41,12 @@ public class OrdersControllerOrderCell: UITableViewCell {
 
         backgroundColor = themeColors.contentBackground
 
-        let font = themeFonts.default(size: .subhead)
         let color = themeColors.contentBackgroundText
 
-        IdLabel.font = themeFonts.bold(size: .head)
+        IdLabel.font = themeFonts.bold(size: .title)
         IdLabel.textColor = color
 
-        DateLabel.font = font
+        DateLabel.font = themeFonts.default(size: .subhead)
         DateLabel.textColor = color
 
         PlaceNameLabel.font = themeFonts.default(size: .caption)
