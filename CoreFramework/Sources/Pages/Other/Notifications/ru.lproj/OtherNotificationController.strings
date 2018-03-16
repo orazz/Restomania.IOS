@@ -1,0 +1,29 @@
+/* 
+  OtherNotificationController.strings
+  CoreFramework
+
+  Created by Алексей on 16.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Уведомления";
+
+"Title.Bookings" = "Бронирование";
+"Title.Orders" = "Заказы";
+"Title.Reviews" = "Отзывы";
+"Title.Payments" = "Платежи";
+
+"Preferences.Bookings.Add" = "О новой брони";
+"Preferences.Bookings.ChangeStatus" = "О изменение статуса брони";
+
+"Preferences.Orders.Add" = "О новом заказе";
+"Preferences.Orders.ChangeStatus" = "О изменение статуса заказа";
+"Preferences.Orders.PaymentComplete" = "Об успешной оплате заказа";
+"Preferences.Orders.PaymentFail" = "О проблемах с оплатой заказа";
+"Preferences.Orders.IsPrepared" = "О готовности заказа";
+
+"Preferences.Reviews.Add" = "О новом отзыве";
+"Preferences.Reviews.Change" = "Об изменении отзыва";
+"Preferences.Reviews.ChangeStatus" = "Об изменени статуса отзыва";
+
+"Preferences.Payments.AddCard" = "О новой карте для оплаты";

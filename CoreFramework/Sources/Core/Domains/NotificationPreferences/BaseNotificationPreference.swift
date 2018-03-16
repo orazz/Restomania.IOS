@@ -12,52 +12,97 @@ import MdsKit
 
 public class BaseNotificationPreference: BaseDataType {
 
-    public var ConnectionMethod: MethodConnection
-    public var Login: String
+    public class BaseKeys {
 
-    public var CompletePayment: Bool
+        public static let login = "Login"
+        public static let connectionMethod = "ConnectionMethod"
 
-    public var NewBooking: Bool
-    public var ChangeBookingStatus: Bool
+        public static let bookingAdd = "BookingAdd"
+        public static let bookingChangeStatus = "BookingChangeStatus"
 
-    public var NewOrder: Bool
-    public var ChangeOrderStatus: Bool
+        public static let dishOrderAdd = "DishOrderAdd"
+        public static let dishOrderChangeStatus = "DishOrderChangeStatus"
+        public static let dishOrderPaymentComplete = "DishOrderPaymentComplete"
+        public static let dishOrderPaymentFail = "DishOrderPaymentFail"
 
-    public var NewReview: Bool
-    public var ChangeReview: Bool
+        public static let reviewAdd = "ReviewAdd"
+        public static let reviewChange = "ReviewChange"
+        public static let reviewChangeStatus = "ReviewChangeStatus"
+    }
+
+    public let login: String
+    public let connectionMethod: ConnectionMethod
+
+    public let bookingAdd: Bool
+    public let bookingChangeStatus: Bool
+
+    public let ordersAdd: Bool
+    public let ordersChangeStatus: Bool
+    public let ordersPaymentComplete: Bool
+    public let ordersPaymentFail: Bool
+
+    public let reviewAdd: Bool
+    public let reviewChange: Bool
+    public let reviewChangeStatus: Bool
+
 
     public override init() {
-        self.ConnectionMethod = .Email
-        self.Login = String.empty
 
-        self.CompletePayment = false
+        self.login = String.empty
+        self.connectionMethod = .debug
 
-        self.NewBooking = false
-        self.ChangeBookingStatus = false
+        self.bookingAdd = false
+        self.bookingChangeStatus = false
 
-        self.NewOrder = false
-        self.ChangeOrderStatus = false
+        self.ordersAdd = false
+        self.ordersChangeStatus = false
+        self.ordersPaymentComplete = false
+        self.ordersPaymentFail = false
 
-        self.NewReview = false
-        self.ChangeReview = false
+        self.reviewAdd = false
+        self.reviewChange = false
+        self.reviewChangeStatus = false
 
         super.init()
     }
     public required init(json: JSON) {
-        self.ConnectionMethod = ("ConnectionMethod" <~~ json)!
-        self.Login = ("Login" <~~ json)!
 
-        self.CompletePayment = ("CompletePayment" <~~ json)!
+        self.login = (BaseKeys.login <~~ json)!
+        self.connectionMethod = (BaseKeys.connectionMethod <~~ json)!
 
-        self.NewBooking = ("NewBooking" <~~ json)!
-        self.ChangeBookingStatus = ("ChangeBookingStatus" <~~ json)!
+        self.bookingAdd = (BaseKeys.bookingAdd <~~ json)!
+        self.bookingChangeStatus = (BaseKeys.bookingChangeStatus <~~ json)!
 
-        self.NewOrder = ("NewOrder" <~~ json)!
-        self.ChangeOrderStatus = ("ChangeOrderStatus" <~~ json)!
+        self.ordersAdd = (BaseKeys.dishOrderAdd <~~ json)!
+        self.ordersChangeStatus = (BaseKeys.dishOrderChangeStatus <~~ json)!
+        self.ordersPaymentComplete = (BaseKeys.dishOrderPaymentComplete <~~ json)!
+        self.ordersPaymentFail = (BaseKeys.dishOrderPaymentFail <~~ json)!
 
-        self.NewReview = ("NewReview" <~~ json)!
-        self.ChangeReview = ("ChangeReview" <~~ json)!
+        self.reviewAdd = (BaseKeys.reviewAdd <~~ json)!
+        self.reviewChange = (BaseKeys.reviewChange <~~ json)!
+        self.reviewChangeStatus = (BaseKeys.reviewChangeStatus <~~ json)!
 
         super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+
+            BaseKeys.login ~~> self.login,
+            BaseKeys.connectionMethod ~~> self.connectionMethod,
+
+            BaseKeys.bookingAdd ~~> self.bookingAdd,
+            BaseKeys.bookingChangeStatus ~~> self.bookingChangeStatus,
+
+            BaseKeys.dishOrderAdd ~~> self.ordersAdd,
+            BaseKeys.dishOrderChangeStatus ~~> self.ordersChangeStatus,
+            BaseKeys.dishOrderPaymentComplete ~~> self.ordersPaymentComplete,
+            BaseKeys.dishOrderPaymentFail ~~> self.ordersPaymentFail,
+
+            BaseKeys.reviewAdd ~~> self.reviewAdd,
+            BaseKeys.reviewChange ~~> self.reviewChange,
+            BaseKeys.reviewChangeStatus ~~> self.reviewChangeStatus,
+
+            super.toJSON()
+            ])
     }
 }

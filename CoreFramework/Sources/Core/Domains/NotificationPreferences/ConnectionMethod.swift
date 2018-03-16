@@ -8,9 +8,10 @@
 
 import Foundation
 
-public enum MethodConnection: Int {
-    case Email = 1
-    case Telegram = 2
-    case Vkontakte = 3
-    case Facebook = 4
+public enum ConnectionMethod: Int {
+
+    case debug = 0
+    case email = 1
+    case pushes = 2
+    case telegram = 3
 }

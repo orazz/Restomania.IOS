@@ -1,0 +1,29 @@
+/* 
+  OtherNotificationController.strings
+  CoreFramework
+
+  Created by Алексей on 16.03.18.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+
+"Title" = "Notifications";
+
+"Title.Bookings" = "Bookings";
+"Title.Orders" = "Orders";
+"Title.Reviews" = "Reviews";
+"Title.Payments" = "Payments";
+
+"Preferences.Bookings.Add" = "About new bookings";
+"Preferences.Bookings.ChangeStatus" = "About change booking status";
+
+"Preferences.Orders.Add" = "About new order";
+"Preferences.Orders.ChangeStatus" = "About change order status";
+"Preferences.Orders.PaymentComplete" = "About successful payment of the order";
+"Preferences.Orders.PaymentFail" = "About fail payment of the order";
+"Preferences.Orders.IsPrepared" = "About order is prepared";
+
+"Preferences.Reviews.Add" = "About new review";
+"Preferences.Reviews.Change" = "About change review";
+"Preferences.Reviews.ChangeStatus" = "About change review status";
+
+"Preferences.Payments.AddCard" = "About new payment card";

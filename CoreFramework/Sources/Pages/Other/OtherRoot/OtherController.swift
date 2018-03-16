@@ -41,7 +41,7 @@ public class OtherController: UIViewController {
         super.loadView()
 
         notificationstButton.setTitle(Localization.buttonNotifications.localized, for: .normal)
-        changePasswordButton.setTitle(Localization.buttonPaymentCards.localized, for: .normal)
+        changePasswordButton.setTitle(Localization.buttonChangePassword.localized, for: .normal)
         paymentCardsButton.setTitle(Localization.buttonPaymentCards.localized, for: .normal)
         termsButton.setTitle(Localization.buttonTerms.localized, for: .normal)
         logoutButton.setTitle(Localization.buttonLogout.localized, for: .normal)

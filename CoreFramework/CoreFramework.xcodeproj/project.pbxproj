@@ -96,7 +96,6 @@
 		1F06A82B205570FD00FEB1B5 /* UnitsOfSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A68D205570FD00FEB1B5 /* UnitsOfSize.swift */; };
 		1F06A82C205570FD00FEB1B5 /* Variation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A68E205570FD00FEB1B5 /* Variation.swift */; };
 		1F06A82D205570FD00FEB1B5 /* BaseNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A690205570FD00FEB1B5 /* BaseNotificationPreference.swift */; };
-		1F06A82E205570FD00FEB1B5 /* MethodConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A691205570FD00FEB1B5 /* MethodConnection.swift */; };
 		1F06A82F205570FD00FEB1B5 /* UserNotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A692205570FD00FEB1B5 /* UserNotificationPreference.swift */; };
 		1F06A830205570FD00FEB1B5 /* AdditionSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A695205570FD00FEB1B5 /* AdditionSummary.swift */; };
 		1F06A831205570FD00FEB1B5 /* DishOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A696205570FD00FEB1B5 /* DishOrder.swift */; };
@@ -174,12 +173,10 @@
 		1F06A87A205570FD00FEB1B5 /* LoadingController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A6F9205570FD00FEB1B5 /* LoadingController.strings */; };
 		1F06A87B205570FD00FEB1B5 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A6FB205570FD00FEB1B5 /* LoadingController.swift */; };
 		1F06A87C205570FD00FEB1B5 /* LoadingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A6FC205570FD00FEB1B5 /* LoadingController.xib */; };
-		1F06A87E205570FD00FEB1B5 /* RoutingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A700205570FD00FEB1B5 /* RoutingSystem.swift */; };
 		1F06A87F205570FD00FEB1B5 /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A701205570FD00FEB1B5 /* TabsController.swift */; };
 		1F06A880205570FD00FEB1B5 /* ManagerChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A704205570FD00FEB1B5 /* ManagerChangePasswordController.swift */; };
 		1F06A881205570FD00FEB1B5 /* ManagerChangePasswordControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A705205570FD00FEB1B5 /* ManagerChangePasswordControllerView.xib */; };
 		1F06A882205570FD00FEB1B5 /* OtherNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A707205570FD00FEB1B5 /* OtherNotificationController.swift */; };
-		1F06A883205570FD00FEB1B5 /* OtherNotificationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A708205570FD00FEB1B5 /* OtherNotificationController.xib */; };
 		1F06A887205570FD00FEB1B5 /* OrdersController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A70E205570FD00FEB1B5 /* OrdersController.strings */; };
 		1F06A888205570FD00FEB1B5 /* OrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A710205570FD00FEB1B5 /* OrdersController.swift */; };
 		1F06A889205570FD00FEB1B5 /* OrdersControllerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A711205570FD00FEB1B5 /* OrdersControllerOrderCell.swift */; };
@@ -303,6 +300,7 @@
 		1F06A90D20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A90C20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift */; };
 		1F06A90F20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */; };
 		1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */; };
+		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
 		1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923442055C50E0086D372 /* EmailEnterAuthController.strings */; };
 		1F8923482055D2B00086D372 /* ResetPasswordAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89234A2055D2B00086D372 /* ResetPasswordAuthController.strings */; };
 		1F89234D2056451A0086D372 /* OrderPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89234C2056451A0086D372 /* OrderPushModel.swift */; };
@@ -323,8 +321,13 @@
 		1FDBA11B205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA11A205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib */; };
 		1FDBA11E205B2813000F1378 /* OneOrderCommentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBA11D205B2813000F1378 /* OneOrderCommentContainer.swift */; };
 		1FDBA120205B281C000F1378 /* OneOrderCommentContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA11F205B281C000F1378 /* OneOrderCommentContainer.xib */; };
-		1FDBA122205B8FDF000F1378 /* OtherNotificationController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA121205B8FDF000F1378 /* OtherNotificationController.strings */; };
 		1FDBA125205B9857000F1378 /* OtherController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA127205B9857000F1378 /* OtherController.strings */; };
+		1FDBA12C205BA688000F1378 /* OtherNotificationControllerTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBA12B205BA688000F1378 /* OtherNotificationControllerTitle.swift */; };
+		1FDBA12E205BA6A5000F1378 /* OtherNotificationControllerTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA12D205BA6A5000F1378 /* OtherNotificationControllerTitle.xib */; };
+		1FDBA130205BA6C6000F1378 /* OtherNotificationControllerPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBA12F205BA6C6000F1378 /* OtherNotificationControllerPreference.swift */; };
+		1FDBA132205BA6CF000F1378 /* OtherNotificationControllerPreference.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA131205BA6CF000F1378 /* OtherNotificationControllerPreference.xib */; };
+		1FDBA134205BBC75000F1378 /* ConnectionMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBA133205BBC74000F1378 /* ConnectionMethod.swift */; };
+		1FDBA135205BBE5E000F1378 /* OtherNotificationController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA137205BBE5E000F1378 /* OtherNotificationController.strings */; };
 		1FED176620573F3400A80DA5 /* BaseSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED176520573F3400A80DA5 /* BaseSearchController.swift */; };
 		7B9696C32E76578E71F00E4B /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
@@ -430,7 +433,6 @@
 		1F06A68D205570FD00FEB1B5 /* UnitsOfSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsOfSize.swift; sourceTree = "<group>"; };
 		1F06A68E205570FD00FEB1B5 /* Variation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variation.swift; sourceTree = "<group>"; };
 		1F06A690205570FD00FEB1B5 /* BaseNotificationPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotificationPreference.swift; sourceTree = "<group>"; };
-		1F06A691205570FD00FEB1B5 /* MethodConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodConnection.swift; sourceTree = "<group>"; };
 		1F06A692205570FD00FEB1B5 /* UserNotificationPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationPreference.swift; sourceTree = "<group>"; };
 		1F06A695205570FD00FEB1B5 /* AdditionSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionSummary.swift; sourceTree = "<group>"; };
 		1F06A696205570FD00FEB1B5 /* DishOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishOrder.swift; sourceTree = "<group>"; };
@@ -510,12 +512,10 @@
 		1F06A6FB205570FD00FEB1B5 /* LoadingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingController.swift; sourceTree = "<group>"; };
 		1F06A6FC205570FD00FEB1B5 /* LoadingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingController.xib; sourceTree = "<group>"; };
 		1F06A6FD205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LoadingController.strings; sourceTree = "<group>"; };
-		1F06A700205570FD00FEB1B5 /* RoutingSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingSystem.swift; sourceTree = "<group>"; };
 		1F06A701205570FD00FEB1B5 /* TabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsController.swift; sourceTree = "<group>"; };
 		1F06A704205570FD00FEB1B5 /* ManagerChangePasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerChangePasswordController.swift; sourceTree = "<group>"; };
 		1F06A705205570FD00FEB1B5 /* ManagerChangePasswordControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerChangePasswordControllerView.xib; sourceTree = "<group>"; };
 		1F06A707205570FD00FEB1B5 /* OtherNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherNotificationController.swift; sourceTree = "<group>"; };
-		1F06A708205570FD00FEB1B5 /* OtherNotificationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherNotificationController.xib; sourceTree = "<group>"; };
 		1F06A70F205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrdersController.strings; sourceTree = "<group>"; };
 		1F06A710205570FD00FEB1B5 /* OrdersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersController.swift; sourceTree = "<group>"; };
 		1F06A711205570FD00FEB1B5 /* OrdersControllerOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersControllerOrderCell.swift; sourceTree = "<group>"; };
@@ -648,6 +648,7 @@
 		1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckPhoneCodeAuthController.xib; sourceTree = "<group>"; };
 		1F06A91320559C9400FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		1F06A91520559C9500FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
+		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F8923432055C50E0086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmailEnterAuthController.strings; sourceTree = "<group>"; };
 		1F8923452055C5100086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EmailEnterAuthController.strings; sourceTree = "<group>"; };
 		1F8923492055D2B00086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ResetPasswordAuthController.strings; sourceTree = "<group>"; };
@@ -677,9 +678,15 @@
 		1FDBA11A205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneOrderDishesContainerAddingCell.xib; sourceTree = "<group>"; };
 		1FDBA11D205B2813000F1378 /* OneOrderCommentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderCommentContainer.swift; sourceTree = "<group>"; };
 		1FDBA11F205B281C000F1378 /* OneOrderCommentContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneOrderCommentContainer.xib; sourceTree = "<group>"; };
-		1FDBA121205B8FDF000F1378 /* OtherNotificationController.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = OtherNotificationController.strings; sourceTree = "<group>"; };
 		1FDBA126205B9857000F1378 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtherController.strings; sourceTree = "<group>"; };
 		1FDBA128205B9858000F1378 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OtherController.strings; sourceTree = "<group>"; };
+		1FDBA12B205BA688000F1378 /* OtherNotificationControllerTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNotificationControllerTitle.swift; sourceTree = "<group>"; };
+		1FDBA12D205BA6A5000F1378 /* OtherNotificationControllerTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherNotificationControllerTitle.xib; sourceTree = "<group>"; };
+		1FDBA12F205BA6C6000F1378 /* OtherNotificationControllerPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNotificationControllerPreference.swift; sourceTree = "<group>"; };
+		1FDBA131205BA6CF000F1378 /* OtherNotificationControllerPreference.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherNotificationControllerPreference.xib; sourceTree = "<group>"; };
+		1FDBA133205BBC74000F1378 /* ConnectionMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionMethod.swift; sourceTree = "<group>"; };
+		1FDBA136205BBE5E000F1378 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtherNotificationController.strings; sourceTree = "<group>"; };
+		1FDBA138205BBE62000F1378 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OtherNotificationController.strings; sourceTree = "<group>"; };
 		1FED174920571B7E00A80DA5 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED175620571B9E00A80DA5 /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED175720571B9E00A80DA5 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1207,8 +1214,8 @@
 		1F06A68F205570FD00FEB1B5 /* NotificationPreferences */ = {
 			isa = PBXGroup;
 			children = (
+				1FDBA133205BBC74000F1378 /* ConnectionMethod.swift */,
 				1F06A690205570FD00FEB1B5 /* BaseNotificationPreference.swift */,
-				1F06A691205570FD00FEB1B5 /* MethodConnection.swift */,
 				1F06A692205570FD00FEB1B5 /* UserNotificationPreference.swift */,
 			);
 			path = NotificationPreferences;
@@ -1520,8 +1527,9 @@
 			isa = PBXGroup;
 			children = (
 				1F06A707205570FD00FEB1B5 /* OtherNotificationController.swift */,
-				1F06A708205570FD00FEB1B5 /* OtherNotificationController.xib */,
-				1FDBA121205B8FDF000F1378 /* OtherNotificationController.strings */,
+				1FDBA137205BBE5E000F1378 /* OtherNotificationController.strings */,
+				1FDBA129205BA4B7000F1378 /* Title */,
+				1FDBA12A205BA4C5000F1378 /* Preference */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -2002,7 +2010,7 @@
 		1F06A9072055842000FEB1B5 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A700205570FD00FEB1B5 /* RoutingSystem.swift */,
+				1F50C820205BC35F00F27092 /* DefaultRouter.swift */,
 				1F06A701205570FD00FEB1B5 /* TabsController.swift */,
 				1F06A9082055842000FEB1B5 /* NavigationController.swift */,
 			);
@@ -2128,6 +2136,24 @@
 			path = Comment;
 			sourceTree = "<group>";
 		};
+		1FDBA129205BA4B7000F1378 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				1FDBA12B205BA688000F1378 /* OtherNotificationControllerTitle.swift */,
+				1FDBA12D205BA6A5000F1378 /* OtherNotificationControllerTitle.xib */,
+			);
+			path = Title;
+			sourceTree = "<group>";
+		};
+		1FDBA12A205BA4C5000F1378 /* Preference */ = {
+			isa = PBXGroup;
+			children = (
+				1FDBA12F205BA6C6000F1378 /* OtherNotificationControllerPreference.swift */,
+				1FDBA131205BA6CF000F1378 /* OtherNotificationControllerPreference.xib */,
+			);
+			path = Preference;
+			sourceTree = "<group>";
+		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2236,6 +2262,7 @@
 				1F06A8ED205570FE00FEB1B5 /* OneOrderDishesContainer.xib in Resources */,
 				1F06A8AA205570FD00FEB1B5 /* PlaceCartTotalContainerCellView.xib in Resources */,
 				1F89236420568A6C0086D372 /* ScheduleDisplay.strings in Resources */,
+				1FDBA12E205BA6A5000F1378 /* OtherNotificationControllerTitle.xib in Resources */,
 				1F06A8B0205570FD00FEB1B5 /* AddDishToCartModalView.xib in Resources */,
 				1F06A8AB205570FD00FEB1B5 /* PlaceCartTotalContainerView.xib in Resources */,
 				1F06A7F6205570FD00FEB1B5 /* WebBrowserController.strings in Resources */,
@@ -2279,6 +2306,7 @@
 				1F06A7EF205570FD00FEB1B5 /* SelectAuthController.strings in Resources */,
 				1FDBA11B205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib in Resources */,
 				1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib in Resources */,
+				1FDBA132205BA6CF000F1378 /* OtherNotificationControllerPreference.xib in Resources */,
 				1F06A8CC205570FD00FEB1B5 /* DishModalTryAddingActionView.xib in Resources */,
 				1F892356205679D70086D372 /* ProblemAlert.strings in Resources */,
 				1F06A8D5205570FD00FEB1B5 /* PlaceMenuCategoryCellView.xib in Resources */,
@@ -2320,10 +2348,9 @@
 				1F06A8A4205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
 				1F06A8C2205570FD00FEB1B5 /* DishModalSelectHeaderView.xib in Resources */,
 				1F06A7E7205570FD00FEB1B5 /* ResetPasswordAuthController.xib in Resources */,
-				1FDBA122205B8FDF000F1378 /* OtherNotificationController.strings in Resources */,
+				1FDBA135205BBE5E000F1378 /* OtherNotificationController.strings in Resources */,
 				1F06A8F2205570FE00FEB1B5 /* OneOrderController.xib in Resources */,
 				1FDBA115205AFD96000F1378 /* FontAwesome.ttf in Resources */,
-				1F06A883205570FD00FEB1B5 /* OtherNotificationController.xib in Resources */,
 				1F06A7FE205570FD00FEB1B5 /* FontAwesome.ttf in Resources */,
 				1F06A88E205570FD00FEB1B5 /* OtherPaymentCardsController.strings in Resources */,
 				1F8923A72056F60B0086D372 /* DistanceLabel.xib in Resources */,
@@ -2377,9 +2404,11 @@
 				1F06A879205570FD00FEB1B5 /* Launcher.swift in Sources */,
 				1F06A834205570FD00FEB1B5 /* DishOrderType.swift in Sources */,
 				1F06A86A205570FD00FEB1B5 /* FileConfigsContainer.swift in Sources */,
+				1FDBA130205BA6C6000F1378 /* OtherNotificationControllerPreference.swift in Sources */,
 				1F06A8BB205570FD00FEB1B5 /* DishModalPriceAndSize.swift in Sources */,
 				1F06A84E205570FD00FEB1B5 /* PlaceType.swift in Sources */,
 				1F06A7CF205570FD00FEB1B5 /* BannerAlert.swift in Sources */,
+				1FDBA134205BBC75000F1378 /* ConnectionMethod.swift in Sources */,
 				1F06A814205570FD00FEB1B5 /* NotificationsDevicesApiService.swift in Sources */,
 				1F06A824205570FD00FEB1B5 /* BaseDish.swift in Sources */,
 				1F06A85E205570FD00FEB1B5 /* PlaceCartContainer.swift in Sources */,
@@ -2490,7 +2519,6 @@
 				1F06A842205570FD00FEB1B5 /* LinkType.swift in Sources */,
 				1F06A7F3205570FD00FEB1B5 /* VkAuthController.swift in Sources */,
 				1F06A86E205570FD00FEB1B5 /* DefaultsLightStorage.swift in Sources */,
-				1F06A87E205570FD00FEB1B5 /* RoutingSystem.swift in Sources */,
 				1F06A801205570FD00FEB1B5 /* TemplateName.swift in Sources */,
 				1F06A869205570FD00FEB1B5 /* ConfigsContainer.swift in Sources */,
 				1F06A8B4205570FD00FEB1B5 /* DishModalAddToCartAction.swift in Sources */,
@@ -2501,6 +2529,7 @@
 				1F06A7E6205570FD00FEB1B5 /* ResetPasswordAuthController.swift in Sources */,
 				1F06A81F205570FD00FEB1B5 /* NotificationPlatformType.swift in Sources */,
 				1F06A8D6205570FD00FEB1B5 /* PlaceMenuDishCell.swift in Sources */,
+				1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */,
 				1F06A8D8205570FD00FEB1B5 /* PlaceMenuMenuContainer+Categories.swift in Sources */,
 				1F06A87F205570FD00FEB1B5 /* TabsController.swift in Sources */,
 				1F06A8C3205570FD00FEB1B5 /* DishModalSelectVariations.swift in Sources */,
@@ -2511,8 +2540,8 @@
 				1F06A815205570FD00FEB1B5 /* PlaceSummariesApiService.swift in Sources */,
 				1FED176620573F3400A80DA5 /* BaseSearchController.swift in Sources */,
 				1F06A846205570FD00FEB1B5 /* Bonuses.swift in Sources */,
+				1FDBA12C205BA688000F1378 /* OtherNotificationControllerTitle.swift in Sources */,
 				1F06A8C7205570FD00FEB1B5 /* DishModalShortDivider.swift in Sources */,
-				1F06A82E205570FD00FEB1B5 /* MethodConnection.swift in Sources */,
 				1F06A84B205570FD00FEB1B5 /* Step.swift in Sources */,
 				1F06A8AC205570FD00FEB1B5 /* PlaceCompleteOrderController.swift in Sources */,
 				1F06A7FF205570FD00FEB1B5 /* Router.swift in Sources */,
@@ -2844,6 +2873,15 @@
 				1FDBA128205B9858000F1378 /* ru */,
 			);
 			name = OtherController.strings;
+			sourceTree = "<group>";
+		};
+		1FDBA137205BBE5E000F1378 /* OtherNotificationController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FDBA136205BBE5E000F1378 /* en */,
+				1FDBA138205BBE62000F1378 /* ru */,
+			);
+			name = OtherNotificationController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

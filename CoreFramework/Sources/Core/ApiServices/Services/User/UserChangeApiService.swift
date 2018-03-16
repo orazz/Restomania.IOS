@@ -15,4 +15,21 @@ public class UserChangeApiService: BaseApiService {
         super.init(area: "User/Change", type: UserChangeApiService.self, configs: configs, keys: keys)
     }
 
+    public func profile(updates: [PartialUpdateContainer]) -> RequestResult<Bool> {
+
+        let parameters = CollectParameters([
+                "containers": updates
+            ])
+
+        return client.PutBool(action: "Profile", parameters: parameters)
+    }
+    public func preferences(deviceId: Long, updates: [PartialUpdateContainer]) -> RequestResult<Bool> {
+
+        let parameters = CollectParameters([
+                "deviceId": deviceId,
+                "containers": updates.map({ $0.toJSON() })
+            ])
+
+        return client.PutBool(action: "Notifications", parameters: parameters)
+    }
 }

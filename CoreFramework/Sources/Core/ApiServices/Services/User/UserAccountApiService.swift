@@ -16,10 +16,18 @@ public class UserAccountApiService: BaseApiService {
     }
 
     // MARK: Methods
-    public func Info() -> RequestResult<User> {
+    public func info() -> RequestResult<User> {
 
         let parameters = CollectParameters()
 
         return client.Get(action: "Info", type: User.self, parameters: parameters)
+    }
+    public func preferences(deviceId: Long) -> RequestResult<UserNotificationPreference> {
+        let parameters = CollectParameters([
+            "deviceId": deviceId,
+            "method": ConnectionMethod.pushes.rawValue
+        ])
+
+        return client.Get(action: "Preferences", type: UserNotificationPreference.self, parameters: parameters)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Router.swift
+//  DefaultRouter.swift
 //  Launcher
 //
 //  Created by Алексей on 05.03.18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MdsKit
 
-public class RoutingSystem: Router {
+public class DefaultRouter: Router {
 
     public private(set) var navigator: UINavigationController?
     public private(set) var tabs: UITabBarController?

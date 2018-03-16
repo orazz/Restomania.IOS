@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="OtherNotificationControllerPreference" customModule="CoreFramework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Настройка" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsa-Nj-ZoY">
+                    <rect key="frame" x="10" y="10" width="295" height="23"/>
+                    <gestureRecognizers/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFU-wd-W2g">
+                    <rect key="frame" x="315" y="6" width="52" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="T3P-7Q-doC"/>
+                        <constraint firstAttribute="height" constant="31" id="cng-8X-Ign"/>
+                    </constraints>
+                    <connections>
+                        <action selector="changeValue" destination="iN0-l3-epB" eventType="valueChanged" id="sA6-HW-hjr"/>
+                    </connections>
+                </switch>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Xsa-Nj-ZoY" secondAttribute="bottom" constant="10" id="4JQ-e9-IOG"/>
+                <constraint firstItem="iFU-wd-W2g" firstAttribute="leading" secondItem="Xsa-Nj-ZoY" secondAttribute="trailing" constant="10" id="A5e-E1-Mw5"/>
+                <constraint firstItem="Xsa-Nj-ZoY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Fo8-J0-wzJ"/>
+                <constraint firstItem="Xsa-Nj-ZoY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="LCf-Uy-g1u"/>
+                <constraint firstAttribute="trailing" secondItem="iFU-wd-W2g" secondAttribute="trailing" constant="10" id="fSz-KC-9l7"/>
+                <constraint firstItem="iFU-wd-W2g" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mxK-ua-Qgd"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="Xsa-Nj-ZoY" id="Hkj-ng-98p"/>
+                <outlet property="valueSwitch" destination="iFU-wd-W2g" id="xvj-qI-Yfk"/>
+                <outletCollection property="gestureRecognizers" destination="ccr-Za-VqU" appends="YES" id="5Fc-og-ruB"/>
+            </connections>
+            <point key="canvasLocation" x="12.5" y="104.5"/>
+        </view>
+        <tapGestureRecognizer id="ccr-Za-VqU" userLabel="tapOnRow">
+            <connections>
+                <action selector="tapOnRow" destination="iN0-l3-epB" id="sfi-Vm-8LM"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

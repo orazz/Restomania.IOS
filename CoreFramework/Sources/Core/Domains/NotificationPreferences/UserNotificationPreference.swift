@@ -10,19 +10,38 @@ import Foundation
 import Gloss
 
 public class UserNotificationPreference: BaseNotificationPreference {
-    public var NewPaymentCard: Bool
-    public var ChangeReviewStatus: Bool
+
+    public class Keys: BaseNotificationPreference.BaseKeys {
+        
+        public static let dishOrderIsPrepared = "DishOrderIsPrepared"
+        public static let paymentCardAdd = "PaymentCardAdd"
+    }
+
+    public let ordersIsPrepared: Bool
+
+    public let paymentCardAdd: Bool
 
     public override init() {
-        self.NewPaymentCard = false
-        self.ChangeReviewStatus = false
+
+        self.ordersIsPrepared = false
+        self.paymentCardAdd = false
 
         super.init()
     }
     public required init(json: JSON) {
-        self.NewPaymentCard = ("NewPaymentCard" <~~ json)!
-        self.ChangeReviewStatus = ("ChangeReviewStatus" <~~ json)!
+
+        self.ordersIsPrepared = (Keys.dishOrderIsPrepared <~~ json)!
+        self.paymentCardAdd = (Keys.paymentCardAdd <~~ json)!
 
         super.init(json: json)
+    }
+    public override func toJSON() -> JSON? {
+        return jsonify([
+
+            Keys.dishOrderIsPrepared ~~> self.ordersIsPrepared,
+            Keys.paymentCardAdd ~~> self.paymentCardAdd,
+
+            super.toJSON()
+            ])
     }
 }
