@@ -1,6 +1,6 @@
 //
 //  OtherController.swift
-//  Kuzina
+//  CoreFramework
 //
 //  Created by Алексей on 24.07.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
@@ -14,7 +14,11 @@ public class OtherController: UIViewController {
     private let _tag = String.tag(OtherController.self)
 
     //UI
-    @IBOutlet private weak var LogoutButton: UIButton!
+    @IBOutlet private weak var notificationstButton: UIButton!
+    @IBOutlet private weak var changePasswordButton: UIButton!
+    @IBOutlet private weak var paymentCardsButton: UIButton!
+    @IBOutlet private weak var termsButton: UIButton!
+    @IBOutlet private weak var logoutButton: UIButton!
 
     private let router = DependencyResolver.resolve(Router.self)
     private let themeColors = DependencyResolver.resolve(ThemeColors.self)
@@ -33,6 +37,15 @@ public class OtherController: UIViewController {
         fatalError()
     }
 
+    public override func loadView() {
+        super.loadView()
+
+        notificationstButton.setTitle(Localization.buttonNotifications.localized, for: .normal)
+        changePasswordButton.setTitle(Localization.buttonPaymentCards.localized, for: .normal)
+        paymentCardsButton.setTitle(Localization.buttonPaymentCards.localized, for: .normal)
+        termsButton.setTitle(Localization.buttonTerms.localized, for: .normal)
+        logoutButton.setTitle(Localization.buttonLogout.localized, for: .normal)
+    }
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,30 +61,25 @@ public class OtherController: UIViewController {
 
         view.backgroundColor = themeColors.contentBackground
 
-        LogoutButton.isHidden = !isAuth
+        logoutButton.isHidden = !isAuth
     }
 
     @IBAction public func Logout() {
 
         keysService.logout()
-        LogoutButton.isHidden = true
+
+        logoutButton.isHidden = true
     }
 
     // MARK: Navigate to sub managers screens
-    @IBAction public func goToEditProfile() {
-//        presentSubmanager(controller: ManagerEditProfileController())
-    }
-    @IBAction public func goToEditNotificationPreferences() {
-//        presentSubmanager(controller: ManagerEditNotificationPreferencesController())
+    @IBAction public func goToNotifications() {
+        present(OtherNotificationController())
     }
     @IBAction public func goToChangePassword() {
         present(ManagerChangePasswordController.create())
     }
     @IBAction public func goToPaymentCards() {
-        present(ManagerPaymentCardsController())
-    }
-    @IBAction public func goToOrders() {
-        present(OrdersController())
+        present(OtherPaymentCardsController())
     }
     @IBAction public func goToTerms() {
         present(TermsController(), needAuth: false)
@@ -91,5 +99,22 @@ public class OtherController: UIViewController {
                 }
             }
         })
+    }
+}
+extension OtherController {
+    public enum Localization: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(OtherController.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
+
+        case buttonNotifications = "Buttons.Notifications"
+        case buttonChangePassword = "Buttons.ChangePassword"
+        case buttonPaymentCards = "Buttons.PaymentCards"
+        case buttonTerms = "Buttons.Terms"
+        case buttonLogout = "Buttons.Logout"
     }
 }

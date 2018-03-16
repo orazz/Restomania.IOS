@@ -1,6 +1,6 @@
 //
 //  PlacesCacheService.swift
-//  Kuzina
+//  CoreFramework
 //
 //  Created by Алексей on 22.07.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.

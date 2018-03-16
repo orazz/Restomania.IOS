@@ -1,6 +1,6 @@
 //
 //  AccountsOpenApiService.swift
-//  Kuzina
+//  CoreFramework
 //
 //  Created by Алексей on 18.07.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.

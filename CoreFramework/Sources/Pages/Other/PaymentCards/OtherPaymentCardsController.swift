@@ -1,6 +1,6 @@
 //
-//  PaymentCardsController.swift
-//  Kuzina
+//  OtherPaymentCardsController.swift
+//  CoreFramework
 //
 //  Created by Алексей on 11.09.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
@@ -14,7 +14,7 @@ public protocol IPaymentCardsDelegate {
 
     func removeCard(_: Long)
 }
-public class ManagerPaymentCardsController: UIViewController {
+public class OtherPaymentCardsController: UIViewController {
 
     //UI elements
     @IBOutlet weak var cardsTable: UITableView!
@@ -30,13 +30,13 @@ public class ManagerPaymentCardsController: UIViewController {
     private var loaderAdapter: PartsLoader!
 
     // MARK: Tools
-    private let _tag = String.tag(ManagerPaymentCardsController.self)
+    private let _tag = String.tag(OtherPaymentCardsController.self)
     private var loadQueue: AsyncQueue!
 
     public init() {
         loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
 
-        super.init(nibName: String.tag(ManagerPaymentCardsController.self), bundle: Bundle.coreFramework)
+        super.init(nibName: String.tag(OtherPaymentCardsController.self), bundle: Bundle.coreFramework)
 
         cardsContainer = PartsLoadTypedContainer<[PaymentCard]>(completeLoadHandler: self.completeLoad)
         cardsContainer.updateHandler = { update in
@@ -53,7 +53,7 @@ public class ManagerPaymentCardsController: UIViewController {
     public override func loadView() {
         super.loadView()
 
-        ManagerPaymentCardCell.register(in: cardsTable)
+        OtherPaymentCardsControllerCardCell.register(in: cardsTable)
 
         interfaceLoader = InterfaceLoader(for: view)
         refreshControl = cardsTable.addRefreshControl(for: self, action: #selector(needReload))
@@ -62,7 +62,7 @@ public class ManagerPaymentCardsController: UIViewController {
     }
 }
 // MARK: Load circle
-extension ManagerPaymentCardsController {
+extension OtherPaymentCardsController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +109,7 @@ extension ManagerPaymentCardsController {
     }
 }
 // MARK: IPaymentCardsDelegate
-extension ManagerPaymentCardsController: IPaymentCardsDelegate {
+extension OtherPaymentCardsController: IPaymentCardsDelegate {
 
     @IBAction public func addCard() {
         Log.debug(_tag, "Try add new payment card.")
@@ -156,15 +156,15 @@ extension ManagerPaymentCardsController: IPaymentCardsDelegate {
     }
 }
 // MARK: Table
-extension ManagerPaymentCardsController: UITableViewDelegate {
+extension OtherPaymentCardsController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
-        let cell = tableView.cellForRow(at: indexPath) as? ManagerPaymentCardCell
+        let cell = tableView.cellForRow(at: indexPath) as? OtherPaymentCardsControllerCardCell
         cell?.Remove()
     }
 }
-extension ManagerPaymentCardsController: UITableViewDataSource {
+extension OtherPaymentCardsController: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -172,22 +172,22 @@ extension ManagerPaymentCardsController: UITableViewDataSource {
         return cardsContainer.data?.count ?? 0
     }
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ManagerPaymentCardCell.height
+        return OtherPaymentCardsControllerCardCell.height
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let card = cardsContainer.data![indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: ManagerPaymentCardCell.identifier, for: indexPath) as! ManagerPaymentCardCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: OtherPaymentCardsControllerCardCell.identifier, for: indexPath) as! OtherPaymentCardsControllerCardCell
         cell.setup(card: card, delegate: self)
 
         return cell
     }
 }
-extension ManagerPaymentCardsController {
+extension OtherPaymentCardsController {
     public enum Keys: String, Localizable {
 
         public var tableName: String {
-            return String.tag(ManagerPaymentCardsController.self)
+            return String.tag(OtherPaymentCardsController.self)
         }
         public var bundle: Bundle {
             return Bundle.coreFramework

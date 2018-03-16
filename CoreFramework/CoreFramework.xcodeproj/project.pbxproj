@@ -178,10 +178,8 @@
 		1F06A87F205570FD00FEB1B5 /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A701205570FD00FEB1B5 /* TabsController.swift */; };
 		1F06A880205570FD00FEB1B5 /* ManagerChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A704205570FD00FEB1B5 /* ManagerChangePasswordController.swift */; };
 		1F06A881205570FD00FEB1B5 /* ManagerChangePasswordControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A705205570FD00FEB1B5 /* ManagerChangePasswordControllerView.xib */; };
-		1F06A882205570FD00FEB1B5 /* ManagerEditNotificationPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A707205570FD00FEB1B5 /* ManagerEditNotificationPreferencesController.swift */; };
-		1F06A883205570FD00FEB1B5 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A708205570FD00FEB1B5 /* ManagerEditNotificationPreferencesControllerView.xib */; };
-		1F06A884205570FD00FEB1B5 /* ManagerEditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A70A205570FD00FEB1B5 /* ManagerEditProfileController.swift */; };
-		1F06A885205570FD00FEB1B5 /* ManagerEditProfileControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A70B205570FD00FEB1B5 /* ManagerEditProfileControllerView.xib */; };
+		1F06A882205570FD00FEB1B5 /* OtherNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A707205570FD00FEB1B5 /* OtherNotificationController.swift */; };
+		1F06A883205570FD00FEB1B5 /* OtherNotificationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A708205570FD00FEB1B5 /* OtherNotificationController.xib */; };
 		1F06A887205570FD00FEB1B5 /* OrdersController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A70E205570FD00FEB1B5 /* OrdersController.strings */; };
 		1F06A888205570FD00FEB1B5 /* OrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A710205570FD00FEB1B5 /* OrdersController.swift */; };
 		1F06A889205570FD00FEB1B5 /* OrdersControllerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A711205570FD00FEB1B5 /* OrdersControllerOrderCell.swift */; };
@@ -189,11 +187,11 @@
 		1F06A88B205570FD00FEB1B5 /* OrdersController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A713205570FD00FEB1B5 /* OrdersController.xib */; };
 		1F06A88C205570FD00FEB1B5 /* OtherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A715205570FD00FEB1B5 /* OtherController.swift */; };
 		1F06A88D205570FD00FEB1B5 /* OtherController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A716205570FD00FEB1B5 /* OtherController.xib */; };
-		1F06A88E205570FD00FEB1B5 /* ManagerPaymentCardsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A718205570FD00FEB1B5 /* ManagerPaymentCardsController.strings */; };
-		1F06A88F205570FD00FEB1B5 /* ManagerPaymentCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A71A205570FD00FEB1B5 /* ManagerPaymentCardCell.swift */; };
-		1F06A890205570FD00FEB1B5 /* ManagerPaymentCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCell.xib */; };
-		1F06A891205570FD00FEB1B5 /* ManagerPaymentCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A71C205570FD00FEB1B5 /* ManagerPaymentCardsController.swift */; };
-		1F06A892205570FD00FEB1B5 /* ManagerPaymentCardsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsController.xib */; };
+		1F06A88E205570FD00FEB1B5 /* OtherPaymentCardsController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A718205570FD00FEB1B5 /* OtherPaymentCardsController.strings */; };
+		1F06A88F205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A71A205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.swift */; };
+		1F06A890205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71B205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.xib */; };
+		1F06A891205570FD00FEB1B5 /* OtherPaymentCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A71C205570FD00FEB1B5 /* OtherPaymentCardsController.swift */; };
+		1F06A892205570FD00FEB1B5 /* OtherPaymentCardsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71D205570FD00FEB1B5 /* OtherPaymentCardsController.xib */; };
 		1F06A893205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A723205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift */; };
 		1F06A894205570FD00FEB1B5 /* PlaceCartAdditionalContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A724205570FD00FEB1B5 /* PlaceCartAdditionalContainerView.xib */; };
 		1F06A895205570FD00FEB1B5 /* PlaceCartDateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A726205570FD00FEB1B5 /* PlaceCartDateContainer.swift */; };
@@ -325,6 +323,8 @@
 		1FDBA11B205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA11A205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib */; };
 		1FDBA11E205B2813000F1378 /* OneOrderCommentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBA11D205B2813000F1378 /* OneOrderCommentContainer.swift */; };
 		1FDBA120205B281C000F1378 /* OneOrderCommentContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA11F205B281C000F1378 /* OneOrderCommentContainer.xib */; };
+		1FDBA122205B8FDF000F1378 /* OtherNotificationController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA121205B8FDF000F1378 /* OtherNotificationController.strings */; };
+		1FDBA125205B9857000F1378 /* OtherController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA127205B9857000F1378 /* OtherController.strings */; };
 		1FED176620573F3400A80DA5 /* BaseSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED176520573F3400A80DA5 /* BaseSearchController.swift */; };
 		7B9696C32E76578E71F00E4B /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
@@ -514,10 +514,8 @@
 		1F06A701205570FD00FEB1B5 /* TabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsController.swift; sourceTree = "<group>"; };
 		1F06A704205570FD00FEB1B5 /* ManagerChangePasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerChangePasswordController.swift; sourceTree = "<group>"; };
 		1F06A705205570FD00FEB1B5 /* ManagerChangePasswordControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerChangePasswordControllerView.xib; sourceTree = "<group>"; };
-		1F06A707205570FD00FEB1B5 /* ManagerEditNotificationPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerEditNotificationPreferencesController.swift; sourceTree = "<group>"; };
-		1F06A708205570FD00FEB1B5 /* ManagerEditNotificationPreferencesControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerEditNotificationPreferencesControllerView.xib; sourceTree = "<group>"; };
-		1F06A70A205570FD00FEB1B5 /* ManagerEditProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerEditProfileController.swift; sourceTree = "<group>"; };
-		1F06A70B205570FD00FEB1B5 /* ManagerEditProfileControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerEditProfileControllerView.xib; sourceTree = "<group>"; };
+		1F06A707205570FD00FEB1B5 /* OtherNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherNotificationController.swift; sourceTree = "<group>"; };
+		1F06A708205570FD00FEB1B5 /* OtherNotificationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherNotificationController.xib; sourceTree = "<group>"; };
 		1F06A70F205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrdersController.strings; sourceTree = "<group>"; };
 		1F06A710205570FD00FEB1B5 /* OrdersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersController.swift; sourceTree = "<group>"; };
 		1F06A711205570FD00FEB1B5 /* OrdersControllerOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersControllerOrderCell.swift; sourceTree = "<group>"; };
@@ -526,12 +524,12 @@
 		1F06A714205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OrdersController.strings; sourceTree = "<group>"; };
 		1F06A715205570FD00FEB1B5 /* OtherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherController.swift; sourceTree = "<group>"; };
 		1F06A716205570FD00FEB1B5 /* OtherController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherController.xib; sourceTree = "<group>"; };
-		1F06A719205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManagerPaymentCardsController.strings; sourceTree = "<group>"; };
-		1F06A71A205570FD00FEB1B5 /* ManagerPaymentCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPaymentCardCell.swift; sourceTree = "<group>"; };
-		1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerPaymentCardCell.xib; sourceTree = "<group>"; };
-		1F06A71C205570FD00FEB1B5 /* ManagerPaymentCardsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPaymentCardsController.swift; sourceTree = "<group>"; };
-		1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerPaymentCardsController.xib; sourceTree = "<group>"; };
-		1F06A71E205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ManagerPaymentCardsController.strings; sourceTree = "<group>"; };
+		1F06A719205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtherPaymentCardsController.strings; sourceTree = "<group>"; };
+		1F06A71A205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPaymentCardsControllerCardCell.swift; sourceTree = "<group>"; };
+		1F06A71B205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherPaymentCardsControllerCardCell.xib; sourceTree = "<group>"; };
+		1F06A71C205570FD00FEB1B5 /* OtherPaymentCardsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPaymentCardsController.swift; sourceTree = "<group>"; };
+		1F06A71D205570FD00FEB1B5 /* OtherPaymentCardsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherPaymentCardsController.xib; sourceTree = "<group>"; };
+		1F06A71E205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OtherPaymentCardsController.strings; sourceTree = "<group>"; };
 		1F06A723205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartAdditionalContainer.swift; sourceTree = "<group>"; };
 		1F06A724205570FD00FEB1B5 /* PlaceCartAdditionalContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartAdditionalContainerView.xib; sourceTree = "<group>"; };
 		1F06A726205570FD00FEB1B5 /* PlaceCartDateContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDateContainer.swift; sourceTree = "<group>"; };
@@ -679,6 +677,9 @@
 		1FDBA11A205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneOrderDishesContainerAddingCell.xib; sourceTree = "<group>"; };
 		1FDBA11D205B2813000F1378 /* OneOrderCommentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderCommentContainer.swift; sourceTree = "<group>"; };
 		1FDBA11F205B281C000F1378 /* OneOrderCommentContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneOrderCommentContainer.xib; sourceTree = "<group>"; };
+		1FDBA121205B8FDF000F1378 /* OtherNotificationController.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = OtherNotificationController.strings; sourceTree = "<group>"; };
+		1FDBA126205B9857000F1378 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtherController.strings; sourceTree = "<group>"; };
+		1FDBA128205B9858000F1378 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OtherController.strings; sourceTree = "<group>"; };
 		1FED174920571B7E00A80DA5 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED175620571B9E00A80DA5 /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED175720571B9E00A80DA5 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1499,8 +1500,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A90A2055848500FEB1B5 /* OtherRoot */,
-				1F06A706205570FD00FEB1B5 /* EditNotificationsPreferences */,
-				1F06A709205570FD00FEB1B5 /* EditProfile */,
+				1F06A706205570FD00FEB1B5 /* Notifications */,
 				1F06A703205570FD00FEB1B5 /* ChangePassword */,
 				1F06A717205570FD00FEB1B5 /* PaymentCards */,
 			);
@@ -1516,22 +1516,14 @@
 			path = ChangePassword;
 			sourceTree = "<group>";
 		};
-		1F06A706205570FD00FEB1B5 /* EditNotificationsPreferences */ = {
+		1F06A706205570FD00FEB1B5 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A707205570FD00FEB1B5 /* ManagerEditNotificationPreferencesController.swift */,
-				1F06A708205570FD00FEB1B5 /* ManagerEditNotificationPreferencesControllerView.xib */,
+				1F06A707205570FD00FEB1B5 /* OtherNotificationController.swift */,
+				1F06A708205570FD00FEB1B5 /* OtherNotificationController.xib */,
+				1FDBA121205B8FDF000F1378 /* OtherNotificationController.strings */,
 			);
-			path = EditNotificationsPreferences;
-			sourceTree = "<group>";
-		};
-		1F06A709205570FD00FEB1B5 /* EditProfile */ = {
-			isa = PBXGroup;
-			children = (
-				1F06A70A205570FD00FEB1B5 /* ManagerEditProfileController.swift */,
-				1F06A70B205570FD00FEB1B5 /* ManagerEditProfileControllerView.xib */,
-			);
-			path = EditProfile;
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		1F06A70D205570FD00FEB1B5 /* Orders */ = {
@@ -1549,11 +1541,11 @@
 		1F06A717205570FD00FEB1B5 /* PaymentCards */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A71C205570FD00FEB1B5 /* ManagerPaymentCardsController.swift */,
-				1F06A71D205570FD00FEB1B5 /* ManagerPaymentCardsController.xib */,
-				1F06A718205570FD00FEB1B5 /* ManagerPaymentCardsController.strings */,
-				1F06A71A205570FD00FEB1B5 /* ManagerPaymentCardCell.swift */,
-				1F06A71B205570FD00FEB1B5 /* ManagerPaymentCardCell.xib */,
+				1F06A71C205570FD00FEB1B5 /* OtherPaymentCardsController.swift */,
+				1F06A71D205570FD00FEB1B5 /* OtherPaymentCardsController.xib */,
+				1F06A718205570FD00FEB1B5 /* OtherPaymentCardsController.strings */,
+				1F06A71A205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.swift */,
+				1F06A71B205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.xib */,
 			);
 			path = PaymentCards;
 			sourceTree = "<group>";
@@ -2022,6 +2014,7 @@
 			children = (
 				1F06A715205570FD00FEB1B5 /* OtherController.swift */,
 				1F06A716205570FD00FEB1B5 /* OtherController.xib */,
+				1FDBA127205B9857000F1378 /* OtherController.strings */,
 			);
 			path = OtherRoot;
 			sourceTree = "<group>";
@@ -2257,7 +2250,7 @@
 				1F8923A82056FA590086D372 /* DistanceLabel.strings in Resources */,
 				1F06A8BF205570FD00FEB1B5 /* DishModalSelectAddingsCellView.xib in Resources */,
 				1F06A8EE205570FE00FEB1B5 /* OneOrderController.strings in Resources */,
-				1F06A890205570FD00FEB1B5 /* ManagerPaymentCardCell.xib in Resources */,
+				1F06A890205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.xib in Resources */,
 				1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderContainerView.xib in Resources */,
 				1F06A7EC205570FD00FEB1B5 /* EnterPhoneAuthController.strings in Resources */,
 				1F06A88A205570FD00FEB1B5 /* OrdersControllerOrderCell.xib in Resources */,
@@ -2289,7 +2282,7 @@
 				1F06A8CC205570FD00FEB1B5 /* DishModalTryAddingActionView.xib in Resources */,
 				1F892356205679D70086D372 /* ProblemAlert.strings in Resources */,
 				1F06A8D5205570FD00FEB1B5 /* PlaceMenuCategoryCellView.xib in Resources */,
-				1F06A892205570FD00FEB1B5 /* ManagerPaymentCardsController.xib in Resources */,
+				1F06A892205570FD00FEB1B5 /* OtherPaymentCardsController.xib in Resources */,
 				1F06A89E205570FD00FEB1B5 /* PlaceCartDishesContainerView.xib in Resources */,
 				1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */,
 				1F06A7EA205570FD00FEB1B5 /* InstagramAuthController.strings in Resources */,
@@ -2299,7 +2292,6 @@
 				1F06A8A5205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerView.xib in Resources */,
 				1F06A8CA205570FD00FEB1B5 /* DishModalSpaceView.xib in Resources */,
 				1F06A7F1205570FD00FEB1B5 /* SelectAuthController.xib in Resources */,
-				1F06A885205570FD00FEB1B5 /* ManagerEditProfileControllerView.xib in Resources */,
 				1F06A8DF205570FE00FEB1B5 /* PlaceMenuControllerView.xib in Resources */,
 				1F06A8A1205570FD00FEB1B5 /* PlaceCartController.strings in Resources */,
 				1F06A8C6205570FD00FEB1B5 /* DishModalSelectVariationsView.xib in Resources */,
@@ -2309,6 +2301,7 @@
 				1F06A7F8205570FD00FEB1B5 /* WebBrowserController.xib in Resources */,
 				1F06A87A205570FD00FEB1B5 /* LoadingController.strings in Resources */,
 				1F06A887205570FD00FEB1B5 /* OrdersController.strings in Resources */,
+				1FDBA125205B9857000F1378 /* OtherController.strings in Resources */,
 				1F06A7E9205570FD00FEB1B5 /* EmailEnterAuthController.xib in Resources */,
 				1F06A8E9205570FE00FEB1B5 /* ExternalTextEditorView.xib in Resources */,
 				1F06A8F0205570FE00FEB1B5 /* OneOrderAddedAtContainer.xib in Resources */,
@@ -2327,11 +2320,12 @@
 				1F06A8A4205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
 				1F06A8C2205570FD00FEB1B5 /* DishModalSelectHeaderView.xib in Resources */,
 				1F06A7E7205570FD00FEB1B5 /* ResetPasswordAuthController.xib in Resources */,
+				1FDBA122205B8FDF000F1378 /* OtherNotificationController.strings in Resources */,
 				1F06A8F2205570FE00FEB1B5 /* OneOrderController.xib in Resources */,
 				1FDBA115205AFD96000F1378 /* FontAwesome.ttf in Resources */,
-				1F06A883205570FD00FEB1B5 /* ManagerEditNotificationPreferencesControllerView.xib in Resources */,
+				1F06A883205570FD00FEB1B5 /* OtherNotificationController.xib in Resources */,
 				1F06A7FE205570FD00FEB1B5 /* FontAwesome.ttf in Resources */,
-				1F06A88E205570FD00FEB1B5 /* ManagerPaymentCardsController.strings in Resources */,
+				1F06A88E205570FD00FEB1B5 /* OtherPaymentCardsController.strings in Resources */,
 				1F8923A72056F60B0086D372 /* DistanceLabel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2389,7 +2383,7 @@
 				1F06A814205570FD00FEB1B5 /* NotificationsDevicesApiService.swift in Sources */,
 				1F06A824205570FD00FEB1B5 /* BaseDish.swift in Sources */,
 				1F06A85E205570FD00FEB1B5 /* PlaceCartContainer.swift in Sources */,
-				1F06A88F205570FD00FEB1B5 /* ManagerPaymentCardCell.swift in Sources */,
+				1F06A88F205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.swift in Sources */,
 				1F06A800205570FD00FEB1B5 /* TemplateContainer.swift in Sources */,
 				1F06A7F9205570FD00FEB1B5 /* WebBrowserControllerDelegate.swift in Sources */,
 				1F06A859205570FD00FEB1B5 /* OrdersCacheService.swift in Sources */,
@@ -2561,7 +2555,6 @@
 				1F06A7E0205570FD00FEB1B5 /* AuthHandler.swift in Sources */,
 				1F06A88C205570FD00FEB1B5 /* OtherController.swift in Sources */,
 				1F06A89F205570FD00FEB1B5 /* PlaceCartDivider.swift in Sources */,
-				1F06A884205570FD00FEB1B5 /* ManagerEditProfileController.swift in Sources */,
 				1F06A82F205570FD00FEB1B5 /* UserNotificationPreference.swift in Sources */,
 				1F06A825205570FD00FEB1B5 /* Dish.swift in Sources */,
 				1F06A7D9205570FD00FEB1B5 /* ScheduleDisplay.swift in Sources */,
@@ -2575,7 +2568,7 @@
 				1F06A81E205570FD00FEB1B5 /* Device.swift in Sources */,
 				1F06A8DE205570FE00FEB1B5 /* PlaceMenuController.swift in Sources */,
 				1F06A86C205570FD00FEB1B5 /* DependencyResolver.swift in Sources */,
-				1F06A891205570FD00FEB1B5 /* ManagerPaymentCardsController.swift in Sources */,
+				1F06A891205570FD00FEB1B5 /* OtherPaymentCardsController.swift in Sources */,
 				1F06A8B9205570FD00FEB1B5 /* DishModalHeader.swift in Sources */,
 				1F06A81C205570FD00FEB1B5 /* UserOrdersApiService.swift in Sources */,
 				1F06A856205570FD00FEB1B5 /* UserSex.swift in Sources */,
@@ -2601,7 +2594,7 @@
 				1FDBA11E205B2813000F1378 /* OneOrderCommentContainer.swift in Sources */,
 				1F06A820205570FD00FEB1B5 /* CountedLoyaltyDiscounts.swift in Sources */,
 				1F06A806205570FD00FEB1B5 /* UIExtensions.swift in Sources */,
-				1F06A882205570FD00FEB1B5 /* ManagerEditNotificationPreferencesController.swift in Sources */,
+				1F06A882205570FD00FEB1B5 /* OtherNotificationController.swift in Sources */,
 				1F06A8A9205570FD00FEB1B5 /* PlaceCartTotalContainerCell.swift in Sources */,
 				1F06A836205570FD00FEB1B5 /* OrderSummary.swift in Sources */,
 			);
@@ -2700,13 +2693,13 @@
 			name = OrdersController.strings;
 			sourceTree = "<group>";
 		};
-		1F06A718205570FD00FEB1B5 /* ManagerPaymentCardsController.strings */ = {
+		1F06A718205570FD00FEB1B5 /* OtherPaymentCardsController.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1F06A719205570FD00FEB1B5 /* en */,
 				1F06A71E205570FD00FEB1B5 /* ru */,
 			);
-			name = ManagerPaymentCardsController.strings;
+			name = OtherPaymentCardsController.strings;
 			sourceTree = "<group>";
 		};
 		1F06A735205570FD00FEB1B5 /* PlaceCartController.strings */ = {
@@ -2842,6 +2835,15 @@
 				1F8923AB2056FA5A0086D372 /* ru */,
 			);
 			name = DistanceLabel.strings;
+			sourceTree = "<group>";
+		};
+		1FDBA127205B9857000F1378 /* OtherController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FDBA126205B9857000F1378 /* en */,
+				1FDBA128205B9858000F1378 /* ru */,
+			);
+			name = OtherController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

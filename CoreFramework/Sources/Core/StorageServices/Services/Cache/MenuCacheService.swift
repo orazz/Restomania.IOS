@@ -1,6 +1,6 @@
 //
 //  MenuCacheService.swift
-//  Kuzina
+//  CoreFramework
 //
 //  Created by Алексей on 26.07.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.

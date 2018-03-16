@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  Kuzina
+//  OtherPaymentCardsControllerCardCell.swift
+//  CoreFramework
 //
 //  Created by Алексей on 12.09.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.
@@ -9,11 +9,11 @@
 import UIKit
 import MdsKit
 
-public class ManagerPaymentCardCell: UITableViewCell {
+public class OtherPaymentCardsControllerCardCell: UITableViewCell {
 
     public static let identifier = Guid.new
     public static let height: CGFloat = 50
-    private static let nibName = String.tag(ManagerPaymentCardCell.self)
+    private static let nibName = String.tag(OtherPaymentCardsControllerCardCell.self)
     public static func register(in table: UITableView) {
 
         let nib = UINib.init(nibName: nibName, bundle: Bundle.coreFramework)
