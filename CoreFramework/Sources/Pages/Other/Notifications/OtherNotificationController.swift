@@ -68,8 +68,6 @@ public class OtherNotificationController: UITableViewController {
         refreshControl = tableView.addRefreshControl(for: self, action: #selector(needReload))
         refreshControl?.backgroundColor = themeColors.divider
         refreshControl?.tintColor = themeColors.dividerText
-
-        apply(update: UserNotificationPreference())
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,11 +85,8 @@ public class OtherNotificationController: UITableViewController {
         }
     }
 
-
     private func loadData() {
-
         loader.show()
-
         requestNotifications()
     }
     @objc private func needReload() {
@@ -117,9 +112,8 @@ public class OtherNotificationController: UITableViewController {
         })
     }
     private func apply(update: UserNotificationPreference?) {
-
-
         DispatchQueue.main.async {
+
             if let preferences = update  {
                 self.rows = self.buildRows(for: preferences)
             }
@@ -134,7 +128,6 @@ extension OtherNotificationController {
     private func buildRows(for preferences: UserNotificationPreference) -> [NotificationSection] {
 
         var result = [NotificationSection]()
-        let keys = UserNotificationPreference.Keys.self
 
         if (showBookingsPreferences) {
             let section = NotificationSection.buildBookings(with: Localization.titleBookings, for: preferences, in: tableView, with: self)

@@ -1513,8 +1513,8 @@
 			isa = PBXGroup;
 			children = (
 				1F06A90A2055848500FEB1B5 /* OtherRoot */,
+				1FBAFA11205EC16400F7BA70 /* Profile */,
 				1F06A706205570FD00FEB1B5 /* Notifications */,
-				1F06A703205570FD00FEB1B5 /* ChangePassword */,
 				1F06A717205570FD00FEB1B5 /* PaymentCards */,
 			);
 			path = Other;
@@ -2124,6 +2124,14 @@
 				1F8923AA2056FA590086D372 /* DistanceLabel.strings */,
 			);
 			path = DistanceLabel;
+			sourceTree = "<group>";
+		};
+		1FBAFA11205EC16400F7BA70 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A703205570FD00FEB1B5 /* ChangePassword */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		1FDBA113205AFCCF000F1378 /* Fonts */ = {

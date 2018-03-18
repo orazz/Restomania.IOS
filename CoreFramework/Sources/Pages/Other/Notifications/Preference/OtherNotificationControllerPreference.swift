@@ -58,7 +58,7 @@ public class OtherNotificationControllerPreference: UITableViewCell {
     private func refresh() {
 
         titleLabel.text = title?.localized ?? String.empty
-        valueSwitch.isOn = value
+        valueSwitch.setOn(value, animated: true)
     }
 
     @objc private func tapOnRow() {

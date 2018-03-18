@@ -6,8 +6,8 @@
   Copyright © 2018 Medved-Studio. All rights reserved.
 */
 
+"Buttons.Profile" = "Профиль";
 "Buttons.Notifications" = "Уведомления";
-"Buttons.ChangePassword" = "Сменить пароль";
 "Buttons.PaymentCards" = "Платежные карты";
 "Buttons.Terms" = "Условия использования";
 "Buttons.Logout" = "Выйти";

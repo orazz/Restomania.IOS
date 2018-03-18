@@ -12,10 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OtherController" customModule="CoreFramework" customModuleProvider="target">
             <connections>
-                <outlet property="changePasswordButton" destination="X0c-vP-Ge5" id="Wvh-ZT-jms"/>
                 <outlet property="logoutButton" destination="qR2-2K-1rw" id="J0R-ov-Kel"/>
                 <outlet property="notificationstButton" destination="bhN-HA-yBt" id="oll-d9-SGz"/>
                 <outlet property="paymentCardsButton" destination="HH4-1g-lT2" id="vuY-uD-3LO"/>
+                <outlet property="profiledButton" destination="X0c-vP-Ge5" id="Wvh-ZT-jms"/>
                 <outlet property="termsButton" destination="g7N-SS-XPz" id="bKp-cF-CDx"/>
                 <outlet property="view" destination="Z43-Uo-6WJ" id="npp-or-GSG"/>
             </connections>
@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhN-HA-yBt" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="80" width="300" height="50"/>
+                    <rect key="frame" x="10" y="145" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="lwF-Sc-unD"/>
                         <constraint firstAttribute="height" constant="50" id="wJZ-ub-fqn"/>
@@ -36,19 +36,8 @@
                         <action selector="goToNotifications" destination="-1" eventType="touchUpInside" id="L02-aC-7zO"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0c-vP-Ge5" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="145" width="300" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="0AU-xd-6Ax"/>
-                        <constraint firstAttribute="width" constant="300" id="UQ5-Ob-LEL"/>
-                    </constraints>
-                    <state key="normal" title="Изменить пароль"/>
-                    <connections>
-                        <action selector="goToChangePassword" destination="-1" eventType="touchUpInside" id="WdH-YO-xI8"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH4-1g-lT2" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="240" width="300" height="50"/>
+                    <rect key="frame" x="10" y="225" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="7VF-fP-mm7"/>
                         <constraint firstAttribute="width" constant="300" id="kye-Cw-LFv"/>
@@ -59,7 +48,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7N-SS-XPz" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="335" width="300" height="50"/>
+                    <rect key="frame" x="10" y="305" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="V2o-eh-zWf"/>
                         <constraint firstAttribute="width" constant="300" id="gvb-eI-Bxa"/>
@@ -70,7 +59,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qR2-2K-1rw" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="400" width="300" height="50"/>
+                    <rect key="frame" x="10" y="370" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="CaO-ze-Tax"/>
                         <constraint firstAttribute="width" constant="300" id="hqG-vI-oVI"/>
@@ -80,18 +69,29 @@
                         <action selector="Logout" destination="-1" eventType="touchUpInside" id="fRb-ew-R5r"/>
                     </connections>
                 </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0c-vP-Ge5" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
+                    <rect key="frame" x="10" y="80" width="300" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="0AU-xd-6Ax"/>
+                        <constraint firstAttribute="width" constant="300" id="UQ5-Ob-LEL"/>
+                    </constraints>
+                    <state key="normal" title="Профиль"/>
+                    <connections>
+                        <action selector="goToProfile" destination="-1" eventType="touchUpInside" id="WdH-YO-xI8"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="HH4-1g-lT2" firstAttribute="top" secondItem="X0c-vP-Ge5" secondAttribute="bottom" constant="45" id="3Bx-OA-PSz"/>
-                <constraint firstItem="bhN-HA-yBt" firstAttribute="top" secondItem="uRu-bu-cE2" secondAttribute="top" constant="60" id="3F1-9A-out"/>
-                <constraint firstItem="X0c-vP-Ge5" firstAttribute="top" secondItem="bhN-HA-yBt" secondAttribute="bottom" constant="15" id="AtC-c9-7mv"/>
-                <constraint firstItem="g7N-SS-XPz" firstAttribute="top" secondItem="HH4-1g-lT2" secondAttribute="bottom" constant="45" id="F1w-GV-L99"/>
+                <constraint firstItem="g7N-SS-XPz" firstAttribute="top" secondItem="HH4-1g-lT2" secondAttribute="bottom" constant="30" id="F1w-GV-L99"/>
                 <constraint firstItem="qR2-2K-1rw" firstAttribute="top" secondItem="g7N-SS-XPz" secondAttribute="bottom" constant="15" id="Gj1-DM-xEf"/>
+                <constraint firstItem="HH4-1g-lT2" firstAttribute="top" secondItem="bhN-HA-yBt" secondAttribute="bottom" constant="30" id="HFk-Bb-8Hg"/>
                 <constraint firstItem="qR2-2K-1rw" firstAttribute="centerX" secondItem="Z43-Uo-6WJ" secondAttribute="centerX" id="HeR-hO-YVK"/>
                 <constraint firstItem="X0c-vP-Ge5" firstAttribute="centerX" secondItem="Z43-Uo-6WJ" secondAttribute="centerX" id="Ig3-9G-96d"/>
                 <constraint firstItem="g7N-SS-XPz" firstAttribute="centerX" secondItem="Z43-Uo-6WJ" secondAttribute="centerX" id="UBi-Bs-7aA"/>
+                <constraint firstItem="bhN-HA-yBt" firstAttribute="top" secondItem="X0c-vP-Ge5" secondAttribute="bottom" constant="15" id="XBH-RM-Z8q"/>
                 <constraint firstItem="bhN-HA-yBt" firstAttribute="centerX" secondItem="Z43-Uo-6WJ" secondAttribute="centerX" id="ZLy-OK-JmE"/>
+                <constraint firstItem="X0c-vP-Ge5" firstAttribute="top" secondItem="uRu-bu-cE2" secondAttribute="top" constant="60" id="gpD-68-nMY"/>
                 <constraint firstItem="HH4-1g-lT2" firstAttribute="centerX" secondItem="Z43-Uo-6WJ" secondAttribute="centerX" id="oOj-My-jC8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="uRu-bu-cE2"/>

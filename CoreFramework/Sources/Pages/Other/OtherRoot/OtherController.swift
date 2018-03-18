@@ -14,8 +14,8 @@ public class OtherController: UIViewController {
     private let _tag = String.tag(OtherController.self)
 
     //UI
+    @IBOutlet private weak var profiledButton: UIButton!
     @IBOutlet private weak var notificationstButton: UIButton!
-    @IBOutlet private weak var changePasswordButton: UIButton!
     @IBOutlet private weak var paymentCardsButton: UIButton!
     @IBOutlet private weak var termsButton: UIButton!
     @IBOutlet private weak var logoutButton: UIButton!
@@ -42,8 +42,8 @@ public class OtherController: UIViewController {
 
         UIView.setAnimationsEnabled(false)
 
+        profiledButton.setTitle(Localization.buttonProfile.localized, for: .normal)
         notificationstButton.setTitle(Localization.buttonNotifications.localized, for: .normal)
-        changePasswordButton.setTitle(Localization.buttonChangePassword.localized, for: .normal)
         paymentCardsButton.setTitle(Localization.buttonPaymentCards.localized, for: .normal)
         termsButton.setTitle(Localization.buttonTerms.localized, for: .normal)
         logoutButton.setTitle(Localization.buttonLogout.localized, for: .normal)
@@ -80,7 +80,7 @@ public class OtherController: UIViewController {
     @IBAction public func goToNotifications() {
         present(OtherNotificationController())
     }
-    @IBAction public func goToChangePassword() {
+    @IBAction public func goToProfile() {
         present(ManagerChangePasswordController.create())
     }
     @IBAction public func goToPaymentCards() {
@@ -116,8 +116,8 @@ extension OtherController {
             return Bundle.coreFramework
         }
 
+        case buttonProfile = "Buttons.Profile"
         case buttonNotifications = "Buttons.Notifications"
-        case buttonChangePassword = "Buttons.ChangePassword"
         case buttonPaymentCards = "Buttons.PaymentCards"
         case buttonTerms = "Buttons.Terms"
         case buttonLogout = "Buttons.Logout"
