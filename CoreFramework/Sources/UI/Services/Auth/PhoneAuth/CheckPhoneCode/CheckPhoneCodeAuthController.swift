@@ -21,9 +21,9 @@ public class CheckPhoneCodeAuthController: UIViewController {
     private var interfaceLoader: InterfaceLoader!
 
     //Services
-    private let authApi = DependencyResolver.resolve(UserAuthApiService.self)
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let authApi = DependencyResolver.get(UserAuthApiService.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private let _tag = String.tag(CheckPhoneCodeAuthController.self)

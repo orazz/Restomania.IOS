@@ -26,8 +26,8 @@ public class DishModalPriceAndSize: UITableViewCell {
     @IBOutlet private weak var dividerLabel: UILabel!
     @IBOutlet private weak var sizeLabel: SizeLabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var isShowSizeAndPrice: Bool = false

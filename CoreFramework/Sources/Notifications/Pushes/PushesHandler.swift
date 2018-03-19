@@ -14,7 +14,7 @@ import Gloss
 public class PushesHandler {
 
     private static let tag = String.tag(PushesHandler.self)
-    private static let router = DependencyResolver.resolve(Router.self)
+    private static let router = DependencyResolver.get(Router.self)
 
     public static func process(_ push: PushContainer) {
 
@@ -87,7 +87,7 @@ public class PushesHandler {
 //            router.goToOrder(orderId: model.id, reset: false)
         }
 
-        let orders = DependencyResolver.resolve(OrdersCacheService.self)
+        let orders = DependencyResolver.get(OrdersCacheService.self)
         let request = orders.find(model.id)
         request.async(.background, completion: { _ in complete(banner)})
 

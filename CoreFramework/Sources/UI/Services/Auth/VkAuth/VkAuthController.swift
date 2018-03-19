@@ -19,9 +19,9 @@ internal class VkAuthController: UIViewController {
     }
 
     //Services
-    private let authService = DependencyResolver.resolve(UserAuthApiService.self)
-    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let authService = DependencyResolver.get(UserAuthApiService.self)
+    private let configs = DependencyResolver.get(ConfigsContainer.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
 
     //Data
     private let _tag = String.tag(VkAuthController.self)

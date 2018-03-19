@@ -12,8 +12,8 @@ import MdsKit
 public class ApiKeysRefreshser {
 
     private static let tag = String.tag(ApiKeysRefreshser.self)
-    private static let authApi = DependencyResolver.resolve(AuthMainApiService.self)
-    private static let keysService = DependencyResolver.resolve(ApiKeyService.self)
+    private static let authApi = DependencyResolver.get(AuthMainApiService.self)
+    private static let keysService = DependencyResolver.get(ApiKeyService.self)
 
     public static func launch() {
 

@@ -21,11 +21,11 @@ public class OtherPaymentCardsController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     private var interfaceLoader: InterfaceLoader!
     private var refreshControl: RefreshControl!
-    private let addCardUIService = DependencyResolver.resolve(AddCardUIService.self)
+    private let addCardUIService = DependencyResolver.get(AddCardUIService.self)
 
     // MARK: Service
-    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
-    private let cardsService = DependencyResolver.resolve(CardsCacheService.self)
+    private let configs = DependencyResolver.get(ConfigsContainer.self)
+    private let cardsService = DependencyResolver.get(CardsCacheService.self)
     private var cardsContainer: PartsLoadTypedContainer<[PaymentCard]>!
     private var loaderAdapter: PartsLoader!
 

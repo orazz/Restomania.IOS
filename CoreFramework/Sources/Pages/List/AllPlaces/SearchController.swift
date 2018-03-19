@@ -19,10 +19,10 @@ internal class SearchController: BaseSearchController {
     private var loader: InterfaceLoader!
 
     // Services
-    private let router = DependencyResolver.resolve(Router.self)
-    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
-    private let service = DependencyResolver.resolve(PlacesCacheService.self)
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let router = DependencyResolver.get(Router.self)
+    private let configs = DependencyResolver.get(ConfigsContainer.self)
+    private let service = DependencyResolver.get(PlacesCacheService.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
 
     // Data
     private let _tag = String.tag(SearchController.self)

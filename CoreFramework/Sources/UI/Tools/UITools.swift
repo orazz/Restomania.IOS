@@ -15,8 +15,8 @@ open class UITools {
 
     public static func customizeTheme() {
 
-        let colors = DependencyResolver.resolve(ThemeColors.self)
-        let fonts = DependencyResolver.resolve(ThemeFonts.self)
+        let colors = DependencyResolver.get(ThemeColors.self)
+        let fonts = DependencyResolver.get(ThemeFonts.self)
 
         UIApplication.shared.statusBarStyle = colors.statusBarOnNavigation
         

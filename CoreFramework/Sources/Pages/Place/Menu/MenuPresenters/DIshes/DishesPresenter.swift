@@ -1,5 +1,5 @@
 //
-//  PlaceMenuMenuContainer+DIshes.swift
+//  DishesPresenter.swift
 //  RestomaniaAppKuzina
 //
 //  Created by Алексей on 16.01.18.
@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 import MdsKit
 
-extension PlaceMenuMenuContainer {
-    internal class DishesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
+extension PlaceMenuController {
+    internal class DishesPresenter: NSObject, UITableViewDataSource, UITableViewDelegate, PlaceMenuElementProtocol {
 
         private let table: UITableView
         private var cells: [Long : PlaceMenuDishCell]
@@ -20,7 +20,7 @@ extension PlaceMenuMenuContainer {
         private var categories: [CategoryContainer]
         private var selectedCategoryId: Long?
 
-        private let delegate: PlaceMenuDelegate
+        public var delegate: PlaceMenuDelegate?
 
         public init(for table: UITableView, with delegate: PlaceMenuDelegate) {
 
@@ -147,9 +147,9 @@ extension PlaceMenuMenuContainer {
             let category = categories[indexPath.section]
             let dish = category.dishes[indexPath.row]
             if let cell = cells[dish.id] {
-                cell.update(by: dish, with: menu.currency, delegate: delegate)
+                cell.update(by: dish, with: menu.currency, delegate: delegate!)
             } else {
-                cells[dish.id] = PlaceMenuDishCell.instance(for: dish, with: menu.currency, delegate: delegate)
+                cells[dish.id] = PlaceMenuDishCell.instance(for: dish, with: menu.currency, delegate: delegate!)
             }
 
             return cells[dish.id]!
@@ -162,12 +162,7 @@ extension PlaceMenuMenuContainer {
 
             let category = categories[indexPath.section]
             let dish = category.dishes[indexPath.row]
-            delegate.select(dish: dish.id)
-        }
-
-        // MARK: UIScrroolViewDelegate
-        public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            delegate.scrollTo(offset: scrollView.contentOffset.y )
+            delegate?.select(dish: dish.id)
         }
 
         private class CategoryContainer {

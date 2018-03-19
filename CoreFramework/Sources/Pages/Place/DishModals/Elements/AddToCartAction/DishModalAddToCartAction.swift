@@ -17,8 +17,8 @@ public class DishModalAddToCartAction: UIView {
     @IBOutlet private weak var actionLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var delegate: AddDishToCartModalDelegateProtocol?

@@ -25,8 +25,8 @@ public class OrdersControllerOrderCell: UITableViewCell {
     @IBOutlet private weak var PlaceNameLabel: UILabel!
     @IBOutlet private weak var PriceLabel: PriceLabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var order: DishOrder!

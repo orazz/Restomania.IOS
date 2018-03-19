@@ -11,7 +11,7 @@ open class DefaultButton: BaseButton {
 
     override func stylize() {
 
-        let colors = DependencyResolver.resolve(ThemeColors.self)
+        let colors = DependencyResolver.get(ThemeColors.self)
 
         super.stylize(textColor: colors.actionContent,
                       backgroundColor: colors.actionMain,

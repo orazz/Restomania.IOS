@@ -21,8 +21,8 @@ public class ExternalTextEditor: UIViewController {
     @IBOutlet private weak var textField: UITextView!
 
     //Service
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     public override var title: String? {

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BA7D3324445DC14FAF44B04 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D414C5C61F59CB2EFB774175 /* Pods_Kuzina.framework */; };
 		1F23107E20556A2800FB1D79 /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107320556A2700FB1D79 /* Configs.plist */; };
 		1F23107F20556A2800FB1D79 /* CustomSearchPlaceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107520556A2800FB1D79 /* CustomSearchPlaceCard.xib */; };
 		1F23108020556A2800FB1D79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F23107620556A2800FB1D79 /* GoogleService-Info.plist */; };
@@ -22,9 +21,9 @@
 		1F89239A2056DD190086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8923982056DD190086D372 /* InfoPlist.strings */; };
 		1F89239D2056DD240086D372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F89239B2056DD240086D372 /* InfoPlist.strings */; };
 		1F8923A02056EABD0086D372 /* CustomSearchPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89239F2056EABD0086D372 /* CustomSearchPlaceCard.swift */; };
+		1FBAFA28205EEABD00F7BA70 /* Pods_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBAFA29205EEABD00F7BA70 /* Pods_Kuzina.framework */; };
 		1FED1762205725B600A80DA5 /* CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; };
 		1FED1763205725B600A80DA5 /* CoreFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06A5E420556E2A00FEB1B5 /* CoreFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FED96AF6017915D07BDA58CE /* Pods_ProjectRoot_Kuzina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF43BFCCED1A31A101E26ED3 /* Pods_ProjectRoot_Kuzina.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +72,7 @@
 		1F8923992056DD190086D372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		1F89239C2056DD240086D372 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = InfoPlist.strings; sourceTree = "<group>"; };
 		1F89239F2056EABD0086D372 /* CustomSearchPlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchPlaceCard.swift; sourceTree = "<group>"; };
+		1FBAFA29205EEABD00F7BA70 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B90577DB6DCEF4C37B18FD /* Pods-Kuzina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuzina.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina.debug.xcconfig"; sourceTree = "<group>"; };
 		5965C511DC04287C648461DF /* Pods-CoreFramework-Kuzina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework-Kuzina.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework-Kuzina/Pods-CoreFramework-Kuzina.release.xcconfig"; sourceTree = "<group>"; };
 		77830906D9D3266A3A94E164 /* Pods_CoreFramework_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,10 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FBAFA28205EEABD00F7BA70 /* Pods_Kuzina.framework in Frameworks */,
 				1F89235B205681690086D372 /* MapKit.framework in Frameworks */,
 				1FED1762205725B600A80DA5 /* CoreFramework.framework in Frameworks */,
-				1BA7D3324445DC14FAF44B04 /* Pods_Kuzina.framework in Frameworks */,
-				FED96AF6017915D07BDA58CE /* Pods_ProjectRoot_Kuzina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +189,7 @@
 		66CEA0CBE59D87F4C4A3371B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FBAFA29205EEABD00F7BA70 /* Pods_Kuzina.framework */,
 				1F89235A205681690086D372 /* MapKit.framework */,
 				1F06A9222055A92500FEB1B5 /* Gloss.framework */,
 				1F06A9232055A92500FEB1B5 /* GoogleToolboxForMac.framework */,

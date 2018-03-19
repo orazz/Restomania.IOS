@@ -16,7 +16,7 @@ public class OneOrderSpaceContainer: UITableViewCell {
         return UINib.instantiate(from: String.tag(OneOrderSpaceContainer.self), bundle: Bundle.coreFramework)
     }
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
 
     public override func awakeFromNib() {
         super.awakeFromNib()

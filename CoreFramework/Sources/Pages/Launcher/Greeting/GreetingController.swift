@@ -19,13 +19,13 @@ public class GreetingController: UIViewController {
         return themeColors.statusBarOnContent
     }
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
-    private let themeImages = DependencyResolver.resolve(ThemeImages.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
+    private let themeImages = DependencyResolver.get(ThemeImages.self)
 
     //Services
-    private let auth = DependencyResolver.resolve(AuthUIService.self)
-    private let keys = DependencyResolver.resolve(ApiKeyService.self)
+    private let auth = DependencyResolver.get(AuthUIService.self)
+    private let keys = DependencyResolver.get(ApiKeyService.self)
 
     public var onCompleteHandler: Trigger?
 

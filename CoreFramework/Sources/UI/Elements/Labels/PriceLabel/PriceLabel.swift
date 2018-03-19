@@ -15,7 +15,7 @@ open class PriceLabel: UILabel {
     private var currencyFont: UIFont!
 
     //Services
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     public private(set) var price = Price.zero

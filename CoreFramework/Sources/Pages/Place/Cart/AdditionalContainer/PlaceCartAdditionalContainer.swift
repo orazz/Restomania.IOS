@@ -30,8 +30,8 @@ public class PlaceCartAdditionalContainer: UITableViewCell {
     @IBOutlet private weak var changeButton: UIButton!
     private var editor = ExternalTextEditor()
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var delegate: PlaceCartDelegate!

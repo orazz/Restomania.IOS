@@ -20,9 +20,9 @@ public class OtherController: UIViewController {
     @IBOutlet private weak var termsButton: UIButton!
     @IBOutlet private weak var logoutButton: UIButton!
 
-    private let router = DependencyResolver.resolve(Router.self)
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let keysService = DependencyResolver.resolve(ApiKeyService.self)
+    private let router = DependencyResolver.get(Router.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let keysService = DependencyResolver.get(ApiKeyService.self)
 
     //Properties
     private var isAuth: Bool {

@@ -14,15 +14,17 @@ public class PlaceInfoController: UIViewController {
 
     //UI
 
+    //Service
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
+
     //Data
     private let placeId: Long
-
-    //Service
 
     public init(for placeId: Long) {
         self.placeId = placeId
 
-        super.init(nibName: "\(String.tag(PlaceInfoController.self))View", bundle: Bundle.coreFramework)
+        super.init(nibName: String.tag(PlaceInfoController.self), bundle: Bundle.coreFramework)
     }
     public required convenience init?(coder aDecoder: NSCoder) {
         self.init(for: -1)

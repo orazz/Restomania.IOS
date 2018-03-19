@@ -21,7 +21,7 @@ internal class WebBrowserController: UIViewController {
     @IBOutlet weak var webView: UIWebView?
 
     //Services
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
 
     //Data
     public var delegate: WebBrowserControllerDelegate?

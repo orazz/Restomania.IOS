@@ -16,7 +16,7 @@ open class DependencyResolver {
     open static func setup(_ container: Container) {
         DependencyResolver.container = container
     }
-    open static func resolve<T>(_ type: T.Type) -> T {
+    open static func get<T>(_ type: T.Type) -> T {
         return container.resolve(type)!
     }
 }

@@ -19,8 +19,8 @@ public class OneOrderDishesContainer: UITableViewCell {
     //UI
     @IBOutlet private weak var table: UITableView!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var currency: Currency = Currency.All

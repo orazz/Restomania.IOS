@@ -19,7 +19,7 @@ public class PlaceCompleteOrderController: UIViewController {
 
         instance.order = order
 
-        let cart = DependencyResolver.resolve(PlaceCartsFactory.self).get(for: order.placeId)
+        let cart = DependencyResolver.get(PlaceCartsFactory.self).get(for: order.placeId)
         cart.clear()
 
         return instance
@@ -29,8 +29,8 @@ public class PlaceCompleteOrderController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var dataLabel: UILabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var order: DishOrder!

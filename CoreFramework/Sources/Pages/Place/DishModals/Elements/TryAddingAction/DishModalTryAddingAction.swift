@@ -16,8 +16,8 @@ public class DishModalTryAddingAction: UIView {
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var actionLabel: UILabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var delegate: DishModalDelegateProtocol?

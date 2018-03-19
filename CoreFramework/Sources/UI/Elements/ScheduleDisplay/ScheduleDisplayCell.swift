@@ -27,7 +27,7 @@ public class ScheduleDisplayCell: UICollectionViewCell {
     @IBOutlet private weak var valueLabel: UILabel!
 
     //Service
-    private static let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private static let themeFonts = DependencyResolver.get(ThemeFonts.self)
     private let fonts = ScheduleDisplayCell.themeFonts
 
     //Data

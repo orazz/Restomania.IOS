@@ -25,7 +25,7 @@ open class BaseButton: UIButton {
     internal func stylize() {}
     internal func stylize(textColor: UIColor, backgroundColor: UIColor, borderColor: UIColor? = nil) {
 
-        let fonts = DependencyResolver.resolve(ThemeFonts.self)
+        let fonts = DependencyResolver.get(ThemeFonts.self)
 
         //Sizes
 //        self.titleEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)

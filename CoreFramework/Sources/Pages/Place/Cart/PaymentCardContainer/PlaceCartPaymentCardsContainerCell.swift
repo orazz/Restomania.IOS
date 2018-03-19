@@ -26,8 +26,8 @@ public class PlaceCartPaymentCardsContainerCell: UITableViewCell {
     @IBOutlet private weak var indicator: UIImageView!
     @IBOutlet private weak var numberLabel: UILabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     public override func awakeFromNib() {
         super.awakeFromNib()

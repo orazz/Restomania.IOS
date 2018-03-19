@@ -19,9 +19,9 @@ open class SearchPlaceCard: UITableViewCell {
     @IBOutlet public weak var workingHours: UILabel?
     @IBOutlet public weak var distance: DistanceLabel?
 
-    public let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    public let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
-    public let themeImages = DependencyResolver.resolve(ThemeImages.self)
+    public let themeColors = DependencyResolver.get(ThemeColors.self)
+    public let themeFonts = DependencyResolver.get(ThemeFonts.self)
+    public let themeImages = DependencyResolver.get(ThemeImages.self)
 
     public private(set) var summary: PlaceSummary!
 

@@ -23,8 +23,8 @@ public class OtherNotificationControllerPreference: UITableViewCell {
     @IBOutlet private weak var valueSwitch: UISwitch!
 
     //Service
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var title: Localizable? = nil

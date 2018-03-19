@@ -20,8 +20,8 @@ public class PlaceCartDishesContainerCellMeta: UITableViewCell {
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //UI
     @IBOutlet private weak var nameLabel: UILabel!

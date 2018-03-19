@@ -25,8 +25,8 @@ public class OtherPaymentCardsControllerCardCell: UITableViewCell {
     @IBOutlet weak var TypeLabel: UILabel!
     @IBOutlet weak var CloseIcon: UIImageView!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var _card: PaymentCard!

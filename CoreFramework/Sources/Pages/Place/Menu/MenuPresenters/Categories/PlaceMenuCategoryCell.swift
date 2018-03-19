@@ -11,35 +11,32 @@ import MdsKit
 
 public class PlaceMenuCategoryCell: UICollectionViewCell {
 
-    public static let identifier = "DishCategoryCard-\(Guid.new)"
-    private static let nibName = "PlaceMenuCategoryCellView"
+    public static let identifier = Guid.new
     public static func register(in collection: UICollectionView) {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
-
+        let nib = UINib(nibName: String.tag(PlaceMenuCategoryCell.self), bundle: Bundle.coreFramework)
         collection.register(nib, forCellWithReuseIdentifier: identifier)
     }
+    private static let defaultFont = DependencyResolver.get(ThemeFonts.self).default(size: .subhead)
+    internal static func size(for category: MenuCategory) -> CGSize {
 
-    private static let nameFont = DependencyResolver.resolve(ThemeFonts.self).default(size: .subhead)
-    public static func sizeOfCell(category: MenuCategory) -> CGSize {
-
-        let text = category.name as NSString
-        let width = text.size(withAttributes: [NSAttributedStringKey.font: nameFont]).width + 12 + 12 //12 is offset label from parent cell
-
-        return CGSize(width: width, height: 36)
+        let height: CGFloat = 45.0
+        let width = category.name.width(containerHeight: 1000.0, font: defaultFont) + 10.0 + 10.0
+        return CGSize(width: max(width, 75), height: height)
     }
 
     //UI elements
     @IBOutlet private weak var name: UILabel!
+    public var size: CGSize = CGSize.zero
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
 
     //Data & services
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        name.font = PlaceMenuCategoryCell.nameFont
+        name.font = PlaceMenuCategoryCell.defaultFont
+
         deselect()
     }
 

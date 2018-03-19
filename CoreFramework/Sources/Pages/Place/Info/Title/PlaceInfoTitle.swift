@@ -1,5 +1,5 @@
 //
-//  PlaceMenuTitleContainer.swift
+//  PlaceInfoTitle.swift
 //  RestomaniaAppKuzina
 //
 //  Created by Алексей on 07.11.17.
@@ -10,13 +10,11 @@ import Foundation
 import UIKit
 import MdsKit
 
-public class PlaceMenuTitleContainer: UITableViewCell {
+public class PlaceInfoTitle: UITableViewCell {
 
-    private static let nibName = "PlaceMenuTitleContainerView"
-    public static func create(with delegate: PlaceMenuDelegate) -> PlaceMenuTitleContainer {
+    public static func create(with delegate: PlaceMenuDelegate) -> PlaceInfoTitle {
 
-        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
-        let instance = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceMenuTitleContainer
+        let instance: PlaceInfoTitle = UINib.instantiate(from: String.tag(PlaceInfoTitle.self), bundle: Bundle.coreFramework)
 
         instance.delegate = delegate
         instance._summary = nil
@@ -32,8 +30,8 @@ public class PlaceMenuTitleContainer: UITableViewCell {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var workingHoursLabel: UILabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     // MARK: Data & Services
     private var delegate: PlaceMenuDelegate!
@@ -81,7 +79,7 @@ public class PlaceMenuTitleContainer: UITableViewCell {
 }
 
 // MARK: Actions
-extension PlaceMenuTitleContainer {
+extension PlaceInfoTitle {
     @IBAction private func goBack() {
         delegate.goBack()
     }
@@ -91,15 +89,15 @@ extension PlaceMenuTitleContainer {
 }
 
 // MARK: Protocols
-extension PlaceMenuTitleContainer: PlaceMenuCellsProtocol {
-
-    public func viewDidAppear() {}
-    public func viewDidDisappear() {}
-    public func dataDidLoad(delegate: PlaceMenuDelegate) {
-        _summary = delegate.takeSummary()
-    }
-}
-extension PlaceMenuTitleContainer: InterfaceTableCellProtocol {
+//extension PlaceInfoTitle: PlaceMenuElementProtocol {
+//
+//    public func viewWillAppear() {}
+//    public func viewDidDisappear() {}
+//    public func update(delegate: PlaceMenuDelegate) {
+//        _summary = delegate.takeSummary()
+//    }
+//}
+extension PlaceInfoTitle: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
         return 265

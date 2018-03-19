@@ -46,8 +46,8 @@ public class PlaceCartDateContainer: UITableViewCell {
     @IBOutlet private weak var timePicker: UIPickerView!
     @IBOutlet private weak var dateTimeLabel: UILabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var timeFormatter: DateFormatter!

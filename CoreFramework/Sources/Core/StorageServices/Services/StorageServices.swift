@@ -50,10 +50,10 @@ open class StorageServices {
 
     open static func load() {
 
-        DependencyResolver.resolve(PlacesCacheService.self).load()
-        DependencyResolver.resolve(MenuCacheService.self).load()
-        DependencyResolver.resolve(CardsCacheService.self).load()
-        DependencyResolver.resolve(OrdersCacheService.self).load()
-        DependencyResolver.resolve(CacheImagesService.self).load()
+        DependencyResolver.get(PlacesCacheService.self).load()
+        DependencyResolver.get(MenuCacheService.self).load()
+        DependencyResolver.get(CardsCacheService.self).load()
+        DependencyResolver.get(OrdersCacheService.self).load()
+        DependencyResolver.get(CacheImagesService.self).load()
     }
 }

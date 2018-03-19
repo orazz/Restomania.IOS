@@ -23,10 +23,10 @@ public class OtherNotificationController: UITableViewController {
     }
 
     //Services
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let accountApiService = DependencyResolver.resolve(UserAccountApiService.self)
-    private let changeApiService = DependencyResolver.resolve(UserChangeApiService.self)
-    private let deviceService = DependencyResolver.resolve(DeviceService.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let accountApiService = DependencyResolver.get(UserAccountApiService.self)
+    private let changeApiService = DependencyResolver.get(UserChangeApiService.self)
+    private let deviceService = DependencyResolver.get(DeviceService.self)
 
     //Data
     private let _tag = String.tag(OtherNotificationController.self)

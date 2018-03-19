@@ -12,90 +12,132 @@ import MdsKit
 
 public class PlaceMenuCartAction: UIView {
 
-    private static let nibName = "PlaceMenuCartActionView"
-    public static func create(with delegate: PlaceMenuDelegate) -> PlaceMenuCartAction {
-
-        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
-        let instance = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceMenuCartAction
-
-        instance.delegate = delegate
-        instance.menu = delegate.takeMenu()
-        instance.cart = delegate.takeCart()
-
-        instance.apply()
-
-        return instance
-    }
-
     //UI elements
+    @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var countLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
+    private var heightConstraint: NSLayoutConstraint?
     @IBAction private func goToCart() {
-        delegate.goToCart()
+        delegate?.goToCart()
     }
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
-    //Data & services
+    //Data
     private let _tag = String.tag(PlaceMenuCartAction.self)
     private let guid = Guid.new
-    private var currency = Currency.All
-    private var delegate: PlaceMenuDelegate!
-    private var menu: MenuSummary? {
+    private var cart: CartService!
+    private var menu: ParsedMenu?
+    public var delegate: PlaceMenuDelegate? {
         didSet {
-            if let menu = menu {
-                currency = menu.currency
+
+            if let placeId = delegate?.placeId {
+                cart = DependencyResolver.get(PlaceCartsFactory.self).get(for: placeId)
             }
+            menu = delegate?.takeMenu()
+
+            refresh()
         }
     }
-    private var cart: CartService!
 
-    public func viewDidAppear() {
-        cart.subscribe(guid: guid, handler: self, tag: _tag)
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        initialize()
     }
-    public func viewDidDisappear() {
-        cart.unsubscribe(guid: guid)
+    public required init(coder: NSCoder) {
+        super.init(coder: coder)!
+
+        initialize()
     }
-    public func update(new menu: MenuSummary) {
-        self.menu = menu
+    private func initialize() {
 
-        apply()
+        connect()
     }
+    private func connect() {
 
-    private func apply() {
+        let nibname = String.tag(PlaceMenuCartAction.self)
+        let bundle = Bundle.coreFramework
+        bundle.loadNibNamed(nibname, owner: self, options: nil)
 
-        DispatchQueue.main.async {
-            self.countLabel.text = "\(self.cart.dishes.sum({ $0.count }))"
+        self.addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        contentView.setContraint(height: DistanceLabel.height)
+        contentView.setContraint(width: DistanceLabel.width)
 
-            if let menu = self.menu {
-                self.totalLabel.setup(price: self.cart.total(with: menu), currency: self.currency)
+        for constraint in self.constraints {
+            if (constraint.firstAttribute == .height) {
+                heightConstraint = constraint
+                break
             }
         }
     }
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.backgroundColor = themeColors.actionMain
+        backgroundColor = themeColors.actionMain
+        contentView.backgroundColor = themeColors.actionMain
 
         countLabel.textColor = themeColors.actionContent
         countLabel.font = themeFonts.default(size: .title)
 
-        titleLabel.text = PlaceMenuController.Keys.ToCart.localized
         titleLabel.textColor = themeColors.actionContent
         titleLabel.font = themeFonts.default(size: .title)
+        titleLabel.text = PlaceMenuController.Localization.ToCart.localized
 
         totalLabel.textColor = themeColors.actionContent
         totalLabel.font = themeFonts.default(size: .head)
     }
+
+    private func refresh() {
+
+        DispatchQueue.main.async {
+            guard let cart = self.cart else {
+                return
+            }
+            self.countLabel.text = cart.dishes.sum({ $0.count }).description
+            self.refreshHeight()
+
+            guard let menu = self.menu else {
+                    return
+            }
+            self.totalLabel.setup(price: cart.total(with: menu.source),
+                                currency: menu.currency)
+        }
+    }
+    private func refreshHeight() {
+
+        if (cart?.isEmpty ?? true) {
+            heightConstraint?.constant = 0
+        }
+        else {
+            heightConstraint?.constant = 50
+        }
+    }
 }
 
+extension PlaceMenuCartAction: PlaceMenuElementProtocol {
+
+    public func viewWillAppear() {
+        cart.subscribe(guid: guid, handler: self, tag: _tag)
+    }
+    public func viewDidDisappear() {
+        cart.unsubscribe(guid: guid)
+    }
+    public func update(delegate: PlaceMenuDelegate) {
+        
+        menu = delegate.takeMenu()
+        refresh()
+    }
+}
 extension PlaceMenuCartAction: CartServiceDelegate {
     public func cart(_ cart: CartService, change dish: AddedOrderDish) {
-        apply()
+        refresh()
     }
     public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
-        apply()
+        refresh()
     }
 }

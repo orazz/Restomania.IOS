@@ -25,9 +25,9 @@ public class DistanceLabel: UIView {
     private let _tag = String.tag(DistanceLabel.self)
     private let guid = Guid.new
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
-    private let themeImages = DependencyResolver.resolve(ThemeImages.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
+    private let themeImages = DependencyResolver.get(ThemeImages.self)
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

@@ -32,8 +32,8 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
         self.delegate = delegate
         self.launcher = Launcher(for: self, with: launchOptions)
         self.window = launcher.window
-        self.info = DependencyResolver.resolve(LaunchInfo.self)
-        self.configs = DependencyResolver.resolve(ConfigsContainer.self)
+        self.info = DependencyResolver.get(LaunchInfo.self)
+        self.configs = DependencyResolver.get(ConfigsContainer.self)
 
         beforeLoad()
         migrate()

@@ -22,10 +22,10 @@ public class CachedImage: ZeroCdnImageWrapper {
 extension CachedImage: ZeroCdnImageWrapperDelegate {
 
     public var defaultImage: UIImage {
-        return DependencyResolver.resolve(ThemeImages.self).toolsDefaultImage
+        return DependencyResolver.get(ThemeImages.self).toolsDefaultImage
     }
     public var cache: CacheImagesService {
-        return DependencyResolver.resolve(CacheImagesService.self)
+        return DependencyResolver.get(CacheImagesService.self)
     }
     public var sizes: [CGFloat: String] {
         return CachedImage.sizes

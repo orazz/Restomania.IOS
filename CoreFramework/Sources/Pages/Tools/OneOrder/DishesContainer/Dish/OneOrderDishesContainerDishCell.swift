@@ -23,8 +23,8 @@ public class OneOrderDishesContainerDishCell: UITableViewCell {
     @IBOutlet weak var nameAndCountLabel: UILabel!
     @IBOutlet weak var costLabel: PriceLabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var dish: DishOrderDish!

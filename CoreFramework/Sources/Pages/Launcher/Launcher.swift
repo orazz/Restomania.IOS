@@ -22,8 +22,8 @@ public class Launcher {
     private let controllers: [VCCtor]
     private var push: PushContainer? = nil
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let router = DependencyResolver.resolve(Router.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let router = DependencyResolver.get(Router.self)
 
     public init(for delegate: UIApplicationDelegate, with launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
 

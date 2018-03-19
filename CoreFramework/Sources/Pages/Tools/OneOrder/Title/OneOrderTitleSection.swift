@@ -25,8 +25,8 @@ public class OneOrderTitleSection: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
 
     //Theme
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var title: Localizable? = nil {

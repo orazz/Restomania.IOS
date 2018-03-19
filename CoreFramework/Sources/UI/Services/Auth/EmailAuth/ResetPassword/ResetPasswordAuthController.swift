@@ -18,10 +18,10 @@ internal class ResetPasswordAuthController: UIViewController {
     private var interfaceLoader: InterfaceLoader!
 
     //Services
-    private let authApi = DependencyResolver.resolve(AuthMainApiService.self)
-    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let authApi = DependencyResolver.get(AuthMainApiService.self)
+    private let configs = DependencyResolver.get(ConfigsContainer.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private let _tag = String.tag(ResetPasswordAuthController.self)

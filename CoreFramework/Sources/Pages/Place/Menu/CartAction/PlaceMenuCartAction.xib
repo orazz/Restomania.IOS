@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceMenuCartAction" customModule="CoreFramework" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Xwy-8X-TFZ"/>
+                <outlet property="countLabel" destination="4IC-mF-4VA" id="FOP-ap-xaF"/>
+                <outlet property="titleLabel" destination="BvH-1B-hJF" id="IUW-Oj-qAF"/>
+                <outlet property="totalLabel" destination="nz9-If-X2P" id="swz-GR-eke"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlaceMenuCartAction" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+        <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -35,7 +42,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22222.22 Р" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz9-If-X2P" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22222.22 Р" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz9-If-X2P" customClass="PriceLabel" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="210" y="15" width="100" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="JKe-bq-ofg"/>
@@ -60,16 +67,13 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="countLabel" destination="4IC-mF-4VA" id="bwI-bJ-3Pj"/>
-                <outlet property="titleLabel" destination="BvH-1B-hJF" id="U1v-xs-s93"/>
-                <outlet property="totalLabel" destination="nz9-If-X2P" id="Sz1-hh-uEA"/>
-                <outletCollection property="gestureRecognizers" destination="sAn-u3-FQZ" appends="YES" id="bEz-mT-nm0"/>
+                <outletCollection property="gestureRecognizers" destination="0kO-1D-brS" appends="YES" id="CLb-Wr-kmA"/>
             </connections>
             <point key="canvasLocation" x="-3" y="-258"/>
         </view>
-        <tapGestureRecognizer id="sAn-u3-FQZ" userLabel="tapOnView">
+        <tapGestureRecognizer id="0kO-1D-brS" userLabel="goToCart">
             <connections>
-                <action selector="goToCart" destination="iN0-l3-epB" id="KM5-oZ-9ZG"/>
+                <action selector="goToCart" destination="-1" id="b0o-mP-Mvj"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

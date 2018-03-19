@@ -18,7 +18,7 @@ public class PushesService: NSObject {
 
     private let _tag = String.tag(PushesService.self)
 
-    private let deviceService = DependencyResolver.resolve(DeviceService.self)
+    private let deviceService = DependencyResolver.get(DeviceService.self)
 
     public private(set) var token: String? = nil
     private let guid = Guid.new

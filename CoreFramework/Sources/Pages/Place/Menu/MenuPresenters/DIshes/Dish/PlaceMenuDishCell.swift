@@ -33,8 +33,8 @@ public class PlaceMenuDishCell: UITableViewCell {
     @IBOutlet weak var dishWeight: SizeLabel!
     @IBOutlet weak var dishPrice: PriceLabel!
 
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
     private var _dish: Dish?
@@ -51,18 +51,18 @@ public class PlaceMenuDishCell: UITableViewCell {
 
         dishWeight.setup(size: dish.size, units: dish.sizeUnits)
         switch (dish.type) {
-            case .simpleDish:
-                dishPrice.setup(price: dish.price, currency: currency)
-
-            case .variableDish:
-                guard let menu = delegate.takeMenu(),
-                        let min = menu.variations.filter({ dish.id == $0.parentDishId })
-                                                  .min(by: { $0.price < $1.price }) else {
-                    dishPrice.clear()
-                    break
-                }
-
-                dishPrice.setup(price: min.price, currency: currency, useStartFrom: true)
+//            case .simpleDish:
+//                dishPrice.setup(price: dish.price, currency: currency)
+//
+//            case .variableDish:
+//                guard let menu = delegate.takeMenu(),
+//                        let min = menu.variations.filter({ dish.id == $0.parentDishId })
+//                                                  .min(by: { $0.price < $1.price }) else {
+//                    dishPrice.clear()
+//                    break
+//                }
+//
+//                dishPrice.setup(price: min.price, currency: currency, useStartFrom: true)
 
             default:
                 dishPrice.clear()
@@ -101,7 +101,7 @@ public class PlaceMenuDishCell: UITableViewCell {
         if let dish = _dish,
             let delegate = _delegate {
 
-            delegate.tryAdd(dish.id)
+            delegate.select(dish: dish.id)
         }
     }
 }

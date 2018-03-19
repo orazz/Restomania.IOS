@@ -23,9 +23,9 @@ public class OrdersController: UIViewController {
     private var loadQueue: AsyncQueue!
 
     // MARK: Loaders
-    private let ordersService = DependencyResolver.resolve(OrdersCacheService.self)
-    private let apiKeysService = DependencyResolver.resolve(ApiKeyService.self)
-    private let configs = DependencyResolver.resolve(ConfigsContainer.self)
+    private let ordersService = DependencyResolver.get(OrdersCacheService.self)
+    private let apiKeysService = DependencyResolver.get(ApiKeyService.self)
+    private let configs = DependencyResolver.get(ConfigsContainer.self)
     private var ordersContainer: PartsLoadTypedContainer<[DishOrder]>!
     private var orders = [DishOrder]()
     private var loaderAdapter: PartsLoader!

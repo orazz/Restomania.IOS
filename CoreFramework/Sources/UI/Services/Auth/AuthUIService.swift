@@ -66,7 +66,7 @@ extension AuthUIService: ApiKeyServiceDelegate {
 extension UIViewController {
     public func showAuth(complete: AuthServiceCallback? = nil) {
 
-        let auth = DependencyResolver.resolve(AuthUIService.self)
+        let auth = DependencyResolver.get(AuthUIService.self)
         auth.show(on: self, completeHandler: complete)
     }
 }

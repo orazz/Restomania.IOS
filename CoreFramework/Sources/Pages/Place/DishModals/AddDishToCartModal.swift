@@ -108,7 +108,7 @@ extension AddDishToCartModal: DishModalDelegateProtocol {
     }
     public func addToCart() {
         closeModal()
-        delegate.add(dish, with: selectedAddingsIds, use: selectedVariation?.id)
+        delegate.addToCart(dish, with: selectedAddingsIds, use: selectedVariation?.id)
     }
 }
 extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {

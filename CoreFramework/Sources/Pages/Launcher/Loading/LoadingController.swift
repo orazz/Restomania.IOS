@@ -21,10 +21,10 @@ public class LoadingController: UIViewController {
     }
 
     //Services
-    private let deviceService = DependencyResolver.resolve(DeviceService.self)
-    private let themeColors = DependencyResolver.resolve(ThemeColors.self)
-    private let themeFonts = DependencyResolver.resolve(ThemeFonts.self)
-    private let themeImages = DependencyResolver.resolve(ThemeImages.self)
+    private let deviceService = DependencyResolver.get(DeviceService.self)
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
+    private let themeImages = DependencyResolver.get(ThemeImages.self)
 
     //Data
     private let _tag: String
