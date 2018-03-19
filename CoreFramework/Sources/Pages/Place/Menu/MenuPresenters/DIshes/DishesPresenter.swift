@@ -11,174 +11,192 @@ import UIKit
 import MdsKit
 
 extension PlaceMenuController {
-    internal class DishesPresenter: NSObject, UITableViewDataSource, UITableViewDelegate, PlaceMenuElementProtocol {
+    internal class DishesPresenter: NSObject {
 
         private let table: UITableView
         private var cells: [Long : PlaceMenuDishCell]
 
-        private var menu: MenuSummary
-        private var categories: [CategoryContainer]
-        private var selectedCategoryId: Long?
-
         public var delegate: PlaceMenuDelegate?
+        private var menu: ParsedMenu?
+        public private(set) var selectedCategoryId: Long?
+        private var categories: [CategoryContainer]
 
-        public init(for table: UITableView, with delegate: PlaceMenuDelegate) {
+
+        internal init(for table: UITableView, with delegate: PlaceMenuDelegate) {
 
             self.table = table
-            cells = [Long: PlaceMenuDishCell]()
-
-            menu = MenuSummary()
-            categories = [CategoryContainer]()
-            selectedCategoryId = nil
+            self.cells = [Long: PlaceMenuDishCell]()
 
             self.delegate = delegate
+            self.menu = delegate.takeMenu()
+            self.selectedCategoryId = nil
+            self.categories = []
 
             super.init()
+
+            setupDishesTable()
+        }
+        private func setupDishesTable() {
+
 
             table.delegate = self
             table.dataSource = self
         }
 
-        // MARK: Interface
-        public func update(by menu: MenuSummary) {
 
-            self.menu = menu
 
-            reload()
-        }
-        public func select(by categoryId: Long?) {
+        public func select(category categoryId: Long?) {
 
             self.selectedCategoryId = categoryId
             reload()
         }
         public func reload() {
 
-            if let selectedCategory = selectedCategoryId {
-                self.categories = collectFor(selectedCategory)
-            } else {
-                self.categories = collectAll()
+            guard let menu = menu else {
+                return
             }
 
+            if let selectedCategory = selectedCategoryId {
+                self.categories = collectFor(selectedCategory, from: menu)
+            } else {
+                self.categories = collectAll(from: menu)
+            }
+
+//            let path = IndexPath(row: 0, section: 0)
+//            if let _ = table.cellForRow(at: path) {
+//                table.scrollToRow(at: path, at: .top, animated: true)
+//            }
+
             table.reloadData()
-            table.setContentOffset(CGPoint.zero, animated: true)
         }
-        private func collectAll() -> [CategoryContainer] {
+        private func collectFor(_ categoryId: Long, from menu: ParsedMenu) -> [CategoryContainer] {
 
             var result = [CategoryContainer]()
-            let alldishes = menu.dishes.ordered
-            result.append(CategoryContainer(alldishes.filter({ $0.categoryId == nil })))
+            guard let parent = menu.categories.find({ $0.id == categoryId }) else {
+                return result
+            }
 
-            let publicCategories = menu.categories.filter({ !$0.isHidden }).ordered
-            let parents = publicCategories.filter({ $0.isBase })
-            for category in parents {
-
-                var dishes = [Dish]()
-                for dish in alldishes.filter({ $0.categoryId == category.id }) {
-                    dishes.append(dish)
-                }
-
-                for dependent in publicCategories.filter({ $0.parentId == category.id }) {
-                    for dish in alldishes.filter({ $0.categoryId == dependent.id }) {
-                        dishes.append(dish)
-                    }
-                }
-
-                result.append(CategoryContainer(from: category, dishes: dishes))
+            for category in [parent] + parent.child {
+                let model = CategoryContainer(source: category, collectDishesRecursive: false)
+                result.append(model)
             }
 
             return result
         }
-        private func collectFor(_ categoryId: Long) -> [CategoryContainer] {
+        private func collectAll(from menu: ParsedMenu) -> [CategoryContainer] {
 
-            let filtered = menu.categories.filter({ !$0.isHidden })
-                .filter({ $0.id == categoryId || $0.parentId == categoryId })
-                .ordered
+            var result = [CategoryContainer]()
+            for category in menu.categoriesForShow {
+                let model = CategoryContainer(source: category, collectDishesRecursive: true)
+                result.append(model)
+            }
 
-            var categories = [CategoryContainer]()
-            for category in filtered {
+            return result
+        }
+    }
+}
+extension PlaceMenuController.DishesPresenter: PlaceMenuElementProtocol {
 
-                let dishes = menu.dishes.filter({ $0.categoryId == category.id }).ordered
-                if (dishes.isEmpty) {
-                    continue
-                } else {
-                    if (category.isBase) {
-                        categories.append(CategoryContainer(dishes))
-                    } else {
-                        categories.append(CategoryContainer(from: category, dishes: dishes))
-                    }
+    public func viewWillAppear() {}
+    public func viewDidDisappear() {
+        cells.removeAll()
+    }
+    public func update(delegate: PlaceMenuDelegate) {
+
+        guard let menu = delegate.takeMenu() else {
+            return
+        }
+
+        self.menu = menu
+        reload()
+    }
+}
+extension PlaceMenuController.DishesPresenter: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let dish = categories[indexPath]
+        delegate?.select(dish: dish.id)
+    }
+}
+extension PlaceMenuController.DishesPresenter: UITableViewDataSource {
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return categories.count
+    }
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        let category = categories[section]
+        if selectedCategoryId == category.id {
+            return 0.0
+        }
+
+        return PlaceMenuSubcategoryHeader.height
+    }
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let category = categories[section]
+        if selectedCategoryId == category.id {
+            return nil
+        }
+
+        return PlaceMenuSubcategoryHeader.instance(for: category.name)
+    }
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories[section].dishes.count
+    }
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return PlaceMenuDishCell.height
+    }
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        guard let menu = menu else {
+            return UITableViewCell()
+        }
+
+        let dish = categories[indexPath]
+        if let cell = cells[dish.id] {
+            cell.update(by: dish, with: menu.currency)
+            return cell
+        }
+
+        let cell = PlaceMenuDishCell.instance(from: dish, with: menu.currency)
+        cells[dish.id] = cell
+
+        return cell
+    }
+}
+extension PlaceMenuController.DishesPresenter {
+    fileprivate class CategoryContainer {
+
+        public let source: ParsedCategory
+        public let dishes: [Dish]
+
+        fileprivate init(source: ParsedCategory, collectDishesRecursive: Bool) {
+            self.source = source
+
+            var dishes = source.dishes
+            if (collectDishesRecursive) {
+                for dependent in source.child {
+                    dishes = dishes + dependent.dishes
                 }
-
             }
-
-            return categories
-        }
-        public func clear() {
-            cells.removeAll()
+            self.dishes = dishes.ordered
         }
 
-        // MARK: UITableViewDataSource
-        public func numberOfSections(in tableView: UITableView) -> Int {
-            return categories.count
+        public var id: Long {
+            return source.id
         }
-        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return categories[section].dishes.count
+        public var name: String {
+            return source.name
         }
-        public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    }
+}
+extension Array where Element: PlaceMenuController.DishesPresenter.CategoryContainer {
+    subscript(path: IndexPath) -> Dish {
 
-            guard let _ = categories[section].name else {
-                return CGFloat(0)
-            }
+        let category = self[path.section]
+        let dish = category.dishes[path.row]
 
-            return PlaceMenuSubcategoryHeader.height
-        }
-        public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-            guard let name = categories[section].name else {
-                return nil
-            }
-
-            return PlaceMenuSubcategoryHeader.instance(for: name)
-        }
-        public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return PlaceMenuDishCell.height
-        }
-        public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-            let category = categories[indexPath.section]
-            let dish = category.dishes[indexPath.row]
-            if let cell = cells[dish.id] {
-                cell.update(by: dish, with: menu.currency, delegate: delegate!)
-            } else {
-                cells[dish.id] = PlaceMenuDishCell.instance(for: dish, with: menu.currency, delegate: delegate!)
-            }
-
-            return cells[dish.id]!
-        }
-
-        // MARK: UITableViewDelegate
-        public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-            tableView.deselectRow(at: indexPath, animated: true)
-
-            let category = categories[indexPath.section]
-            let dish = category.dishes[indexPath.row]
-            delegate?.select(dish: dish.id)
-        }
-
-        private class CategoryContainer {
-
-            public var name: String?
-            public var dishes: [Dish]
-
-            public convenience init(from category: MenuCategory, dishes: [Dish]) {
-
-                self.init(dishes)
-                self.name = category.name
-            }
-            public init(_ dishes: [Dish]) {
-                self.name = nil
-                self.dishes = dishes
-            }
-        }
+        return dish
     }
 }

@@ -36,9 +36,9 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="RBv-9v-CT7">
-                    <rect key="frame" x="0.0" y="45" width="375" height="572"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" bouncesZoom="NO" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RBv-9v-CT7">
+                    <rect key="frame" x="0.0" y="50" width="375" height="567"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qL2-RA-1wf" customClass="PlaceMenuCartAction" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -56,7 +56,7 @@
                 <constraint firstItem="qL2-RA-1wf" firstAttribute="leading" secondItem="ABa-Zc-h2A" secondAttribute="leading" id="ZEi-ds-h6w"/>
                 <constraint firstAttribute="trailing" secondItem="kMA-vQ-jAR" secondAttribute="trailing" id="jBr-q3-3GI"/>
                 <constraint firstItem="RBv-9v-CT7" firstAttribute="leading" secondItem="NrH-eq-aGZ" secondAttribute="leading" id="ouw-iL-WPH"/>
-                <constraint firstItem="RBv-9v-CT7" firstAttribute="top" secondItem="kMA-vQ-jAR" secondAttribute="bottom" id="rGd-yC-Mg3"/>
+                <constraint firstItem="RBv-9v-CT7" firstAttribute="top" secondItem="kMA-vQ-jAR" secondAttribute="bottom" constant="5" id="rGd-yC-Mg3"/>
                 <constraint firstItem="kMA-vQ-jAR" firstAttribute="top" secondItem="NrH-eq-aGZ" secondAttribute="top" id="t8T-Oo-1ff"/>
                 <constraint firstItem="ABa-Zc-h2A" firstAttribute="trailing" secondItem="qL2-RA-1wf" secondAttribute="trailing" id="yfH-r4-vHF"/>
             </constraints>

@@ -213,11 +213,11 @@ extension PlaceMenuController: PlaceMenuDelegate {
     public func select(category: Long) {
         Log.debug(_tag, "Select category #\(category)")
 
-        if (category == CategoriesPresenter.defaultCategory) {
-            dishesAdapter.select(by: nil)
+        if (category == CategoriesPresenter.commonCategory) {
+            dishesAdapter.select(category: nil)
         }
         else {
-            dishesAdapter.select(by: category)
+            dishesAdapter.select(category: category)
         }
     }
     public func select(dish dishId: Long) {

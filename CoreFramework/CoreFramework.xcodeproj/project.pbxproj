@@ -257,11 +257,11 @@
 		1F06A8D4205570FD00FEB1B5 /* PlaceMenuCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A783205570FD00FEB1B5 /* PlaceMenuCategoryCell.swift */; };
 		1F06A8D5205570FD00FEB1B5 /* PlaceMenuCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A784205570FD00FEB1B5 /* PlaceMenuCategoryCell.xib */; };
 		1F06A8D6205570FD00FEB1B5 /* PlaceMenuDishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A785205570FD00FEB1B5 /* PlaceMenuDishCell.swift */; };
-		1F06A8D7205570FD00FEB1B5 /* PlaceMenuDishCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A786205570FD00FEB1B5 /* PlaceMenuDishCellView.xib */; };
+		1F06A8D7205570FD00FEB1B5 /* PlaceMenuDishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A786205570FD00FEB1B5 /* PlaceMenuDishCell.xib */; };
 		1F06A8D8205570FD00FEB1B5 /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A787205570FD00FEB1B5 /* CategoriesPresenter.swift */; };
 		1F06A8D9205570FD00FEB1B5 /* DishesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A788205570FD00FEB1B5 /* DishesPresenter.swift */; };
 		1F06A8DC205570FE00FEB1B5 /* PlaceMenuSubcategoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A78B205570FD00FEB1B5 /* PlaceMenuSubcategoryHeader.swift */; };
-		1F06A8DD205570FE00FEB1B5 /* PlaceMenuSubcategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A78C205570FD00FEB1B5 /* PlaceMenuSubcategoryHeaderView.xib */; };
+		1F06A8DD205570FE00FEB1B5 /* PlaceMenuSubcategoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A78C205570FD00FEB1B5 /* PlaceMenuSubcategoryHeader.xib */; };
 		1F06A8DE205570FE00FEB1B5 /* PlaceMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A78D205570FD00FEB1B5 /* PlaceMenuController.swift */; };
 		1F06A8DF205570FE00FEB1B5 /* PlaceMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A78E205570FD00FEB1B5 /* PlaceMenuController.xib */; };
 		1F06A8E0205570FE00FEB1B5 /* PlaceInfoTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A790205570FD00FEB1B5 /* PlaceInfoTitle.swift */; };
@@ -300,6 +300,7 @@
 		1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */; };
 		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
 		1F53B92E205FD50A00656EA5 /* ParsedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */; };
+		1F53B930206056E300656EA5 /* ParsedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92F206056E300656EA5 /* ParsedCategory.swift */; };
 		1F592CA1205C17F20082DF37 /* NotificationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F592CA0205C17F20082DF37 /* NotificationSection.swift */; };
 		1F592CA4205C2B9A0082DF37 /* OneOrderTitleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F592CA3205C2B9A0082DF37 /* OneOrderTitleSection.swift */; };
 		1F592CA6205C2BAC0082DF37 /* OneOrderTitleSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F592CA5205C2BAC0082DF37 /* OneOrderTitleSection.xib */; };
@@ -609,11 +610,11 @@
 		1F06A783205570FD00FEB1B5 /* PlaceMenuCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMenuCategoryCell.swift; sourceTree = "<group>"; };
 		1F06A784205570FD00FEB1B5 /* PlaceMenuCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceMenuCategoryCell.xib; sourceTree = "<group>"; };
 		1F06A785205570FD00FEB1B5 /* PlaceMenuDishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMenuDishCell.swift; sourceTree = "<group>"; };
-		1F06A786205570FD00FEB1B5 /* PlaceMenuDishCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceMenuDishCellView.xib; sourceTree = "<group>"; };
+		1F06A786205570FD00FEB1B5 /* PlaceMenuDishCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceMenuDishCell.xib; sourceTree = "<group>"; };
 		1F06A787205570FD00FEB1B5 /* CategoriesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
 		1F06A788205570FD00FEB1B5 /* DishesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesPresenter.swift; sourceTree = "<group>"; };
 		1F06A78B205570FD00FEB1B5 /* PlaceMenuSubcategoryHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMenuSubcategoryHeader.swift; sourceTree = "<group>"; };
-		1F06A78C205570FD00FEB1B5 /* PlaceMenuSubcategoryHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceMenuSubcategoryHeaderView.xib; sourceTree = "<group>"; };
+		1F06A78C205570FD00FEB1B5 /* PlaceMenuSubcategoryHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceMenuSubcategoryHeader.xib; sourceTree = "<group>"; };
 		1F06A78D205570FD00FEB1B5 /* PlaceMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMenuController.swift; sourceTree = "<group>"; };
 		1F06A78E205570FD00FEB1B5 /* PlaceMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceMenuController.xib; sourceTree = "<group>"; };
 		1F06A790205570FD00FEB1B5 /* PlaceInfoTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceInfoTitle.swift; sourceTree = "<group>"; };
@@ -656,6 +657,7 @@
 		1F06A91520559C9500FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedMenu.swift; sourceTree = "<group>"; };
+		1F53B92F206056E300656EA5 /* ParsedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedCategory.swift; sourceTree = "<group>"; };
 		1F592CA0205C17F20082DF37 /* NotificationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSection.swift; sourceTree = "<group>"; };
 		1F592CA3205C2B9A0082DF37 /* OneOrderTitleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderTitleSection.swift; sourceTree = "<group>"; };
 		1F592CA5205C2BAC0082DF37 /* OneOrderTitleSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneOrderTitleSection.xib; sourceTree = "<group>"; };
@@ -2036,8 +2038,18 @@
 			isa = PBXGroup;
 			children = (
 				1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */,
+				1F53B92F206056E300656EA5 /* ParsedCategory.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1F53B93120605C1D00656EA5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A783205570FD00FEB1B5 /* PlaceMenuCategoryCell.swift */,
+				1F06A784205570FD00FEB1B5 /* PlaceMenuCategoryCell.xib */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		1F592C9F205C15CB0082DF37 /* Models */ = {
@@ -2179,8 +2191,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A787205570FD00FEB1B5 /* CategoriesPresenter.swift */,
-				1F06A783205570FD00FEB1B5 /* PlaceMenuCategoryCell.swift */,
-				1F06A784205570FD00FEB1B5 /* PlaceMenuCategoryCell.xib */,
+				1F53B93120605C1D00656EA5 /* Category */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2199,7 +2210,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A785205570FD00FEB1B5 /* PlaceMenuDishCell.swift */,
-				1F06A786205570FD00FEB1B5 /* PlaceMenuDishCellView.xib */,
+				1F06A786205570FD00FEB1B5 /* PlaceMenuDishCell.xib */,
 			);
 			path = Dish;
 			sourceTree = "<group>";
@@ -2208,7 +2219,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A78B205570FD00FEB1B5 /* PlaceMenuSubcategoryHeader.swift */,
-				1F06A78C205570FD00FEB1B5 /* PlaceMenuSubcategoryHeaderView.xib */,
+				1F06A78C205570FD00FEB1B5 /* PlaceMenuSubcategoryHeader.xib */,
 			);
 			path = Subcategory;
 			sourceTree = "<group>";
@@ -2370,7 +2381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F06A8DD205570FE00FEB1B5 /* PlaceMenuSubcategoryHeaderView.xib in Resources */,
+				1F06A8DD205570FE00FEB1B5 /* PlaceMenuSubcategoryHeader.xib in Resources */,
 				1F06A8ED205570FE00FEB1B5 /* OneOrderDishesContainer.xib in Resources */,
 				1F06A8AA205570FD00FEB1B5 /* PlaceCartTotalContainerCellView.xib in Resources */,
 				1F89236420568A6C0086D372 /* ScheduleDisplay.strings in Resources */,
@@ -2413,7 +2424,7 @@
 				1F06A894205570FD00FEB1B5 /* PlaceCartAdditionalContainerView.xib in Resources */,
 				1F06A8D3205570FD00FEB1B5 /* PlaceMenuController.strings in Resources */,
 				1F06A8A0205570FD00FEB1B5 /* PlaceCartDividerView.xib in Resources */,
-				1F06A8D7205570FD00FEB1B5 /* PlaceMenuDishCellView.xib in Resources */,
+				1F06A8D7205570FD00FEB1B5 /* PlaceMenuDishCell.xib in Resources */,
 				1F06A7DF205570FD00FEB1B5 /* AddCardUIService.strings in Resources */,
 				1F06A7EF205570FD00FEB1B5 /* SelectAuthController.strings in Resources */,
 				1FDBA11B205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib in Resources */,
@@ -2599,6 +2610,7 @@
 				1F06A8AE205570FD00FEB1B5 /* AddDishToCartModal.swift in Sources */,
 				1F06A826205570FD00FEB1B5 /* DishType.swift in Sources */,
 				1F06A84A205570FD00FEB1B5 /* RegularCustomerDiscount.swift in Sources */,
+				1F53B930206056E300656EA5 /* ParsedCategory.swift in Sources */,
 				1F06A8D4205570FD00FEB1B5 /* PlaceMenuCategoryCell.swift in Sources */,
 				1F06A900205570FE00FEB1B5 /* PushContainer.swift in Sources */,
 				1F06A872205570FD00FEB1B5 /* PaymentSystem.swift in Sources */,

@@ -11,49 +11,31 @@ import MdsKit
 
 public class ParsedMenu {
 
-    public let categoriesForShow: [MenuCategory]
+    public let categories: [ParsedCategory]
+    public let categoriesForShow: [ParsedCategory]
 
 
     public let source: MenuSummary
 
     internal init(source: MenuSummary){
 
-        self.categoriesForShow = ParsedMenu.collectCategoriesForShow(from: source)
+        self.categories = ParsedMenu.collectCategories(from: source)
+        self.categoriesForShow = categories.filter({ $0.hasDishes && $0.isPublic })
 
         self.source = source
     }
 
-    public var categories: [MenuCategory] {
-        return source.categories
-    }
     public var currency: Currency {
         return source.currency
     }
 
-    private static func collectCategoriesForShow(from menu: MenuSummary) -> [MenuCategory] {
+    private static func collectCategories(from menu: MenuSummary) -> [ParsedCategory] {
 
-        var result = [MenuCategory]()
-
-        let notHidden = menu.categories.filter({ !$0.isHidden })
-        let filtered = notHidden.filter({ $0.isBase }).ordered
-        for category in filtered {
-
-            if (menu.dishes.any({ $0.categoryId == category.id })) {
-                result.append(category)
-                continue
-            }
-
-            let dependents = notHidden.filter({ $0.parentId == category.id })
-            if (dependents.isEmpty) {
-                continue
-            }
-
-            for dependent in dependents {
-                if (menu.dishes.any({ $0.categoryId == dependent.id })) {
-                    result.append(category)
-                    break
-                }
-            }
+        let result = menu.categories.map({ ParsedCategory(source: $0, from: menu) }).ordered
+        
+        for category in result.filter({ $0.isBase }) {
+            let dependents = result.filter({ $0.parentId == category.id })
+            category.set(child: dependents)
         }
 
         return result

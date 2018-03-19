@@ -13,20 +13,21 @@ import MdsKit
 extension PlaceMenuController {
     internal class CategoriesPresenter: NSObject, PlaceMenuElementProtocol {
 
-        public static let defaultCategory: Long = -1
+        public static let commonCategory: Long = -1
+
+        private let categoriesView: UICollectionView
 
         private let themeColors = DependencyResolver.get(ThemeColors.self)
         private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
         public var delegate: PlaceMenuDelegate?
-        private let categoriesCollection: UICollectionView
         private var categories: [CategoryContainer]
-        private var selectedCategory: Long = CategoriesPresenter.defaultCategory
+        private var selectedCategory: Long = CategoriesPresenter.commonCategory
 
         public init(for collection: UICollectionView, with delegate: PlaceMenuDelegate) {
 
             self.delegate = delegate
-            self.categoriesCollection = collection
+            self.categoriesView = collection
             self.categories = []
 
             super.init()
@@ -35,19 +36,19 @@ extension PlaceMenuController {
         }
         private func setupCollectionView() {
 
-            PlaceMenuCategoryCell.register(in: categoriesCollection)
+            PlaceMenuCategoryCell.register(in: categoriesView)
 
-            categoriesCollection.delegate = self
-            categoriesCollection.dataSource = self
-            categoriesCollection.allowsSelection = true
-            categoriesCollection.allowsMultipleSelection = false
-            categoriesCollection.backgroundColor = themeColors.contentBackground
+            categoriesView.delegate = self
+            categoriesView.dataSource = self
+            categoriesView.allowsSelection = true
+            categoriesView.allowsMultipleSelection = false
+            categoriesView.backgroundColor = themeColors.contentBackground
             let flow = UICollectionViewFlowLayout()
             flow.minimumLineSpacing = 0
             flow.minimumInteritemSpacing = 0
             flow.scrollDirection = .horizontal
             flow.itemSize = CGSize.zero
-            categoriesCollection.collectionViewLayout = flow
+            categoriesView.collectionViewLayout = flow
         }
 
         // MARK: Interface
@@ -62,12 +63,13 @@ extension PlaceMenuController {
                 return
             }
 
-            let allCategory = MenuCategory()
-            allCategory.name = PlaceMenuController.Localization.AllDishesCategory.localized
-            allCategory.id = CategoriesPresenter.defaultCategory
-            allCategory.orderNumber = -1
+            let commonCategory = MenuCategory()
+            commonCategory.name = PlaceMenuController.Localization.AllDishesCategory.localized
+            commonCategory.id = CategoriesPresenter.commonCategory
+            commonCategory.orderNumber = -1
 
-            categories = ([allCategory] + menu.categoriesForShow).map({ CategoryContainer(for: $0) })
+            let allCategories = [ParsedCategory(source: commonCategory, from: menu.source)] + menu.categoriesForShow.filter({ $0.isBase })
+            categories = allCategories.map({ CategoryContainer(for: $0) })
 
             reload()
 
@@ -76,12 +78,12 @@ extension PlaceMenuController {
             }
             if let index = categories.index(where: { selectedCategory == $0.id }) {
                 let path = IndexPath(item: index, section: 0)
-                categoriesCollection.selectItem(at: path, animated: true, scrollPosition: .centeredHorizontally)
+                categoriesView.selectItem(at: path, animated: true, scrollPosition: .centeredHorizontally)
             }
             selectAndNotify(about: selectedCategory)
         }
         private func reload() {
-            categoriesCollection.reloadData()
+            categoriesView.reloadData()
         }
     }
 }
@@ -90,12 +92,6 @@ extension PlaceMenuController.CategoriesPresenter: UICollectionViewDelegateFlowL
         return categories[indexPath.item].size
     }
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-//        for cell in collection.visibleCells {
-//            if let cell = cell as? PlaceMenuCategoryCell {
-//                cell.deselect()
-//            }
-//        }
 
         let cell = categories[indexPath.item].cell(for: collectionView, by: indexPath)
         cell.select()
@@ -114,11 +110,11 @@ extension PlaceMenuController.CategoriesPresenter: UICollectionViewDelegateFlowL
         delegate?.select(category: category)
 
         if let path = path {
-            categoriesCollection.scrollToItem(at: path, at: .centeredHorizontally, animated: true)
+            categoriesView.scrollToItem(at: path, at: .centeredHorizontally, animated: true)
             return
         }
 
-        categoriesCollection.setContentOffset(CGPoint.zero, animated: true)
+        categoriesView.setContentOffset(CGPoint.zero, animated: true)
     }
 }
 extension PlaceMenuController.CategoriesPresenter: UICollectionViewDataSource {
@@ -144,13 +140,13 @@ extension PlaceMenuController.CategoriesPresenter: UICollectionViewDataSource {
     }
 }
 extension PlaceMenuController.CategoriesPresenter {
-    internal class CategoryContainer {
+    fileprivate class CategoryContainer {
 
-        fileprivate let category: MenuCategory
+        fileprivate let category: ParsedCategory
         private var cell: PlaceMenuCategoryCell?
         private let identifier = PlaceMenuCategoryCell.identifier
 
-        fileprivate init(for category: MenuCategory) {
+        fileprivate init(for category: ParsedCategory) {
             self.category = category
             self.cell = nil
         }

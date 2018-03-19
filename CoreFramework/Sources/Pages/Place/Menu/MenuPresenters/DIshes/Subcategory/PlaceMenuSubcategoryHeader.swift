@@ -12,15 +12,14 @@ import MdsKit
 
 public class PlaceMenuSubcategoryHeader: UITableViewCell {
 
-    public static let identifier = "\(String.tag(PlaceMenuSubcategoryHeader.self))-\(Guid.new)"
+    public static let identifier = Guid.new
     public static let height = CGFloat(35)
 
-    private static let nibName = "\(String.tag(PlaceMenuSubcategoryHeader.self))View"
+    private static let nibName = String.tag(PlaceMenuSubcategoryHeader.self)
     private static let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
     public static func instance(for title: String) -> PlaceMenuSubcategoryHeader {
 
         let cell = nib.instantiate(withOwner: nil, options: nil).first as! PlaceMenuSubcategoryHeader
-
         cell.title = title
 
         return cell
@@ -42,10 +41,10 @@ public class PlaceMenuSubcategoryHeader: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = themeColors.contentBackground
+        backgroundColor = themeColors.divider
 
-        titleLabel.textColor = themeColors.contentText
-        titleLabel.font = themeFonts.bold(size: .head)
+        titleLabel.textColor = themeColors.dividerText
+        titleLabel.font = themeFonts.default(size: .head)
 
         title = String.empty
     }

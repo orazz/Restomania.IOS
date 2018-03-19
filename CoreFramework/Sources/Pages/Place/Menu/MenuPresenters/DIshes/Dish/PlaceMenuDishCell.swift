@@ -11,17 +11,15 @@ import MdsKit
 
 public class PlaceMenuDishCell: UITableViewCell {
 
-    public static let identifier = "\(String.tag(PlaceMenuDishCell.self))-\(Guid.new)"
-    public static let height = CGFloat(110)
+    public static let identifier = Guid.new
+    public static let height: CGFloat = 110.0
 
-    private static let nibName = "\(String.tag(PlaceMenuDishCell.self))View"
+    private static let nibName = String.tag(PlaceMenuDishCell.self)
     private static let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
-    public static func instance(for dish: Dish, with currency: Currency, delegate: PlaceMenuDelegate) -> PlaceMenuDishCell {
+    public static func instance(from dish: Dish, with currency: Currency) -> PlaceMenuDishCell {
 
         let cell = nib.instantiate(withOwner: nil, options: nil).first as! PlaceMenuDishCell
-        cell.setupStyles()
-
-        cell.update(by: dish, with: currency, delegate: delegate)
+        cell.update(by: dish, with: currency)
 
         return cell
     }
@@ -38,12 +36,31 @@ public class PlaceMenuDishCell: UITableViewCell {
 
     //Data
     private var _dish: Dish?
-    private var _delegate: PlaceMenuDelegate?
 
-    public func update(by dish: Dish, with currency: Currency, delegate: PlaceMenuDelegate) {
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+
+        //Name
+        dishName.font = themeFonts.bold(size: .subhead)
+        dishName.textColor = themeColors.contentText
+
+        //Description
+        dishDescription.font = themeFonts.default(size: .caption)
+        dishDescription.textColor =  themeColors.contentText
+
+        //Weight
+        dishWeight.font = themeFonts.default(size: .caption)
+        dishWeight.textColor = themeColors.contentText
+
+        //Price
+        dishPrice.font = themeFonts.default(size: .subhead)
+        dishPrice.textColor = themeColors.contentText
+
+        backgroundColor = themeColors.contentBackground
+    }
+    public func update(by dish: Dish, with currency: Currency) {
 
         _dish = dish
-        _delegate = delegate
 
         dishName.text = dish.name
         dishDescription.text = dish.description
@@ -75,33 +92,4 @@ public class PlaceMenuDishCell: UITableViewCell {
         }
     }
 
-    private func setupStyles() {
-
-        //Name
-        dishName.font = themeFonts.bold(size: .subhead)
-        dishName.textColor = themeColors.contentText
-
-        //Description
-        dishDescription.font = themeFonts.default(size: .caption)
-        dishDescription.textColor =  themeColors.contentText
-
-        //Weight
-        dishWeight.font = themeFonts.default(size: .caption)
-        dishWeight.textColor = themeColors.contentText
-
-        //Price
-        dishPrice.font = themeFonts.default(size: .subhead)
-        dishPrice.textColor = themeColors.contentText
-
-        backgroundColor = themeColors.contentSelection
-    }
-
-    @IBAction private func addDish() {
-
-        if let dish = _dish,
-            let delegate = _delegate {
-
-            delegate.select(dish: dish.id)
-        }
-    }
 }

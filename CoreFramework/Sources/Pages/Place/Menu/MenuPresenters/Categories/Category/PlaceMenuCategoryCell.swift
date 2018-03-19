@@ -18,7 +18,7 @@ public class PlaceMenuCategoryCell: UICollectionViewCell {
         collection.register(nib, forCellWithReuseIdentifier: identifier)
     }
     private static let defaultFont = DependencyResolver.get(ThemeFonts.self).default(size: .subhead)
-    internal static func size(for category: MenuCategory) -> CGSize {
+    internal static func size(for category: ParsedCategory) -> CGSize {
 
         let height: CGFloat = 45.0
         let width = category.name.width(containerHeight: 1000.0, font: defaultFont) + 10.0 + 10.0
@@ -40,7 +40,7 @@ public class PlaceMenuCategoryCell: UICollectionViewCell {
         deselect()
     }
 
-    public func update(by category: MenuCategory) {
+    public func update(by category: ParsedCategory) {
         name.text = category.name.lowercased()
     }
 
