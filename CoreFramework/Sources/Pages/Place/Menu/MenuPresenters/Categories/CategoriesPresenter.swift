@@ -71,16 +71,16 @@ extension PlaceMenuController {
             let allCategories = [ParsedCategory(source: commonCategory, from: menu.source)] + menu.categoriesForShow.filter({ $0.isBase })
             categories = allCategories.map({ CategoryContainer(for: $0) })
 
-            reload()
-
-            if (categories.isFilled) {
+            if (nil == categories.find({ $0.id == selectedCategory }) && categories.isFilled) {
                 selectedCategory = categories.first!.id
             }
-            if let index = categories.index(where: { selectedCategory == $0.id }) {
+
+            reload()
+
+            if let index = categories.index(where: { $0.id == selectedCategory }) {
                 let path = IndexPath(item: index, section: 0)
                 categoriesView.selectItem(at: path, animated: true, scrollPosition: .centeredHorizontally)
             }
-            selectAndNotify(about: selectedCategory)
         }
         private func reload() {
             categoriesView.reloadData()

@@ -38,19 +38,22 @@ extension PlaceMenuController {
         }
         private func setupDishesTable() {
 
-
             table.delegate = self
             table.dataSource = self
         }
 
-
-
         public func select(category categoryId: Long?) {
 
             self.selectedCategoryId = categoryId
+
             reload()
+
+            if (categories.isFilled) {
+                let path = IndexPath(row: 0, section: 0)
+                table.scrollToRow(at: path, at: .top, animated: true)
+            }
         }
-        public func reload() {
+        private func reload() {
 
             guard let menu = menu else {
                 return
@@ -62,16 +65,12 @@ extension PlaceMenuController {
                 self.categories = collectAll(from: menu)
             }
 
-//            let path = IndexPath(row: 0, section: 0)
-//            if let _ = table.cellForRow(at: path) {
-//                table.scrollToRow(at: path, at: .top, animated: true)
-//            }
-
             table.reloadData()
         }
         private func collectFor(_ categoryId: Long, from menu: ParsedMenu) -> [CategoryContainer] {
 
             var result = [CategoryContainer]()
+
             guard let parent = menu.categories.find({ $0.id == categoryId }) else {
                 return result
             }
@@ -86,6 +85,7 @@ extension PlaceMenuController {
         private func collectAll(from menu: ParsedMenu) -> [CategoryContainer] {
 
             var result = [CategoryContainer]()
+
             for category in menu.categoriesForShow {
                 let model = CategoryContainer(source: category, collectDishesRecursive: true)
                 result.append(model)
