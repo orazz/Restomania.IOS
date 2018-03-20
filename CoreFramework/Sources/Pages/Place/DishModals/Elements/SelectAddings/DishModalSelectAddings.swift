@@ -14,7 +14,8 @@ public class DishModalSelectAddings: UITableViewCell {
 
     public static func create(for addings: [Adding], from menu: MenuSummary, with delegate: AddDishToCartModalDelegateProtocol) -> DishModalSelectAddings {
 
-        let cell: DishModalSelectAddings = UINib.instantiate(from: "\(String.tag(DishModalSelectAddings.self))View", bundle: Bundle.coreFramework)
+        let nibname = String.tag(DishModalSelectAddings.self)
+        let cell: DishModalSelectAddings = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
         cell.setup(for: addings, from: menu)
         cell.delegate = delegate
 
@@ -23,6 +24,8 @@ public class DishModalSelectAddings: UITableViewCell {
 
     //UI
     @IBOutlet private weak var addingsTable: UITableView!
+    private var countTableHeight: Bool = false
+    private var refreshTrigger: Trigger?
 
     //Data
     private var addings: [AddingModel] = []
@@ -34,6 +37,9 @@ public class DishModalSelectAddings: UITableViewCell {
 
         addingsTable.delegate = self
         addingsTable.dataSource = self
+        addingsTable.rowHeight = UITableViewAutomaticDimension
+        addingsTable.estimatedRowHeight = 45.0
+
         DishModalSelectAddingsCell.register(in: addingsTable)
     }
 
@@ -73,9 +79,6 @@ extension DishModalSelectAddings: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return addings.count
     }
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return DishModalSelectAddingsCell.height
-    }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: DishModalSelectAddingsCell.identifier, for: indexPath) as! DishModalSelectAddingsCell
@@ -83,10 +86,20 @@ extension DishModalSelectAddings: UITableViewDataSource {
 
         return cell
     }
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+        if (indexPath.row == (addings.count - 1) && !countTableHeight) {
+            refreshTrigger?()
+            countTableHeight = true
+        }
+    }
 }
 extension DishModalSelectAddings: InterfaceTableCellProtocol {
     public var viewHeight: Int {
         return Int(addingsTable.contentSize.height)
+    }
+    public func addToContainer(handler: @escaping Trigger) {
+        self.refreshTrigger = handler
     }
     public func prepareView() -> UITableViewCell {
         return self

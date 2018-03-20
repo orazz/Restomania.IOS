@@ -14,7 +14,8 @@ public class DishModalShortDivider: UITableViewCell {
 
     public static func create(for content: InterfaceTableCellProtocol) -> DishModalShortDivider {
 
-        let cell: DishModalShortDivider = UINib.instantiate(from: "\(String.tag(DishModalShortDivider.self))View", bundle: Bundle.coreFramework)
+        let nibname = String.tag(DishModalShortDivider.self)
+        let cell: DishModalShortDivider = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
         cell.content = content
 
         return cell

@@ -13,10 +13,10 @@ import MdsKit
 public class DishModalSelectAddingsCell: UITableViewCell {
 
     public static var identifier = Guid.new
-    public static var height = CGFloat(45)
     public static func register(in table: UITableView) {
 
-        let nib = UINib(nibName: "\(String.tag(DishModalSelectAddingsCell.self))View", bundle: Bundle.coreFramework)
+        let nibname = String.tag(DishModalSelectAddingsCell.self)
+        let nib = UINib(nibName: nibname, bundle: Bundle.coreFramework)
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 
@@ -36,7 +36,7 @@ public class DishModalSelectAddingsCell: UITableViewCell {
         background.isOpaque = false
         self.selectedBackgroundView = background
 
-        nameLabel.font = themeFonts.default(size: .head)
+        nameLabel.font = themeFonts.default(size: .subhead)
         nameLabel.textColor = themeColors.contentText
 
         priceLabel.font = themeFonts.default(size: .subhead)

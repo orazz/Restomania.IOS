@@ -12,10 +12,11 @@ import MdsKit
 
 public class DishModalPriceAndSize: UITableViewCell {
 
-    public static func create(for dish: BaseDish, from menu: MenuSummary) -> DishModalPriceAndSize {
+    public static func create(for dish: ParsedDish) -> DishModalPriceAndSize {
 
-        let cell: DishModalPriceAndSize = UINib.instantiate(from: "\(String.tag(DishModalPriceAndSize.self))View", bundle: Bundle.coreFramework)
-        cell.update(by: dish, from: menu)
+        let nibname = String.tag(DishModalPriceAndSize.self)
+        let cell: DishModalPriceAndSize = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
+        cell.update(by: dish)
 
         return cell
     }
@@ -31,8 +32,7 @@ public class DishModalPriceAndSize: UITableViewCell {
 
     //Data
     private var isShowSizeAndPrice: Bool = false
-    private var dish: BaseDish?
-    private var menu: MenuSummary?
+    private var dish: ParsedDish?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,25 +51,28 @@ public class DishModalPriceAndSize: UITableViewCell {
 
         isShowSizeAndPrice = false
 
-        guard let dish = self.dish,
-                let menu = self.menu else {
+        guard let dish = self.dish else {
                 return
         }
 
-        if (dish.type == .simpleDish) {
-            setup(price: dish.price, size: dish.size, units: dish.sizeUnits)
+        switch dish.type {
+            case .simpleDish:
+                setup(price: dish.price, size: dish.size, units: dish.sizeUnits)
 
-        } else if (dish.type == .variableDish) {
-            let variations = menu.variations.filter({ $0.parentDishId == dish.id })
-            if let variation = variations.min(by: { $0.price < $1.price }) {
+            case .variableDish:
+                if let minPrice = dish.variation?.minPrice,
+                    let minSize = dish.variation?.minSize,
+                    let minSizeUnits = dish.variation?.minSizeUnits {
+                    setup(price: minPrice, size: minSize, units: minSizeUnits, dishType: dish.type)
+                }
 
-                setup(price: variation.price, size: variation.size, units: dish.sizeUnits, dishType: dish.type)
-            }
+            default:
+                return
         }
     }
     private func setup(price: Price, size: Double, units: UnitsOfSize, dishType: DishType = .simpleDish) {
 
-        guard let menu = self.menu else {
+        guard let dish = self.dish else {
             return
         }
 
@@ -79,8 +82,8 @@ public class DishModalPriceAndSize: UITableViewCell {
             priceLabel.isHidden = true
             dividerLabel.isHidden = true
             sizeLabel.isHidden = true
-        } else {
 
+        } else {
             onlyPriceLabel.isHidden = true
             priceLabel.isHidden = false
             dividerLabel.isHidden = false
@@ -88,17 +91,16 @@ public class DishModalPriceAndSize: UITableViewCell {
         }
 
         let useStartFrom = dishType == .variableDish
-        onlyPriceLabel.setup(price: price, currency: menu.currency, useStartFrom: useStartFrom)
-        priceLabel.setup(price: price, currency: menu.currency, useStartFrom: useStartFrom)
+        onlyPriceLabel.setup(price: price, currency: dish.currency, useStartFrom: useStartFrom)
+        priceLabel.setup(price: price, currency: dish.currency, useStartFrom: useStartFrom)
         sizeLabel.setup(size: size, units: units, useStartFrom: useStartFrom)
 
         isShowSizeAndPrice = true
     }
 }
 extension DishModalPriceAndSize: DishModalElementsProtocol {
-    public func update(by dish: BaseDish, from menu: MenuSummary) {
+    public func update(by dish: ParsedDish) {
         self.dish = dish
-        self.menu = menu
 
         refresh()
     }

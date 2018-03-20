@@ -14,7 +14,8 @@ public class DishModalSelectHeader: UITableViewCell {
 
     public static func create(with title: String) -> DishModalSelectHeader {
 
-        let cell: DishModalSelectHeader = UINib.instantiate(from: "\(String.tag(DishModalSelectHeader.self))View", bundle: Bundle.coreFramework)
+        let nibname = String.tag(DishModalSelectHeader.self)
+        let cell: DishModalSelectHeader = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
         cell.title = title
 
         return cell
@@ -22,6 +23,8 @@ public class DishModalSelectHeader: UITableViewCell {
 
     //UI
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var topOffset: NSLayoutConstraint!
+    @IBOutlet private weak var bottomOffset: NSLayoutConstraint!
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
@@ -36,17 +39,20 @@ public class DishModalSelectHeader: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.backgroundColor = themeColors.contentBackground
+        self.backgroundColor = themeColors.divider
 
-        titleLabel.font = themeFonts.bold(size: .head)
-        titleLabel.textColor = themeColors.contentText
-        titleLabel.backgroundColor = themeColors.contentBackground
+        titleLabel.font = themeFonts.default(size: .subhead)
+        titleLabel.textColor = themeColors.dividerText
     }
 }
 extension DishModalSelectHeader: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return Int(title?.height(containerWidth: titleLabel.frame.width, font: titleLabel.font) ?? 0) + 20
+
+        let text = titleLabel.text ?? String.empty
+        let width = titleLabel.frame.width
+        let height = text.height(containerWidth: width, font: titleLabel.font)
+        return Int(height + topOffset.constant + bottomOffset.constant)
     }
     public func prepareView() -> UITableViewCell {
         return self

@@ -12,28 +12,30 @@ import MdsKit
 
 public class DishModalHeader: UITableViewCell {
 
-    private static let nibName = "\(String.tag(DishModalHeader.self))View"
-    public static func create(for dish: BaseDish, from menu: MenuSummary) -> DishModalHeader {
+    public static func create(for dish: ParsedDish) -> DishModalHeader {
 
-        let cell: DishModalHeader = UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
-        cell.update(by: dish, from: menu)
+        let nibname = String.tag(DishModalHeader.self)
+        let cell: DishModalHeader = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
+        cell.update(by: dish)
 
         return cell
     }
 
     //UI
-    @IBOutlet private weak var imageContainerView: UIView!
-    private var imageContainerHeight: NSLayoutConstraint?
+    @IBOutlet private weak var imageContainer: UIView!
+    @IBOutlet private weak var imageContainerWidth: NSLayoutConstraint!
+    @IBOutlet private weak var imageContainerOffsetLeft: NSLayoutConstraint!
+    @IBOutlet private weak var imageWidth: NSLayoutConstraint!
     @IBOutlet private weak var dishImage: CachedImage!
-    @IBOutlet private weak var nameContainerView: UIView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var closeButton: UIButton!
+
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
-    private var dish: BaseDish? = nil {
+    private var dish: ParsedDish? = nil {
         didSet {
             apply()
         }
@@ -43,16 +45,7 @@ public class DishModalHeader: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        for constraint in imageContainerView.constraints {
-            if (constraint.identifier == "ImageHeight") {
-                imageContainerHeight = constraint
-                break
-            }
-        }
-
-        self.backgroundColor = themeColors.contentBackground
-        imageContainerView.backgroundColor = themeColors.contentBackground
-        nameContainerView.backgroundColor = themeColors.contentBackground
+        backgroundColor = themeColors.contentBackground
 
         dishImage.contentMode = .scaleAspectFit
 
@@ -66,8 +59,8 @@ public class DishModalHeader: UITableViewCell {
 
         let hasImage = !String.isNullOrEmpty(dish.image)
 
-        imageContainerView.isHidden = !hasImage
-        imageContainerHeight?.constant = 20.0 + (hasImage ? 150.0 : 0.0)
+        imageContainer.isHidden = !hasImage
+        imageContainerWidth.constant = imageContainerOffsetLeft.constant + (hasImage ? imageWidth.constant : 0.0)
         dishImage.setup(url: dish.image)
 
         nameLabel.text = dish.name
@@ -82,14 +75,14 @@ extension DishModalHeader: DishModalElementsProtocol {
     public func link(with delegate: DishModalDelegateProtocol) {
         self.delegate = delegate
     }
-    public func update(by dish: BaseDish, from: MenuSummary) {
+    public func update(by dish: ParsedDish) {
         self.dish = dish
     }
 }
 extension DishModalHeader: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return Int(nameContainerView.frame.height + imageContainerHeight!.constant)
+        return 160
     }
     public func prepareView() -> UITableViewCell {
         return self

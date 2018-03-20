@@ -16,12 +16,13 @@ public class DishModalSelectVariationsCell: UITableViewCell {
     public static var height = CGFloat(45.0)
     public static func register(in table: UITableView) {
 
-        let nib = UINib(nibName: "\(String.tag(DishModalSelectVariationsCell.self))View", bundle: Bundle.coreFramework)
+        let nibname = String.tag(DishModalSelectVariationsCell.self)
+        let nib = UINib(nibName: nibname, bundle: Bundle.coreFramework)
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 
     //UI
-    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var sizeLabel: SizeLabel!
     @IBOutlet private weak var priceLabel: PriceLabel!
     @IBOutlet private weak var markImage: UIImageView!
 
@@ -31,13 +32,15 @@ public class DishModalSelectVariationsCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
+        backgroundColor = themeColors.contentBackground
+
         let background = UIView()
         background.backgroundColor = themeColors.contentSelection
         background.isOpaque = false
         self.selectedBackgroundView = background
 
-        nameLabel.font = themeFonts.default(size: .head)
-        nameLabel.textColor = themeColors.contentText
+        sizeLabel.font = themeFonts.default(size: .subhead)
+        sizeLabel.textColor = themeColors.contentText
 
         priceLabel.font = themeFonts.default(size: .subhead)
         priceLabel.textColor = themeColors.contentText
@@ -50,7 +53,7 @@ public class DishModalSelectVariationsCell: UITableViewCell {
         markImage.isHidden = !selected
     }
     public func setup(for variation: Variation, with menu: MenuSummary) {
-        nameLabel.text = variation.name
+        sizeLabel.setup(size: variation.size, units: variation.sizeUnits)
         priceLabel.setup(price: variation.price, currency: menu.currency)
     }
 }

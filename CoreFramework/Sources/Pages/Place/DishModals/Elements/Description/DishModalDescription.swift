@@ -12,9 +12,11 @@ import MdsKit
 
 public class DishModalDescription: UITableViewCell {
 
-    public static func create(for dish: BaseDish, with menu: MenuSummary) -> DishModalDescription {
-        let cell: DishModalDescription = UINib.instantiate(from: "\(String.tag(DishModalDescription.self))View", bundle: Bundle.coreFramework)
-        cell.update(by: dish, from: menu)
+    public static func create(for dish: ParsedDish) -> DishModalDescription {
+
+        let nibname = String.tag(DishModalDescription.self)
+        let cell: DishModalDescription = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
+        cell.update(by: dish)
 
         return cell
     }
@@ -26,7 +28,7 @@ public class DishModalDescription: UITableViewCell {
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
-    private var dish: BaseDish? {
+    private var dish: ParsedDish? {
         didSet {
             refresh()
         }
@@ -51,7 +53,7 @@ public class DishModalDescription: UITableViewCell {
     }
 }
 extension DishModalDescription: DishModalElementsProtocol {
-    public func update(by dish: BaseDish, from: MenuSummary) {
+    public func update(by dish: ParsedDish) {
         self.dish = dish
     }
 }

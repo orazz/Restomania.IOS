@@ -20,11 +20,11 @@ public class DishModal: UIViewController {
 
     //Data
     private let _tag = String.tag(DishModal.self)
-    private let dish: BaseDish
+    private let dish: ParsedDish
     private let menu: MenuSummary
     private let delegate: PlaceMenuDelegate
 
-    public init(for dish: BaseDish, from menu: MenuSummary, with delegate: PlaceMenuDelegate) {
+    public init(for dish: ParsedDish, from menu: MenuSummary, with delegate: PlaceMenuDelegate) {
 
         self.dish = dish
         self.menu = menu
@@ -60,11 +60,11 @@ public class DishModal: UIViewController {
 
         var result = [DishModalElementsProtocol]()
 
-        result.append(DishModalHeader.create(for: dish, from: menu))
+        result.append(DishModalHeader.create(for: dish))
 
-        result.append(DishModalPriceAndSize.create(for: dish, from: menu))
+        result.append(DishModalPriceAndSize.create(for: dish))
 
-        let description = DishModalDescription.create(for: dish, with: menu)
+        let description = DishModalDescription.create(for: dish)
         result.append(DishModalShortDivider.create(for: description))
         result.append(description)
 

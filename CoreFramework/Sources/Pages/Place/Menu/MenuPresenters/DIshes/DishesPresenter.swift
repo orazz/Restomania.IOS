@@ -141,6 +141,12 @@ extension PlaceMenuController.DishesPresenter: UITableViewDataSource {
 
         return PlaceMenuSubcategoryHeader.instance(for: category.name)
     }
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.0
+    }
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories[section].dishes.count
     }

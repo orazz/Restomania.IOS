@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="DishModalSelectVariationsCell" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+        <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="DishModalSelectVariationsCell" customModule="CoreFramework" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrI-Fs-yVi">
-                    <rect key="frame" x="25" y="5" width="255" height="41"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 ml" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrI-Fs-yVi" customClass="SizeLabel" customModule="CoreFramework" customModuleProvider="target">
+                    <rect key="frame" x="45" y="5" width="215" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -28,10 +28,10 @@
                         <constraint firstAttribute="height" constant="20" id="tz1-Rm-vhe"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2222 P" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwP-s8-IKT" customClass="PriceLabel" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                    <rect key="frame" x="285" y="15" width="50" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2222 P" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwP-s8-IKT" customClass="PriceLabel" customModule="CoreFramework" customModuleProvider="target">
+                    <rect key="frame" x="265" y="15" width="70" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="NPw-pw-Gry"/>
+                        <constraint firstAttribute="width" constant="70" id="NPw-pw-Gry"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -43,7 +43,7 @@
                 <constraint firstItem="7LK-PG-A23" firstAttribute="leading" secondItem="HwP-s8-IKT" secondAttribute="trailing" constant="10" id="4YO-Vy-HVw"/>
                 <constraint firstItem="HwP-s8-IKT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="64w-gu-OpQ"/>
                 <constraint firstItem="zrI-Fs-yVi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6df-LJ-5ej"/>
-                <constraint firstItem="zrI-Fs-yVi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="HBO-fF-duG"/>
+                <constraint firstItem="zrI-Fs-yVi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="45" id="HBO-fF-duG"/>
                 <constraint firstItem="HwP-s8-IKT" firstAttribute="leading" secondItem="zrI-Fs-yVi" secondAttribute="trailing" constant="5" id="Ish-8c-kYE"/>
                 <constraint firstItem="zrI-Fs-yVi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="QgF-yB-wu1"/>
                 <constraint firstAttribute="trailing" secondItem="7LK-PG-A23" secondAttribute="trailing" constant="10" id="aU5-uw-ex4"/>
@@ -55,8 +55,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="markImage" destination="7LK-PG-A23" id="ha4-XW-amw"/>
-                <outlet property="nameLabel" destination="zrI-Fs-yVi" id="G8Q-SB-3f6"/>
                 <outlet property="priceLabel" destination="HwP-s8-IKT" id="xDl-S1-uGE"/>
+                <outlet property="sizeLabel" destination="zrI-Fs-yVi" id="G8Q-SB-3f6"/>
             </connections>
             <point key="canvasLocation" x="35.5" y="-254.5"/>
         </view>

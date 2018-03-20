@@ -15,12 +15,14 @@ public class ParsedDish: ISortable {
     public let source: Dish
     public let menu: MenuSummary
 
+    public let addings: [Adding]
     public let variation: ParsedVariationsInfo?
 
     public init(source: Dish, from menu: MenuSummary) {
         self.source = source
         self.menu = menu
 
+        self.addings = menu.addings.filter({ $0.sourceDishId == source.id }).ordered
         if (source.type == .variableDish) {
             variation = ParsedVariationsInfo(source: source, from: menu)
         }

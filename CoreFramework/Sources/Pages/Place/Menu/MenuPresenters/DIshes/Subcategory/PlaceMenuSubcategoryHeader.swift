@@ -13,7 +13,7 @@ import MdsKit
 public class PlaceMenuSubcategoryHeader: UITableViewCell {
 
     public static let identifier = Guid.new
-    public static let height = CGFloat(35)
+    public static let height = CGFloat(25)
 
     private static let nibName = String.tag(PlaceMenuSubcategoryHeader.self)
     private static let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
@@ -44,7 +44,7 @@ public class PlaceMenuSubcategoryHeader: UITableViewCell {
         backgroundColor = themeColors.divider
 
         titleLabel.textColor = themeColors.dividerText
-        titleLabel.font = themeFonts.default(size: .head)
+        titleLabel.font = themeFonts.default(size: .subhead)
 
         title = String.empty
     }

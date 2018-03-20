@@ -17,10 +17,15 @@ public class AddDishToCartModal: UIViewController {
     private var interfaceAdapter: InterfaceTable!
     private var interfaceRows: [InterfaceTableCellProtocol] = []
     @IBOutlet private weak var addToCartAction: DishModalAddToCartAction!
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return themeColors.statusBarOnContent
+    }
+
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
 
     //Data
     private let _tag = String.tag(AddDishToCartModal.self)
-    private let dish: Dish
+    private let dish: ParsedDish
     private let addings: [Adding]
     private let vartiations: [Variation]
     private let menu: MenuSummary
@@ -34,12 +39,12 @@ public class AddDishToCartModal: UIViewController {
         }
     }
 
-    public init(for dish: Dish, with addings: [Adding], and variations: [Variation], from menu: MenuSummary, with delegate: PlaceMenuDelegate) {
+    public init(for dish: ParsedDish, with delegate: PlaceMenuDelegate) {
 
         self.dish = dish
-        self.addings = addings
-        self.vartiations = variations
-        self.menu = menu
+        self.addings = dish.addings
+        self.vartiations = dish.variation?.variations ?? []
+        self.menu = dish.menu
         self.delegate = delegate
 
         self.selectedVariation = nil
@@ -82,17 +87,17 @@ public class AddDishToCartModal: UIViewController {
 
         var result = [InterfaceTableCellProtocol]()
 
-        result.append(DishModalHeader.create(for: dish, from: menu))
-        result.append(DishModalPriceAndSize.create(for: dish, from: menu))
+        result.append(DishModalHeader.create(for: dish))
+        result.append(DishModalPriceAndSize.create(for: dish))
 
         if (vartiations.isFilled) {
-            result.append(DishModalSpace.create())
+//            result.append(DishModalSpace.create())
             result.append(DishModalSelectHeader.create(with: DishModal.Localization.labelsSelectVariations.localized))
             result.append(DishModalSelectVariations.create(for: self.vartiations, from: menu, with: self))
         }
 
         if (addings.isFilled) {
-            result.append(DishModalSpace.create())
+//            result.append(DishModalSpace.create())
             result.append(DishModalSelectHeader.create(with: DishModal.Localization.labelsSelectAddings.localized))
             result.append(DishModalSelectAddings.create(for: self.addings, from: menu, with: self))
             result.append(DishModalSpace.create())
@@ -108,7 +113,7 @@ extension AddDishToCartModal: DishModalDelegateProtocol {
     }
     public func addToCart() {
         closeModal()
-        delegate.addToCart(dish, with: selectedAddingsIds, use: selectedVariation?.id)
+        delegate.addToCart(dish.id, with: selectedAddingsIds, use: selectedVariation?.id)
     }
 }
 extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {

@@ -13,6 +13,7 @@ public class ParsedMenu {
 
     public let categories: [ParsedCategory]
     public let categoriesForShow: [ParsedCategory]
+    public let dishes: [ParsedDish]
 
 
     public let source: MenuSummary
@@ -21,6 +22,7 @@ public class ParsedMenu {
 
         self.categories = ParsedMenu.collectCategories(from: source)
         self.categoriesForShow = categories.filter({ $0.hasDishes && $0.isPublic })
+        self.dishes = ParsedMenu.collectDishes(from: categories, with: source)
 
         self.source = source
     }
@@ -39,6 +41,17 @@ public class ParsedMenu {
         }
 
         return result
+    }
+    private static func collectDishes(from categories: [ParsedCategory], with menu: MenuSummary) -> [ParsedDish] {
+
+        var result = menu.dishes.filter({ $0.categoryId == nil })
+                                .map({ ParsedDish(source: $0, from: menu) })
+
+        for category in categories {
+            result = result + category.dishes
+        }
+
+        return result.ordered
     }
 }
 

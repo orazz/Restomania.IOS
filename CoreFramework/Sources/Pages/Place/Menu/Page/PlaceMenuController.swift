@@ -223,28 +223,26 @@ extension PlaceMenuController: PlaceMenuDelegate {
     public func select(dish dishId: Long) {
 
         Log.debug(_tag, "Try add dish #\(dishId)")
-//
-//        guard let menu = takeMenu(),
-//                let dish = menu.dishes.find({ $0.id == dishId }) else {
-//            return
-//        }
-//
-//        let addings = menu.addings.filter({ $0.sourceDishId == dishId })
-//        let variations = menu.variations.filter({ $0.parentDishId == dishId })
-//        if (addings.isEmpty && variations.isEmpty) {
-//            addToCart(dish)
-//            return
-//        }
-//
-//        let modal = AddDishToCartModal(for: dish, with: addings, and: variations, from: menu, with: self)
-//        self.modal(modal, animated: true)
+
+        guard let menu = takeMenu(),
+                let dish = menu.dishes.find({ $0.id == dishId }) else {
+            return
+        }
+
+        if (dish.addings.isEmpty && nil == dish.variation) {
+            addToCart(dish.id)
+            return
+        }
+
+        let modal = AddDishToCartModal(for: dish, with: self)
+        self.modal(modal, animated: true)
     }
-    public func addToCart(_ dish: Dish, with addings: [Long] = [], use variationId: Long? = nil) {
+    public func addToCart(_ dishId: Long, with addings: [Long] = [], use variationId: Long? = nil) {
 
-        Log.debug(_tag, "Add dish #\(dish.id)")
+        Log.debug(_tag, "Add dish #\(dishId)")
 
-        cartService.add(dishId: dish.id, with: addings, use: variationId)
-        showToast(Localization.AlertAddDishToCart)
+        cartService.add(dishId: dishId, with: addings, use: variationId)
+        showToast(Localization.AlertAddDishToCart, position: .top)
     }
 }
 

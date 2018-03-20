@@ -14,9 +14,17 @@ public class DishModalSpace: UITableViewCell {
 
     public static func create() -> DishModalSpace {
 
-        let cell: DishModalSpace = UINib.instantiate(from: "\(String.tag(DishModalSpace.self))View", bundle: Bundle.coreFramework)
+        let nibname = String.tag(DishModalSpace.self)
+        return UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
+    }
 
-        return cell
+    private let themeColors = DependencyResolver.get(ThemeColors.self)
+    private let themeFonts = DependencyResolver.get(ThemeFonts.self)
+
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+
+        backgroundColor = themeColors.divider
     }
 }
 extension DishModalSpace: InterfaceTableCellProtocol {

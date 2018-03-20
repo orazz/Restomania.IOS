@@ -71,10 +71,10 @@
                         </constraints>
                     </view>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpY-3e-q6k" userLabel="Adding">
-                        <rect key="frame" x="281" y="0.0" width="50" height="110"/>
+                        <rect key="frame" x="281" y="40" width="50" height="30"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-plus" translatesAutoresizingMaskIntoConstraints="NO" id="xSW-uf-wah">
-                                <rect key="frame" x="10" y="40" width="30" height="30"/>
+                                <rect key="frame" x="10" y="0.0" width="30" height="30"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="QtE-h3-oXp"/>
@@ -84,13 +84,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="30" id="BYj-Xf-3G1"/>
                             <constraint firstAttribute="width" constant="50" id="ZzC-gV-482"/>
                             <constraint firstItem="xSW-uf-wah" firstAttribute="centerX" secondItem="UpY-3e-q6k" secondAttribute="centerX" id="oOf-yV-hHd"/>
                             <constraint firstItem="xSW-uf-wah" firstAttribute="centerY" secondItem="UpY-3e-q6k" secondAttribute="centerY" id="wRW-Ws-GvL"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7s0-Bb-jBF" customClass="PriceLabel" customModule="CoreFramework" customModuleProvider="target">
-                        <rect key="frame" x="200" y="86" width="81" height="21"/>
+                        <rect key="frame" x="200" y="86" width="121" height="21"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -98,16 +99,15 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gay-xo-6hW" secondAttribute="bottom" constant="8" id="0al-b2-rjV"/>
-                    <constraint firstItem="UpY-3e-q6k" firstAttribute="top" secondItem="rur-PI-Ugz" secondAttribute="top" id="2Ho-JO-IPH"/>
                     <constraint firstItem="UpY-3e-q6k" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="trailing" id="6jh-da-gVI"/>
                     <constraint firstAttribute="bottom" secondItem="7s0-Bb-jBF" secondAttribute="bottom" constant="2.5" id="Ko5-Gc-pcc"/>
                     <constraint firstItem="bbw-mG-wDH" firstAttribute="centerY" secondItem="rur-PI-Ugz" secondAttribute="centerY" id="QEc-Ns-fEY"/>
-                    <constraint firstAttribute="bottom" secondItem="UpY-3e-q6k" secondAttribute="bottom" id="ROl-in-ZUZ"/>
                     <constraint firstItem="gay-xo-6hW" firstAttribute="top" secondItem="rur-PI-Ugz" secondAttribute="top" constant="8" id="Wxw-GF-PZU"/>
                     <constraint firstItem="gay-xo-6hW" firstAttribute="leading" secondItem="bbw-mG-wDH" secondAttribute="trailing" constant="10" id="ZpR-m2-VJA"/>
                     <constraint firstItem="7s0-Bb-jBF" firstAttribute="leading" secondItem="9l3-mA-0El" secondAttribute="trailing" id="bMe-9e-REc"/>
-                    <constraint firstAttribute="trailing" secondItem="7s0-Bb-jBF" secondAttribute="trailing" constant="50" id="nf5-I9-Ckm"/>
+                    <constraint firstAttribute="trailing" secondItem="7s0-Bb-jBF" secondAttribute="trailing" constant="10" id="nf5-I9-Ckm"/>
                     <constraint firstItem="bbw-mG-wDH" firstAttribute="leading" secondItem="rur-PI-Ugz" secondAttribute="leading" constant="10" id="uoL-te-8bG"/>
+                    <constraint firstItem="UpY-3e-q6k" firstAttribute="centerY" secondItem="rur-PI-Ugz" secondAttribute="centerY" id="uwz-5E-ZRD"/>
                     <constraint firstAttribute="trailing" secondItem="UpY-3e-q6k" secondAttribute="trailing" id="wi4-j1-GeC"/>
                 </constraints>
             </tableViewCellContentView>

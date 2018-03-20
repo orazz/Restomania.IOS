@@ -63,7 +63,7 @@ internal class SearchController: BaseSearchController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        startLoadData()
+        loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -112,10 +112,12 @@ extension SearchController {
         return adapter
     }
 
-    private func startLoadData() {
+    private func loadData() {
 
         if (places.isEmpty) {
             loader.show()
+        }
+        else {
             completeLoad(places)
         }
 

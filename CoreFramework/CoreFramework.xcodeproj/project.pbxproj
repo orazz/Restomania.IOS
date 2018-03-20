@@ -225,26 +225,26 @@
 		1F06A8B4205570FD00FEB1B5 /* DishModalAddToCartAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A750205570FD00FEB1B5 /* DishModalAddToCartAction.swift */; };
 		1F06A8B5205570FD00FEB1B5 /* DishModalAddToCartActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A751205570FD00FEB1B5 /* DishModalAddToCartActionView.xib */; };
 		1F06A8B6205570FD00FEB1B5 /* DishModalDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A753205570FD00FEB1B5 /* DishModalDescription.swift */; };
-		1F06A8B7205570FD00FEB1B5 /* DishModalDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A754205570FD00FEB1B5 /* DishModalDescriptionView.xib */; };
+		1F06A8B7205570FD00FEB1B5 /* DishModalDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A754205570FD00FEB1B5 /* DishModalDescription.xib */; };
 		1F06A8B8205570FD00FEB1B5 /* DishModalElementsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A755205570FD00FEB1B5 /* DishModalElementsProtocol.swift */; };
 		1F06A8B9205570FD00FEB1B5 /* DishModalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A757205570FD00FEB1B5 /* DishModalHeader.swift */; };
-		1F06A8BA205570FD00FEB1B5 /* DishModalHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A758205570FD00FEB1B5 /* DishModalHeaderView.xib */; };
+		1F06A8BA205570FD00FEB1B5 /* DishModalHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A758205570FD00FEB1B5 /* DishModalHeader.xib */; };
 		1F06A8BB205570FD00FEB1B5 /* DishModalPriceAndSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A75A205570FD00FEB1B5 /* DishModalPriceAndSize.swift */; };
-		1F06A8BC205570FD00FEB1B5 /* DishModalPriceAndSizeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A75B205570FD00FEB1B5 /* DishModalPriceAndSizeView.xib */; };
+		1F06A8BC205570FD00FEB1B5 /* DishModalPriceAndSize.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A75B205570FD00FEB1B5 /* DishModalPriceAndSize.xib */; };
 		1F06A8BD205570FD00FEB1B5 /* DishModalSelectAddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A75D205570FD00FEB1B5 /* DishModalSelectAddings.swift */; };
 		1F06A8BE205570FD00FEB1B5 /* DishModalSelectAddingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A75E205570FD00FEB1B5 /* DishModalSelectAddingsCell.swift */; };
-		1F06A8BF205570FD00FEB1B5 /* DishModalSelectAddingsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A75F205570FD00FEB1B5 /* DishModalSelectAddingsCellView.xib */; };
-		1F06A8C0205570FD00FEB1B5 /* DishModalSelectAddingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A760205570FD00FEB1B5 /* DishModalSelectAddingsView.xib */; };
+		1F06A8BF205570FD00FEB1B5 /* DishModalSelectAddingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A75F205570FD00FEB1B5 /* DishModalSelectAddingsCell.xib */; };
+		1F06A8C0205570FD00FEB1B5 /* DishModalSelectAddings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A760205570FD00FEB1B5 /* DishModalSelectAddings.xib */; };
 		1F06A8C1205570FD00FEB1B5 /* DishModalSelectHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A762205570FD00FEB1B5 /* DishModalSelectHeader.swift */; };
-		1F06A8C2205570FD00FEB1B5 /* DishModalSelectHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A763205570FD00FEB1B5 /* DishModalSelectHeaderView.xib */; };
+		1F06A8C2205570FD00FEB1B5 /* DishModalSelectHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A763205570FD00FEB1B5 /* DishModalSelectHeader.xib */; };
 		1F06A8C3205570FD00FEB1B5 /* DishModalSelectVariations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A765205570FD00FEB1B5 /* DishModalSelectVariations.swift */; };
 		1F06A8C4205570FD00FEB1B5 /* DishModalSelectVariationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A766205570FD00FEB1B5 /* DishModalSelectVariationsCell.swift */; };
-		1F06A8C5205570FD00FEB1B5 /* DishModalSelectVariationsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A767205570FD00FEB1B5 /* DishModalSelectVariationsCellView.xib */; };
-		1F06A8C6205570FD00FEB1B5 /* DishModalSelectVariationsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A768205570FD00FEB1B5 /* DishModalSelectVariationsView.xib */; };
+		1F06A8C5205570FD00FEB1B5 /* DishModalSelectVariationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A767205570FD00FEB1B5 /* DishModalSelectVariationsCell.xib */; };
+		1F06A8C6205570FD00FEB1B5 /* DishModalSelectVariations.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A768205570FD00FEB1B5 /* DishModalSelectVariations.xib */; };
 		1F06A8C7205570FD00FEB1B5 /* DishModalShortDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A76A205570FD00FEB1B5 /* DishModalShortDivider.swift */; };
-		1F06A8C8205570FD00FEB1B5 /* DishModalShortDividerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A76B205570FD00FEB1B5 /* DishModalShortDividerView.xib */; };
+		1F06A8C8205570FD00FEB1B5 /* DishModalShortDivider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A76B205570FD00FEB1B5 /* DishModalShortDivider.xib */; };
 		1F06A8C9205570FD00FEB1B5 /* DishModalSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A76D205570FD00FEB1B5 /* DishModalSpace.swift */; };
-		1F06A8CA205570FD00FEB1B5 /* DishModalSpaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A76E205570FD00FEB1B5 /* DishModalSpaceView.xib */; };
+		1F06A8CA205570FD00FEB1B5 /* DishModalSpace.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A76E205570FD00FEB1B5 /* DishModalSpace.xib */; };
 		1F06A8CB205570FD00FEB1B5 /* DishModalTryAddingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A770205570FD00FEB1B5 /* DishModalTryAddingAction.swift */; };
 		1F06A8CC205570FD00FEB1B5 /* DishModalTryAddingActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A771205570FD00FEB1B5 /* DishModalTryAddingActionView.xib */; };
 		1F06A8CD205570FD00FEB1B5 /* DishModal.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A772205570FD00FEB1B5 /* DishModal.strings */; };
@@ -578,26 +578,26 @@
 		1F06A750205570FD00FEB1B5 /* DishModalAddToCartAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalAddToCartAction.swift; sourceTree = "<group>"; };
 		1F06A751205570FD00FEB1B5 /* DishModalAddToCartActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalAddToCartActionView.xib; sourceTree = "<group>"; };
 		1F06A753205570FD00FEB1B5 /* DishModalDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalDescription.swift; sourceTree = "<group>"; };
-		1F06A754205570FD00FEB1B5 /* DishModalDescriptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalDescriptionView.xib; sourceTree = "<group>"; };
+		1F06A754205570FD00FEB1B5 /* DishModalDescription.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalDescription.xib; sourceTree = "<group>"; };
 		1F06A755205570FD00FEB1B5 /* DishModalElementsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalElementsProtocol.swift; sourceTree = "<group>"; };
 		1F06A757205570FD00FEB1B5 /* DishModalHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalHeader.swift; sourceTree = "<group>"; };
-		1F06A758205570FD00FEB1B5 /* DishModalHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalHeaderView.xib; sourceTree = "<group>"; };
+		1F06A758205570FD00FEB1B5 /* DishModalHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalHeader.xib; sourceTree = "<group>"; };
 		1F06A75A205570FD00FEB1B5 /* DishModalPriceAndSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalPriceAndSize.swift; sourceTree = "<group>"; };
-		1F06A75B205570FD00FEB1B5 /* DishModalPriceAndSizeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalPriceAndSizeView.xib; sourceTree = "<group>"; };
+		1F06A75B205570FD00FEB1B5 /* DishModalPriceAndSize.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalPriceAndSize.xib; sourceTree = "<group>"; };
 		1F06A75D205570FD00FEB1B5 /* DishModalSelectAddings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalSelectAddings.swift; sourceTree = "<group>"; };
 		1F06A75E205570FD00FEB1B5 /* DishModalSelectAddingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalSelectAddingsCell.swift; sourceTree = "<group>"; };
-		1F06A75F205570FD00FEB1B5 /* DishModalSelectAddingsCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectAddingsCellView.xib; sourceTree = "<group>"; };
-		1F06A760205570FD00FEB1B5 /* DishModalSelectAddingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectAddingsView.xib; sourceTree = "<group>"; };
+		1F06A75F205570FD00FEB1B5 /* DishModalSelectAddingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectAddingsCell.xib; sourceTree = "<group>"; };
+		1F06A760205570FD00FEB1B5 /* DishModalSelectAddings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectAddings.xib; sourceTree = "<group>"; };
 		1F06A762205570FD00FEB1B5 /* DishModalSelectHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalSelectHeader.swift; sourceTree = "<group>"; };
-		1F06A763205570FD00FEB1B5 /* DishModalSelectHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectHeaderView.xib; sourceTree = "<group>"; };
+		1F06A763205570FD00FEB1B5 /* DishModalSelectHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectHeader.xib; sourceTree = "<group>"; };
 		1F06A765205570FD00FEB1B5 /* DishModalSelectVariations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalSelectVariations.swift; sourceTree = "<group>"; };
 		1F06A766205570FD00FEB1B5 /* DishModalSelectVariationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalSelectVariationsCell.swift; sourceTree = "<group>"; };
-		1F06A767205570FD00FEB1B5 /* DishModalSelectVariationsCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectVariationsCellView.xib; sourceTree = "<group>"; };
-		1F06A768205570FD00FEB1B5 /* DishModalSelectVariationsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectVariationsView.xib; sourceTree = "<group>"; };
+		1F06A767205570FD00FEB1B5 /* DishModalSelectVariationsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectVariationsCell.xib; sourceTree = "<group>"; };
+		1F06A768205570FD00FEB1B5 /* DishModalSelectVariations.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSelectVariations.xib; sourceTree = "<group>"; };
 		1F06A76A205570FD00FEB1B5 /* DishModalShortDivider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalShortDivider.swift; sourceTree = "<group>"; };
-		1F06A76B205570FD00FEB1B5 /* DishModalShortDividerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalShortDividerView.xib; sourceTree = "<group>"; };
+		1F06A76B205570FD00FEB1B5 /* DishModalShortDivider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalShortDivider.xib; sourceTree = "<group>"; };
 		1F06A76D205570FD00FEB1B5 /* DishModalSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalSpace.swift; sourceTree = "<group>"; };
-		1F06A76E205570FD00FEB1B5 /* DishModalSpaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSpaceView.xib; sourceTree = "<group>"; };
+		1F06A76E205570FD00FEB1B5 /* DishModalSpace.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalSpace.xib; sourceTree = "<group>"; };
 		1F06A770205570FD00FEB1B5 /* DishModalTryAddingAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalTryAddingAction.swift; sourceTree = "<group>"; };
 		1F06A771205570FD00FEB1B5 /* DishModalTryAddingActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishModalTryAddingActionView.xib; sourceTree = "<group>"; };
 		1F06A773205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DishModal.strings; sourceTree = "<group>"; };
@@ -1694,14 +1694,10 @@
 		1F06A747205570FD00FEB1B5 /* DishModals */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A748205570FD00FEB1B5 /* AddDishToCartModal.swift */,
-				1F06A749205570FD00FEB1B5 /* AddDishToCartModalDelegateProtocol.swift */,
-				1F06A74A205570FD00FEB1B5 /* AddDishToCartModalView.xib */,
-				1F06A74B205570FD00FEB1B5 /* DishModal.swift */,
-				1F06A74C205570FD00FEB1B5 /* DishModalDelegateProtocol.swift */,
-				1F06A74D205570FD00FEB1B5 /* DishModal.xib */,
-				1F06A772205570FD00FEB1B5 /* DishModal.strings */,
+				1FDD97B22060FAF200D75CBF /* DishModal */,
+				1FDD97B12060FABE00D75CBF /* AddDishToCartModal */,
 				1F06A74E205570FD00FEB1B5 /* Elements */,
+				1F06A772205570FD00FEB1B5 /* DishModal.strings */,
 				1F06A774205570FD00FEB1B5 /* Localization.DishModals.swift */,
 			);
 			path = DishModals;
@@ -1710,16 +1706,16 @@
 		1F06A74E205570FD00FEB1B5 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A74F205570FD00FEB1B5 /* AddToCartAction */,
-				1F06A752205570FD00FEB1B5 /* Description */,
 				1F06A755205570FD00FEB1B5 /* DishModalElementsProtocol.swift */,
 				1F06A756205570FD00FEB1B5 /* Header */,
+				1F06A752205570FD00FEB1B5 /* Description */,
 				1F06A759205570FD00FEB1B5 /* PriceAndSize */,
-				1F06A75C205570FD00FEB1B5 /* SelectAddings */,
 				1F06A761205570FD00FEB1B5 /* SelectHeader */,
 				1F06A764205570FD00FEB1B5 /* SelectVariations */,
+				1F06A75C205570FD00FEB1B5 /* SelectAddings */,
 				1F06A769205570FD00FEB1B5 /* ShortDivider */,
 				1F06A76C205570FD00FEB1B5 /* Space */,
+				1F06A74F205570FD00FEB1B5 /* AddToCartAction */,
 				1F06A76F205570FD00FEB1B5 /* TryAddingAction */,
 			);
 			path = Elements;
@@ -1738,7 +1734,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A753205570FD00FEB1B5 /* DishModalDescription.swift */,
-				1F06A754205570FD00FEB1B5 /* DishModalDescriptionView.xib */,
+				1F06A754205570FD00FEB1B5 /* DishModalDescription.xib */,
 			);
 			path = Description;
 			sourceTree = "<group>";
@@ -1747,7 +1743,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A757205570FD00FEB1B5 /* DishModalHeader.swift */,
-				1F06A758205570FD00FEB1B5 /* DishModalHeaderView.xib */,
+				1F06A758205570FD00FEB1B5 /* DishModalHeader.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1756,7 +1752,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A75A205570FD00FEB1B5 /* DishModalPriceAndSize.swift */,
-				1F06A75B205570FD00FEB1B5 /* DishModalPriceAndSizeView.xib */,
+				1F06A75B205570FD00FEB1B5 /* DishModalPriceAndSize.xib */,
 			);
 			path = PriceAndSize;
 			sourceTree = "<group>";
@@ -1765,9 +1761,9 @@
 			isa = PBXGroup;
 			children = (
 				1F06A75D205570FD00FEB1B5 /* DishModalSelectAddings.swift */,
+				1F06A760205570FD00FEB1B5 /* DishModalSelectAddings.xib */,
 				1F06A75E205570FD00FEB1B5 /* DishModalSelectAddingsCell.swift */,
-				1F06A75F205570FD00FEB1B5 /* DishModalSelectAddingsCellView.xib */,
-				1F06A760205570FD00FEB1B5 /* DishModalSelectAddingsView.xib */,
+				1F06A75F205570FD00FEB1B5 /* DishModalSelectAddingsCell.xib */,
 			);
 			path = SelectAddings;
 			sourceTree = "<group>";
@@ -1776,7 +1772,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A762205570FD00FEB1B5 /* DishModalSelectHeader.swift */,
-				1F06A763205570FD00FEB1B5 /* DishModalSelectHeaderView.xib */,
+				1F06A763205570FD00FEB1B5 /* DishModalSelectHeader.xib */,
 			);
 			path = SelectHeader;
 			sourceTree = "<group>";
@@ -1785,9 +1781,9 @@
 			isa = PBXGroup;
 			children = (
 				1F06A765205570FD00FEB1B5 /* DishModalSelectVariations.swift */,
+				1F06A768205570FD00FEB1B5 /* DishModalSelectVariations.xib */,
 				1F06A766205570FD00FEB1B5 /* DishModalSelectVariationsCell.swift */,
-				1F06A767205570FD00FEB1B5 /* DishModalSelectVariationsCellView.xib */,
-				1F06A768205570FD00FEB1B5 /* DishModalSelectVariationsView.xib */,
+				1F06A767205570FD00FEB1B5 /* DishModalSelectVariationsCell.xib */,
 			);
 			path = SelectVariations;
 			sourceTree = "<group>";
@@ -1796,7 +1792,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A76A205570FD00FEB1B5 /* DishModalShortDivider.swift */,
-				1F06A76B205570FD00FEB1B5 /* DishModalShortDividerView.xib */,
+				1F06A76B205570FD00FEB1B5 /* DishModalShortDivider.xib */,
 			);
 			path = ShortDivider;
 			sourceTree = "<group>";
@@ -1805,7 +1801,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A76D205570FD00FEB1B5 /* DishModalSpace.swift */,
-				1F06A76E205570FD00FEB1B5 /* DishModalSpaceView.xib */,
+				1F06A76E205570FD00FEB1B5 /* DishModalSpace.xib */,
 			);
 			path = Space;
 			sourceTree = "<group>";
@@ -2283,6 +2279,26 @@
 			path = Preference;
 			sourceTree = "<group>";
 		};
+		1FDD97B12060FABE00D75CBF /* AddDishToCartModal */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A748205570FD00FEB1B5 /* AddDishToCartModal.swift */,
+				1F06A74A205570FD00FEB1B5 /* AddDishToCartModalView.xib */,
+				1F06A749205570FD00FEB1B5 /* AddDishToCartModalDelegateProtocol.swift */,
+			);
+			path = AddDishToCartModal;
+			sourceTree = "<group>";
+		};
+		1FDD97B22060FAF200D75CBF /* DishModal */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A74B205570FD00FEB1B5 /* DishModal.swift */,
+				1F06A74C205570FD00FEB1B5 /* DishModalDelegateProtocol.swift */,
+				1F06A74D205570FD00FEB1B5 /* DishModal.xib */,
+			);
+			path = DishModal;
+			sourceTree = "<group>";
+		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2399,12 +2415,12 @@
 				1F06A8A7205570FD00FEB1B5 /* PlaceCartControllerView.xib in Resources */,
 				1FDBA120205B281C000F1378 /* OneOrderCommentContainer.xib in Resources */,
 				1F06A8E3205570FE00FEB1B5 /* SearchPlaceCard.xib in Resources */,
-				1F06A8B7205570FD00FEB1B5 /* DishModalDescriptionView.xib in Resources */,
+				1F06A8B7205570FD00FEB1B5 /* DishModalDescription.xib in Resources */,
 				1F06A8D0205570FD00FEB1B5 /* PlaceInfoController.xib in Resources */,
 				1F06A89C205570FD00FEB1B5 /* PlaceCartDishesContainerCellMetaView.xib in Resources */,
 				1F06A7FB205570FD00FEB1B5 /* Asserts.xcassets in Resources */,
 				1F8923A82056FA590086D372 /* DistanceLabel.strings in Resources */,
-				1F06A8BF205570FD00FEB1B5 /* DishModalSelectAddingsCellView.xib in Resources */,
+				1F06A8BF205570FD00FEB1B5 /* DishModalSelectAddingsCell.xib in Resources */,
 				1F06A8EE205570FE00FEB1B5 /* OneOrderController.strings in Resources */,
 				1F06A890205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.xib in Resources */,
 				1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderContainerView.xib in Resources */,
@@ -2412,7 +2428,7 @@
 				1F06A88A205570FD00FEB1B5 /* OrdersControllerOrderCell.xib in Resources */,
 				1F06A8CD205570FD00FEB1B5 /* DishModal.strings in Resources */,
 				1F06A8F6205570FE00FEB1B5 /* OneOrderSummaryContainer.xib in Resources */,
-				1F06A8BA205570FD00FEB1B5 /* DishModalHeaderView.xib in Resources */,
+				1F06A8BA205570FD00FEB1B5 /* DishModalHeader.xib in Resources */,
 				1F06A8E1205570FE00FEB1B5 /* PlaceInfoTitle.xib in Resources */,
 				1F06A875205570FD00FEB1B5 /* GreetingController.strings in Resources */,
 				1F06A7DC205570FD00FEB1B5 /* ScheduleDisplay.xib in Resources */,
@@ -2423,10 +2439,10 @@
 				1F06A896205570FD00FEB1B5 /* PlaceCartDateContainerView.xib in Resources */,
 				1F06A8EC205570FE00FEB1B5 /* OneOrderDishesContainerDishCell.xib in Resources */,
 				1F06A7F4205570FD00FEB1B5 /* TermsController.strings in Resources */,
-				1F06A8C5205570FD00FEB1B5 /* DishModalSelectVariationsCellView.xib in Resources */,
+				1F06A8C5205570FD00FEB1B5 /* DishModalSelectVariationsCell.xib in Resources */,
 				1F06A7F2205570FD00FEB1B5 /* VkAuthController.strings in Resources */,
 				1F06A89D205570FD00FEB1B5 /* PlaceCartDishesContainerCellView.xib in Resources */,
-				1F06A8C0205570FD00FEB1B5 /* DishModalSelectAddingsView.xib in Resources */,
+				1F06A8C0205570FD00FEB1B5 /* DishModalSelectAddings.xib in Resources */,
 				1F06A894205570FD00FEB1B5 /* PlaceCartAdditionalContainerView.xib in Resources */,
 				1F06A8D3205570FD00FEB1B5 /* PlaceMenuController.strings in Resources */,
 				1F06A8A0205570FD00FEB1B5 /* PlaceCartDividerView.xib in Resources */,
@@ -2447,12 +2463,12 @@
 				1F89236C20568D050086D372 /* PriceLabel.strings in Resources */,
 				1F06A88B205570FD00FEB1B5 /* OrdersController.xib in Resources */,
 				1F06A8A5205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerView.xib in Resources */,
-				1F06A8CA205570FD00FEB1B5 /* DishModalSpaceView.xib in Resources */,
+				1F06A8CA205570FD00FEB1B5 /* DishModalSpace.xib in Resources */,
 				1F06A7F1205570FD00FEB1B5 /* SelectAuthController.xib in Resources */,
 				1F06A8DF205570FE00FEB1B5 /* PlaceMenuController.xib in Resources */,
 				1F06A8A1205570FD00FEB1B5 /* PlaceCartController.strings in Resources */,
-				1F06A8C6205570FD00FEB1B5 /* DishModalSelectVariationsView.xib in Resources */,
-				1F06A8C8205570FD00FEB1B5 /* DishModalShortDividerView.xib in Resources */,
+				1F06A8C6205570FD00FEB1B5 /* DishModalSelectVariations.xib in Resources */,
+				1F06A8C8205570FD00FEB1B5 /* DishModalShortDivider.xib in Resources */,
 				1F8923482055D2B00086D372 /* ResetPasswordAuthController.strings in Resources */,
 				1F06A877205570FD00FEB1B5 /* GreetingController.xib in Resources */,
 				1F06A7F8205570FD00FEB1B5 /* WebBrowserController.xib in Resources */,
@@ -2472,10 +2488,10 @@
 				1F592CA6205C2BAC0082DF37 /* OneOrderTitleSection.xib in Resources */,
 				1F89237320568D780086D372 /* RefreshControl.strings in Resources */,
 				1F06A8FC205570FE00FEB1B5 /* Localizable.strings in Resources */,
-				1F06A8BC205570FD00FEB1B5 /* DishModalPriceAndSizeView.xib in Resources */,
+				1F06A8BC205570FD00FEB1B5 /* DishModalPriceAndSize.xib in Resources */,
 				1F06A8FD205570FE00FEB1B5 /* SizeLabel.strings in Resources */,
 				1F06A8A4205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCellView.xib in Resources */,
-				1F06A8C2205570FD00FEB1B5 /* DishModalSelectHeaderView.xib in Resources */,
+				1F06A8C2205570FD00FEB1B5 /* DishModalSelectHeader.xib in Resources */,
 				1F06A7E7205570FD00FEB1B5 /* ResetPasswordAuthController.xib in Resources */,
 				1FDBA135205BBE5E000F1378 /* OtherNotificationController.strings in Resources */,
 				1F06A8F2205570FE00FEB1B5 /* OneOrderController.xib in Resources */,

@@ -16,6 +16,9 @@ extension DishModal {
         public var tableName: String {
             return String.tag(DishModal.self)
         }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
 
         //Actions
         case buttonsTryAddDish = "Buttons.TryAddDish"
