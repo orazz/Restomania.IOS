@@ -149,17 +149,13 @@ extension PlaceMenuController.DishesPresenter: UITableViewDataSource {
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let menu = menu else {
-            return UITableViewCell()
-        }
-
         let dish = categories[indexPath]
         if let cell = cells[dish.id] {
-            cell.update(by: dish, with: menu.currency)
+            cell.update(by: dish)
             return cell
         }
 
-        let cell = PlaceMenuDishCell.instance(from: dish, with: menu.currency)
+        let cell = PlaceMenuDishCell.instance(from: dish)
         cells[dish.id] = cell
 
         return cell
@@ -169,7 +165,7 @@ extension PlaceMenuController.DishesPresenter {
     fileprivate class CategoryContainer {
 
         public let source: ParsedCategory
-        public let dishes: [Dish]
+        public let dishes: [ParsedDish]
 
         fileprivate init(source: ParsedCategory, collectDishesRecursive: Bool) {
             self.source = source
@@ -192,7 +188,7 @@ extension PlaceMenuController.DishesPresenter {
     }
 }
 extension Array where Element: PlaceMenuController.DishesPresenter.CategoryContainer {
-    subscript(path: IndexPath) -> Dish {
+    subscript(path: IndexPath) -> ParsedDish {
 
         let category = self[path.section]
         let dish = category.dishes[path.row]

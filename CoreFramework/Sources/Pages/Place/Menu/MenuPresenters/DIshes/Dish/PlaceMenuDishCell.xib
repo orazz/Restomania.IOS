@@ -116,7 +116,7 @@
                 <outlet property="dishImage" destination="bbw-mG-wDH" id="W0g-fd-doF"/>
                 <outlet property="dishName" destination="SQ5-lo-ZwD" id="xKo-ZR-0UH"/>
                 <outlet property="dishPrice" destination="7s0-Bb-jBF" id="MbK-24-1Rd"/>
-                <outlet property="dishWeight" destination="9l3-mA-0El" id="DbU-FG-TmT"/>
+                <outlet property="dishSize" destination="9l3-mA-0El" id="DbU-FG-TmT"/>
             </connections>
             <point key="canvasLocation" x="-160.5" y="-169"/>
         </tableViewCell>

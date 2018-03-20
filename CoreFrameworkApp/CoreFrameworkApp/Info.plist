@@ -43,7 +43,9 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1086</string>
+	<string>1092</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>

@@ -337,6 +337,8 @@
 		1FDBA132205BA6CF000F1378 /* OtherNotificationControllerPreference.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA131205BA6CF000F1378 /* OtherNotificationControllerPreference.xib */; };
 		1FDBA134205BBC75000F1378 /* ConnectionMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBA133205BBC74000F1378 /* ConnectionMethod.swift */; };
 		1FDBA135205BBE5E000F1378 /* OtherNotificationController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA137205BBE5E000F1378 /* OtherNotificationController.strings */; };
+		1FDD97AE2060EB3800D75CBF /* ParsedDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD97AD2060EB3800D75CBF /* ParsedDish.swift */; };
+		1FDD97B02060ED1700D75CBF /* ParsedVariationsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD97AF2060ED1700D75CBF /* ParsedVariationsInfo.swift */; };
 		1FED176620573F3400A80DA5 /* BaseSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED176520573F3400A80DA5 /* BaseSearchController.swift */; };
 		7B9696C32E76578E71F00E4B /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
@@ -705,6 +707,8 @@
 		1FDBA133205BBC74000F1378 /* ConnectionMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionMethod.swift; sourceTree = "<group>"; };
 		1FDBA136205BBE5E000F1378 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtherNotificationController.strings; sourceTree = "<group>"; };
 		1FDBA138205BBE62000F1378 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OtherNotificationController.strings; sourceTree = "<group>"; };
+		1FDD97AD2060EB3800D75CBF /* ParsedDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedDish.swift; sourceTree = "<group>"; };
+		1FDD97AF2060ED1700D75CBF /* ParsedVariationsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedVariationsInfo.swift; sourceTree = "<group>"; };
 		1FED174920571B7E00A80DA5 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED175620571B9E00A80DA5 /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED175720571B9E00A80DA5 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2039,6 +2043,8 @@
 			children = (
 				1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */,
 				1F53B92F206056E300656EA5 /* ParsedCategory.swift */,
+				1FDD97AD2060EB3800D75CBF /* ParsedDish.swift */,
+				1FDD97AF2060ED1700D75CBF /* ParsedVariationsInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2597,6 +2603,8 @@
 				1F06A835205570FD00FEB1B5 /* SubdishSummary.swift in Sources */,
 				1F06A852205570FD00FEB1B5 /* Schedule.swift in Sources */,
 				1F06A829205570FD00FEB1B5 /* MenuCategory.swift in Sources */,
+				1FDD97AE2060EB3800D75CBF /* ParsedDish.swift in Sources */,
+				1FDD97B02060ED1700D75CBF /* ParsedVariationsInfo.swift in Sources */,
 				1F06A855205570FD00FEB1B5 /* UserParts.swift in Sources */,
 				1F06A8B2205570FD00FEB1B5 /* DishModalDelegateProtocol.swift in Sources */,
 				1F06A876205570FD00FEB1B5 /* GreetingController.swift in Sources */,

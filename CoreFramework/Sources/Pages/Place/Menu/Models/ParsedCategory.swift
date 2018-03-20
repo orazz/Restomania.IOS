@@ -12,8 +12,8 @@ import MdsKit
 public class ParsedCategory: ISortable {
 
     public private(set) var child: [ParsedCategory]
-    public let dishes: [Dish]
-    public private(set) var dishesWithDependent: [Dish]
+    public let dishes: [ParsedDish]
+    public private(set) var dishesWithDependent: [ParsedDish]
 
     public let source: MenuCategory
     public let menu: MenuSummary
@@ -24,7 +24,9 @@ public class ParsedCategory: ISortable {
         self.menu = menu
 
         self.child = []
-        self.dishes = menu.dishes.filter({ $0.categoryId == source.id }).ordered
+        self.dishes = menu.dishes.map({ ParsedDish(source: $0, from: menu) })
+                                .filter({ $0.categoryId == source.id })
+                                .ordered
         self.dishesWithDependent = []
     }
     internal func set(child: [ParsedCategory]) {

@@ -16,10 +16,10 @@ public class PlaceMenuDishCell: UITableViewCell {
 
     private static let nibName = String.tag(PlaceMenuDishCell.self)
     private static let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
-    public static func instance(from dish: Dish, with currency: Currency) -> PlaceMenuDishCell {
+    public static func instance(from dish: ParsedDish) -> PlaceMenuDishCell {
 
         let cell = nib.instantiate(withOwner: nil, options: nil).first as! PlaceMenuDishCell
-        cell.update(by: dish, with: currency)
+        cell.update(by: dish)
 
         return cell
     }
@@ -28,14 +28,14 @@ public class PlaceMenuDishCell: UITableViewCell {
     @IBOutlet weak var dishImage: CachedImage!
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishDescription: UILabel!
-    @IBOutlet weak var dishWeight: SizeLabel!
+    @IBOutlet weak var dishSize: SizeLabel!
     @IBOutlet weak var dishPrice: PriceLabel!
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
-    private var _dish: Dish?
+    private var _dish: ParsedDish?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,8 +49,8 @@ public class PlaceMenuDishCell: UITableViewCell {
         dishDescription.textColor =  themeColors.contentText
 
         //Weight
-        dishWeight.font = themeFonts.default(size: .caption)
-        dishWeight.textColor = themeColors.contentText
+        dishSize.font = themeFonts.default(size: .caption)
+        dishSize.textColor = themeColors.contentText
 
         //Price
         dishPrice.font = themeFonts.default(size: .subhead)
@@ -58,7 +58,7 @@ public class PlaceMenuDishCell: UITableViewCell {
 
         backgroundColor = themeColors.contentBackground
     }
-    public func update(by dish: Dish, with currency: Currency) {
+    public func update(by dish: ParsedDish) {
 
         _dish = dish
 
@@ -66,23 +66,31 @@ public class PlaceMenuDishCell: UITableViewCell {
         dishDescription.text = dish.description
         dishImage.setup(url: dish.image)
 
-        dishWeight.setup(size: dish.size, units: dish.sizeUnits)
         switch (dish.type) {
-//            case .simpleDish:
-//                dishPrice.setup(price: dish.price, currency: currency)
-//
-//            case .variableDish:
-//                guard let menu = delegate.takeMenu(),
-//                        let min = menu.variations.filter({ dish.id == $0.parentDishId })
-//                                                  .min(by: { $0.price < $1.price }) else {
-//                    dishPrice.clear()
-//                    break
-//                }
-//
-//                dishPrice.setup(price: min.price, currency: currency, useStartFrom: true)
+            case .simpleDish:
+                dishPrice.setup(price: dish.price, currency: dish.currency)
+                dishSize.setup(size: dish.size, units: dish.sizeUnits)
+
+            case .variableDish:
+
+                if let minPrice = dish.variation?.minPrice {
+                    dishPrice.setup(price: minPrice, currency: dish.currency, useStartFrom: true)
+                }
+                else {
+                    dishPrice.clear()
+                }
+
+                if let minSize = dish.variation?.minSize,
+                    let minSizeUnits = dish.variation?.minSizeUnits {
+                    dishSize.setup(size: minSize, units: minSizeUnits, useStartFrom: true)
+                }
+                else {
+                    dishSize.clear()
+                }
 
             default:
                 dishPrice.clear()
+                dishSize.clear()
         }
 
         if (String.isNullOrEmpty(dish.image)) {

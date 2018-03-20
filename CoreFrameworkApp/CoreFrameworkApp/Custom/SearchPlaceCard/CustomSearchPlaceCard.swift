@@ -15,18 +15,15 @@ open class CustomSearchPlaceCard: SearchPlaceCard {
     @IBOutlet weak var kunaLogo: UIImageView!
     @IBOutlet weak var verticalLines: UIImageView!
 
-    @IBOutlet weak var topBorderPink: UIView!
     @IBOutlet weak var bottomBorderPink: UIView!
-    @IBOutlet weak var leftBorderPink: UIView!
-    @IBOutlet weak var bottomBorderBackground: UIView!
 
     open override func awakeFromNib() {
         super.awakeFromNib()
 
-        topBorderPink.backgroundColor = ThemeSettings.Colors.pink
-        leftBorderPink.backgroundColor = ThemeSettings.Colors.pink
+//        topBorderPink.backgroundColor = ThemeSettings.Colors.pink
+//        leftBorderPink.backgroundColor = ThemeSettings.Colors.pink
         bottomBorderPink.backgroundColor = ThemeSettings.Colors.pink
-        bottomBorderBackground.backgroundColor = themeColors.contentBackground
+//        bottomBorderBackground.backgroundColor = themeColors.contentBackground
 
         location?.font = themeFonts.bold(size: .head)
         location?.textColor = themeColors.contentText

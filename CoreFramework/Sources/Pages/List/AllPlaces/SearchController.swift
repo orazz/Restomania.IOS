@@ -69,8 +69,8 @@ internal class SearchController: BaseSearchController {
         super.viewWillAppear(animated)
 
         navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
         navigationController?.navigationBar.topItem?.titleView = searchBar
+        navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
     }
 
     private func configureSearchController() {
