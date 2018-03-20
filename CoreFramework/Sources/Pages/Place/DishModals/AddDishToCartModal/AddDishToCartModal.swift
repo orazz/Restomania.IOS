@@ -64,13 +64,11 @@ public class AddDishToCartModal: UIViewController {
     }
 
     //Load circle
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+    public override func loadView() {
+        super.loadView()
 
-        loadMarkup()
-
-    }
-    private func loadMarkup() {
+        view.backgroundColor = themeColors.divider
+        interfaceTable.backgroundColor = themeColors.divider
 
         interfaceRows = loadRows()
         interfaceRows.each({ row in
@@ -82,6 +80,9 @@ public class AddDishToCartModal: UIViewController {
 
         addToCartAction.link(with: self)
         refreshTotal()
+    }
+    public override func viewDidLoad() {
+        super.viewDidLoad()
     }
     private func loadRows() -> [InterfaceTableCellProtocol] {
 

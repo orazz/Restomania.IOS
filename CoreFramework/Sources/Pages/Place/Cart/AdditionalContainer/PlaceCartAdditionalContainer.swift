@@ -12,7 +12,7 @@ import MdsKit
 
 public class PlaceCartAdditionalContainer: UITableViewCell {
 
-    private static let nibName = "\(String.tag(PlaceCartAdditionalContainer.self))View"
+    private static let nibName = String.tag(PlaceCartAdditionalContainer.self)
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartContainerCell {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)

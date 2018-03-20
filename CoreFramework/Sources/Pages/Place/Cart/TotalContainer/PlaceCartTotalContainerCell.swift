@@ -14,7 +14,8 @@ public class PlaceCartTotalContainerCell: UITableViewCell {
 
     public static func create(for delegate: PlaceCartDelegate, title: String, _ action: @escaping ((CartService, MenuSummary) -> Price)) -> PlaceCartTotalContainerCell {
 
-        let cell: PlaceCartTotalContainerCell = UINib.instantiate(from: "\(String.tag(PlaceCartTotalContainerCell.self))View", bundle: Bundle.coreFramework)
+        let nibname = String.tag(PlaceCartTotalContainerCell.self)
+        let cell: PlaceCartTotalContainerCell = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
 
         cell.title = title
         cell.action = action

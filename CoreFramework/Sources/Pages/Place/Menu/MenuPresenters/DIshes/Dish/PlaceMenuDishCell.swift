@@ -12,7 +12,7 @@ import MdsKit
 public class PlaceMenuDishCell: UITableViewCell {
 
     public static let identifier = Guid.new
-    public static let height: CGFloat = 110.0
+    public static let height: CGFloat = 105.0
 
     private static let nibName = String.tag(PlaceMenuDishCell.self)
     private static let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
@@ -27,7 +27,6 @@ public class PlaceMenuDishCell: UITableViewCell {
     //UI elements
     @IBOutlet weak var dishImage: CachedImage!
     @IBOutlet weak var dishName: UILabel!
-    @IBOutlet weak var dishDescription: UILabel!
     @IBOutlet weak var dishSize: SizeLabel!
     @IBOutlet weak var dishPrice: PriceLabel!
 
@@ -44,10 +43,6 @@ public class PlaceMenuDishCell: UITableViewCell {
         dishName.font = themeFonts.bold(size: .subhead)
         dishName.textColor = themeColors.contentText
 
-        //Description
-        dishDescription.font = themeFonts.default(size: .caption)
-        dishDescription.textColor =  themeColors.contentText
-
         //Weight
         dishSize.font = themeFonts.default(size: .caption)
         dishSize.textColor = themeColors.contentText
@@ -63,7 +58,6 @@ public class PlaceMenuDishCell: UITableViewCell {
         _dish = dish
 
         dishName.text = dish.name
-        dishDescription.text = dish.description
         dishImage.setup(url: dish.image)
 
         switch (dish.type) {

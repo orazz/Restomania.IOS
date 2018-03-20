@@ -15,14 +15,12 @@ internal class SearchController: BaseSearchController {
     private var searchController: UISearchController!
     private var resultsTableController = BaseSearchController()
     private var resultsUpdater = SearchResultsUpdater()
-    private var searchBar: UISearchBar!
     private var loader: InterfaceLoader!
 
     // Services
     private let router = DependencyResolver.get(Router.self)
     private let configs = DependencyResolver.get(ConfigsContainer.self)
     private let service = DependencyResolver.get(PlacesCacheService.self)
-    private let themeColors = DependencyResolver.get(ThemeColors.self)
 
     // Data
     private let _tag = String.tag(SearchController.self)
@@ -49,10 +47,10 @@ internal class SearchController: BaseSearchController {
     private func loadMarkup() {
 
         searchBar = searchController.searchBar
-        searchBar.searchBarStyle = .minimal
-        searchBar.tintColor = themeColors.navigationContent
-        searchBar.barTintColor = themeColors.navigationContent
-        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        searchBar?.searchBarStyle = .minimal
+        searchBar?.tintColor = themeColors.navigationContent
+        searchBar?.barTintColor = themeColors.navigationContent
+        let textFieldInsideSearchBar = searchBar?.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = themeColors.navigationContent
 
         refreshControl = tableView.addRefreshControl(for: self, action: #selector(needReload))
@@ -68,9 +66,6 @@ internal class SearchController: BaseSearchController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.navigationBar.topItem?.titleView = searchBar
-        navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
     }
 
     private func configureSearchController() {

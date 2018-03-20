@@ -22,7 +22,7 @@ public class PlaceCartDateContainer: UITableViewCell {
         case tommorow = 2
     }
 
-    private static let nibName = "\(String.tag(PlaceCartDateContainer.self))View"
+    private static let nibName = String.tag(PlaceCartDateContainer.self)
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartDateContainer {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
@@ -45,6 +45,8 @@ public class PlaceCartDateContainer: UITableViewCell {
     @IBOutlet private weak var dateChecker: UISegmentedControl!
     @IBOutlet private weak var timePicker: UIPickerView!
     @IBOutlet private weak var dateTimeLabel: UILabel!
+    @IBOutlet private weak var pickerHeight: NSLayoutConstraint!
+    private let defaultPickerHeight: CGFloat = 120.0
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
@@ -53,6 +55,7 @@ public class PlaceCartDateContainer: UITableViewCell {
     private var timeFormatter: DateFormatter!
     private var dateFormatter: DateFormatter!
     private var delegate: PlaceCartDelegate!
+    private var refresher: Trigger?
 
     private var container: PlaceCartController.CartContainer {
         return delegate.takeCartContainer()
@@ -189,14 +192,35 @@ extension PlaceCartDateContainer {
         }
 
         if (segment == .now) {
-            timePicker.isHidden = true
-
             let now = Calendar.current.date(byAdding: .minute, value: 10, to: nowLikeUTC)!
             updateTimeAndRefreshTimePicker(hours: now.utcHours(), minutes: now.utcMinutes())
+
+            hidePicker()
         } else {
-            timePicker.isHidden = false
+            showPicker()
+        }
+    }
+    private func hidePicker() {
+
+        if (timePicker.isHidden) {
+            return
         }
 
+        timePicker.isHidden = true
+        pickerHeight.constant = 0
+
+        refresher?()
+    }
+    private func showPicker() {
+
+        if (!timePicker.isHidden) {
+            return
+        }
+
+        timePicker.isHidden = false
+        pickerHeight.constant = defaultPickerHeight
+
+        refresher?()
     }
 }
 
@@ -254,9 +278,32 @@ extension PlaceCartDateContainer: PlaceCartContainerCell {
 }
 extension PlaceCartDateContainer: InterfaceTableCellProtocol {
     public var viewHeight: Int {
-        return 245
+
+        var height: CGFloat = 250.0
+        if (timePicker.isHidden) {
+            height = height - defaultPickerHeight
+        }
+
+        needRefresh(to: height)
+
+        return Int(height)
+    }
+    private func needRefresh(to height: CGFloat) {
+
+        let deadlineTime = DispatchTime.now() + .milliseconds(50)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            let old = self.frame
+            self.frame = CGRect(x: old.origin.x, y: old.origin.y, width: old.width, height: height)
+            self.layoutIfNeeded()
+            self.updateConstraintsIfNeeded()
+        }
     }
     public func prepareView() -> UITableViewCell {
+
+        layoutIfNeeded()
         return self
+    }
+    public func addToContainer(handler: @escaping (() -> Void)) {
+        self.refresher = handler
     }
 }

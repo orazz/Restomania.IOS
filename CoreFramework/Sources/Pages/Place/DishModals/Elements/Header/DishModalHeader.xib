@@ -15,17 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bir-8G-du9">
-                    <rect key="frame" x="10" y="10" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="0WM-nj-24F"/>
-                        <constraint firstAttribute="width" constant="40" id="ChL-a8-TQF"/>
-                    </constraints>
-                    <state key="normal" image="icon-close-on-content"/>
-                    <connections>
-                        <action selector="closeModal" destination="iN0-l3-epB" eventType="touchUpInside" id="3Zr-fe-m9X"/>
-                    </connections>
-                </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHe-0C-dw3">
                     <rect key="frame" x="0.0" y="60" width="100" height="90"/>
                     <subviews>
@@ -53,23 +42,45 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKP-x8-dqQ" userLabel="Close View">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-close-on-content" translatesAutoresizingMaskIntoConstraints="NO" id="hDR-ub-RJC">
+                            <rect key="frame" x="10" y="10" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="SLh-dk-bid"/>
+                                <constraint firstAttribute="height" constant="40" id="kf0-po-thL"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="hDR-ub-RJC" firstAttribute="leading" secondItem="LKP-x8-dqQ" secondAttribute="leading" constant="10" id="3rs-9b-Fdu"/>
+                        <constraint firstAttribute="height" constant="60" id="93X-4S-Mlb"/>
+                        <constraint firstAttribute="width" constant="150" id="XBb-Vd-MxH"/>
+                        <constraint firstItem="hDR-ub-RJC" firstAttribute="top" secondItem="LKP-x8-dqQ" secondAttribute="top" constant="10" id="jPK-QE-s60"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="SKV-Yf-jWE" appends="YES" id="5w9-WM-Axx"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="yG4-5A-x0k" firstAttribute="leading" secondItem="kHe-0C-dw3" secondAttribute="trailing" constant="10" id="EUT-pf-NOL"/>
-                <constraint firstItem="Bir-8G-du9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="K6W-Tp-2tP"/>
                 <constraint firstItem="kHe-0C-dw3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QzT-pd-bFs"/>
-                <constraint firstItem="kHe-0C-dw3" firstAttribute="top" secondItem="Bir-8G-du9" secondAttribute="bottom" constant="10" id="cSA-2o-cLt"/>
+                <constraint firstItem="kHe-0C-dw3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="cSA-2o-cLt"/>
+                <constraint firstItem="LKP-x8-dqQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jYo-AM-78g"/>
+                <constraint firstItem="LKP-x8-dqQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ooo-Vx-lux"/>
                 <constraint firstAttribute="bottom" secondItem="yG4-5A-x0k" secondAttribute="bottom" constant="10" id="s86-1M-slC"/>
                 <constraint firstAttribute="trailing" secondItem="yG4-5A-x0k" secondAttribute="trailing" constant="10" id="sls-gK-R9c"/>
-                <constraint firstItem="Bir-8G-du9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="uce-ax-GDC"/>
                 <constraint firstItem="yG4-5A-x0k" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="xil-g6-TMr"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="closeButton" destination="Bir-8G-du9" id="8el-xt-Tx0"/>
                 <outlet property="dishImage" destination="arP-e7-0HK" id="oo2-7l-bVD"/>
                 <outlet property="imageContainer" destination="kHe-0C-dw3" id="ffn-ki-CST"/>
                 <outlet property="imageContainerOffsetLeft" destination="tP1-uu-gge" id="ggk-Iu-ZuQ"/>
@@ -79,6 +90,11 @@
             </connections>
             <point key="canvasLocation" x="33.5" y="-199"/>
         </view>
+        <tapGestureRecognizer id="SKV-Yf-jWE" userLabel="closeModal">
+            <connections>
+                <action selector="closeModal" destination="iN0-l3-epB" id="pap-t8-d4t"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="icon-close-on-content" width="50" height="50"/>

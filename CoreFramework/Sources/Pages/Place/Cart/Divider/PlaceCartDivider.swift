@@ -23,7 +23,7 @@ public class PlaceCartDivider: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = themeColors.contentBackground
+        backgroundColor = themeColors.divider
     }
 }
 extension PlaceCartDivider: PlaceCartContainerCell {

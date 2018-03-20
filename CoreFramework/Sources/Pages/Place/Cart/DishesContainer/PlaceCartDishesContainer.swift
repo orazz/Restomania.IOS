@@ -14,7 +14,7 @@ public class PlaceCartDishesContainer: UITableViewCell {
 
     public static func create(for delegate: PlaceCartDelegate) -> PlaceCartDishesContainer {
 
-        let nibName = "PlaceCartDishesContainerView"
+        let nibName = String.tag(PlaceCartDishesContainer.self)
         let cell: PlaceCartDishesContainer = UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
 
         cell.delegate = delegate

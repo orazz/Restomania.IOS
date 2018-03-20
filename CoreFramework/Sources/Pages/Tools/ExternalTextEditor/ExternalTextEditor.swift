@@ -40,7 +40,8 @@ public class ExternalTextEditor: UIViewController {
     private var backupText = String.empty
 
     public init() {
-        super.init(nibName: "\(String.tag(ExternalTextEditor.self))View", bundle: Bundle.coreFramework)
+        let nibname = String.tag(ExternalTextEditor.self)
+        super.init(nibName: nibname, bundle: Bundle.coreFramework)
 
         self.title = String.empty
     }

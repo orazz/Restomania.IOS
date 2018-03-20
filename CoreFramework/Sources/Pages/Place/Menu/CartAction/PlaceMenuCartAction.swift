@@ -18,9 +18,6 @@ public class PlaceMenuCartAction: UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
     private var heightConstraint: NSLayoutConstraint?
-    @IBAction private func goToCart() {
-        delegate?.goToCart()
-    }
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
@@ -116,6 +113,10 @@ public class PlaceMenuCartAction: UIView {
         else {
             heightConstraint?.constant = 50
         }
+    }
+
+    @IBAction private func goToCart() {
+        delegate?.goToCart()
     }
 }
 

@@ -16,7 +16,8 @@ public class PlaceCartDishesContainerCellMeta: UITableViewCell {
     public static var height = CGFloat(20)
     public static func register(in table: UITableView) {
 
-        let nib = UINib(nibName: "\(String.tag(PlaceCartDishesContainerCellMeta.self))View", bundle: Bundle.coreFramework)
+        let nibname = String.tag(PlaceCartDishesContainerCellMeta.self)
+        let nib = UINib(nibName: nibname, bundle: Bundle.coreFramework)
         table.register(nib, forCellReuseIdentifier: identifier)
     }
 

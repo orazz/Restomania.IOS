@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" tableViewCell="woy-79-BqB" id="3b8-Re-Geg">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:00 - 22:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1N-CH-mcO">
@@ -44,7 +44,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lines-vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-Bw-caT">
-                        <rect key="frame" x="280" y="0.0" width="40" height="235"/>
+                        <rect key="frame" x="280" y="-12" width="40" height="235"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="235" id="E27-7A-gKC"/>
                             <constraint firstAttribute="width" constant="40" id="bWy-ol-GCL"/>
@@ -79,7 +79,7 @@
                     <constraint firstAttribute="trailing" secondItem="SFM-Bw-caT" secondAttribute="trailing" id="XRR-bz-10e"/>
                     <constraint firstItem="SFM-Bw-caT" firstAttribute="leading" secondItem="CoO-bv-WhR" secondAttribute="trailing" constant="5" id="XhB-dC-XNG"/>
                     <constraint firstItem="UG0-vc-pJe" firstAttribute="leading" secondItem="3b8-Re-Geg" secondAttribute="leading" id="dgV-Ui-Qzh"/>
-                    <constraint firstItem="SFM-Bw-caT" firstAttribute="top" secondItem="3b8-Re-Geg" secondAttribute="top" id="eJ7-5K-S8q"/>
+                    <constraint firstItem="SFM-Bw-caT" firstAttribute="top" secondItem="3b8-Re-Geg" secondAttribute="top" constant="-12" id="eJ7-5K-S8q"/>
                     <constraint firstAttribute="bottom" secondItem="UG0-vc-pJe" secondAttribute="bottom" id="hC3-4p-xdb"/>
                     <constraint firstItem="CoO-bv-WhR" firstAttribute="top" secondItem="3b8-Re-Geg" secondAttribute="top" constant="10" id="jiF-fK-8CA"/>
                 </constraints>

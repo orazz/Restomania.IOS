@@ -36,6 +36,7 @@ public class PlaceMenuCategoryCell: UICollectionViewCell {
         super.awakeFromNib()
 
         name.font = PlaceMenuCategoryCell.defaultFont
+        name.textColor = themeColors.contentText
 
         deselect()
     }
@@ -46,13 +47,9 @@ public class PlaceMenuCategoryCell: UICollectionViewCell {
 
     // MARK: Methods
     public func select() {
-
-        name.textColor = themeColors.actionContent
-        backgroundColor = themeColors.actionMain
+        backgroundColor = themeColors.contentSelection
     }
     public func deselect() {
-
-        name.textColor = themeColors.contentText
         backgroundColor = themeColors.contentBackground
     }
 }

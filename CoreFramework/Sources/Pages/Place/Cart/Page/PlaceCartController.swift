@@ -30,17 +30,12 @@ public protocol PlaceCartDelegate {
     func addPaymentCard()
     func tryAddOrder()
 }
-public class PlaceCartController: UIViewController {
+public class PlaceCartController: UITableViewController {
 
     //UI elements
-    @IBOutlet private weak var navigationBarStubDimmer: UIView!
-    @IBOutlet private weak var navigationBar: UINavigationBar!
-    @IBOutlet private weak var backNavigationItem: UIBarButtonItem!
-    @IBOutlet private weak var interfaceTable: UITableView!
     private var interfaceLoader: InterfaceLoader!
     private var interfaceBuilder: InterfaceTable?
     private var interfaceParts: [PlaceCartContainerCell] = []
-    private var refreshControl: RefreshControl!
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
@@ -68,7 +63,7 @@ public class PlaceCartController: UIViewController {
     private var loadAdapter: PartsLoader!
 
     public init(for placeId: Long) {
-        super.init(nibName: "PlaceCartControllerView", bundle: Bundle.coreFramework)
+        super.init(style: .grouped)
 
         self.loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
         self.placeId = placeId
@@ -105,20 +100,38 @@ extension PlaceCartController {
 
 // MARK: View life circle
 extension PlaceCartController {
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+    public override func loadView() {
+        super.loadView()
+
+        loadMarkup()
+    }
+    private func loadMarkup() {
+
+        view.backgroundColor = themeColors.divider
 
         interfaceLoader = InterfaceLoader(for: self.view)
 
         interfaceParts = loadRows()
-        interfaceBuilder = InterfaceTable(source: interfaceTable, navigator: self.navigationController!, rows: interfaceParts)
-        refreshControl = interfaceTable.addRefreshControl(for: self, action: #selector(needReload))
+        interfaceBuilder = InterfaceTable(source: tableView, rows: interfaceParts)
 
-        loadMarkup()
+        refreshControl = tableView.addRefreshControl(for: self, action: #selector(needReload))
+        refreshControl?.backgroundColor = themeColors.divider
+        refreshControl?.tintColor = themeColors.dividerText
+
+        navigationItem.title = Localization.Labels.title.localized
+
+        reloadInterface()
+    }
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
         loadData()
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
     }
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -132,21 +145,6 @@ extension PlaceCartController {
     }
     public override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    private func loadMarkup() {
-
-        navigationBarStubDimmer.backgroundColor = themeColors.navigationMain
-        navigationBar.barTintColor = themeColors.navigationMain
-        navigationBar.topItem?.title = Localization.Labels.title.localized
-
-        let backButton = backNavigationItem.customView as! UIButton
-        let size = CGFloat(35)
-        let icon = themeImages.iconBack.tint(color: themeColors.navigationContent)
-        let back = UIImageView(image: icon)
-        back.frame = CGRect(x: -11, y: 0 /*backButton.center.y - size/2*/, width: size, height: size)
-        backButton.addSubview(back)
-
-        reloadInterface()
     }
 }
 
@@ -249,7 +247,7 @@ extension PlaceCartController {
             DispatchQueue.main.async {
 
                 self.interfaceLoader.hide()
-                self.refreshControl.endRefreshing()
+                self.refreshControl?.endRefreshing()
 
                 if (self.loadAdapter.problemWithLoad) {
                     self.showToast(Localization.Toasts.problemWithLoad)
@@ -422,6 +420,9 @@ extension PlaceCartController {
             public var tableName: String {
                 return Localization.tablename
             }
+            public var bundle: Bundle {
+                return Bundle.coreFramework
+            }
 
             case title = "Labels.Title"
             case orderOn = "Labels.OrderOn"
@@ -432,6 +433,9 @@ extension PlaceCartController {
         public enum Buttons: String, Localizable {
             public var tableName: String {
                 return Localization.tablename
+            }
+            public var bundle: Bundle {
+                return Bundle.coreFramework
             }
 
             case now = "Buttons.Now"
@@ -444,6 +448,9 @@ extension PlaceCartController {
         public enum Toasts: String, Localizable {
             public var tableName: String {
                 return Localization.tablename
+            }
+            public var bundle: Bundle {
+                return Bundle.coreFramework
             }
 
             case notWorkTime = "Toasts.NotWorkTime"

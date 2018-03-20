@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExternalTextEditor" customModule="PagesTools" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExternalTextEditor" customModule="CoreFramework" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="o6y-fi-yeG" id="CX5-yO-3gl"/>
                 <outlet property="navigationBar" destination="6AK-1x-AL1" id="CU2-sF-zWa"/>
@@ -24,7 +24,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AK-1x-AL1">
-                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="onr-zM-Yub"/>
+                    </constraints>
                     <items>
                         <navigationItem title="Title" id="PE2-dM-C4C">
                             <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KoL-8C-S89">
@@ -41,10 +44,10 @@
                     </items>
                 </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6y-fi-yeG">
-                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cpz-F8-ExS">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="337"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="15" bottom="8" trailing="15"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -66,7 +69,7 @@
             <constraints>
                 <constraint firstItem="o6y-fi-yeG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6aw-Mm-tkb"/>
                 <constraint firstItem="o6y-fi-yeG" firstAttribute="top" secondItem="6AK-1x-AL1" secondAttribute="bottom" id="Jij-cv-nUY"/>
-                <constraint firstItem="6AK-1x-AL1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="MHM-8q-zFe"/>
+                <constraint firstItem="6AK-1x-AL1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MHM-8q-zFe"/>
                 <constraint firstItem="6AK-1x-AL1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Nwk-do-ijK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="o6y-fi-yeG" secondAttribute="bottom" id="Qmp-SA-ome"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="o6y-fi-yeG" secondAttribute="trailing" id="pe4-dm-NdD"/>

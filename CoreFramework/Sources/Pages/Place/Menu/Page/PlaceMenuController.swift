@@ -116,7 +116,16 @@ public class PlaceMenuController: UIViewController {
 
         self.navigationController?.setNavigationBarHidden(false, animated: false)
 
+        if let summary = takeSummary() {
+            navigationItem.title = summary.Schedule.todayRepresentation
+        }
+
         trigger({ $0.viewWillAppear() })
+    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        navigationItem.title = nil
     }
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -128,7 +137,6 @@ public class PlaceMenuController: UIViewController {
         trigger({ $0.update(delegate: self) })
     }
     private func trigger(_ handler: @escaping Action<PlaceMenuElementProtocol>) {
-
         DispatchQueue.main.async {
             for element in self.interface {
                 handler(element)

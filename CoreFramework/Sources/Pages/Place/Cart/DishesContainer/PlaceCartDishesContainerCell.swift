@@ -13,7 +13,7 @@ import MdsKit
 public class PlaceCartDishesContainerCell: UITableViewCell {
 
     public static let height = CGFloat(50)
-    private static let nibName = "PlaceCartDishesContainerCellView"
+    private static let nibName = String.tag(PlaceCartDishesContainerCell.self)
     public static func create(for dish: AddedOrderDish, with cart: CartService, and menu: MenuSummary) -> PlaceCartDishesContainerCell {
 
         let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
