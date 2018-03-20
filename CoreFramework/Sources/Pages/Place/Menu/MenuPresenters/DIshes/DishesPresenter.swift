@@ -1,6 +1,6 @@
 //
 //  DishesPresenter.swift
-//  RestomaniaAppKuzina
+//  CoreFramework
 //
 //  Created by Алексей on 16.01.18.
 //  Copyright © 2018 Medved-Studio. All rights reserved.

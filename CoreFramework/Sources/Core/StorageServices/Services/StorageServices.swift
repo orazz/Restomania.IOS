@@ -1,6 +1,6 @@
 //
 //  CacheServices.swift
-//  RestomaniaAppKuzina
+//  CoreFramework
 //
 //  Created by Алексей on 16.12.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  RefreshControl.swift
-//  RestomaniaAppKuzina
+//  CoreFramework
 //
 //  Created by Алексей on 19.12.17.
 //  Copyright © 2017 Medved-Studio. All rights reserved.

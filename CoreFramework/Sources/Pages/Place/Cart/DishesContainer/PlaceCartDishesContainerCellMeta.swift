@@ -1,6 +1,6 @@
 //
 //  PlaceCartDishesContainerCellMeta.swift
-//  RestomaniaAppKuzina
+//  CoreFramework
 //
 //  Created by Алексей on 01.02.18.
 //  Copyright © 2018 Medved-Studio. All rights reserved.
