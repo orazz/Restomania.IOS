@@ -20,12 +20,10 @@ def shared
 #   Base
     pod 'Swinject', '~> 2.1.0'
     pod 'Gloss', '~> 2.0'
-    pod 'MdsKit', '~> 1.3.2'
+    pod 'MdsKit', :path => '../Libraries.MdsKit/' #:git => 'https://ShumAlex@bitbucket.org/medvedstudio/ios-kit.git'
 end
 
-workspace 'RestomaniaCoreFramework.xcworkspace'
-#project './CoreFrameworkApp/CoreFrameworkApp.xcodeproj'
-#project './CoreFramework/CoreFramework.xcodeproj'
+workspace 'Restomania.xcworkspace'
 
 
 target 'Kuzina' do

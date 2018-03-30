@@ -63,7 +63,7 @@ public class PlaceCartController: UITableViewController {
     private var loadAdapter: PartsLoader!
 
     public init(for placeId: Long) {
-        super.init(style: .grouped)
+        super.init(style: .plain)
 
         self.loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
         self.placeId = placeId
@@ -113,6 +113,9 @@ extension PlaceCartController {
 
         interfaceParts = loadRows()
         interfaceBuilder = InterfaceTable(source: tableView, rows: interfaceParts)
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
 
         refreshControl = tableView.addRefreshControl(for: self, action: #selector(needReload))
         refreshControl?.backgroundColor = themeColors.divider
