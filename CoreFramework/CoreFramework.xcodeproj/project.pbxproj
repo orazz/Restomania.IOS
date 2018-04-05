@@ -342,6 +342,107 @@
 		7B9696C32E76578E71F00E4B /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1F1F26B120767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 914809FF10E10E771C9AE6150F28A63B;
+			remoteInfo = Gloss;
+		};
+		1F1F26B320767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 602C005B479224DB867C543D08C75C3D;
+			remoteInfo = GoogleToolboxForMac;
+		};
+		1F1F26B520767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11D7A307E7BB8E0326227AC6F7B37E17;
+			remoteInfo = GTMSessionFetcher;
+		};
+		1F1F26B720767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 41A5DC6B4CB4498B9F9ECCE5EC7B215E;
+			remoteInfo = InputMask;
+		};
+		1F1F26B920767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 36D1F0B1B34BC4A6978A668440DB2096;
+			remoteInfo = MarqueeLabel;
+		};
+		1F1F26BB20767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8E10830DCE2956D1CCF003B9DEB8B725;
+			remoteInfo = MdsKit;
+		};
+		1F1F26BD20767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 77F4F346EF680974590EFEA24EA51C27;
+			remoteInfo = nanopb;
+		};
+		1F1F26BF20767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D6B486128AE1519ED632ACAE02A3F70;
+			remoteInfo = NotificationBannerSwift;
+		};
+		1F1F26C120767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9F1A92605E26425FCC4AABC400D698A;
+			remoteInfo = "Pods-CoreFramework";
+		};
+		1F1F26C320767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6CD67973501A7E48F1C3795E10D4D8C3;
+			remoteInfo = "Pods-Kuzina";
+		};
+		1F1F26C520767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 400E23E0FB3B626655846B69E96E65EF;
+			remoteInfo = Protobuf;
+		};
+		1F1F26C720767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 10ECF8C951B98D6D8CBF2C8D2FC59B53;
+			remoteInfo = SnapKit;
+		};
+		1F1F26C920767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1367C17393A858F3CE5D9666875B821;
+			remoteInfo = Swinject;
+		};
+		1F1F26CB20767F4800F6A260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0B0F4BC213CBEF3915DFF08F6200D4C5;
+			remoteInfo = "Toast-Swift";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1F06A5D920556D2B00FEB1B5 /* CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F06A5DD20556D2B00FEB1B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2034,6 +2135,22 @@
 		};
 		1F2A4700207639B400FFDD92 /* Products */ = {
 			isa = PBXGroup;
+			children = (
+				1F1F26B220767F4800F6A260 /* Gloss.framework */,
+				1F1F26B420767F4800F6A260 /* GoogleToolboxForMac.framework */,
+				1F1F26B620767F4800F6A260 /* GTMSessionFetcher.framework */,
+				1F1F26B820767F4800F6A260 /* InputMask.framework */,
+				1F1F26BA20767F4800F6A260 /* MarqueeLabel.framework */,
+				1F1F26BC20767F4800F6A260 /* MdsKit.framework */,
+				1F1F26BE20767F4800F6A260 /* nanopb.framework */,
+				1F1F26C020767F4800F6A260 /* NotificationBannerSwift.framework */,
+				1F1F26C220767F4800F6A260 /* Pods_CoreFramework.framework */,
+				1F1F26C420767F4800F6A260 /* Pods_Kuzina.framework */,
+				1F1F26C620767F4800F6A260 /* Protobuf.framework */,
+				1F1F26C820767F4800F6A260 /* SnapKit.framework */,
+				1F1F26CA20767F4800F6A260 /* Swinject.framework */,
+				1F1F26CC20767F4800F6A260 /* Toast_Swift.framework */,
+			);
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -2415,6 +2532,107 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1F1F26B220767F4800F6A260 /* Gloss.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Gloss.framework;
+			remoteRef = 1F1F26B120767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26B420767F4800F6A260 /* GoogleToolboxForMac.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GoogleToolboxForMac.framework;
+			remoteRef = 1F1F26B320767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26B620767F4800F6A260 /* GTMSessionFetcher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GTMSessionFetcher.framework;
+			remoteRef = 1F1F26B520767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26B820767F4800F6A260 /* InputMask.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = InputMask.framework;
+			remoteRef = 1F1F26B720767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26BA20767F4800F6A260 /* MarqueeLabel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MarqueeLabel.framework;
+			remoteRef = 1F1F26B920767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26BC20767F4800F6A260 /* MdsKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MdsKit.framework;
+			remoteRef = 1F1F26BB20767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26BE20767F4800F6A260 /* nanopb.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = nanopb.framework;
+			remoteRef = 1F1F26BD20767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26C020767F4800F6A260 /* NotificationBannerSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NotificationBannerSwift.framework;
+			remoteRef = 1F1F26BF20767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26C220767F4800F6A260 /* Pods_CoreFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_CoreFramework.framework;
+			remoteRef = 1F1F26C120767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26C420767F4800F6A260 /* Pods_Kuzina.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Kuzina.framework;
+			remoteRef = 1F1F26C320767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26C620767F4800F6A260 /* Protobuf.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Protobuf.framework;
+			remoteRef = 1F1F26C520767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26C820767F4800F6A260 /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 1F1F26C720767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26CA20767F4800F6A260 /* Swinject.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Swinject.framework;
+			remoteRef = 1F1F26C920767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F1F26CC20767F4800F6A260 /* Toast_Swift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Toast_Swift.framework;
+			remoteRef = 1F1F26CB20767F4800F6A260 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1F06A5D720556D2B00FEB1B5 /* Resources */ = {

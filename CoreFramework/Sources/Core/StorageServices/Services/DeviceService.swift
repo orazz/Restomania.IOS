@@ -117,6 +117,21 @@ extension DeviceService: ApiKeyServiceDelegate {
 
         connect(with: device)
     }
+    public func apiKeyService(_ service: ApiKeyService, logout role: ApiRole) {
+        guard let device = device,
+                let accountId = device.accountId else {
+            return
+        }
+
+        let request = self.api.logout(device.id, accountId: accountId)
+        request.async(.background, completion: { response in
+
+            if let update = response.data {
+                self.save(update)
+                self.events.invoke({ $0.deviceService(self, update: update) })
+            }
+        })
+    }
     private func connect(with device: Device) {
 
         let request = self.connect(device.id)

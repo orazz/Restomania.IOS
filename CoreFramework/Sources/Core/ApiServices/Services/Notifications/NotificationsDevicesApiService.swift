@@ -45,4 +45,14 @@ public class NotificationsDevicesApiService: BaseApiService {
 
         return client.Put(action: "Connect", type: Device.self, parameters: parameters)
     }
+
+    public func logout(_ deviceId: Long, accountId: Long) -> RequestResult<Device>  {
+
+        let parameters = CollectParameters([
+            "deviceId": deviceId,
+            "accountId": accountId
+            ])
+
+        return client.Delete(action: "Logout", type: Device.self, parameters: parameters)
+    }
 }

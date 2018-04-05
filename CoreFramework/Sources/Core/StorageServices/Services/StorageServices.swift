@@ -18,7 +18,7 @@ open class StorageServices {
             DeviceService(r.resolve(NotificationsDevicesApiService.self)!,
                           r.resolve(ApiKeyService.self)!,
                           r.resolve(LightStorage.self)!)
-        })
+        }).inObjectScope(.container)
 
         //Cache
         container.register(PlacesCacheService.self, factory: { r in
