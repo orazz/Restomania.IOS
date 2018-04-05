@@ -5,11 +5,11 @@
 	<key>AppKey</key>
 	<string>7C9E6679-7425-40DE-944B-E07FC1F90AE7</string>
 	<key>VkAppId</key>
-	<string>6403406</string>
+	<string>6405331</string>
 	<key>InstagramAppId</key>
-	<string>07366aa1139e489783b5919fecc3a36a</string>
+	<string>2163945602404f8686ed989d234ebb88</string>
 	<key>ServerUrl</key>
-	<string>http://restomania-test.azurewebsites.net</string>
+	<string>http://restomania.azurewebsites.net</string>
 	<key>AppType</key>
 	<string>Chain</string>
 	<key>AppUserRole</key>

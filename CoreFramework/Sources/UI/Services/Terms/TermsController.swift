@@ -17,7 +17,7 @@ public class TermsController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        let url = "http://medvedstudio.azurewebsites.net/restomania-terms-user.html"
+        let url = "http://restomania.azurewebsites.net/terms-user.html"
         service = WebBrowserController(delegate: self, for: url)
         service.setTitle(Keys.title.localized)
         service.setCancelButtom(Keys.buttonsClose.localized)

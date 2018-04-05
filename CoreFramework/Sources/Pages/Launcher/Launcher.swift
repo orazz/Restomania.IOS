@@ -65,7 +65,10 @@ public class Launcher {
     private func continueLaunch(from step: Int) {
 
         if (step >= controllers.count) {
-            complete()
+            if let old = navigator.presentedViewController {
+                old.dismiss(animated: false, completion: nil)
+                self.complete()
+            }
             return
         }
 
@@ -107,17 +110,15 @@ public class Launcher {
         completeLaunch = true
         Log.info(tag, "Complete launch")
 
-        if let old = self.navigator.presentedViewController {
-            old.dismiss(animated: false, completion: nil)
+        DispatchQueue.main.async {
+            let tabs = TabsController()
+            let navigator = NavigationController(rootViewController: tabs)
+            self.navigator = navigator
+            self.router.initialize(with: navigator)
+            self.router.initialize(with: tabs)
+
+            self.processTappedPush()
         }
-
-        let tabs = TabsController()
-        let navigator = NavigationController(rootViewController: tabs)
-        self.navigator = navigator
-        router.initialize(with: navigator)
-        router.initialize(with: tabs)
-
-        processTappedPush()
     }
     public func processTappedPush() {
 

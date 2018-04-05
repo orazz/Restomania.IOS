@@ -12,13 +12,16 @@ import MdsKit
 
 internal class BaseSearchController: UITableViewController {
 
+    //UI
     internal var searchBar: UISearchBar?
 
+    //Services
     internal let themeColors = DependencyResolver.get(ThemeColors.self)
 
+    //Data
     internal var places = [PlaceSummary]()
-
     private let cardTemplate = TemplateStore.shared.get(for: .searchPlaceCard)
+
 
     internal init(){
         super.init(style: .plain)
@@ -44,15 +47,14 @@ internal class BaseSearchController: UITableViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
-        if let searchBar = searchBar {
-            navigationController?.navigationBar.topItem?.titleView = searchBar
-        }
+        self.navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 
     internal func update(by places:[PlaceSummary]) {
-
 
         self.places = sort(places)
         tableView.reloadData()

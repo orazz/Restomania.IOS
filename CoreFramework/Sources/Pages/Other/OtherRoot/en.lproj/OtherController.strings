@@ -6,6 +6,7 @@
   Copyright © 2018 Medved-Studio. All rights reserved.
 */
 
+"Title" = "More";
 "Buttons.Profile" = "Profile";
 "Buttons.Notifications" = "Notifications";
 "Buttons.PaymentCards" = "Payment cards";

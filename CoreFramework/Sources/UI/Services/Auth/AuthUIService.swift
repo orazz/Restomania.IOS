@@ -16,6 +16,7 @@ public class AuthUIService {
     private let guid = Guid.new
 
     //UI
+    private var rootController: UIViewController?
     private var navigator: UINavigationController?
 
     //Services
@@ -38,9 +39,13 @@ public class AuthUIService {
     fileprivate func show(on controller: UIViewController, completeHandler: AuthServiceCallback?) {
 
         self.completeHandler = completeHandler
-        self.navigator = UINavigationController(rootViewController: SelectAuthController(for: self))
+        self.rootController = controller
 
-        controller.present(navigator!, animated: true, completion: nil)
+        let select = SelectAuthController(for: self)
+        let navigator = UINavigationController(rootViewController: select)
+        self.navigator = navigator
+
+        controller.present(navigator, animated: true, completion: nil)
 
         Log.info(tag, "Open auth service.")
     }
@@ -52,10 +57,10 @@ extension AuthUIService: AuthHandler {
             self.apiKeys.update(by: keys)
         }
 
-        navigator?.popViewController(animated: false)
-        navigator?.dismiss(animated: true, completion: nil)
-
-        completeHandler?(success, keys)
+        self.rootController?.presentedViewController?.dismiss(animated: false)
+        self.navigator?.dismiss(animated: false)
+        
+        self.completeHandler?(success, keys)
     }
 }
 extension AuthUIService: ApiKeyServiceDelegate {

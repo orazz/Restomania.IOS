@@ -72,9 +72,16 @@ internal class WebBrowserController: UIViewController {
         setTitle(pageTitle, textColor: navigationContentColor, backgroundColor: navigationBackgroundColor)
         setCancelButtom(cancelButtonTitle)
     }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        setupStatusBar(background: UIColor.clear)
+    }
     private func loadMarkup() {
 
         interfaceLoader = InterfaceLoader(for: self.webView!)
+
+        navigationBar?.delegate = self
 
         activityindicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         activityindicator.color = themeColors.navigationContent
@@ -92,7 +99,7 @@ internal class WebBrowserController: UIViewController {
         }
 
         if let parameters = parameters {
-            components.queryItems = parameters.flatMap({ URLQueryItem(name: $0.key, value: $0.value) }) + (components.queryItems ?? [])
+            components.queryItems = parameters.compactMap({ URLQueryItem(name: $0.key, value: $0.value) }) + (components.queryItems ?? [])
         }
         guard let url = components.url else {
             return
@@ -124,6 +131,14 @@ internal class WebBrowserController: UIViewController {
 
         navigationBar?.backgroundColor = navigationBackgroundColor
         navigationBar?.barTintColor = navigationBackgroundColor
+
+        setupStatusBar(background: navigationBackgroundColor)
+    }
+    private func setupStatusBar(background: UIColor) {
+        if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView,
+        statusBar.responds(to: #selector(setter: UIView.backgroundColor)){
+            statusBar.backgroundColor = background
+        }
     }
     public func setCancelButtom(_ cancelButtonTitle: String) {
 
@@ -143,6 +158,8 @@ internal class WebBrowserController: UIViewController {
         activityindicator?.stopAnimating()
     }
     @IBAction private func cancelAction() {
+        setupStatusBar(background: UIColor.clear)
+
         delegate?.onCancelTap()
     }
 }
@@ -171,6 +188,11 @@ extension WebBrowserController: UIWebViewDelegate {
         if let url = webView.request?.url {
             delegate?.failLoad(url: url, parameters: url.queryParameters, error: error)
         }
+    }
+}
+extension WebBrowserController: UINavigationBarDelegate {
+    public func positionForBar(bar: UIBarPositioning!) -> UIBarPosition {
+        return .topAttached
     }
 }
 extension WebBrowserController {

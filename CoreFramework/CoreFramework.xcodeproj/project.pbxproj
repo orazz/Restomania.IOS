@@ -655,6 +655,7 @@
 		1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckPhoneCodeAuthController.xib; sourceTree = "<group>"; };
 		1F06A91320559C9400FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		1F06A91520559C9500FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
+		1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedMenu.swift; sourceTree = "<group>"; };
 		1F53B92F206056E300656EA5 /* ParsedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedCategory.swift; sourceTree = "<group>"; };
@@ -741,6 +742,7 @@
 		1F06A5CF20556D2B00FEB1B5 = {
 			isa = PBXGroup;
 			children = (
+				1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */,
 				1F06A5DB20556D2B00FEB1B5 /* Sources */,
 				1F06A5DA20556D2B00FEB1B5 /* Products */,
 				D1A793EF855E2FAC3A28141C /* Pods */,
@@ -2030,6 +2032,11 @@
 			path = CheckPhoneCode;
 			sourceTree = "<group>";
 		};
+		1F2A4700207639B400FFDD92 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1F53B92C205FAF0400656EA5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -2396,6 +2403,12 @@
 			mainGroup = 1F06A5CF20556D2B00FEB1B5;
 			productRefGroup = 1F06A5DA20556D2B00FEB1B5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1F2A4700207639B400FFDD92 /* Products */;
+					ProjectRef = 1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1F06A5D820556D2B00FEB1B5 /* CoreFramework */,

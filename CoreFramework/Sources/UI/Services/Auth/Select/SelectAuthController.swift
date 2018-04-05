@@ -13,6 +13,7 @@ import MdsKit
 internal class SelectAuthController: UIViewController {
 
     //UI
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var titlePanel: UINavigationItem!
     @IBOutlet weak var cancelAction: UIBarButtonItem!
 
@@ -56,6 +57,7 @@ internal class SelectAuthController: UIViewController {
 
         view.backgroundColor = themeColors.contentBackground
 
+        navigationBar.delegate = self
         titlePanel.title = Localization.title.localized
 
         cancelAction.title = Localization.buttonsCancel.localized
@@ -104,6 +106,11 @@ internal class SelectAuthController: UIViewController {
         super.viewWillAppear(animated)
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+}
+extension SelectAuthController: UINavigationBarDelegate {
+    public func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }
 extension SelectAuthController {

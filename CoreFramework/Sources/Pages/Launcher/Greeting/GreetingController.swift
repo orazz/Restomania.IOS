@@ -63,7 +63,6 @@ public class GreetingController: UIViewController {
     @IBAction func goToAuth() {
 
         showAuth() { success, _ in
-            
             if (success) {
                 self.complete()
             }
@@ -74,7 +73,7 @@ public class GreetingController: UIViewController {
         complete()
     }
     private func complete() {
-        onCompleteHandler?()
+        self.onCompleteHandler?()
     }
 }
 extension GreetingController: LaunchControllerDelegate {

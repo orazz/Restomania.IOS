@@ -93,6 +93,7 @@ public class PlaceMenuController: UIViewController {
         dishesAdapter = DishesPresenter(for: dishesTable, with: self)
         categoriesAdapter = CategoriesPresenter(for: categoriesView, with: self)
 
+
         interface = [dishesAdapter, categoriesAdapter, cartAction]
         for var element in interface {
             element.delegate = self
@@ -114,7 +115,10 @@ public class PlaceMenuController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.view.layoutSubviews()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.view.layoutSubviews()
 
         if let summary = takeSummary() {
             navigationItem.title = summary.Schedule.todayRepresentation

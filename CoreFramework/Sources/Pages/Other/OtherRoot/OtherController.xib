@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhN-HA-yBt" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="145" width="300" height="50"/>
+                    <rect key="frame" x="10" y="105" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="lwF-Sc-unD"/>
                         <constraint firstAttribute="height" constant="50" id="wJZ-ub-fqn"/>
@@ -37,7 +37,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH4-1g-lT2" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="225" width="300" height="50"/>
+                    <rect key="frame" x="10" y="185" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="7VF-fP-mm7"/>
                         <constraint firstAttribute="width" constant="300" id="kye-Cw-LFv"/>
@@ -48,7 +48,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7N-SS-XPz" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="305" width="300" height="50"/>
+                    <rect key="frame" x="10" y="265" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="V2o-eh-zWf"/>
                         <constraint firstAttribute="width" constant="300" id="gvb-eI-Bxa"/>
@@ -59,7 +59,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qR2-2K-1rw" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="370" width="300" height="50"/>
+                    <rect key="frame" x="10" y="330" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="CaO-ze-Tax"/>
                         <constraint firstAttribute="width" constant="300" id="hqG-vI-oVI"/>
@@ -70,7 +70,7 @@
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0c-vP-Ge5" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="10" y="80" width="300" height="50"/>
+                    <rect key="frame" x="10" y="40" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="0AU-xd-6Ax"/>
                         <constraint firstAttribute="width" constant="300" id="UQ5-Ob-LEL"/>
@@ -91,7 +91,7 @@
                 <constraint firstItem="g7N-SS-XPz" firstAttribute="centerX" secondItem="Z43-Uo-6WJ" secondAttribute="centerX" id="UBi-Bs-7aA"/>
                 <constraint firstItem="bhN-HA-yBt" firstAttribute="top" secondItem="X0c-vP-Ge5" secondAttribute="bottom" constant="15" id="XBH-RM-Z8q"/>
                 <constraint firstItem="bhN-HA-yBt" firstAttribute="centerX" secondItem="Z43-Uo-6WJ" secondAttribute="centerX" id="ZLy-OK-JmE"/>
-                <constraint firstItem="X0c-vP-Ge5" firstAttribute="top" secondItem="uRu-bu-cE2" secondAttribute="top" constant="60" id="gpD-68-nMY"/>
+                <constraint firstItem="X0c-vP-Ge5" firstAttribute="top" secondItem="uRu-bu-cE2" secondAttribute="top" constant="20" id="gpD-68-nMY"/>
                 <constraint firstItem="HH4-1g-lT2" firstAttribute="centerX" secondItem="Z43-Uo-6WJ" secondAttribute="centerX" id="oOj-My-jC8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="uRu-bu-cE2"/>

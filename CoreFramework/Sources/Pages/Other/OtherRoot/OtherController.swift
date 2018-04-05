@@ -11,8 +11,6 @@ import MdsKit
 
 public class OtherController: UIViewController {
 
-    private let _tag = String.tag(OtherController.self)
-
     //UI
     @IBOutlet private weak var profiledButton: UIButton!
     @IBOutlet private weak var notificationstButton: UIButton!
@@ -24,10 +22,9 @@ public class OtherController: UIViewController {
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let keysService = DependencyResolver.get(ApiKeyService.self)
 
-    //Properties
-    private var isAuth: Bool {
-        return keysService.isAuth
-    }
+    //Data
+    private let _tag = String.tag(OtherController.self)
+    private let guid = Guid.new
 
 
     public init() {
@@ -50,30 +47,38 @@ public class OtherController: UIViewController {
 
         view.layoutIfNeeded()
         UIView.setAnimationsEnabled(true)
+
+        view.backgroundColor = themeColors.contentBackground
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
 
         loadMarkup()
+
+        keysService.subscribe(guid: guid, handler: self, tag: _tag)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.view.layoutSubviews()
+        self.navigationItem.title = Localization.title.localized
     }
 
     private func loadMarkup() {
 
-        view.backgroundColor = themeColors.contentBackground
-
-        logoutButton.isHidden = !isAuth
+        updateLogoutButton()
     }
 
     @IBAction public func Logout() {
 
         keysService.logout()
-
-        logoutButton.isHidden = true
+        updateLogoutButton()
+    }
+    private func updateLogoutButton() {
+        DispatchQueue.main.async {
+            self.logoutButton.isHidden = !self.keysService.isAuth
+        }
     }
 
     // MARK: Navigate to sub managers screens
@@ -91,14 +96,13 @@ public class OtherController: UIViewController {
     }
     private func present(_ controller: UIViewController, needAuth: Bool = true) {
 
-        if (!needAuth || isAuth) {
+        if (!needAuth || keysService.isAuth) {
             router.push(controller, animated: true)
             return
         }
 
-        showAuth(complete: { success, _  in
+        self.showAuth(complete: { success, _  in
             if (success) {
-                
                 DispatchQueue.main.async {
                     self.present(controller, needAuth: needAuth)
                 }
@@ -116,10 +120,19 @@ extension OtherController {
             return Bundle.coreFramework
         }
 
+        case title = "Title"
         case buttonProfile = "Buttons.Profile"
         case buttonNotifications = "Buttons.Notifications"
         case buttonPaymentCards = "Buttons.PaymentCards"
         case buttonTerms = "Buttons.Terms"
         case buttonLogout = "Buttons.Logout"
+    }
+}
+extension OtherController: ApiKeyServiceDelegate {
+    public func apiKeyService(_ service: ApiKeyService, update keys: ApiKeys, for role: ApiRole) {
+        updateLogoutButton()
+    }
+    public func apiKeyService(_ service: ApiKeyService, logout role: ApiRole) {
+        updateLogoutButton()
     }
 }
