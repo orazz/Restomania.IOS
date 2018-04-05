@@ -42,19 +42,22 @@ public class PlaceCartCompleteOrderContainer: UITableViewCell {
         titleLabel.text = PlaceCartController.Localization.Buttons.addNewOrder.localized.uppercased()
     }
 }
-extension PlaceCartCompleteOrderContainer: PlaceCartContainerCell {
-    public func viewDidAppear() {}
-    public func viewDidDisappear() {}
-    public func updateData(with: PlaceCartDelegate) {}
-}
-extension PlaceCartCompleteOrderContainer: InterfaceTableCellProtocol {
-    public var viewHeight: Int {
-        return 50
-    }
-    public func prepareView() -> UITableViewCell {
-        return self
-    }
-    public func select(with: UINavigationController) {
-        delegate.tryAddOrder()
-    }
-}
+//extension PlaceCartCompleteOrderContainer: PlaceCartElement {
+//    public func viewDidAppear() {}
+//    public func viewDidDisappear() {}
+//    public func update(with: PlaceCartDelegate) {}
+//    public func height() -> CGFloat {
+//        return 50
+//    }
+//}
+//extension PlaceCartCompleteOrderContainer: InterfaceTableCellProtocol {
+//    public var viewHeight: Int {
+//        return 50
+//    }
+//    public func prepareView() -> UITableViewCell {
+//        return self
+//    }
+//    public func select(with: UINavigationController) {
+//        delegate.tryAddOrder()
+//    }
+//}

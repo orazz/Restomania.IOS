@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MdsKit
 
-public class PlaceCartDateContainer: UITableViewCell {
+public class PlaceCartDateContainer: UIView {
 
     fileprivate enum TimePickerComponents: Int {
         case hours = 0
@@ -22,50 +22,67 @@ public class PlaceCartDateContainer: UITableViewCell {
         case tommorow = 2
     }
 
-    private static let nibName = String.tag(PlaceCartDateContainer.self)
-    public static func create(for delegate: PlaceCartDelegate) -> PlaceCartDateContainer {
-
-        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
-        let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartDateContainer
-
-        cell.timeFormatter = DateFormatter(for: "HH:mm")
-        cell.dateFormatter = DateFormatter(for: "dd.MM")
-        let utcTimeZone = TimeZone.utc
-        cell.timeFormatter.timeZone = utcTimeZone
-        cell.dateFormatter.timeZone = utcTimeZone
-
-        cell.delegate = delegate
-        cell.refresh()
-
-        return cell
-    }
-
     //UI elements
+    @IBOutlet private weak var content: UIView!
     @IBOutlet private weak var scheduleView: ScheduleDisplay!
     @IBOutlet private weak var dateChecker: UISegmentedControl!
     @IBOutlet private weak var timePicker: UIPickerView!
     @IBOutlet private weak var dateTimeLabel: UILabel!
-    @IBOutlet private weak var pickerHeight: NSLayoutConstraint!
+    @IBOutlet private weak var pickerHeightConstraint: NSLayoutConstraint!
+    private var heightConstraint: NSLayoutConstraint?
+    private let defaultElementHeight: CGFloat = 250.0
     private let defaultPickerHeight: CGFloat = 120.0
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
+    private var delegate: PlaceCartDelegate?
     private var timeFormatter: DateFormatter!
     private var dateFormatter: DateFormatter!
-    private var delegate: PlaceCartDelegate!
-    private var refresher: Trigger?
+    private var loadElement: Bool = false
 
-    private var container: PlaceCartController.CartContainer {
-        return delegate.takeCartContainer()
+    private var container: PlaceCartController.CartContainer? {
+        return delegate?.takeCartContainer()
     }
-    private var cart: CartService {
-        return delegate.takeCart()
+    private var cart: CartService? {
+        return delegate?.takeCart()
     }
 
-    public override func awakeFromNib() {
-        super.awakeFromNib()
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        initialize()
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        initialize()
+    }
+    private func initialize() {
+
+        let utcTimeZone = TimeZone.utc
+        self.timeFormatter = DateFormatter(for: "HH:mm")
+        self.timeFormatter.timeZone = utcTimeZone
+
+        self.dateFormatter = DateFormatter(for: "dd.MM")
+        self.dateFormatter.timeZone = utcTimeZone
+
+        connect()
+        loadViews()
+
+        refresh()
+    }
+    private func connect() {
+
+        let nibName = String.tag(PlaceCartDateContainer.self)
+        Bundle.coreFramework.loadNibNamed(nibName, owner: self, options: nil)
+        self.addSubview(content)
+        content.frame = self.bounds
+        content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        heightConstraint = self.constraints.find({ $0.firstAttribute == .height })
+    }
+    public func loadViews() {
 
         dateChecker.tintColor = themeColors.actionMain
         dateChecker.backgroundColor = themeColors.actionContent
@@ -86,6 +103,9 @@ public class PlaceCartDateContainer: UITableViewCell {
     }
 
     private func refresh() {
+        guard let cart = cart else {
+            return
+        }
 
         refreshSchedule()
 
@@ -97,6 +117,8 @@ public class PlaceCartDateContainer: UITableViewCell {
         } else {
             setup(dateAndTime: completeAt)
         }
+
+        loadElement = true
     }
     private var nowLikeUTC: Date {
 
@@ -116,7 +138,7 @@ public class PlaceCartDateContainer: UITableViewCell {
     }
     private func refreshSchedule() {
 
-        if let summary = delegate.takeSummary() {
+        if let summary = delegate?.takeSummary() {
             scheduleView.update(by: summary.Schedule)
         }
     }
@@ -139,6 +161,9 @@ public class PlaceCartDateContainer: UITableViewCell {
         update(hours: wrapedHours, minutes: wrapedMinutes)
     }
     private func refreshDateTimeLabel() {
+        guard let cart = self.cart else {
+            return
+        }
 
         let time = cart.time
         let date = cart.date
@@ -146,7 +171,6 @@ public class PlaceCartDateContainer: UITableViewCell {
         let format = PlaceCartController.Localization.Labels.orderOn.localized
         dateTimeLabel.text = String(format: format, timeFormatter.string(from: time), dateFormatter.string(from: date))
     }
-
 }
 extension PlaceCartDateContainer {
 
@@ -166,6 +190,9 @@ extension PlaceCartDateContainer {
     }
 
     private func update(date: Date) {
+        guard let cart = self.cart else {
+            return
+        }
 
         cart.date = date
 
@@ -173,6 +200,10 @@ extension PlaceCartDateContainer {
         refreshDateTimeLabel()
     }
     private func update(hours: Int, minutes: Int) {
+        guard let cart = self.cart else {
+            return
+        }
+
         cart.time = timeFormatter.date(from: "\(String(format: "%02d", hours % 24)):\(String(format: "%02d", minutes % 60))")!
 
         refreshDateTimeLabel()
@@ -202,30 +233,47 @@ extension PlaceCartDateContainer {
     }
     private func hidePicker() {
 
-        if (timePicker.isHidden) {
+        if (timePicker.isHidden && loadElement) {
             return
         }
 
         timePicker.isHidden = true
-        pickerHeight.constant = 0
-
-        refresher?()
+        resize(pickerHeight: 0)
     }
     private func showPicker() {
 
-        if (!timePicker.isHidden) {
+        if (!timePicker.isHidden && loadElement) {
             return
         }
 
         timePicker.isHidden = false
-        pickerHeight.constant = defaultPickerHeight
+        resize(pickerHeight: defaultPickerHeight)
+    }
+    private func resize(pickerHeight: CGFloat) {
 
-        refresher?()
+        self.pickerHeightConstraint.constant = pickerHeight
+        if (pickerHeight == 0.0) {
+            self.heightConstraint?.constant = (defaultElementHeight - defaultPickerHeight)
+        }
+        else {
+            self.heightConstraint?.constant = defaultElementHeight
+        }
+
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+            self.timePicker.layoutIfNeeded()
+            self.dateTimeLabel.layoutIfNeeded()
+        }
+
+        delegate?.resize()
     }
 }
 
 extension PlaceCartDateContainer: UIPickerViewDelegate, UIPickerViewDataSource {
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard let cart = self.cart else {
+            return
+        }
 
         switch TimePickerComponents(rawValue: component)! {
             case .hours:
@@ -269,41 +317,14 @@ extension UIPickerView {
     }
 }
 
-extension PlaceCartDateContainer: PlaceCartContainerCell {
-    public func viewDidAppear() {}
-    public func viewDidDisappear() {}
-    public func updateData(with: PlaceCartDelegate) {
-        refreshSchedule()
+extension PlaceCartDateContainer: PlaceCartElement {
+    public func update(with delegate: PlaceCartDelegate) {
+
+        self.delegate = delegate
+        refresh()
+    }
+    public func height() -> CGFloat {
+        return heightConstraint?.constant ?? defaultElementHeight
     }
 }
-extension PlaceCartDateContainer: InterfaceTableCellProtocol {
-    public var viewHeight: Int {
 
-        var height: CGFloat = 250.0
-        if (timePicker.isHidden) {
-            height = height - defaultPickerHeight
-        }
-
-        needRefresh(to: height)
-
-        return Int(height)
-    }
-    private func needRefresh(to height: CGFloat) {
-
-        let deadlineTime = DispatchTime.now() + .milliseconds(50)
-        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            let old = self.frame
-            self.frame = CGRect(x: old.origin.x, y: old.origin.y, width: old.width, height: height)
-            self.layoutIfNeeded()
-            self.updateConstraintsIfNeeded()
-        }
-    }
-    public func prepareView() -> UITableViewCell {
-
-        layoutIfNeeded()
-        return self
-    }
-    public func addToContainer(handler: @escaping (() -> Void)) {
-        self.refresher = handler
-    }
-}

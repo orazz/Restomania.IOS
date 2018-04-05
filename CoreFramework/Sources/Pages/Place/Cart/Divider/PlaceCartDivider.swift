@@ -26,18 +26,12 @@ public class PlaceCartDivider: UITableViewCell {
         backgroundColor = themeColors.divider
     }
 }
-extension PlaceCartDivider: PlaceCartContainerCell {
-
-    public func viewDidAppear() {}
-    public func viewDidDisappear() {}
-    public func updateData(with: PlaceCartDelegate) {}
-}
-extension PlaceCartDivider: InterfaceTableCellProtocol {
-
-    public var viewHeight: Int {
-        return 15
-    }
-    public func prepareView() -> UITableViewCell {
-        return self
-    }
-}
+//extension PlaceCartDivider: PlaceCartElement {
+//
+//    public func viewDidAppear() {}
+//    public func viewDidDisappear() {}
+//    public func update(with: PlaceCartDelegate) {}
+//    public func height() -> CGFloat {
+//        return 15
+//    }
+//}

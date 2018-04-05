@@ -79,22 +79,25 @@ extension PlaceCartTotalContainerCell: CartServiceDelegate {
         }
     }
 }
-extension PlaceCartTotalContainerCell: PlaceCartContainerCell {
-    public func viewDidAppear() {
-        cart.subscribe(guid: guid, handler: self, tag: _tag)
-    }
-    public func viewDidDisappear() {
-        cart.unsubscribe(guid: guid)
-    }
-    public func updateData(with: PlaceCartDelegate) {
-        update()
-    }
-}
-extension PlaceCartTotalContainerCell: InterfaceTableCellProtocol {
-    public var viewHeight: Int {
-        return 45
-    }
-    public func prepareView() -> UITableViewCell {
-        return self
-    }
-}
+//extension PlaceCartTotalContainerCell: PlaceCartElement {
+//    public func viewDidAppear() {
+//        cart.subscribe(guid: guid, handler: self, tag: _tag)
+//    }
+//    public func viewDidDisappear() {
+//        cart.unsubscribe(guid: guid)
+//    }
+//    public func update(with: PlaceCartDelegate) {
+//        update()
+//    }
+//    public func height() -> CGFloat {
+//        return self.frame.height
+//    }
+//}
+//extension PlaceCartTotalContainerCell: InterfaceTableCellProtocol {
+//    public var viewHeight: Int {
+//        return 45
+//    }
+//    public func prepareView() -> UITableViewCell {
+//        return self
+//    }
+//}

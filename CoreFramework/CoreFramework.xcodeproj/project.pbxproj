@@ -297,6 +297,8 @@
 		1F06A90D20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A90C20559C5C00FEB1B5 /* CheckPhoneCodeAuthController.swift */; };
 		1F06A90F20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */; };
 		1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */; };
+		1F1F26CE20768E1C00F6A260 /* PlaceCartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1F26CD20768E1C00F6A260 /* PlaceCartController.xib */; };
+		1F1F26D020768ED500F6A260 /* PlaceCartElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F26CF20768ED500F6A260 /* PlaceCartElement.swift */; };
 		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
 		1F53B92E205FD50A00656EA5 /* ParsedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */; };
 		1F53B930206056E300656EA5 /* ParsedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92F206056E300656EA5 /* ParsedCategory.swift */; };
@@ -756,6 +758,8 @@
 		1F06A90E20559C8600FEB1B5 /* CheckPhoneCodeAuthController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckPhoneCodeAuthController.xib; sourceTree = "<group>"; };
 		1F06A91320559C9400FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		1F06A91520559C9500FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
+		1F1F26CD20768E1C00F6A260 /* PlaceCartController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCartController.xib; sourceTree = "<group>"; };
+		1F1F26CF20768ED500F6A260 /* PlaceCartElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCartElement.swift; sourceTree = "<group>"; };
 		1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedMenu.swift; sourceTree = "<group>"; };
@@ -2423,7 +2427,9 @@
 			isa = PBXGroup;
 			children = (
 				1F06A73C205570FD00FEB1B5 /* PlaceCartController.swift */,
+				1F1F26CD20768E1C00F6A260 /* PlaceCartController.xib */,
 				1F06A735205570FD00FEB1B5 /* PlaceCartController.strings */,
+				1F1F26CF20768ED500F6A260 /* PlaceCartElement.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -2730,6 +2736,7 @@
 				1F06A7E7205570FD00FEB1B5 /* ResetPasswordAuthController.xib in Resources */,
 				1FDBA135205BBE5E000F1378 /* OtherNotificationController.strings in Resources */,
 				1F06A8F2205570FE00FEB1B5 /* OneOrderController.xib in Resources */,
+				1F1F26CE20768E1C00F6A260 /* PlaceCartController.xib in Resources */,
 				1FDBA115205AFD96000F1378 /* FontAwesome.ttf in Resources */,
 				1F06A7FE205570FD00FEB1B5 /* FontAwesome.ttf in Resources */,
 				1F06A88E205570FD00FEB1B5 /* OtherPaymentCardsController.strings in Resources */,
@@ -2918,6 +2925,7 @@
 				1F06A81F205570FD00FEB1B5 /* NotificationPlatformType.swift in Sources */,
 				1F06A8D6205570FD00FEB1B5 /* PlaceMenuDishCell.swift in Sources */,
 				1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */,
+				1F1F26D020768ED500F6A260 /* PlaceCartElement.swift in Sources */,
 				1F06A8D8205570FD00FEB1B5 /* CategoriesPresenter.swift in Sources */,
 				1F06A87F205570FD00FEB1B5 /* TabsController.swift in Sources */,
 				1F06A8C3205570FD00FEB1B5 /* DishModalSelectVariations.swift in Sources */,

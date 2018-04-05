@@ -10,12 +10,6 @@ import Foundation
 import UIKit
 import MdsKit
 
-public protocol PlaceCartContainerCell: InterfaceTableCellProtocol {
-
-    func viewDidAppear()
-    func viewDidDisappear()
-    func updateData(with: PlaceCartDelegate)
-}
 public protocol PlaceCartDelegate {
 
     func takeCartContainer() -> PlaceCartController.CartContainer
@@ -25,17 +19,20 @@ public protocol PlaceCartDelegate {
     func takeCards() -> [PaymentCard]?
     func takeController() -> UIViewController
 
-    func reloadInterface()
+    func resize()
     func closePage()
     func addPaymentCard()
     func tryAddOrder()
 }
-public class PlaceCartController: UITableViewController {
+public class PlaceCartController: UIViewController {
 
     //UI elements
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var contentView: UIView!
+    @IBOutlet private weak var dateTimeElement: PlaceCartDateContainer!
+    private var refreshControl: RefreshControl!
     private var interfaceLoader: InterfaceLoader!
-    private var interfaceBuilder: InterfaceTable?
-    private var interfaceParts: [PlaceCartContainerCell] = []
+    private var interfaceElements: [PlaceCartElement] = []
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
@@ -63,12 +60,13 @@ public class PlaceCartController: UITableViewController {
     private var loadAdapter: PartsLoader!
 
     public init(for placeId: Long) {
-        super.init(style: .plain)
 
         self.loadQueue = AsyncQueue.createForControllerLoad(for: _tag)
         self.placeId = placeId
         self.cart = DependencyResolver.get(PlaceCartsFactory.self).get(for: placeId)
         self.cartContaier = CartContainer(for: placeId, with: cart)
+
+        super.init(nibName: String.tag(PlaceCartController.self), bundle: Bundle.coreFramework)
 
         //Loaders
         summaryContainer = PartsLoadTypedContainer<PlaceSummary>(completeLoadHandler: self.completeLoad)
@@ -93,7 +91,7 @@ public class PlaceCartController: UITableViewController {
 
 // MARK: Actions
 extension PlaceCartController {
-    @IBAction private func goBack() {
+    private func goBack() {
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -108,22 +106,23 @@ extension PlaceCartController {
     private func loadMarkup() {
 
         view.backgroundColor = themeColors.divider
+        scrollView.backgroundColor = themeColors.divider
 
         interfaceLoader = InterfaceLoader(for: self.view)
 
-        interfaceParts = loadRows()
-        interfaceBuilder = InterfaceTable(source: tableView, rows: interfaceParts)
-        tableView.estimatedRowHeight = 0
-        tableView.estimatedSectionFooterHeight = 0
-        tableView.estimatedSectionHeaderHeight = 0
+        interfaceElements = loadElements()
+//        interfaceBuilder = InterfaceTable(source: tableView, rows: interfaceParts)
+//        tableView.estimatedRowHeight = 0
+//        tableView.estimatedSectionFooterHeight = 0
+//        tableView.estimatedSectionHeaderHeight = 0
 
-        refreshControl = tableView.addRefreshControl(for: self, action: #selector(needReload))
+        refreshControl = scrollView.addRefreshControl(for: self, action: #selector(needReload))
         refreshControl?.backgroundColor = themeColors.divider
         refreshControl?.tintColor = themeColors.dividerText
 
         navigationItem.title = Localization.Labels.title.localized
 
-        reloadInterface()
+        resize()
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,12 +138,12 @@ extension PlaceCartController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        trigger({ $0.viewDidAppear() })
+        trigger({ $0.cartWillAppear() })
     }
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        trigger({ $0.viewDidDisappear() })
+        trigger({ $0.cartWillDisappear() })
     }
     public override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -153,38 +152,43 @@ extension PlaceCartController {
 
 // MARK: InterfaceTable
 extension PlaceCartController {
-    private func trigger(_ action: @escaping ((PlaceCartContainerCell) -> Void)) {
+    private func trigger(_ action: @escaping ((PlaceCartElement) -> Void)) {
 
         DispatchQueue.main.async {
-            for cell in self.interfaceParts {
+            for cell in self.interfaceElements {
                 action(cell)
             }
         }
     }
-    private func loadRows() -> [PlaceCartContainerCell] {
+    private func loadElements() -> [PlaceCartElement] {
 
-        var result = [PlaceCartContainerCell]()
+        var result = [PlaceCartElement]()
 
+        result.append(dateTimeElement)
+
+        for element in result {
+            element.update(with: self)
+        }
         //Date picker
-        result.append(PlaceCartDateContainer.create(for: self))
-        result.append(PlaceCartDivider.create())
+//        result.append(PlaceCartDateContainer.create(for: self))
+//        result.append(PlaceCartDivider.create())
 
-        //Dishes
-        result.append(PlaceCartDishesContainer.create(for: self))
-        result.append(PlaceCartTotalContainer.create(for: self))
-        result.append(PlaceCartDivider.create())
-
-        //Payment cards
-        result.append(PlaceCartPaymentCardsContainer.create(with: self))
-        result.append(PlaceCartDivider.create())
-
-        //Comment and takeaway
-        result.append(PlaceCartAdditionalContainer.create(for: self))
-        result.append(PlaceCartDivider.create())
+//        //Dishes
+//        result.append(PlaceCartDishesContainer.create(for: self))
+//        result.append(PlaceCartTotalContainer.create(for: self))
+//        result.append(PlaceCartDivider.create())
+//
+//        //Payment cards
+//        result.append(PlaceCartPaymentCardsContainer.create(with: self))
+//        result.append(PlaceCartDivider.create())
+//
+//        //Comment and takeaway
+//        result.append(PlaceCartAdditionalContainer.create(for: self))
+//        result.append(PlaceCartDivider.create())
 
         //Complete
-        result.append(PlaceCartDivider.create())
-        result.append(PlaceCartCompleteOrderContainer.create(for: self))
+//        result.append(PlaceCartDivider.create())
+//        result.append(PlaceCartCompleteOrderContainer.create(for: self))
 
         return result
     }
@@ -261,8 +265,8 @@ extension PlaceCartController {
     }
     private func notifyAboutUpdateData() {
         DispatchQueue.main.async {
-            self.trigger({ $0.updateData(with: self) })
-            self.reloadInterface()
+            self.trigger({ $0.update(with: self) })
+            self.resize()
         }
     }
     private func filterCards() {
@@ -301,8 +305,18 @@ extension PlaceCartController: PlaceCartDelegate {
         return self
     }
 
-    public func reloadInterface() {
-        interfaceBuilder?.reload()
+    public func resize() {
+
+        var commonHeight: CGFloat = 0.0
+        for element in interfaceElements {
+            commonHeight = commonHeight + element.height()
+        }
+
+        contentView.setContraint(height: commonHeight)
+        UIView.animate(withDuration: 0.4) {
+            self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: commonHeight)
+            self.view.layoutIfNeeded()
+        }
     }
     public func closePage() {
         goBack()
@@ -325,8 +339,8 @@ extension PlaceCartController: PlaceCartDelegate {
                 self.cartContaier.cardId = cardId
                 self.cardsContainer.update(self.cardsService.cache.all)
 
-                self.trigger({ $0.updateData(with: self) })
-                self.reloadInterface()
+                self.trigger({ $0.update(with: self) })
+                self.resize()
             }
         }
     }

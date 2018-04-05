@@ -13,16 +13,16 @@ import MdsKit
 public class PlaceCartAdditionalContainer: UITableViewCell {
 
     private static let nibName = String.tag(PlaceCartAdditionalContainer.self)
-    public static func create(for delegate: PlaceCartDelegate) -> PlaceCartContainerCell {
-
-        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
-        let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartAdditionalContainer
-
-        cell.delegate = delegate
-        cell.refresh()
-
-        return cell
-    }
+//    public static func create(for delegate: PlaceCartDelegate) -> PlaceCartElement {
+//
+//        let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)
+//        let cell = nib.instantiate(withOwner: nil, options: nil).first! as! PlaceCartAdditionalContainer
+//
+//        cell.delegate = delegate
+//        cell.refresh()
+//
+//        return cell
+//    }
 
     //UI hooks
     @IBOutlet private weak var titleLabel: UILabel!
@@ -75,19 +75,11 @@ extension PlaceCartAdditionalContainer {
         delegate.takeController().modal(editor, animated: true)
     }
 }
-extension PlaceCartAdditionalContainer: PlaceCartContainerCell {
-    public func viewDidAppear() {}
-    public func viewDidDisappear() {}
-    public func updateData(with: PlaceCartDelegate) {
-        refresh()
-    }
-}
-extension PlaceCartAdditionalContainer: InterfaceTableCellProtocol {
-
-    public var viewHeight: Int {
-        return 160
-    }
-    public func prepareView() -> UITableViewCell {
-        return self
-    }
-}
+//extension PlaceCartAdditionalContainer: PlaceCartElement {
+//    public func update(with: PlaceCartDelegate) {
+//        refresh()
+//    }
+//    public func height() -> CGFloat {
+//        return self.frame.height
+//    }
+//}

@@ -112,39 +112,32 @@ extension PlaceCartDishesContainerCell: UITableViewDataSource, UITableViewDelega
         return cell
     }
 }
-extension PlaceCartDishesContainerCell: PlaceCartContainerCell {
-    public func viewDidAppear() {
-        cart.subscribe(guid: guid, handler: self, tag: _tag)
-    }
-    public func viewDidDisappear() {
-        cart.unsubscribe(guid: guid)
-    }
-    public func updateData(with: PlaceCartDelegate) {}
-}
-extension PlaceCartDishesContainerCell: InterfaceTableCellProtocol {
-
-    public var viewHeight: Int {
-        return Int(titleContainer.frame.height) + addings.count * Int(PlaceCartDishesContainerCellMeta.height)
-    }
-    public func prepareView() -> UITableViewCell {
-        return self
-    }
-}
-//Cart
-extension PlaceCartDishesContainerCell: CartServiceDelegate {
-
-    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
-        change(dish)
-    }
-    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
-        change(dish)
-    }
-    private func change(_ dish: AddedOrderDish) {
-
-        if (self.dish === dish) {
-            DispatchQueue.main.async {
-                self.refresh()
-            }
-        }
-    }
-}
+//extension PlaceCartDishesContainerCell: PlaceCartElement {
+//    public func cartWillAppear() {
+//        cart.subscribe(guid: guid, handler: self, tag: _tag)
+//    }
+//    public func cartWillDisappear() {
+//        cart.unsubscribe(guid: guid)
+//    }
+//    public func height() -> CGFloat {
+//        return self.frame.height
+//    }
+//}
+////Cart
+//extension PlaceCartDishesContainerCell: CartServiceDelegate {
+//
+//    public func cart(_ cart: CartService, change dish: AddedOrderDish) {
+//        change(dish)
+//    }
+//    public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
+//        change(dish)
+//    }
+//    private func change(_ dish: AddedOrderDish) {
+//
+//        if (self.dish === dish) {
+//            DispatchQueue.main.async {
+//                self.refresh()
+//            }
+//        }
+//    }
+//}

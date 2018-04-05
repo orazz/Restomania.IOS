@@ -24,11 +24,11 @@ public class PlaceCartTotalContainer: UITableViewCell {
 
         return cell
     }
-    private static func loadRows(_ delegate: PlaceCartDelegate) -> [PlaceCartContainerCell] {
+    private static func loadRows(_ delegate: PlaceCartDelegate) -> [PlaceCartElement] {
 
-        var result = [PlaceCartContainerCell]()
+        var result = [PlaceCartElement]()
 
-        result.append(PlaceCartTotalContainerCell.create(for: delegate, title: PlaceCartController.Localization.Labels.total.localized, { $0.total(with: $1) }))
+//        result.append(PlaceCartTotalContainerCell.create(for: delegate, title: PlaceCartController.Localization.Labels.total.localized, { $0.total(with: $1) }))
 
         return result
     }
@@ -53,14 +53,14 @@ public class PlaceCartTotalContainer: UITableViewCell {
     private var menu: MenuSummary? {
         return delegate.takeMenu()
     }
-    private var cells: [PlaceCartContainerCell] = []
+    private var cells: [PlaceCartElement] = []
 
     private func reload() {
 
     }
     private func setupMarkup() {
 
-        contentAdapter = InterfaceTable(source: rowsTable, navigator: UINavigationController(), rows: cells)
+//        contentAdapter = InterfaceTable(source: rowsTable, navigator: UINavigationController(), rows: cells)
     }
 }
 extension PlaceCartTotalContainer: CartServiceDelegate {
@@ -71,37 +71,40 @@ extension PlaceCartTotalContainer: CartServiceDelegate {
         reload()
     }
 }
-extension PlaceCartTotalContainer: PlaceCartContainerCell {
-
-    public func viewDidAppear() {
-
-        cart.subscribe(guid: guid, handler: self, tag: _tag)
-        trigger({ $0.viewDidAppear() })
-    }
-    public func viewDidDisappear() {
-
-        cart.unsubscribe(guid: guid)
-        trigger({ $0.viewDidDisappear() })
-    }
-    public func updateData(with delegate: PlaceCartDelegate) {
-
-        reload()
-        trigger({ $0.updateData(with: delegate) })
-    }
-
-    private func trigger(_ action: ((PlaceCartContainerCell) -> Void)) {
-
-        for cell in cells {
-            action(cell)
-        }
-    }
-}
-extension PlaceCartTotalContainer: InterfaceTableCellProtocol {
-
-    public var viewHeight: Int {
-        return Int(rowsTable.contentSize.height)
-    }
-    public func prepareView() -> UITableViewCell {
-        return self
-    }
-}
+//extension PlaceCartTotalContainer: PlaceCartElement {
+//
+//    public func viewDidAppear() {
+//
+//        cart.subscribe(guid: guid, handler: self, tag: _tag)
+////        trigger({ $0.viewDidAppear() })
+//    }
+//    public func viewDidDisappear() {
+//
+//        cart.unsubscribe(guid: guid)
+////        trigger({ $0.viewDidDisappear() })
+//    }
+//    public func update(with delegate: PlaceCartDelegate) {
+//
+//        reload()
+//        trigger({ $0.update(with: delegate) })
+//    }
+//    public func height() -> CGFloat {
+//        return self.frame.height
+//    }
+//
+//    private func trigger(_ action: ((PlaceCartElement) -> Void)) {
+//
+//        for cell in cells {
+//            action(cell)
+//        }
+//    }
+//}
+//extension PlaceCartTotalContainer: InterfaceTableCellProtocol {
+//
+//    public var viewHeight: Int {
+//        return Int(rowsTable.contentSize.height)
+//    }
+//    public func prepareView() -> UITableViewCell {
+//        return self
+//    }
+//}

@@ -118,23 +118,26 @@ extension PlaceCartPaymentCardsContainer: UITableViewDataSource {
         return PlaceCartPaymentCardsContainerCell.height
     }
 }
-extension PlaceCartPaymentCardsContainer: PlaceCartContainerCell {
-
-    public func viewDidAppear() {}
-    public func viewDidDisappear() {}
-    public func updateData(with delegate: PlaceCartDelegate) {
-        update()
-    }
-}
-extension PlaceCartPaymentCardsContainer: InterfaceTableCellProtocol {
-
-    public var viewHeight: Int {
-        return Int(topView.getConstant(.height)! + bottomView.getConstant(.height)! + PlaceCartPaymentCardsContainerCell.height * cards.count )
-    }
-    public func prepareView() -> UITableViewCell {
-        return self
-    }
-    public func addToContainer(handler: @escaping (() -> Void)) {
-        self.reloadHandler = handler
-    }
-}
+//extension PlaceCartPaymentCardsContainer: PlaceCartElement {
+//
+//    public func viewDidAppear() {}
+//    public func viewDidDisappear() {}
+//    public func update(with delegate: PlaceCartDelegate) {
+//        update()
+//    }
+//    public func height() -> CGFloat {
+//        return self.frame.height
+//    }
+//}
+//extension PlaceCartPaymentCardsContainer: InterfaceTableCellProtocol {
+//
+//    public var viewHeight: Int {
+//        return Int(topView.getConstant(.height)! + bottomView.getConstant(.height)! + PlaceCartPaymentCardsContainerCell.height * cards.count )
+//    }
+//    public func prepareView() -> UITableViewCell {
+//        return self
+//    }
+//    public func addToContainer(handler: @escaping (() -> Void)) {
+//        self.reloadHandler = handler
+//    }
+//}

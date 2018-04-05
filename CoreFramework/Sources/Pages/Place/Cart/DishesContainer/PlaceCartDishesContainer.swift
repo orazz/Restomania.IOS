@@ -43,22 +43,22 @@ public class PlaceCartDishesContainer: UITableViewCell {
 
         let needReload = rows.count != cart.dishesCount
 
-        rows.each({ $0.viewDidDisappear() })
-        rows.each({ $0.removeFromSuperview() })
-        rows.removeAll()
-        if let menu = self.menu {
-            for dish in cart.dishes {
-                rows.append(PlaceCartDishesContainerCell.create(for: dish, with: cart, and: menu))
-            }
-
-            rows.each({ $0.viewDidAppear() })
-            dishesAdapter = InterfaceTable(source: dishesTable, rows: rows)
-            dishesAdapter.reload()
-        }
-
-        if (needReload) {
-            reloadHandler?()
-        }
+//        rows.each({ $0.cartWillDisappear() })
+//        rows.each({ $0.removeFromSuperview() })
+//        rows.removeAll()
+//        if let menu = self.menu {
+//            for dish in cart.dishes {
+//                rows.append(PlaceCartDishesContainerCell.create(for: dish, with: cart, and: menu))
+//            }
+//
+//            rows.each({ $0.viewDidAppear() })
+//            dishesAdapter = InterfaceTable(source: dishesTable, rows: rows)
+//            dishesAdapter.reload()
+//        }
+//
+//        if (needReload) {
+//            reloadHandler?()
+//        }
     }
 }
 // MARK: Cart
@@ -79,33 +79,24 @@ extension PlaceCartDishesContainer: CartServiceDelegate {
     }
 }
 // PlaceCartContainerCell
-extension PlaceCartDishesContainer: PlaceCartContainerCell {
-
-    public func viewDidAppear() {
-        cart.subscribe(guid: guid, handler: self, tag: _tag)
-
-        rows.each({ $0.viewDidAppear() })
-    }
-    public func viewDidDisappear() {
-        cart.unsubscribe(guid: guid)
-
-        rows.each({ $0.viewDidDisappear() })
-    }
-    public func updateData(with delegate: PlaceCartDelegate) {
-        update()
-
-        rows.each({ $0.updateData(with: delegate) })
-    }
-}
-extension PlaceCartDishesContainer: InterfaceTableCellProtocol {
-
-    public var viewHeight: Int {
-        return rows.sum({ $0.viewHeight })
-    }
-    public func prepareView() -> UITableViewCell {
-        return self
-    }
-    public func addToContainer(handler: @escaping () -> Void) {
-        self.reloadHandler = handler
-    }
-}
+//extension PlaceCartDishesContainer: PlaceCartElement {
+//
+//    public func viewDidAppear() {
+//        cart.subscribe(guid: guid, handler: self, tag: _tag)
+//
+////        rows.each({ $0.viewDidAppear() })
+//    }
+//    public func viewDidDisappear() {
+//        cart.unsubscribe(guid: guid)
+//
+////        rows.each({ $0.viewDidDisappear() })
+//    }
+//    public func update(with delegate: PlaceCartDelegate) {
+//        update()
+//
+//        rows.each({ $0.update(with: delegate) })
+//    }
+//    public func height() -> CGFloat {
+//        return self.frame.height
+//    }
+//}

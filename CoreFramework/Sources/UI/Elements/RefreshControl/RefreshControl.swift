@@ -34,7 +34,7 @@ public class RefreshControl: UIRefreshControl {
         super.init(coder: aDecoder)
     }
 }
-extension UITableView {
+extension UIScrollView {
 
     public func addRefreshControl(for target: Any, action: Selector) -> RefreshControl {
 
