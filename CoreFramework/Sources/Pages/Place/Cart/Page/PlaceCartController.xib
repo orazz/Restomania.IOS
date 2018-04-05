@@ -20,6 +20,7 @@
                 <outlet property="dateTimeDivider" destination="S4t-hh-qN8" id="4dl-tS-18C"/>
                 <outlet property="dateTimePicker" destination="WNU-E7-2mB" id="Io6-OT-jCa"/>
                 <outlet property="dishesDivider" destination="YTq-qv-7Ff" id="sOd-8w-Gad"/>
+                <outlet property="paymentCardPicker" destination="bqz-FA-UHs" id="11G-yd-Tfn"/>
                 <outlet property="scrollView" destination="JB8-4K-0cA" id="3xj-MF-eWp"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eXd-Zy-rGY"/>
             </connections>
@@ -50,50 +51,50 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6J-Qi-dck" customClass="PlaceCartCompleteOrderAction" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="460" width="374" height="50"/>
+                                    <rect key="frame" x="0.0" y="365" width="374" height="50"/>
                                     <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="QD0-TA-zjy"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoN-aB-xgo">
-                                    <rect key="frame" x="0.0" y="115" width="374" height="100"/>
+                                    <rect key="frame" x="0.0" y="115" width="374" height="5"/>
                                     <color key="backgroundColor" red="0.66268795728683472" green="0.66278296709060669" blue="0.66265803575515747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="100" id="RTp-GD-1J6"/>
+                                        <constraint firstAttribute="height" constant="5" id="RTp-GD-1J6"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTq-qv-7Ff" customClass="PlaceCartDivider" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="215" width="374" height="15"/>
+                                    <rect key="frame" x="0.0" y="120" width="374" height="15"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="Z3o-RC-KCV"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="uoh-Kd-bhk"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqz-FA-UHs">
-                                    <rect key="frame" x="0.0" y="230" width="374" height="100"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqz-FA-UHs" customClass="PlaceCartPaymentCardsContainer" customModule="CoreFramework" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="135" width="374" height="100"/>
                                     <color key="backgroundColor" red="0.66268795729999996" green="0.66278296709999995" blue="0.66265803580000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="8dv-ZL-eWF"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEG-z0-yBY" customClass="PlaceCartAdditionalContainer" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="345" width="374" height="100"/>
+                                    <rect key="frame" x="0.0" y="250" width="374" height="100"/>
                                     <color key="backgroundColor" red="0.66268795729999996" green="0.66278296709999995" blue="0.66265803580000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="cQu-vJ-O9u"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aV-JS-7Ig" customClass="PlaceCartDivider" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="330" width="374" height="15"/>
+                                    <rect key="frame" x="0.0" y="235" width="374" height="15"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="qLG-Da-MUh"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPM-26-NhO" customClass="PlaceCartDivider" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="445" width="374" height="15"/>
+                                    <rect key="frame" x="0.0" y="350" width="374" height="15"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="HGr-sT-meF"/>

@@ -25,7 +25,7 @@ public class PaymentCard: BaseDataType, ICached {
     public var last4Number: String
     public var status: PaymentCardStatus
     public var type: PaymentCardType
-    public var bankType: PaymentSystem
+    public var paymentSystem: PaymentSystem
     public var currency: Currency
 
     public override init() {
@@ -34,7 +34,7 @@ public class PaymentCard: BaseDataType, ICached {
         self.last4Number = String.empty
         self.status = .Proccessing
         self.type = .Other
-        self.bankType = .sandbox
+        self.paymentSystem = .sandbox
         self.currency = .EUR
 
         super.init()
@@ -47,7 +47,7 @@ public class PaymentCard: BaseDataType, ICached {
         self.last4Number = source.last4Number
         self.status = source.status
         self.type = source.type
-        self.bankType = source.bankType
+        self.paymentSystem = source.paymentSystem
         self.currency = source.currency
 
         super.init(source: source)
@@ -60,7 +60,7 @@ public class PaymentCard: BaseDataType, ICached {
         self.last4Number = (Keys.last4Number <~~ json)!
         self.status = (Keys.status <~~ json)!
         self.type = (Keys.type <~~ json)!
-        self.bankType = (Keys.clientType <~~ json)!
+        self.paymentSystem = (Keys.clientType <~~ json)!
         self.currency = (Keys.currency <~~ json)!
 
         super.init(json: json)
@@ -73,7 +73,7 @@ public class PaymentCard: BaseDataType, ICached {
             Keys.last4Number ~~> self.last4Number,
             Keys.status ~~> self.status,
             Keys.type ~~> self.type,
-            Keys.clientType ~~> self.bankType,
+            Keys.clientType ~~> self.paymentSystem,
             Keys.currency ~~> self.currency
             ])
     }

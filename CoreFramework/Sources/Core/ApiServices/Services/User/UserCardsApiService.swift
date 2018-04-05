@@ -32,7 +32,7 @@ public class UserCardsApiService: BaseApiService {
     public func add(for paymentSystem: PaymentSystem? = nil) -> RequestResult<AddingCard> {
         let parameters = CollectParameters([
                 "currency": configs.currency.rawValue,
-                "client": paymentSystem ?? configs.paymentSystem.rawValue,
+                "client": paymentSystem?.rawValue ?? configs.paymentSystem.rawValue,
                 "mobile": true
             ])
 

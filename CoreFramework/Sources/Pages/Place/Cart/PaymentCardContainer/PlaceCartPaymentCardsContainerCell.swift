@@ -12,7 +12,7 @@ import MdsKit
 
 public class PlaceCartPaymentCardsContainerCell: UITableViewCell {
 
-    public static let height = CGFloat(35)
+    public static let height = CGFloat(45)
     private static let nibName = String.tag(PlaceCartPaymentCardsContainerCell.self)
     public static func create(for card: PaymentCard) -> PlaceCartPaymentCardsContainerCell {
 

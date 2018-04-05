@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceCartPaymentCardsContainer" customModule="CoreFramework" customModuleProvider="target">
+            <connections>
+                <outlet property="addCardButton" destination="1lz-QV-MLe" id="Xoy-mv-U4u"/>
+                <outlet property="bottomView" destination="lm8-DJ-ui6" id="EwC-fm-1Vo"/>
+                <outlet property="cardsTable" destination="6yr-61-xP4" id="diJ-MY-pUO"/>
+                <outlet property="content" destination="iN0-l3-epB" id="0OL-TH-AKa"/>
+                <outlet property="tableHeightConstraint" destination="5ul-iY-oaJ" id="SVf-Qp-udX"/>
+                <outlet property="titleLabel" destination="W8z-E0-Blo" id="gSe-K5-D1f"/>
+                <outlet property="topView" destination="dpd-XE-ZuC" id="Jsi-Yx-hrT"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlaceCartPaymentCardsContainer" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpd-XE-ZuC">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выберите платежную карту" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8z-E0-Blo">
-                            <rect key="frame" x="8" y="5" width="246" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите платежную карту" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8z-E0-Blo">
+                            <rect key="frame" x="10" y="10" width="223.5" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -25,36 +38,43 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="xL8-OC-B3M"/>
+                        <constraint firstItem="W8z-E0-Blo" firstAttribute="centerY" secondItem="dpd-XE-ZuC" secondAttribute="centerY" id="3Ck-Pa-wF4"/>
+                        <constraint firstItem="W8z-E0-Blo" firstAttribute="leading" secondItem="dpd-XE-ZuC" secondAttribute="leading" constant="10" id="xFJ-Cm-OvO"/>
+                        <constraint firstAttribute="height" constant="40" id="xL8-OC-B3M"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lm8-DJ-ui6">
-                    <rect key="frame" x="0.0" y="65" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="75" width="375" height="70"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lz-QV-MLe" customClass="DefaultButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
-                            <rect key="frame" x="107.5" y="10" width="160" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lz-QV-MLe" customClass="DefaultButton" customModule="CoreFramework" customModuleProvider="target">
+                            <rect key="frame" x="107.5" y="15" width="160" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="160" id="4ej-qF-u4V"/>
+                                <constraint firstAttribute="height" constant="40" id="JOC-cq-eP5"/>
                             </constraints>
                             <state key="normal" title="Добавить новую"/>
                             <connections>
-                                <action selector="addCard" destination="iN0-l3-epB" eventType="touchUpInside" id="g0p-9a-aDW"/>
+                                <action selector="addCard" destination="-1" eventType="touchUpInside" id="fFL-3v-DSo"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="1lz-QV-MLe" firstAttribute="centerY" secondItem="lm8-DJ-ui6" secondAttribute="centerY" id="47x-Dj-5FV"/>
-                        <constraint firstAttribute="height" constant="50" id="aF8-g2-wYT"/>
+                        <constraint firstAttribute="height" constant="70" id="aF8-g2-wYT"/>
                         <constraint firstItem="1lz-QV-MLe" firstAttribute="centerX" secondItem="lm8-DJ-ui6" secondAttribute="centerX" id="ufT-CA-YhU"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6yr-61-xP4">
-                    <rect key="frame" x="0.0" y="30" width="375" height="35"/>
+                    <rect key="frame" x="0.0" y="40" width="375" height="35"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="5ul-iY-oaJ"/>
                     </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Iei-wT-O3V"/>
+                        <outlet property="delegate" destination="-1" id="bK9-I1-90t"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -73,14 +93,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <connections>
-                <outlet property="addCardButton" destination="1lz-QV-MLe" id="0kx-y8-HXJ"/>
-                <outlet property="bottomView" destination="lm8-DJ-ui6" id="rvN-Mv-isr"/>
-                <outlet property="cardsTable" destination="6yr-61-xP4" id="azN-P8-kGg"/>
-                <outlet property="titleLabel" destination="W8z-E0-Blo" id="aMi-hw-igv"/>
-                <outlet property="topView" destination="dpd-XE-ZuC" id="ZMR-S2-L1j"/>
-            </connections>
-            <point key="canvasLocation" x="26.5" y="-227"/>
+            <point key="canvasLocation" x="26.5" y="-209.5"/>
         </view>
     </objects>
 </document>

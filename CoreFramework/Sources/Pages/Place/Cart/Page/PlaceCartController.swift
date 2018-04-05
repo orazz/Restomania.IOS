@@ -32,6 +32,7 @@ public class PlaceCartController: UIViewController {
     @IBOutlet private weak var dateTimePicker: PlaceCartTimePicker!
     @IBOutlet private weak var dateTimeDivider: PlaceCartDivider!
     @IBOutlet private weak var dishesDivider: PlaceCartDivider!
+    @IBOutlet private weak var paymentCardPicker: PlaceCartPaymentCardsContainer!
     @IBOutlet private weak var cardsDivider: PlaceCartDivider!
     @IBOutlet private weak var additionalElement: PlaceCartAdditionalContainer!
     @IBOutlet private weak var additionalDivider: PlaceCartDivider!
@@ -176,7 +177,7 @@ extension PlaceCartController {
 //        result.append(dishesDivider)
         result.append(dishesDivider)
 
-//        result.append(dishesDivider)
+        result.append(paymentCardPicker)
         result.append(cardsDivider)
 
         result.append(additionalElement)
@@ -264,7 +265,6 @@ extension PlaceCartController {
     private func notifyAboutUpdateData() {
         DispatchQueue.main.async {
             self.trigger({ $0.update(with: self) })
-            self.resize()
         }
     }
     private func filterCards() {
@@ -293,8 +293,9 @@ extension PlaceCartController: PlaceCartDelegate {
     }
     public func takeCards() -> [PaymentCard]? {
 
-        if let menu = takeMenu() {
-            return cardsContainer.data?.where({ $0.currency == menu.currency })
+        if let menu = takeMenu(),
+            let summary = takeSummary() {
+            return cardsContainer.data?.where { $0.currency == menu.currency && $0.paymentSystem == summary.paymentSystem }
         } else {
             return cardsContainer.data
         }
