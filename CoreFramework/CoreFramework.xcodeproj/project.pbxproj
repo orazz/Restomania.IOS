@@ -191,10 +191,10 @@
 		1F06A892205570FD00FEB1B5 /* OtherPaymentCardsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A71D205570FD00FEB1B5 /* OtherPaymentCardsController.xib */; };
 		1F06A893205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A723205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift */; };
 		1F06A894205570FD00FEB1B5 /* PlaceCartAdditionalContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A724205570FD00FEB1B5 /* PlaceCartAdditionalContainer.xib */; };
-		1F06A895205570FD00FEB1B5 /* PlaceCartDateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A726205570FD00FEB1B5 /* PlaceCartDateContainer.swift */; };
-		1F06A896205570FD00FEB1B5 /* PlaceCartDateContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A727205570FD00FEB1B5 /* PlaceCartDateContainer.xib */; };
-		1F06A897205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A729205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.swift */; };
-		1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A72A205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.xib */; };
+		1F06A895205570FD00FEB1B5 /* PlaceCartTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A726205570FD00FEB1B5 /* PlaceCartTimePicker.swift */; };
+		1F06A896205570FD00FEB1B5 /* PlaceCartTimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A727205570FD00FEB1B5 /* PlaceCartTimePicker.xib */; };
+		1F06A897205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A729205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.swift */; };
+		1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A72A205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.xib */; };
 		1F06A899205570FD00FEB1B5 /* PlaceCartDishesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A72C205570FD00FEB1B5 /* PlaceCartDishesContainer.swift */; };
 		1F06A89A205570FD00FEB1B5 /* PlaceCartDishesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A72D205570FD00FEB1B5 /* PlaceCartDishesContainerCell.swift */; };
 		1F06A89B205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A72E205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.swift */; };
@@ -202,7 +202,6 @@
 		1F06A89D205570FD00FEB1B5 /* PlaceCartDishesContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A730205570FD00FEB1B5 /* PlaceCartDishesContainerCell.xib */; };
 		1F06A89E205570FD00FEB1B5 /* PlaceCartDishesContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A731205570FD00FEB1B5 /* PlaceCartDishesContainer.xib */; };
 		1F06A89F205570FD00FEB1B5 /* PlaceCartDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A733205570FD00FEB1B5 /* PlaceCartDivider.swift */; };
-		1F06A8A0205570FD00FEB1B5 /* PlaceCartDivider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A734205570FD00FEB1B5 /* PlaceCartDivider.xib */; };
 		1F06A8A1205570FD00FEB1B5 /* PlaceCartController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A735205570FD00FEB1B5 /* PlaceCartController.strings */; };
 		1F06A8A2205570FD00FEB1B5 /* PlaceCartPaymentCardsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A738205570FD00FEB1B5 /* PlaceCartPaymentCardsContainer.swift */; };
 		1F06A8A3205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A739205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCell.swift */; };
@@ -645,10 +644,10 @@
 		1F06A71E205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OtherPaymentCardsController.strings; sourceTree = "<group>"; };
 		1F06A723205570FD00FEB1B5 /* PlaceCartAdditionalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartAdditionalContainer.swift; sourceTree = "<group>"; };
 		1F06A724205570FD00FEB1B5 /* PlaceCartAdditionalContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartAdditionalContainer.xib; sourceTree = "<group>"; };
-		1F06A726205570FD00FEB1B5 /* PlaceCartDateContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDateContainer.swift; sourceTree = "<group>"; };
-		1F06A727205570FD00FEB1B5 /* PlaceCartDateContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartDateContainer.xib; sourceTree = "<group>"; };
-		1F06A729205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartCompleteOrderContainer.swift; sourceTree = "<group>"; };
-		1F06A72A205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartCompleteOrderContainer.xib; sourceTree = "<group>"; };
+		1F06A726205570FD00FEB1B5 /* PlaceCartTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartTimePicker.swift; sourceTree = "<group>"; };
+		1F06A727205570FD00FEB1B5 /* PlaceCartTimePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartTimePicker.xib; sourceTree = "<group>"; };
+		1F06A729205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartCompleteOrderAction.swift; sourceTree = "<group>"; };
+		1F06A72A205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartCompleteOrderAction.xib; sourceTree = "<group>"; };
 		1F06A72C205570FD00FEB1B5 /* PlaceCartDishesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDishesContainer.swift; sourceTree = "<group>"; };
 		1F06A72D205570FD00FEB1B5 /* PlaceCartDishesContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDishesContainerCell.swift; sourceTree = "<group>"; };
 		1F06A72E205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDishesContainerCellMeta.swift; sourceTree = "<group>"; };
@@ -656,7 +655,6 @@
 		1F06A730205570FD00FEB1B5 /* PlaceCartDishesContainerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartDishesContainerCell.xib; sourceTree = "<group>"; };
 		1F06A731205570FD00FEB1B5 /* PlaceCartDishesContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartDishesContainer.xib; sourceTree = "<group>"; };
 		1F06A733205570FD00FEB1B5 /* PlaceCartDivider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDivider.swift; sourceTree = "<group>"; };
-		1F06A734205570FD00FEB1B5 /* PlaceCartDivider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartDivider.xib; sourceTree = "<group>"; };
 		1F06A736205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PlaceCartController.strings; sourceTree = "<group>"; };
 		1F06A738205570FD00FEB1B5 /* PlaceCartPaymentCardsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartPaymentCardsContainer.swift; sourceTree = "<group>"; };
 		1F06A739205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartPaymentCardsContainerCell.swift; sourceTree = "<group>"; };
@@ -1703,13 +1701,13 @@
 			isa = PBXGroup;
 			children = (
 				1FDD97B32061461200D75CBF /* Page */,
-				1F06A725205570FD00FEB1B5 /* CompleteDateContainer */,
+				1F06A725205570FD00FEB1B5 /* TimePicker */,
 				1F06A72B205570FD00FEB1B5 /* DishesContainer */,
 				1F06A73F205570FD00FEB1B5 /* TotalContainer */,
 				1F06A737205570FD00FEB1B5 /* PaymentCardContainer */,
 				1F06A722205570FD00FEB1B5 /* AdditionalContainer */,
 				1F06A732205570FD00FEB1B5 /* Divider */,
-				1F06A728205570FD00FEB1B5 /* CompleteOrderContainer */,
+				1F06A728205570FD00FEB1B5 /* CompleteOrder */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -1723,22 +1721,22 @@
 			path = AdditionalContainer;
 			sourceTree = "<group>";
 		};
-		1F06A725205570FD00FEB1B5 /* CompleteDateContainer */ = {
+		1F06A725205570FD00FEB1B5 /* TimePicker */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A726205570FD00FEB1B5 /* PlaceCartDateContainer.swift */,
-				1F06A727205570FD00FEB1B5 /* PlaceCartDateContainer.xib */,
+				1F06A726205570FD00FEB1B5 /* PlaceCartTimePicker.swift */,
+				1F06A727205570FD00FEB1B5 /* PlaceCartTimePicker.xib */,
 			);
-			path = CompleteDateContainer;
+			path = TimePicker;
 			sourceTree = "<group>";
 		};
-		1F06A728205570FD00FEB1B5 /* CompleteOrderContainer */ = {
+		1F06A728205570FD00FEB1B5 /* CompleteOrder */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A729205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.swift */,
-				1F06A72A205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.xib */,
+				1F06A729205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.swift */,
+				1F06A72A205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.xib */,
 			);
-			path = CompleteOrderContainer;
+			path = CompleteOrder;
 			sourceTree = "<group>";
 		};
 		1F06A72B205570FD00FEB1B5 /* DishesContainer */ = {
@@ -1758,7 +1756,6 @@
 			isa = PBXGroup;
 			children = (
 				1F06A733205570FD00FEB1B5 /* PlaceCartDivider.swift */,
-				1F06A734205570FD00FEB1B5 /* PlaceCartDivider.xib */,
 			);
 			path = Divider;
 			sourceTree = "<group>";
@@ -2428,8 +2425,8 @@
 			children = (
 				1F06A73C205570FD00FEB1B5 /* PlaceCartController.swift */,
 				1F1F26CD20768E1C00F6A260 /* PlaceCartController.xib */,
-				1F06A735205570FD00FEB1B5 /* PlaceCartController.strings */,
 				1F1F26CF20768ED500F6A260 /* PlaceCartElement.swift */,
+				1F06A735205570FD00FEB1B5 /* PlaceCartController.strings */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -2664,7 +2661,7 @@
 				1F06A8BF205570FD00FEB1B5 /* DishModalSelectAddingsCell.xib in Resources */,
 				1F06A8EE205570FE00FEB1B5 /* OneOrderController.strings in Resources */,
 				1F06A890205570FD00FEB1B5 /* OtherPaymentCardsControllerCardCell.xib in Resources */,
-				1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.xib in Resources */,
+				1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.xib in Resources */,
 				1F06A7EC205570FD00FEB1B5 /* EnterPhoneAuthController.strings in Resources */,
 				1F06A88A205570FD00FEB1B5 /* OrdersControllerOrderCell.xib in Resources */,
 				1F06A8CD205570FD00FEB1B5 /* DishModal.strings in Resources */,
@@ -2677,7 +2674,7 @@
 				1F8923942056DCBE0086D372 /* InfoPlist.strings in Resources */,
 				1F06A7EE205570FD00FEB1B5 /* EnterPhoneAuthController.xib in Resources */,
 				1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */,
-				1F06A896205570FD00FEB1B5 /* PlaceCartDateContainer.xib in Resources */,
+				1F06A896205570FD00FEB1B5 /* PlaceCartTimePicker.xib in Resources */,
 				1F06A8EC205570FE00FEB1B5 /* OneOrderDishesContainerDishCell.xib in Resources */,
 				1F06A7F4205570FD00FEB1B5 /* TermsController.strings in Resources */,
 				1F06A8C5205570FD00FEB1B5 /* DishModalSelectVariationsCell.xib in Resources */,
@@ -2686,7 +2683,6 @@
 				1F06A8C0205570FD00FEB1B5 /* DishModalSelectAddings.xib in Resources */,
 				1F06A894205570FD00FEB1B5 /* PlaceCartAdditionalContainer.xib in Resources */,
 				1F06A8D3205570FD00FEB1B5 /* PlaceMenuController.strings in Resources */,
-				1F06A8A0205570FD00FEB1B5 /* PlaceCartDivider.xib in Resources */,
 				1F06A8D7205570FD00FEB1B5 /* PlaceMenuDishCell.xib in Resources */,
 				1F06A7DF205570FD00FEB1B5 /* AddCardUIService.strings in Resources */,
 				1F06A7EF205570FD00FEB1B5 /* SelectAuthController.strings in Resources */,
@@ -2847,7 +2843,7 @@
 				1F06A87B205570FD00FEB1B5 /* LoadingController.swift in Sources */,
 				1F06A8B1205570FD00FEB1B5 /* DishModal.swift in Sources */,
 				1F06A8DC205570FE00FEB1B5 /* PlaceMenuSubcategoryHeader.swift in Sources */,
-				1F06A895205570FD00FEB1B5 /* PlaceCartDateContainer.swift in Sources */,
+				1F06A895205570FD00FEB1B5 /* PlaceCartTimePicker.swift in Sources */,
 				1F06A8F7205570FE00FEB1B5 /* OneOrderTotalContainer.swift in Sources */,
 				1F06A8C1205570FD00FEB1B5 /* DishModalSelectHeader.swift in Sources */,
 				1F06A8B8205570FD00FEB1B5 /* DishModalElementsProtocol.swift in Sources */,
@@ -2868,7 +2864,7 @@
 				1F06A876205570FD00FEB1B5 /* GreetingController.swift in Sources */,
 				1F06A830205570FD00FEB1B5 /* AdditionSummary.swift in Sources */,
 				1F06A8D1205570FD00FEB1B5 /* PlaceMenuCartAction.swift in Sources */,
-				1F06A897205570FD00FEB1B5 /* PlaceCartCompleteOrderContainer.swift in Sources */,
+				1F06A897205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.swift in Sources */,
 				1F06A868205570FD00FEB1B5 /* ConfigKey.swift in Sources */,
 				1F06A9092055842000FEB1B5 /* NavigationController.swift in Sources */,
 				1F06A80A205570FD00FEB1B5 /* ApiKeysRefreshser.swift in Sources */,

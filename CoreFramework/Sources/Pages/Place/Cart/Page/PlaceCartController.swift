@@ -29,10 +29,12 @@ public class PlaceCartController: UIViewController {
     //UI elements
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var contentView: UIView!
-    @IBOutlet private weak var dateTimeElement: PlaceCartDateContainer!
+    @IBOutlet private weak var dateTimeElement: PlaceCartTimePicker!
+    @IBOutlet private weak var dateTimeDivider: PlaceCartDivider!
+    @IBOutlet private weak var completeOrderElement: PlaceCartCompleteOrderAction!
     private var refreshControl: RefreshControl!
     private var interfaceLoader: InterfaceLoader!
-    private var interfaceElements: [PlaceCartElement] = []
+    private var interfaceElements: [PlaceCartElement & UIView] = []
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
@@ -107,18 +109,18 @@ extension PlaceCartController {
 
         view.backgroundColor = themeColors.divider
         scrollView.backgroundColor = themeColors.divider
+        contentView.backgroundColor = themeColors.divider
+
+        scrollView.alwaysBounceVertical = true
 
         interfaceLoader = InterfaceLoader(for: self.view)
-
         interfaceElements = loadElements()
-//        interfaceBuilder = InterfaceTable(source: tableView, rows: interfaceParts)
-//        tableView.estimatedRowHeight = 0
-//        tableView.estimatedSectionFooterHeight = 0
-//        tableView.estimatedSectionHeaderHeight = 0
 
         refreshControl = scrollView.addRefreshControl(for: self, action: #selector(needReload))
+        refreshControl.removeFromSuperview()
         refreshControl?.backgroundColor = themeColors.divider
         refreshControl?.tintColor = themeColors.dividerText
+        scrollView.insertSubview(refreshControl, at: 0)
 
         navigationItem.title = Localization.Labels.title.localized
 
@@ -160,35 +162,18 @@ extension PlaceCartController {
             }
         }
     }
-    private func loadElements() -> [PlaceCartElement] {
+    private func loadElements() -> [PlaceCartElement & UIView] {
 
-        var result = [PlaceCartElement]()
+        var result = [PlaceCartElement & UIView]()
 
         result.append(dateTimeElement)
+        result.append(dateTimeDivider)
+
+        
 
         for element in result {
             element.update(with: self)
         }
-        //Date picker
-//        result.append(PlaceCartDateContainer.create(for: self))
-//        result.append(PlaceCartDivider.create())
-
-//        //Dishes
-//        result.append(PlaceCartDishesContainer.create(for: self))
-//        result.append(PlaceCartTotalContainer.create(for: self))
-//        result.append(PlaceCartDivider.create())
-//
-//        //Payment cards
-//        result.append(PlaceCartPaymentCardsContainer.create(with: self))
-//        result.append(PlaceCartDivider.create())
-//
-//        //Comment and takeaway
-//        result.append(PlaceCartAdditionalContainer.create(for: self))
-//        result.append(PlaceCartDivider.create())
-
-        //Complete
-//        result.append(PlaceCartDivider.create())
-//        result.append(PlaceCartCompleteOrderContainer.create(for: self))
 
         return result
     }
@@ -312,12 +297,23 @@ extension PlaceCartController: PlaceCartDelegate {
             commonHeight = commonHeight + element.height()
         }
 
-        contentView.setContraint(height: commonHeight)
+        commonHeight = max(commonHeight, view.frame.height)
+
+        scrollView.contentSize = CGSize(width: view.frame.width, height: commonHeight)
+//        contentView.setContraint(height: commonHeight)
         UIView.animate(withDuration: 0.4) {
-            self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: commonHeight)
+            self.scrollView.layoutIfNeeded()
+            self.contentView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }
+
+        UIView.animate(withDuration: 0.3) {
+            for element in self.interfaceElements {
+                element.layoutIfNeeded()
+            }
+        }
     }
+
     public func closePage() {
         goBack()
     }

@@ -10,28 +10,29 @@ import Foundation
 import UIKit
 import MdsKit
 
-public class PlaceCartDivider: UITableViewCell {
-
-    private static let nibName = String.tag(PlaceCartDivider.self)
-    public static func create() -> PlaceCartDivider {
-        return  UINib.instantiate(from: nibName, bundle: Bundle.coreFramework)
-    }
-
+public class PlaceCartDivider: UIView {
+    
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
-    public override func awakeFromNib() {
-        super.awakeFromNib()
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
 
-        backgroundColor = themeColors.divider
+        initialize()
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        initialize()
+    }
+    private func initialize() {
+
+        self.backgroundColor = themeColors.divider
+        self.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: frame.height)
     }
 }
-//extension PlaceCartDivider: PlaceCartElement {
-//
-//    public func viewDidAppear() {}
-//    public func viewDidDisappear() {}
-//    public func update(with: PlaceCartDelegate) {}
-//    public func height() -> CGFloat {
-//        return 15
-//    }
-//}
+extension PlaceCartDivider: PlaceCartElement {
+    public func height() -> CGFloat {
+        return frame.height
+    }
+}

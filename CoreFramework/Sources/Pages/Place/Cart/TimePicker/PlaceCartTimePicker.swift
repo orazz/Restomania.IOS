@@ -1,5 +1,5 @@
 //
-//  PlaceCartCompleteDateContainer.swift
+//  PlaceCartTimePicker.swift
 //  CoreFramework
 //
 //  Created by Алексей on 08.11.17.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MdsKit
 
-public class PlaceCartDateContainer: UIView {
+public class PlaceCartTimePicker: UIView {
 
     fileprivate enum TimePickerComponents: Int {
         case hours = 0
@@ -75,7 +75,7 @@ public class PlaceCartDateContainer: UIView {
     }
     private func connect() {
 
-        let nibName = String.tag(PlaceCartDateContainer.self)
+        let nibName = String.tag(PlaceCartTimePicker.self)
         Bundle.coreFramework.loadNibNamed(nibName, owner: self, options: nil)
         self.addSubview(content)
         content.frame = self.bounds
@@ -172,7 +172,7 @@ public class PlaceCartDateContainer: UIView {
         dateTimeLabel.text = String(format: format, timeFormatter.string(from: time), dateFormatter.string(from: date))
     }
 }
-extension PlaceCartDateContainer {
+extension PlaceCartTimePicker {
 
     private func setup(dateAndTime date: Date) {
 
@@ -210,7 +210,7 @@ extension PlaceCartDateContainer {
     }
 }
 // MARK: Segment
-extension PlaceCartDateContainer {
+extension PlaceCartTimePicker {
     @objc private func handleDaySelect() {
 
         let segment = DaySelectorSegments(rawValue: dateChecker.selectedSegmentIndex)!
@@ -269,7 +269,7 @@ extension PlaceCartDateContainer {
     }
 }
 
-extension PlaceCartDateContainer: UIPickerViewDelegate, UIPickerViewDataSource {
+extension PlaceCartTimePicker: UIPickerViewDelegate, UIPickerViewDataSource {
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         guard let cart = self.cart else {
             return
@@ -307,21 +307,27 @@ extension PlaceCartDateContainer: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension UISegmentedControl {
-    fileprivate func select(day: PlaceCartDateContainer.DaySelectorSegments) {
+    fileprivate func select(day: PlaceCartTimePicker.DaySelectorSegments) {
         self.selectedSegmentIndex = day.rawValue
     }
 }
 extension UIPickerView {
-    fileprivate func set(_ value: Int, to part: PlaceCartDateContainer.TimePickerComponents) {
+    fileprivate func set(_ value: Int, to part: PlaceCartTimePicker.TimePickerComponents) {
         self.selectRow(value, inComponent: part.rawValue, animated: true)
     }
 }
 
-extension PlaceCartDateContainer: PlaceCartElement {
+extension PlaceCartTimePicker: PlaceCartElement {
     public func update(with delegate: PlaceCartDelegate) {
 
         self.delegate = delegate
-        refresh()
+
+        if (!loadElement) {
+            refresh()
+        }
+        else {
+            refreshSchedule()
+        }
     }
     public func height() -> CGFloat {
         return heightConstraint?.constant ?? defaultElementHeight
