@@ -14,12 +14,12 @@
             <connections>
                 <outlet property="additionalDivider" destination="DPM-26-NhO" id="Met-nQ-Ec4"/>
                 <outlet property="additionalElement" destination="zEG-z0-yBY" id="cyj-HH-gXB"/>
-                <outlet property="cardsDivider" destination="6aV-JS-7Ig" id="p5y-J7-2gz"/>
                 <outlet property="completeOrderAction" destination="U6J-Qi-dck" id="eOE-hL-7NV"/>
                 <outlet property="contentView" destination="miw-rk-QD9" id="417-ep-kpX"/>
                 <outlet property="dateTimeDivider" destination="S4t-hh-qN8" id="4dl-tS-18C"/>
                 <outlet property="dateTimePicker" destination="WNU-E7-2mB" id="Io6-OT-jCa"/>
                 <outlet property="dishesDivider" destination="YTq-qv-7Ff" id="sOd-8w-Gad"/>
+                <outlet property="paymentCardDivider" destination="6aV-JS-7Ig" id="p5y-J7-2gz"/>
                 <outlet property="paymentCardPicker" destination="bqz-FA-UHs" id="11G-yd-Tfn"/>
                 <outlet property="scrollView" destination="JB8-4K-0cA" id="3xj-MF-eWp"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eXd-Zy-rGY"/>

@@ -15,6 +15,7 @@ public class PlaceCartCompleteOrderAction: UIView {
     //UI hooks
     @IBOutlet private weak var content: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
+    private var heightConstraint: NSLayoutConstraint!
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
@@ -34,7 +35,6 @@ public class PlaceCartCompleteOrderAction: UIView {
     }
     private func initialize() {
 
-        self.setContraint(height: 50)
 
         connect()
         loadViews()
@@ -46,6 +46,8 @@ public class PlaceCartCompleteOrderAction: UIView {
         self.addSubview(content)
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        heightConstraint = self.constraints.find({ $0.firstAttribute == .height })
+        heightConstraint.constant = 50.0
     }
     public func loadViews() {
 
@@ -59,6 +61,6 @@ public class PlaceCartCompleteOrderAction: UIView {
 }
 extension PlaceCartCompleteOrderAction: PlaceCartElement {
     public func height() -> CGFloat {
-        return self.getConstant(.height)!
+        return heightConstraint.constant
     }
 }

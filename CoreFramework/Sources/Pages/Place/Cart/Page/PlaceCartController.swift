@@ -33,7 +33,7 @@ public class PlaceCartController: UIViewController {
     @IBOutlet private weak var dateTimeDivider: PlaceCartDivider!
     @IBOutlet private weak var dishesDivider: PlaceCartDivider!
     @IBOutlet private weak var paymentCardPicker: PlaceCartPaymentCardsContainer!
-    @IBOutlet private weak var cardsDivider: PlaceCartDivider!
+    @IBOutlet private weak var paymentCardDivider: PlaceCartDivider!
     @IBOutlet private weak var additionalElement: PlaceCartAdditionalContainer!
     @IBOutlet private weak var additionalDivider: PlaceCartDivider!
     @IBOutlet private weak var completeOrderAction: PlaceCartCompleteOrderAction!
@@ -178,7 +178,7 @@ extension PlaceCartController {
         result.append(dishesDivider)
 
         result.append(paymentCardPicker)
-        result.append(cardsDivider)
+        result.append(paymentCardDivider)
 
         result.append(additionalElement)
         result.append(additionalDivider)
@@ -314,7 +314,6 @@ extension PlaceCartController: PlaceCartDelegate {
         commonHeight = max(commonHeight, view.frame.height)
 
         scrollView.contentSize = CGSize(width: view.frame.width, height: commonHeight)
-//        contentView.setContraint(height: commonHeight)
         UIView.animate(withDuration: 0.4) {
             self.scrollView.layoutIfNeeded()
             self.contentView.layoutIfNeeded()
