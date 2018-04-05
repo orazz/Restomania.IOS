@@ -61,6 +61,7 @@ public class ExternalTextEditor: UIViewController {
     public func setupMarkup() {
 
         self.view.backgroundColor = themeColors.divider
+        self.navigationBar.delegate = self
 
         containerView.backgroundColor = themeColors.contentBackground
 
@@ -120,6 +121,11 @@ public class ExternalTextEditor: UIViewController {
                 break
             }
         }
+    }
+}
+extension ExternalTextEditor: UINavigationBarDelegate {
+    public func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }
 extension ExternalTextEditor: UITextViewDelegate {

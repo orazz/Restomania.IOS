@@ -29,9 +29,13 @@ public class PlaceCartController: UIViewController {
     //UI elements
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var contentView: UIView!
-    @IBOutlet private weak var dateTimeElement: PlaceCartTimePicker!
+    @IBOutlet private weak var dateTimePicker: PlaceCartTimePicker!
     @IBOutlet private weak var dateTimeDivider: PlaceCartDivider!
-    @IBOutlet private weak var completeOrderElement: PlaceCartCompleteOrderAction!
+    @IBOutlet private weak var dishesDivider: PlaceCartDivider!
+    @IBOutlet private weak var cardsDivider: PlaceCartDivider!
+    @IBOutlet private weak var additionalElement: PlaceCartAdditionalContainer!
+    @IBOutlet private weak var additionalDivider: PlaceCartDivider!
+    @IBOutlet private weak var completeOrderAction: PlaceCartCompleteOrderAction!
     private var refreshControl: RefreshControl!
     private var interfaceLoader: InterfaceLoader!
     private var interfaceElements: [PlaceCartElement & UIView] = []
@@ -166,10 +170,19 @@ extension PlaceCartController {
 
         var result = [PlaceCartElement & UIView]()
 
-        result.append(dateTimeElement)
+        result.append(dateTimePicker)
         result.append(dateTimeDivider)
 
-        
+//        result.append(dishesDivider)
+        result.append(dishesDivider)
+
+//        result.append(dishesDivider)
+        result.append(cardsDivider)
+
+        result.append(additionalElement)
+        result.append(additionalDivider)
+
+        result.append(completeOrderAction)
 
         for element in result {
             element.update(with: self)

@@ -113,6 +113,7 @@ public class Launcher {
         DispatchQueue.main.async {
             let tabs = TabsController()
             let navigator = NavigationController(rootViewController: tabs)
+            navigator.setNavigationBarHidden(true, animated: false)
             self.navigator = navigator
             self.router.initialize(with: navigator)
             self.router.initialize(with: tabs)

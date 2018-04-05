@@ -12,10 +12,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceCartController" customModule="CoreFramework" customModuleProvider="target">
             <connections>
-                <outlet property="completeOrderElement" destination="U6J-Qi-dck" id="eOE-hL-7NV"/>
+                <outlet property="additionalDivider" destination="DPM-26-NhO" id="Met-nQ-Ec4"/>
+                <outlet property="additionalElement" destination="zEG-z0-yBY" id="cyj-HH-gXB"/>
+                <outlet property="cardsDivider" destination="6aV-JS-7Ig" id="p5y-J7-2gz"/>
+                <outlet property="completeOrderAction" destination="U6J-Qi-dck" id="eOE-hL-7NV"/>
                 <outlet property="contentView" destination="miw-rk-QD9" id="417-ep-kpX"/>
                 <outlet property="dateTimeDivider" destination="S4t-hh-qN8" id="4dl-tS-18C"/>
-                <outlet property="dateTimeElement" destination="WNU-E7-2mB" id="Io6-OT-jCa"/>
+                <outlet property="dateTimePicker" destination="WNU-E7-2mB" id="Io6-OT-jCa"/>
+                <outlet property="dishesDivider" destination="YTq-qv-7Ff" id="sOd-8w-Gad"/>
                 <outlet property="scrollView" destination="JB8-4K-0cA" id="3xj-MF-eWp"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eXd-Zy-rGY"/>
             </connections>
@@ -32,39 +36,100 @@
                             <rect key="frame" x="0.0" y="0.0" width="374" height="2000"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNU-E7-2mB" userLabel="CompleteAtElement" customClass="PlaceCartTimePicker" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                     <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="150" id="LLz-vS-jQu"/>
+                                        <constraint firstAttribute="height" constant="100" id="LLz-vS-jQu"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4t-hh-qN8" customClass="PlaceCartDivider" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="150" width="374" height="15"/>
+                                    <rect key="frame" x="0.0" y="100" width="374" height="15"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="qxu-bj-7cv"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6J-Qi-dck" customClass="PlaceCartCompleteOrderAction" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="465" width="374" height="50"/>
+                                    <rect key="frame" x="0.0" y="460" width="374" height="50"/>
                                     <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="QD0-TA-zjy"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoN-aB-xgo">
+                                    <rect key="frame" x="0.0" y="115" width="374" height="100"/>
+                                    <color key="backgroundColor" red="0.66268795728683472" green="0.66278296709060669" blue="0.66265803575515747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="RTp-GD-1J6"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTq-qv-7Ff" customClass="PlaceCartDivider" customModule="CoreFramework" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="215" width="374" height="15"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="Z3o-RC-KCV"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="uoh-Kd-bhk"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqz-FA-UHs">
+                                    <rect key="frame" x="0.0" y="230" width="374" height="100"/>
+                                    <color key="backgroundColor" red="0.66268795729999996" green="0.66278296709999995" blue="0.66265803580000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="8dv-ZL-eWF"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEG-z0-yBY" customClass="PlaceCartAdditionalContainer" customModule="CoreFramework" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="345" width="374" height="100"/>
+                                    <color key="backgroundColor" red="0.66268795729999996" green="0.66278296709999995" blue="0.66265803580000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="cQu-vJ-O9u"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aV-JS-7Ig" customClass="PlaceCartDivider" customModule="CoreFramework" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="330" width="374" height="15"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="qLG-Da-MUh"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPM-26-NhO" customClass="PlaceCartDivider" customModule="CoreFramework" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="445" width="374" height="15"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="HGr-sT-meF"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="zEG-z0-yBY" secondAttribute="trailing" id="2vf-5v-xgE"/>
+                                <constraint firstItem="yoN-aB-xgo" firstAttribute="leading" secondItem="miw-rk-QD9" secondAttribute="leading" id="3Az-Aa-Fzn"/>
                                 <constraint firstAttribute="trailing" secondItem="U6J-Qi-dck" secondAttribute="trailing" id="6eN-MV-4K3"/>
                                 <constraint firstItem="S4t-hh-qN8" firstAttribute="leading" secondItem="miw-rk-QD9" secondAttribute="leading" id="80P-vi-24P"/>
                                 <constraint firstItem="WNU-E7-2mB" firstAttribute="top" secondItem="miw-rk-QD9" secondAttribute="top" id="BlG-4x-DeC"/>
-                                <constraint firstItem="U6J-Qi-dck" firstAttribute="top" secondItem="S4t-hh-qN8" secondAttribute="bottom" constant="300" id="ERf-n3-RFu"/>
+                                <constraint firstItem="U6J-Qi-dck" firstAttribute="top" secondItem="DPM-26-NhO" secondAttribute="bottom" id="BnI-tC-iWN"/>
+                                <constraint firstItem="zEG-z0-yBY" firstAttribute="top" secondItem="6aV-JS-7Ig" secondAttribute="bottom" id="GLV-XR-zx9"/>
+                                <constraint firstAttribute="trailing" secondItem="yoN-aB-xgo" secondAttribute="trailing" id="LP2-UN-ybQ"/>
                                 <constraint firstAttribute="trailing" secondItem="S4t-hh-qN8" secondAttribute="trailing" id="Lto-pH-fON"/>
                                 <constraint firstAttribute="trailing" secondItem="WNU-E7-2mB" secondAttribute="trailing" id="Oh2-eW-kMo"/>
+                                <constraint firstItem="yoN-aB-xgo" firstAttribute="top" secondItem="S4t-hh-qN8" secondAttribute="bottom" id="Sbd-wz-J7n"/>
+                                <constraint firstItem="6aV-JS-7Ig" firstAttribute="top" secondItem="bqz-FA-UHs" secondAttribute="bottom" id="UhZ-62-DpY"/>
+                                <constraint firstItem="YTq-qv-7Ff" firstAttribute="leading" secondItem="miw-rk-QD9" secondAttribute="leading" id="Uwo-9p-NXW"/>
+                                <constraint firstItem="YTq-qv-7Ff" firstAttribute="top" secondItem="yoN-aB-xgo" secondAttribute="bottom" id="V3l-ro-tdG"/>
                                 <constraint firstItem="WNU-E7-2mB" firstAttribute="leading" secondItem="miw-rk-QD9" secondAttribute="leading" id="WQn-5o-7WU"/>
                                 <constraint firstAttribute="height" constant="2000" id="WVc-Np-Ktr"/>
+                                <constraint firstItem="zEG-z0-yBY" firstAttribute="leading" secondItem="miw-rk-QD9" secondAttribute="leading" id="YBC-D1-3R6"/>
+                                <constraint firstAttribute="trailing" secondItem="bqz-FA-UHs" secondAttribute="trailing" id="axs-oe-2F7"/>
+                                <constraint firstAttribute="trailing" secondItem="YTq-qv-7Ff" secondAttribute="trailing" id="bmW-gf-4uN"/>
                                 <constraint firstItem="U6J-Qi-dck" firstAttribute="leading" secondItem="miw-rk-QD9" secondAttribute="leading" id="cWN-PO-cc2"/>
+                                <constraint firstItem="bqz-FA-UHs" firstAttribute="top" secondItem="YTq-qv-7Ff" secondAttribute="bottom" id="d0j-Oh-nE7"/>
                                 <constraint firstItem="S4t-hh-qN8" firstAttribute="top" secondItem="WNU-E7-2mB" secondAttribute="bottom" id="eIH-rB-tXH"/>
+                                <constraint firstItem="6aV-JS-7Ig" firstAttribute="leading" secondItem="miw-rk-QD9" secondAttribute="leading" id="fCK-uj-MP5"/>
+                                <constraint firstItem="DPM-26-NhO" firstAttribute="leading" secondItem="miw-rk-QD9" secondAttribute="leading" id="hnv-4t-gtX"/>
+                                <constraint firstAttribute="trailing" secondItem="DPM-26-NhO" secondAttribute="trailing" id="jd3-ci-whd"/>
+                                <constraint firstItem="bqz-FA-UHs" firstAttribute="leading" secondItem="miw-rk-QD9" secondAttribute="leading" id="pEz-ZT-Igm"/>
+                                <constraint firstAttribute="trailing" secondItem="6aV-JS-7Ig" secondAttribute="trailing" id="sXg-Ag-xYb"/>
+                                <constraint firstItem="DPM-26-NhO" firstAttribute="top" secondItem="zEG-z0-yBY" secondAttribute="bottom" id="uZQ-xI-7nM"/>
                             </constraints>
                         </view>
                     </subviews>
