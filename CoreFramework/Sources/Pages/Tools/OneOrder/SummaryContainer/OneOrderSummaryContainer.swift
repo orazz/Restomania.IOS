@@ -76,12 +76,12 @@ extension OneOrderSummaryContainer: OneOrderInterfacePart {
     private func prepareStatus(_ status: DishOrderStatus) -> Localizable {
 
         switch(status) {
-            case .waitingPayment:
-                return OneOrderController.Keys.statusWaitingPayment
-            case .making:
-                return OneOrderController.Keys.statusMaking
-            case .prepared:
-                return OneOrderController.Keys.statusPrepared
+            case .approved:
+                return OneOrderController.Keys.statusApproved
+            case .isPaid:
+                return OneOrderController.Keys.statusIsPaid
+            case .isPrepared:
+                return OneOrderController.Keys.statusIsPrepared
             case .completed:
                 return OneOrderController.Keys.statusCompleted
             case .paymentFail:

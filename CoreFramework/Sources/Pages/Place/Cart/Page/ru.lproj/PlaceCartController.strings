@@ -9,6 +9,7 @@
 
 "Labels.Title" = "Корзина";
 "Labels.OrderOn" = "Заказ в %@ на %@";
+"Labels.Dishes" = "Блюда";
 "Labels.Total" = "Итог";
 "Labels.SelectPaymentCard" = "Выберите карту для оплаты";
 "Labels.Comment" = "Комментарий";

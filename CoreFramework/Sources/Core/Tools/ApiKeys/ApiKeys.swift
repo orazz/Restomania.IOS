@@ -38,6 +38,10 @@ open class ApiKeys: Glossy {
             Keys.token ~~> self.token
             ])
     }
+
+    public var accountId: Long {
+        return id
+    }
 }
 
 public func !=(left: ApiKeys, right: ApiKeys) -> Bool {

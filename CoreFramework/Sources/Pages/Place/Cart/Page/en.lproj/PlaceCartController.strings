@@ -8,6 +8,7 @@
 
 "Labels.Title" = "Cart";
 "Labels.OrderOn" = "Order at %@ on %@";
+"Labels.Dishes" = "Dishes";
 "Labels.Total" = "Total";
 "Labels.SelectPaymentCard" = "Select payment card";
 "Labels.Comment" = "Comment";

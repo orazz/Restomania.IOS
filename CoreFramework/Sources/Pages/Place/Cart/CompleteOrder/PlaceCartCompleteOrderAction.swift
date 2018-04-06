@@ -58,8 +58,14 @@ public class PlaceCartCompleteOrderAction: UIView {
         titleLabel.text = PlaceCartController.Localization.Buttons.addNewOrder.localized.uppercased()
     }
 
+    @IBAction private func addOrder() {
+        delegate?.tryAddOrder()
+    }
 }
 extension PlaceCartCompleteOrderAction: PlaceCartElement {
+    public func update(with delegate: PlaceCartDelegate) {
+        self.delegate = delegate
+    }
     public func height() -> CGFloat {
         return heightConstraint.constant
     }

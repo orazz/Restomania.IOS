@@ -13,10 +13,11 @@ import NotificationBannerSwift
 open class BannerAlert {
 
     private let source: NotificationBanner
+    private let theme = DependencyResolver.get(ThemeColors.self)
 
     public init(title: String, subtitle: String) {
 
-        source = NotificationBanner(title: title, subtitle: subtitle)
+        source = NotificationBanner(title: title, subtitle: subtitle, colors: theme.bannerColors)
     }
 
     //Actions

@@ -10,11 +10,13 @@ import Foundation
 import MdsKit
 import UIKit
 import Gloss
+import AVFoundation
 
 public class PushesHandler {
 
     private static let tag = String.tag(PushesHandler.self)
     private static let router = DependencyResolver.get(Router.self)
+    private static let ordersService = DependencyResolver.get(OrdersCacheService.self)
 
     public static func process(_ push: PushContainer) {
 
@@ -30,31 +32,29 @@ public class PushesHandler {
         if let banner = notification.banner {
             banner.onTap = {
 
-                if let ctor = notification.controller,
-                    let vc = ctor(),
+                if let controller = notification.controller,
                     let navigator = router.navigator {
 
-                    navigator.pushViewController(vc, animated: true)
+                    navigator.pushViewController(controller, animated: true)
                 }
             }
 
-            banner.show()
+            DispatchQueue.main.async {
+                banner.show()
+
+                if let _ = notification.sound,
+                    !notification.silent {
+
+                    let defaultSound: SystemSoundID = 1016
+                    AudioServicesPlaySystemSound(defaultSound)
+                }
+            }
         }
     }
-    public static func build(_ push: PushContainer, force: Bool = false ) -> NotificationContainer? {
+    public static func build(_ push: PushContainer, force: Bool = false) -> NotificationContainer? {
 
-        if (NotificationsIgnore.isIgnored(push.id) || !force) {
+        if (!force && NotificationsIgnore.isIgnored(push.id)) {
             return nil
-        }
-
-        let completer: Action<BannerAlert?> = { banner in
-            if let banner = banner,
-                push.allowNotify {
-
-                DispatchQueue.main.async {
-                    banner.show()
-                }
-            }
         }
 
         switch push.event {
@@ -63,34 +63,37 @@ public class PushesHandler {
              .dishOrderPaymentFailForUser,
              .dishOrderPaymentCompleteForUser,
              .dishOrderIsPreparedForUser:
-            return processDishOrder(push, complete: completer)
+            return processDishOrder(push, force)
         default:
             return nil
         }
     }
-    private static func processDishOrder(_ push: PushContainer, complete: @escaping Action<BannerAlert?>) -> NotificationContainer? {
+    private static func processDishOrder(_ push: PushContainer, _ force: Bool) -> NotificationContainer? {
 
         guard let data = push.data,
                 let model = OrderPushModel(json: data) else {
             return nil
         }
 
-        if (NotificationsIgnore.Orders.isIgnored(model.id, with: model.status)) {
+        if (!force && NotificationsIgnore.Orders.isIgnored(model.id, with: model.status)) {
             return nil
         }
 
-        let title = "\(push.message).Title".localized
-        let subtitle = String(format: push.message.localized, arguments: push.messageArgs)
-        let banner = BannerAlert(title: title, subtitle: subtitle)
-        banner.onTap = {
-//            let router = DependencyResolver.resolve(Router.self)
-//            router.goToOrder(orderId: model.id, reset: false)
+        let request = ordersService.find(model.id)
+        request.async(.background, completion: { _ in })
+
+        if (push.silent) {
+            return nil
         }
 
-        let orders = DependencyResolver.get(OrdersCacheService.self)
-        let request = orders.find(model.id)
-        request.async(.background, completion: { _ in complete(banner)})
 
-        return nil
+        let container = NotificationContainer(from: push)
+        container.controller = OneOrderController(for: model.id, needRequest: true)
+
+        let title = "\(push.message).Title".localized
+        let subtitle = String(format: push.message.localized, arguments: push.messageArgs)
+        container.banner = BannerAlert(title: title, subtitle: subtitle)
+
+        return container
     }
 }

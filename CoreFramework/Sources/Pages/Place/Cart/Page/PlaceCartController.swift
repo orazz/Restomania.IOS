@@ -31,7 +31,8 @@ public class PlaceCartController: UIViewController {
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var dateTimePicker: PlaceCartTimePicker!
     @IBOutlet private weak var dateTimeDivider: PlaceCartDivider!
-    @IBOutlet private weak var dishesDivider: PlaceCartDivider!
+    @IBOutlet private weak var checkContainer: PlaceCartCheckContainer!
+    @IBOutlet private weak var checkDivider: PlaceCartDivider!
     @IBOutlet private weak var paymentCardPicker: PlaceCartPaymentCardsContainer!
     @IBOutlet private weak var paymentCardDivider: PlaceCartDivider!
     @IBOutlet private weak var additionalElement: PlaceCartAdditionalContainer!
@@ -174,8 +175,8 @@ extension PlaceCartController {
         result.append(dateTimePicker)
         result.append(dateTimeDivider)
 
-//        result.append(dishesDivider)
-        result.append(dishesDivider)
+        result.append(checkContainer)
+        result.append(checkDivider)
 
         result.append(paymentCardPicker)
         result.append(paymentCardDivider)
@@ -384,6 +385,8 @@ extension PlaceCartController: PlaceCartDelegate {
                     let vc = PlaceCompleteOrderController.create(for: order)
                     self.navigationController?.pushViewController(vc, animated: true)
 
+                    NotificationsIgnore.Orders.add(order.id)
+                    
                     Log.debug(self._tag, "Add order #\(self.placeId)")
                 }
 
@@ -452,6 +455,7 @@ extension PlaceCartController {
 
             case title = "Labels.Title"
             case orderOn = "Labels.OrderOn"
+            case dishes = "Labels.Dishes"
             case total = "Labels.Total"
             case selectPaymentCard = "Labels.SelectPaymentCard"
             case comment = "Labels.Comment"

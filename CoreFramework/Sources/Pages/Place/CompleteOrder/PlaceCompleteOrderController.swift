@@ -34,33 +34,31 @@ public class PlaceCompleteOrderController: UIViewController {
 
     //Data
     private var order: DishOrder!
-
 }
 
 // MARK: Actions
 extension PlaceCompleteOrderController {
     @IBAction private func goToOrder() {
 
-//        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
-//
-//            DispatchQueue.main.async {
-//                self.navigationController?.popToViewController(tabs, animated: false)
-//                let navigator = tabs.navigationController
-////                self.navigationController?.pushViewController(ManagerOrdersController.create(), animated: true)
-//                DispatchQueue.main.async {
-//                    let vc = OneOrderController(for: self.order.id)
-//                    navigator?.pushViewController(vc, animated: true)
-//                }
-//            }
-//        }
+        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
+
+            DispatchQueue.main.async {
+                self.navigationController?.popToViewController(tabs, animated: false)
+                let navigator = tabs.navigationController
+
+                DispatchQueue.main.async {
+                    let vc = OneOrderController(for: self.order.id)
+                    navigator?.pushViewController(vc, animated: true)
+                }
+            }
+        }
 
     }
     @IBAction private func goToSearch() {
 
-//        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
-//
-//            navigationController?.popToViewController(tabs, animated: true)
-//        }
+        if let tabs = navigationController?.viewControllers.first(where: { $0 is TabsController }) {
+            navigationController?.popToViewController(tabs, animated: true)
+        }
     }
 }
 
@@ -74,6 +72,8 @@ extension PlaceCompleteOrderController {
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        navigationController?.setToolbarHidden(true, animated: false)
     }
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

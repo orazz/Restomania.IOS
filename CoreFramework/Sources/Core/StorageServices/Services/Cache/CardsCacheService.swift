@@ -90,7 +90,7 @@ public class CardsCacheService {
 
 extension CardsCacheService: ApiKeyServiceDelegate {
     public func apiKeyService(update keys: ApiKeys, for role: ApiRole) {
-        let needRemove = cache.where({ $0.userID != keys.id })
+        let needRemove = cache.where({ $0.userId != keys.accountId })
         adapter.remove(needRemove)
     }
     public func apiKeyService(logout role: ApiRole) {

@@ -25,11 +25,11 @@
 "Formats.Date" = "dd/MM/yyyy";
 
 "DishOrder.Status.Processing" = "В обработке";
-"DishOrder.Status.WaitingPayment" = "Ожидает оплаты";
-"DishOrder.Status.Making" = "Собирается";
-"DishOrder.Status.Prepared" = "Готов к выдаче";
-"DishOrder.Status.PaymentFail" = "Проблемы с оплатой";
+"DishOrder.Status.Approved" = "Одобрен";
+"DishOrder.Status.IsPaid" = "Оплачен";
+"DishOrder.Status.IsPrepared" = "Готов к выдаче";
 "DishOrder.Status.Completed" = "Завершен";
+"DishOrder.Status.PaymentFail" = "Проблемы с оплатой";
 "DishOrder.Status.CanceledByPlace" = "Отменен заведением";
 "DishOrder.Status.CanceledByUser" = "Отменен пользователем";
 

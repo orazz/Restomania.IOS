@@ -135,14 +135,11 @@ extension OrdersCacheService : IEventsEmitter {
 }
 extension OrdersCacheService: ApiKeyServiceDelegate {
     public func apiKeyService(_ service: ApiKeyService, update keys: ApiKeys, for role: ApiRole) {
-        if (role == .user) {
-            clear()
-        }
+        let needRemove = cache.where({ $0.userId == keys.accountId || $0.placeId == keys.accountId })
+        cacheAdapter.remove(needRemove)
     }
     public func apiKeyService(_ service: ApiKeyService, logout role: ApiRole) {
-        if (role == .user) {
-            clear()
-        }
+        clear()
     }
 }
 extension OrdersCacheServiceDelegate {

@@ -136,7 +136,20 @@ extension AppDelegate {
                             didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                             fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
-        PushesService.shared.processMessage(notification: userInfo, handler: completionHandler)
+        if (UIApplication.shared.applicationState == .inactive) {
+
+            let router = DependencyResolver.get(Router.self)
+
+            if let container = PushContainer.tryParse(userInfo),
+                let notification = PushesHandler.build(container),
+                let vc = notification.controller,
+                let navigator = router.navigator {
+                navigator.pushViewController(vc, animated: true)
+            }
+        }
+        else {
+            PushesService.shared.processMessage(notification: userInfo, handler: completionHandler)
+        }
     }
 }
 

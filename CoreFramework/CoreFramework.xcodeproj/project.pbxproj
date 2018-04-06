@@ -195,12 +195,9 @@
 		1F06A896205570FD00FEB1B5 /* PlaceCartTimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A727205570FD00FEB1B5 /* PlaceCartTimePicker.xib */; };
 		1F06A897205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A729205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.swift */; };
 		1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A72A205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.xib */; };
-		1F06A899205570FD00FEB1B5 /* PlaceCartDishesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A72C205570FD00FEB1B5 /* PlaceCartDishesContainer.swift */; };
-		1F06A89A205570FD00FEB1B5 /* PlaceCartDishesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A72D205570FD00FEB1B5 /* PlaceCartDishesContainerCell.swift */; };
-		1F06A89B205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A72E205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.swift */; };
-		1F06A89C205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A72F205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.xib */; };
-		1F06A89D205570FD00FEB1B5 /* PlaceCartDishesContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A730205570FD00FEB1B5 /* PlaceCartDishesContainerCell.xib */; };
-		1F06A89E205570FD00FEB1B5 /* PlaceCartDishesContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A731205570FD00FEB1B5 /* PlaceCartDishesContainer.xib */; };
+		1F06A89A205570FD00FEB1B5 /* PlaceCartDishRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A72D205570FD00FEB1B5 /* PlaceCartDishRow.swift */; };
+		1F06A89D205570FD00FEB1B5 /* PlaceCartDishRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A730205570FD00FEB1B5 /* PlaceCartDishRow.xib */; };
+		1F06A89E205570FD00FEB1B5 /* PlaceCartCheckContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A731205570FD00FEB1B5 /* PlaceCartCheckContainer.xib */; };
 		1F06A89F205570FD00FEB1B5 /* PlaceCartDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A733205570FD00FEB1B5 /* PlaceCartDivider.swift */; };
 		1F06A8A1205570FD00FEB1B5 /* PlaceCartController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A735205570FD00FEB1B5 /* PlaceCartController.strings */; };
 		1F06A8A2205570FD00FEB1B5 /* PlaceCartPaymentCardsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A738205570FD00FEB1B5 /* PlaceCartPaymentCardsContainer.swift */; };
@@ -208,10 +205,8 @@
 		1F06A8A4205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A73A205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCell.xib */; };
 		1F06A8A5205570FD00FEB1B5 /* PlaceCartPaymentCardsContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A73B205570FD00FEB1B5 /* PlaceCartPaymentCardsContainer.xib */; };
 		1F06A8A6205570FD00FEB1B5 /* PlaceCartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A73C205570FD00FEB1B5 /* PlaceCartController.swift */; };
-		1F06A8A8205570FD00FEB1B5 /* PlaceCartTotalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A740205570FD00FEB1B5 /* PlaceCartTotalContainer.swift */; };
-		1F06A8A9205570FD00FEB1B5 /* PlaceCartTotalContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A741205570FD00FEB1B5 /* PlaceCartTotalContainerCell.swift */; };
-		1F06A8AA205570FD00FEB1B5 /* PlaceCartTotalContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A742205570FD00FEB1B5 /* PlaceCartTotalContainerCell.xib */; };
-		1F06A8AB205570FD00FEB1B5 /* PlaceCartTotalContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A743205570FD00FEB1B5 /* PlaceCartTotalContainer.xib */; };
+		1F06A8A9205570FD00FEB1B5 /* PlaceCartTotalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A741205570FD00FEB1B5 /* PlaceCartTotalRow.swift */; };
+		1F06A8AA205570FD00FEB1B5 /* PlaceCartTotalRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A742205570FD00FEB1B5 /* PlaceCartTotalRow.xib */; };
 		1F06A8AC205570FD00FEB1B5 /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A745205570FD00FEB1B5 /* PlaceCompleteOrderController.swift */; };
 		1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A746205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib */; };
 		1F06A8AE205570FD00FEB1B5 /* AddDishToCartModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A748205570FD00FEB1B5 /* AddDishToCartModal.swift */; };
@@ -298,6 +293,7 @@
 		1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */; };
 		1F1F26CE20768E1C00F6A260 /* PlaceCartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1F26CD20768E1C00F6A260 /* PlaceCartController.xib */; };
 		1F1F26D020768ED500F6A260 /* PlaceCartElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F26CF20768ED500F6A260 /* PlaceCartElement.swift */; };
+		1F1F26D22076D2C300F6A260 /* PlaceCartCheckContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F26D12076D2C300F6A260 /* PlaceCartCheckContainer.swift */; };
 		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
 		1F53B92E205FD50A00656EA5 /* ParsedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */; };
 		1F53B930206056E300656EA5 /* ParsedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92F206056E300656EA5 /* ParsedCategory.swift */; };
@@ -648,12 +644,9 @@
 		1F06A727205570FD00FEB1B5 /* PlaceCartTimePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartTimePicker.xib; sourceTree = "<group>"; };
 		1F06A729205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartCompleteOrderAction.swift; sourceTree = "<group>"; };
 		1F06A72A205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartCompleteOrderAction.xib; sourceTree = "<group>"; };
-		1F06A72C205570FD00FEB1B5 /* PlaceCartDishesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDishesContainer.swift; sourceTree = "<group>"; };
-		1F06A72D205570FD00FEB1B5 /* PlaceCartDishesContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDishesContainerCell.swift; sourceTree = "<group>"; };
-		1F06A72E205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDishesContainerCellMeta.swift; sourceTree = "<group>"; };
-		1F06A72F205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartDishesContainerCellMeta.xib; sourceTree = "<group>"; };
-		1F06A730205570FD00FEB1B5 /* PlaceCartDishesContainerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartDishesContainerCell.xib; sourceTree = "<group>"; };
-		1F06A731205570FD00FEB1B5 /* PlaceCartDishesContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartDishesContainer.xib; sourceTree = "<group>"; };
+		1F06A72D205570FD00FEB1B5 /* PlaceCartDishRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDishRow.swift; sourceTree = "<group>"; };
+		1F06A730205570FD00FEB1B5 /* PlaceCartDishRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartDishRow.xib; sourceTree = "<group>"; };
+		1F06A731205570FD00FEB1B5 /* PlaceCartCheckContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartCheckContainer.xib; sourceTree = "<group>"; };
 		1F06A733205570FD00FEB1B5 /* PlaceCartDivider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartDivider.swift; sourceTree = "<group>"; };
 		1F06A736205570FD00FEB1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PlaceCartController.strings; sourceTree = "<group>"; };
 		1F06A738205570FD00FEB1B5 /* PlaceCartPaymentCardsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartPaymentCardsContainer.swift; sourceTree = "<group>"; };
@@ -662,10 +655,8 @@
 		1F06A73B205570FD00FEB1B5 /* PlaceCartPaymentCardsContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartPaymentCardsContainer.xib; sourceTree = "<group>"; };
 		1F06A73C205570FD00FEB1B5 /* PlaceCartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartController.swift; sourceTree = "<group>"; };
 		1F06A73E205570FD00FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PlaceCartController.strings; sourceTree = "<group>"; };
-		1F06A740205570FD00FEB1B5 /* PlaceCartTotalContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartTotalContainer.swift; sourceTree = "<group>"; };
-		1F06A741205570FD00FEB1B5 /* PlaceCartTotalContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartTotalContainerCell.swift; sourceTree = "<group>"; };
-		1F06A742205570FD00FEB1B5 /* PlaceCartTotalContainerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartTotalContainerCell.xib; sourceTree = "<group>"; };
-		1F06A743205570FD00FEB1B5 /* PlaceCartTotalContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartTotalContainer.xib; sourceTree = "<group>"; };
+		1F06A741205570FD00FEB1B5 /* PlaceCartTotalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartTotalRow.swift; sourceTree = "<group>"; };
+		1F06A742205570FD00FEB1B5 /* PlaceCartTotalRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartTotalRow.xib; sourceTree = "<group>"; };
 		1F06A745205570FD00FEB1B5 /* PlaceCompleteOrderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCompleteOrderController.swift; sourceTree = "<group>"; };
 		1F06A746205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCompleteOrderControllerView.xib; sourceTree = "<group>"; };
 		1F06A748205570FD00FEB1B5 /* AddDishToCartModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDishToCartModal.swift; sourceTree = "<group>"; };
@@ -758,6 +749,7 @@
 		1F06A91520559C9500FEB1B5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CheckPhoneCodeAuthController.strings; sourceTree = "<group>"; };
 		1F1F26CD20768E1C00F6A260 /* PlaceCartController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCartController.xib; sourceTree = "<group>"; };
 		1F1F26CF20768ED500F6A260 /* PlaceCartElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCartElement.swift; sourceTree = "<group>"; };
+		1F1F26D12076D2C300F6A260 /* PlaceCartCheckContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartCheckContainer.swift; sourceTree = "<group>"; };
 		1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedMenu.swift; sourceTree = "<group>"; };
@@ -1702,8 +1694,7 @@
 			children = (
 				1FDD97B32061461200D75CBF /* Page */,
 				1F06A725205570FD00FEB1B5 /* TimePicker */,
-				1F06A72B205570FD00FEB1B5 /* DishesContainer */,
-				1F06A73F205570FD00FEB1B5 /* TotalContainer */,
+				1F06A72B205570FD00FEB1B5 /* CheckContainer */,
 				1F06A737205570FD00FEB1B5 /* PaymentCardContainer */,
 				1F06A722205570FD00FEB1B5 /* AdditionalContainer */,
 				1F06A732205570FD00FEB1B5 /* Divider */,
@@ -1739,17 +1730,17 @@
 			path = CompleteOrder;
 			sourceTree = "<group>";
 		};
-		1F06A72B205570FD00FEB1B5 /* DishesContainer */ = {
+		1F06A72B205570FD00FEB1B5 /* CheckContainer */ = {
 			isa = PBXGroup;
 			children = (
-				1F06A72C205570FD00FEB1B5 /* PlaceCartDishesContainer.swift */,
-				1F06A731205570FD00FEB1B5 /* PlaceCartDishesContainer.xib */,
-				1F06A72D205570FD00FEB1B5 /* PlaceCartDishesContainerCell.swift */,
-				1F06A730205570FD00FEB1B5 /* PlaceCartDishesContainerCell.xib */,
-				1F06A72E205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.swift */,
-				1F06A72F205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.xib */,
+				1F1F26D12076D2C300F6A260 /* PlaceCartCheckContainer.swift */,
+				1F06A731205570FD00FEB1B5 /* PlaceCartCheckContainer.xib */,
+				1F06A72D205570FD00FEB1B5 /* PlaceCartDishRow.swift */,
+				1F06A730205570FD00FEB1B5 /* PlaceCartDishRow.xib */,
+				1F06A741205570FD00FEB1B5 /* PlaceCartTotalRow.swift */,
+				1F06A742205570FD00FEB1B5 /* PlaceCartTotalRow.xib */,
 			);
-			path = DishesContainer;
+			path = CheckContainer;
 			sourceTree = "<group>";
 		};
 		1F06A732205570FD00FEB1B5 /* Divider */ = {
@@ -1769,17 +1760,6 @@
 				1F06A73A205570FD00FEB1B5 /* PlaceCartPaymentCardsContainerCell.xib */,
 			);
 			path = PaymentCardContainer;
-			sourceTree = "<group>";
-		};
-		1F06A73F205570FD00FEB1B5 /* TotalContainer */ = {
-			isa = PBXGroup;
-			children = (
-				1F06A740205570FD00FEB1B5 /* PlaceCartTotalContainer.swift */,
-				1F06A743205570FD00FEB1B5 /* PlaceCartTotalContainer.xib */,
-				1F06A741205570FD00FEB1B5 /* PlaceCartTotalContainerCell.swift */,
-				1F06A742205570FD00FEB1B5 /* PlaceCartTotalContainerCell.xib */,
-			);
-			path = TotalContainer;
 			sourceTree = "<group>";
 		};
 		1F06A744205570FD00FEB1B5 /* CompleteOrder */ = {
@@ -2644,18 +2624,16 @@
 			files = (
 				1F06A8DD205570FE00FEB1B5 /* PlaceMenuSubcategoryHeader.xib in Resources */,
 				1F06A8ED205570FE00FEB1B5 /* OneOrderDishesContainer.xib in Resources */,
-				1F06A8AA205570FD00FEB1B5 /* PlaceCartTotalContainerCell.xib in Resources */,
+				1F06A8AA205570FD00FEB1B5 /* PlaceCartTotalRow.xib in Resources */,
 				1F89236420568A6C0086D372 /* ScheduleDisplay.strings in Resources */,
 				1FDBA12E205BA6A5000F1378 /* OtherNotificationControllerTitle.xib in Resources */,
 				1F06A8B0205570FD00FEB1B5 /* AddDishToCartModalView.xib in Resources */,
-				1F06A8AB205570FD00FEB1B5 /* PlaceCartTotalContainer.xib in Resources */,
 				1F06A7F6205570FD00FEB1B5 /* WebBrowserController.strings in Resources */,
 				1F06A881205570FD00FEB1B5 /* ManagerChangePasswordControllerView.xib in Resources */,
 				1FDBA120205B281C000F1378 /* OneOrderCommentContainer.xib in Resources */,
 				1F06A8E3205570FE00FEB1B5 /* SearchPlaceCard.xib in Resources */,
 				1F06A8B7205570FD00FEB1B5 /* DishModalDescription.xib in Resources */,
 				1F06A8D0205570FD00FEB1B5 /* PlaceInfoController.xib in Resources */,
-				1F06A89C205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.xib in Resources */,
 				1F06A7FB205570FD00FEB1B5 /* Asserts.xcassets in Resources */,
 				1F8923A82056FA590086D372 /* DistanceLabel.strings in Resources */,
 				1F06A8BF205570FD00FEB1B5 /* DishModalSelectAddingsCell.xib in Resources */,
@@ -2679,7 +2657,7 @@
 				1F06A7F4205570FD00FEB1B5 /* TermsController.strings in Resources */,
 				1F06A8C5205570FD00FEB1B5 /* DishModalSelectVariationsCell.xib in Resources */,
 				1F06A7F2205570FD00FEB1B5 /* VkAuthController.strings in Resources */,
-				1F06A89D205570FD00FEB1B5 /* PlaceCartDishesContainerCell.xib in Resources */,
+				1F06A89D205570FD00FEB1B5 /* PlaceCartDishRow.xib in Resources */,
 				1F06A8C0205570FD00FEB1B5 /* DishModalSelectAddings.xib in Resources */,
 				1F06A894205570FD00FEB1B5 /* PlaceCartAdditionalContainer.xib in Resources */,
 				1F06A8D3205570FD00FEB1B5 /* PlaceMenuController.strings in Resources */,
@@ -2693,7 +2671,7 @@
 				1F892356205679D70086D372 /* ProblemAlerts.strings in Resources */,
 				1F06A8D5205570FD00FEB1B5 /* PlaceMenuCategoryCell.xib in Resources */,
 				1F06A892205570FD00FEB1B5 /* OtherPaymentCardsController.xib in Resources */,
-				1F06A89E205570FD00FEB1B5 /* PlaceCartDishesContainer.xib in Resources */,
+				1F06A89E205570FD00FEB1B5 /* PlaceCartCheckContainer.xib in Resources */,
 				1F8923422055C50E0086D372 /* EmailEnterAuthController.strings in Resources */,
 				1F06A7EA205570FD00FEB1B5 /* InstagramAuthController.strings in Resources */,
 				1F06A7DB205570FD00FEB1B5 /* ScheduleDisplayCell.xib in Resources */,
@@ -2806,7 +2784,6 @@
 				1F06A7E1205570FD00FEB1B5 /* AuthUIService.swift in Sources */,
 				1F53B92E205FD50A00656EA5 /* ParsedMenu.swift in Sources */,
 				1F06A873205570FD00FEB1B5 /* ToolsServices.swift in Sources */,
-				1F06A899205570FD00FEB1B5 /* PlaceCartDishesContainer.swift in Sources */,
 				1F06A84C205570FD00FEB1B5 /* Place.swift in Sources */,
 				1F06A7D2205570FD00FEB1B5 /* BottomAction.swift in Sources */,
 				1FBAFA20205EDF8D00F7BA70 /* PlaceInterfaceRow.swift in Sources */,
@@ -2816,7 +2793,6 @@
 				1F06A7D6205570FD00FEB1B5 /* PriceLabel.swift in Sources */,
 				1F06A858205570FD00FEB1B5 /* MenuCacheService.swift in Sources */,
 				1F06A802205570FD00FEB1B5 /* TemplateStore.swift in Sources */,
-				1F06A89B205570FD00FEB1B5 /* PlaceCartDishesContainerCellMeta.swift in Sources */,
 				1F06A7D0205570FD00FEB1B5 /* BottomActions.swift in Sources */,
 				1F06A8E6205570FE00FEB1B5 /* SearchController.swift in Sources */,
 				1F06A8E8205570FE00FEB1B5 /* ExternalTextEditor.swift in Sources */,
@@ -2868,7 +2844,7 @@
 				1F06A868205570FD00FEB1B5 /* ConfigKey.swift in Sources */,
 				1F06A9092055842000FEB1B5 /* NavigationController.swift in Sources */,
 				1F06A80A205570FD00FEB1B5 /* ApiKeysRefreshser.swift in Sources */,
-				1F06A89A205570FD00FEB1B5 /* PlaceCartDishesContainerCell.swift in Sources */,
+				1F06A89A205570FD00FEB1B5 /* PlaceCartDishRow.swift in Sources */,
 				1F06A8AE205570FD00FEB1B5 /* AddDishToCartModal.swift in Sources */,
 				1F06A826205570FD00FEB1B5 /* DishType.swift in Sources */,
 				1F06A84A205570FD00FEB1B5 /* RegularCustomerDiscount.swift in Sources */,
@@ -2884,6 +2860,7 @@
 				1F06A833205570FD00FEB1B5 /* DishOrderStatus.swift in Sources */,
 				1F06A819205570FD00FEB1B5 /* UserAuthApiService.swift in Sources */,
 				1F89235F205681E90086D372 /* PositionsService.swift in Sources */,
+				1F1F26D22076D2C300F6A260 /* PlaceCartCheckContainer.swift in Sources */,
 				1F06A823205570FD00FEB1B5 /* Adding.swift in Sources */,
 				1F06A7CE205570FD00FEB1B5 /* ProblemAlerts.swift in Sources */,
 				1F06A831205570FD00FEB1B5 /* DishOrder.swift in Sources */,
@@ -2960,7 +2937,6 @@
 				1F06A80E205570FD00FEB1B5 /* AuthMainApiService.swift in Sources */,
 				1F06A803205570FD00FEB1B5 /* ThemeColors.swift in Sources */,
 				1F06A82A205570FD00FEB1B5 /* Price.swift in Sources */,
-				1F06A8A8205570FD00FEB1B5 /* PlaceCartTotalContainer.swift in Sources */,
 				1F06A85C205570FD00FEB1B5 /* CartServiceDelegate.swift in Sources */,
 				1F06A870205570FD00FEB1B5 /* LightStorageKey.swift in Sources */,
 				1F06A889205570FD00FEB1B5 /* OrdersControllerOrderCell.swift in Sources */,
@@ -3019,7 +2995,7 @@
 				1F06A820205570FD00FEB1B5 /* CountedLoyaltyDiscounts.swift in Sources */,
 				1F06A806205570FD00FEB1B5 /* UIExtensions.swift in Sources */,
 				1F06A882205570FD00FEB1B5 /* OtherNotificationController.swift in Sources */,
-				1F06A8A9205570FD00FEB1B5 /* PlaceCartTotalContainerCell.swift in Sources */,
+				1F06A8A9205570FD00FEB1B5 /* PlaceCartTotalRow.swift in Sources */,
 				1F06A836205570FD00FEB1B5 /* OrderSummary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

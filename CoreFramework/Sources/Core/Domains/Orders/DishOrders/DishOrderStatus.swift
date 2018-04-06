@@ -11,9 +11,9 @@ import Foundation
 public enum DishOrderStatus: Int {
 
     case processing = 1
-    case waitingPayment = 2
-    case making = 3
-    case prepared = 4
+    case approved = 2
+    case isPaid = 3
+    case isPrepared = 4
     case completed = 5
     case paymentFail = 6
     case canceledByUser = 7

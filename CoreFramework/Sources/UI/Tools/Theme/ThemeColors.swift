@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import NotificationBannerSwift
 
 public protocol ThemeColors {
 
@@ -90,5 +91,21 @@ extension ThemeColors {
     }
     public var contentTempText: UIColor {
         return UIColor(red: 234, green: 234, blue: 234)
+    }
+
+    public var bannerColors: BannerColorsProtocol {
+        return CustomBannerColors(theme: self)
+    }
+}
+
+private class CustomBannerColors: BannerColorsProtocol {
+
+    private let theme: ThemeColors
+
+    fileprivate init(theme: ThemeColors) {
+        self.theme = theme
+    }
+    func color(for style: BannerStyle) -> UIColor {
+        return theme.navigationMain
     }
 }

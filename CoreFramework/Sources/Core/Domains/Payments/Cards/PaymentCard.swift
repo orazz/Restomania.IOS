@@ -21,7 +21,7 @@ public class PaymentCard: BaseDataType, ICached {
         public static let currency = "Currency"
     }
 
-    public var userID: Int64
+    public var userId: Int64
     public var last4Number: String
     public var status: PaymentCardStatus
     public var type: PaymentCardType
@@ -30,7 +30,7 @@ public class PaymentCard: BaseDataType, ICached {
 
     public override init() {
 
-        self.userID = 0
+        self.userId = 0
         self.last4Number = String.empty
         self.status = .Proccessing
         self.type = .Other
@@ -43,7 +43,7 @@ public class PaymentCard: BaseDataType, ICached {
     // MARK: ICopying
     public required init(source: PaymentCard) {
 
-        self.userID = source.userID
+        self.userId = source.userId
         self.last4Number = source.last4Number
         self.status = source.status
         self.type = source.type
@@ -56,7 +56,7 @@ public class PaymentCard: BaseDataType, ICached {
     // MARK: Glossy
     public required init(json: JSON) {
 
-        self.userID = (Keys.userId <~~ json)!
+        self.userId = (Keys.userId <~~ json)!
         self.last4Number = (Keys.last4Number <~~ json)!
         self.status = (Keys.status <~~ json)!
         self.type = (Keys.type <~~ json)!
@@ -69,7 +69,7 @@ public class PaymentCard: BaseDataType, ICached {
         return jsonify([
             super.toJSON(),
 
-            Keys.userId ~~> self.userID,
+            Keys.userId ~~> self.userId,
             Keys.last4Number ~~> self.last4Number,
             Keys.status ~~> self.status,
             Keys.type ~~> self.type,

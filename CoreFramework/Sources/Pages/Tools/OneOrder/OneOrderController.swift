@@ -36,6 +36,7 @@ public class OneOrderController: UIViewController {
     private let guid = Guid.new
     private var loadQueue: AsyncQueue!
     private var orderId: Long!
+    private var needRequest: Bool = false
 
     // MARK: Life circle
     public convenience init(for order: DishOrder) {
@@ -43,10 +44,11 @@ public class OneOrderController: UIViewController {
 
         orderContainer.update(order)
     }
-    public init(for orderId: Long) {
+    public init(for orderId: Long, needRequest: Bool = false) {
         super.init(nibName: String.tag(OneOrderController.self), bundle: Bundle.coreFramework)
 
         self.orderId = orderId
+        self.needRequest = needRequest
 
         self.orderContainer = PartsLoadTypedContainer<DishOrder>(updateHandler: applyOrder, completeLoadHandler: completeLoad)
         self.partsLoader = PartsLoader([orderContainer])
@@ -79,19 +81,17 @@ public class OneOrderController: UIViewController {
         super.viewDidLoad()
 
         loadData()
+
+        ordersService.subscribe(guid: guid, handler: self, tag: _tag)
     }
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.navigationItem.title = String(format: Keys.title.localized, orderId!)
-
-        self.ordersService.subscribe(guid: guid, handler: self, tag: tag)
     }
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
-        ordersService.unsubscribe(guid: guid)
     }
 }
 //Load
@@ -125,7 +125,9 @@ extension OneOrderController {
             interfaceLoader.show()
         }
 
-        if (!ordersService.cache.isFresh(orderId)) {
+        if (needRequest || !ordersService.cache.isFresh(orderId)) {
+            needRequest = false
+            
             requestData()
         }
     }
@@ -241,11 +243,11 @@ extension OneOrderController {
         case dateFormat = "Formats.Date"
 
         case statusProcessing = "DishOrder.Status.Processing"
-        case statusWaitingPayment = "DishOrder.Status.WaitingPayment"
-        case statusMaking = "DishOrder.Status.Making"
-        case statusPrepared = "DishOrder.Status.Prepared"
-        case statusPaymentFail = "DishOrder.Status.PaymentFail"
+        case statusApproved = "DishOrder.Status.Approved"
+        case statusIsPaid = "DishOrder.Status.IsPaid"
+        case statusIsPrepared = "DishOrder.Status.IsPrepared"
         case statusCompleted = "DishOrder.Status.Completed"
+        case statusPaymentFail = "DishOrder.Status.PaymentFail"
         case statusCanceledByPlace = "DishOrder.Status.CanceledByPlace"
         case statusCanceledByUser = "DishOrder.Status.CanceledByUser"
 

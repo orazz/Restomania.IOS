@@ -25,11 +25,11 @@
 "Formats.Date" = "dd/MM/yyyy";
 
 "DishOrder.Status.Processing" = "Processing";
-"DishOrder.Status.WaitingPayment" = "Waiting of payment";
-"DishOrder.Status.Making" = "Making";
-"DishOrder.Status.Prepared" = "Is prepared";
-"DishOrder.Status.PaymentFail" = "Payment fail";
+"DishOrder.Status.Approved" = "Approved";
+"DishOrder.Status.IsPaid" = "Is paid";
+"DishOrder.Status.IsPrepared" = "Is prepared";
 "DishOrder.Status.Completed" = "Completed";
+"DishOrder.Status.PaymentFail" = "Payment fail";
 "DishOrder.Status.CanceledByPlace" = "Canceled by place";
 "DishOrder.Status.CanceledByUser" = "Canceled by user";
 

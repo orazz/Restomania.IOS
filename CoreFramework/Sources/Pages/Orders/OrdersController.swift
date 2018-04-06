@@ -134,13 +134,12 @@ extension OrdersController: OrdersCacheServiceDelegate {
     public func update(_ orderId: Long, update: DishOrder) {
         displayCachedOrders()
 
-        for cell in ordersTable.visibleCells {
-            if let cell = cell as? OrdersControllerOrderCell {
-                if (cell.orderId == orderId) {
-                    DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            for cell in self.ordersTable.visibleCells {
+                if let cell = cell as? OrdersControllerOrderCell,
+                    cell.orderId == orderId {
                         cell.update(by: update)
-                    }
-                    break
+                        break
                 }
             }
         }

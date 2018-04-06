@@ -79,9 +79,9 @@ extension PushesService {
             return
         }
 
-        print(notification)
         Messaging.messaging().appDidReceiveMessage(notification)
 
+        print(notification)
         if let container = PushContainer.tryParse(notification) {
             PushesHandler.process(container)
         }

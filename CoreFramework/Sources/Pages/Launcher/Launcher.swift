@@ -113,7 +113,6 @@ public class Launcher {
         DispatchQueue.main.async {
             let tabs = TabsController()
             let navigator = NavigationController(rootViewController: tabs)
-            navigator.setNavigationBarHidden(true, animated: false)
             self.navigator = navigator
             self.router.initialize(with: navigator)
             self.router.initialize(with: tabs)
@@ -123,21 +122,14 @@ public class Launcher {
     }
     public func processTappedPush() {
 
-        guard let push = self.push else {
-            return
-        }
-
         if (!completeLaunch) {
             return
         }
 
-        guard let notification = PushesHandler.build(push, force: true),
-                let vc = notification.controller?() else {
-            return
-        }
-
-        DispatchQueue.main.async {
-            self.router.push(vc, animated: true)
+        if let push = self.push,
+            let notification = PushesHandler.build(push, force: true),
+            let vc = notification.controller {
+                router.push(vc, animated: true)
         }
     }
 }

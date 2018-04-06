@@ -30,6 +30,7 @@
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="6Zy-oP-bzD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="0Cm-J1-yY9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6Zy-oP-bzD" secondAttribute="bottom" constant="5" id="8X9-p6-lPW"/>
@@ -40,6 +41,14 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="VlF-qW-Ddj" appends="YES" id="zsY-ld-eQ8"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="VlF-qW-Ddj" userLabel="addOrder">
+            <connections>
+                <action selector="addOrder" destination="-1" id="3kc-mO-3uG"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>
