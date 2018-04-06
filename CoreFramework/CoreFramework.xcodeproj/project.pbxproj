@@ -294,6 +294,8 @@
 		1F1F26CE20768E1C00F6A260 /* PlaceCartController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1F26CD20768E1C00F6A260 /* PlaceCartController.xib */; };
 		1F1F26D020768ED500F6A260 /* PlaceCartElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F26CF20768ED500F6A260 /* PlaceCartElement.swift */; };
 		1F1F26D22076D2C300F6A260 /* PlaceCartCheckContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F26D12076D2C300F6A260 /* PlaceCartCheckContainer.swift */; };
+		1F27CF9E20779D83008480A6 /* DishModalSelectPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27CF9D20779D83008480A6 /* DishModalSelectPicker.swift */; };
+		1F27CFA020779DA7008480A6 /* DishModalSelectPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F27CF9F20779DA7008480A6 /* DishModalSelectPicker.xib */; };
 		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
 		1F53B92E205FD50A00656EA5 /* ParsedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */; };
 		1F53B930206056E300656EA5 /* ParsedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92F206056E300656EA5 /* ParsedCategory.swift */; };
@@ -750,6 +752,8 @@
 		1F1F26CD20768E1C00F6A260 /* PlaceCartController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCartController.xib; sourceTree = "<group>"; };
 		1F1F26CF20768ED500F6A260 /* PlaceCartElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCartElement.swift; sourceTree = "<group>"; };
 		1F1F26D12076D2C300F6A260 /* PlaceCartCheckContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartCheckContainer.swift; sourceTree = "<group>"; };
+		1F27CF9D20779D83008480A6 /* DishModalSelectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModalSelectPicker.swift; sourceTree = "<group>"; };
+		1F27CF9F20779DA7008480A6 /* DishModalSelectPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishModalSelectPicker.xib; sourceTree = "<group>"; };
 		1F2A46FF207639B400FFDD92 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedMenu.swift; sourceTree = "<group>"; };
@@ -1790,6 +1794,7 @@
 				1F06A756205570FD00FEB1B5 /* Header */,
 				1F06A752205570FD00FEB1B5 /* Description */,
 				1F06A759205570FD00FEB1B5 /* PriceAndSize */,
+				1F27CF8E20779D61008480A6 /* CountPicker */,
 				1F06A761205570FD00FEB1B5 /* SelectHeader */,
 				1F06A764205570FD00FEB1B5 /* SelectVariations */,
 				1F06A75C205570FD00FEB1B5 /* SelectAddings */,
@@ -2112,6 +2117,15 @@
 				1F06A91420559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings */,
 			);
 			path = CheckPhoneCode;
+			sourceTree = "<group>";
+		};
+		1F27CF8E20779D61008480A6 /* CountPicker */ = {
+			isa = PBXGroup;
+			children = (
+				1F27CF9D20779D83008480A6 /* DishModalSelectPicker.swift */,
+				1F27CF9F20779DA7008480A6 /* DishModalSelectPicker.xib */,
+			);
+			path = CountPicker;
 			sourceTree = "<group>";
 		};
 		1F2A4700207639B400FFDD92 /* Products */ = {
@@ -2657,6 +2671,7 @@
 				1F06A7F4205570FD00FEB1B5 /* TermsController.strings in Resources */,
 				1F06A8C5205570FD00FEB1B5 /* DishModalSelectVariationsCell.xib in Resources */,
 				1F06A7F2205570FD00FEB1B5 /* VkAuthController.strings in Resources */,
+				1F27CFA020779DA7008480A6 /* DishModalSelectPicker.xib in Resources */,
 				1F06A89D205570FD00FEB1B5 /* PlaceCartDishRow.xib in Resources */,
 				1F06A8C0205570FD00FEB1B5 /* DishModalSelectAddings.xib in Resources */,
 				1F06A894205570FD00FEB1B5 /* PlaceCartAdditionalContainer.xib in Resources */,
@@ -2807,6 +2822,7 @@
 				1F89234D2056451A0086D372 /* OrderPushModel.swift in Sources */,
 				1F06A7EB205570FD00FEB1B5 /* InstagramAuthController.swift in Sources */,
 				1F06A827205570FD00FEB1B5 /* IMenuDependent.swift in Sources */,
+				1F27CF9E20779D83008480A6 /* DishModalSelectPicker.swift in Sources */,
 				1F8923A32056EFFA0086D372 /* DistanceLabel.swift in Sources */,
 				1F06A8CF205570FD00FEB1B5 /* PlaceInfoController.swift in Sources */,
 				1F06A86B205570FD00FEB1B5 /* StringApiRole.swift in Sources */,

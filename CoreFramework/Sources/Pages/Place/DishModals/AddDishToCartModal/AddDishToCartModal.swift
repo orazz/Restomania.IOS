@@ -23,6 +23,7 @@ public class AddDishToCartModal: UIViewController {
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
 
+
     //Data
     private let _tag = String.tag(AddDishToCartModal.self)
     private let dish: ParsedDish
@@ -33,6 +34,11 @@ public class AddDishToCartModal: UIViewController {
 
     private var selectedVariation: Variation?
     private var selectedAddingsIds: [Long]
+    public var count: Int {
+        didSet {
+            refreshTotal()
+        }
+    }
     private var total: Price {
         didSet {
             refreshTotal()
@@ -50,6 +56,7 @@ public class AddDishToCartModal: UIViewController {
         self.selectedVariation = nil
         self.selectedAddingsIds = []
 
+        self.count = 1
         if (dish.type == .simpleDish) {
             self.total = dish.price
         } else {
@@ -91,6 +98,8 @@ public class AddDishToCartModal: UIViewController {
         result.append(DishModalHeader.create(for: dish))
         result.append(DishModalPriceAndSize.create(for: dish))
 
+        result.append(DishModalSelectPicker.create(with: self))
+
         if (vartiations.isFilled) {
 //            result.append(DishModalSpace.create())
             result.append(DishModalSelectHeader.create(with: DishModal.Localization.labelsSelectVariations.localized))
@@ -114,7 +123,7 @@ extension AddDishToCartModal: DishModalDelegateProtocol {
     }
     public func addToCart() {
         closeModal()
-        delegate.addToCart(dish.id, with: selectedAddingsIds, use: selectedVariation?.id)
+        delegate.addToCart(dish.id, count: count, with: selectedAddingsIds, use: selectedVariation?.id)
     }
 }
 extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
@@ -148,6 +157,6 @@ extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
         total = total + variation.price
     }
     private func refreshTotal() {
-        self.addToCartAction?.refresh(total: total, with: menu.currency)
+        self.addToCartAction?.refresh(total: total * count, with: menu.currency)
     }
 }

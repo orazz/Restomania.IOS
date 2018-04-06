@@ -37,16 +37,17 @@ public class AddedOrderDish: ICopying, Glossy {
 
         self.count = 0
     }
-    public init(dishId: Long,
+    public init(_ dishId: Long,
+                _ count: Int,
                 variationId: Long? = nil,
                 additions: [Long] = [],
                 subdishes: [Long] = []) {
 
         self.dishId = dishId
+        self.count = count
         self.variationId = variationId
         self.addings = additions
         self.subdishes = subdishes
-        self.count = 1
     }
 
     // MARK: ICopyng
@@ -83,11 +84,11 @@ public class AddedOrderDish: ICopying, Glossy {
 }
 
 extension AddedOrderDish {
-    public func increment() {
-        count += 1
+    public func increment(_ count: Int = 1) {
+        self.count += count
     }
-    public func decrement() {
-        count -= 1
+    public func decrement(_ count: Int = 1) {
+        self.count = max(0, self.count - count)
     }
     public func total(with menu: MenuSummary) -> Price {
 

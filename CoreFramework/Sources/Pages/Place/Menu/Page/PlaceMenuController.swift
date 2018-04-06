@@ -241,19 +241,14 @@ extension PlaceMenuController: PlaceMenuDelegate {
             return
         }
 
-        if (dish.addings.isEmpty && nil == dish.variation) {
-            addToCart(dish.id)
-            return
-        }
-
         let modal = AddDishToCartModal(for: dish, with: self)
         self.modal(modal, animated: true)
     }
-    public func addToCart(_ dishId: Long, with addings: [Long] = [], use variationId: Long? = nil) {
+    public func addToCart(_ dishId: Long, count: Int, with addings: [Long] = [], use variationId: Long? = nil) {
 
         Log.debug(_tag, "Add dish #\(dishId)")
 
-        cartService.add(dishId: dishId, with: addings, use: variationId)
+        cartService.add(dishId: dishId, count: count, with: addings, use: variationId)
         showToast(Localization.AlertAddDishToCart, position: .top)
     }
 }

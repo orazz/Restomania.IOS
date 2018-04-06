@@ -57,12 +57,6 @@ public class TabsController: UITabBarController {
 
         return item
     }
-
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
 }
 extension TabsController {
     public func focusOn(_ tab: TabsPages) {

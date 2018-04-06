@@ -79,20 +79,21 @@ public class CartService: ReservationService {
         return result
     }
 
-    public func add(dishId: Long, with addings: [Long], use variationId: Long? = nil) {
+    public func add(dishId: Long, count: Int, with addings: [Long], use variationId: Long? = nil) {
 
         if addings.isEmpty,
             let container = place.dishes.find({ $0.dishId == dishId &&
                                                  $0.variationId == variationId &&
                                                  $0.addings.isEmpty &&
                                                  $0.subdishes.isEmpty }) {
-            increment(container)
+            container.increment(count)
+            save()
+            trigger({ $0.cart(self, change: container)})
             return
         }
 
-        let dish = AddedOrderDish(dishId: dishId, variationId: variationId, additions: addings)
+        let dish = AddedOrderDish(dishId, count, variationId: variationId, additions: addings)
         place.dishes.append(dish)
-
         save()
         trigger({ $0.cart(self, change: dish) })
     }

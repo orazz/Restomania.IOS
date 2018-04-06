@@ -25,6 +25,7 @@ extension DishModal {
         case buttonsAddToCart = "Buttons.AddToCart"
 
         //Titles
+        case labelsSelectCount = "Labels.SelectCount"
         case labelsSelectVariations = "Labels.SelectVariations"
         case labelsSelectAddings = "Labels.SelectAddings"
     }

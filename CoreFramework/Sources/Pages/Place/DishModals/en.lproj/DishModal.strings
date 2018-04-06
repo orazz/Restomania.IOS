@@ -9,5 +9,6 @@
 "Buttons.TryAddDish" = "Add";
 "Buttons.AddToCart" = "Add to cart";
 
+"Labels.SelectCount" = "Select count";
 "Labels.SelectVariations" = "Select size";
 "Labels.SelectAddings" = "Select addings";

@@ -17,7 +17,7 @@ public protocol PlaceMenuDelegate: PlaceDelegate {
 
     func select(category: Long)
     func select(dish: Long)
-    func addToCart(_ dishId: Long, with addings: [Long], use variationId: Long?)
+    func addToCart(_ dishId: Long, count: Int, with addings: [Long], use variationId: Long?)
 
     func goToCart()
     func goToPlace()

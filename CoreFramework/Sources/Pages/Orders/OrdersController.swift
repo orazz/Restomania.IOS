@@ -59,7 +59,6 @@ public class OrdersController: UIViewController {
         super.viewWillAppear(animated)
 
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.navigationController?.navigationBar.topItem?.titleView = nil
         self.navigationItem.title = Keys.title.localized
 
         displayCachedOrders()

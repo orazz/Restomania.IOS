@@ -110,15 +110,13 @@ public class Launcher {
         completeLaunch = true
         Log.info(tag, "Complete launch")
 
-        DispatchQueue.main.async {
-            let tabs = TabsController()
-            let navigator = NavigationController(rootViewController: tabs)
-            self.navigator = navigator
-            self.router.initialize(with: navigator)
-            self.router.initialize(with: tabs)
+        let tabs = TabsController()
+        let navigator = NavigationController(rootViewController: tabs)
+        self.navigator = navigator
+        self.router.initialize(with: navigator)
+        self.router.initialize(with: tabs)
 
-            self.processTappedPush()
-        }
+        self.processTappedPush()
     }
     public func processTappedPush() {
 

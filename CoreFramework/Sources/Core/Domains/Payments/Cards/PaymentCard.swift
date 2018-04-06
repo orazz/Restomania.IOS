@@ -21,7 +21,7 @@ public class PaymentCard: BaseDataType, ICached {
         public static let currency = "Currency"
     }
 
-    public var userId: Int64
+    public var userId: Long
     public var last4Number: String
     public var status: PaymentCardStatus
     public var type: PaymentCardType

@@ -73,7 +73,7 @@ extension PlaceCompleteOrderController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.setToolbarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

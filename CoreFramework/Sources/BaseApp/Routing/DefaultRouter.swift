@@ -28,6 +28,7 @@ public class DefaultRouter: Router {
 
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 window.rootViewController = controller
+                window.makeKeyAndVisible()
             }, completion: nil)
         }
     }

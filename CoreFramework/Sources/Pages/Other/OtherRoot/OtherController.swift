@@ -60,9 +60,8 @@ public class OtherController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationController?.view.layoutSubviews()
-        self.navigationItem.title = Localization.title.localized
     }
 
     private func loadMarkup() {
