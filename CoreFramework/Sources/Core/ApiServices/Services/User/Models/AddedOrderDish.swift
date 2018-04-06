@@ -37,18 +37,23 @@ public class AddedOrderDish: ICopying, Glossy {
 
         self.count = 0
     }
-    public init(_ dishId: Long,
-                _ count: Int,
-                variationId: Long? = nil,
-                additions: [Long] = [],
-                subdishes: [Long] = []) {
+    public convenience init(_ dishId: Long,
+                            _ count: Int,
+                            use variationId: Long? = nil,
+                            with addings: [Long] = [],
+                            and subdishes: [Long] = []) {
+        self.init()
 
-        self.dishId = dishId
+        update(count, use: variationId, with: addings, and: subdishes)
+    }
+    public func update(_ count: Int, use variationId: Long?, with addings:[Long], and subdishes: [Long]) {
+
         self.count = count
         self.variationId = variationId
-        self.addings = additions
+        self.addings = addings
         self.subdishes = subdishes
     }
+
 
     // MARK: ICopyng
     public required init(source: AddedOrderDish) {

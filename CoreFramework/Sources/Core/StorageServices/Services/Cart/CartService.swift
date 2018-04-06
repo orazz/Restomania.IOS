@@ -87,15 +87,21 @@ public class CartService: ReservationService {
                                                  $0.addings.isEmpty &&
                                                  $0.subdishes.isEmpty }) {
             container.increment(count)
-            save()
-            trigger({ $0.cart(self, change: container)})
+            change(container)
             return
         }
 
-        let dish = AddedOrderDish(dishId, count, variationId: variationId, additions: addings)
-        place.dishes.append(dish)
+        let dish = AddedOrderDish(dishId, count, use: variationId, with: addings, and: [])
+        change(dish)
+    }
+    public func change(_ dish: AddedOrderDish) {
+
+        if nil == place.dishes.index(where: { $0 === dish}) {
+            place.dishes.append(dish)
+        }
+
         save()
-        trigger({ $0.cart(self, change: dish) })
+        trigger({ $0.cart(self, change: dish)})
     }
     public func increment(_ dish: AddedOrderDish) {
 

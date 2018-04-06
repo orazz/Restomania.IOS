@@ -22,6 +22,7 @@ extension DishModal {
 
         //Actions
         case buttonsTryAddDish = "Buttons.TryAddDish"
+        case buttonsChangeOrder = "Buttons.ChangeOrder"
         case buttonsAddToCart = "Buttons.AddToCart"
 
         //Titles

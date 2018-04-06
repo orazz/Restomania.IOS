@@ -36,7 +36,6 @@ public class DishModalAddToCartAction: UIView {
 
         actionLabel.font = themeFonts.default(size: .title)
         actionLabel.textColor = themeColors.actionContent
-        actionLabel.text = DishModal.Localization.buttonsAddToCart.localized
 
         totalLabel.font = themeFonts.bold(size: .head)
         totalLabel.textColor = themeColors.actionContent
@@ -45,6 +44,13 @@ public class DishModalAddToCartAction: UIView {
 
     public func link(with delegate: AddDishToCartModalDelegateProtocol) {
         self.delegate = delegate
+
+        if (delegate.isAddNewDish) {
+            actionLabel.text = DishModal.Localization.buttonsAddToCart.localized
+        }
+        else {
+            actionLabel.text = DishModal.Localization.buttonsChangeOrder.localized
+        }
     }
     public func refresh(total: Price, with currency: Currency) {
 

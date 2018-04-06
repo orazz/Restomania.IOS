@@ -129,12 +129,12 @@ extension PlaceCartCheckContainer: UITableViewDelegate {
             return
         }
 
-//        let cartDish = rows[indexPath.row].dish!
-//        let parsed = ParsedMenu(source: menu)
-//        let sourceDish = parsed.dishes.find({ $0.id == cartDish.dishId })!
-//
-//        let modal = AddDishToCartModal(for: sourceDish, with: cartDish, and: cart)
-//        vc.modal(modal, animated: true)
+        let cartDish = rows[indexPath.row].dish!
+        let parsed = ParsedMenu(source: menu)
+        let sourceDish = parsed.dishes.find({ $0.id == cartDish.dishId })!
+
+        let modal = AddDishToCartModal(for: sourceDish, with: cartDish, and: cart)
+        vc.modal(modal, animated: true)
     }
 }
 extension PlaceCartCheckContainer: UITableViewDataSource {

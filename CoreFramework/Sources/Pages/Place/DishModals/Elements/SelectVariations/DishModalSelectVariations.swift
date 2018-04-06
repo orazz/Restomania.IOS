@@ -44,9 +44,14 @@ public class DishModalSelectVariations: UITableViewCell {
 
         variationsTable.reloadData()
 
-        let first = IndexPath(row: 0, section: 0)
-        tableView(variationsTable, didSelectRowAt: first)
-        variationsTable.selectRow(at: first, animated: true, scrollPosition: .top)
+        var selectedPosition = IndexPath(row: 0, section: 0)
+        if let variation = delegate?.selectedVariation,
+            let index = variations.index(where: { $0.id == variation.id }) {
+            selectedPosition = IndexPath(row: index, section: 0)
+        }
+
+        tableView(variationsTable, didSelectRowAt: selectedPosition)
+        variationsTable.selectRow(at: selectedPosition, animated: true, scrollPosition: .top)
     }
 }
 extension DishModalSelectVariations: UITableViewDelegate {

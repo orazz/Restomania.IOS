@@ -33,8 +33,8 @@ public class AddDishToCartModal: UIViewController {
     private let menu: MenuSummary
     private var cartDish: AddedOrderDish?
 
-    private var selectedVariation: Variation?
-    private var selectedAddingsIds: [Long] = []
+    public var selectedVariation: Variation?
+    public var selectedAddingsIds: [Long] = []
     public var count: Int{
         didSet {
             refreshTotal()
@@ -159,15 +159,20 @@ extension AddDishToCartModal: DishModalDelegateProtocol {
     public func addToCart() {
         closeModal()
 
-        if (nil == cartDish) {
-            cart.add(dishId: dish.id, count: count, with: selectedAddingsIds, use: selectedVariation?.id)
+        if let cartDish = cartDish {
+            cartDish.update(count, use: selectedVariation?.id, with: selectedAddingsIds, and: [])
+            cart.change(cartDish)
         }
         else {
-
+            cart.add(dishId: dish.id, count: count, with: selectedAddingsIds, use: selectedVariation?.id)
         }
     }
 }
 extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
+
+    public var isAddNewDish: Bool {
+        return nil == cartDish
+    }
 
     public func add(adding dish: Dish) {
 

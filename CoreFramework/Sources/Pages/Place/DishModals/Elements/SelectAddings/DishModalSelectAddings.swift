@@ -18,6 +18,7 @@ public class DishModalSelectAddings: UITableViewCell {
         let cell: DishModalSelectAddings = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
         cell.setup(for: addings, from: menu)
         cell.delegate = delegate
+        cell.initialize()
 
         return cell
     }
@@ -25,12 +26,12 @@ public class DishModalSelectAddings: UITableViewCell {
     //UI
     @IBOutlet private weak var addingsTable: UITableView!
     private var countTableHeight: Bool = false
-    private var refreshTrigger: Trigger?
 
     //Data
     private var addings: [AddingModel] = []
     private var menu: MenuSummary!
     private var delegate: AddDishToCartModalDelegateProtocol?
+    private var refreshTrigger: Trigger?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -61,6 +62,21 @@ public class DishModalSelectAddings: UITableViewCell {
 
         self.menu = menu
         addingsTable.reloadData()
+    }
+    private func initialize() {
+
+
+
+        for addingId in delegate?.selectedAddingsIds ?? [] {
+            if let index = addings.index(where: { $0.dish.id == addingId }) {
+
+                let position = IndexPath(row: index, section: 0)
+                if let _ = addingsTable.cellForRow(at: position) {
+                    addingsTable.selectRow(at: position, animated: true, scrollPosition: .top)
+                }
+            }
+        }
+
     }
 }
 
