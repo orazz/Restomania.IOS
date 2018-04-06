@@ -116,7 +116,26 @@ public class PlaceCartCheckContainer: UIView {
     }
 }
 extension PlaceCartCheckContainer: UITableViewDelegate {
-    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        if (1 == indexPath.section) {
+            return
+        }
+
+        guard let menu = delegate?.takeMenu(),
+                let vc = delegate?.takeController(),
+                let cart = cart else {
+            return
+        }
+
+//        let cartDish = rows[indexPath.row].dish!
+//        let parsed = ParsedMenu(source: menu)
+//        let sourceDish = parsed.dishes.find({ $0.id == cartDish.dishId })!
+//
+//        let modal = AddDishToCartModal(for: sourceDish, with: cartDish, and: cart)
+//        vc.modal(modal, animated: true)
+    }
 }
 extension PlaceCartCheckContainer: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -152,7 +171,9 @@ extension PlaceCartCheckContainer: UITableViewDataSource {
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (0 == indexPath.section) {
-            return rows[indexPath.row]
+            let cell = rows[indexPath.row]
+            cell.layoutIfNeeded()
+            return cell
         }
         else if (1 == indexPath.section) {
             return totalRow

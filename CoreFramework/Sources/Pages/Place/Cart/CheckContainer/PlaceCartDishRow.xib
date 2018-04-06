@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="222.22 P" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhI-il-YZq" customClass="PriceLabel" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="300" y="14" width="70" height="21"/>
+                    <rect key="frame" x="270" y="14" width="70" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="zlh-2T-MN8"/>
                     </constraints>
@@ -25,28 +25,43 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlF-3C-y1c">
-                    <rect key="frame" x="5" y="6" width="290" height="38.5"/>
+                    <rect key="frame" x="5" y="5" width="260" height="39.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-forward" translatesAutoresizingMaskIntoConstraints="NO" id="P4D-eQ-OSb">
+                    <rect key="frame" x="345" y="12.5" width="25" height="25"/>
+                    <color key="tintColor" red="0.11818788199999999" green="0.098173700269999997" blue="0.093623720110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="8oL-oC-2c7"/>
+                        <constraint firstAttribute="height" constant="25" id="F4h-lU-gGt"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xlF-3C-y1c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="6D5-yF-t4h"/>
-                <constraint firstAttribute="trailing" secondItem="vhI-il-YZq" secondAttribute="trailing" constant="5" id="UQK-xe-kEG"/>
                 <constraint firstItem="vhI-il-YZq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZQ0-dU-IBK"/>
-                <constraint firstItem="xlF-3C-y1c" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ajj-qD-NMr"/>
+                <constraint firstItem="P4D-eQ-OSb" firstAttribute="leading" secondItem="vhI-il-YZq" secondAttribute="trailing" constant="5" id="akk-4E-9lI"/>
+                <constraint firstAttribute="trailing" secondItem="P4D-eQ-OSb" secondAttribute="trailing" constant="5" id="iJ7-Ne-xW1"/>
+                <constraint firstItem="P4D-eQ-OSb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="o8X-TS-xq1"/>
+                <constraint firstAttribute="bottom" secondItem="xlF-3C-y1c" secondAttribute="bottom" constant="5" id="pJD-2e-IAp"/>
+                <constraint firstItem="xlF-3C-y1c" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="rLe-hb-Djf"/>
                 <constraint firstItem="vhI-il-YZq" firstAttribute="leading" secondItem="xlF-3C-y1c" secondAttribute="trailing" constant="5" id="yNU-I9-1dz"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="forwardIcon" destination="P4D-eQ-OSb" id="9BV-mf-i1e"/>
                 <outlet property="titleLabel" destination="xlF-3C-y1c" id="zfm-S0-8dx"/>
                 <outlet property="totalLabel" destination="vhI-il-YZq" id="rxa-LB-gYh"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="-26"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-forward" width="50" height="50"/>
+    </resources>
 </document>

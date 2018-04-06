@@ -39,6 +39,7 @@ public class PlaceCartDishRow: UITableViewCell {
     //UI hooks
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var totalLabel: PriceLabel!
+    @IBOutlet private weak var forwardIcon: UIImageView!
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
@@ -53,13 +54,15 @@ public class PlaceCartDishRow: UITableViewCell {
 
         totalLabel.font = themeFonts.default(size: .subhead)
         totalLabel.textColor = themeColors.contentText
+
+        forwardIcon.image = forwardIcon.image?.tint(color: themeColors.divider)
     }
 
     //Data
     private let _tag = String.tag(PlaceCartDishRow.self)
     private let guid = Guid.new
 
-    private var dish: AddedOrderDish!
+    public var dish: AddedOrderDish!
     private var dishName: String = String.empty
     private var addings: [Dish] = []
     private var menu: MenuSummary!

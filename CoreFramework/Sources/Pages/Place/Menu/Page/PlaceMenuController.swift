@@ -241,7 +241,7 @@ extension PlaceMenuController: PlaceMenuDelegate {
             return
         }
 
-        let modal = AddDishToCartModal(for: dish, with: self)
+        let modal = AddDishToCartModal(for: dish, and: cartService)
         self.modal(modal, animated: true)
     }
     public func addToCart(_ dishId: Long, count: Int, with addings: [Long] = [], use variationId: Long? = nil) {

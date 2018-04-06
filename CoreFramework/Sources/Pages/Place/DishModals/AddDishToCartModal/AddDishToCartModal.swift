@@ -26,15 +26,16 @@ public class AddDishToCartModal: UIViewController {
 
     //Data
     private let _tag = String.tag(AddDishToCartModal.self)
+    private let cart: CartService
     private let dish: ParsedDish
     private let addings: [Adding]
     private let vartiations: [Variation]
     private let menu: MenuSummary
-    private let delegate: PlaceMenuDelegate
+    private var cartDish: AddedOrderDish?
 
     private var selectedVariation: Variation?
-    private var selectedAddingsIds: [Long]
-    public var count: Int {
+    private var selectedAddingsIds: [Long] = []
+    public var count: Int{
         didSet {
             refreshTotal()
         }
@@ -44,14 +45,36 @@ public class AddDishToCartModal: UIViewController {
             refreshTotal()
         }
     }
+    private var inited: Bool = false
 
-    public init(for dish: ParsedDish, with delegate: PlaceMenuDelegate) {
+    public convenience init(for dish: ParsedDish, with cartDish: AddedOrderDish, and cart: CartService) {
+        self.init(dish: dish, with: cart)
 
-        self.dish = dish
-        self.addings = dish.addings
-        self.vartiations = dish.variation?.variations ?? []
-        self.menu = dish.menu
-        self.delegate = delegate
+        self.selectedVariation = nil
+        self.selectedAddingsIds = []
+
+        self.count = cartDish.count
+        if (dish.type == .simpleDish) {
+            self.total = dish.price
+        } else {
+            self.total = Price.zero
+        }
+
+        if let variation = dish.variation?.variations.find({ $0.id == cartDish.variationId }) {
+            select(variation: variation)
+        }
+        for addingId in cartDish.addings {
+            if let dish = menu.dishes.find({ $0.id == addingId }) {
+                add(adding: dish)
+            }
+        }
+
+        self.cartDish = cartDish
+
+        completeLoad()
+    }
+    public convenience init(for dish: ParsedDish, and cart: CartService) {
+        self.init(dish: dish, with: cart)
 
         self.selectedVariation = nil
         self.selectedAddingsIds = []
@@ -63,6 +86,17 @@ public class AddDishToCartModal: UIViewController {
             self.total = Price.zero
         }
 
+        completeLoad()
+    }
+    private init(dish: ParsedDish, with cart: CartService) {
+        self.dish = dish
+        self.cart = cart
+        self.addings = dish.addings
+        self.vartiations = dish.variation?.variations ?? []
+        self.menu = dish.menu
+        self.count = 1
+        self.total = Price.zero
+
         super.init(nibName: "\(String.tag(AddDishToCartModal.self))View", bundle: Bundle.coreFramework)
     }
     public required init?(coder aDecoder: NSCoder) {
@@ -71,8 +105,7 @@ public class AddDishToCartModal: UIViewController {
     }
 
     //Load circle
-    public override func loadView() {
-        super.loadView()
+    private func completeLoad() {
 
         view.backgroundColor = themeColors.divider
         interfaceTable.backgroundColor = themeColors.divider
@@ -86,6 +119,8 @@ public class AddDishToCartModal: UIViewController {
         interfaceAdapter = InterfaceTable(source: interfaceTable, rows: interfaceRows)
 
         addToCartAction.link(with: self)
+
+        self.inited = true
         refreshTotal()
     }
     public override func viewDidLoad() {
@@ -123,7 +158,13 @@ extension AddDishToCartModal: DishModalDelegateProtocol {
     }
     public func addToCart() {
         closeModal()
-        delegate.addToCart(dish.id, count: count, with: selectedAddingsIds, use: selectedVariation?.id)
+
+        if (nil == cartDish) {
+            cart.add(dishId: dish.id, count: count, with: selectedAddingsIds, use: selectedVariation?.id)
+        }
+        else {
+
+        }
     }
 }
 extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
@@ -157,6 +198,11 @@ extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
         total = total + variation.price
     }
     private func refreshTotal() {
+
+        if (!inited) {
+            return
+        }
+
         self.addToCartAction?.refresh(total: total * count, with: menu.currency)
     }
 }

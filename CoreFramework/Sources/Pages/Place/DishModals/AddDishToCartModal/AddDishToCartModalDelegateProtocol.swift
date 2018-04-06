@@ -12,6 +12,8 @@ import MdsKit
 public protocol AddDishToCartModalDelegateProtocol: DishModalDelegateProtocol {
 
     var count: Int { get set }
+//    var selectedVariation: Variation { get set }
+
     func add(adding: Dish)
     func remove(adding: Dish)
 
