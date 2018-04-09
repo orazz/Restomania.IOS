@@ -24,6 +24,9 @@ public class MenuSummary: ICached {
         public static let dishes = "Dishes"
         public static let variations = "Variations"
         public static let addings = "Addings"
+        public static let recommendations = "Recommendations"
+
+        public static let stoplist = "Stoplist"
     }
 
     public let id: Long
@@ -35,6 +38,9 @@ public class MenuSummary: ICached {
     public let dishes: [Dish]
     public let variations: [Variation]
     public let addings: [Adding]
+    public let recommendations: [Recommendation]
+
+    public let stoplist: Stoplist
 
     public init() {
 
@@ -47,6 +53,9 @@ public class MenuSummary: ICached {
         self.dishes = []
         self.variations = []
         self.addings = []
+        self.recommendations = []
+
+        self.stoplist = Stoplist()
     }
     public required init(source: MenuSummary) {
 
@@ -59,6 +68,9 @@ public class MenuSummary: ICached {
         self.dishes = source.dishes.map { Dish(source: $0) }
         self.variations = source.variations.map { Variation(source: $0) }
         self.addings = source.addings.map { Adding(source: $0) }
+        self.recommendations = source.recommendations.map { Recommendation(source: $0) }
+
+        self.stoplist = Stoplist(source: $0.stoplist )
     }
     public required init(json: JSON) {
 
@@ -71,6 +83,9 @@ public class MenuSummary: ICached {
         self.dishes = (Keys.dishes <~~ json)!
         self.variations = (Keys.variations <~~ json)!
         self.addings = (Keys.addings <~~ json)!
+        self.recommendations = (Keys.recommendations <~~ json)!
+
+        self.stoplist = (Keys.stoplist <~~ json)!
     }
     public func toJSON() -> JSON? {
 
@@ -83,7 +98,10 @@ public class MenuSummary: ICached {
 
                 Keys.dishes ~~> self.dishes,
                 Keys.variations ~~> self.variations,
-                Keys.addings ~~> self.addings
+                Keys.addings ~~> self.addings,
+                Keys.recommendations ~~> self.recommendations,
+
+                Keys.stoplist ~~> self.stoplist
             ])
     }
 }
