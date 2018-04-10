@@ -86,7 +86,7 @@ extension PlaceMenuController {
 
             var result = [CategoryContainer]()
 
-            for category in menu.categoriesForShow {
+            for category in menu.categories {
                 let model = CategoryContainer(source: category, collectDishesRecursive: true)
                 result.append(model)
             }

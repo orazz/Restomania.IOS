@@ -68,7 +68,7 @@ extension PlaceMenuController {
             commonCategory.id = CategoriesPresenter.commonCategory
             commonCategory.orderNumber = -1
 
-            let allCategories = [ParsedCategory(source: commonCategory, from: menu.source)] + menu.categoriesForShow.filter({ $0.isBase })
+            let allCategories = [ParsedCategory(source: commonCategory, from: menu.source)] + menu.categories.filter({ $0.isBase })
             categories = allCategories.map({ CategoryContainer(for: $0) })
 
             if (nil == categories.find({ $0.id == selectedCategory }) && categories.isFilled) {

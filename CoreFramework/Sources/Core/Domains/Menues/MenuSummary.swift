@@ -70,7 +70,7 @@ public class MenuSummary: ICached {
         self.addings = source.addings.map { Adding(source: $0) }
         self.recommendations = source.recommendations.map { Recommendation(source: $0) }
 
-        self.stoplist = Stoplist(source: $0.stoplist )
+        self.stoplist = Stoplist(source: source.stoplist )
     }
     public required init(json: JSON) {
 

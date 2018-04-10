@@ -11,25 +11,28 @@ import MdsKit
 
 public class ParsedMenu {
 
+    public let source: MenuSummary
+    public var currency: Currency {
+        return source.currency
+    }
+    
     public let categories: [ParsedCategory]
-    public let categoriesForShow: [ParsedCategory]
     public let dishes: [ParsedDish]
 
+    private let allCategories: [ParsedCategory]
 
-    public let source: MenuSummary
+
+
 
     internal init(source: MenuSummary){
 
-        self.categories = ParsedMenu.collectCategories(from: source)
-        self.categoriesForShow = categories.filter({ $0.hasDishes && $0.isPublic })
-        self.dishes = ParsedMenu.collectDishes(from: categories, with: source)
+        self.allCategories = ParsedMenu.collectCategories(from: source)
+        self.categories = allCategories.filter({ $0.hasDishes && $0.isPublic })
+        self.dishes = ParsedMenu.collectDishes(from: allCategories, with: source)
 
         self.source = source
     }
 
-    public var currency: Currency {
-        return source.currency
-    }
 
     private static func collectCategories(from menu: MenuSummary) -> [ParsedCategory] {
 
