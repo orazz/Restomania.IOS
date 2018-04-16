@@ -51,9 +51,9 @@ internal class BaseSearchController: UITableViewController {
         showNavigationBar()
     }
     private func showNavigationBar() {
-        self.navigationController?.navigationBar.topItem?.titleView = searchBar
-        self.navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.navigationController?.navigationBar.topItem?.titleView = searchBar
+//        self.navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

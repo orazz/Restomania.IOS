@@ -124,6 +124,8 @@ extension PlaceMenuCartAction: PlaceMenuElementProtocol {
 
     public func viewWillAppear() {
         cart.subscribe(guid: guid, handler: self, tag: _tag)
+
+        refresh()
     }
     public func viewDidDisappear() {
         cart.unsubscribe(guid: guid)

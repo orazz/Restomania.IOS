@@ -1,5 +1,5 @@
 //
-//  DishStopId.swift
+//  StopId.swift
 //  CoreFramework
 //
 //  Created by Алексей on 10.04.2018.
@@ -7,32 +7,32 @@
 //
 
 import Foundation
-import MdsKit
 import Gloss
+import MdsKit
 
-public class DishStopId: BaseDataType, ICached {
+public class StopId: BaseDataType, ICached {
     private struct Keys {
-        fileprivate static let dishid = "DishId"
+        fileprivate static let elementId = "ElementId"
         fileprivate static let type = "Type"
     }
 
-    public let dishid: Long
-    public let type: StopDishType
+    public let elementId: Long
+    public let type: StopIdType
 
     public override init() {
-        self.dishid = 0
-        self.type = .dish
+        self.elementId = 0
+        self.type = .dishOrSet
 
         super.init()
     }
-    public required init(source: DishStopId) {
-        self.dishid = source.dishid
+    public required init(source: StopId) {
+        self.elementId = source.elementId
         self.type = source.type
 
         super.init(source: source)
     }
     public required init(json: JSON) {
-        self.dishid = (Keys.dishid <~~ json)!
+        self.elementId = (Keys.elementId <~~ json)!
         self.type = (Keys.type <~~ json)!
 
         super.init(json: json)
@@ -40,7 +40,7 @@ public class DishStopId: BaseDataType, ICached {
     public override func toJSON() -> JSON? {
         return jsonify([
 
-            Keys.dishid ~~> self.dishid,
+            Keys.elementId ~~> self.elementId,
             Keys.type ~~> self.type,
 
             super.toJSON()

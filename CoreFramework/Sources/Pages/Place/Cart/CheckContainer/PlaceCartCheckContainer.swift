@@ -186,12 +186,14 @@ extension PlaceCartCheckContainer: UITableViewDataSource {
 extension PlaceCartCheckContainer: CartServiceDelegate {
 
     public func cart(_ cart: CartService, change dish: AddedOrderDish) {
-        if (dish.count == 1) {
-            update()
+        DispatchQueue.main.async {
+            self.update()
         }
     }
     public func cart(_ cart: CartService, remove dish: AddedOrderDish) {
-        update()
+        DispatchQueue.main.async {
+            self.update()
+        }
     }
 }
 extension PlaceCartCheckContainer: PlaceCartElement {

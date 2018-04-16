@@ -8,9 +8,9 @@
 
 import Foundation
 
-public enum StopDishType: Int {
+public enum StopIdType: Int {
 
-    case dish = 1
+    case dishOrSet = 1
     case variation = 2
-    case set = 3
+    case category = 3
 }

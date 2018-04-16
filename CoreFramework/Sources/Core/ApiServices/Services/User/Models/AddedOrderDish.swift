@@ -43,6 +43,7 @@ public class AddedOrderDish: ICopying, Glossy {
                             with addings: [Long] = [],
                             and subdishes: [Long] = []) {
         self.init()
+        self.dishId = dishId
 
         update(count, use: variationId, with: addings, and: subdishes)
     }

@@ -14,36 +14,31 @@ public class Stoplist: BaseDataType, ICached, PlaceDependentProtocol {
     private struct Keys {
         fileprivate static let placeId = "PlaceId"
 
-        fileprivate static let categories = "Categories"
-        fileprivate static let dishes = "Dishes"
+        fileprivate static let elements = "Elements"
     }
 
     public let placeId: Long
 
-    public let categories: [CategoryStopId]
-    public let dishes: [DishStopId]
+    public let elements: [StopId]
 
     public override init() {
         placeId = 0
 
-        categories = []
-        dishes = []
+        elements = []
 
         super.init()
     }
     public required init(source: Stoplist) {
         self.placeId = source.placeId
 
-        self.categories = source.categories.map { CategoryStopId(source: $0) }
-        self.dishes = source.dishes.map { DishStopId(source: $0) }
+        self.elements = source.elements.map { StopId(source: $0) }
 
         super.init(source: source)
     }
     public required init(json: JSON) {
         self.placeId = (Keys.placeId <~~ json)!
 
-        self.categories = (Keys.categories <~~ json)!
-        self.dishes = (Keys.dishes <~~ json)!
+        self.elements = (Keys.elements <~~ json)!
 
         super.init(json: json)
     }
@@ -52,8 +47,7 @@ public class Stoplist: BaseDataType, ICached, PlaceDependentProtocol {
 
             Keys.placeId ~~> self.placeId,
 
-            Keys.categories ~~> self.categories,
-            Keys.dishes ~~> self.dishes,
+            Keys.elements ~~> self.elements,
 
             super.toJSON()
             ])

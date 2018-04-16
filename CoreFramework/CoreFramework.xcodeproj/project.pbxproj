@@ -296,9 +296,8 @@
 		1F27CFA020779DA7008480A6 /* DishModalSelectPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F27CF9F20779DA7008480A6 /* DishModalSelectPicker.xib */; };
 		1F3EF59E207C0C7C009BCDDB /* Stoplist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF59D207C0C7C009BCDDB /* Stoplist.swift */; };
 		1F3EF5A1207C0CD9009BCDDB /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A0207C0CD9009BCDDB /* Recommendation.swift */; };
-		1F3EF5A3207CC19F009BCDDB /* CategoryStopId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A2207CC19F009BCDDB /* CategoryStopId.swift */; };
-		1F3EF5A5207CC257009BCDDB /* DishStopId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A4207CC257009BCDDB /* DishStopId.swift */; };
-		1F3EF5A7207D12B4009BCDDB /* StopDishType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A6207D12B4009BCDDB /* StopDishType.swift */; };
+		1F3EF5A3207CC19F009BCDDB /* StopId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A2207CC19F009BCDDB /* StopId.swift */; };
+		1F3EF5A7207D12B4009BCDDB /* StopIdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A6207D12B4009BCDDB /* StopIdType.swift */; };
 		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
 		1F53B92E205FD50A00656EA5 /* ParsedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */; };
 		1F53B930206056E300656EA5 /* ParsedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92F206056E300656EA5 /* ParsedCategory.swift */; };
@@ -656,9 +655,8 @@
 		1F27CF9F20779DA7008480A6 /* DishModalSelectPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishModalSelectPicker.xib; sourceTree = "<group>"; };
 		1F3EF59D207C0C7C009BCDDB /* Stoplist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stoplist.swift; sourceTree = "<group>"; };
 		1F3EF5A0207C0CD9009BCDDB /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
-		1F3EF5A2207CC19F009BCDDB /* CategoryStopId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStopId.swift; sourceTree = "<group>"; };
-		1F3EF5A4207CC257009BCDDB /* DishStopId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishStopId.swift; sourceTree = "<group>"; };
-		1F3EF5A6207D12B4009BCDDB /* StopDishType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDishType.swift; sourceTree = "<group>"; };
+		1F3EF5A2207CC19F009BCDDB /* StopId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopId.swift; sourceTree = "<group>"; };
+		1F3EF5A6207D12B4009BCDDB /* StopIdType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopIdType.swift; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedMenu.swift; sourceTree = "<group>"; };
 		1F53B92F206056E300656EA5 /* ParsedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedCategory.swift; sourceTree = "<group>"; };
@@ -2036,9 +2034,8 @@
 			isa = PBXGroup;
 			children = (
 				1F3EF59D207C0C7C009BCDDB /* Stoplist.swift */,
-				1F3EF5A2207CC19F009BCDDB /* CategoryStopId.swift */,
-				1F3EF5A4207CC257009BCDDB /* DishStopId.swift */,
-				1F3EF5A6207D12B4009BCDDB /* StopDishType.swift */,
+				1F3EF5A2207CC19F009BCDDB /* StopId.swift */,
+				1F3EF5A6207D12B4009BCDDB /* StopIdType.swift */,
 			);
 			path = Stoplist;
 			sourceTree = "<group>";
@@ -2638,7 +2635,6 @@
 				1F06A84F205570FD00FEB1B5 /* Properties.swift in Sources */,
 				1F3EF59E207C0C7C009BCDDB /* Stoplist.swift in Sources */,
 				1F06A866205570FD00FEB1B5 /* ApiRole.swift in Sources */,
-				1F3EF5A5207CC257009BCDDB /* DishStopId.swift in Sources */,
 				1F592CA4205C2B9A0082DF37 /* OneOrderTitleSection.swift in Sources */,
 				1F06A8BD205570FD00FEB1B5 /* DishModalSelectAddings.swift in Sources */,
 				1F06A863205570FD00FEB1B5 /* ApiKeys.swift in Sources */,
@@ -2692,7 +2688,7 @@
 				1F06A7CE205570FD00FEB1B5 /* ProblemAlerts.swift in Sources */,
 				1F06A831205570FD00FEB1B5 /* DishOrder.swift in Sources */,
 				1F06A80F205570FD00FEB1B5 /* BaseApiService.swift in Sources */,
-				1F3EF5A7207D12B4009BCDDB /* StopDishType.swift in Sources */,
+				1F3EF5A7207D12B4009BCDDB /* StopIdType.swift in Sources */,
 				1F06A8A6205570FD00FEB1B5 /* PlaceCartController.swift in Sources */,
 				1F06A82D205570FD00FEB1B5 /* BaseNotificationPreference.swift in Sources */,
 				1F06A839205570FD00FEB1B5 /* PaymentCardType.swift in Sources */,
@@ -2763,7 +2759,7 @@
 				1F06A83B205570FD00FEB1B5 /* TransactionSummary.swift in Sources */,
 				1F06A810205570FD00FEB1B5 /* MenuSummariesApiService.swift in Sources */,
 				1F06A80E205570FD00FEB1B5 /* AuthMainApiService.swift in Sources */,
-				1F3EF5A3207CC19F009BCDDB /* CategoryStopId.swift in Sources */,
+				1F3EF5A3207CC19F009BCDDB /* StopId.swift in Sources */,
 				1F06A803205570FD00FEB1B5 /* ThemeColors.swift in Sources */,
 				1F06A82A205570FD00FEB1B5 /* Price.swift in Sources */,
 				1F06A85C205570FD00FEB1B5 /* CartServiceDelegate.swift in Sources */,

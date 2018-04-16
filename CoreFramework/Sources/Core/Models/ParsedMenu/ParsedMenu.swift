@@ -54,19 +54,19 @@ public class ParsedMenu {
 
     private func collectVariations() -> [Variation] {
 
-        let needStop = stoplist.dishes.filter({ $0.type == .variation }).map({ $0.dishid })
+        let needStop = stoplist.elements.filter({ $0.type == .variation }).map({ $0.elementId })
 
         return source.variations.filter({ !needStop.contains($0.id) }).ordered
     }
     private func collectDishes() -> [Dish] {
 
-        let needStop = stoplist.dishes.filter({ $0.type == .dish }).map({ $0.dishid })
+        let needStop = stoplist.elements.filter({ $0.type == .dishOrSet }).map({ $0.elementId })
 
         return source.dishes.filter({ !needStop.contains($0.id) }).ordered
     }
     private func collectCategories() -> [MenuCategory] {
 
-        let needStop = stoplist.categories.map({ $0.categoryId })
+        let needStop = stoplist.elements.map({ $0.elementId })
 
         return source.categories.filter({ !needStop.contains($0.id) && (nil == $0.parentId || !needStop.contains($0.parentId!)) }).ordered
     }

@@ -47,20 +47,20 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cpz-F8-ExS">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
+                            <rect key="frame" x="5" y="0.0" width="365" height="333"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="15" bottom="8" trailing="15"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Cpz-F8-ExS" secondAttribute="bottom" constant="270" identifier="KeyboardOffset" id="DYI-Pr-NnU"/>
                         <constraint firstItem="Cpz-F8-ExS" firstAttribute="top" secondItem="o6y-fi-yeG" secondAttribute="top" id="b3F-iC-Dhe"/>
-                        <constraint firstItem="Cpz-F8-ExS" firstAttribute="leading" secondItem="o6y-fi-yeG" secondAttribute="leading" id="d32-IO-ePG"/>
-                        <constraint firstAttribute="trailing" secondItem="Cpz-F8-ExS" secondAttribute="trailing" id="kpp-Uh-K9l"/>
+                        <constraint firstItem="Cpz-F8-ExS" firstAttribute="leading" secondItem="o6y-fi-yeG" secondAttribute="leading" constant="5" id="d32-IO-ePG"/>
+                        <constraint firstAttribute="trailing" secondItem="Cpz-F8-ExS" secondAttribute="trailing" constant="5" id="kpp-Uh-K9l"/>
                     </constraints>
                 </view>
             </subviews>
