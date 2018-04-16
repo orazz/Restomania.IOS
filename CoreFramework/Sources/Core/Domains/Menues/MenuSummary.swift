@@ -83,9 +83,9 @@ public class MenuSummary: ICached {
         self.dishes = (Keys.dishes <~~ json)!
         self.variations = (Keys.variations <~~ json)!
         self.addings = (Keys.addings <~~ json)!
-        self.recommendations = (Keys.recommendations <~~ json)!
+        self.recommendations = (Keys.recommendations <~~ json) ?? []
 
-        self.stoplist = (Keys.stoplist <~~ json)!
+        self.stoplist = (Keys.stoplist <~~ json) ?? Stoplist()
     }
     public func toJSON() -> JSON? {
 

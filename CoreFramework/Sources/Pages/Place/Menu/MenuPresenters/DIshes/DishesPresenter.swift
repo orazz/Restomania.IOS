@@ -75,8 +75,9 @@ extension PlaceMenuController {
                 return result
             }
 
-            for category in [parent] + parent.child {
-                let model = CategoryContainer(source: category, collectDishesRecursive: false)
+            let categories = ([parent] + parent.child).filter({ $0.isPublic && $0.publicDishesWithChild.isFilled })
+            for category in categories  {
+                let model = CategoryContainer(source: category, includeChildDishes: false)
                 result.append(model)
             }
 
@@ -86,8 +87,9 @@ extension PlaceMenuController {
 
             var result = [CategoryContainer]()
 
-            for category in menu.categories {
-                let model = CategoryContainer(source: category, collectDishesRecursive: true)
+            let categories = menu.categories.filter({ $0.isPublic && $0.publicDishesWithChild.isFilled })
+            for category in categories  {
+                let model = CategoryContainer(source: category, includeChildDishes: true)
                 result.append(model)
             }
 
@@ -168,21 +170,20 @@ extension PlaceMenuController.DishesPresenter: UITableViewDataSource {
     }
 }
 extension PlaceMenuController.DishesPresenter {
-    fileprivate class CategoryContainer {
+    fileprivate class CategoryContainer: IIdentified {
 
         public let source: ParsedCategory
         public let dishes: [ParsedDish]
 
-        fileprivate init(source: ParsedCategory, collectDishesRecursive: Bool) {
+        fileprivate init(source: ParsedCategory, includeChildDishes: Bool) {
             self.source = source
 
-            var dishes = source.dishes
-            if (collectDishesRecursive) {
-                for dependent in source.child {
-                    dishes = dishes + dependent.dishes
-                }
+            if (includeChildDishes) {
+                self.dishes = source.publicDishesWithChild
             }
-            self.dishes = dishes.ordered
+            else {
+                self.dishes = source.dishes
+            }
         }
 
         public var id: Long {

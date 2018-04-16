@@ -30,7 +30,6 @@ public class AddDishToCartModal: UIViewController {
     private let dish: ParsedDish
     private let addings: [Adding]
     private let vartiations: [Variation]
-    private let menu: MenuSummary
     private var cartDish: AddedOrderDish?
 
     public var selectedVariation: Variation?
@@ -60,14 +59,14 @@ public class AddDishToCartModal: UIViewController {
             self.total = Price.zero
         }
 
-        if let variation = dish.variation?.variations.find({ $0.id == cartDish.variationId }) {
+        if let variation = dish.variation?.range.find({ $0.id == cartDish.variationId }) {
             select(variation: variation)
         }
-        for addingId in cartDish.addings {
-            if let dish = menu.dishes.find({ $0.id == addingId }) {
-                add(adding: dish)
-            }
-        }
+//        for addingId in cartDish.addings {
+//            if let dish = dish.addings.find({ $0.id == addingId }) {
+//                add(adding: dish)
+//            }
+//        }
 
         self.cartDish = cartDish
 
@@ -92,8 +91,7 @@ public class AddDishToCartModal: UIViewController {
         self.dish = dish
         self.cart = cart
         self.addings = dish.addings
-        self.vartiations = dish.variation?.variations ?? []
-        self.menu = dish.menu
+        self.vartiations = dish.variation?.range ?? []
         self.count = 1
         self.total = Price.zero
 
@@ -138,14 +136,13 @@ public class AddDishToCartModal: UIViewController {
         if (vartiations.isFilled) {
 //            result.append(DishModalSpace.create())
             result.append(DishModalSelectHeader.create(with: DishModal.Localization.labelsSelectVariations.localized))
-            result.append(DishModalSelectVariations.create(for: self.vartiations, from: menu, with: self))
+            result.append(DishModalSelectVariations.create(for: self.vartiations, with: dish.currency, with: self))
         }
 
         if (addings.isFilled) {
 //            result.append(DishModalSpace.create())
             result.append(DishModalSelectHeader.create(with: DishModal.Localization.labelsSelectAddings.localized))
-            result.append(DishModalSelectAddings.create(for: self.addings, from: menu, with: self))
-            result.append(DishModalSpace.create())
+//            result.append(DishModalSelectAddings.create(for: self.addings, menu: MenuSummaw  with: self))
             result.append(DishModalSpace.create())
         }
 
@@ -208,6 +205,6 @@ extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
             return
         }
 
-        self.addToCartAction?.refresh(total: total * count, with: menu.currency)
+        self.addToCartAction?.refresh(total: total * count, with: dish.currency)
     }
 }

@@ -52,8 +52,9 @@ public class DishModalSelectVariationsCell: UITableViewCell {
 
         markImage.isHidden = !selected
     }
-    public func setup(for variation: Variation, with menu: MenuSummary) {
+    public func setup(for variation: Variation, with currency: Currency) {
+
         sizeLabel.setup(size: variation.size, units: variation.sizeUnits)
-        priceLabel.setup(price: variation.price, currency: menu.currency)
+        priceLabel.setup(price: variation.price, currency: currency)
     }
 }

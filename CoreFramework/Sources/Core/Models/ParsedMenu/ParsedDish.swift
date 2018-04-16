@@ -9,22 +9,21 @@
 import Foundation
 import MdsKit
 
-public class ParsedDish: ISortable {
-
-
+public class ParsedDish: ISortable, IIdentified {
     public let source: Dish
-    public let menu: MenuSummary
+    public let currency: Currency
 
     public let addings: [Adding]
     public let variation: ParsedVariationsInfo?
 
-    public init(source: Dish, from menu: MenuSummary) {
+    public init(source: Dish, currency: Currency, variations: [Variation], addings: [Adding]) {
         self.source = source
-        self.menu = menu
+        self.currency = currency
 
-        self.addings = menu.addings.filter({ $0.sourceDishId == source.id }).ordered
+        self.addings = addings.filter({ $0.sourceDishId == source.id })
+                               
         if (source.type == .variableDish) {
-            variation = ParsedVariationsInfo(source: source, from: menu)
+            variation = ParsedVariationsInfo(source: source, currency: currency, variations: variations)
         }
         else {
             variation = nil
@@ -54,9 +53,6 @@ public class ParsedDish: ISortable {
     }
     public var price: Price {
         return source.price
-    }
-    public var currency: Currency {
-        return menu.currency
     }
     public var size: Double {
         return source.size
