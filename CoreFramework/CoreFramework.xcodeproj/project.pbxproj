@@ -206,7 +206,7 @@
 		1F06A8A9205570FD00FEB1B5 /* PlaceCartTotalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A741205570FD00FEB1B5 /* PlaceCartTotalRow.swift */; };
 		1F06A8AA205570FD00FEB1B5 /* PlaceCartTotalRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A742205570FD00FEB1B5 /* PlaceCartTotalRow.xib */; };
 		1F06A8AC205570FD00FEB1B5 /* PlaceCompleteOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A745205570FD00FEB1B5 /* PlaceCompleteOrderController.swift */; };
-		1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A746205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib */; };
+		1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A746205570FD00FEB1B5 /* PlaceCompleteOrderController.xib */; };
 		1F06A8AE205570FD00FEB1B5 /* AddDishToCartModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A748205570FD00FEB1B5 /* AddDishToCartModal.swift */; };
 		1F06A8AF205570FD00FEB1B5 /* AddDishToCartModalDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A749205570FD00FEB1B5 /* AddDishToCartModalDelegateProtocol.swift */; };
 		1F06A8B0205570FD00FEB1B5 /* AddDishToCartModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06A74A205570FD00FEB1B5 /* AddDishToCartModalView.xib */; };
@@ -339,6 +339,7 @@
 		1FDBA135205BBE5E000F1378 /* OtherNotificationController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA137205BBE5E000F1378 /* OtherNotificationController.strings */; };
 		1FDD97AE2060EB3800D75CBF /* ParsedDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD97AD2060EB3800D75CBF /* ParsedDish.swift */; };
 		1FDD97B02060ED1700D75CBF /* ParsedVariationsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD97AF2060ED1700D75CBF /* ParsedVariationsInfo.swift */; };
+		1FE68413208879550035E56B /* PlaceCompleteOrderController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE68415208879550035E56B /* PlaceCompleteOrderController.strings */; };
 		1FED176620573F3400A80DA5 /* BaseSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED176520573F3400A80DA5 /* BaseSearchController.swift */; };
 		7B9696C32E76578E71F00E4B /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
 /* End PBXBuildFile section */
@@ -559,7 +560,7 @@
 		1F06A741205570FD00FEB1B5 /* PlaceCartTotalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCartTotalRow.swift; sourceTree = "<group>"; };
 		1F06A742205570FD00FEB1B5 /* PlaceCartTotalRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCartTotalRow.xib; sourceTree = "<group>"; };
 		1F06A745205570FD00FEB1B5 /* PlaceCompleteOrderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCompleteOrderController.swift; sourceTree = "<group>"; };
-		1F06A746205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCompleteOrderControllerView.xib; sourceTree = "<group>"; };
+		1F06A746205570FD00FEB1B5 /* PlaceCompleteOrderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCompleteOrderController.xib; sourceTree = "<group>"; };
 		1F06A748205570FD00FEB1B5 /* AddDishToCartModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDishToCartModal.swift; sourceTree = "<group>"; };
 		1F06A749205570FD00FEB1B5 /* AddDishToCartModalDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDishToCartModalDelegateProtocol.swift; sourceTree = "<group>"; };
 		1F06A74A205570FD00FEB1B5 /* AddDishToCartModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDishToCartModalView.xib; sourceTree = "<group>"; };
@@ -709,6 +710,8 @@
 		1FDBA138205BBE62000F1378 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OtherNotificationController.strings; sourceTree = "<group>"; };
 		1FDD97AD2060EB3800D75CBF /* ParsedDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedDish.swift; sourceTree = "<group>"; };
 		1FDD97AF2060ED1700D75CBF /* ParsedVariationsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedVariationsInfo.swift; sourceTree = "<group>"; };
+		1FE68414208879550035E56B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PlaceCompleteOrderController.strings; sourceTree = "<group>"; };
+		1FE68416208879560035E56B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PlaceCompleteOrderController.strings; sourceTree = "<group>"; };
 		1FED174920571B7E00A80DA5 /* Pods_Kuzina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Kuzina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED175620571B9E00A80DA5 /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED175720571B9E00A80DA5 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1653,7 +1656,8 @@
 			isa = PBXGroup;
 			children = (
 				1F06A745205570FD00FEB1B5 /* PlaceCompleteOrderController.swift */,
-				1F06A746205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib */,
+				1F06A746205570FD00FEB1B5 /* PlaceCompleteOrderController.xib */,
+				1FE68415208879550035E56B /* PlaceCompleteOrderController.strings */,
 			);
 			path = CompleteOrder;
 			sourceTree = "<group>";
@@ -2450,6 +2454,7 @@
 				1FDBA12E205BA6A5000F1378 /* OtherNotificationControllerTitle.xib in Resources */,
 				1F06A8B0205570FD00FEB1B5 /* AddDishToCartModalView.xib in Resources */,
 				1F06A7F6205570FD00FEB1B5 /* WebBrowserController.strings in Resources */,
+				1FE68413208879550035E56B /* PlaceCompleteOrderController.strings in Resources */,
 				1F06A881205570FD00FEB1B5 /* ManagerChangePasswordControllerView.xib in Resources */,
 				1FDBA120205B281C000F1378 /* OneOrderCommentContainer.xib in Resources */,
 				1F06A8E3205570FE00FEB1B5 /* SearchPlaceCard.xib in Resources */,
@@ -2487,7 +2492,7 @@
 				1F06A7DF205570FD00FEB1B5 /* AddCardUIService.strings in Resources */,
 				1F06A7EF205570FD00FEB1B5 /* SelectAuthController.strings in Resources */,
 				1FDBA11B205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib in Resources */,
-				1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderControllerView.xib in Resources */,
+				1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderController.xib in Resources */,
 				1FDBA132205BA6CF000F1378 /* OtherNotificationControllerPreference.xib in Resources */,
 				1F06A8CC205570FD00FEB1B5 /* DishModalTryAddingActionView.xib in Resources */,
 				1F892356205679D70086D372 /* ProblemAlerts.strings in Resources */,
@@ -3078,6 +3083,15 @@
 				1FDBA138205BBE62000F1378 /* ru */,
 			);
 			name = OtherNotificationController.strings;
+			sourceTree = "<group>";
+		};
+		1FE68415208879550035E56B /* PlaceCompleteOrderController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FE68414208879550035E56B /* en */,
+				1FE68416208879560035E56B /* ru */,
+			);
+			name = PlaceCompleteOrderController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

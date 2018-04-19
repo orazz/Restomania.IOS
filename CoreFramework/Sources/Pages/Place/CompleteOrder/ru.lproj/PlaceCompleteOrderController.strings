@@ -1,0 +1,13 @@
+/* 
+  PlaceCompleteOrderController.strings
+  CoreFramework
+
+  Created by Алексей on 19.04.2018.
+  Copyright © 2018 Medved-Studio. All rights reserved.
+*/
+"Labels.Title" = "Поздравляем, вы успешно добавлили новый заказ";
+"Labels.DateTimeFormat" = "HH:mm dd/MM";
+"Labels.Content" = "#%@ на %@";
+
+"Buttons.ToOrder" = "Посмотреть заказ";
+"Buttons.ToSearch" = "Вернуться к поиску";

@@ -12,28 +12,73 @@ import MdsKit
 
 public class PlaceCompleteOrderController: UIViewController {
 
-    private static let nibName = "PlaceCompleteOrderControllerView"
-    public static func create(for order: DishOrder) -> PlaceCompleteOrderController {
-
-        let instance = PlaceCompleteOrderController(nibName: nibName, bundle: Bundle.coreFramework)
-
-        instance.order = order
-
-        let cart = DependencyResolver.get(PlaceCartsFactory.self).get(for: order.placeId)
-        cart.clear()
-
-        return instance
-    }
-
     //UI
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var dataLabel: UILabel!
+
+    @IBOutlet private weak var toOrderButton: UIButton!
+    @IBOutlet private weak var toSearchButton: UIButton!
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
-    private var order: DishOrder!
+    private var order: DishOrder
+    private let cart: CartService
+
+    public init(for order: DishOrder) {
+
+        self.order = order
+        self.cart = DependencyResolver.get(PlaceCartsFactory.self).get(for: order.placeId)
+
+        let nibnme = String.tag(PlaceCompleteOrderController.self)
+        super.init(nibName: nibnme, bundle: Bundle.coreFramework)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+
+    //Load circle
+    public override func loadView() {
+        super.loadView()
+
+        setupMarkup()
+    }
+    private func setupMarkup() {
+
+        view.backgroundColor = themeColors.contentBackground
+
+        titleLabel.text = Localization.labelsTitle.localized
+        titleLabel.font = themeFonts.default(size: .head)
+        titleLabel.textColor = themeColors.contentText
+
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.utc
+        formatter.dateFormat = Localization.labelsDateTimeFormat.localized
+        let completeAt = formatter.string(from: order.summary.completeAt)
+
+        dataLabel.text =  String(format: Localization.labelsContent.localized, "\(order.id)", completeAt)
+        dataLabel.font = themeFonts.bold(size: .head)
+        dataLabel.textColor = themeColors.contentText
+
+        toOrderButton.setTitle(Localization.buttonsToOrder.localized, for: .normal)
+        toSearchButton.setTitle(Localization.buttonsToSearch.localized, for: .normal)
+    }
+
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
+        cart.clear()
+    }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setStatusBarStyle(from: themeColors.statusBarOnContent)
+    }
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
 }
 
 // MARK: Actions
@@ -64,34 +109,20 @@ extension PlaceCompleteOrderController {
 
 // MARK: View circle
 extension PlaceCompleteOrderController {
+    public enum Localization: String, Localizable {
 
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+        public var tableName: String {
+            return String.tag(PlaceCompleteOrderController.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
 
-        setupMarkup()
-    }
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        case labelsTitle = "Labels.Title"
+        case labelsDateTimeFormat = "Labels.DateTimeFormat"
+        case labelsContent = "Labels.Content"
 
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    private func setupMarkup() {
-
-        view.backgroundColor = themeColors.contentBackground
-
-        titleLabel.text = "Поздравляем, вы успешно добавлили новый заказ"
-        titleLabel.font = themeFonts.default(size: .head)
-        titleLabel.textColor = themeColors.contentText
-
-        let formatter = DateFormatter()
-        formatter.timeZone = TimeZone.utc
-        formatter.dateFormat = "HH:mm dd/MM"
-        
-        dataLabel.text = "#\(order.id) на \(formatter.string(from: order.summary.completeAt))"
-        dataLabel.font = themeFonts.bold(size: .head)
-        dataLabel.textColor = themeColors.contentText
+        case buttonsToOrder = "Buttons.ToOrder"
+        case buttonsToSearch = "Buttons.ToSearch"
     }
 }

@@ -382,7 +382,7 @@ extension PlaceCartController: PlaceCartDelegate {
                 if response.isSuccess,
                     let order = response.data {
 
-                    let vc = PlaceCompleteOrderController.create(for: order)
+                    let vc = PlaceCompleteOrderController(for: order)
                     self.navigationController?.pushViewController(vc, animated: true)
 
                     NotificationsIgnore.Orders.add(order.id)

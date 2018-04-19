@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceCompleteOrderController" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceCompleteOrderController" customModule="CoreFramework" customModuleProvider="target">
             <connections>
                 <outlet property="dataLabel" destination="prt-x1-EMY" id="Es6-RB-OW5"/>
                 <outlet property="titleLabel" destination="2zr-Do-kXD" id="2Et-jw-Nbo"/>
+                <outlet property="toOrderButton" destination="Y2Q-Ez-56i" id="VIU-Fy-80J"/>
+                <outlet property="toSearchButton" destination="QI6-mw-naA" id="te0-tM-MRp"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Wgb-Ty-biD"/>
             </connections>
         </placeholder>
@@ -38,7 +44,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Q-Ez-56i" customClass="InvertedButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Q-Ez-56i" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="62" y="270" width="250" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="gVK-dc-BuG"/>
@@ -49,7 +55,7 @@
                         <action selector="goToOrder" destination="-1" eventType="touchUpInside" id="IzE-g8-O4T"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QI6-mw-naA" customClass="InvertedButton" customModule="RestomaniaAppKuzina" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QI6-mw-naA" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
                     <rect key="frame" x="62" y="340" width="250" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="dRd-1P-fDd"/>
