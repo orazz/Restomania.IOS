@@ -38,6 +38,17 @@ public class MenuCacheService {
     public var cache: CacheAdapterExtender<MenuSummary> {
         return adapter.extender
     }
+    public func update(_ menuId: Long, by stoplist: Stoplist) -> MenuSummary? {
+
+        guard let summary = cache.find(menuId) else {
+            return nil
+        }
+
+        summary.update(by: stoplist)
+        adapter.addOrUpdate(summary)
+
+        return summary
+    }
 
     //Remote
     public func find(_ placeId: Long) -> RequestResult<MenuSummary> {
@@ -69,17 +80,6 @@ public class MenuCacheService {
 
                 handler(response)
             }
-        }
-    }
-}
-extension CacheAdapterExtender where TElement == MenuSummary {
-
-    public func find(by placeId: Long, summary: PlaceSummary?) -> TElement? {
-
-        if let summary = summary {
-            return self.find(summary.menuId)
-        } else {
-            return self.find({ $0.placeId == placeId })
         }
     }
 }

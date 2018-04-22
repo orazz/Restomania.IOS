@@ -163,7 +163,7 @@ extension PlaceMenuController {
         }
 
         //Menu summary
-        if let menu = menusService.cache.find(by: placeId, summary: summaryContainer.data) {
+        if let menu = menusService.cache.find({ $0.placeId == self.placeId }) {
             menuContainer.updateAndCheckFresh(menu, cache: menusService.cache)
 
             requestStoplist()
@@ -202,10 +202,10 @@ extension PlaceMenuController {
         request.async(loadQueue, completion: { response in
 
             if let stoplist = response.data,
-                let menu = self.parsedMenu?.source {
+                let menuId = self.parsedMenu?.source.id,
+                let summary = self.menusService.update(menuId, by: stoplist) {
 
-                menu.update(by: stoplist)
-                self.menuContainer.update(menu)
+                self.menuContainer.update(summary)
             }
         })
     }

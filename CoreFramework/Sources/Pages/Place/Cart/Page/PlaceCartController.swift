@@ -207,7 +207,7 @@ extension PlaceCartController {
             summaryContainer.updateAndCheckFresh(summary, cache: placesService.cache)
         }
 
-        if let menu = menusService.cache.find(by: placeId, summary: self.summaryContainer.data) {
+        if let menu = menusService.cache.find({ $0.placeId == self.placeId }) {
             menuContainer.updateAndCheckFresh(menu, cache: menusService.cache)
         }
 
