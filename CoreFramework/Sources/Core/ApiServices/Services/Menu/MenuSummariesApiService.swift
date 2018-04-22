@@ -15,18 +15,18 @@ public class MenuSummariesApiService: BaseApiService {
         super.init(area: "Menu/Summaries", type: MenuSummariesApiService.self, configs: configs)
     }
 
-    public func find(placeID: Long) -> RequestResult<MenuSummary> {
+    public func find(placeId: Long) -> RequestResult<MenuSummary> {
 
         let parameters = CollectParameters([
-                "placeId": placeID
+                "placeId": placeId
             ])
 
         return client.Get(action: "Find", type: MenuSummary.self, parameters: parameters)
     }
-    public func range(placeIDs: [Long]) -> RequestResult<[MenuSummary]> {
+    public func range(placeIds: [Long]) -> RequestResult<[MenuSummary]> {
 
         let parameters = CollectParameters([
-                "placeIds": placeIDs
+                "placeIds": placeIds
             ])
 
         return client.GetRange(action: "Range", type: MenuSummary.self, parameters: parameters)

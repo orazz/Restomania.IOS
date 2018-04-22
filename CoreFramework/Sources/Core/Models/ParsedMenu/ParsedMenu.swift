@@ -12,44 +12,43 @@ import MdsKit
 public class ParsedMenu {
     public private(set) var source: MenuSummary!
     public private(set) var stoplist: Stoplist!
+
+    public private(set) var categories: [ParsedCategory] = []
+    public private(set) var dishes: [ParsedDish] = []
     
     public var currency: Currency {
         return source.currency
     }
-    
-    public private(set) var categories: [ParsedCategory] = []
-    public private(set) var dishes: [ParsedDish] = []
 
     internal init(source: MenuSummary) {
-        update(by: source)
-    }
-    public func update(by menu: MenuSummary) {
-        initialize(menu: menu, stoplist: menu.stoplist)
-    }
-    public func update(by stoplist: Stoplist) {
-        initialize(menu: source, stoplist: stoplist)
+        initialize(menu: source, stoplist: source.stoplist)
     }
     private func initialize(menu: MenuSummary, stoplist: Stoplist) {
 
         self.source = menu
         self.stoplist = stoplist
 
-        let sourceVariations = collectVariations()
-        let sourceDishes = collectDishes()
+        //Filter variations, dishes and categories. Apply stoplist
         let sourceCategories = collectCategories()
+        let sourceDishes = collectDishes()
+        let sourceVariations = collectVariations()
 
-        let openSimpleDishes = sourceDishes.filter({ $0.type == .simpleDish }).map({ $0.id })
-        let openCategories = categories.map{ $0.id }
-        let sourceAddings = collectAddings(openSimpleDishes: openSimpleDishes, openCategories: openCategories)
+        //Filter allow addings
+        let sourceAddings = collectAddings(openSimpleDishes: sourceDishes.filter({ $0.type == .simpleDish }).map({ $0.id }),
+                                              openCategories: categories.map{ $0.id })
 
-        self.dishes = sourceDishes.map{ ParsedDish(source: $0, currency: source.currency, variations: sourceVariations, addings: sourceAddings) }
+        //Build all dishes
+        self.dishes = sourceDishes.map { ParsedDish(source: $0,
+                                                   currency: source.currency,
+                                                 variations: sourceVariations,
+                                                    addings: sourceAddings) }
 
-        let allCategories = sourceCategories.map{ ParsedCategory(source: $0, dishes: self.dishes) }
-        for category in allCategories {
-            category.selectChild(categories: allCategories)
+        //Build all categories
+        self.categories = sourceCategories.map { ParsedCategory(source: $0,
+                                                                  dishes: self.dishes) }
+        for category in categories {
+            category.selectChild(from: categories)
         }
-
-        self.categories = allCategories.filter({ $0.hasDishes })
     }
 
     private func collectVariations() -> [Variation] {
@@ -62,7 +61,7 @@ public class ParsedMenu {
 
         let needStop = stoplist.elements.filter({ $0.type == .dishOrSet }).map({ $0.elementId })
 
-        return source.dishes.filter({ !needStop.contains($0.id) }).ordered
+        return source.dishes.filter({ !$0.isHidden && !needStop.contains($0.id) }).ordered
     }
     private func collectCategories() -> [MenuCategory] {
 
@@ -72,18 +71,54 @@ public class ParsedMenu {
     }
     private func collectAddings(openSimpleDishes:[Long], openCategories: [Long]) -> [Adding] {
 
-        return source.addings.filter({ e in
-                                if let id = e.addedDishId {
+        let addings = source.addings.filter({ a in
+                                if let id = a.addedDishId {
                                     return openSimpleDishes.contains(id)
                                 }
-                                else if let id = e.addedCategoryId {
+                                else if let id = a.addedCategoryId {
                                     return openCategories.contains(id)
                                 }
                                 else {
                                     return false
                                 }
                             })
-                            .ordered
+
+        return addings.ordered
+    }
+
+
+
+    public lazy var categoriesForDisplay: [ParsedCategory] = { [unowned self] in
+
+        var result = [ParsedCategory]()
+
+        for category in categories.filter({ $0.isBase && $0.isPublic }) {
+
+            if (category.hasDishes) {
+                result.append(category)
+                continue
+            }
+
+            let dependents = category.child.filter({ $0.isPublic })
+            if (dependents.any({ $0.hasDishes })) {
+                result.append(category)
+            }
+        }
+
+        return result
+    }()
+
+    public func publicDishesWithChild(for source: ParsedCategory) -> [ParsedDish] {
+
+        var result = source.dishes
+        
+        for children in source.child.filter({ $0.isPublic }) {
+            for dish in children.dishes {
+                result.append(dish)
+            }
+        }
+
+        return result
     }
 }
 

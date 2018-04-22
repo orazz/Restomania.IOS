@@ -58,10 +58,8 @@ public class OrdersController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.edgesForExtendedLayout = []
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationItem.title = Keys.title.localized
-        self.navigationController?.view.layoutSubviews()
 
         displayCachedOrders()
     }

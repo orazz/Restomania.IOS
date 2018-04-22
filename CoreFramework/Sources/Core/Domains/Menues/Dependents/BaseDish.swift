@@ -26,6 +26,7 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
         public static let image = "Image"
         public static let size = "Size"
         public static let sizeUnits = "SizeUnits"
+        public static let isHidden = "IsHidden"
     }
 
     public var menuId: Long
@@ -39,6 +40,7 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
     public var image: String
     public var size: Double
     public var sizeUnits: UnitsOfSize
+    public var isHidden: Bool
 
     public override init() {
 
@@ -53,6 +55,7 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
         image = String.empty
         size = 0
         sizeUnits = .units
+        isHidden = false
 
         super.init()
     }
@@ -71,6 +74,7 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
         self.image = source.image
         self.size = source.size
         self.sizeUnits = source.sizeUnits
+        self.isHidden = source.isHidden
 
         super.init(source: source)
     }
@@ -89,6 +93,7 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
         self.image = (Keys.image <~~ json)!
         self.size = (Keys.size <~~ json)!
         self.sizeUnits = (Keys.sizeUnits <~~ json)!
+        self.isHidden = (Keys.isHidden <~~ json) ?? false
 
         super.init(json: json)
     }
@@ -106,6 +111,7 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
             Keys.image ~~> self.image,
             Keys.size ~~> self.size,
             Keys.sizeUnits ~~> self.sizeUnits,
+            Keys.isHidden ~~> self.isHidden,
 
             super.toJSON()
             ])

@@ -13,6 +13,7 @@ public class ParsedCategory: ISortable, IIdentified {
 
     public private(set) var child: [ParsedCategory]
     public let dishes: [ParsedDish]
+    public var isHidden: Bool
 
     public let source: MenuCategory
     public init(source: MenuCategory, dishes: [ParsedDish]) {
@@ -20,12 +21,15 @@ public class ParsedCategory: ISortable, IIdentified {
         self.source = source
         self.child = []
         self.dishes = dishes.filter({ $0.categoryId == source.id })
+        self.isHidden = source.isHidden
     }
-    internal func selectChild(categories: [ParsedCategory]) {
-        self.child = categories.filter({ $0.parentId == source.id && $0.dishes.isFilled })
+    internal func selectChild(from categories: [ParsedCategory]) {
+        self.child = categories.filter({ $0.parentId == source.id})
 
-        for children in child {
-            children.isHidden = self.isHidden
+        if (self.isHidden) {
+            for children in child {
+                children.isHidden = true
+            }
         }
     }
 
@@ -45,56 +49,21 @@ public class ParsedCategory: ISortable, IIdentified {
     public var isPublic: Bool {
         return !isHidden
     }
-    public var isHidden: Bool {
-        get {
-            return source.isHidden
-        }
-        set {
-            source.isHidden = newValue
-        }
-    }
+    
     public var hasDishes: Bool {
-        return allDishesWithChild.isFilled
+        return dishes.isFilled
     }
     public var noDishes: Bool {
-        return allDishesWithChild.isEmpty
+        return !hasDishes
     }
+    public var hasDishesWithChild: Bool {
+        return hasDishes || child.any({ $0.hasDishesWithChild })
+    }
+
     public var isBase: Bool {
         return source.isBase
     }
     public var isDependent: Bool {
         return source.isDependent
-    }
-
-    private var allDishesWithChildCached: [ParsedDish]?
-    public var allDishesWithChild: [ParsedDish] {
-
-        if let cached = allDishesWithChildCached {
-            return cached
-        }
-
-        var result = dishes.map { $0 }
-        for children in self.child {
-            result = result + children.dishes
-        }
-
-        allDishesWithChildCached = result
-        return result
-    }
-
-    private var publicDishesWithChildSource: [ParsedDish]?
-    public var publicDishesWithChild: [ParsedDish] {
-
-        if let cached = publicDishesWithChildSource {
-            return cached
-        }
-
-        var result = dishes.map { $0 }
-        for children in self.child.filter({ $0.isPublic }) {
-            result = result + children.dishes
-        }
-
-        publicDishesWithChildSource = result
-        return result
     }
 }

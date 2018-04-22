@@ -40,7 +40,7 @@ public class MenuSummary: ICached {
     public let addings: [Adding]
     public let recommendations: [Recommendation]
 
-    public let stoplist: Stoplist
+    public private(set) var stoplist: Stoplist
 
     public init() {
 
@@ -72,6 +72,11 @@ public class MenuSummary: ICached {
 
         self.stoplist = Stoplist(source: source.stoplist )
     }
+
+    public func update(by stoplist: Stoplist) {
+        self.stoplist = stoplist
+    }
+
     public required init(json: JSON) {
 
         self.id = (Keys.id <~~ json)!

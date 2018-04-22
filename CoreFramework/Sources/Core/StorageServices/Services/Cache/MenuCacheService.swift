@@ -44,7 +44,7 @@ public class MenuCacheService {
 
         return RequestResult<MenuSummary> { handler in
 
-            let request = self.api.find(placeID: placeId)
+            let request = self.api.find(placeId: placeId)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
@@ -59,7 +59,7 @@ public class MenuCacheService {
 
         return RequestResult<[MenuSummary]> { handler in
 
-            let request = self.api.range(placeIDs: placeIds)
+            let request = self.api.range(placeIds: placeIds)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {

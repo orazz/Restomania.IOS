@@ -19,6 +19,7 @@ open class ApiServices {
 
         //Menu
         container.register(MenuSummariesApiService.self, factory: { r in MenuSummariesApiService(r.configs) })
+        container.register(MenuStoplistApiService.self, factory: { r in MenuStoplistApiService(r.configs) })
 
         //Notifications
         container.register(NotificationsDevicesApiService.self, factory: { r in NotificationsDevicesApiService(r.configs, r.keys) })

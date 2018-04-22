@@ -70,13 +70,13 @@ extension PlaceMenuController {
 
             var result = [CategoryContainer]()
 
-            guard let parent = menu.categories.find({ $0.id == categoryId }) else {
+            guard let parent = menu.categoriesForDisplay.find(id: categoryId) else {
                 return result
             }
 
-            let categories = ([parent] + parent.child).filter({ $0.isPublic && $0.publicDishesWithChild.isFilled })
+            let categories = ([parent] + parent.child).filter({ $0.isPublic && $0.hasDishes })
             for category in categories  {
-                let model = CategoryContainer(source: category, includeChildDishes: false)
+                let model = CategoryContainer(source: category, includeChild: false, from: menu)
                 result.append(model)
             }
 
@@ -86,9 +86,8 @@ extension PlaceMenuController {
 
             var result = [CategoryContainer]()
 
-            let categories = menu.categories.filter({ $0.isPublic && $0.publicDishesWithChild.isFilled })
-            for category in categories  {
-                let model = CategoryContainer(source: category, includeChildDishes: true)
+            for category in menu.categoriesForDisplay  {
+                let model = CategoryContainer(source: category, includeChild: true, from: menu)
                 result.append(model)
             }
 
@@ -174,11 +173,11 @@ extension PlaceMenuController.DishesPresenter {
         public let source: ParsedCategory
         public let dishes: [ParsedDish]
 
-        fileprivate init(source: ParsedCategory, includeChildDishes: Bool) {
+        fileprivate init(source: ParsedCategory, includeChild: Bool, from menu: ParsedMenu) {
             self.source = source
 
-            if (includeChildDishes) {
-                self.dishes = source.publicDishesWithChild
+            if (includeChild) {
+                self.dishes = menu.publicDishesWithChild(for: source)
             }
             else {
                 self.dishes = source.dishes

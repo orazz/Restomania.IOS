@@ -29,6 +29,7 @@ public class PlaceMenuController: UIViewController {
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
     private let themeImages = DependencyResolver.get(ThemeImages.self)
     private let menusService = DependencyResolver.get(MenuCacheService.self)
+    private let stoplistApiService = DependencyResolver.get(MenuStoplistApiService.self)
     private let placesService = DependencyResolver.get(PlacesCacheService.self)
     private let apiKeysService = DependencyResolver.get(ApiKeyService.self)
     private var authService = DependencyResolver.get(AuthUIService.self)
@@ -92,6 +93,7 @@ public class PlaceMenuController: UIViewController {
 
         dishesAdapter = DishesPresenter(for: dishesTable, with: self)
         categoriesAdapter = CategoriesPresenter(for: categoriesView, with: self)
+        cartAction.close(force: true)
 
 
         interface = [dishesAdapter, categoriesAdapter, cartAction]
@@ -163,6 +165,8 @@ extension PlaceMenuController {
         //Menu summary
         if let menu = menusService.cache.find(by: placeId, summary: summaryContainer.data) {
             menuContainer.updateAndCheckFresh(menu, cache: menusService.cache)
+
+            requestStoplist()
         }
 
         if (loadAdapter.noData) {
@@ -192,6 +196,18 @@ extension PlaceMenuController {
     private func requestMenu() {
         let request = menusService.find(placeId)
         request.async(loadQueue, completion: menuContainer.completeLoad)
+    }
+    private func requestStoplist() {
+        let request = stoplistApiService.find(placeId: placeId)
+        request.async(loadQueue, completion: { response in
+
+            if let stoplist = response.data,
+                let menu = self.parsedMenu?.source {
+
+                menu.update(by: stoplist)
+                self.menuContainer.update(menu)
+            }
+        })
     }
     private func completeLoad() {
 

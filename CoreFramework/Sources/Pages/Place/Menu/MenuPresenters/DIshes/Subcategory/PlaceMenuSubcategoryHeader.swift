@@ -13,7 +13,7 @@ import MdsKit
 public class PlaceMenuSubcategoryHeader: UITableViewCell {
 
     public static let identifier = Guid.new
-    public static let height = CGFloat(25)
+    public static let height = CGFloat(35)
 
     private static let nibName = String.tag(PlaceMenuSubcategoryHeader.self)
     private static let nib = UINib(nibName: nibName, bundle: Bundle.coreFramework)

@@ -298,6 +298,7 @@
 		1F3EF5A1207C0CD9009BCDDB /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A0207C0CD9009BCDDB /* Recommendation.swift */; };
 		1F3EF5A3207CC19F009BCDDB /* StopId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A2207CC19F009BCDDB /* StopId.swift */; };
 		1F3EF5A7207D12B4009BCDDB /* StopIdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A6207D12B4009BCDDB /* StopIdType.swift */; };
+		1F4FB034208D44BD00E78552 /* MenuStoplistApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4FB033208D44BD00E78552 /* MenuStoplistApiService.swift */; };
 		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
 		1F53B92E205FD50A00656EA5 /* ParsedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */; };
 		1F53B930206056E300656EA5 /* ParsedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92F206056E300656EA5 /* ParsedCategory.swift */; };
@@ -658,6 +659,7 @@
 		1F3EF5A0207C0CD9009BCDDB /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		1F3EF5A2207CC19F009BCDDB /* StopId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopId.swift; sourceTree = "<group>"; };
 		1F3EF5A6207D12B4009BCDDB /* StopIdType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopIdType.swift; sourceTree = "<group>"; };
+		1F4FB033208D44BD00E78552 /* MenuStoplistApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStoplistApiService.swift; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedMenu.swift; sourceTree = "<group>"; };
 		1F53B92F206056E300656EA5 /* ParsedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedCategory.swift; sourceTree = "<group>"; };
@@ -1124,6 +1126,7 @@
 			isa = PBXGroup;
 			children = (
 				1F06A668205570FD00FEB1B5 /* MenuSummariesApiService.swift */,
+				1F4FB033208D44BD00E78552 /* MenuStoplistApiService.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -2677,6 +2680,7 @@
 				1F06A826205570FD00FEB1B5 /* DishType.swift in Sources */,
 				1F06A84A205570FD00FEB1B5 /* RegularCustomerDiscount.swift in Sources */,
 				1F53B930206056E300656EA5 /* ParsedCategory.swift in Sources */,
+				1F4FB034208D44BD00E78552 /* MenuStoplistApiService.swift in Sources */,
 				1F06A8D4205570FD00FEB1B5 /* PlaceMenuCategoryCell.swift in Sources */,
 				1F06A900205570FE00FEB1B5 /* PushContainer.swift in Sources */,
 				1F06A872205570FD00FEB1B5 /* PaymentSystem.swift in Sources */,

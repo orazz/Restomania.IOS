@@ -108,10 +108,31 @@ public class PlaceMenuCartAction: UIView {
     private func refreshHeight() {
 
         if (cart?.isEmpty ?? true) {
-            heightConstraint?.constant = 0
+            close()
         }
         else {
-            heightConstraint?.constant = 50
+            open()
+        }
+    }
+    public func open(force: Bool = false) {
+        heightConstraint?.constant = 50
+
+        animate(force: force)
+    }
+    public func close(force: Bool = false) {
+        heightConstraint?.constant = 0
+
+        animate(force: force)
+    }
+    private func animate(force: Bool) {
+
+        if (force) {
+            layoutIfNeeded()
+            return
+        }
+
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
         }
     }
 

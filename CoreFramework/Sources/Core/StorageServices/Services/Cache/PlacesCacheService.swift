@@ -63,8 +63,8 @@ public class PlacesCacheService {
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
+                    self.adapter.clear()
                     self.adapter.addOrUpdate(response.data!)
-                    self.adapter.clearOldCached()
                 }
 
                 handler(response)
