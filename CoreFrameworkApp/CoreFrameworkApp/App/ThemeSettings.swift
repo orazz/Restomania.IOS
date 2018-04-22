@@ -30,7 +30,7 @@ public class ThemeSettings {
         public var navigationContent = Colors.white
 
         public var actionMain = Colors.black
-        public var actionDisabled = UIColor(red: 249, green: 249, blue: 249)
+        public var actionDisabled = UIColor(red: 190, green: 190, blue: 190)
         public var actionContent = Colors.white
 
         public var notificationMain = Colors.black

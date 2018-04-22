@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -38,39 +38,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from 2222 P" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7s0-Bb-jBF" customClass="PriceLabel" customModule="CoreFramework" customModuleProvider="target">
-                                <rect key="frame" x="117.5" y="67.5" width="98.5" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from 2222 gm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9l3-mA-0El" customClass="SizeLabel" customModule="CoreFramework" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="67" width="113" height="21"/>
+                                <rect key="frame" x="0.0" y="63" width="98.5" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="9SB-eN-rJY"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ppt-yM-S6v"/>
+                                    <constraint firstAttribute="height" constant="25" id="iJb-vo-kjz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-plus" translatesAutoresizingMaskIntoConstraints="NO" id="hwQ-cg-BAP">
-                                <rect key="frame" x="196" y="34" width="20" height="20"/>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7F-15-eMa" customClass="InvertedButton" customModule="CoreFramework" customModuleProvider="target">
+                                <rect key="frame" x="169" y="58" width="47" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="Pea-ed-dgU"/>
-                                    <constraint firstAttribute="height" constant="20" id="isf-UL-71X"/>
+                                    <constraint firstAttribute="height" constant="30" id="hre-mf-eDf"/>
                                 </constraints>
-                            </imageView>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="add"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from 2222 gm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLc-Zh-B7O" customClass="SizeLabel" customModule="CoreFramework" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="45" width="108.5" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="g40-h7-Els"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7s0-Bb-jBF" secondAttribute="trailing" id="JkR-WS-4Pw"/>
+                            <constraint firstItem="uLc-Zh-B7O" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="3QM-T4-FL9"/>
                             <constraint firstItem="SQ5-lo-ZwD" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="Mb2-Jv-SY6"/>
+                            <constraint firstAttribute="bottom" secondItem="p7F-15-eMa" secondAttribute="bottom" id="QYk-xq-bWA"/>
                             <constraint firstItem="SQ5-lo-ZwD" firstAttribute="top" secondItem="gay-xo-6hW" secondAttribute="top" id="Qyc-Lg-tiC"/>
                             <constraint firstAttribute="trailing" secondItem="SQ5-lo-ZwD" secondAttribute="trailing" id="ViK-dl-pS1"/>
-                            <constraint firstAttribute="bottom" secondItem="9l3-mA-0El" secondAttribute="bottom" id="b9Z-3Z-hqg"/>
-                            <constraint firstItem="hwQ-cg-BAP" firstAttribute="centerY" secondItem="gay-xo-6hW" secondAttribute="centerY" id="fJc-Mj-lhS"/>
-                            <constraint firstItem="9l3-mA-0El" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="h51-Jr-sd4"/>
-                            <constraint firstAttribute="trailing" secondItem="hwQ-cg-BAP" secondAttribute="trailing" id="nYv-XQ-1lM"/>
+                            <constraint firstItem="7s0-Bb-jBF" firstAttribute="leading" secondItem="gay-xo-6hW" secondAttribute="leading" id="jKs-c6-P95"/>
+                            <constraint firstItem="uLc-Zh-B7O" firstAttribute="top" secondItem="SQ5-lo-ZwD" secondAttribute="bottom" id="mTN-jm-EWQ"/>
+                            <constraint firstAttribute="trailing" secondItem="p7F-15-eMa" secondAttribute="trailing" id="ptv-2x-tjK"/>
                             <constraint firstAttribute="bottom" secondItem="7s0-Bb-jBF" secondAttribute="bottom" id="vlw-4c-zhX"/>
                         </constraints>
                     </view>
@@ -85,15 +88,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addButton" destination="p7F-15-eMa" id="nf6-GS-p2Y"/>
                 <outlet property="dishImage" destination="bbw-mG-wDH" id="W0g-fd-doF"/>
                 <outlet property="dishName" destination="SQ5-lo-ZwD" id="xKo-ZR-0UH"/>
                 <outlet property="dishPrice" destination="7s0-Bb-jBF" id="MbK-24-1Rd"/>
-                <outlet property="dishSize" destination="9l3-mA-0El" id="DbU-FG-TmT"/>
+                <outlet property="dishSize" destination="uLc-Zh-B7O" id="2Xt-32-v7u"/>
             </connections>
             <point key="canvasLocation" x="-160.5" y="-171.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="icon-plus" width="40" height="40"/>
-    </resources>
 </document>

@@ -48,9 +48,8 @@ extension PlaceMenuController {
 
             reload()
 
-            if (categories.isFilled) {
-                let path = IndexPath(row: 0, section: 0)
-                table.scrollToRow(at: path, at: .top, animated: true)
+            DispatchQueue.main.async {
+                self.table.setContentOffset(CGPoint.zero, animated: false)
             }
         }
         private func reload() {

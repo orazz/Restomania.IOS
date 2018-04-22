@@ -118,6 +118,7 @@ public class PlaceMenuController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         self.view.layoutSubviews()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
         self.navigationController?.view.layoutSubviews()
 
         if let summary = takeSummary() {
@@ -317,6 +318,7 @@ extension PlaceMenuController {
         case AllDishesCategory = "Categories.AllDishes"
 
         //Buttons
-        case ToCart = "Buttons.ToCart"
+        case buttonAddDish = "Buttons.AddDish"
+        case buttonAddToCart = "Buttons.ToCart"
     }
 }

@@ -21,13 +21,16 @@ public protocol ThemeImages {
     var iconForward: UIImage { get }
     var iconNavigation: UIImage { get }
 
+    
     var tabSearch: UIImage { get }
     var tabMap: UIImage { get }
     var tabFavourite: UIImage { get }
-    var tabMenu: UIImage { get }
-    var tabInfo: UIImage { get }
     var tabOrders: UIImage { get }
     var tabsOther: UIImage { get }
+
+    var tabMenu: UIImage { get }
+    var tabInfo: UIImage { get }
+
 
     var toolsLogo: UIImage { get }
     var toolsDefaultImage: UIImage { get }
@@ -64,6 +67,7 @@ extension ThemeImages {
         return loadAssert("icon-navigation")
     }
 
+
     public var tabSearch: UIImage {
         return loadAssert("tab-search")
     }
@@ -73,18 +77,20 @@ extension ThemeImages {
     public var tabFavourite: UIImage {
         return loadAssert("tab-favourite")
     }
-    public var tabMenu: UIImage {
-        return loadAssert("tab-menu")
-    }
-    public var tabInfo: UIImage {
-        return loadAssert("tab-info")
-    }
     public var tabOrders: UIImage {
         return loadAssert("tab-orders")
     }
     public var tabsOther: UIImage {
         return loadAssert("tab-other")
     }
+
+    public var tabMenu: UIImage {
+        return loadAssert("tab-menu")
+    }
+    public var tabInfo: UIImage {
+        return loadAssert("tab-info")
+    }
+
 
     public var toolsLogo: UIImage {
         return loadAssert("tools-logo")

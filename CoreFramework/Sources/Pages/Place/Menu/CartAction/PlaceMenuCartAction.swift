@@ -83,7 +83,7 @@ public class PlaceMenuCartAction: UIView {
 
         titleLabel.textColor = themeColors.actionContent
         titleLabel.font = themeFonts.default(size: .title)
-        titleLabel.text = PlaceMenuController.Localization.ToCart.localized
+        titleLabel.text = PlaceMenuController.Localization.buttonAddToCart.localized
 
         totalLabel.textColor = themeColors.actionContent
         totalLabel.font = themeFonts.default(size: .head)

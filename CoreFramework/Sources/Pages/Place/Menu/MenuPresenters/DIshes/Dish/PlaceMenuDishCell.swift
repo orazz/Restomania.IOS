@@ -29,6 +29,7 @@ public class PlaceMenuDishCell: UITableViewCell {
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishSize: SizeLabel!
     @IBOutlet weak var dishPrice: PriceLabel!
+    @IBOutlet weak var addButton: UIButton!
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
@@ -50,6 +51,9 @@ public class PlaceMenuDishCell: UITableViewCell {
         //Price
         dishPrice.font = themeFonts.bold(size: .subhead)
         dishPrice.textColor = themeColors.contentText
+
+        //Button
+        addButton.setTitle(PlaceMenuController.Localization.buttonAddDish.localized, for: .normal)
 
         backgroundColor = themeColors.contentBackground
     }

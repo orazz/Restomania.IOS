@@ -14,17 +14,25 @@ extension UIImage
 {
     open func tint(color: UIColor) -> UIImage
     {
-        let ciImage = CIImage(image: self)
-        let filter = CIFilter(name: "CIMultiplyCompositing")
+        UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return self }
 
-        let colorFilter = CIFilter(name: "CIConstantColorGenerator")
-        let ciColor = CIColor(color: color)
-        colorFilter?.setValue(ciColor, forKey: kCIInputColorKey)
-        let colorImage = colorFilter?.outputImage
+        // flip the image
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.translateBy(x: 0.0, y: -self.size.height)
 
-        filter?.setValue(colorImage, forKey: kCIInputImageKey)
-        filter?.setValue(ciImage, forKey: kCIInputBackgroundImageKey)
+        // multiply blend mode
+        context.setBlendMode(.multiply)
 
-        return UIImage(ciImage: (filter?.outputImage)!, scale: 1.0, orientation: UIImageOrientation.down)
+        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        context.clip(to: rect, mask: self.cgImage!)
+        color.setFill()
+        context.fill(rect)
+
+        // create UIImage
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return self }
+        UIGraphicsEndImageContext()
+
+        return newImage.resizableImage(withCapInsets: self.capInsets, resizingMode: self.resizingMode)
     }
 }

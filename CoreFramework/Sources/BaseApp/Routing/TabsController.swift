@@ -45,13 +45,16 @@ public class TabsController: UITabBarController {
 
         tabBar.tintColor = themeColors.actionMain
         tabBar.backgroundColor = themeColors.contentBackground
+        if #available(iOS 10.0, *) {
+            tabBar.unselectedItemTintColor = themeColors.actionDisabled
+        }
     }
     private func buildTabItem(icon: UIImage) -> UITabBarItem {
 
-        let selected = icon.tint(color: themeColors.actionContent)
-        let deselected = icon.tint(color: themeColors.actionDisabled)
+        let unselected = icon.tint(color: themeColors.actionDisabled)
+        let selected = icon.tint(color: themeColors.actionMain)
 
-        let item = UITabBarItem(title: "", image: selected, selectedImage: deselected)
+        let item = UITabBarItem(title: "", image: unselected, selectedImage: selected)
         item.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         item.title = nil
 
