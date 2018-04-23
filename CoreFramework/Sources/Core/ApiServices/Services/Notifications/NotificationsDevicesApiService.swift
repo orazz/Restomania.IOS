@@ -11,7 +11,12 @@ import MdsKit
 
 public class NotificationsDevicesApiService: BaseApiService {
 
-    public init(_ configs: ConfigsContainer, _ keys: ApiKeyService) {
+    private let launch: LaunchInfo
+
+    public init(_ configs: ConfigsContainer, _ keys: ApiKeyService, _ launch: LaunchInfo) {
+
+        self.launch = launch
+
         super.init(area: "Notifications/Devices", type: NotificationsDevicesApiService.self, configs: configs, keys: keys)
     }
 
@@ -21,12 +26,24 @@ public class NotificationsDevicesApiService: BaseApiService {
                 "appKey": configs.appKey,
                 "token": token,
                 "platform": NotificationPlatformType.apple.rawValue,
-                "locale": Locale.preferredLanguages.first ?? "ru"
+                "locale": Locale.preferredLanguages.first ?? "ru",
+                "version": launch.version,
+                "build": launch.build
             ])
 
         return client.Post(action: "Register", type: Device.self, parameters: parameters)
     }
 
+    public func updateApp(_ deviceId: Long) -> RequestResult<Device> {
+
+        let parameters = CollectParameters([
+            "deviceId": deviceId,
+            "version": launch.version,
+            "build": launch.build
+            ])
+
+        return client.Put(action: "UpdateApp", type: Device.self, parameters: parameters)
+    }
     public func update(_ deviceId: Long, token: String) -> RequestResult<Device> {
 
         let parameters = CollectParameters([

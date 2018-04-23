@@ -88,6 +88,7 @@ public class OneOrderController: UIViewController {
         super.viewWillAppear(animated)
 
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setStatusBarStyle(from: themeColors.statusBarOnNavigation)
         self.navigationItem.title = String(format: Keys.title.localized, orderId!)
     }
     override public func viewWillDisappear(_ animated: Bool) {

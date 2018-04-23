@@ -19,6 +19,8 @@ public class Device: BaseDataType {
         public static let fcmToken = "FcmToken"
         public static let platform = "Platform"
         public static let locale = "Locale"
+        public static let version = "Version"
+        public static let build = "Build"
     }
 
     public let accountId: Long?
@@ -27,6 +29,8 @@ public class Device: BaseDataType {
     public let fcmToken: String
     public let platform: NotificationPlatformType
     public let locale: String
+    public let version: String
+    public let build: Int
 
     // MARK: Glossy
     public required init(json: JSON) {
@@ -37,6 +41,9 @@ public class Device: BaseDataType {
         self.fcmToken = (Keys.fcmToken <~~ json)!
         self.platform = (Keys.platform <~~ json)!
         self.locale = (Keys.locale <~~ json)!
+
+        self.version = (Keys.version <~~ json) ?? ""
+        self.build = (Keys.build <~~ json) ?? 0
 
         super.init(json: json)
     }
@@ -49,7 +56,10 @@ public class Device: BaseDataType {
 
             Keys.fcmToken ~~> self.fcmToken,
             Keys.platform ~~> self.platform,
-            Keys.locale ~~> self.locale
+            Keys.locale ~~> self.locale,
+
+            Keys.version ~~> self.version,
+            Keys.build ~~> self.build
             ])
     }
 }

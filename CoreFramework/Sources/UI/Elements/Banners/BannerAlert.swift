@@ -18,6 +18,10 @@ open class BannerAlert {
     public init(title: String, subtitle: String) {
 
         source = NotificationBanner(title: title, subtitle: subtitle, colors: theme.bannerColors)
+        source.onSwipeUp = {
+            self.source.dismiss()
+        }
+        source.duration = 2.0
     }
 
     //Actions
@@ -38,7 +42,23 @@ open class BannerAlert {
         }
     }
 
+    public func dismiss() {
+        source.dismiss()
+    }
+    public var duration: TimeInterval {
+        get {
+            return source.duration
+        }
+        set {
+            source.duration = newValue
+        }
+    }
+
     public func show() {
-        source.show()
+
+        let queue = NotificationBannerQueue.default
+        queue.removeAll()
+
+        source.show(queuePosition: .front)
     }
 }

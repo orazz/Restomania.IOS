@@ -41,7 +41,10 @@ public class AdditionSummary: ICopying, Glossy {
     public required init?(json: JSON) {
 
         self.id = (Keys.id <~~ json)!
-        self.name = (Keys.name <~~ json)!
+
+        let name: String = (Keys.name <~~ json)!
+        self.name = name.trim()
+        
         self.cost = (Keys.cost <~~ json)!
     }
     public func toJSON() -> JSON? {

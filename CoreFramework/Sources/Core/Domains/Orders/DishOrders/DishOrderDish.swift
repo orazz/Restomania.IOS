@@ -89,7 +89,10 @@ public class DishOrderDish: BaseDataType {
         self.price = (Keys.price <~~ json)!
         self.count = (Keys.count <~~ json)!
         self.total = Keys.total <~~ json ?? Price()
-        self.name = (Keys.name <~~ json)!
+        
+        let name: String = (Keys.name <~~ json)!
+        self.name = name.trim()
+
         self.type = Keys.type <~~ json ?? .simpleDish
 
         super.init(json: json)

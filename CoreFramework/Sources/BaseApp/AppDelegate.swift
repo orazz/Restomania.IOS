@@ -56,7 +56,19 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         PushesService.shared.requestRemoteNotificattions()
     }
-    open func afterLoad() {}
+    open func afterLoad() {
+
+        let deviceService = DependencyResolver.get(DeviceService.self)
+
+        guard let device = deviceService.device,
+                let _ = device.accountId,
+                device.build != info.build else {
+            return
+        }
+
+        let request = deviceService.updateApp(device.id)
+        request.async(.background)
+    }
 
 
 

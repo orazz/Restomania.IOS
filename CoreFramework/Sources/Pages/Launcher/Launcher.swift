@@ -15,6 +15,7 @@ public class Launcher {
 
     private let tag = String.tag(Launcher.self)
     private var completeLaunch: Bool = false
+    private var completeHandler: Trigger? = nil
 
     private var delegate: UIApplicationDelegate
     private var launchOptions: [UIApplicationLaunchOptionsKey: Any]?
@@ -50,6 +51,7 @@ public class Launcher {
 
     public func start(complete: Trigger? = nil) {
 
+        completeHandler = complete
         router.initialize(with: navigator)
 
         if let options = launchOptions,
@@ -117,6 +119,8 @@ public class Launcher {
         self.router.initialize(with: tabs)
 
         self.processTappedPush()
+
+        self.completeHandler?()
     }
     public func processTappedPush() {
 

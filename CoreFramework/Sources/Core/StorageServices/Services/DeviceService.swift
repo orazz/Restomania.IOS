@@ -56,6 +56,21 @@ public class DeviceService {
             }
         }
     }
+    public func updateApp(_ deviceId: Long) -> RequestResult<Device> {
+        return RequestResult<Device> { handler in
+
+            let request = self.api.updateApp(deviceId)
+            request.async(self.apiQueue) { response in
+
+                if let device = response.data {
+                    self.save(device)
+                    self.events.invoke({ $0.deviceService(self, update: device) })
+                }
+
+                handler(response)
+            }
+        }
+    }
     public func update(_ deviceId: Long, token: String) -> RequestResult<Device> {
         return RequestResult<Device> { handler in
 

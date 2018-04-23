@@ -67,7 +67,10 @@ public class MenuCategory: BaseDataType, ICopying, IMenuDependent, ISortable {
         self.orderNumber = (Keys.orderNumber <~~ json)!
 
         self.parentId = Keys.parentId <~~ json
-        self.name = (Keys.name <~~ json)!
+
+        let name: String = (Keys.name <~~ json)!
+        self.name = name.trim()
+        
         self.isHidden = (Keys.isHidden <~~ json)!
 
         super.init(json: json)

@@ -54,8 +54,6 @@ public class PlaceCartDishRow: UITableViewCell {
 
         totalLabel.font = themeFonts.default(size: .subhead)
         totalLabel.textColor = themeColors.contentText
-
-        forwardIcon.image = forwardIcon.image?.tint(color: themeColors.divider)
     }
 
     //Data

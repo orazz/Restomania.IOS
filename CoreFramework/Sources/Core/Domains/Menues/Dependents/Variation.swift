@@ -68,7 +68,10 @@ public class Variation: BaseDataType, ICached, IMenuDependent, ISortable {
         self.orderNumber = (Keys.orderNumber <~~ json)!
 
         self.parentDishId = (Keys.parentDishId <~~ json)!
-        self.name = (Keys.name <~~ json)!
+
+        let name: String = (Keys.name <~~ json)!
+        self.name = name.trim()
+        
         self.price = (Keys.price <~~ json)!
         self.size = (Keys.size <~~ json)!
         self.sizeUnits = (Keys.sizeUnits <~~ json)!

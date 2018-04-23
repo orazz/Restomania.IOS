@@ -46,8 +46,8 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
 
         menuId = 0
         orderNumber = 0
-
         categoryId = nil
+        
         name = String.empty
         description = String.empty
         type = .simpleDish
@@ -65,8 +65,8 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
 
         self.menuId = source.menuId
         self.orderNumber = source.orderNumber
-
         self.categoryId = source.categoryId
+
         self.name = source.name
         self.description = source.description
         self.type = source.type
@@ -84,10 +84,14 @@ public class BaseDish: BaseDataType, IMenuDependent, ISortable {
 
         self.menuId = (Keys.menuId <~~ json)!
         self.orderNumber = (Keys.orderNumber <~~ json)!
-
         self.categoryId = Keys.categoryId <~~ json
-        self.name = (Keys.name <~~ json)!
-        self.description = (Keys.description <~~ json)!
+
+        let name: String = (Keys.name <~~ json)!
+        self.name = name.trim()
+
+        let description: String = (Keys.description <~~ json)!
+        self.description = description.trim()
+
         self.type = (Keys.type <~~ json)!
         self.price = (Keys.price <~~ json)!
         self.image = (Keys.image <~~ json)!
