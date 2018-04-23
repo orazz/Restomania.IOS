@@ -6,7 +6,7 @@
   Copyright © 2018 Medved-Studio. All rights reserved.
 */
 
-"Buttons.TryAddDish" = "Add";
+"Buttons.RemoveDish" = "Remove from cart";
 "Buttons.ChangeOrder" = "Change order";
 "Buttons.AddToCart" = "Add to cart";
 

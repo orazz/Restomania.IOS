@@ -293,6 +293,8 @@
 		1F3EF5A7207D12B4009BCDDB /* StopIdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EF5A6207D12B4009BCDDB /* StopIdType.swift */; };
 		1F4FB034208D44BD00E78552 /* MenuStoplistApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4FB033208D44BD00E78552 /* MenuStoplistApiService.swift */; };
 		1F4FB037208D575F00E78552 /* DishModalElementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4FB036208D575F00E78552 /* DishModalElementProtocol.swift */; };
+		1F4FB03A208E642700E78552 /* DishModalRemoveDishAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4FB039208E642700E78552 /* DishModalRemoveDishAction.swift */; };
+		1F4FB03C208E643300E78552 /* DishModalRemoveDishAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4FB03B208E643300E78552 /* DishModalRemoveDishAction.xib */; };
 		1F50C821205BC35F00F27092 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50C820205BC35F00F27092 /* DefaultRouter.swift */; };
 		1F53B92E205FD50A00656EA5 /* ParsedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */; };
 		1F53B930206056E300656EA5 /* ParsedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53B92F206056E300656EA5 /* ParsedCategory.swift */; };
@@ -648,6 +650,8 @@
 		1F3EF5A6207D12B4009BCDDB /* StopIdType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopIdType.swift; sourceTree = "<group>"; };
 		1F4FB033208D44BD00E78552 /* MenuStoplistApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStoplistApiService.swift; sourceTree = "<group>"; };
 		1F4FB036208D575F00E78552 /* DishModalElementProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModalElementProtocol.swift; sourceTree = "<group>"; };
+		1F4FB039208E642700E78552 /* DishModalRemoveDishAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModalRemoveDishAction.swift; sourceTree = "<group>"; };
+		1F4FB03B208E643300E78552 /* DishModalRemoveDishAction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishModalRemoveDishAction.xib; sourceTree = "<group>"; };
 		1F50C820205BC35F00F27092 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		1F53B92D205FD50A00656EA5 /* ParsedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedMenu.swift; sourceTree = "<group>"; };
 		1F53B92F206056E300656EA5 /* ParsedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedCategory.swift; sourceTree = "<group>"; };
@@ -1678,6 +1682,7 @@
 				1F06A75C205570FD00FEB1B5 /* SelectAddings */,
 				1F06A769205570FD00FEB1B5 /* ShortDivider */,
 				1F06A76C205570FD00FEB1B5 /* Space */,
+				1F4FB038208E640C00E78552 /* RemoveDish */,
 				1F06A74F205570FD00FEB1B5 /* AddAction */,
 			);
 			path = Elements;
@@ -2050,6 +2055,15 @@
 				1F06A6BB205570FD00FEB1B5 /* Properties.swift */,
 			);
 			path = Dependents;
+			sourceTree = "<group>";
+		};
+		1F4FB038208E640C00E78552 /* RemoveDish */ = {
+			isa = PBXGroup;
+			children = (
+				1F4FB039208E642700E78552 /* DishModalRemoveDishAction.swift */,
+				1F4FB03B208E643300E78552 /* DishModalRemoveDishAction.xib */,
+			);
+			path = RemoveDish;
 			sourceTree = "<group>";
 		};
 		1F53B92C205FAF0400656EA5 /* Models */ = {
@@ -2429,6 +2443,7 @@
 				1F06A898205570FD00FEB1B5 /* PlaceCartCompleteOrderAction.xib in Resources */,
 				1F06A7EC205570FD00FEB1B5 /* EnterPhoneAuthController.strings in Resources */,
 				1F06A88A205570FD00FEB1B5 /* OrdersControllerOrderCell.xib in Resources */,
+				1F4FB03C208E643300E78552 /* DishModalRemoveDishAction.xib in Resources */,
 				1F06A8CD205570FD00FEB1B5 /* DishModal.strings in Resources */,
 				1F06A8F6205570FE00FEB1B5 /* OneOrderSummaryContainer.xib in Resources */,
 				1F06A8BA205570FD00FEB1B5 /* DishModalHeader.xib in Resources */,
@@ -2672,6 +2687,7 @@
 				1F06A811205570FD00FEB1B5 /* AddingBooking.swift in Sources */,
 				1F06A867205570FD00FEB1B5 /* AppType.swift in Sources */,
 				1F06A842205570FD00FEB1B5 /* LinkType.swift in Sources */,
+				1F4FB03A208E642700E78552 /* DishModalRemoveDishAction.swift in Sources */,
 				1F06A7F3205570FD00FEB1B5 /* VkAuthController.swift in Sources */,
 				1F06A86E205570FD00FEB1B5 /* DefaultsLightStorage.swift in Sources */,
 				1F06A801205570FD00FEB1B5 /* TemplateName.swift in Sources */,

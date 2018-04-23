@@ -24,4 +24,6 @@ public protocol DishModalDelegate {
 
     func select(count: Int)
     func select(variation: Variation)
+
+    func removeDishFromCart()
 }

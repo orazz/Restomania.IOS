@@ -101,33 +101,17 @@ public class CartService: ReservationService {
         }
 
         save()
-        trigger({ $0.cart(self, change: dish)})
-    }
-    public func increment(_ dish: AddedOrderDish) {
-
-        dish.increment()
-
-        save()
         trigger({ $0.cart(self, change: dish) })
     }
-    public func decrement(_ dish: AddedOrderDish) {
+    public func remove(_ dish: AddedOrderDish) {
 
-        dish.decrement()
+        if let index = place.dishes.index(where: { $0 === dish }) {
 
-        //Change count
-        if (dish.count >= 1) {
+            place.dishes.remove(at: index)
 
             save()
-            trigger({ $0.cart(self, change: dish) })
-            return
+            trigger({ $0.cart(self, remove: dish) })
         }
-
-        //Remove
-        if let index = place.dishes.index(where: { $0 === dish }) {
-            place.dishes.remove(at: index)
-        }
-        save()
-        trigger({ $0.cart(self, remove: dish) })
     }
 
     public func build(cardId: Long) -> AddedOrder {
@@ -150,13 +134,6 @@ public class CartService: ReservationService {
         place.comment = String.empty
         place.dishes.removeAll()
     }
-//
-//    public func find(_ dish: Dish) -> AddedOrderDish? {
-//        return find(dish.id)
-//    }
-//    public func find(_ dishID: Long) -> AddedOrderDish? {
-//        return place.dishes.find({ dishID == $0.dishId })
-//    }
 }
 extension CartService: IEventsEmitter {
     public typealias THandler = CartServiceDelegate

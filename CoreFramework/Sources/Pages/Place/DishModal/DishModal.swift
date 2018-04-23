@@ -124,8 +124,16 @@ public class DishModal: UIViewController {
             result.append(DishModalSelectAddings.create(for: self.addings, from: menu, with: self))
         }
 
-        result.append(DishModalSpace.create())
-        result.append(DishModalSpace.create())
+        if (isAddNewDish) {
+            result.append(DishModalSpace.create())
+            result.append(DishModalSpace.create())
+
+        }
+        else {
+            result.append(DishModalSpace.create())
+            result.append(DishModalRemoveDishAction.create(with: self))
+            result.append(DishModalSpace.create())
+        }
 
         return result
     }
@@ -192,6 +200,18 @@ extension DishModal: DishModalDelegate {
 
         self.addToCartAction?.refresh(total: total * count, with: dish.currency)
     }
+
+    public func removeDishFromCart() {
+        if (isAddNewDish) {
+            return
+        }
+
+        if let dish = cartDish {
+            cart.remove(dish)
+        }
+
+        closeModal()
+    }
 }
 extension DishModal {
 
@@ -205,7 +225,7 @@ extension DishModal {
         }
 
         //Actions
-        case buttonsTryAddDish = "Buttons.TryAddDish"
+        case buttonsRemoveDish = "Buttons.RemoveDish"
         case buttonsChangeOrder = "Buttons.ChangeOrder"
         case buttonsAddToCart = "Buttons.AddToCart"
 
