@@ -50,9 +50,9 @@ public class DishModalSelectAddingsCell: UITableViewCell {
         markImage.isHidden = !selected
     }
 
-    public func setup(dish: Dish, from menu: MenuSummary) {
+    public func setup(dish: ParsedDish, with currency: Currency) {
 
         nameLabel.text = dish.name
-        priceLabel.setup(price: dish.price, currency: menu.currency)
+        priceLabel.setup(price: dish.price, currency: currency)
     }
 }

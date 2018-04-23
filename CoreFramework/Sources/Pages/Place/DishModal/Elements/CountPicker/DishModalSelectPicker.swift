@@ -12,7 +12,7 @@ import MdsKit
 
 public class DishModalSelectPicker: UITableViewCell {
     
-    public static func create(with delegate: AddDishToCartModalDelegateProtocol) -> DishModalSelectPicker {
+    public static func create(with delegate: DishModalDelegate) -> DishModalSelectPicker {
 
         let nibname = String.tag(DishModalSelectPicker.self)
         let cell: DishModalSelectPicker = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
@@ -30,7 +30,7 @@ public class DishModalSelectPicker: UITableViewCell {
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
-    private var delegate: AddDishToCartModalDelegateProtocol! {
+    private var delegate: DishModalDelegate! {
         didSet {
             update()
 
@@ -50,23 +50,25 @@ public class DishModalSelectPicker: UITableViewCell {
         countLabel.font = themeFonts.bold(size: .title)
         countLabel.textColor = themeColors.contentText
         countLabel.text = "1"
+
+        countStepper.tintColor = themeColors.actionMain
     }
 
     @IBAction private func changeCount() {
         let value = Int(countStepper.value)
 
-        delegate.count = value
+        delegate.select(count: value)
         update()
     }
     private func update() {
         countLabel.text = "\(delegate.count)"
     }
 }
-extension DishModalSelectPicker: DishModalElementsProtocol {
+extension DishModalSelectPicker: DishModalElementProtocol {
 }
 extension DishModalSelectPicker: InterfaceTableCellProtocol {
     public var viewHeight: Int {
-        return 140
+        return 55
     }
     public func prepareView() -> UITableViewCell {
         return self

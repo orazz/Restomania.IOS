@@ -98,7 +98,7 @@ public class DishModalPriceAndSize: UITableViewCell {
         isShowSizeAndPrice = true
     }
 }
-extension DishModalPriceAndSize: DishModalElementsProtocol {
+extension DishModalPriceAndSize: DishModalElementProtocol {
     public func update(by dish: ParsedDish) {
         self.dish = dish
 

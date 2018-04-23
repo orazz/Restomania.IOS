@@ -12,7 +12,7 @@ import MdsKit
 
 public class DishModalSelectAddings: UITableViewCell {
 
-    public static func create(for addings: [Adding], from menu: MenuSummary, with delegate: AddDishToCartModalDelegateProtocol) -> DishModalSelectAddings {
+    public static func create(for addings: [Adding], from menu: ParsedMenu, with delegate: DishModalDelegate) -> DishModalSelectAddings {
 
         let nibname = String.tag(DishModalSelectAddings.self)
         let cell: DishModalSelectAddings = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
@@ -28,9 +28,9 @@ public class DishModalSelectAddings: UITableViewCell {
     private var countTableHeight: Bool = false
 
     //Data
-    private var addings: [AddingModel] = []
-    private var menu: MenuSummary!
-    private var delegate: AddDishToCartModalDelegateProtocol?
+    private var addings: [ParsedDish] = []
+    private var menu: ParsedMenu!
+    private var delegate: DishModalDelegate?
     private var refreshTrigger: Trigger?
 
     public override func awakeFromNib() {
@@ -44,18 +44,18 @@ public class DishModalSelectAddings: UITableViewCell {
         DishModalSelectAddingsCell.register(in: addingsTable)
     }
 
-    private func setup(for addings: [Adding], from menu: MenuSummary) {
+    private func setup(for addings: [Adding], from menu: ParsedMenu) {
 
         let orderedDishes = menu.dishes.ordered
         for adding in addings.ordered {
 
             if let dishId = adding.addedDishId,
                 let dish = orderedDishes.find({ $0.id == dishId }) {
-                    self.addings.append(AddingModel(dish))
+                    self.addings.append(dish)
 
             } else if let categoryId = adding.addedCategoryId {
                 for dish in orderedDishes.filter({ $0.categoryId == categoryId }) {
-                    self.addings.append(AddingModel(dish))
+                    self.addings.append(dish)
                 }
             }
         }
@@ -65,10 +65,8 @@ public class DishModalSelectAddings: UITableViewCell {
     }
     private func initialize() {
 
-
-
         for addingId in delegate?.selectedAddingsIds ?? [] {
-            if let index = addings.index(where: { $0.dish.id == addingId }) {
+            if let index = addings.index(where: { $0.id == addingId }) {
 
                 let position = IndexPath(row: index, section: 0)
                 if let _ = addingsTable.cellForRow(at: position) {
@@ -82,10 +80,10 @@ public class DishModalSelectAddings: UITableViewCell {
 
 extension DishModalSelectAddings: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.add(adding: addings[indexPath.row].dish)
+        delegate?.add(adding: addings[indexPath.row])
     }
     public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        delegate?.remove(adding: addings[indexPath.row].dish)
+        delegate?.remove(adding: addings[indexPath.row])
     }
 }
 extension DishModalSelectAddings: UITableViewDataSource {
@@ -97,8 +95,9 @@ extension DishModalSelectAddings: UITableViewDataSource {
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        let dish = addings[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: DishModalSelectAddingsCell.identifier, for: indexPath) as! DishModalSelectAddingsCell
-        cell.setup(dish: addings[indexPath.row].dish, from: menu)
+        cell.setup(dish: dish, with: dish.currency)
 
         return cell
     }
@@ -119,16 +118,5 @@ extension DishModalSelectAddings: InterfaceTableCellProtocol {
     }
     public func prepareView() -> UITableViewCell {
         return self
-    }
-}
-fileprivate class AddingModel: ISortable {
-
-    public let dish: Dish
-    public var orderNumber: Int {
-        return dish.orderNumber
-    }
-
-    public init(_ dish: Dish) {
-        self.dish = dish
     }
 }

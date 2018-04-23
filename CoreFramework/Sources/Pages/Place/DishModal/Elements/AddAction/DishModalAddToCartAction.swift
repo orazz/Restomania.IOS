@@ -21,13 +21,13 @@ public class DishModalAddToCartAction: UIView {
     private let themeFonts = DependencyResolver.get(ThemeFonts.self)
 
     //Data
-    private var delegate: AddDishToCartModalDelegateProtocol?
+    private var delegate: DishModalDelegate?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
 
         self.backgroundColor = themeColors.contentBackground
-        Bundle.coreFramework.loadNibNamed("\(String.tag(DishModalAddToCartAction.self))View", owner: self, options: nil)
+        Bundle.coreFramework.loadNibNamed(String.tag(DishModalAddToCartAction.self), owner: self, options: nil)
 
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -42,7 +42,7 @@ public class DishModalAddToCartAction: UIView {
         totalLabel.isHidden = true
     }
 
-    public func link(with delegate: AddDishToCartModalDelegateProtocol) {
+    public func link(with delegate: DishModalDelegate) {
         self.delegate = delegate
 
         if (delegate.isAddNewDish) {

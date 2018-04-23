@@ -133,7 +133,7 @@ extension PlaceCartCheckContainer: UITableViewDelegate {
         let parsed = ParsedMenu(source: menu)
         let sourceDish = parsed.dishes.find({ $0.id == cartDish.dishId })!
 
-        let modal = AddDishToCartModal(for: sourceDish, with: cartDish, and: cart)
+        let modal = DishModal(for: sourceDish, menu: parsed, with: cartDish, and: cart)
         vc.modal(modal, animated: true)
     }
 }

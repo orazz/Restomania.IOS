@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="DishModalHeader" customModule="CoreFramework" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHe-0C-dw3">
-                    <rect key="frame" x="0.0" y="60" width="100" height="90"/>
+                    <rect key="frame" x="0.0" y="10" width="100" height="90"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="arP-e7-0HK" customClass="CachedImage" customModule="CoreFramework" customModuleProvider="target">
                             <rect key="frame" x="10" y="0.0" width="90" height="90"/>
@@ -37,16 +37,19 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG4-5A-x0k">
-                    <rect key="frame" x="110" y="60" width="255" height="90"/>
+                    <rect key="frame" x="110" y="10" width="255" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="APN-FW-L1c"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKP-x8-dqQ" userLabel="Close View">
-                    <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
+                    <rect key="frame" x="275" y="0.0" width="100" height="60"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-close-on-content" translatesAutoresizingMaskIntoConstraints="NO" id="hDR-ub-RJC">
-                            <rect key="frame" x="10" y="10" width="40" height="40"/>
+                            <rect key="frame" x="50" y="10" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="SLh-dk-bid"/>
                                 <constraint firstAttribute="height" constant="40" id="kf0-po-thL"/>
@@ -56,9 +59,9 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstItem="hDR-ub-RJC" firstAttribute="leading" secondItem="LKP-x8-dqQ" secondAttribute="leading" constant="10" id="3rs-9b-Fdu"/>
+                        <constraint firstAttribute="trailing" secondItem="hDR-ub-RJC" secondAttribute="trailing" constant="10" id="44n-bv-fZl"/>
                         <constraint firstAttribute="height" constant="60" id="93X-4S-Mlb"/>
-                        <constraint firstAttribute="width" constant="150" id="XBb-Vd-MxH"/>
+                        <constraint firstAttribute="width" constant="100" id="XBb-Vd-MxH"/>
                         <constraint firstItem="hDR-ub-RJC" firstAttribute="top" secondItem="LKP-x8-dqQ" secondAttribute="top" constant="10" id="jPK-QE-s60"/>
                     </constraints>
                     <connections>
@@ -68,14 +71,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="LKP-x8-dqQ" secondAttribute="trailing" id="01v-6Q-dNs"/>
                 <constraint firstItem="yG4-5A-x0k" firstAttribute="leading" secondItem="kHe-0C-dw3" secondAttribute="trailing" constant="10" id="EUT-pf-NOL"/>
                 <constraint firstItem="kHe-0C-dw3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QzT-pd-bFs"/>
-                <constraint firstItem="kHe-0C-dw3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="cSA-2o-cLt"/>
-                <constraint firstItem="LKP-x8-dqQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jYo-AM-78g"/>
+                <constraint firstItem="kHe-0C-dw3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="cSA-2o-cLt"/>
                 <constraint firstItem="LKP-x8-dqQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ooo-Vx-lux"/>
-                <constraint firstAttribute="bottom" secondItem="yG4-5A-x0k" secondAttribute="bottom" constant="10" id="s86-1M-slC"/>
                 <constraint firstAttribute="trailing" secondItem="yG4-5A-x0k" secondAttribute="trailing" constant="10" id="sls-gK-R9c"/>
-                <constraint firstItem="yG4-5A-x0k" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="xil-g6-TMr"/>
+                <constraint firstItem="yG4-5A-x0k" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="xil-g6-TMr"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -88,7 +90,7 @@
                 <outlet property="imageWidth" destination="w9I-AJ-7rW" id="yJJ-f0-62n"/>
                 <outlet property="nameLabel" destination="yG4-5A-x0k" id="6T8-7p-Rpd"/>
             </connections>
-            <point key="canvasLocation" x="33.5" y="-199"/>
+            <point key="canvasLocation" x="33.5" y="-225"/>
         </view>
         <tapGestureRecognizer id="SKV-Yf-jWE" userLabel="closeModal">
             <connections>

@@ -34,8 +34,8 @@ public class ParsedMenu {
         let sourceVariations = collectVariations()
 
         //Filter allow addings
-        let sourceAddings = collectAddings(openSimpleDishes: sourceDishes.filter({ $0.type == .simpleDish }).map({ $0.id }),
-                                              openCategories: categories.map{ $0.id })
+        let sourceAddings = collectAddings(simpleDishes: sourceDishes.filter({ $0.type == .simpleDish }).map({ $0.id }),
+                                              categories: sourceCategories.map{ $0.id })
 
         //Build all dishes
         self.dishes = sourceDishes.map { ParsedDish(source: $0,
@@ -69,14 +69,14 @@ public class ParsedMenu {
 
         return source.categories.filter({ !needStop.contains($0.id) && (nil == $0.parentId || !needStop.contains($0.parentId!)) }).ordered
     }
-    private func collectAddings(openSimpleDishes:[Long], openCategories: [Long]) -> [Adding] {
+    private func collectAddings(simpleDishes:[Long], categories: [Long]) -> [Adding] {
 
         let addings = source.addings.filter({ a in
                                 if let id = a.addedDishId {
-                                    return openSimpleDishes.contains(id)
+                                    return simpleDishes.contains(id)
                                 }
                                 else if let id = a.addedCategoryId {
-                                    return openCategories.contains(id)
+                                    return categories.contains(id)
                                 }
                                 else {
                                     return false

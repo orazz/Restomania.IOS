@@ -52,7 +52,7 @@ public class DishModalDescription: UITableViewCell {
         descriptionLabel.text = dish.description
     }
 }
-extension DishModalDescription: DishModalElementsProtocol {
+extension DishModalDescription: DishModalElementProtocol {
     public func update(by dish: ParsedDish) {
         self.dish = dish
     }

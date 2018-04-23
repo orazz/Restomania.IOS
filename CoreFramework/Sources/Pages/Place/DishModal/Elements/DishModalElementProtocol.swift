@@ -1,5 +1,5 @@
 //
-//  DishModalElementsProtocol.swift
+//  DishModalElementProtocol.swift
 //  CoreFramework
 //
 //  Created by Алексей on 31.01.18.
@@ -9,13 +9,13 @@
 import Foundation
 import MdsKit
 
-public protocol DishModalElementsProtocol: InterfaceTableCellProtocol {
+public protocol DishModalElementProtocol: InterfaceTableCellProtocol {
 
-    func link(with: DishModalDelegateProtocol)
+    func link(with: DishModalDelegate)
     func update(by: BaseDish, from: MenuSummary)
 }
-extension DishModalElementsProtocol {
+extension DishModalElementProtocol {
 
-    public func link(with: DishModalDelegateProtocol) {}
+    public func link(with: DishModalDelegate) {}
     public func update(by: BaseDish, from: MenuSummary) {}
 }

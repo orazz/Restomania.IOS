@@ -1,5 +1,5 @@
 //
-//  AddDishToCartModal.swift
+//  DishModal.swift
 //  CoreFramework
 //
 //  Created by Алексей on 31.01.18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MdsKit
 
-public class AddDishToCartModal: UIViewController {
+public class DishModal: UIViewController {
 
     //UI
     @IBOutlet private weak var interfaceTable: UITableView!
@@ -25,81 +25,61 @@ public class AddDishToCartModal: UIViewController {
 
 
     //Data
-    private let _tag = String.tag(AddDishToCartModal.self)
+    private let _tag = String.tag(DishModal.self)
     private let cart: CartService
     private let dish: ParsedDish
+    private let menu: ParsedMenu
     private let addings: [Adding]
     private let vartiations: [Variation]
     private var cartDish: AddedOrderDish?
 
-    public var selectedVariation: Variation?
-    public var selectedAddingsIds: [Long] = []
-    public var count: Int{
-        didSet {
-            refreshTotal()
-        }
-    }
-    private var total: Price {
-        didSet {
-            refreshTotal()
-        }
-    }
+    public private(set) var selectedVariation: Variation?
+    public private(set) var selectedAddingsIds: [Long]
+    public private(set) var count: Int
+    public private(set) var total: Price
+
     private var inited: Bool = false
 
-    public convenience init(for dish: ParsedDish, with cartDish: AddedOrderDish, and cart: CartService) {
-        self.init(dish: dish, with: cart)
+    public convenience init(for dish: ParsedDish, menu: ParsedMenu, with cartDish: AddedOrderDish, and cart: CartService) {
 
-        self.selectedVariation = nil
-        self.selectedAddingsIds = []
-
-        self.count = cartDish.count
-        if (dish.type == .simpleDish) {
-            self.total = dish.price
-        } else {
-            self.total = Price.zero
-        }
-
-        if let variation = dish.variation?.range.find({ $0.id == cartDish.variationId }) {
-            select(variation: variation)
-        }
-//        for addingId in cartDish.addings {
-//            if let dish = dish.addings.find({ $0.id == addingId }) {
-//                add(adding: dish)
-//            }
-//        }
+        self.init(dish: dish, menu: menu, with: cart)
 
         self.cartDish = cartDish
+        self.selectedVariation = dish.variation?.range.find({ $0.id == cartDish.variationId })
+        self.selectedAddingsIds = cartDish.addings
+        self.count = cartDish.count
 
         completeLoad()
     }
-    public convenience init(for dish: ParsedDish, and cart: CartService) {
-        self.init(dish: dish, with: cart)
+    public convenience init(for dish: ParsedDish, menu: ParsedMenu, and cart: CartService) {
 
+        self.init(dish: dish, menu: menu, with: cart)
+
+        completeLoad()
+    }
+    private init(dish: ParsedDish, menu: ParsedMenu, with cart: CartService) {
+
+        self.cartDish = nil
         self.selectedVariation = nil
         self.selectedAddingsIds = []
-
         self.count = 1
-        if (dish.type == .simpleDish) {
-            self.total = dish.price
-        } else {
-            self.total = Price.zero
-        }
 
-        completeLoad()
-    }
-    private init(dish: ParsedDish, with cart: CartService) {
         self.dish = dish
+        self.menu = menu
         self.cart = cart
         self.addings = dish.addings
         self.vartiations = dish.variation?.range ?? []
-        self.count = 1
-        self.total = Price.zero
 
-        super.init(nibName: "\(String.tag(AddDishToCartModal.self))View", bundle: Bundle.coreFramework)
+        if (dish.type == .simpleDish) {
+            self.total = dish.price
+        } else {
+            self.total = Price.zero
+        }
+
+        super.init(nibName: String.tag(DishModal.self), bundle: Bundle.coreFramework)
     }
     public required init?(coder aDecoder: NSCoder) {
-        Log.error(_tag, "Not implemented constructor.")
-        fatalError("init(coder:) has not been implemented")
+        fatalError()
     }
 
     //Load circle
@@ -110,7 +90,7 @@ public class AddDishToCartModal: UIViewController {
 
         interfaceRows = loadRows()
         interfaceRows.each({ row in
-            if let row = row as? DishModalElementsProtocol {
+            if let row = row as? DishModalElementProtocol {
                 row.link(with: self)
             }
         })
@@ -131,25 +111,27 @@ public class AddDishToCartModal: UIViewController {
         result.append(DishModalHeader.create(for: dish))
         result.append(DishModalPriceAndSize.create(for: dish))
 
+        result.append(DishModalSpace.create())
         result.append(DishModalSelectPicker.create(with: self))
 
         if (vartiations.isFilled) {
-//            result.append(DishModalSpace.create())
             result.append(DishModalSelectHeader.create(with: DishModal.Localization.labelsSelectVariations.localized))
             result.append(DishModalSelectVariations.create(for: self.vartiations, with: dish.currency, with: self))
         }
 
         if (addings.isFilled) {
-//            result.append(DishModalSpace.create())
             result.append(DishModalSelectHeader.create(with: DishModal.Localization.labelsSelectAddings.localized))
-//            result.append(DishModalSelectAddings.create(for: self.addings, menu: MenuSummaw  with: self))
-            result.append(DishModalSpace.create())
+            result.append(DishModalSelectAddings.create(for: self.addings, from: menu, with: self))
         }
+
+        result.append(DishModalSpace.create())
+        result.append(DishModalSpace.create())
 
         return result
     }
 }
-extension AddDishToCartModal: DishModalDelegateProtocol {
+extension DishModal: DishModalDelegate {
+    
     public func closeModal() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -164,14 +146,12 @@ extension AddDishToCartModal: DishModalDelegateProtocol {
             cart.add(dishId: dish.id, count: count, with: selectedAddingsIds, use: selectedVariation?.id)
         }
     }
-}
-extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
 
     public var isAddNewDish: Bool {
         return nil == cartDish
     }
 
-    public func add(adding dish: Dish) {
+    public func add(adding dish: ParsedDish) {
 
         if (nil != selectedAddingsIds.find({ $0 == dish.id })) {
             return
@@ -180,7 +160,7 @@ extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
         selectedAddingsIds.append(dish.id)
         total = total + dish.price
     }
-    public func remove(adding dish: Dish) {
+    public func remove(adding dish: ParsedDish) {
 
         guard let index = selectedAddingsIds.index(where: { $0 == dish.id }) else {
             return
@@ -190,6 +170,11 @@ extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
         total = total - dish.price
     }
 
+    public func select(count: Int) {
+        self.count = count
+
+        refreshTotal()
+    }
     public func select(variation: Variation) {
 
         if let prev = selectedVariation {
@@ -206,5 +191,27 @@ extension AddDishToCartModal: AddDishToCartModalDelegateProtocol {
         }
 
         self.addToCartAction?.refresh(total: total * count, with: dish.currency)
+    }
+}
+extension DishModal {
+
+    public enum Localization: String, Localizable {
+
+        public var tableName: String {
+            return String.tag(DishModal.self)
+        }
+        public var bundle: Bundle {
+            return Bundle.coreFramework
+        }
+
+        //Actions
+        case buttonsTryAddDish = "Buttons.TryAddDish"
+        case buttonsChangeOrder = "Buttons.ChangeOrder"
+        case buttonsAddToCart = "Buttons.AddToCart"
+
+        //Titles
+        case labelsSelectCount = "Labels.SelectCount"
+        case labelsSelectVariations = "Labels.SelectVariations"
+        case labelsSelectAddings = "Labels.SelectAddings"
     }
 }

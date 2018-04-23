@@ -12,7 +12,7 @@ import MdsKit
 
 public class DishModalSelectVariations: UITableViewCell {
 
-    public static func create(for variations: [Variation], with currency: Currency, with delegate: AddDishToCartModalDelegateProtocol) -> DishModalSelectVariations {
+    public static func create(for variations: [Variation], with currency: Currency, with delegate: DishModalDelegate) -> DishModalSelectVariations {
 
         let nibname = String.tag(DishModalSelectVariations.self)
         let cell: DishModalSelectVariations = UINib.instantiate(from: nibname, bundle: Bundle.coreFramework)
@@ -31,7 +31,7 @@ public class DishModalSelectVariations: UITableViewCell {
     //Data
     private var variations: [Variation] = []
     private var currency: Currency = .All
-    private var delegate: AddDishToCartModalDelegateProtocol?
+    private var delegate: DishModalDelegate?
 
     public override func awakeFromNib() {
         super.awakeFromNib()

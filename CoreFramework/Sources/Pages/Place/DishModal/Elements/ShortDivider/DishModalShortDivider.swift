@@ -36,7 +36,7 @@ public class DishModalShortDivider: UITableViewCell {
         dividerView.backgroundColor = themeColors.divider
     }
 }
-extension DishModalShortDivider: DishModalElementsProtocol {
+extension DishModalShortDivider: DishModalElementProtocol {
 }
 extension DishModalShortDivider: InterfaceTableCellProtocol {
     public var viewHeight: Int {

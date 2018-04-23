@@ -40,7 +40,7 @@ public class DishModalHeader: UITableViewCell {
             apply()
         }
     }
-    private var delegate: DishModalDelegateProtocol?
+    private var delegate: DishModalDelegate?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -70,9 +70,9 @@ public class DishModalHeader: UITableViewCell {
         delegate?.closeModal()
     }
 }
-extension DishModalHeader: DishModalElementsProtocol {
+extension DishModalHeader: DishModalElementProtocol {
 
-    public func link(with delegate: DishModalDelegateProtocol) {
+    public func link(with delegate: DishModalDelegate) {
         self.delegate = delegate
     }
     public func update(by dish: ParsedDish) {
@@ -82,7 +82,7 @@ extension DishModalHeader: DishModalElementsProtocol {
 extension DishModalHeader: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 160
+        return 110
     }
     public func prepareView() -> UITableViewCell {
         return self

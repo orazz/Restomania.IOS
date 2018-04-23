@@ -1,5 +1,5 @@
 //
-//  AddDishToCartModalDelegateProtocol.swift
+//  DishModalDelegate.swift
 //  CoreFramework
 //
 //  Created by Алексей on 31.01.18.
@@ -9,15 +9,19 @@
 import Foundation
 import MdsKit
 
-public protocol AddDishToCartModalDelegateProtocol: DishModalDelegateProtocol {
+public protocol DishModalDelegate {
 
-    var count: Int { get set }
+    func closeModal()
+    func addToCart()
+
+    var count: Int { get }
     var selectedVariation: Variation? { get }
     var selectedAddingsIds: [Long]  { get }
     var isAddNewDish: Bool { get }
 
-    func add(adding: Dish)
-    func remove(adding: Dish)
+    func add(adding dish: ParsedDish)
+    func remove(adding dish: ParsedDish)
 
+    func select(count: Int)
     func select(variation: Variation)
 }
