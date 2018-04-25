@@ -35,7 +35,7 @@ public class DishModalSelectVariationsCell: UITableViewCell {
         backgroundColor = themeColors.contentBackground
 
         let background = UIView()
-        background.backgroundColor = themeColors.contentSelection
+        background.backgroundColor = UIColor.clear
         background.isOpaque = false
         self.selectedBackgroundView = background
 

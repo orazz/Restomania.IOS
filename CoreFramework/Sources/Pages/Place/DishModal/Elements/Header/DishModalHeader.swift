@@ -82,7 +82,7 @@ extension DishModalHeader: DishModalElementProtocol {
 extension DishModalHeader: InterfaceTableCellProtocol {
 
     public var viewHeight: Int {
-        return 110
+        return 125
     }
     public func prepareView() -> UITableViewCell {
         return self

@@ -48,9 +48,9 @@ public class ThemeSettings {
 
     public class Images: ThemeImages {
 
-        public var logo = loadAssert(named: "logo-dark")
+        public var logo = load(named: "logo-dark")
 
-        private static func loadAssert(named: String) -> UIImage {
+        private static func load(named: String) -> UIImage {
             return UIImage(named: named, in: Bundle.main, compatibleWith: nil)!
         }
     }

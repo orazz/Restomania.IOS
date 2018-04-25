@@ -104,6 +104,9 @@ public class DishModal: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
     }
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     private func loadRows() -> [InterfaceTableCellProtocol] {
 
         var result = [InterfaceTableCellProtocol]()
@@ -126,8 +129,6 @@ public class DishModal: UIViewController {
 
         if (isAddNewDish) {
             result.append(DishModalSpace.create())
-            result.append(DishModalSpace.create())
-
         }
         else {
             result.append(DishModalSpace.create())

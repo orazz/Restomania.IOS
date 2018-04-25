@@ -8,7 +8,7 @@
 
 "Buttons.RemoveDish" = "Remove from cart";
 "Buttons.ChangeOrder" = "Change order";
-"Buttons.AddToCart" = "Add to cart";
+"Buttons.AddToCart" = "To cart";
 
 "Labels.SelectCount" = "Select count";
 "Labels.SelectVariations" = "Select size";

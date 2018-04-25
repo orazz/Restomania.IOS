@@ -31,8 +31,10 @@ public class DishModalSelectAddingsCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
+        backgroundColor = themeColors.contentBackground
+
         let background = UIView()
-        background.backgroundColor = themeColors.contentSelection
+        background.backgroundColor = UIColor.clear
         background.isOpaque = false
         self.selectedBackgroundView = background
 

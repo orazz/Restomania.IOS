@@ -43,7 +43,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.14)
   - InputMask (2.2.6)
   - MarqueeLabel/Swift (3.1.4)
-  - MdsKit (1.4.2):
+  - MdsKit (1.5.0):
     - Gloss (~> 2.0.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -85,7 +85,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 390ea358e5a0d0133153806f744662dad933d06b
   InputMask: 756ffc515121d07a9c81a605fa5c44e5ac5bde13
   MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
-  MdsKit: 90ef4e6fb5b038df108a446ea71d0f7197674cd4
+  MdsKit: d385c0e3edf30abb8c354a25a02ce570179a88b3
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NotificationBannerSwift: 4f6666c8421dcf11be0812dd1093d932c15921af
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
@@ -93,6 +93,6 @@ SPEC CHECKSUMS:
   Swinject: afea49fd95f392b41171669f165842879c48fad6
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 4e313623bf17e855538f1000868e5dac2813b866
+PODFILE CHECKSUM: 34c86ae39e5426f45650f68a86db37db7ef8a625
 
 COCOAPODS: 1.4.0

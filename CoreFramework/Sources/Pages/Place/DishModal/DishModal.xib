@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wu2-mS-dy8">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                    <rect key="frame" x="0.0" y="-20" width="375" height="637"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1j-kw-HlT" customClass="DishModalAddToCartAction" customModule="CoreFramework" customModuleProvider="target">
@@ -39,7 +39,7 @@
                 <constraint firstItem="u1j-kw-HlT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EQt-uE-fby"/>
                 <constraint firstAttribute="bottom" secondItem="u1j-kw-HlT" secondAttribute="bottom" id="HRL-Yg-Dej"/>
                 <constraint firstAttribute="trailing" secondItem="wu2-mS-dy8" secondAttribute="trailing" id="ZUJ-IF-7HC"/>
-                <constraint firstItem="wu2-mS-dy8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="iS9-i8-2zL"/>
+                <constraint firstItem="wu2-mS-dy8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-20" id="iS9-i8-2zL"/>
                 <constraint firstItem="u1j-kw-HlT" firstAttribute="top" secondItem="wu2-mS-dy8" secondAttribute="bottom" id="sg5-KR-mjA"/>
                 <constraint firstItem="wu2-mS-dy8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="w69-5q-0hx"/>
             </constraints>

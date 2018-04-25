@@ -8,7 +8,7 @@
 
 "Buttons.RemoveDish" = "Удалить из корзины";
 "Buttons.ChangeOrder" = "Изменить заказ";
-"Buttons.AddToCart" = "Добавить в заказ";
+"Buttons.AddToCart" = "В корзину";
 
 "Labels.SelectCount" = "Выберите количество";
 "Labels.SelectVariations" = "Выберите размер";

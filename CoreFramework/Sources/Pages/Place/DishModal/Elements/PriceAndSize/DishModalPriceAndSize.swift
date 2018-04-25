@@ -109,7 +109,7 @@ extension DishModalPriceAndSize: InterfaceTableCellProtocol {
     public var viewHeight: Int {
 
         if isShowSizeAndPrice {
-            return 30
+            return 40
         } else {
             return 0
         }

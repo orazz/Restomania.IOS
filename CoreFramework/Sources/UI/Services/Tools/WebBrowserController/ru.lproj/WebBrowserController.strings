@@ -6,4 +6,4 @@
   Copyright © 2018 Medved-Studio. All rights reserved.
 */
 
-"Errors.ProblemWithLoad.Message" = "Проблема с загрузкой пользовательского соглашения. Проверьте ваше подключение к интенету.";
+"Errors.ProblemWithLoad.Message" = "Проблема с загрузкой ссылки. Проверьте ваше подключение к интенету.";

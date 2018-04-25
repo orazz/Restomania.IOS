@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,20 +17,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeW-82-dxy">
-                    <rect key="frame" x="10" y="12" width="250" height="27"/>
+                    <rect key="frame" x="40" y="12" width="245" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-d0-QW6">
-                    <rect key="frame" x="345" y="15" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="8uf-Pe-SbC"/>
-                        <constraint firstAttribute="width" constant="20" id="mqn-m8-Ls2"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2222 P" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PM-45-AvV" customClass="PriceLabel" customModule="CoreFramework" customModuleProvider="target">
-                    <rect key="frame" x="265" y="15" width="70" height="21"/>
+                    <rect key="frame" x="295" y="15" width="70" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="E4Q-Yv-CJ0"/>
                     </constraints>
@@ -38,17 +31,24 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-d0-QW6">
+                    <rect key="frame" x="10" y="17.5" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="8uf-Pe-SbC"/>
+                        <constraint firstAttribute="width" constant="15" id="mqn-m8-Ls2"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Fat-d0-QW6" firstAttribute="centerY" secondItem="yXM-gm-krb" secondAttribute="centerY" id="5oK-4f-AJP"/>
+                <constraint firstItem="EeW-82-dxy" firstAttribute="leading" secondItem="Fat-d0-QW6" secondAttribute="trailing" constant="15" id="C5y-7F-TlX"/>
                 <constraint firstItem="EeW-82-dxy" firstAttribute="top" secondItem="yXM-gm-krb" secondAttribute="top" constant="12" id="FN3-Te-xmG"/>
                 <constraint firstItem="3PM-45-AvV" firstAttribute="centerY" secondItem="yXM-gm-krb" secondAttribute="centerY" id="HIb-2b-NqK"/>
-                <constraint firstItem="EeW-82-dxy" firstAttribute="leading" secondItem="yXM-gm-krb" secondAttribute="leading" constant="10" id="HOk-0F-seG"/>
-                <constraint firstItem="3PM-45-AvV" firstAttribute="leading" secondItem="EeW-82-dxy" secondAttribute="trailing" constant="5" id="Q2d-9o-F1x"/>
+                <constraint firstItem="3PM-45-AvV" firstAttribute="leading" secondItem="EeW-82-dxy" secondAttribute="trailing" constant="10" id="Q2d-9o-F1x"/>
+                <constraint firstItem="Fat-d0-QW6" firstAttribute="leading" secondItem="YRK-Nw-3SA" secondAttribute="leading" constant="10" id="Sq0-V6-xpE"/>
                 <constraint firstAttribute="bottom" secondItem="EeW-82-dxy" secondAttribute="bottom" constant="12" id="UYP-KH-dnS"/>
-                <constraint firstAttribute="trailing" secondItem="Fat-d0-QW6" secondAttribute="trailing" constant="10" id="eyE-O2-4Wj"/>
-                <constraint firstItem="Fat-d0-QW6" firstAttribute="leading" secondItem="3PM-45-AvV" secondAttribute="trailing" constant="10" id="ilG-lH-1iH"/>
+                <constraint firstItem="YRK-Nw-3SA" firstAttribute="trailing" secondItem="3PM-45-AvV" secondAttribute="trailing" constant="10" id="gSj-dh-RK3"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

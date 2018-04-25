@@ -46,13 +46,11 @@ extension PlaceMenuController {
 
             self.selectedCategoryId = categoryId
 
-            reload()
-
-            DispatchQueue.main.async {
-                self.table.setContentOffset(CGPoint.zero, animated: false)
-            }
+            reload(complete: {
+                self.table.scroll(to: .top, animated: true)
+            })
         }
-        private func reload() {
+        private func reload(complete: Trigger? = nil) {
 
             guard let menu = menu else {
                 return
@@ -64,7 +62,9 @@ extension PlaceMenuController {
                 self.categories = collectAll(from: menu)
             }
 
-            table.reloadData()
+            self.table.reloadData({
+                complete?()
+            })
         }
         private func collectFor(_ categoryId: Long, from menu: ParsedMenu) -> [CategoryContainer] {
 
