@@ -109,11 +109,16 @@ public class DistanceLabel: UIView {
 
         let distance = abs(distance)
 
-        if distance > 100.0 {
+        if (distance > 10000.0) { 
+            let rest = Int(floor(distance / 1000.0))
+            return "\(rest) \(Localization.unitsKm.localized)"
+        }
+        else if (distance > 100.0) {
             let rest = Int(floor(distance / 100.0))
             return "\(rest / 10).\(rest % 10) \(Localization.unitsKm.localized)"
         }
         else {
+            //Metres
             let rest = Int(floor(distance))
             return "\(rest) \(Localization.unitsM.localized)"
         }
