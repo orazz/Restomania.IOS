@@ -32,6 +32,7 @@ public class AddCardUIService {
         self.cardId = nil
         self.completeHandler = nil
 
+        WebBrowserController.clearCache()
         service.delegate = self
         service.setTitle(Localization.title.localized)
     }
