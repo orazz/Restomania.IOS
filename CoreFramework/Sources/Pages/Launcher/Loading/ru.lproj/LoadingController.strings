@@ -8,7 +8,7 @@
 
 "Alerts.RegisterDevice.Title" = "Упс, проблемы";
 "Alerts.RegisterDevice.Message" = "Для настройки приложения нам нужен интернет. Проверьте ваше подключение.";
-"Alerts.RegisterDevice.RetryAction" = "Потворить";
+"Alerts.RegisterDevice.RetryAction" = "Повторить";
 
 "Status.LoadCache" = "Загружаем данные";
 "Status.RequestPushesPermissions" = "Запрашиваем разрешения на уведомления";
