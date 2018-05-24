@@ -65,7 +65,7 @@ public class ParsedMenu {
     }
     private func collectCategories() -> [MenuCategory] {
 
-        let needStop = stoplist.elements.map({ $0.elementId })
+        let needStop = stoplist.elements.filter({ $0.type == .category }).map({ $0.elementId })
 
         return source.categories.filter({ !needStop.contains($0.id) && (nil == $0.parentId || !needStop.contains($0.parentId!)) }).ordered
     }

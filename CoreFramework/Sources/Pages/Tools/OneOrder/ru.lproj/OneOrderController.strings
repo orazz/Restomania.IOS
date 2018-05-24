@@ -33,5 +33,5 @@
 "DishOrder.Status.CanceledByPlace" = "Отменен заведением";
 "DishOrder.Status.CanceledByUser" = "Отменен пользователем";
 
-"Messages.ProblemWithLoad" = "Проблемы с закгрузкой заказа. Проверьте подключение к интернету.";
+"Messages.ProblemWithLoad" = "Проблемы с загрузкой заказа. Проверьте подключение к интернету.";
 "Messages.ProblemWithCancel" = "Проблемы с отменой заказа. Проверьте подключение к интернету и обновите страницу.";
