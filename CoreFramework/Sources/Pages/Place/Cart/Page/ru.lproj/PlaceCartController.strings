@@ -13,6 +13,7 @@
 "Labels.Total" = "Итог";
 "Labels.SelectPaymentCard" = "Выберите карту для оплаты";
 "Labels.Comment" = "Комментарий";
+"Labels.Takeaway" = "С собой?";
 
 "Buttons.Now" = "Скоро буду";
 "Buttons.Today" = "Сегодня";
