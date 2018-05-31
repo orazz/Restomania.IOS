@@ -14,56 +14,90 @@
             <connections>
                 <outlet property="commentLabel" destination="HDP-a5-gbF" id="6o1-Je-5gL"/>
                 <outlet property="content" destination="iN0-l3-epB" id="3Bn-ue-zdt"/>
+                <outlet property="takeawayLabel" destination="U0J-Zc-6Pk" id="kvG-Nt-HWC"/>
+                <outlet property="takeawaySwitch" destination="aKh-P1-eF6" id="G9x-5M-vVL"/>
                 <outlet property="titleLabel" destination="nlc-jA-lah" id="1iI-Pe-KX0"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комментарий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlc-jA-lah" userLabel="title">
-                    <rect key="frame" x="10" y="5" width="355" height="20"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJT-ae-5Bw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комментарий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlc-jA-lah" userLabel="title">
+                            <rect key="frame" x="10" y="5" width="355" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="ftS-Ef-ljB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDP-a5-gbF">
+                            <rect key="frame" x="10" y="35" width="355" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="igh-Jk-I2C"/>
+                            </constraints>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="0EK-rl-p5d" appends="YES" id="Rfh-2r-a7A"/>
+                            </connections>
+                        </textView>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKh-P1-eF6">
+                            <rect key="frame" x="318" y="95" width="49" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="47" id="cZL-qB-mlc"/>
+                                <constraint firstAttribute="height" constant="31" id="mRF-2p-ZRe"/>
+                            </constraints>
+                        </switch>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takeaway?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0J-Zc-6Pk">
+                            <rect key="frame" x="220.5" y="95" width="82.5" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="2wG-gP-MGc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="ftS-Ef-ljB"/>
+                        <constraint firstAttribute="trailing" secondItem="aKh-P1-eF6" secondAttribute="trailing" constant="10" id="058-0A-y9e"/>
+                        <constraint firstItem="nlc-jA-lah" firstAttribute="top" secondItem="AJT-ae-5Bw" secondAttribute="top" constant="5" id="9a1-WW-VZV"/>
+                        <constraint firstAttribute="height" constant="135" id="C6i-ok-7nF"/>
+                        <constraint firstItem="aKh-P1-eF6" firstAttribute="top" secondItem="HDP-a5-gbF" secondAttribute="bottom" constant="20" id="LqH-2d-EjB"/>
+                        <constraint firstItem="aKh-P1-eF6" firstAttribute="leading" secondItem="U0J-Zc-6Pk" secondAttribute="trailing" constant="15" id="SeY-CQ-KJa"/>
+                        <constraint firstItem="U0J-Zc-6Pk" firstAttribute="top" secondItem="HDP-a5-gbF" secondAttribute="bottom" constant="20" id="Sv3-3E-kxc"/>
+                        <constraint firstAttribute="trailing" secondItem="HDP-a5-gbF" secondAttribute="trailing" constant="10" id="X8C-hw-swc"/>
+                        <constraint firstItem="HDP-a5-gbF" firstAttribute="top" secondItem="nlc-jA-lah" secondAttribute="bottom" constant="10" id="lnx-xL-abr"/>
+                        <constraint firstAttribute="trailing" secondItem="nlc-jA-lah" secondAttribute="trailing" constant="10" id="n7o-3r-C95"/>
+                        <constraint firstItem="nlc-jA-lah" firstAttribute="leading" secondItem="AJT-ae-5Bw" secondAttribute="leading" constant="10" id="ngB-Im-Xc5"/>
+                        <constraint firstItem="HDP-a5-gbF" firstAttribute="leading" secondItem="AJT-ae-5Bw" secondAttribute="leading" constant="10" id="xPx-Tz-Sk5"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDP-a5-gbF">
-                    <rect key="frame" x="10" y="30" width="355" height="80"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <gestureRecognizers/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="80" id="igh-Jk-I2C"/>
-                    </constraints>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="HDP-a5-gbF" secondAttribute="trailing" constant="10" id="5wJ-vj-Axq"/>
-                <constraint firstItem="HDP-a5-gbF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="8zS-hI-cH2"/>
-                <constraint firstItem="HDP-a5-gbF" firstAttribute="top" secondItem="nlc-jA-lah" secondAttribute="bottom" constant="5" id="OHD-AL-cyw"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nlc-jA-lah" secondAttribute="trailing" constant="10" id="blz-aR-70Y"/>
-                <constraint firstItem="nlc-jA-lah" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="hTZ-qS-geG"/>
-                <constraint firstItem="nlc-jA-lah" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="rYx-Gg-uuc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AJT-ae-5Bw" secondAttribute="trailing" id="lh5-vO-gsf"/>
+                <constraint firstItem="AJT-ae-5Bw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="mtC-8c-Cz3"/>
+                <constraint firstItem="AJT-ae-5Bw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="xbz-1q-jiI"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="vbl-Ll-2UB" appends="YES" id="ysY-EA-Ti8"/>
-            </connections>
-            <point key="canvasLocation" x="-57.5" y="-260"/>
+            <point key="canvasLocation" x="-57.5" y="-252.5"/>
         </view>
-        <tapGestureRecognizer id="vbl-Ll-2UB" userLabel="changeComment">
+        <tapGestureRecognizer id="0EK-rl-p5d" userLabel="changeComment">
             <connections>
-                <action selector="changeComment" destination="-1" id="cHO-27-6c7"/>
+                <action selector="changeComment" destination="-1" id="Qt9-l7-bOO"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

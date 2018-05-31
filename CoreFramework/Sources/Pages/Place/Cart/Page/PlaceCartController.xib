@@ -52,7 +52,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6J-Qi-dck" customClass="PlaceCartCompleteOrderAction" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="460" width="374" height="50"/>
+                                    <rect key="frame" x="0.0" y="495" width="374" height="50"/>
                                     <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="QD0-TA-zjy"/>
@@ -81,10 +81,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEG-z0-yBY" customClass="PlaceCartAdditionalContainer" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="345" width="374" height="100"/>
+                                    <rect key="frame" x="0.0" y="345" width="374" height="135"/>
                                     <color key="backgroundColor" red="0.66268795729999996" green="0.66278296709999995" blue="0.66265803580000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="100" id="cQu-vJ-O9u"/>
+                                        <constraint firstAttribute="height" constant="135" id="cQu-vJ-O9u"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aV-JS-7Ig" customClass="PlaceCartDivider" customModule="CoreFramework" customModuleProvider="target">
@@ -95,7 +95,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPM-26-NhO" customClass="PlaceCartDivider" customModule="CoreFramework" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="445" width="374" height="15"/>
+                                    <rect key="frame" x="0.0" y="480" width="374" height="15"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="HGr-sT-meF"/>

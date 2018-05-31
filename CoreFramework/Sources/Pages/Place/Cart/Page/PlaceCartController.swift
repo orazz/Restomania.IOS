@@ -459,6 +459,7 @@ extension PlaceCartController {
             case total = "Labels.Total"
             case selectPaymentCard = "Labels.SelectPaymentCard"
             case comment = "Labels.Comment"
+            case takeaway = "Labels.Takeaway"
         }
         public enum Buttons: String, Localizable {
             public var tableName: String {

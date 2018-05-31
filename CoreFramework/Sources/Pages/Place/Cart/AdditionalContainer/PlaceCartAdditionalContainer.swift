@@ -16,6 +16,8 @@ public class PlaceCartAdditionalContainer: UIView {
     @IBOutlet private weak var content: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var commentLabel: UITextView!
+    @IBOutlet private weak var takeawayLabel: UILabel!
+    @IBOutlet private weak var takeawaySwitch: UISwitch!
     private var editor = ExternalTextEditor()
 
     private let themeColors = DependencyResolver.get(ThemeColors.self)
@@ -60,6 +62,14 @@ public class PlaceCartAdditionalContainer: UIView {
 
         commentLabel.font = themeFonts.default(size: .caption)
 
+        takeawayLabel.font = themeFonts.default(size: .subhead)
+        takeawayLabel.textColor = themeColors.contentText
+        takeawayLabel.text = PlaceCartController.Localization.Labels.takeaway.localized
+
+        takeawaySwitch.tintColor = themeColors.actionDisabled
+        takeawaySwitch.onTintColor = themeColors.actionMain
+        takeawaySwitch.addTarget(self, action: #selector(changeTakeaway), for: .valueChanged)
+
         editor.title = PlaceCartController.Localization.Labels.comment.localized
         editor.onEdit = { update in
             self.cart?.comment = update
@@ -76,6 +86,10 @@ public class PlaceCartAdditionalContainer: UIView {
             commentLabel.text = comment
             commentLabel.textColor = themeColors.contentText
         }
+
+        if let takeaway = cart?.takeaway {
+            takeawaySwitch.setOn(takeaway, animated: true)
+        }
     }
 }
 extension PlaceCartAdditionalContainer {
@@ -84,6 +98,9 @@ extension PlaceCartAdditionalContainer {
         editor.text = cart?.comment ?? String.empty
         delegate?.takeController().modal(editor, animated: true)
     }
+    @objc private func changeTakeaway() {
+        cart?.takeaway = takeawaySwitch.isOn
+    }
 }
 extension PlaceCartAdditionalContainer: PlaceCartElement {
     public func update(with delegate: PlaceCartDelegate) {
@@ -91,6 +108,6 @@ extension PlaceCartAdditionalContainer: PlaceCartElement {
         refresh()
     }
     public func height() -> CGFloat {
-        return 120.0
+        return 135.0
     }
 }

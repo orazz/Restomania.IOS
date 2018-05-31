@@ -12,6 +12,7 @@
 "Labels.Total" = "Total";
 "Labels.SelectPaymentCard" = "Select payment card";
 "Labels.Comment" = "Comment";
+"Labels.Takeaway" = "Takeaway?";
 
 "Buttons.Now" = "I'm soon";
 "Buttons.Today" = "Today";
