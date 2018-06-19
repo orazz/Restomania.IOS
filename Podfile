@@ -20,7 +20,7 @@ def shared
 #   Base
     pod 'Swinject', '~> 2.1.0'
     pod 'Gloss', '~> 2.0'
-    pod 'MdsKit', :path => '../Libraries.MdsKit/' #:git => 'https://ShumAlex@bitbucket.org/medvedstudio/ios-kit.git'
+    pod 'MdsKit', :git => 'https://bitbucket.org/medvedstudio/mds.mobile.ios.git' # :path => '../Libraries.MdsKit/' #:git => 'https://ShumAlex@bitbucket.org/medvedstudio/ios-kit.git'
 end
 
 workspace 'Restomania.xcworkspace'

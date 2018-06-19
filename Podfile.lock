@@ -64,14 +64,19 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Gloss (~> 2.0)
   - InputMask (~> 2.2.6)
-  - MdsKit (from `../Libraries.MdsKit/`)
+  - MdsKit (from `https://bitbucket.org/medvedstudio/mds.mobile.ios.git`)
   - NotificationBannerSwift (~> 1.5.4)
   - Swinject (~> 2.1.0)
   - Toast-Swift (~> 3.0.1)
 
 EXTERNAL SOURCES:
   MdsKit:
-    :path: ../Libraries.MdsKit/
+    :git: https://bitbucket.org/medvedstudio/mds.mobile.ios.git
+
+CHECKOUT OPTIONS:
+  MdsKit:
+    :commit: 7296d37e5b4258d89e4257f9e7da138fa73e5e2b
+    :git: https://bitbucket.org/medvedstudio/mds.mobile.ios.git
 
 SPEC CHECKSUMS:
   Firebase: c98c8b1fbcbdccd82539a36c2b17a9b1bb0ee798
@@ -85,7 +90,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 390ea358e5a0d0133153806f744662dad933d06b
   InputMask: 756ffc515121d07a9c81a605fa5c44e5ac5bde13
   MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
-  MdsKit: d385c0e3edf30abb8c354a25a02ce570179a88b3
+  MdsKit: a56d3d61b45d72cfb91d7be500f9e37a7af320db
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NotificationBannerSwift: 4f6666c8421dcf11be0812dd1093d932c15921af
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
@@ -93,6 +98,6 @@ SPEC CHECKSUMS:
   Swinject: afea49fd95f392b41171669f165842879c48fad6
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 34c86ae39e5426f45650f68a86db37db7ef8a625
+PODFILE CHECKSUM: 2c749057147ed4f9b45e92f4dc8817b621325145
 
 COCOAPODS: 1.4.0
