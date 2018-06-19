@@ -78,7 +78,7 @@
 		1F06A819205570FD00FEB1B5 /* UserAuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A676205570FD00FEB1B5 /* UserAuthApiService.swift */; };
 		1F06A81A205570FD00FEB1B5 /* UserCardsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A677205570FD00FEB1B5 /* UserCardsApiService.swift */; };
 		1F06A81B205570FD00FEB1B5 /* UserChangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A678205570FD00FEB1B5 /* UserChangeApiService.swift */; };
-		1F06A81C205570FD00FEB1B5 /* UserOrdersApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A679205570FD00FEB1B5 /* UserOrdersApiService.swift */; };
+		1F06A81C205570FD00FEB1B5 /* OrdersApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A679205570FD00FEB1B5 /* OrdersApiService.swift */; };
 		1F06A81D205570FD00FEB1B5 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A67C205570FD00FEB1B5 /* Account.swift */; };
 		1F06A81E205570FD00FEB1B5 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A67E205570FD00FEB1B5 /* Device.swift */; };
 		1F06A81F205570FD00FEB1B5 /* NotificationPlatformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06A67F205570FD00FEB1B5 /* NotificationPlatformType.swift */; };
@@ -334,6 +334,8 @@
 		1FDBA132205BA6CF000F1378 /* OtherNotificationControllerPreference.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA131205BA6CF000F1378 /* OtherNotificationControllerPreference.xib */; };
 		1FDBA134205BBC75000F1378 /* ConnectionMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBA133205BBC74000F1378 /* ConnectionMethod.swift */; };
 		1FDBA135205BBE5E000F1378 /* OtherNotificationController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FDBA137205BBE5E000F1378 /* OtherNotificationController.strings */; };
+		1FDBF32D20D9317000A45692 /* OrdersChangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBF32C20D9317000A45692 /* OrdersChangeApiService.swift */; };
+		1FDBF32F20D9320400A45692 /* GetResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBF32E20D9320400A45692 /* GetResult.swift */; };
 		1FDD97AE2060EB3800D75CBF /* ParsedDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD97AD2060EB3800D75CBF /* ParsedDish.swift */; };
 		1FDD97B02060ED1700D75CBF /* ParsedVariationsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD97AF2060ED1700D75CBF /* ParsedVariationsInfo.swift */; };
 		1FE68413208879550035E56B /* PlaceCompleteOrderController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE68415208879550035E56B /* PlaceCompleteOrderController.strings */; };
@@ -424,7 +426,7 @@
 		1F06A676205570FD00FEB1B5 /* UserAuthApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthApiService.swift; sourceTree = "<group>"; };
 		1F06A677205570FD00FEB1B5 /* UserCardsApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardsApiService.swift; sourceTree = "<group>"; };
 		1F06A678205570FD00FEB1B5 /* UserChangeApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserChangeApiService.swift; sourceTree = "<group>"; };
-		1F06A679205570FD00FEB1B5 /* UserOrdersApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOrdersApiService.swift; sourceTree = "<group>"; };
+		1F06A679205570FD00FEB1B5 /* OrdersApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersApiService.swift; sourceTree = "<group>"; };
 		1F06A67C205570FD00FEB1B5 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1F06A67E205570FD00FEB1B5 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		1F06A67F205570FD00FEB1B5 /* NotificationPlatformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPlatformType.swift; sourceTree = "<group>"; };
@@ -702,6 +704,8 @@
 		1FDBA133205BBC74000F1378 /* ConnectionMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionMethod.swift; sourceTree = "<group>"; };
 		1FDBA136205BBE5E000F1378 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtherNotificationController.strings; sourceTree = "<group>"; };
 		1FDBA138205BBE62000F1378 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OtherNotificationController.strings; sourceTree = "<group>"; };
+		1FDBF32C20D9317000A45692 /* OrdersChangeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersChangeApiService.swift; sourceTree = "<group>"; };
+		1FDBF32E20D9320400A45692 /* GetResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetResult.swift; sourceTree = "<group>"; };
 		1FDD97AD2060EB3800D75CBF /* ParsedDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedDish.swift; sourceTree = "<group>"; };
 		1FDD97AF2060ED1700D75CBF /* ParsedVariationsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedVariationsInfo.swift; sourceTree = "<group>"; };
 		1FE68414208879550035E56B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PlaceCompleteOrderController.strings; sourceTree = "<group>"; };
@@ -1095,11 +1099,12 @@
 		1F06A663205570FD00FEB1B5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1F06A669205570FD00FEB1B5 /* Models */,
 				1F06A664205570FD00FEB1B5 /* Auth */,
 				1F06A666205570FD00FEB1B5 /* BaseApiService.swift */,
 				1F06A667205570FD00FEB1B5 /* Menu */,
-				1F06A669205570FD00FEB1B5 /* Models */,
 				1F06A66D205570FD00FEB1B5 /* Notifications */,
+				1FDBF32B20D9301C00A45692 /* Orders */,
 				1F06A66F205570FD00FEB1B5 /* Places */,
 				1F06A671205570FD00FEB1B5 /* User */,
 			);
@@ -1129,6 +1134,7 @@
 				1F06A66A205570FD00FEB1B5 /* AddingBooking.swift */,
 				1F06A66B205570FD00FEB1B5 /* AddingCard.swift */,
 				1F06A66C205570FD00FEB1B5 /* SelectArguments.swift */,
+				1FDBF32E20D9320400A45692 /* GetResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1157,7 +1163,6 @@
 				1F06A676205570FD00FEB1B5 /* UserAuthApiService.swift */,
 				1F06A677205570FD00FEB1B5 /* UserCardsApiService.swift */,
 				1F06A678205570FD00FEB1B5 /* UserChangeApiService.swift */,
-				1F06A679205570FD00FEB1B5 /* UserOrdersApiService.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2307,6 +2312,15 @@
 			path = Preference;
 			sourceTree = "<group>";
 		};
+		1FDBF32B20D9301C00A45692 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				1F06A679205570FD00FEB1B5 /* OrdersApiService.swift */,
+				1FDBF32C20D9317000A45692 /* OrdersChangeApiService.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
 		1FDD97B32061461200D75CBF /* Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -2597,6 +2611,7 @@
 				1F06A8E6205570FE00FEB1B5 /* SearchController.swift in Sources */,
 				1F06A8E8205570FE00FEB1B5 /* ExternalTextEditor.swift in Sources */,
 				1F06A807205570FD00FEB1B5 /* UITools.swift in Sources */,
+				1FDBF32D20D9317000A45692 /* OrdersChangeApiService.swift in Sources */,
 				1F06A902205570FE00FEB1B5 /* NotificationsIgnore.swift in Sources */,
 				1F06A841205570FD00FEB1B5 /* Link.swift in Sources */,
 				1F06A7D4205570FD00FEB1B5 /* InvertedButton.swift in Sources */,
@@ -2621,6 +2636,7 @@
 				1F06A87B205570FD00FEB1B5 /* LoadingController.swift in Sources */,
 				1F06A8DC205570FE00FEB1B5 /* PlaceMenuSubcategoryHeader.swift in Sources */,
 				1F06A895205570FD00FEB1B5 /* PlaceCartTimePicker.swift in Sources */,
+				1FDBF32F20D9320400A45692 /* GetResult.swift in Sources */,
 				1F06A8F7205570FE00FEB1B5 /* OneOrderTotalContainer.swift in Sources */,
 				1F06A8C1205570FD00FEB1B5 /* DishModalSelectHeader.swift in Sources */,
 				1F06A813205570FD00FEB1B5 /* SelectArguments.swift in Sources */,
@@ -2773,7 +2789,7 @@
 				1F06A86C205570FD00FEB1B5 /* DependencyResolver.swift in Sources */,
 				1F06A891205570FD00FEB1B5 /* OtherPaymentCardsController.swift in Sources */,
 				1F06A8B9205570FD00FEB1B5 /* DishModalHeader.swift in Sources */,
-				1F06A81C205570FD00FEB1B5 /* UserOrdersApiService.swift in Sources */,
+				1F06A81C205570FD00FEB1B5 /* OrdersApiService.swift in Sources */,
 				1F06A856205570FD00FEB1B5 /* UserSex.swift in Sources */,
 				1F06A816205570FD00FEB1B5 /* AddedOrder.swift in Sources */,
 				1F06A853205570FD00FEB1B5 /* User.swift in Sources */,

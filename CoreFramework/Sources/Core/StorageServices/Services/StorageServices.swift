@@ -32,7 +32,8 @@ open class StorageServices {
                               r.resolve(ApiKeyService.self)!) }).inObjectScope(.container)
 
         container.register(OrdersCacheService.self, factory: { r in
-            OrdersCacheService(r.resolve(UserOrdersApiService.self)!,
+            OrdersCacheService(r.resolve(OrdersApiService.self)!,
+                               r.resolve(OrdersChangeApiService.self)!,
                                r.resolve(ApiKeyService.self)!) }).inObjectScope(.container)
 
         container.register(CacheImagesService.self, factory: { r in CacheImagesService() }).inObjectScope(.container)

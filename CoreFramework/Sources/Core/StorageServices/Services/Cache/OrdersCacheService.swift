@@ -18,15 +18,17 @@ public class OrdersCacheService {
     private let tag = String.tag(OrdersCacheService.self)
     private let guid = Guid.new
 
-    private let api: UserOrdersApiService
+    private let searchApi: OrdersApiService
+    private let changeApi: OrdersChangeApiService
     private let apiQueue: AsyncQueue
     private let eventsAdapter: EventsAdapter<OrdersCacheServiceDelegate>
     private let cacheAdapter: CacheAdapter<DishOrder>
     private let keys: ApiKeyService
 
-    public init(_ api: UserOrdersApiService, _ keys: ApiKeyService) {
+    public init(_ searchApi: OrdersApiService, _ changeApi: OrdersChangeApiService,  _ keys: ApiKeyService) {
 
-        self.api = api
+        self.searchApi = searchApi
+        self.changeApi = changeApi
         self.keys = keys
         apiQueue = AsyncQueue.createForApi(for: tag)
         eventsAdapter = EventsAdapter<OrdersCacheServiceDelegate>(tag: tag)
@@ -51,14 +53,20 @@ public class OrdersCacheService {
     }
 
     //Remote
-    public func all(chainId: Long? = nil, placeId: Long? = nil, status: DishOrderStatus? = nil, updatedAfter: Date? = nil, arguments: SelectArguments? = nil) -> RequestResult<[DishOrder]> {
-        return RequestResult<[DishOrder]> { handler in
+    public func all(chainId: Long? = nil,
+                    placeId: Long? = nil,
+                   statuses: [DishOrderStatus]? = nil,
+               updatedAfter: Date? = nil,
+                      count: Bool? = nil,
+                  arguments: SelectArguments? = nil) -> RequestResult<GetResult<DishOrder>> {
 
-            let request = self.api.all(chainId: chainId, placeId: placeId, status: status, updatedAfter: updatedAfter, arguments: arguments)
+        return RequestResult<GetResult<DishOrder>> { handler in
+
+            let request = self.searchApi.all(chainId: chainId, placeId: placeId, statuses: statuses, updatedAfter: updatedAfter, count: count, arguments: arguments)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
-                    let orders = response.data!
+                    let orders = response.data!.entities
 
                     self.cacheAdapter.addOrUpdate(orders)
                     self.cacheAdapter.clearOldCached()
@@ -73,7 +81,7 @@ public class OrdersCacheService {
     public func find(_ orderId: Long) -> RequestResult<DishOrder> {
         return RequestResult<DishOrder> { handler in
 
-            let request = self.api.find(orderId)
+            let request = self.searchApi.find(orderId)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
@@ -91,7 +99,7 @@ public class OrdersCacheService {
     public func add(_ order: AddedOrder) -> RequestResult<DishOrder> {
         return RequestResult<DishOrder> { handler in
 
-            let request = self.api.add(order)
+            let request = self.changeApi.add(order)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {
@@ -108,7 +116,7 @@ public class OrdersCacheService {
     public func cancel(_ orderId: Long) -> RequestResult<DishOrder> {
         return RequestResult<DishOrder> { handler in
 
-            let request = self.api.cancel(orderId)
+            let request = self.changeApi.cancel(orderId)
             request.async(self.apiQueue) { response in
 
                 if (response.isSuccess) {

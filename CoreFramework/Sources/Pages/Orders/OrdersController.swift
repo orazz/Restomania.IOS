@@ -26,7 +26,7 @@ public class OrdersController: UIViewController {
     private let ordersService = DependencyResolver.get(OrdersCacheService.self)
     private let apiKeysService = DependencyResolver.get(ApiKeyService.self)
     private let configs = DependencyResolver.get(ConfigsContainer.self)
-    private var ordersContainer: PartsLoadTypedContainer<[DishOrder]>!
+    private var ordersContainer: PartsLoadTypedContainer<GetResult<DishOrder>>!
     private var orders = [DishOrder]()
     private var loaderAdapter: PartsLoader!
 
@@ -36,7 +36,7 @@ public class OrdersController: UIViewController {
 
         loadQueue = AsyncQueue.createForControllerLoad(for: tag)
 
-        ordersContainer = PartsLoadTypedContainer<[DishOrder]>(updateHandler: displayOrders, completeLoadHandler: completeLoad)
+        ordersContainer = PartsLoadTypedContainer<GetResult<DishOrder>>(updateHandler: displayOrders, completeLoadHandler: completeLoad)
         loaderAdapter = PartsLoader([ordersContainer])
     }
     public convenience required init?(coder aDecoder: NSCoder) {
@@ -95,6 +95,7 @@ public class OrdersController: UIViewController {
             return
         }
 
+//        let request = ordersService.all()
         let request = ordersService.all(chainId: configs.chainId, placeId: configs.placeId)
         request.async(loadQueue, completion: ordersContainer.completeLoad)
     }
@@ -111,8 +112,9 @@ public class OrdersController: UIViewController {
             }
         }
     }
-    private func displayOrders(_ orders: [DishOrder]) {
+    private func displayOrders(_ result: GetResult<DishOrder>) {
 
+        let orders = result.entities
         self.orders = orders.sorted(by: self.sorter)
 
         DispatchQueue.main.async {
@@ -153,7 +155,7 @@ extension OrdersController: OrdersCacheServiceDelegate {
         }
 
         let orders = ordersService.cache.all
-        self.ordersContainer.update(orders)
+        self.ordersContainer.update(GetResult(orders))
     }
 }
 // MARK: Table

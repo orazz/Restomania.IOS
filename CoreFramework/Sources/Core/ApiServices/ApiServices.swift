@@ -24,6 +24,10 @@ open class ApiServices {
         //Notifications
         container.register(NotificationsDevicesApiService.self, factory: { r in NotificationsDevicesApiService(r.configs, r.keys, r.resolve(LaunchInfo.self)!) })
 
+        //Orders
+        container.register(OrdersApiService.self, factory: { r in OrdersApiService(r.configs, r.keys) })
+        container.register(OrdersChangeApiService.self, factory: { r in OrdersChangeApiService(r.configs, r.keys) })
+
         //Places
         container.register(PlaceSummariesApiService.self, factory: { r in PlaceSummariesApiService(r.configs) })
 
@@ -32,7 +36,6 @@ open class ApiServices {
         container.register(UserAuthApiService.self, factory: { r in UserAuthApiService(r.configs, r.keys) })
         container.register(UserChangeApiService.self, factory: { r in UserChangeApiService(r.configs, r.keys) })
         container.register(UserCardsApiService.self, factory: { r in UserCardsApiService(r.configs, r.keys) })
-        container.register(UserOrdersApiService.self, factory: { r in UserOrdersApiService(r.configs, r.keys) })
     }
 }
 extension Resolver {
