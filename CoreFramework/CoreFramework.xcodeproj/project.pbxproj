@@ -341,6 +341,12 @@
 		1FE68413208879550035E56B /* PlaceCompleteOrderController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE68415208879550035E56B /* PlaceCompleteOrderController.strings */; };
 		1FED176620573F3400A80DA5 /* BaseSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED176520573F3400A80DA5 /* BaseSearchController.swift */; };
 		7B9696C32E76578E71F00E4B /* Pods_CoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */; };
+		8E53AB3F20DA903E004B9C0B /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53AB3D20DA903E004B9C0B /* MapController.swift */; };
+		8E53AB4020DA903E004B9C0B /* MapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E53AB3E20DA903E004B9C0B /* MapController.xib */; };
+		8E53AB4220DA9AEF004B9C0B /* FMMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53AB4120DA9AEF004B9C0B /* FMMap.swift */; };
+		8E53AB4420DAA3EA004B9C0B /* NCLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53AB4320DAA3E9004B9C0B /* NCLocationManager.swift */; };
+		8E845C3920DC1228002388A8 /* MapPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E845C3820DC1228002388A8 /* MapPopupView.xib */; };
+		8E845C3B20DC123A002388A8 /* MapPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E845C3A20DC123A002388A8 /* MapPopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -724,6 +730,12 @@
 		1FED176020571B9E00A80DA5 /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED176120571B9E00A80DA5 /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Toast_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FED176520573F3400A80DA5 /* BaseSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSearchController.swift; sourceTree = "<group>"; };
+		8E53AB3D20DA903E004B9C0B /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		8E53AB3E20DA903E004B9C0B /* MapController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapController.xib; sourceTree = "<group>"; };
+		8E53AB4120DA9AEF004B9C0B /* FMMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMMap.swift; sourceTree = "<group>"; };
+		8E53AB4320DAA3E9004B9C0B /* NCLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCLocationManager.swift; sourceTree = "<group>"; };
+		8E845C3820DC1228002388A8 /* MapPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapPopupView.xib; sourceTree = "<group>"; };
+		8E845C3A20DC123A002388A8 /* MapPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPopupView.swift; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDDDADEA24934B04A2DD564 /* Pods-CoreFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -1469,6 +1481,7 @@
 		1F06A6ED205570FD00FEB1B5 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				8E53AB3A20DA8F8F004B9C0B /* Maps */,
 				1F06A6EE205570FD00FEB1B5 /* Launcher */,
 				1F06A792205570FD00FEB1B5 /* List */,
 				1F06A70D205570FD00FEB1B5 /* Orders */,
@@ -2332,6 +2345,19 @@
 			path = Page;
 			sourceTree = "<group>";
 		};
+		8E53AB3A20DA8F8F004B9C0B /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				8E53AB3D20DA903E004B9C0B /* MapController.swift */,
+				8E53AB3E20DA903E004B9C0B /* MapController.xib */,
+				8E53AB4120DA9AEF004B9C0B /* FMMap.swift */,
+				8E53AB4320DAA3E9004B9C0B /* NCLocationManager.swift */,
+				8E845C3820DC1228002388A8 /* MapPopupView.xib */,
+				8E845C3A20DC123A002388A8 /* MapPopupView.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
 		AA6D49F96F73F85F5B7B01C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2387,7 +2413,7 @@
 				1F06A5D520556D2B00FEB1B5 /* Frameworks */,
 				1F06A5D620556D2B00FEB1B5 /* Headers */,
 				1F06A5D720556D2B00FEB1B5 /* Resources */,
-				34F55E220320E9BE8F8A4ECB /* [CP] Copy Pods Resources */,
+				A0F56051F091D8E00E6E878E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2470,6 +2496,7 @@
 				1F06A91220559C9400FEB1B5 /* CheckPhoneCodeAuthController.strings in Resources */,
 				1F06A896205570FD00FEB1B5 /* PlaceCartTimePicker.xib in Resources */,
 				1F06A8EC205570FE00FEB1B5 /* OneOrderDishesContainerDishCell.xib in Resources */,
+				8E53AB4020DA903E004B9C0B /* MapController.xib in Resources */,
 				1F06A7F4205570FD00FEB1B5 /* TermsController.strings in Resources */,
 				1F06A8C5205570FD00FEB1B5 /* DishModalSelectVariationsCell.xib in Resources */,
 				1F06A7F2205570FD00FEB1B5 /* VkAuthController.strings in Resources */,
@@ -2481,6 +2508,7 @@
 				1F06A8D7205570FD00FEB1B5 /* PlaceMenuDishCell.xib in Resources */,
 				1F06A7DF205570FD00FEB1B5 /* AddCardUIService.strings in Resources */,
 				1F06A7EF205570FD00FEB1B5 /* SelectAuthController.strings in Resources */,
+				8E845C3920DC1228002388A8 /* MapPopupView.xib in Resources */,
 				1FDBA11B205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib in Resources */,
 				1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderController.xib in Resources */,
 				1FDBA132205BA6CF000F1378 /* OtherNotificationControllerPreference.xib in Resources */,
@@ -2536,15 +2564,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		34F55E220320E9BE8F8A4ECB /* [CP] Copy Pods Resources */ = {
+		A0F56051F091D8E00E6E878E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2765,6 +2796,7 @@
 				1F06A86D205570FD00FEB1B5 /* LaunchInfo.swift in Sources */,
 				1FBAFA1C205EDE7900F7BA70 /* PlaceDelegate.swift in Sources */,
 				1F06A857205570FD00FEB1B5 /* CardsCacheService.swift in Sources */,
+				8E53AB4420DAA3EA004B9C0B /* NCLocationManager.swift in Sources */,
 				1F06A8AF205570FD00FEB1B5 /* DishModalDelegate.swift in Sources */,
 				1F3EF5A1207C0CD9009BCDDB /* Recommendation.swift in Sources */,
 				1F06A8EA205570FE00FEB1B5 /* OneOrderDishesContainer.swift in Sources */,
@@ -2784,6 +2816,7 @@
 				1F06A8BE205570FD00FEB1B5 /* DishModalSelectAddingsCell.swift in Sources */,
 				1F06A83D205570FD00FEB1B5 /* MenuSummary.swift in Sources */,
 				1F06A81E205570FD00FEB1B5 /* Device.swift in Sources */,
+				8E53AB3F20DA903E004B9C0B /* MapController.swift in Sources */,
 				1F592CA1205C17F20082DF37 /* NotificationSection.swift in Sources */,
 				1F06A8DE205570FE00FEB1B5 /* PlaceMenuController.swift in Sources */,
 				1F06A86C205570FD00FEB1B5 /* DependencyResolver.swift in Sources */,
@@ -2791,6 +2824,7 @@
 				1F06A8B9205570FD00FEB1B5 /* DishModalHeader.swift in Sources */,
 				1F06A81C205570FD00FEB1B5 /* OrdersApiService.swift in Sources */,
 				1F06A856205570FD00FEB1B5 /* UserSex.swift in Sources */,
+				8E845C3B20DC123A002388A8 /* MapPopupView.swift in Sources */,
 				1F06A816205570FD00FEB1B5 /* AddedOrder.swift in Sources */,
 				1F06A853205570FD00FEB1B5 /* User.swift in Sources */,
 				1F06A7DE205570FD00FEB1B5 /* AddCardUIService.swift in Sources */,
@@ -2814,6 +2848,7 @@
 				1F06A806205570FD00FEB1B5 /* UIExtensions.swift in Sources */,
 				1F06A882205570FD00FEB1B5 /* OtherNotificationController.swift in Sources */,
 				1F06A8A9205570FD00FEB1B5 /* PlaceCartTotalRow.swift in Sources */,
+				8E53AB4220DA9AEF004B9C0B /* FMMap.swift in Sources */,
 				1F06A836205570FD00FEB1B5 /* OrderSummary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

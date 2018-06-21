@@ -13,6 +13,9 @@ def shared
     pod 'Firebase/Auth'
     pod 'Firebase/Messaging'
 
+#   GoogleMaps
+    pod 'GoogleMaps'
+
 #   Notifications
     pod 'NotificationBannerSwift', '~> 1.5.4'
     pod 'Toast-Swift', '~> 3.0.1'

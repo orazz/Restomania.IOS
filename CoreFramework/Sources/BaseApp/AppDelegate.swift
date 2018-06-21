@@ -11,6 +11,7 @@ import UIKit
 import Swinject
 import MdsKit 
 import FirebaseCore
+import GoogleMaps
 
 open class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,6 +22,8 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
     private let _tag = String.tag(AppDelegate.self)
     private var info: LaunchInfo!
     private var configs: ConfigsContainer!
+    
+    private let googleApiKey = "AIzaSyDJQShkaJLDBFJazHBG9kKibs-ACyYeSrw"
 
     open func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         loadInjections()
@@ -55,6 +58,7 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
             FirebaseApp.configure(options: options)
         }
         PushesService.shared.requestRemoteNotificattions()
+        GMSServices.provideAPIKey(googleApiKey)
     }
     open func afterLoad() {
 

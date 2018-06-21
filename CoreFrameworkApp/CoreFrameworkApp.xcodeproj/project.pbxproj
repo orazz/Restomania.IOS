@@ -235,9 +235,9 @@
 				1F23105B205569EC00FB1D79 /* Frameworks */,
 				1F23105C205569EC00FB1D79 /* Resources */,
 				E4A4C11C26778A4E531668CA /* [CP] Embed Pods Frameworks */,
-				EF681A4911C360F891FB1B92 /* [CP] Copy Pods Resources */,
 				1FED1764205725B600A80DA5 /* Embed Frameworks */,
 				1FDD97AC20605E0700D75CBF /* Increment Build */,
+				4455219E8B2396D062667B7F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,6 +326,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
+		4455219E8B2396D062667B7F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CC3EE0639F8E390704255FD5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,21 +400,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF681A4911C360F891FB1B92 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Kuzina/Pods-Kuzina-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

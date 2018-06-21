@@ -29,10 +29,14 @@ public class TabsController: UITabBarController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        let map = MapController()
+        map.tabBarItem = buildTabItem(icon: themeImages.tabMap)
+        tabs[.map] = map
+        
         let search = SearchController()
         search.tabBarItem = buildTabItem(icon: themeImages.tabSearch)
         tabs[.search] = search
-
+        
         let orders = OrdersController()
         orders.tabBarItem = buildTabItem(icon: themeImages.tabOrders)
         tabs[.orders] = orders
