@@ -344,8 +344,6 @@
 		8E53AB3F20DA903E004B9C0B /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53AB3D20DA903E004B9C0B /* MapController.swift */; };
 		8E53AB4020DA903E004B9C0B /* MapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E53AB3E20DA903E004B9C0B /* MapController.xib */; };
 		8E53AB4220DA9AEF004B9C0B /* FMMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53AB4120DA9AEF004B9C0B /* FMMap.swift */; };
-		8E53AB4420DAA3EA004B9C0B /* NCLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53AB4320DAA3E9004B9C0B /* NCLocationManager.swift */; };
-		8E845C3920DC1228002388A8 /* MapPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E845C3820DC1228002388A8 /* MapPopupView.xib */; };
 		8E845C3B20DC123A002388A8 /* MapPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E845C3A20DC123A002388A8 /* MapPopupView.swift */; };
 /* End PBXBuildFile section */
 
@@ -733,8 +731,6 @@
 		8E53AB3D20DA903E004B9C0B /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		8E53AB3E20DA903E004B9C0B /* MapController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapController.xib; sourceTree = "<group>"; };
 		8E53AB4120DA9AEF004B9C0B /* FMMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMMap.swift; sourceTree = "<group>"; };
-		8E53AB4320DAA3E9004B9C0B /* NCLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCLocationManager.swift; sourceTree = "<group>"; };
-		8E845C3820DC1228002388A8 /* MapPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapPopupView.xib; sourceTree = "<group>"; };
 		8E845C3A20DC123A002388A8 /* MapPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPopupView.swift; sourceTree = "<group>"; };
 		AE1765FD1495EF7BE39B0BDB /* Pods-CoreFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreFramework/Pods-CoreFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		C317DFAA835BD3CCDC182BFC /* Pods_CoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2351,8 +2347,6 @@
 				8E53AB3D20DA903E004B9C0B /* MapController.swift */,
 				8E53AB3E20DA903E004B9C0B /* MapController.xib */,
 				8E53AB4120DA9AEF004B9C0B /* FMMap.swift */,
-				8E53AB4320DAA3E9004B9C0B /* NCLocationManager.swift */,
-				8E845C3820DC1228002388A8 /* MapPopupView.xib */,
 				8E845C3A20DC123A002388A8 /* MapPopupView.swift */,
 			);
 			path = Maps;
@@ -2508,7 +2502,6 @@
 				1F06A8D7205570FD00FEB1B5 /* PlaceMenuDishCell.xib in Resources */,
 				1F06A7DF205570FD00FEB1B5 /* AddCardUIService.strings in Resources */,
 				1F06A7EF205570FD00FEB1B5 /* SelectAuthController.strings in Resources */,
-				8E845C3920DC1228002388A8 /* MapPopupView.xib in Resources */,
 				1FDBA11B205B1406000F1378 /* OneOrderDishesContainerAddingCell.xib in Resources */,
 				1F06A8AD205570FD00FEB1B5 /* PlaceCompleteOrderController.xib in Resources */,
 				1FDBA132205BA6CF000F1378 /* OtherNotificationControllerPreference.xib in Resources */,
@@ -2796,7 +2789,6 @@
 				1F06A86D205570FD00FEB1B5 /* LaunchInfo.swift in Sources */,
 				1FBAFA1C205EDE7900F7BA70 /* PlaceDelegate.swift in Sources */,
 				1F06A857205570FD00FEB1B5 /* CardsCacheService.swift in Sources */,
-				8E53AB4420DAA3EA004B9C0B /* NCLocationManager.swift in Sources */,
 				1F06A8AF205570FD00FEB1B5 /* DishModalDelegate.swift in Sources */,
 				1F3EF5A1207C0CD9009BCDDB /* Recommendation.swift in Sources */,
 				1F06A8EA205570FE00FEB1B5 /* OneOrderDishesContainer.swift in Sources */,

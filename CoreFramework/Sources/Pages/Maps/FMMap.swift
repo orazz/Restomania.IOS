@@ -77,7 +77,7 @@ public class FMMap: UIView {
     //Data
     private let _tag = String.tag(FMMap.self)
     private let guid = Guid.new
-    //private var positions = LogicServices.shared.positions
+    private var position = PositionsService.shared
     
     
     public override init(frame: CGRect) {
@@ -91,12 +91,12 @@ public class FMMap: UIView {
         setup()
     }
     deinit {
-        //positions.unsubscribe(guid: guid)
+        position.unsubscribe(guid: guid)
     }
     
     private func setup() {
         
-        //positions.subscribe(guid: guid, handler: self, tag: _tag)
+        position.subscribe(guid: guid, handler: self, tag: _tag)
         
         loadElements()
         setupStyles()
@@ -153,10 +153,13 @@ public class FMMap: UIView {
     }
     private func setupPosition() {
         
-        let defaultCenter = CLLocationCoordinate2D(latitude: 50.0084, longitude: 82.9357)
-        center(to: defaultCenter, animate: false)
-
-        self.toCurrentPosition()
+        if position.canUse {
+            
+            let defaultCenter = CLLocationCoordinate2D(latitude: 50.0084, longitude: 82.9357)
+            center(to: defaultCenter, animate: false)
+            
+            toCurrentPosition()
+        }
         
         zoom(multiplier: 15)
     }
@@ -173,12 +176,13 @@ public class FMMap: UIView {
         source.animate(toZoom: multiplier)
     }
     @objc public func toCurrentPosition() {
-        
-        NCLocationManager.shared.getCurrentLocation { (manager, location) in
-            if let current = location {
-                self.center(to: current.coordinate)
-            }
+
+        guard position.canUse,
+            let coordinates = position.lastPosition else {
+                return
         }
+        
+        center(to: coordinates.toCoordinates())
     }
     public func center(to position: CLLocationCoordinate2D, animate: Bool = true) {
         
